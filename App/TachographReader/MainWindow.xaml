@@ -1,0 +1,138 @@
+﻿<core:BaseWindow x:Class="TachographReader.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+                 xmlns:local="clr-namespace:TachographReader"
+                 xmlns:behav="clr-namespace:TachographReader.Behaviours"
+                 xmlns:core="clr-namespace:TachographReader.Core"
+                 Title="Tachograph Reader"
+                 ResizeMode="CanResizeWithGrip"
+                 WindowStartupLocation="CenterScreen"
+                 MinHeight="800"
+                 MinWidth="1000">
+    <core:BaseWindow.DataContext>
+        <local:MainWindowViewModel />
+    </core:BaseWindow.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <r:Ribbon>
+            <r:Ribbon.ApplicationMenu>
+                <r:RibbonApplicationMenu SmallImageSource="{StaticResource FileDrawingImage}">
+                    <r:RibbonApplicationMenuItem Header="Settings"
+                                                 ImageSource="Images\Settings.png"
+                                                 Command="{Binding SettingsCommand}" />
+                    <r:RibbonApplicationMenuItem Header="Generate Report"
+                                                 ImageSource="Images\Report.png"
+                                                 Command="{Binding GenerateReportCommand}" />
+                    <r:RibbonSeparator />
+                    <r:RibbonApplicationMenuItem Header="Backup Database"
+                                                 ImageSource="Images\Backup.png"
+                                                 Command="{Binding BackupDatabaseCommand}" />
+                    <r:RibbonApplicationMenuItem Header="Restore Database"
+                                                 ImageSource="Images\Restore.png"
+                                                 Command="{Binding RestoreDatabaseCommand}" />
+                    <r:RibbonSeparator />
+                    <r:RibbonApplicationMenuItem Header="Copy workshop card"
+                                                 ImageSource="Images\Copy.png"
+                                                 Command="{Binding CopyWorkshopCardCommand}" />
+                    <r:RibbonSeparator />
+                    <r:RibbonApplicationMenuItem Header="Minimize"
+                                                 ImageSource="Images\Minimize.png"
+                                                 Command="{Binding MinimizeCommand}"
+                                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+                    <r:RibbonApplicationMenuItem Header="Exit"
+                                                 ImageSource="Images\Exit.png"
+                                                 Command="{Binding ExitCommand}"
+                                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+                </r:RibbonApplicationMenu>
+            </r:Ribbon.ApplicationMenu>
+
+            <r:RibbonTab Header="New Documents">
+                <r:RibbonGroup Header="New Documents">
+                    <r:RibbonButton Label="Tachograph"
+                                    LargeImageSource="Images\Table.png"
+                                    Command="{Binding NewTachographCommand}" />
+                    <r:RibbonButton Label="Undownloadability"
+                                    LargeImageSource="Images\Table.png"
+                                    Command="{Binding NewUndownloadabilityCommand}" />
+                </r:RibbonGroup>
+            </r:RibbonTab>
+
+            <r:RibbonTab Header="History">
+                <r:RibbonGroup Header="History">
+                    <r:RibbonButton Label="Tachograph"
+                                    LargeImageSource="Images\Table.png"
+                                    Command="{Binding TachographHistoryCommand}" />
+                    <r:RibbonButton Label="Undownloadability"
+                                    LargeImageSource="Images\Table.png"
+                                    Command="{Binding UndownloadabilityHistoryCommand}" />
+                </r:RibbonGroup>
+            </r:RibbonTab>
+
+            <r:RibbonTab Header="Card Browser">
+                <r:RibbonGroup Header="Card Browser">
+                    <r:RibbonButton Label="Calibrations"
+                                    LargeImageSource="Images\Table.png"
+                                    Command="{Binding CalibrationsCommand}" />
+                </r:RibbonGroup>
+            </r:RibbonTab>
+
+            <r:RibbonTab Header="Files">
+                <r:RibbonGroup Header="Files">
+                    <r:RibbonButton Label="Tachograph"
+                                    LargeImageSource="Images\Table.png"
+                                    Command="{Binding TachographFilesCommand}" />
+                    <r:RibbonButton Label="Driver Card"
+                                    LargeImageSource="Images\Table.png"
+                                    Command="{Binding DriverCardFilesCommand}" />
+                    <r:RibbonButton Label="Workshop Card"
+                                    LargeImageSource="Images\Table.png"
+                                    Command="{Binding WorkshopCardFilesCommand}" />
+                </r:RibbonGroup>
+            </r:RibbonTab>
+
+        </r:Ribbon>
+
+        <ContentControl Content="{Binding View}"
+                        Grid.Row="1"
+                        Margin="10" />
+
+        <Border Background="#50000000"
+                Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                Style="{StaticResource FadeTransitionEffect}"
+                Visibility="{Binding IsModalWindowVisible, Converter={StaticResource Bool2Vis}}">
+
+            <Border Width="900"
+                    Height="500">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <ContentControl Content="{Binding ModalView}"
+                                    Grid.Row="1"
+                                    Style="{StaticResource ContentStyle1}">
+                        <ContentControl.RenderTransform>
+                            <TranslateTransform Y="-30" />
+                        </ContentControl.RenderTransform>
+                    </ContentControl>
+
+                    <Image Width="32"
+                           Height="32"
+                           Cursor="Hand"
+                           HorizontalAlignment="Right"
+                           Source="Images\Close.png"
+                           behav:ElementClickedBehaviour.Command="{Binding CloseModalCommand}" />
+                </Grid>
+
+                <Border.RenderTransform>
+                    <TranslateTransform Y="-100" />
+                </Border.RenderTransform>
+            </Border>
+        </Border>
+    </Grid>
+</core:BaseWindow>

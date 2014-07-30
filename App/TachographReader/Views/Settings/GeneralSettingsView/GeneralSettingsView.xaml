@@ -1,0 +1,47 @@
+﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.GeneralSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Webcal.Views.Settings"
+             xmlns:core="clr-namespace:Webcal.Core"
+             xmlns:dow="clr-namespace:Webcal.Controls.DayOfWeekPicker"
+             mc:Ignorable="d"
+             d:DesignWidth="628"
+             d:DesignHeight="374">
+    <core:BaseSettingsView.DataContext>
+        <vm:GeneralSettingsViewModel />
+    </core:BaseSettingsView.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="General settings"
+                   Style="{StaticResource SettingsTitleFont}" />
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1">
+
+            <CheckBox Content="Backup database automatically on the specified day(s):"
+                      IsChecked="{core:InputBinding Settings.AutoBackup}" />
+
+            <StackPanel Orientation="Horizontal"
+                        Margin="10,5,0,0"
+                        IsEnabled="{core:InputBinding Settings.AutoBackup}">
+
+                <dow:DayOfWeekPicker DaysOfWeek="{Binding DaysOfWeek}" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical"
+                        Margin="0,20,0,0">
+                <TextBlock Text="{Binding Settings.BackupFilePath}" />
+                <Button Content="Browse"
+                        Command="{Binding BrowseCommand}"
+                        HorizontalAlignment="Left" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</core:BaseSettingsView>

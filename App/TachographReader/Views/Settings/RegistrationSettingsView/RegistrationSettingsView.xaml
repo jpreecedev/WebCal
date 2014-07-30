@@ -1,0 +1,51 @@
+﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.RegistrationSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Webcal.Views.Settings"
+             xmlns:ctrls="clr-namespace:Webcal.Controls"
+             xmlns:core="clr-namespace:Webcal.Core"
+             mc:Ignorable="d"
+             d:DesignWidth="628"
+             d:DesignHeight="374">
+    <core:BaseSettingsView.DataContext>
+        <vm:RegistrationSettingsViewModel />
+    </core:BaseSettingsView.DataContext>
+    <Grid VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Registration settings"
+                   Style="{StaticResource SettingsTitleFont}" />
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1">
+            <ctrls:InputTextField Label="Company name"
+                                  Text="{core:InputBinding Settings.CompanyName}" />
+            <ctrls:InputTextField Label="Seal number"
+                                  Text="{core:InputBinding Settings.SealNumber}" />
+
+            <ContentPresenter Content="{Binding TextField}"
+                              Grid.Row="2" />
+
+            <Grid Margin="0,0,0,5"
+                  Visibility="{Binding ExpirationDateTime,  Converter={StaticResource DateTime2Vis}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="145" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Expiration Date:"/>
+
+                <TextBlock Text="{Binding ExpirationDateTime, StringFormat={}{0:dd-MMM-yyyy}}"
+                           Grid.Column="1" />
+
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+
+</core:BaseSettingsView>

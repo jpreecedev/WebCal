@@ -1,0 +1,19 @@
+﻿@model IEnumerable<TachoReaderLicensingWebsite.DataModel.Client>
+
+
+@if (Model.Count() > 0)
+{
+    <ul id="clientlist">
+    @foreach (var item in Model)
+    {
+    
+        <li class="client" data-cid="@item.AccessID">
+            <span class="span11">@item.Name</span>
+            <a href="/client/delete?id=@item.AccessID" class="span1" rel="delete"><i class="icon-remove icon-white"></i></a>
+        </li>
+    }
+    </ul>
+}
+else {
+    <p>No clients found, please consider adding some using the client details box provided.</p>
+}

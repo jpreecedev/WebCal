@@ -1,0 +1,143 @@
+﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.UserManagementView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns:vm="clr-namespace:Webcal.Views.Settings"
+                       xmlns:Library="clr-namespace:Webcal.DataModel.Library;assembly=Webcal.DataModel"
+                       mc:Ignorable="d"
+                       d:DesignWidth="628"
+                       d:DesignHeight="374">
+    <core:BaseSettingsView.DataContext>
+        <vm:UserManagementViewModel />
+    </core:BaseSettingsView.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="User Management"
+                   Style="{StaticResource SettingsTitleFont}" />
+        <Grid Grid.Row="1">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <!-- Username -->
+                    <TextBlock Text="Add new user:" />
+                    <TextBox Text="{Binding NewUserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Grid.Row="1" />
+
+                    <!-- Password -->
+                    <TextBlock Text="New user password:"
+                               Grid.Row="3" />
+                    <PasswordBox x:Name="PasswordTextBox"
+                                 Grid.Row="4" />
+
+                    <!-- Buttons -->
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Center"
+                                Grid.Row="5">
+                        <Button Content="Add"
+                                Command="{Binding AddCommand}"
+                                CommandParameter="{Binding ElementName=PasswordTextBox}"/>
+                        <Button Content="Clear"
+                                Command="{Binding ClearCommand}"
+                                CommandParameter="{Binding ElementName=PasswordTextBox}"/>
+                    </StackPanel>
+
+                    <!-- Old Password -->
+                    <Grid Grid.Row="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Change " />
+                            <TextBlock Text="your"
+                                       FontWeight="Bold" />
+                            <TextBlock Text=" password" />
+                        </StackPanel>
+
+                        <TextBlock Text="Your old password:"
+                                   Grid.Row="1" />
+                        <PasswordBox x:Name="OldPasswordBox"
+                                     Grid.Row="2" />
+
+                        <TextBlock Text="New password:"
+                                   Grid.Row="4" />
+                        <PasswordBox x:Name="NewPasswordBox"
+                                     Grid.Row="5" />
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Center"
+                                    Grid.Row="6">
+                            <Button Content="Change"
+                                    Command="{Binding ChangePasswordCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
+                            <Button Content="Cancel"
+                                    Command="{Binding ClearPasswordCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Existing Users:" />
+
+                    <ListBox ItemsSource="{Binding Users}"
+                             IsSynchronizedWithCurrentItem="True"
+                             SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             DisplayMemberPath="Username"
+                             Grid.Row="1"/>
+
+                    <Button Content="Manage Signature"
+                            Command="{Binding ManageSignaturesCommand}"
+                            Style="{StaticResource LargeButton}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="10"
+                            Grid.Row="2"/>
+                    <Button Content="Reset Password"
+                            Command="{Binding ResetPasswordCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
+                            Style="{StaticResource LargeButton}"
+                            Margin="10"
+                            Width="100"
+                            HorizontalAlignment="Right"
+                            Grid.Row="2"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</core:BaseSettingsView>

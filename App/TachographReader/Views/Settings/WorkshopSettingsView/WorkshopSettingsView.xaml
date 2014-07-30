@@ -1,0 +1,67 @@
+﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.WorkshopSettingsView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:vm="clr-namespace:Webcal.Views.Settings"
+                       xmlns:ctrls="clr-namespace:Webcal.Controls"
+                       xmlns:core="clr-namespace:Webcal.Core"
+                       mc:Ignorable="d"
+                       d:DesignWidth="628"
+                       d:DesignHeight="374">
+    <core:BaseSettingsView.DataContext>
+        <vm:WorkshopSettingsViewModel />
+    </core:BaseSettingsView.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Workshop Settings"
+                   Style="{StaticResource SettingsTitleFont}" />
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1">
+
+            <ctrls:InputTextField Label="Workshop name"
+                                  Text="{core:InputBinding Settings.WorkshopName}" />
+
+            <ctrls:InputTextField Label="Address 1"
+                                  Text="{core:InputBinding Settings.Address1}" />
+
+            <ctrls:InputTextField Label="Address 2"
+                                  Text="{core:InputBinding Settings.Address2}" />
+
+            <ctrls:InputTextField Label="Town"
+                                  Text="{core:InputBinding Settings.Town}" />
+
+            <ctrls:InputTextField Label="Post Code"
+                                  Text="{core:InputBinding Settings.PostCode}" />
+
+            <ctrls:InputTextField Label="Phone Number"
+                                  Text="{core:InputBinding Settings.PhoneNumber}" />
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,20,0,0">
+                <Button Content="Load Logo"
+                        Command="{Binding BrowseCommand}"
+                        HorizontalAlignment="Left"
+                        Width="70" />
+                <Image Source="{Binding CompanyLogo}" 
+                       Width="100"
+                       Height="100"
+                       HorizontalAlignment="Left"
+                       Margin="45,0,0,0"/>
+                <Button Content="Load Advert"
+                        Command="{Binding BrowseAdvertCommand}"
+                        HorizontalAlignment="Left"
+                        Width="70"
+                        Margin="65,0,0,0"/>
+                <Image Source="{Binding AdvertisingImage}" 
+                       Width="200"
+                       Height="100"
+                       HorizontalAlignment="Left"
+                       Margin="45,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</core:BaseSettingsView>

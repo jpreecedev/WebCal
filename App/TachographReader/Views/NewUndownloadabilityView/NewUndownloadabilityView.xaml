@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="Webcal.Views.NewUndownloadabilityView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Webcal.Views"
+             xmlns:ctrls="clr-namespace:Webcal.Controls"
+             xmlns:core="clr-namespace:Webcal.Core"
+             xmlns:behav="clr-namespace:Webcal.Behaviours"
+             mc:Ignorable="d"
+             d:DesignWidth="1000"
+             d:DesignHeight="500">
+    <UserControl.DataContext>
+        <vm:NewUndownloadabilityViewModel />
+    </UserControl.DataContext>
+    <Grid  Style="{StaticResource MainGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Undownloadability document"
+                   Style="{StaticResource TitleFont}" />
+
+        <Grid Grid.Row="1"
+              Style="{StaticResource InnerGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="55" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="55" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="55" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Vehicle data"
+                       Style="{StaticResource SubHeaderFont}"
+                       Grid.ColumnSpan="2" />
+
+            <ctrls:InputTextField Label="Registration number"
+                                  Text="{core:InputBinding Document.RegistrationNumber}"
+                                  IsMandatory="True"
+                                  behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
+                                  behav:LostFocusBehaviour.CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
+                                  IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                  Grid.Row="1" />
+
+            <TextBlock Text="Tachograph data"
+                       Style="{StaticResource SubHeaderFont}"
+                       Grid.Row="2" />
+
+            <Grid Grid.Row="3"
+                  Grid.ColumnSpan="3"
+                  DataContext="{Binding TachographMakes}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <ctrls:InputComboField Label="Tachograph make"
+                                       ItemsSource="{Binding}"
+                                       SelectedText="{core:InputBinding DataContext.Document.TachographMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
+                                       IsSynchronisedWithCurrentItem="True"
+                                       IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
+                                       IsMandatory="True"
+                                       IsEditable="True" />
+
+                <ctrls:InputComboField Label="Model"
+                                       ItemsSource="{core:InputBinding Models}"
+                                       SelectedText="{core:InputBinding DataContext.Document.TachographModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
+                                       IsSynchronisedWithCurrentItem="True"
+                                       Grid.Column="2"
+                                       IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
+                                       IsMandatory="True"
+                                       IsEditable="True" />
+
+            </Grid>
+
+            <ctrls:InputTextField Label="Serial number"
+                                  Text="{core:InputBinding Document.SerialNumber}"
+                                  IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                  IsMandatory="True"
+                                  Grid.Row="4" />
+
+            <TextBlock Text="Inspection data"
+                       Style="{StaticResource SubHeaderFont}"
+                       Grid.Row="5" />
+
+            <ctrls:InputDatePickerField Label="Inspection date"
+                                        SelectedDate="{Binding Document.InspectionDate}"
+                                        IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                        IsMandatory="True"
+                                        Grid.Row="6" />
+
+            <ctrls:InputComboField Label="Technician"
+                                   SelectedText="{core:InputBinding Document.Technician}"
+                                   DisplayMemberPath="Name"
+                                   ItemsSource="{Binding Technicians}"
+                                   IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                   IsMandatory="True"
+                                   Grid.Row="7" />
+
+            <TextBlock Text="Customer data"
+                       Style="{StaticResource SubHeaderFont}"
+                       Grid.Row="8" />
+
+            <ctrls:InputComboField Label="Customer"
+                                   ItemsSource="{core:InputBinding CustomerContacts}"
+                                   SelectedText="{core:InputBinding Document.CustomerContact}"
+                                   DisplayMemberPath="Name"
+                                   IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                   Grid.Row="9" />
+
+            <Button Style="{StaticResource NewCustomerButton}"
+                    Command="{Binding NewCustomerCommand}"
+                    IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                    Grid.Row="9"
+                    Grid.Column="2" />
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="10"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right">
+
+                <Button Content="Export PDF"
+                        Command="{Binding ExportPDFCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+                <Button Content="Print"
+                        Command="{Binding PrintCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+                <Button Content="Cancel"
+                        Command="{Binding CancelCommand}"
+                        Margin="5,10,0,10" />
+
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

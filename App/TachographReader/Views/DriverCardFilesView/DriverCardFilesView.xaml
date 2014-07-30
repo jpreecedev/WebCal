@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="Webcal.Views.DriverCardFilesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Webcal.Views"
+             xmlns:ctrls="clr-namespace:Webcal.Controls"
+             xmlns:core="clr-namespace:Webcal.Core"
+             mc:Ignorable="d"
+             d:DesignWidth="1000"
+             d:DesignHeight="500">
+    <UserControl.DataContext>
+        <vm:DriverCardFilesViewModel />
+    </UserControl.DataContext>
+    <Grid Style="{StaticResource MainGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Driver card files"
+                   Style="{StaticResource TitleFont}" />
+
+        <Grid Grid.Row="1"
+              Style="{StaticResource InnerGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="55" />
+                <RowDefinition Height="55" />
+                <RowDefinition />
+                <RowDefinition Height="55" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Add file"
+                       Style="{StaticResource SubHeaderFont}" />
+           
+            <ctrls:InputTextField x:Name="FileInputField"
+                                  IsMandatory="True"
+                                  Label="File:"
+                                  Text="{core:InputBinding FilePath}"
+                                  Grid.Row="1" />
+
+            <Button Content="Browse"
+                    Command="{Binding BrowseCommand}"
+                    CommandParameter="{Binding ElementName=FileInputField}"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    HorizontalAlignment="Left"
+                    Margin="0,-5,0,0" />
+
+            <ctrls:InputTextField Label="Driver:"
+                                  Text="{core:InputBinding SelectedStoredFile.Driver}"
+                                  IsMandatory="True"
+                                  Grid.Row="2" />
+
+            <ctrls:InputComboField Label="Customer:"
+                                   IsMandatory="True"
+                                   Grid.Row="3"
+                                   ItemsSource="{core:InputBinding CustomerContacts}"
+                                   SelectedText="{core:InputBinding SelectedCustomerContact}"
+                                   DisplayMemberPath="Name" />
+
+            <Button Command="{Binding NewCustomerCommand}"
+                    Style="{StaticResource NewCustomerButton}"
+                    Grid.Row="3"
+                    Grid.Column="2" />
+
+            <ctrls:InputDatePickerField SelectedDate="{core:InputBinding SelectedDate}" 
+                                        Label="Date:"
+                                        IsMandatory="True"
+                                        Grid.Row="4" />
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="5">
+                <Button Content="Add"
+                        Command="{Binding AddStoredFileCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
+                <Button Command="{Binding EmptyFieldsCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
+                        Style="{StaticResource LargeButton}"/>
+            </StackPanel>
+
+            <TextBlock Text="Stored files"
+                       Grid.Row="6"
+                       Style="{StaticResource SubHeaderFont}" />
+
+            <ListView Grid.Row="7"
+                      Grid.ColumnSpan="3"
+                      ItemsSource="{core:InputBinding StoredFiles}"
+                      SelectedItem="{core:InputBinding SelectedStoredFile}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Creation date"
+                                        Width="200"
+                                        DisplayMemberBinding="{Binding Date}"/>
+                        <GridViewColumn Header="Driver"
+                                        Width="200"
+                                        DisplayMemberBinding="{Binding Driver}"/>
+                        <GridViewColumn Header="Customer"
+                                        Width="200"
+                                        DisplayMemberBinding="{Binding Customer.Name}"/>
+                    </GridView>
+                </ListView.View>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Export"
+                                  Command="{Binding ExportCommand}" />
+                        <MenuItem Header="Remove"
+                                  Command="{Binding RemoveCommand}" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+            </ListView>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Grid.Row="8"
+                        Grid.ColumnSpan="3">
+                <Button Content="Export"
+                        Command="{Binding ExportCommand}" />
+                <Button Content="Remove"
+                        Command="{Binding RemoveCommand}"
+                        Margin="5,10,0,10" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

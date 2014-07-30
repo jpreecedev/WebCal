@@ -1,0 +1,70 @@
+﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.PrinterSettingsView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:vm="clr-namespace:Webcal.Views.Settings"
+                       xmlns:core="clr-namespace:Webcal.Core"
+                       mc:Ignorable="d"
+                       d:DesignWidth="628"
+                       d:DesignHeight="374">
+    <core:BaseSettingsView.DataContext>
+        <vm:PrinterSettingsViewModel />
+    </core:BaseSettingsView.DataContext>
+    <core:BaseSettingsView.Resources>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="Margin"
+                    Value="0,10,0,5" />
+        </Style>
+    </core:BaseSettingsView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="130" />
+            <RowDefinition Height="60" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Printer settings"
+                   Style="{StaticResource SettingsTitleFont}" />
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1">
+
+            <TextBlock Text="General Purpose Printer" />
+
+            <RadioButton Content="Ask printer always when printing"
+                         IsChecked="{Binding Settings.AlwaysAskForPrinter}"
+                         GroupName="PrinterSettingsRadioGroup" />
+
+            <RadioButton x:Name="Choose"
+                         Content="Use this printer always:"
+                         IsChecked="{Binding Settings.UseDefaultPrinter}"
+                         GroupName="PrinterSettingsRadioGroup" />
+
+            <ComboBox Width="300"
+                      HorizontalAlignment="Left"
+                      Margin="30,5,0,0"
+                      IsEditable="False"
+                      IsEnabled="{Binding IsChecked, ElementName=Choose}"
+                      ItemsSource="{Binding Printers}"
+                      SelectedItem="{Binding Settings.DefaultPrinterName}" />
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="2">
+
+            <TextBlock Text="Label Printer" />
+
+            <ComboBox Width="300"
+                      HorizontalAlignment="Left"
+                      Margin="0,5,0,0"
+                      IsEditable="False"
+                      ItemsSource="{Binding Printers}"
+                      SelectedItem="{Binding Settings.DefaultLabelPrinter}" />
+
+        </StackPanel>
+
+    </Grid>
+</core:BaseSettingsView>

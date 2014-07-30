@@ -1,0 +1,80 @@
+﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.MailSettingsView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:vm="clr-namespace:Webcal.Views.Settings"
+                       xmlns:core="clr-namespace:Webcal.Core"
+                       mc:Ignorable="d"
+                       d:DesignWidth="628"
+                       d:DesignHeight="374">
+    <UserControl.DataContext>
+        <vm:MailSettingsViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Email settings"
+                   Style="{StaticResource SettingsTitleFont}" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="20" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+
+                <RadioButton Content="Don't send emails"
+                             IsChecked="{Binding DontSendEmails, Mode=OneWay}"/>
+
+                <RadioButton x:Name="EmailCertificatesCheckBox"
+                          Content="Automatically email certificates"
+                          IsChecked="{Binding MailSettings.AutoEmailCertificates, UpdateSourceTrigger=PropertyChanged}"
+                          Margin="30,0,0,0" />
+
+                <RadioButton x:Name="PersonaliseEmailsCheckBox"
+                          Content="Personalise my emails"
+                          IsChecked="{Binding MailSettings.PersonaliseMyEmails, UpdateSourceTrigger=PropertyChanged}"
+                          Margin="30,0,0,0" />
+
+            </StackPanel>
+
+            <TextBlock Text="Subject" 
+                       IsEnabled="{Binding MailSettings.AllowEditingOfEmail, UpdateSourceTrigger=PropertyChanged}"
+                       Grid.Row="2" />
+
+            <TextBox Text="{Binding MailSettings.Subject}"
+                     IsEnabled="{Binding MailSettings.AllowEditingOfEmail, UpdateSourceTrigger=PropertyChanged}"
+                     Grid.Row="3"/>
+
+            <TextBlock Text="Body"
+                       IsEnabled="{Binding MailSettings.AllowEditingOfEmail, UpdateSourceTrigger=PropertyChanged}"
+                       Grid.Row="5"/>
+
+            <TextBox Text="{Binding MailSettings.Body}"
+                     IsEnabled="{Binding MailSettings.AllowEditingOfEmail, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     HorizontalScrollBarVisibility="Auto"
+                     HorizontalAlignment="Stretch"
+                     HorizontalContentAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     VerticalContentAlignment="Stretch"
+                     TextWrapping="Wrap"
+                     Height="Auto"
+                     Grid.Row="6"/>
+        </Grid>
+    </Grid>
+</core:BaseSettingsView>

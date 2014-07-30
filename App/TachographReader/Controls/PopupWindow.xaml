@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="TachographReader.Controls.PopupWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Width="350"
+             Height="105">
+    <UserControl.Style>
+        <Style TargetType="{x:Type UserControl}">
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="Background"
+                    Value="White" />
+        </Style>
+    </UserControl.Style>
+    <StackPanel Orientation="Vertical">
+        
+        <TextBlock Text="{Binding Prompt}"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Margin="0,10,0,0"/>
+        
+        <TextBox Margin="20,5,20,0" />
+        
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <Button Content="OK" />
+            <Button Content="Cancel" />
+        </StackPanel>
+        
+    </StackPanel>
+</UserControl>

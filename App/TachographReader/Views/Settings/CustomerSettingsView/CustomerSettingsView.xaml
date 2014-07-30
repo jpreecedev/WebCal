@@ -1,0 +1,82 @@
+﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.CustomerSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Webcal.Views.Settings"
+             xmlns:ctrls="clr-namespace:Webcal.Controls"
+             xmlns:core="clr-namespace:Webcal.Core"
+             mc:Ignorable="d"
+             d:DesignWidth="628"
+             d:DesignHeight="374">
+    <core:BaseSettingsView.DataContext>
+        <vm:CustomerSettingsViewModel />
+    </core:BaseSettingsView.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Customer Settings"
+                   Style="{StaticResource SettingsTitleFont}" />
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="1.35*" />
+            </Grid.ColumnDefinitions>
+
+            <ListBox ItemsSource="{Binding CustomerContacts}"
+                     SelectedItem="{Binding SelectedCustomerContact}"
+                     SelectedIndex="{Binding SelectedIndex}"
+                     SelectionMode="Single"
+                     IsEnabled="{Binding DoneCallback, Converter={StaticResource Null2Bool}}"
+                     DisplayMemberPath="Name"/>
+
+            <Button Content="Remove"
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Command="{Binding RemoveCommand}"/>
+
+            <StackPanel Orientation="Vertical"
+                        Grid.Column="2">
+
+                <ctrls:InputTextField Label="Customer Name:"
+                                      Text="{core:InputBinding NewCustomerContact.Name}" />
+                
+                <ctrls:InputTextField Label="Email:"
+                                      Text="{core:InputBinding NewCustomerContact.Email}"/>
+                
+                <ctrls:InputTextField Label="Address/P.O. Box:"
+                                      Text="{core:InputBinding NewCustomerContact.Address}"/>
+                
+                <ctrls:InputTextField Label="Post Code:"
+                                      Text="{core:InputBinding NewCustomerContact.PostCode}"/>
+                
+                <ctrls:InputTextField Label="Town:"
+                                      Text="{core:InputBinding NewCustomerContact.Town}"/>
+                
+                <ctrls:InputTextField Label="Phone Number:" 
+                                      Text="{core:InputBinding NewCustomerContact.PhoneNumber}"/>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                        Grid.Column="2"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
+                <Button Content="Save"
+                        Command="{Binding SaveCommand}"/>
+                <Button Content="Cancel"
+                        Command="{Binding CancelCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</core:BaseSettingsView>

@@ -1,0 +1,207 @@
+﻿body {
+    background: #fff no-repeat url("../Content/images/skillray-awesome-truck.png") center top;
+}
+
+h3 {
+    color: #fff;
+    line-height: 30px;
+    margin-top: 0px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+p {
+    color: #fff;
+}
+
+.loginDiv {
+    background-color: rgba(110,110,110,0.9);
+    border-radius: 10px;
+    -webkit-Border-radius: 10px;
+    -moz-Border-radius: 10px;
+    padding: 10px 40px;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    position: fixed;
+    margin-left: -200px;
+    margin-top: -240px;
+    color: #fff;
+}
+
+    .loginDiv .row-fluid + .row-fluid {
+        margin-top: 20px;
+    }
+
+    .loginDiv label {
+        line-height: 30px;
+    }
+
+    .loginDiv #user, .loginDiv #password {
+        width: 100%;
+    }
+
+.search-large {
+    height: 37px !important;
+    width: 99%;
+    font-size:24px !important;
+    line-height:32px !important;
+}
+    .search-large:focus {
+    background-color: rgba(247,252,255,1.0) !important;
+    }
+
+.mainBoxArea {
+    max-height:50%;
+    background-color: rgba(110,110,110,0.9);
+    border-radius: 4px;
+    -webkit-Border-radius: 4px;
+    -moz-Border-radius: 4px;
+    padding: 10px;
+}
+
+ul {
+    list-style: none !important;
+    margin: 0 0 25px 0;
+}
+
+li {
+    line-height: 20px;
+    display: block;
+}
+
+.licence {
+    padding: 10px;
+    background-color: rgba(230,0,0,0.4);
+    height: 20px;
+    border-radius: 4px;
+    -webkit-Border-radius: 4px;
+    -moz-Border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.licence:hover {
+        background-color: rgba(250,0,0,0.7);
+    }
+
+    .licence + .licence {
+        margin-top: 10px;
+    }
+
+.client {
+    padding: 10px;
+    background-color: rgba(230,0,0,0.4);
+    height: 20px;
+    border-radius: 4px;
+    -webkit-Border-radius: 4px;
+    -moz-Border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+    .client:hover {
+        background-color: rgba(250,0,0,0.7);
+    }
+
+    .client + .client {
+        margin-top: 10px;
+    }
+
+.clientClicked {
+    background-color: rgba(250,0,0,0.7);
+}
+.modal-body label {
+    color:#000;
+    text-shadow:none;
+}
+
+label {
+    line-height: 27px;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+form {
+    margin: 0px;
+}
+
+.alert {
+    padding:5px;
+}
+
+footer {
+    height:150px;
+    width:100%;
+    background:no-repeat url("../Content/images/skillray-footer.png") bottom;
+    background-size:100%;
+}
+
+.logo {
+    height:100px;
+    margin: 10px 0px 10px 0px;
+}
+
+.container {
+    min-height:500px;
+}
+
+.expiredLicence {
+    background-color: rgba(90,90,90,0.7);
+}
+
+.expiredLicence:hover {
+    background-color: rgba(0,0,0,0.9);
+}
+
+#Name:focus {
+    background-color:aliceblue;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00 !important;
+    background-color: #fee !important;
+}
+
+.validation-summary-errors {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid #eed3d7;
+    -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+            border-radius: 4px;
+}
+
+    .validation-summary-errors span {
+        color: #b94a48;
+        font-weight:bold;
+        font-size:18px;
+        margin: 0;
+    }
+
+    .validation-summary-errors ul {
+        list-style-type:none;
+        padding-top:3px;
+        margin-left:0px;
+        margin-bottom:0px;
+    }
+
+.validation-summary-valid {
+    display: none;
+}

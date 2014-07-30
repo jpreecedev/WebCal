@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E23907B-6B71-46F8-8CBD-7C82A1327C07}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Webcal.DataModel</RootNamespace>
+    <AssemblyName>Webcal.DataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <FodyPath>..\..\libs\Fody.1.17.4.0</FodyPath>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Main Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\EntityFramework.6.0.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\libs\EntityFramework.6.0.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\..\libs\EntityFramework.SqlServerCompact.6.0.1\lib\net40\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PropertyChanged, Version=1.41.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\PropertyChanged.Fody.1.41.0.0\Lib\NET35\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\libs\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\libs\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\BaseModel.cs" />
+    <Compile Include="Core\BaseNotification.cs" />
+    <Compile Include="Core\ContainerBootstrapper.cs" />
+    <Compile Include="Core\IGeneralSettingsRepository.cs" />
+    <Compile Include="Core\IMailSettingsRepository.cs" />
+    <Compile Include="Core\IPrinterSettingsRepository.cs" />
+    <Compile Include="Library\CalibrationRecord.cs" />
+    <Compile Include="Library\Extensions.cs" />
+    <Compile Include="Library\SeedDataHelper.cs" />
+    <Compile Include="Migrations\201308011405189_InitialCreate.cs" />
+    <Compile Include="Migrations\201308011405189_InitialCreate.Designer.cs">
+      <DependentUpon>201308011405189_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308190739365_AddUserManagement.cs" />
+    <Compile Include="Migrations\201308190739365_AddUserManagement.Designer.cs">
+      <DependentUpon>201308190739365_AddUserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308201454077_AddSignatureCapture.cs" />
+    <Compile Include="Migrations\201308201454077_AddSignatureCapture.Designer.cs">
+      <DependentUpon>201308201454077_AddSignatureCapture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308220832599_AddEmailCertificates.cs" />
+    <Compile Include="Migrations\201308220832599_AddEmailCertificates.Designer.cs">
+      <DependentUpon>201308220832599_AddEmailCertificates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308270856181_RemoveEmailFromMailSettings.cs" />
+    <Compile Include="Migrations\201308270856181_RemoveEmailFromMailSettings.Designer.cs">
+      <DependentUpon>201308270856181_RemoveEmailFromMailSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308271416352_EmailSettings_AddPersonaliseCheckBox.cs" />
+    <Compile Include="Migrations\201308271416352_EmailSettings_AddPersonaliseCheckBox.Designer.cs">
+      <DependentUpon>201308271416352_EmailSettings_AddPersonaliseCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309031209347_AddAutoPrintLabels.cs" />
+    <Compile Include="Migrations\201309031209347_AddAutoPrintLabels.Designer.cs">
+      <DependentUpon>201309031209347_AddAutoPrintLabels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CustomDayOfWeek.cs" />
+    <Compile Include="Models\CustomerContact.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\DocumentType.cs" />
+    <Compile Include="Models\BaseFile.cs" />
+    <Compile Include="Models\DriverCardFile.cs" />
+    <Compile Include="Models\GenerateReport.cs" />
+    <Compile Include="Models\InspectionEquipment.cs" />
+    <Compile Include="Models\InspectionMethod.cs" />
+    <Compile Include="Models\MailSettings.cs" />
+    <Compile Include="Models\Technician.cs" />
+    <Compile Include="Models\Make.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\PrinterSettings.cs" />
+    <Compile Include="Models\TachographFile.cs" />
+    <Compile Include="Models\TachographMake.cs" />
+    <Compile Include="Models\TachographModel.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\VehicleMake.cs" />
+    <Compile Include="Models\VehicleModel.cs" />
+    <Compile Include="Models\WorkshopCardFile.cs" />
+    <Compile Include="Models\WorkshopSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\TachographDocument.cs" />
+    <Compile Include="Models\TyreSize.cs" />
+    <Compile Include="Models\UndownloadabilityDocument.cs" />
+    <Compile Include="Models\VehicleType.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\CustomerContactRepository.cs" />
+    <Compile Include="Repositories\DriverCardFileRepository.cs" />
+    <Compile Include="Repositories\ExceptionRepository.cs" />
+    <Compile Include="Repositories\GeneralSettingsRepository.cs" />
+    <Compile Include="Repositories\InspectionEquipmentRepository.cs" />
+    <Compile Include="Repositories\InspectionMethodsRepository.cs" />
+    <Compile Include="Repositories\MailRepository.cs" />
+    <Compile Include="Repositories\TechnicianRepository.cs" />
+    <Compile Include="Models\RegistrationData.cs" />
+    <Compile Include="Repositories\PrinterSettingsRepository.cs" />
+    <Compile Include="Repositories\RegistrationRepository.cs" />
+    <Compile Include="Repositories\TachographDocumentRepository.cs" />
+    <Compile Include="Repositories\TachographFileRepository.cs" />
+    <Compile Include="Repositories\TachographMakesRepository.cs" />
+    <Compile Include="Repositories\TyreSizeRepository.cs" />
+    <Compile Include="Repositories\UndownloadabilityDocumentRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\VehicleRepository.cs" />
+    <Compile Include="Repositories\WorkshopCardFileRepository.cs" />
+    <Compile Include="TachographContext.cs" />
+    <Compile Include="TachographInitialiser.cs" />
+    <Compile Include="Library\UserManagement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Fody.targets" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201308011405189_InitialCreate.resx">
+      <DependentUpon>201308011405189_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308190739365_AddUserManagement.resx">
+      <DependentUpon>201308190739365_AddUserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308201454077_AddSignatureCapture.resx">
+      <DependentUpon>201308201454077_AddSignatureCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308220832599_AddEmailCertificates.resx">
+      <DependentUpon>201308220832599_AddEmailCertificates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308270856181_RemoveEmailFromMailSettings.resx">
+      <DependentUpon>201308270856181_RemoveEmailFromMailSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308271416352_EmailSettings_AddPersonaliseCheckBox.resx">
+      <DependentUpon>201308271416352_EmailSettings_AddPersonaliseCheckBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309031209347_AddAutoPrintLabels.resx">
+      <DependentUpon>201309031209347_AddAutoPrintLabels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+    <Content Include="Main Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TachographReader.Shared\TachographReader.Shared.csproj">
+      <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
+      <Name>TachographReader.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="Fody.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)..\libs\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)..\libs\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
