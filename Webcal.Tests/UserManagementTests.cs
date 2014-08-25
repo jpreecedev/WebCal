@@ -1,6 +1,6 @@
 ﻿using UserManager = Webcal.DataModel.Library.UserManagement;
 
-namespace TachographReader.Tests
+namespace Webcal.Tests
 {
     using System;
     using System.Linq;

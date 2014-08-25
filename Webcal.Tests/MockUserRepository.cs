@@ -1,4 +1,4 @@
-namespace TachographReader.Tests
+namespace Webcal.Tests
 {
     using System;
     using System.Collections.Generic;

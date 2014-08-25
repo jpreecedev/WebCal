@@ -1,4 +1,4 @@
-﻿namespace TachographReader
+﻿namespace Webcal
 {
     using System;
     using System.Diagnostics;
@@ -6,12 +6,12 @@
     using System.Windows;
     using System.Windows.Threading;
     using StructureMap;
-    using Webcal.DataModel.Core;
-    using Webcal.DataModel.Library;
-    using Webcal.Library;
-    using Webcal.Shared;
-    using Webcal.Windows;
-    using Webcal.Windows.LogInWindow;
+    using DataModel.Core;
+    using DataModel.Library;
+    using Library;
+    using Shared;
+    using Windows;
+    using Windows.LogInWindow;
 
     public partial class App
     {
