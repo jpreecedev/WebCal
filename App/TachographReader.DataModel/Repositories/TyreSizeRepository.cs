@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-using Webcal.DataModel;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class TyreSizeRepository : BaseRepository, IRepository<TyreSize>
     {
-        #region Implementation of IRepository<TyreSize>
-
         public void AddOrUpdate(TyreSize entity)
         {
             Safely(() =>
             {
-                var existing = Context.TyreSizes.Find(entity.Id);
+                TyreSize existing = Context.TyreSizes.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<TyreSize>().Add(entity);
-                }
             });
         }
 
@@ -57,7 +50,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.TyreSizes.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

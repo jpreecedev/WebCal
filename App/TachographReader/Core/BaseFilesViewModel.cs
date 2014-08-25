@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using Webcal.Controls;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Properties;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+    using System.IO;
+    using System.Linq;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Controls;
+    using DataModel;
+    using Library;
+    using Properties;
+
     public class BaseFilesViewModel : BaseMainViewModel
     {
-        #region Constructor
-
         public BaseFilesViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
@@ -26,9 +24,6 @@ namespace Webcal.Core
             SelectedDate = DateTime.Now;
         }
 
-        #endregion
-
-        #region Public Properties
 
         public string FilePath { get; set; }
 
@@ -37,11 +32,11 @@ namespace Webcal.Core
         public ObservableCollection<BaseFile> StoredFiles { get; set; }
 
         public BaseFile SelectedStoredFile { get; set; }
-
-        #endregion
-
-        #region Overrides
-
+        public DelegateCommand<Grid> EmptyFieldsCommand { get; set; }
+        public DelegateCommand<Grid> AddStoredFileCommand { get; set; }
+        public DelegateCommand<object> ExportCommand { get; set; }
+        public DelegateCommand<object> RemoveCommand { get; set; }
+        
         protected override void InitialiseCommands()
         {
             base.InitialiseCommands();
@@ -54,26 +49,15 @@ namespace Webcal.Core
 
         protected virtual void OnAddStoredFile()
         {
-
         }
 
         protected virtual void OnStoredFileRemoved()
         {
-
         }
 
         protected virtual void OnEmptyFields()
         {
-
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Empty Fields
-
-        public DelegateCommand<Grid> EmptyFieldsCommand { get; set; }
 
         private void OnEmptyFields(Grid grid)
         {
@@ -82,22 +66,23 @@ namespace Webcal.Core
             IList<BaseInputDatePickerField> inputDatePickers = grid.FindVisualChildren<BaseInputDatePickerField>().ToList();
 
             foreach (BaseInputField inputField in inputFields)
+            {
                 inputField.Clear();
+            }
 
             foreach (BaseInputTextField inputTextField in inputTextFields)
+            {
                 inputTextField.OnClear();
+            }
 
             foreach (BaseInputDatePickerField inputDatePicker in inputDatePickers)
+            {
                 inputDatePicker.Clear();
+            }
 
             OnEmptyFields();
         }
 
-        #endregion
-
-        #region Command : Add Stored File
-
-        public DelegateCommand<Grid> AddStoredFileCommand { get; set; }
 
         private void OnAddStoredFile(Grid grid)
         {
@@ -110,30 +95,16 @@ namespace Webcal.Core
             OnAddStoredFile();
             SelectedStoredFile = null;
         }
-
-        #endregion
-
-        #region Command : Export Command
-
-        public DelegateCommand<object> ExportCommand { get; set; }
-
+        
         private void OnExport(object obj)
         {
             if (SelectedStoredFile == null) return;
 
             DialogHelperResult dialogResult = DialogHelper.SaveFile(DialogFilter.All, SelectedStoredFile.FileName);
             if (dialogResult.Result == true)
-            {
                 File.WriteAllBytes(dialogResult.FileName, SelectedStoredFile.SerializedFile);
-            }
         }
-
-        #endregion
-
-        #region Command : Remove
-
-        public DelegateCommand<object> RemoveCommand { get; set; }
-
+        
         private void OnRemove(object arg)
         {
             if (SelectedStoredFile == null)
@@ -142,9 +113,5 @@ namespace Webcal.Core
             OnStoredFileRemoved();
             StoredFiles.Remove(SelectedStoredFile);
         }
-
-        #endregion
-
-        #endregion
     }
 }

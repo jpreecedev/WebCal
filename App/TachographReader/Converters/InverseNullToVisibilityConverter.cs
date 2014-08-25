@@ -1,15 +1,13 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
-
-namespace Webcal.Converters
+﻿namespace Webcal.Converters
 {
-    [ValueConversion(typeof(object), typeof(Visibility))]
+    using System;
+    using System.Globalization;
+    using System.Windows;
+    using System.Windows.Data;
+
+    [ValueConversion(typeof (object), typeof (Visibility))]
     public class InverseNullToVisibilityConverter : IValueConverter
     {
-        #region Implementation of IValueConverter
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return value == null ? Visibility.Visible : Visibility.Collapsed;
@@ -19,7 +17,5 @@ namespace Webcal.Converters
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

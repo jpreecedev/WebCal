@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Microsoft.Office.Interop.Excel;
-using StructureMap;
-using Webcal.DataModel;
-using Webcal.Properties;
-using Webcal.Shared;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using DataModel;
+    using Microsoft.Office.Interop.Excel;
+    using Properties;
+    using Shared;
+    using StructureMap;
+    using Constants = Core.Constants;
+
     public static class ExcelHelper
     {
         public static void GenerateExpiringTachographDocumentsReport(ReportFileFormat format, DateTime start, DateTime end, string office)
@@ -31,11 +32,11 @@ namespace Webcal.Library
         {
             Worksheet worksheet = CreateWorksheet();
 
-            IRepository<TachographDocument> repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
-            IRepository<CustomerContact> customerRepository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
+            var repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
+            var customerRepository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
             ICollection<TachographDocument> allDocuments = repository.GetAll();
 
-            SetDocumentTitle(worksheet, string.Format(Resources.TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE, start.ToString(Core.Constants.DateFormat), end.ToString(Core.Constants.DateFormat), office));
+            SetDocumentTitle(worksheet, string.Format(Resources.TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE, start.ToString(Constants.DateFormat), end.ToString(Constants.DateFormat), office));
 
             SetBoldAndUnderlined(worksheet, 3, 0, Resources.TXT_CUSTOMER);
             SetBoldAndUnderlined(worksheet, 3, 1, Resources.TXT_EMAIL);
@@ -44,7 +45,7 @@ namespace Webcal.Library
             SetBoldAndUnderlined(worksheet, 3, 4, Resources.TXT_TECHNICIAN);
             SetBoldAndUnderlined(worksheet, 3, 5, Resources.TXT_OFFICE);
             SetBoldAndUnderlined(worksheet, 3, 6, Resources.TXT_DATE_OF_INSPECTION);
-            
+
             ICollection<CustomerContact> customers = customerRepository.Get(c => allDocuments.Any(d => string.Equals(d.CustomerContact, c.Name)));
             int row = 4;
 
@@ -65,7 +66,7 @@ namespace Webcal.Library
                 }
 
                 if (copy.InspectionDate != null)
-                    SetData(worksheet, row, 6, copy.InspectionDate.Value.ToString(Core.Constants.DateFormat));
+                    SetData(worksheet, row, 6, copy.InspectionDate.Value.ToString(Constants.DateFormat));
 
                 row++;
             }
@@ -75,15 +76,15 @@ namespace Webcal.Library
 
         private static void GenerateExpiringTachographDocumentsTextDocument(DateTime start, DateTime end, string office)
         {
-            StringBuilder builder = new StringBuilder();
-            IRepository<TachographDocument> repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
-            IRepository<CustomerContact> customerRepository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
+            var builder = new StringBuilder();
+            var repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
+            var customerRepository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
 
             ICollection<TachographDocument> allDocuments = repository.GetAll();
             ICollection<CustomerContact> customers = customerRepository.Get(c => allDocuments.Any(d => string.Equals(d.CustomerContact, c.Name)));
 
             //Title
-            builder.AppendLine(string.Format(Resources.TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE, start.ToString(Core.Constants.DateFormat), end.ToString(Core.Constants.DateFormat), office));
+            builder.AppendLine(string.Format(Resources.TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE, start.ToString(Constants.DateFormat), end.ToString(Constants.DateFormat), office));
             builder.AppendLine();
 
             foreach (TachographDocument document in allDocuments.Where(doc => doc.Created.AddYears(2).IsBetween(start, end)))
@@ -95,15 +96,13 @@ namespace Webcal.Library
                 builder.AppendLine(string.Format("{0}: {1}", Resources.TXT_REGISTRATION_NUMBER, copy.RegistrationNumber));
                 builder.AppendLine(string.Format("{0}: {1}", Resources.TXT_TECHNICIAN, copy.Technician));
                 builder.AppendLine(string.Format("{0}: {1}", Resources.TXT_OFFICE, office));
-                builder.AppendLine(string.Format("{0}: {1}", Resources.TXT_DATE_OF_INSPECTION, copy.InspectionDate == null ? string.Empty : copy.InspectionDate.Value.ToString(Core.Constants.DateFormat)));
+                builder.AppendLine(string.Format("{0}: {1}", Resources.TXT_DATE_OF_INSPECTION, copy.InspectionDate == null ? string.Empty : copy.InspectionDate.Value.ToString(Constants.DateFormat)));
                 builder.AppendLine();
             }
 
             DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PlainText, "");
             if (result.Result == true)
-            {
-                File.WriteAllText(result.FileName, builder.ToString(), Encoding.ASCII);               
-            }
+                File.WriteAllText(result.FileName, builder.ToString(), Encoding.ASCII);
         }
 
         public static void GenerateDocumentStatistics(ReportFileFormat format, string office)
@@ -122,7 +121,7 @@ namespace Webcal.Library
 
         private static void GenerateDocumentStatisticsTextDocument(string office)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
             ICollection<TachographDocument> allDocuments = GetAllDocuments();
 
             //Title
@@ -133,7 +132,7 @@ namespace Webcal.Library
 
             //Year Data
             IDictionary<int, int> yearData = GetGroupedData(allDocuments, prop => prop.Created.Year);
-            foreach (KeyValuePair<int, int> item in yearData)
+            foreach (var item in yearData)
             {
                 builder.AppendLine(string.Format("{0}: {1}", item.Key, item.Value));
             }
@@ -144,16 +143,14 @@ namespace Webcal.Library
 
             //Customer Data
             IDictionary<string, int> customerData = GetGroupedData(allDocuments, prop => prop.CustomerContact);
-            foreach (KeyValuePair<string, int> item in customerData)
+            foreach (var item in customerData)
             {
                 builder.AppendLine(string.Format("{0}: {1}", item.Key, item.Value));
             }
 
             DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PlainText, "");
             if (result.Result == true)
-            {
-                File.WriteAllText(result.FileName, builder.ToString(), Encoding.ASCII);                
-            }
+                File.WriteAllText(result.FileName, builder.ToString(), Encoding.ASCII);
         }
 
         private static void GenerateDocumentStatisticsExcelDocument(string office)
@@ -178,7 +175,7 @@ namespace Webcal.Library
             //Techograph Documents created by year
             row += 1;
             IDictionary<int, int> yearData = GetGroupedData(allDocuments, prop => prop.Created.Year);
-            foreach (KeyValuePair<int, int> item in yearData)
+            foreach (var item in yearData)
             {
                 SetData(worksheet, row, 0, item.Key);
                 SetData(worksheet, row, 1, item.Value);
@@ -200,7 +197,7 @@ namespace Webcal.Library
             //Techograph Documents created by customer
             row += 1;
             IDictionary<string, int> customerData = GetGroupedData(allDocuments, prop => prop.CustomerContact);
-            foreach (KeyValuePair<string, int> item in customerData)
+            foreach (var item in customerData)
             {
                 SetData(worksheet, row, 0, item.Key);
                 SetData(worksheet, row, 1, item.Value);
@@ -212,10 +209,10 @@ namespace Webcal.Library
 
         private static Worksheet CreateWorksheet()
         {
-            Application application = new Application { Visible = true };
+            var application = new Application {Visible = true};
 
             Workbook workbook = application.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
-            Worksheet worksheet = (Worksheet)workbook.Worksheets.Item[1];
+            var worksheet = (Worksheet) workbook.Worksheets.Item[1];
 
             worksheet.Name = Resources.TXT_GENERATED_REPORT;
             return worksheet;
@@ -252,14 +249,16 @@ namespace Webcal.Library
         private static void AutoFit(_Worksheet worksheet, params int[] columns)
         {
             foreach (int column in columns)
+            {
                 worksheet.Columns[column].AutoFit();
+            }
         }
 
         private static IDictionary<T2, int> GetGroupedData<T, T2>(IEnumerable<T> allDocuments, Func<T, T2> groupBy)
         {
             return allDocuments.GroupBy(groupBy)
-                               .Select(doc => new { doc.Key, Count = doc.Count() })
-                               .ToDictionary(t => t.Key, t => t.Count);
+                .Select(doc => new {doc.Key, Count = doc.Count()})
+                .ToDictionary(t => t.Key, t => t.Count);
         }
 
         private static string ToLetter(int index)
@@ -269,16 +268,16 @@ namespace Webcal.Library
             string value = "";
 
             if (index >= letters.Length)
-                value += letters[index / letters.Length - 1];
+                value += letters[index/letters.Length - 1];
 
-            value += letters[index % letters.Length];
+            value += letters[index%letters.Length];
 
             return value;
         }
 
         private static ICollection<TachographDocument> GetAllDocuments()
         {
-            IRepository<TachographDocument> repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
+            var repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
             return repository.GetAll();
         }
     }

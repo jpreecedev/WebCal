@@ -1,22 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Controls;
-using StructureMap;
-using Webcal.Shared;
-using Webcal.Core;
-using Webcal.DataModel.Library;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Properties;
-using Webcal.Windows.SignatureCaptureWindow;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Windows.SignatureCaptureWindow;
+    using Core;
+    using DataModel;
+    using DataModel.Library;
+    using Library;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public class UserManagementViewModel : BaseSettingsViewModel
     {
-        #region Public Properties
-
         public string NewUserName { get; set; }
 
         public IRepository<User> Repository { get; set; }
@@ -29,10 +27,13 @@ namespace Webcal.Views.Settings
             set { UserManagement.SelectedUser = value; }
         }
 
-        #endregion
-
-        #region Overrides
-
+        public DelegateCommand<PasswordBox> AddCommand { get; set; }
+        public DelegateCommand<PasswordBox> ClearCommand { get; set; }
+        public DelegateCommand<Grid> ChangePasswordCommand { get; set; }
+        public DelegateCommand<Grid> ResetPasswordCommand { get; set; }
+        public DelegateCommand<Grid> ClearPasswordCommand { get; set; }
+        public DelegateCommand<object> ManageSignaturesCommand { get; set; }
+        
         protected override void InitialiseCommands()
         {
             AddCommand = new DelegateCommand<PasswordBox>(OnAdd);
@@ -41,7 +42,7 @@ namespace Webcal.Views.Settings
             ResetPasswordCommand = new DelegateCommand<Grid>(OnResetPassword);
             ClearPasswordCommand = new DelegateCommand<Grid>(OnClearPassword);
             ManageSignaturesCommand = new DelegateCommand<object>(OnManageSignatures);
-           }
+        }
 
         protected override void Load()
         {
@@ -65,15 +66,7 @@ namespace Webcal.Views.Settings
             if (string.Equals(propertyName, "NewUserName") || string.Equals(propertyName, "NewUserPassword"))
                 RefreshCommands();
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Add
-
-        public DelegateCommand<PasswordBox> AddCommand { get; set; }
-
+        
         private void OnAdd(PasswordBox passwordBox)
         {
             bool hasEnteredDetails = !string.IsNullOrEmpty(NewUserName) && !string.IsNullOrEmpty(passwordBox.Password);
@@ -91,12 +84,6 @@ namespace Webcal.Views.Settings
             OnClear(passwordBox);
         }
 
-        #endregion
-
-        #region Command : Clear
-
-        public DelegateCommand<PasswordBox> ClearCommand { get; set; }
-
         private void OnClear(PasswordBox passwordBox)
         {
             if (passwordBox == null)
@@ -105,44 +92,27 @@ namespace Webcal.Views.Settings
             NewUserName = passwordBox.Password = string.Empty;
         }
 
-        #endregion
-
-        #region Command : Change Password
-
-        public DelegateCommand<Grid> ChangePasswordCommand { get; set; }
-
         private void OnChangePassword(Grid grid)
         {
             if (grid == null)
                 return;
 
-            var passwords = GetPasswords(grid);
-            var old = passwords["Old"];
-            var newPassword = passwords["New"];
+            IDictionary<string, string> passwords = GetPasswords(grid);
+            string old = passwords["Old"];
+            string newPassword = passwords["New"];
 
             bool changed = UserManagement.ChangePassword(Repository, old, newPassword);
             if (changed)
-            {
                 MessageBoxHelper.ShowMessage(Resources.TXT_PASSWORD_HAS_BEEN_CHANGED);
-            }
             else
-            {
                 MessageBoxHelper.ShowError(Resources.ERR_COULD_NOT_CHANGE_PASSWORD);
-            }
 
             ClearPasswords(grid);
         }
-
-        #endregion
-
-
-        #region Command : Reset Password
-
-        public DelegateCommand<Grid> ResetPasswordCommand { get; set; }
-
+        
         private void OnResetPassword(Grid grid)
         {
-            var currentUser = UserManagement.LoggedInUserName;
+            string currentUser = UserManagement.LoggedInUserName;
             if (currentUser != "superuser")
             {
                 MessageBoxHelper.ShowMessage(Resources.ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER);
@@ -156,29 +126,17 @@ namespace Webcal.Views.Settings
             if (grid == null)
                 return;
 
-            var old = SelectedUser.Password;
+            string old = SelectedUser.Password;
             const string newPassword = "password";
 
             bool changed = UserManagement.ResetPassword(Repository, old, newPassword);
             if (changed)
-            {
                 MessageBoxHelper.ShowMessage(Resources.TXT_PASSWORD_HAS_BEEN_RESET);
-            }
             else
-            {
                 MessageBoxHelper.ShowError(Resources.ERR_COULD_NOT_CHANGE_PASSWORD);
-            }
 
             ClearPasswords(grid);
         }
-
-        #endregion
-
-
-
-        #region Command : Clear Password
-
-        public DelegateCommand<Grid> ClearPasswordCommand { get; set; }
 
         private void OnClearPassword(Grid grid)
         {
@@ -188,24 +146,12 @@ namespace Webcal.Views.Settings
             ClearPasswords(grid);
         }
 
-        #endregion
-
-        #region Command : Manage Signatures
-
-        public DelegateCommand<object> ManageSignaturesCommand { get; set; }
-
         private void OnManageSignatures(object obj)
         {
-            SignatureCaptureWindow window = new SignatureCaptureWindow();
+            var window = new SignatureCaptureWindow();
             window.ShowDialog();
         }
-
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
+        
         private void RefreshCommands()
         {
             AddCommand.RaiseCanExecuteChanged();
@@ -229,24 +175,18 @@ namespace Webcal.Views.Settings
             if (root == null)
                 return null;
 
-            Dictionary<string, string> result = new Dictionary<string, string>();
+            var result = new Dictionary<string, string>();
 
             IEnumerable<PasswordBox> children = root.FindVisualChildren<PasswordBox>();
             foreach (PasswordBox child in children)
             {
                 if (string.Equals(child.Name, "OldPasswordBox"))
-                {
                     result.Add("Old", child.Password);
-                }
                 else if (string.Equals(child.Name, "NewPasswordBox"))
-                {
                     result.Add("New", child.Password);
-                }
             }
 
             return result;
         }
-
-        #endregion
     }
 }

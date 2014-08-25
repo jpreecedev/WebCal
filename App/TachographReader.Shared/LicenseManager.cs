@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-
-namespace Webcal.Shared
+﻿namespace Webcal.Shared
 {
+    using System;
+    using System.Linq;
+
     public static class LicenseManager
     {
         public static bool IsValid(string serial, out DateTime expirationDate)
@@ -48,7 +48,7 @@ namespace Webcal.Shared
             {
                 try
                 {
-                    DateTime expirationDate = new DateTime(paddedAsLong);
+                    var expirationDate = new DateTime(paddedAsLong);
                     if (expirationDate.Hour == 0 && expirationDate.Minute == 0 && expirationDate.Second == 0 && expirationDate.Millisecond == 0)
                         return expirationDate;
                 }

@@ -1,7 +1,7 @@
-﻿using System.Collections.ObjectModel;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System.Collections.ObjectModel;
+
     public class VehicleMake : Make
     {
         private ObservableCollection<VehicleModel> _models;

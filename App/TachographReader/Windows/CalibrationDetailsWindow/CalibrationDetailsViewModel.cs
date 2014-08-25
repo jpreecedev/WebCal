@@ -1,30 +1,18 @@
-﻿using System.Windows;
-using Webcal.Core;
-using Webcal.DataModel.Library;
-
-namespace Webcal.Windows.CalibrationDetailsWindow
+﻿namespace Webcal.Windows.CalibrationDetailsWindow
 {
+    using System.Windows;
+    using Core;
+    using DataModel.Library;
+
     public class CalibrationDetailsViewModel : BaseNotification
     {
-        #region Constructor
-
         public CalibrationDetailsViewModel()
         {
             OkCommand = new DelegateCommand<Window>(OnOk);
         }
-
-        #endregion
-
-        #region Public Properties
-
+        
         public CalibrationRecord CalibrationRecord { get; set; }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Ok
-
+        
         public DelegateCommand<Window> OkCommand { get; set; }
 
         private void OnOk(Window window)
@@ -34,9 +22,5 @@ namespace Webcal.Windows.CalibrationDetailsWindow
 
             window.Close();
         }
-
-        #endregion
-
-        #endregion
     }
 }

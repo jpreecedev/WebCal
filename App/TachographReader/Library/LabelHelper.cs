@@ -1,49 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Printing;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Windows.Resources;
-using StructureMap;
-using Webcal.DataModel;
-using Webcal.DataModel.Core;
-using Webcal.Properties;
-using Webcal.Shared;
-using PrinterSettings = Webcal.DataModel.PrinterSettings;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Drawing.Drawing2D;
+    using System.Drawing.Printing;
+    using System.Globalization;
+    using System.IO;
+    using System.Linq;
+    using System.Windows.Resources;
+    using Core;
+    using DataModel;
+    using DataModel.Core;
+    using Properties;
+    using Shared;
+    using StructureMap;
+    using PrinterSettings = DataModel.PrinterSettings;
+
     public class LabelHelper : PrintDocument
     {
-        #region Private Fields
-
-        private Font _font;
-        private Font _largeFont;
-        private RegistrationData _registrationData;
-        private WorkshopSettings _workshopSettings;
-
-        private int _horizontalLinesVerticalOffset = -160;
         private const int _leftOffset = -225;
         private const int _lineWidth = 200;
         private const int _lineHeight = 43;
 
-        private int _textVerticalOffset = -147;
         private const int _textHeight = 43;
         private const int _textSecondaryLeftOffset = 5;
 
         private static List<int> _trackedPositions;
+        private Font _font;
+        private int _horizontalLinesVerticalOffset = -160;
+        private Font _largeFont;
+        private RegistrationData _registrationData;
+        private int _textVerticalOffset = -147;
+        private WorkshopSettings _workshopSettings;
 
-        #endregion
-
-        #region Public Properties
 
         public Font Font
         {
             get { return _font ?? (_font = GetFont(15, false)); }
         }
+
         public Font BoldFont
         {
             get { return _font ?? (_font = GetFont(15, true)); }
@@ -53,6 +49,7 @@ namespace Webcal.Library
         {
             get { return _largeFont ?? (_largeFont = GetFont(16, false)); }
         }
+
         public Font LargeBoldFont
         {
             get { return _largeFont ?? (_largeFont = GetFont(16, true)); }
@@ -68,21 +65,18 @@ namespace Webcal.Library
             get { return _workshopSettings ?? (_workshopSettings = GetWorkshopSettings()); }
         }
 
-        #endregion
 
-        #region Public Methods
-        
         public void Print(TachographDocument document)
         {
-            IPrinterSettingsRepository printerSettingsRepository = ObjectFactory.GetInstance<IPrinterSettingsRepository>();
+            var printerSettingsRepository = ObjectFactory.GetInstance<IPrinterSettingsRepository>();
             PrinterSettings printerSettings = printerSettingsRepository.GetSettings();
 
             if (!CanPrintLabel(printerSettings) || Font == null)
                 return;
 
-            Bitmap bitmap = new Bitmap(560, 450);
+            var bitmap = new Bitmap(560, 450);
             Brush brush = Brushes.Black;
-            Pen pen = new Pen(brush);
+            var pen = new Pen(brush);
             _trackedPositions = new List<int>();
 
             using (Graphics g = Graphics.FromImage(bitmap))
@@ -90,7 +84,7 @@ namespace Webcal.Library
                 g.SmoothingMode = SmoothingMode.HighQuality;
                 g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-                g.TranslateTransform(bitmap.Width / 2, bitmap.Height / 2);
+                g.TranslateTransform(bitmap.Width/2, bitmap.Height/2);
                 g.RotateTransform(270);
                 g.DrawLine(pen, _leftOffset, _horizontalLinesVerticalOffset, _lineWidth, _horizontalLinesVerticalOffset);
 
@@ -100,20 +94,16 @@ namespace Webcal.Library
                 }
 
                 g.DrawLine(pen, 0, _trackedPositions[0], 0, _trackedPositions[2]);
-                g.DrawLine(pen, 0, GetLast(), 0, GetLast() + _lineHeight * 3);
+                g.DrawLine(pen, 0, GetLast(), 0, GetLast() + _lineHeight*3);
                 g.DrawImage(GetWorkshopImage(), -225, -260, 93, 92);
 
-                IGeneralSettingsRepository settingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+                var settingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
                 WorkshopSettings settings = settingsRepository.GetSettings();
 
                 if (!string.IsNullOrEmpty(settings.WorkshopName))
-                {
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_CUSTOMER_NAME, settings.WorkshopName), brush, LargeFont, new PointF(-125, -243));
-                }
                 if (!string.IsNullOrEmpty(settings.PhoneNumber))
-                {
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_CUSTOMER_PHONE_NUMBER, settings.PhoneNumber), brush, new PointF(-125, -200));
-                }
 
                 DrawSpacedText(g, GetDocumentType(document.DocumentType), brush, new PointF(_leftOffset, _textVerticalOffset));
 
@@ -159,9 +149,6 @@ namespace Webcal.Library
             return WorkshopSettings.AutoPrintLabels;
         }
 
-        #endregion
-
-        #region Overrides
 
         protected override void OnPrintPage(PrintPageEventArgs e)
         {
@@ -173,9 +160,6 @@ namespace Webcal.Library
             }
         }
 
-        #endregion
-
-        #region Private Methods
 
         private static int Track(int v)
         {
@@ -193,13 +177,14 @@ namespace Webcal.Library
             if (calibrationTime == null)
                 return string.Empty;
 
-            return calibrationTime.Value.ToString(Core.Constants.DateFormat);
+            return calibrationTime.Value.ToString(Constants.DateFormat);
         }
 
         private void DrawSpacedText(Graphics g, string text, Brush brush, PointF point)
         {
             DrawSpacedText(g, text, brush, Font, point);
         }
+
         private void DrawSpacedText(Graphics g, string text, Brush brush, Font font, PointF point)
         {
             const float spacing = -6;
@@ -242,9 +227,7 @@ namespace Webcal.Library
             if (fontFamily == null)
                 throw new InvalidOperationException(Resources.EXC_UNABLE_FIND_LABEL_FONT);
             if (bold)
-            {
                 return new Font(fontFamily, fontSize, FontStyle.Bold);
-            }
             return new Font(fontFamily, fontSize, FontStyle.Regular);
         }
 
@@ -259,9 +242,7 @@ namespace Webcal.Library
             string companyName = RegistrationData.CompanyName;
 
             if (string.IsNullOrEmpty(RegistrationData.LicenseKey) && !(RegistrationData.ExpirationDate < DateTime.Now.Date))
-            {
                 companyName = Resources.TXT_SKILLRAY;
-            }
 
             return companyName;
         }
@@ -291,7 +272,5 @@ namespace Webcal.Library
 
             return string.Empty;
         }
-
-        #endregion
     }
 }

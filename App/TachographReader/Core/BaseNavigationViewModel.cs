@@ -1,34 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Controls;
-using Webcal.EventArguments;
-using Webcal.Shared;
-using Webcal.Views;
-using Webcal.Windows;
-using Webcal.Properties;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Windows;
+    using EventArguments;
+    using Properties;
+    using Shared;
+    using Views;
+
     public class BaseNavigationViewModel : BaseViewModel
     {
-        #region Private Fields
-
-        private readonly IDictionary<Type, UserControl> _settingsViewCache;
-        private SettingsView _settingsView;
         private readonly Action<bool, object> _doneCallback;
-
-        #endregion
-
-        #region Events
-
+        private readonly IDictionary<Type, UserControl> _settingsViewCache;
+        
         public EventHandler<ModalClosedEventArgs> ModalClosedEvent;
-
-        #endregion
-
-        #region Constructor
-
+        private SettingsView _settingsView;
+        
         public BaseNavigationViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
@@ -37,11 +27,7 @@ namespace Webcal.Core
             _settingsViewCache = new Dictionary<Type, UserControl>();
             _doneCallback = OnSmallWindowClosing;
         }
-
-        #endregion
-
-        #region Public Properties
-
+        
         public UserControl View { get; set; }
 
         public UserControl ModalView { get; set; }
@@ -49,23 +35,17 @@ namespace Webcal.Core
         public bool IsModalWindowVisible { get; set; }
 
         public bool IsSmallModal { get; set; }
-
-        #endregion
-
-        #region Public Methods
-
+        
         public UserControl ShowSettingsView(Type view)
         {
             IsSmallModal = false;
             if (View != null)
             {
-                IViewModel viewModel = View.DataContext as IViewModel;
+                var viewModel = View.DataContext as IViewModel;
                 if (viewModel != null && viewModel.HasChanged)
                 {
                     if (AskQuestion(Resources.TXT_UNSAVED_CHANGES_WILL_BE_LOST))
-                    {
                         return View = GetSettingsView(view);
-                    }
                 }
             }
 
@@ -78,11 +58,9 @@ namespace Webcal.Core
             IsModalWindowVisible = true;
             ModalView = new T();
 
-            IViewModel dataContext = ModalView.DataContext as IViewModel;
+            var dataContext = ModalView.DataContext as IViewModel;
             if (dataContext != null)
-            {
                 dataContext.DoneCallback = _doneCallback;
-            }
         }
 
         protected IViewModel ShowView<T>(MainWindowViewModel mainWindowViewModel) where T : UserControl, new()
@@ -91,18 +69,14 @@ namespace Webcal.Core
 
             if (View != null)
             {
-                IViewModel viewModel = (IViewModel)View.DataContext;
+                var viewModel = (IViewModel) View.DataContext;
                 if (viewModel != null && viewModel.HasChanged)
                 {
                     if (AskQuestion(Resources.TXT_UNSAVED_CHANGES_WILL_BE_LOST))
-                    {
                         return CreateView<T>(mainWindowViewModel, viewModel);
-                    }
                 }
                 else
-                {
                     return CreateView<T>(mainWindowViewModel, viewModel);
-                }
             }
 
             return CreateView<T>(mainWindowViewModel, null);
@@ -113,28 +87,22 @@ namespace Webcal.Core
             if (_settingsViewCache == null)
                 return;
 
-            foreach (KeyValuePair<Type, UserControl> settingsView in _settingsViewCache)
+            foreach (var settingsView in _settingsViewCache)
             {
                 UserControl view = settingsView.Value;
                 if (view == null) continue;
 
-                BaseSettingsViewModel viewModel = view.DataContext as BaseSettingsViewModel;
+                var viewModel = view.DataContext as BaseSettingsViewModel;
                 if (viewModel != null)
                 {
                     if (save)
-                    {
                         viewModel.Save();
-                    }
 
                     viewModel.OnClosing(!save);
                     viewModel.Dispose();
                 }
             }
         }
-
-        #endregion
-
-        #region Protected Methods
 
         protected void ShowModalView<T>() where T : UserControl, new()
         {
@@ -151,11 +119,7 @@ namespace Webcal.Core
             ModalView = _settingsView ?? (_settingsView = new SettingsView());
             ModalView.DataContext = new SettingsViewModel();
         }
-
-        #endregion
-
-        #region Private Methods
-
+        
         private IViewModel CreateView<T>(MainWindowViewModel mainWindowViewModel, IViewModel viewModel) where T : UserControl, new()
         {
             if (viewModel != null)
@@ -166,11 +130,9 @@ namespace Webcal.Core
 
             View = new T();
 
-            IViewModel dataContext = View.DataContext as IViewModel;
+            var dataContext = View.DataContext as IViewModel;
             if (dataContext != null)
-            {
                 dataContext.MainWindow = mainWindowViewModel;
-            }
 
             return View.DataContext as IViewModel;
         }
@@ -186,17 +148,13 @@ namespace Webcal.Core
         private void OnSmallModalClosed(bool saved, object parameter)
         {
             if (ModalClosedEvent != null)
-            {
                 ModalClosedEvent.Invoke(this, new ModalClosedEventArgs(saved, parameter));
-            }
         }
 
         private UserControl GetSettingsView(Type type)
         {
             if (_settingsViewCache.ContainsKey(type))
-            {
                 return _settingsViewCache[type];
-            }
 
             try
             {
@@ -210,9 +168,5 @@ namespace Webcal.Core
 
             return null;
         }
-
-
-        #endregion
-
     }
 }

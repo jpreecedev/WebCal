@@ -1,43 +1,56 @@
-﻿using System.ComponentModel;
-using System.Windows;
-using System.Windows.Controls;
-using Webcal.Core;
-
-namespace Webcal.Controls
+﻿namespace Webcal.Controls
 {
+    using System.ComponentModel;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Core;
+
     [BaseControl]
     public abstract class BaseInputField : UserControl, IValidate, INotifyPropertyChanged
     {
-        #region Constructor
+        public static readonly DependencyProperty IsMandatoryProperty =
+            DependencyProperty.Register("IsMandatory", typeof (bool), typeof (BaseInputField), new PropertyMetadata(false));
+
+        public static readonly DependencyProperty IsAutoPopulatedProperty =
+            DependencyProperty.Register("IsAutoPopulated", typeof (bool), typeof (BaseInputField), new PropertyMetadata(false));
+
+        public static readonly DependencyProperty IsHighlightedProperty =
+            DependencyProperty.Register("IsHighlighted", typeof (bool), typeof (BaseInputField), new PropertyMetadata(false));
 
         protected BaseInputField()
         {
             Valid = true;
         }
-
-        #endregion
-
-        #region Public Properties
-
+        
         public bool Valid { get; set; }
 
-        #endregion
-
-        #region Abstract Methods
-
-        public abstract void Clear();
-
-        public abstract bool IsValid();
-
-        #endregion
-
-        #region Protected Methods
-
         protected bool HasValidated { get; set; }
+        
+        public bool IsMandatory
+        {
+            get { return (bool) GetValue(IsMandatoryProperty); }
+            set { SetValue(IsMandatoryProperty, value); }
+        }
+
+        public bool IsAutoPopulated
+        {
+            get { return (bool) GetValue(IsAutoPopulatedProperty); }
+            set { SetValue(IsAutoPopulatedProperty, value); }
+        }
+
+        public bool IsHighlighted
+        {
+            get { return (bool) GetValue(IsHighlightedProperty); }
+            set { SetValue(IsHighlightedProperty, value); }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public abstract bool IsValid();
+        public abstract void Clear();
 
         protected static void ReValidate(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            BaseInputField sender = d as BaseInputField;
+            var sender = d as BaseInputField;
             if (sender != null)
             {
                 if (sender.HasValidated)
@@ -49,52 +62,12 @@ namespace Webcal.Controls
 
         protected virtual void ReValidated()
         {
-
         }
-
-        #endregion
-
-        #region Dependency Properties
-
-        public bool IsMandatory
-        {
-            get { return (bool)GetValue(IsMandatoryProperty); }
-            set { SetValue(IsMandatoryProperty, value); }
-        }
-
-        public static readonly DependencyProperty IsMandatoryProperty =
-            DependencyProperty.Register("IsMandatory", typeof(bool), typeof(BaseInputField), new PropertyMetadata(false));
-
-        public bool IsAutoPopulated
-        {
-            get { return (bool)GetValue(IsAutoPopulatedProperty); }
-            set { SetValue(IsAutoPopulatedProperty, value); }
-        }
-
-        public static readonly DependencyProperty IsAutoPopulatedProperty =
-            DependencyProperty.Register("IsAutoPopulated", typeof(bool), typeof(BaseInputField), new PropertyMetadata(false));
-
-        public bool IsHighlighted
-        {
-            get { return (bool)GetValue(IsHighlightedProperty); }
-            set { SetValue(IsHighlightedProperty, value); }
-        }
-
-        public static readonly DependencyProperty IsHighlightedProperty =
-            DependencyProperty.Register("IsHighlighted", typeof(bool), typeof(BaseInputField), new PropertyMetadata(false));
-
-        #endregion
-
-        #region INotifyPropertyChanged Members
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        #endregion
     }
 }

@@ -1,17 +1,15 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Shared;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+    using Core;
+    using DataModel;
+    using Shared;
+    using StructureMap;
+
     public class CustomerSettingsViewModel : BaseSettingsViewModel
     {
         private CustomerContact _selectedCustomerContact;
-
-        #region Public Properties
 
         public IRepository<CustomerContact> Repository { get; set; }
 
@@ -39,10 +37,9 @@ namespace Webcal.Views.Settings
         }
 
         public int SelectedIndex { get; set; }
-
-        #endregion
-
-        #region Overrides
+        public DelegateCommand<object> RemoveCommand { get; set; }
+        public DelegateCommand<object> SaveCommand { get; set; }
+        public DelegateCommand<object> CancelCommand { get; set; }
 
         protected override void InitialiseCommands()
         {
@@ -59,13 +56,9 @@ namespace Webcal.Views.Settings
         protected override void Load()
         {
             if (DoneCallback == null)
-            {
                 CustomerContacts = new ObservableCollection<CustomerContact>(Repository.GetAll());
-            }
             else
-            {
                 CustomerContacts = new ObservableCollection<CustomerContact>();
-            }
 
             InitialiseNewCustomerContact();
         }
@@ -82,15 +75,7 @@ namespace Webcal.Views.Settings
 
             NewCustomerContact = null;
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Remove
-
-        public DelegateCommand<object> RemoveCommand { get; set; }
-
+        
         private bool CanRemove(object obj)
         {
             return DoneCallback == null && SelectedCustomerContact != null;
@@ -102,12 +87,6 @@ namespace Webcal.Views.Settings
             CustomerContacts.Remove(SelectedCustomerContact);
         }
 
-        #endregion
-
-        #region Command : Save
-
-        public DelegateCommand<object> SaveCommand { get; set; }
-
         private bool CanSave(object obj)
         {
             return NewCustomerContact != null && !string.IsNullOrEmpty(NewCustomerContact.Name) && NewCustomerContact.Name.Length > 1;
@@ -115,16 +94,12 @@ namespace Webcal.Views.Settings
 
         private void OnSave(object obj)
         {
-            CustomerContact customerContact = NewCustomerContact.Clone<CustomerContact>();
+            var customerContact = NewCustomerContact.Clone<CustomerContact>();
 
             if (IsEditing)
-            {
                 CustomerContacts[SelectedIndex] = customerContact;
-            }
             else
-            {
                 CustomerContacts.Add(customerContact);
-            }
 
             Reset();
             Saved(customerContact);
@@ -133,24 +108,12 @@ namespace Webcal.Views.Settings
             Repository.Save();
         }
 
-        #endregion
-
-        #region Command : Cancel
-
-        public DelegateCommand<object> CancelCommand { get; set; }
-
         private void OnCancel(object obj)
         {
             Reset();
             Cancelled(null);
         }
-
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
+        
         private void InitialiseNewCustomerContact()
         {
             if (NewCustomerContact != null)
@@ -175,7 +138,5 @@ namespace Webcal.Views.Settings
             IsEditing = false;
             InitialiseNewCustomerContact();
         }
-
-        #endregion
     }
 }

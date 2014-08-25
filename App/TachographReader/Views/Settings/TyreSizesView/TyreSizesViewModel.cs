@@ -1,19 +1,17 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using StructureMap;
-using Webcal.Shared;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Properties;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using System.Collections.ObjectModel;
+    using System.Windows.Controls;
+    using Core;
+    using DataModel;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public class TyreSizesViewModel : BaseSettingsViewModel
     {
         private TyreSize _selectedTyreSize;
-
-        #region Public Properties
-
+        
         public ObservableCollection<TyreSize> TyreSizes { get; set; }
 
         public IRepository<TyreSize> Repository { get; set; }
@@ -28,9 +26,8 @@ namespace Webcal.Views.Settings
             }
         }
 
-        #endregion
-
-        #region Overrides
+        public DelegateCommand<UserControl> AddTyreSizeCommand { get; set; }
+        public DelegateCommand<object> RemoveTyreSizeCommand { get; set; }
 
         protected override void InitialiseCommands()
         {
@@ -53,15 +50,7 @@ namespace Webcal.Views.Settings
         {
             Repository.Save();
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Add Tyre Size
-
-        public DelegateCommand<UserControl> AddTyreSizeCommand { get; set; }
-
+        
         private void OnAddTyreSize(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_TYRE_SIZE, OnAddTyreSize);
@@ -71,17 +60,11 @@ namespace Webcal.Views.Settings
         {
             if (!string.IsNullOrEmpty(result))
             {
-                TyreSize tyreSize = new TyreSize {Size = result};
+                var tyreSize = new TyreSize {Size = result};
                 TyreSizes.Add(tyreSize);
                 Repository.Add(tyreSize);
             }
         }
-
-        #endregion
-
-        #region Command : Remove Tyre Size
-
-        public DelegateCommand<object> RemoveTyreSizeCommand { get; set; }
 
         private bool CanRemoveTyreSize(object obj)
         {
@@ -94,18 +77,10 @@ namespace Webcal.Views.Settings
             TyreSizes.Remove(SelectedTyreSize);
         }
 
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
         private void RefreshCommands()
         {
             AddTyreSizeCommand.RaiseCanExecuteChanged();
             RemoveTyreSizeCommand.RaiseCanExecuteChanged();
         }
-
-        #endregion
     }
 }

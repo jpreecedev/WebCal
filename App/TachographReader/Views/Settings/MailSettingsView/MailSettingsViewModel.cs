@@ -1,13 +1,11 @@
-﻿using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using Core;
+    using DataModel;
+    using StructureMap;
+
     public class MailSettingsViewModel : BaseSettingsViewModel
     {
-        #region Public Properties
-
         public MailSettings MailSettings { get; set; }
 
         public IMailSettingsRepository Repository { get; set; }
@@ -23,10 +21,6 @@ namespace Webcal.Views.Settings
             }
         }
 
-        #endregion
-
-        #region Overrides
-
         protected override void Load()
         {
             MailSettings = Repository.GetSettings();
@@ -41,7 +35,5 @@ namespace Webcal.Views.Settings
         {
             Repository.Save(MailSettings);
         }
-
-        #endregion
     }
 }

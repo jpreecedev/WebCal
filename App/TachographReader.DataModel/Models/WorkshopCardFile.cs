@@ -1,8 +1,8 @@
-﻿using System;
-using System.IO;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System;
+    using System.IO;
+
     public class WorkshopCardFile : BaseFile
     {
         public string Workshop { get; set; }
@@ -16,7 +16,6 @@ namespace Webcal.DataModel
                 FileName = Path.GetFileName(filePath),
                 SerializedFile = GetStoredFile(filePath)
             };
-
         }
     }
 }

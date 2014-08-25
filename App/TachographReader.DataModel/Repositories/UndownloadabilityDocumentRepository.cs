@@ -1,31 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-using Webcal.DataModel;
-using Webcal.DataModel.Repositories;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Repositories;
+    using Shared;
+
     public class UndownloadabilityDocumentRepository : BaseRepository, IRepository<UndownloadabilityDocument>
     {
-        #region Implementation of IRepository<UndownloadabilityDocument>
-
         public void AddOrUpdate(UndownloadabilityDocument entity)
         {
             Safely(() =>
             {
-                var existing = Context.UndownloadabilityDocuments.Find(entity.Id);
+                UndownloadabilityDocument existing = Context.UndownloadabilityDocuments.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<UndownloadabilityDocument>().Add(entity);
-                }
             });
         }
 
@@ -58,7 +51,5 @@ namespace Webcal.DataModel
         {
             return Safely(() => Context.UndownloadabilityDocuments.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

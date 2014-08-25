@@ -1,33 +1,27 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Controls;
-using StructureMap;
-using Webcal.Controls;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Shared;
-using Webcal.Properties;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using System;
+    using System.Linq;
+    using System.Windows.Controls;
+    using Controls;
+    using Core;
+    using DataModel;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public class RegistrationSettingsViewModel : BaseSettingsViewModel
     {
         private string _serial;
-
-        #region Constructor
-
+        
         public RegistrationSettingsViewModel()
         {
             TextField = new InputTextField {Label = Resources.TXT_LICENSE_KEY};
 
-            InputBinding binding = new InputBinding("Serial") {Source = this};
+            var binding = new InputBinding("Serial") {Source = this};
             TextField.SetBinding(TextBox.TextProperty, binding);
         }
-
-        #endregion
-
-        #region Public Properties
-
+        
         public IRepository<RegistrationData> Repository { get; set; }
 
         public RegistrationData Settings
@@ -54,11 +48,7 @@ namespace Webcal.Views.Settings
                 SerialChanged();
             }
         }
-
-        #endregion
-
-        #region Overrides
-
+        
         protected override void InitialiseRepositories()
         {
             Repository = ObjectFactory.GetInstance<IRepository<RegistrationData>>();
@@ -74,11 +64,7 @@ namespace Webcal.Views.Settings
         {
             Repository.Save();
         }
-
-        #endregion
-
-        #region Private Methods
-
+        
         private void SerialChanged()
         {
             DateTime expirationDate;
@@ -102,7 +88,5 @@ namespace Webcal.Views.Settings
             TextField.IsHighlighted = true;
             Settings.LicenseKey = Serial;
         }
-
-        #endregion
     }
 }

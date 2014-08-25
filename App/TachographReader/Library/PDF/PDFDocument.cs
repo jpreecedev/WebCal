@@ -1,10 +1,10 @@
-﻿using System;
-using System.IO;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-
-namespace Webcal.Library.PDF
+﻿namespace Webcal.Library.PDF
 {
+    using System;
+    using System.IO;
+    using iTextSharp.text;
+    using iTextSharp.text.pdf;
+
     public class PDFDocument : IDisposable
     {
         public PDFDocument(string path)
@@ -46,9 +46,14 @@ namespace Webcal.Library.PDF
             get { return Writer.DirectContent; }
         }
 
+        public void Dispose()
+        {
+            Document.Close();
+        }
+
         public ColumnText GetNewColumn(float left, float top, float width, float height)
         {
-            ColumnText column = new ColumnText(ContentByte);
+            var column = new ColumnText(ContentByte);
             column.SetSimpleColumn(left, top, width, height);
             return column;
         }
@@ -115,28 +120,28 @@ namespace Webcal.Library.PDF
 
         public void AddSmallParagraph(string text, ColumnText column)
         {
-            Paragraph para = new Paragraph(text, GetSmallFont(false));
+            var para = new Paragraph(text, GetSmallFont(false));
             column.AddText(para);
             column.Go();
         }
 
         public void AddParagraph(string text, ColumnText column)
         {
-            Paragraph para = new Paragraph(text, GetRegularFont(false));
+            var para = new Paragraph(text, GetRegularFont(false));
             column.AddText(para);
             column.Go();
         }
 
         public void AddParagraph(string text, ColumnText column, Font font)
         {
-            Paragraph para = new Paragraph(text, font);
+            var para = new Paragraph(text, font);
             column.AddText(para);
             column.Go();
         }
 
         public void AddParagraph(string text, ColumnText column, Font font, int alignment)
         {
-            Paragraph para = new Paragraph(text, font);
+            var para = new Paragraph(text, font);
             para.Alignment = alignment;
             column.AddText(para);
             column.Go();
@@ -144,9 +149,9 @@ namespace Webcal.Library.PDF
 
         public void AddCell(PdfPTable table, string text)
         {
-            Paragraph paragraph = new Paragraph(text, GetSmallFont(false)) { Alignment = Element.ALIGN_CENTER };
+            var paragraph = new Paragraph(text, GetSmallFont(false)) {Alignment = Element.ALIGN_CENTER};
 
-            PdfPCell cell = new PdfPCell(paragraph);
+            var cell = new PdfPCell(paragraph);
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
             cell.VerticalAlignment = Element.ALIGN_CENTER;
 
@@ -155,9 +160,9 @@ namespace Webcal.Library.PDF
 
         public void AddCell(PdfPTable table, string text, Font font)
         {
-            Paragraph paragraph = new Paragraph(text, font) { Alignment = Element.ALIGN_CENTER };
+            var paragraph = new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER};
 
-            PdfPCell cell = new PdfPCell(paragraph);
+            var cell = new PdfPCell(paragraph);
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
             cell.VerticalAlignment = Element.ALIGN_CENTER;
 
@@ -166,21 +171,21 @@ namespace Webcal.Library.PDF
 
         public void AddCell(PdfPTable table, string text, Font font, int height)
         {
-            Paragraph paragraph = new Paragraph(text, font) { Alignment = Element.ALIGN_CENTER };
+            var paragraph = new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER};
 
-            PdfPCell cell = new PdfPCell(paragraph);
+            var cell = new PdfPCell(paragraph);
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
             cell.VerticalAlignment = Element.ALIGN_CENTER;
             cell.FixedHeight = height;
 
             table.AddCell(cell);
         }
-        
+
         public void AddCell(PdfPTable table, string text, Font font, int height, int width)
         {
-            Paragraph paragraph = new Paragraph(text, font) { Alignment = Element.ALIGN_CENTER };
+            var paragraph = new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER};
 
-            PdfPCell cell = new PdfPCell(paragraph);
+            var cell = new PdfPCell(paragraph);
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
             cell.VerticalAlignment = Element.ALIGN_CENTER;
             cell.FixedHeight = height;
@@ -190,7 +195,7 @@ namespace Webcal.Library.PDF
 
         public void AddSpannedCell(PdfPTable table, string text, int colspan)
         {
-            PdfPCell c = new PdfPCell(new Paragraph(text, GetSmallFont(false)) { Alignment = Element.ALIGN_CENTER });
+            var c = new PdfPCell(new Paragraph(text, GetSmallFont(false)) {Alignment = Element.ALIGN_CENTER});
             c.Colspan = colspan;
             c.HorizontalAlignment = Element.ALIGN_CENTER;
             c.VerticalAlignment = Element.ALIGN_CENTER;
@@ -200,7 +205,7 @@ namespace Webcal.Library.PDF
 
         public void AddSpannedCell(PdfPTable table, string text, int colspan, Font font)
         {
-            PdfPCell c = new PdfPCell(new Paragraph(text, font) { Alignment = Element.ALIGN_CENTER });
+            var c = new PdfPCell(new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER});
             c.Colspan = colspan;
             c.HorizontalAlignment = Element.ALIGN_CENTER;
             c.VerticalAlignment = Element.ALIGN_CENTER;
@@ -210,7 +215,7 @@ namespace Webcal.Library.PDF
 
         public void AddSpannedCell(PdfPTable table, string text, int colspan, Font font, float height)
         {
-            PdfPCell c = new PdfPCell(new Paragraph(text, font) { Alignment = Element.ALIGN_CENTER });
+            var c = new PdfPCell(new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER});
             c.Colspan = colspan;
             c.HorizontalAlignment = Element.ALIGN_CENTER;
             c.VerticalAlignment = Element.ALIGN_CENTER;
@@ -221,7 +226,7 @@ namespace Webcal.Library.PDF
 
         public void AddSpannedCell(PdfPTable table, Image image, int colspan, Font font, float height)
         {
-            PdfPCell c = new PdfPCell(image);
+            var c = new PdfPCell(image);
             c.Colspan = colspan;
             c.HorizontalAlignment = Element.ALIGN_CENTER;
             c.VerticalAlignment = Element.ALIGN_CENTER;
@@ -232,7 +237,7 @@ namespace Webcal.Library.PDF
 
         public void AddSpannedCell(PdfPTable table, string text, int colspan, Font font, float height, int alignment)
         {
-            PdfPCell c = new PdfPCell(new Paragraph(text, font) { Alignment = Element.ALIGN_CENTER });
+            var c = new PdfPCell(new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER});
             c.Colspan = colspan;
             c.HorizontalAlignment = alignment;
             c.VerticalAlignment = Element.ALIGN_CENTER;
@@ -243,7 +248,7 @@ namespace Webcal.Library.PDF
 
         public void AddSpannedCell(PdfPTable table, Paragraph paragraph, int colspan, float height, int alignment)
         {
-            PdfPCell c = new PdfPCell(paragraph);
+            var c = new PdfPCell(paragraph);
             c.Colspan = colspan;
             c.HorizontalAlignment = alignment;
             c.VerticalAlignment = Element.ALIGN_CENTER;
@@ -301,14 +306,5 @@ namespace Webcal.Library.PDF
         {
             Document.NewPage();
         }
-
-        #region IDisposable Members
-
-        public void Dispose()
-        {
-            Document.Close();
-        }
-
-        #endregion
     }
 }

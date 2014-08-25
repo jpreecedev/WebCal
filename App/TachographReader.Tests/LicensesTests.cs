@@ -1,75 +1,17 @@
-﻿using NUnit.Framework;
-using System;
-using System.Globalization;
-using Webcal.Shared;
-
-namespace TachographReader.Tests
+﻿namespace TachographReader.Tests
 {
+    using System;
+    using System.Globalization;
+    using NUnit.Framework;
+    using Webcal.Shared;
+
     [TestFixture]
     public class LicensesTests
     {
         [Test]
-        public void IsValid_SerialIsEmpty_ReturnsFalse()
+        public void GetExpirationDate_InvalidSerial_ReturnsNull()
         {
-            string serial = string.Empty;
-            DateTime expirationDate;
-
-            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
-
-            Assert.That(isValid == false);
-        }
-
-        [Test]
-        public void IsValid_SerialContainsLetters_ReturnsFalse()
-        {
-            string serial = "1234A5678";
-            DateTime expirationDate;
-
-            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
-
-            Assert.That(isValid == false);
-        }
-
-        [Test]
-        public void IsValid_SerialIsNotAValidLong_ReturnsFalse()
-        {
-            string serial = "9223372036885487758808"; //Greater than int64.maxvalue
-            DateTime expirationDate;
-
-            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
-
-            Assert.That(isValid == false);
-        }
-
-        [Test]
-        public void IsValid_InvalidSerial_ReturnsFalse()
-        {
-            string serial = "999999999999999999"; 
-            DateTime expirationDate;
-
-            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
-
-            Assert.That(isValid == false);
-        }
-
-        [Test]
-        public void IsValid_ValidSerial_ReturnsTrueAndTodayAsExpirationDate()
-        {
-            DateTime now = DateTime.Parse(DateTime.Now.ToString("dd-MMM-yyyy"));
-
-            string serial = now.Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd(Char.Parse("0"));
-            DateTime expirationDate;
-
-            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
-
-            Assert.That(isValid);
-            Assert.AreEqual(expirationDate, now);
-        }
-
-        [Test]
-        public void GetExpirationDate_SerialIsEmpty_ReturnsNull()
-        {
-            string serial = string.Empty;
+            string serial = "999999999999999999";
 
             DateTime? expirationDate = LicenseManager.GetExpirationDate(serial);
 
@@ -87,20 +29,20 @@ namespace TachographReader.Tests
         }
 
         [Test]
-        public void GetExpirationDate_SerialIsNotAValidLong_ReturnsNull()
+        public void GetExpirationDate_SerialIsEmpty_ReturnsNull()
         {
-            string serial = "9223372036885487758808"; //Greater than int64.maxvalue
-           
+            string serial = string.Empty;
+
             DateTime? expirationDate = LicenseManager.GetExpirationDate(serial);
 
             Assert.IsNull(expirationDate);
         }
 
         [Test]
-        public void GetExpirationDate_InvalidSerial_ReturnsNull()
+        public void GetExpirationDate_SerialIsNotAValidLong_ReturnsNull()
         {
-            string serial = "999999999999999999";
-            
+            string serial = "9223372036885487758808"; //Greater than int64.maxvalue
+
             DateTime? expirationDate = LicenseManager.GetExpirationDate(serial);
 
             Assert.IsNull(expirationDate);
@@ -111,21 +53,11 @@ namespace TachographReader.Tests
         {
             DateTime now = DateTime.Parse(DateTime.Now.ToString("dd-MMM-yyyy"));
             string serial = now.Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd(Char.Parse("0"));
-            
+
             DateTime? expirationDate = LicenseManager.GetExpirationDate(serial);
 
             Assert.IsNotNull(expirationDate);
             Assert.AreEqual(expirationDate, now);
-        }
-
-        [Test]
-        public void HasExpired_DateTimeLessThanNow_ReturnsTrue()
-        {
-            DateTime expirationDate = DateTime.Now.AddDays(-1);
-
-            bool hasExpired = LicenseManager.HasExpired(expirationDate);
-
-            Assert.True(hasExpired);
         }
 
         [Test]
@@ -146,6 +78,74 @@ namespace TachographReader.Tests
             bool hasExpired = LicenseManager.HasExpired(expirationDate);
 
             Assert.False(hasExpired);
+        }
+
+        [Test]
+        public void HasExpired_DateTimeLessThanNow_ReturnsTrue()
+        {
+            DateTime expirationDate = DateTime.Now.AddDays(-1);
+
+            bool hasExpired = LicenseManager.HasExpired(expirationDate);
+
+            Assert.True(hasExpired);
+        }
+
+        [Test]
+        public void IsValid_InvalidSerial_ReturnsFalse()
+        {
+            string serial = "999999999999999999";
+            DateTime expirationDate;
+
+            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
+
+            Assert.That(isValid == false);
+        }
+
+        [Test]
+        public void IsValid_SerialContainsLetters_ReturnsFalse()
+        {
+            string serial = "1234A5678";
+            DateTime expirationDate;
+
+            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
+
+            Assert.That(isValid == false);
+        }
+
+        [Test]
+        public void IsValid_SerialIsEmpty_ReturnsFalse()
+        {
+            string serial = string.Empty;
+            DateTime expirationDate;
+
+            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
+
+            Assert.That(isValid == false);
+        }
+
+        [Test]
+        public void IsValid_SerialIsNotAValidLong_ReturnsFalse()
+        {
+            string serial = "9223372036885487758808"; //Greater than int64.maxvalue
+            DateTime expirationDate;
+
+            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
+
+            Assert.That(isValid == false);
+        }
+
+        [Test]
+        public void IsValid_ValidSerial_ReturnsTrueAndTodayAsExpirationDate()
+        {
+            DateTime now = DateTime.Parse(DateTime.Now.ToString("dd-MMM-yyyy"));
+
+            string serial = now.Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd(Char.Parse("0"));
+            DateTime expirationDate;
+
+            bool isValid = LicenseManager.IsValid(serial, out expirationDate);
+
+            Assert.That(isValid);
+            Assert.AreEqual(expirationDate, now);
         }
     }
 }

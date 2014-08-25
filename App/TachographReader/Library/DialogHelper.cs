@@ -1,19 +1,19 @@
-﻿using System;
-using Microsoft.Win32;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using Microsoft.Win32;
+
     public static class DialogHelper
     {
         public static DialogHelperResult OpenFile(DialogFilter filter, string fileName)
         {
-            OpenFileDialog dialog = new OpenFileDialog
-                                        {
-                                            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                                            Multiselect = false,
-                                            FileName = fileName,
-                                            Filter = GetActualFilter(filter)
-                                        };
+            var dialog = new OpenFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                Multiselect = false,
+                FileName = fileName,
+                Filter = GetActualFilter(filter)
+            };
 
             bool? result = dialog.ShowDialog();
             return new DialogHelperResult {Result = result, FileName = dialog.FileName};
@@ -21,12 +21,12 @@ namespace Webcal.Library
 
         public static DialogHelperResult SaveFile(DialogFilter filter, string fileName)
         {
-            SaveFileDialog dialog = new SaveFileDialog
-                                        {
-                                            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                                            FileName = fileName,
-                                            Filter = GetActualFilter(filter)
-                                        };
+            var dialog = new SaveFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                FileName = fileName,
+                Filter = GetActualFilter(filter)
+            };
 
             bool? result = dialog.ShowDialog();
             return new DialogHelperResult {Result = result, FileName = dialog.FileName};

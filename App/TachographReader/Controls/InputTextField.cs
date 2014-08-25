@@ -1,41 +1,29 @@
-﻿using System.Windows;
-
-namespace Webcal.Controls
+﻿namespace Webcal.Controls
 {
+    using System.Windows;
+
     public class InputTextField : BaseInputTextField
     {
-        #region Constructor
+        public static readonly DependencyProperty LabelProperty =
+            DependencyProperty.Register("Label", typeof (string), typeof (InputTextField), new PropertyMetadata(null));
 
         static InputTextField()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(InputTextField), new FrameworkPropertyMetadata(typeof(InputTextField)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof (InputTextField), new FrameworkPropertyMetadata(typeof (InputTextField)));
         }
-
-        #endregion
-
-        #region Dependency Properties
-
+        
         public string Label
         {
-            get { return (string)GetValue(LabelProperty); }
+            get { return (string) GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
         }
-
-        public static readonly DependencyProperty LabelProperty =
-            DependencyProperty.Register("Label", typeof(string), typeof(InputTextField), new PropertyMetadata(null));
-
-        #endregion
-
-        #region Overrides
-
+        
         public override bool IsValid()
         {
             HasValidated = true;
 
             if (!IsMandatory)
-            {
                 return Valid = true;
-            }
 
             return Valid = !string.IsNullOrEmpty(Text);
         }
@@ -45,7 +33,5 @@ namespace Webcal.Controls
             Clear();
             Valid = true;
         }
-
-        #endregion
     }
 }

@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Threading;
-using Webcal.Core;
-using Image = System.Drawing.Image;
-using Size = System.Windows.Size;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Drawing;
+    using System.Linq;
+    using System.Reflection;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Documents;
+    using System.Windows.Interop;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Threading;
+    using Core;
+    using Image = System.Drawing.Image;
+    using Size = System.Drawing.Size;
+
     public static class Extensions
     {
         public static bool IsBetween(this DateTime dateTime, DateTime start, DateTime end)
@@ -68,11 +69,9 @@ namespace Webcal.Library
             DependencyObject parentObject = VisualTreeHelper.GetParent(child);
 
             if (parentObject == null)
-            {
                 return null;
-            }
 
-            T parent = parentObject as T;
+            var parent = parentObject as T;
             return parent ?? FindParent<T>(parentObject);
         }
 
@@ -81,7 +80,7 @@ namespace Webcal.Library
             if (root == null)
                 return null;
 
-            Type[] controls = Assembly.GetCallingAssembly().GetTypes().Where(type => Attribute.IsDefined(type, typeof(BaseControlAttribute))).ToArray();
+            Type[] controls = Assembly.GetCallingAssembly().GetTypes().Where(type => Attribute.IsDefined(type, typeof (BaseControlAttribute))).ToArray();
 
             return FindVisualChildren(root, controls).Cast<IValidate>().ToList();
         }
@@ -95,9 +94,7 @@ namespace Webcal.Library
             {
                 DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
                 if (child != null && child is T)
-                {
-                    yield return (T)child;
-                }
+                    yield return (T) child;
 
                 foreach (T childOfChild in FindVisualChildren<T>(child))
                 {
@@ -115,9 +112,7 @@ namespace Webcal.Library
             {
                 DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
                 if (child != null && types.Any(t => t.IsInstanceOfType(child)))
-                {
                     yield return child;
-                }
 
                 foreach (object childOfChild in FindVisualChildren(child, types))
                 {
@@ -131,9 +126,9 @@ namespace Webcal.Library
             if (image == null)
                 return null;
 
-            Bitmap bitmap = new Bitmap(image);
+            var bitmap = new Bitmap(image);
 
-            return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+            return Imaging.CreateBitmapSourceFromHBitmap(
                 bitmap.GetHbitmap(),
                 IntPtr.Zero,
                 Int32Rect.Empty,
@@ -145,54 +140,54 @@ namespace Webcal.Library
             if (fe == null)
                 return;
 
-            PrintDialog pd = new PrintDialog();
+            var pd = new PrintDialog();
             if (pd.ShowDialog() != true)
                 return;
 
             fe.Dispatcher.Invoke(new Action(() =>
-                                                {
-                                                    fe.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
-                                                    fe.Arrange(new Rect(fe.DesiredSize));
-                                                    fe.UpdateLayout();
-                                                }),
-                                 DispatcherPriority.Render);
+            {
+                fe.Measure(new System.Windows.Size(Double.PositiveInfinity, Double.PositiveInfinity));
+                fe.Arrange(new Rect(fe.DesiredSize));
+                fe.UpdateLayout();
+            }),
+                DispatcherPriority.Render);
 
-            int height = (int)pd.PrintableAreaHeight;
-            int width = (int)pd.PrintableAreaWidth;
-            int pages = (int)Math.Ceiling((fe.ActualHeight / height));
+            var height = (int) pd.PrintableAreaHeight;
+            var width = (int) pd.PrintableAreaWidth;
+            var pages = (int) Math.Ceiling((fe.ActualHeight/height));
 
-            FixedDocument document = new FixedDocument();
+            var document = new FixedDocument();
 
             for (int i = 0; i < pages; i++)
             {
-                FixedPage page = new FixedPage
-                                     {
-                                         Height = height,
-                                         Width = width
-                                     };
+                var page = new FixedPage
+                {
+                    Height = height,
+                    Width = width
+                };
 
-                PageContent content = new PageContent { Child = page };
+                var content = new PageContent {Child = page};
 
                 document.Pages.Add(content);
 
-                VisualBrush vb = new VisualBrush(fe)
-                                     {
-                                         AlignmentX = AlignmentX.Left,
-                                         AlignmentY = AlignmentY.Top,
-                                         Stretch = Stretch.None,
-                                         TileMode = TileMode.None,
-                                         Viewbox = new Rect(0, i * height, width, (i + 1) * height),
-                                         ViewboxUnits = BrushMappingMode.Absolute
-                                     };
+                var vb = new VisualBrush(fe)
+                {
+                    AlignmentX = AlignmentX.Left,
+                    AlignmentY = AlignmentY.Top,
+                    Stretch = Stretch.None,
+                    TileMode = TileMode.None,
+                    Viewbox = new Rect(0, i*height, width, (i + 1)*height),
+                    ViewboxUnits = BrushMappingMode.Absolute
+                };
 
                 RenderOptions.SetBitmapScalingMode(vb, BitmapScalingMode.HighQuality);
 
-                Canvas canvas = new Canvas
-                                    {
-                                        Background = vb,
-                                        Height = height,
-                                        Width = width
-                                    };
+                var canvas = new Canvas
+                {
+                    Background = vb,
+                    Height = height,
+                    Width = width
+                };
 
                 FixedPage.SetLeft(canvas, 0);
                 FixedPage.SetTop(canvas, 0);
@@ -201,10 +196,10 @@ namespace Webcal.Library
             }
 
             pd.PrintDocument(document.DocumentPaginator,
-                             ((String.IsNullOrWhiteSpace(fe.Name) ? "Temp" : fe.Name) + " PRINT"));
+                ((String.IsNullOrWhiteSpace(fe.Name) ? "Temp" : fe.Name) + " PRINT"));
         }
 
-        public static Image Resize(this Image image, System.Drawing.Size size)
+        public static Image Resize(this Image image, Size size)
         {
             return new Bitmap(image, size);
         }

@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-using Webcal.DataModel;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class TechnicianRepository : BaseRepository, IRepository<Technician>
     {
-        #region Implementation of IRepository<Technician>
-
         public void AddOrUpdate(Technician entity)
         {
             Safely(() =>
             {
-                var existing = Context.Technicians.Find(entity.Id);
+                Technician existing = Context.Technicians.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<Technician>().Add(entity);
-                }
             });
         }
 
@@ -41,11 +34,11 @@ namespace Webcal.DataModel.Repositories
         public ICollection<Technician> GetAll()
         {
             return Safely(() =>
-                              {
-                                  List<Technician> technicians = Context.Technicians.ToList();
-                                  technicians.Insert(0, null);
-                                  return technicians;
-                              });
+            {
+                List<Technician> technicians = Context.Technicians.ToList();
+                technicians.Insert(0, null);
+                return technicians;
+            });
         }
 
         public ICollection<Technician> Get(Expression<Func<Technician, bool>> predicate)
@@ -62,7 +55,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.Technicians.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

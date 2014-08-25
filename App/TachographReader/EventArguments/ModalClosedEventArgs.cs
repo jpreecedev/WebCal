@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Webcal.EventArguments
+﻿namespace Webcal.EventArguments
 {
+    using System;
+
     public class ModalClosedEventArgs : EventArgs
     {
         public ModalClosedEventArgs(bool saved, object parameter)

@@ -1,21 +1,19 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
-
-namespace Webcal.Converters
+﻿namespace Webcal.Converters
 {
-    [ValueConversion(typeof(DateTime), typeof(Visibility))]
+    using System;
+    using System.Globalization;
+    using System.Windows;
+    using System.Windows.Data;
+
+    [ValueConversion(typeof (DateTime), typeof (Visibility))]
     public class DateTimeToVisibilityConverter : IValueConverter
     {
-        #region Implementation of IValueConverter
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is DateTime))
                 return Visibility.Collapsed;
 
-            DateTime dateTime = (DateTime)value;
+            var dateTime = (DateTime) value;
             if (dateTime == default(DateTime))
                 return Visibility.Collapsed;
 
@@ -26,7 +24,5 @@ namespace Webcal.Converters
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

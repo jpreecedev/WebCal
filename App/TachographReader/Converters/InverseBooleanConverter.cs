@@ -1,14 +1,12 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Data;
-
-namespace Webcal.Converters
+﻿namespace Webcal.Converters
 {
-    [ValueConversion(typeof(bool), typeof(bool))]
+    using System;
+    using System.Globalization;
+    using System.Windows.Data;
+
+    [ValueConversion(typeof (bool), typeof (bool))]
     public class InverseBooleanConverter : IValueConverter
     {
-        #region IValueConverter Members
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null || !(value is bool))
@@ -22,9 +20,7 @@ namespace Webcal.Converters
             if (value == null || !(value is bool))
                 return false;
 
-            return !(bool)value;
+            return !(bool) value;
         }
-
-        #endregion
     }
 }

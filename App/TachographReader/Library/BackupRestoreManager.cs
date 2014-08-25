@@ -1,18 +1,16 @@
-﻿using System;
-using System.Configuration;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using Webcal.DataModel;
-using Webcal.Shared;
-using Webcal.Properties;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using System.Configuration;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Linq;
+    using DataModel;
+    using Properties;
+    using Shared;
+
     public static class BackupRestoreManager
     {
-        #region Public Methods
-
         public static void BackUp()
         {
             if (!CanBackupOrRestore())
@@ -31,9 +29,7 @@ namespace Webcal.Library
             //Backup:   /b <dbpath> <backuppath>
             DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.SQLServerCEDatabaseFile, "");
             if (result.Result == true)
-            {
                 Run(string.Format(@"/b ""{0}"" ""{1}""", databasePath, result.FileName), false);
-            }
         }
 
         public static void Restore()
@@ -49,9 +45,7 @@ namespace Webcal.Library
             //Restore:  /r <dbpath> <restorepath> <processname>
             DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.SQLServerCEDatabaseFile, "");
             if (result.Result == true)
-            {
                 Run(string.Format(@"/r ""{0}"" ""{1}"" ""{2}""", result.FileName, databasePath, AppDomain.CurrentDomain.FriendlyName), false);
-            }
         }
 
         public static void BackupIfRequired(WorkshopSettings workshopSettings)
@@ -83,22 +77,19 @@ namespace Webcal.Library
             Run(string.Format(@"/b ""{0}"" ""{1}""", databasePath, fileName), true);
         }
 
-        #endregion
-
-        #region Private Methods
 
         private static void Run(string arguments, bool quiet)
         {
             try
             {
-                ProcessStartInfo startInfo = new ProcessStartInfo();
+                var startInfo = new ProcessStartInfo();
                 startInfo.FileName = "BackupRestoreUtility.exe";
                 startInfo.Arguments = arguments;
                 startInfo.UseShellExecute = false;
                 startInfo.CreateNoWindow = true;
                 startInfo.RedirectStandardOutput = true;
 
-                Process process = new Process { StartInfo = startInfo, EnableRaisingEvents = true };
+                var process = new Process {StartInfo = startInfo, EnableRaisingEvents = true};
                 process.Start();
                 process.WaitForExit(300000);
 
@@ -120,7 +111,7 @@ namespace Webcal.Library
         private static string GetDatabasePath()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TachographContext"].ConnectionString;
-            return connectionString.Replace("DataSource=|DataDirectory|", (string)AppDomain.CurrentDomain.GetData("DataDirectory") + "\\");
+            return connectionString.Replace("DataSource=|DataDirectory|", (string) AppDomain.CurrentDomain.GetData("DataDirectory") + "\\");
         }
 
         private static bool HasBackupBeenTakenToday(string backupPath)
@@ -151,8 +142,5 @@ namespace Webcal.Library
 
             return false;
         }
-
-        #endregion
-
     }
 }

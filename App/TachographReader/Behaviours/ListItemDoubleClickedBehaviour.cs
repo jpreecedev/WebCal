@@ -1,13 +1,13 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-
-namespace Webcal.Behaviours
+﻿namespace Webcal.Behaviours
 {
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+
     public class ListItemDoubleClickedBehaviour
     {
         public static DependencyProperty CommandProperty =
-      DependencyProperty.RegisterAttached("Command", typeof(ICommand), typeof(ListItemDoubleClickedBehaviour), new UIPropertyMetadata(CommandChanged));
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (ListItemDoubleClickedBehaviour), new UIPropertyMetadata(CommandChanged));
 
         public static void SetCommand(DependencyObject target, ICommand value)
         {
@@ -16,27 +16,23 @@ namespace Webcal.Behaviours
 
         private static void CommandChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            ListView control = target as ListView;
+            var control = target as ListView;
             if (control != null)
             {
                 if ((e.NewValue != null) && (e.OldValue == null))
-                {
                     control.MouseDoubleClick += OnDoubleClick;
-                }
                 else if ((e.NewValue == null) && (e.OldValue != null))
-                {
                     control.MouseDoubleClick -= OnDoubleClick;
-                }
             }
         }
 
         private static void OnDoubleClick(object sender, RoutedEventArgs e)
         {
-            ListView control = sender as ListView;
+            var control = sender as ListView;
             if (control == null)
                 return;
 
-            ICommand command = (ICommand)control.GetValue(CommandProperty);
+            var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(null);
         }
     }

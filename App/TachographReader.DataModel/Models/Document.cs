@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System;
+
     public abstract class Document : BaseModel
     {
         public int Id { get; set; }

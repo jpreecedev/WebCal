@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using Webcal.Windows;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System;
+    using System.ComponentModel;
+    using Windows;
+
     public interface IViewModel : INotifyPropertyChanged, IDisposable
     {
         bool HasChanged { get; }

@@ -1,25 +1,21 @@
-﻿using System.Collections.ObjectModel;
-using System.Collections;
-using System.ComponentModel;
-using System.Linq;
-using System.Windows;
-using System.Windows.Data;
-using StructureMap;
-using Webcal.Controls;
-using Webcal.DataModel;
-using Webcal.EventArguments;
-using Webcal.Library;
-using Webcal.Shared;
-using Webcal.Views;
-using Webcal.Views.Settings;
-using Webcal.Properties;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Windows;
+    using Controls;
+    using DataModel;
+    using EventArguments;
+    using Library;
+    using Properties;
+    using Shared;
+    using StructureMap;
+    using Views;
+    using Views.Settings;
+
     public class BaseMainViewModel : BaseViewModel
     {
-        #region Constructor
-
         public BaseMainViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
@@ -29,19 +25,14 @@ namespace Webcal.Core
             CustomerContacts = new ObservableCollection<CustomerContact>(CustomerContactRepository.GetAll());
         }
 
-        #endregion
-
-        #region Public Properties
-
         public ObservableCollection<CustomerContact> CustomerContacts { get; set; }
 
         public CustomerContact SelectedCustomerContact { get; set; }
 
         public IRepository<CustomerContact> CustomerContactRepository { get; set; }
-
-        #endregion
-
-        #region Overrides
+        public DelegateCommand<object> NewCustomerCommand { get; set; }
+        public DelegateCommand<object> CancelCommand { get; set; }
+        public DelegateCommand<InputTextField> BrowseCommand { get; set; }
 
         protected override void InitialiseCommands()
         {
@@ -62,14 +53,10 @@ namespace Webcal.Core
                 MainWindow.ModalClosedEvent -= OnSmallModalClosed;
         }
 
-        #endregion
-
-        #region Protected Methods
-
         protected bool IsValid(DependencyObject root)
         {
             bool isValid = true;
-            
+
             foreach (IValidate child in root.FindValidatableChildren().Where(child => !child.IsValid()))
             {
                 isValid = false;
@@ -77,14 +64,6 @@ namespace Webcal.Core
 
             return isValid;
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : New Customer
-
-        public DelegateCommand<object> NewCustomerCommand { get; set; }
 
         private void OnNewCustomer(object obj)
         {
@@ -100,30 +79,17 @@ namespace Webcal.Core
         {
             if (e.Saved)
             {
-                CustomerContacts.Add((CustomerContact)e.Parameter);
-                //SelectedCustomerContact = CustomerContacts.Last();
-                var sorted = CustomerContacts.OrderBy(c => c.Name).ToArray();
+                CustomerContacts.Add((CustomerContact) e.Parameter);
+                CustomerContact[] sorted = CustomerContacts.OrderBy(c => c.Name).ToArray();
                 CustomerContacts.Clear();
-                foreach (var item in sorted)
+                foreach (CustomerContact item in sorted)
                 {
                     CustomerContacts.Add(item);
-                    if (item == (CustomerContact)e.Parameter)
-                    {
+                    if (item == e.Parameter)
                         SelectedCustomerContact = item;
-                    }
                 }
-                //var sortedContacts = CollectionViewSource.GetDefaultView(CustomerContacts);
-                //sortedContacts.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
-                //CustomerContacts = sortedContacts;
-                //SelectedCustomerContact = CustomerContacts.Last();
             }
         }
-
-        #endregion
-
-        #region Command : Cancel
-
-        public DelegateCommand<object> CancelCommand { get; set; }
 
         private void OnCancel(object obj)
         {
@@ -140,23 +106,11 @@ namespace Webcal.Core
             MainWindow.ShowView<HomeScreenView>();
         }
 
-        #endregion
-
-        #region Command : Browse
-
-        public DelegateCommand<InputTextField> BrowseCommand { get; set; }
-
         private static void OnBrowse(InputTextField textField)
         {
             DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.All, "");
             if (result.Result == true)
-            {
                 textField.Text = result.FileName;
-            }
         }
-
-        #endregion
-
-        #endregion
     }
 }

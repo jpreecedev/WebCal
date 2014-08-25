@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Xml.Linq;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.DataModel.Library;
-using Webcal.Library;
-using Webcal.Properties;
-using Webcal.Shared;
-
-namespace Webcal.Views
+﻿namespace Webcal.Views
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.IO;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Xml.Linq;
+    using Core;
+    using DataModel;
+    using DataModel.Library;
+    using Library;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public class NewTachographViewModel : BaseNewDocumentViewModel
     {
-        #region Constructor
+        public bool CardBeingRead = false;
 
         public NewTachographViewModel()
         {
@@ -28,10 +28,6 @@ namespace Webcal.Views
             VehicleTypes = VehicleType.GetVehicleTypes();
             Document.VehicleType = VehicleTypes.First();
         }
-
-        #endregion
-
-        #region Public Properties
 
         public TachographDocument Document { get; set; }
 
@@ -72,12 +68,8 @@ namespace Webcal.Views
         public bool IsReadOnly { get; set; }
 
         public string LastPlateRead { get; set; }
-
-        public bool CardBeingRead = false;
-
-        #endregion
-
-        #region Public Methods
+        public DelegateCommand<object> ReadFromCardCommand { get; set; }
+        public DelegateCommand<Grid> PrintLabelCommand { get; set; }
 
         public void SetDocumentTypes(bool isDigital)
         {
@@ -86,10 +78,6 @@ namespace Webcal.Views
             DocumentTypes = DocumentType.GetDocumentTypes(isDigital);
             Document.DocumentType = Document.DocumentType ?? DocumentTypes.First();
         }
-
-        #endregion
-
-        #region Overrides
 
         protected override void InitialiseCommands()
         {
@@ -145,19 +133,19 @@ namespace Webcal.Views
             if (!allDocuments.IsNullOrEmpty())
             {
                 TachographDocument match = allDocuments.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
-                                                       .OrderByDescending(doc => doc.Created)
-                                                       .FirstOrDefault();
+                    .OrderByDescending(doc => doc.Created)
+                    .FirstOrDefault();
 
                 if (match == null) return;
                 Document.CalibrationTime = DateTime.Now;
                 Document.CardSerialNumber = match.CardSerialNumber;
                 Document.Created = DateTime.Now;
-                Document.CustomerContact =  match.CustomerContact;
+                Document.CustomerContact = match.CustomerContact;
                 Document.InspectionDate = DateTime.Now;
                 Document.InspectionInfo = match.InspectionInfo;
                 Document.IsDigital = match.IsDigital;
-                Document.MinorWorkDetails =  match.MinorWorkDetails;
-                Document.Office =  match.Office;
+                Document.MinorWorkDetails = match.MinorWorkDetails;
+                Document.Office = match.Office;
                 Document.RegistrationNumber = match.RegistrationNumber;
                 Document.SerialNumber = match.SerialNumber;
                 Document.TachographAdapterLocation = match.TachographAdapterLocation;
@@ -177,14 +165,6 @@ namespace Webcal.Views
             }
         }
 
-        #endregion
-
-        #region Commands
-
-        #region Command : Read From Card
-
-        public DelegateCommand<object> ReadFromCardCommand { get; set; }
-
         private void OnReadFromCard(object obj)
         {
             if (!CardBeingRead)
@@ -193,12 +173,8 @@ namespace Webcal.Views
 
                 try
                 {
-                    var autoRead = false;
-
-                    if (obj != null)
-                        autoRead = true;
-
-
+                    bool autoRead = obj != null;
+                    
                     IsCardReadUserInitiated = obj == null;
                     SwitchReadButtonState(false);
 
@@ -214,23 +190,21 @@ namespace Webcal.Views
                     else
                     {
                         if (string.IsNullOrEmpty(LastPlateRead))
-                        {
-                            LastPlateRead = "";}
+                            LastPlateRead = "";
 
                         if (LastPlateRead != calibrationRecord.VehicleRegistrationNumber || !autoRead)
                         {
                             LastPlateRead = calibrationRecord.VehicleRegistrationNumber;
 
                             if (RegistrationChangedCommand != null)
-                            RegistrationChangedCommand.Execute(calibrationRecord.VehicleRegistrationNumber);
+                                RegistrationChangedCommand.Execute(calibrationRecord.VehicleRegistrationNumber);
 
-                    
                             MainWindow.IsNavigationLocked = true;
-                    
+
                             Document.Convert(calibrationRecord);
-                    
+
                             PrintLabel(Document);
-                    
+
                             GenerateDump();
                         }
                     }
@@ -247,13 +221,7 @@ namespace Webcal.Views
                 }
             }
         }
-
-        #endregion
-
-        #region Command : Print Label
-
-        public DelegateCommand<Grid> PrintLabelCommand { get; set; }
-
+        
         private void OnPrintLabel(DependencyObject root)
         {
             if (root == null)
@@ -267,12 +235,6 @@ namespace Webcal.Views
 
             PrintLabel(Document);
         }
-
-        #endregion
-
-        #endregion
-
-        #region Private Methods
 
         private void SwitchReadButtonState(bool isEnabled)
         {
@@ -297,35 +259,33 @@ namespace Webcal.Views
 
             Technician defaultTechnician = Technicians.FirstOrDefault(technician => technician != null && technician.IsDefault);
             if (defaultTechnician != null)
-            {
                 Document.Technician = defaultTechnician.Name;
-            }
         }
 
         private void GenerateDump()
         {
             StatusText = Resources.TXT_GENERATING_WORKSHOP_CARD_FILE;
 
-            Task<string> task = new Task<string>(() => SmartCardReader.GetCardDump());
+            var task = new Task<string>(() => SmartCardReader.GetCardDump());
             task.ContinueWith(p =>
-                                  {
-                                      string[] cardDetails = DisplayWorkshopCardDetails(p.Result);
-                                      if (cardDetails != null)
-                                      {
-                                          WorkshopCardFile workshopCardFile = WorkshopCardFile.GetWorkshopCardFile(DateTime.Now, cardDetails[1], cardDetails[0]);
-                                          WorkshopCardFilesRepository.Add(workshopCardFile.Clone<WorkshopCardFile>());
-                                          StatusText = Resources.TXT_WORKSHOP_CARD_FILE_GENERATED;
-                                      }
-                                      else
-                                      {
-                                          StatusText = Resources.TXT_UNABLE_GENERATE_WORKSHOP_CARD;
-                                          MessageBoxHelper.ShowMessage(Resources.ERR_UNABLE_READ_SMART_CARD);
-                                          MainWindow.IsNavigationLocked = false;
-                                      }
+            {
+                string[] cardDetails = DisplayWorkshopCardDetails(p.Result);
+                if (cardDetails != null)
+                {
+                    WorkshopCardFile workshopCardFile = WorkshopCardFile.GetWorkshopCardFile(DateTime.Now, cardDetails[1], cardDetails[0]);
+                    WorkshopCardFilesRepository.Add(workshopCardFile.Clone<WorkshopCardFile>());
+                    StatusText = Resources.TXT_WORKSHOP_CARD_FILE_GENERATED;
+                }
+                else
+                {
+                    StatusText = Resources.TXT_UNABLE_GENERATE_WORKSHOP_CARD;
+                    MessageBoxHelper.ShowMessage(Resources.ERR_UNABLE_READ_SMART_CARD);
+                    MainWindow.IsNavigationLocked = false;
+                }
 
-                                      SwitchReadButtonState(true);
-                                  },
-                                  TaskScheduler.FromCurrentSynchronizationContext());
+                SwitchReadButtonState(true);
+            },
+                TaskScheduler.FromCurrentSynchronizationContext());
             task.Start();
         }
 
@@ -339,7 +299,7 @@ namespace Webcal.Views
                 XDocument document = XDocument.Parse(xml);
                 XElement first = document.Descendants("CardDump").FirstOrDefault();
 
-                List<string> result = new List<string>();
+                var result = new List<string>();
                 if (first != null)
                 {
                     result.Add(first.Element("TempPath").SafelyGetValue());
@@ -364,19 +324,14 @@ namespace Webcal.Views
 
         private static void PrintLabel(TachographDocument document)
         {
-            using (LabelHelper labelHelper = new LabelHelper())
+            using (var labelHelper = new LabelHelper())
             {
                 if (document.CalibrationTime == null)
-                {
                     document.CalibrationTime = DateTime.Now;
-                }
 
                 if (labelHelper.CanPrint())
                     labelHelper.Print(document);
             }
-
         }
-
-        #endregion
     }
 }

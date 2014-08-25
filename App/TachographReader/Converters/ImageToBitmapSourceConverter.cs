@@ -1,30 +1,26 @@
-﻿using System;
-using System.Drawing;
-using System.Globalization;
-using System.Windows.Data;
-using System.Windows.Media.Imaging;
-using Webcal.Library;
-
-namespace Webcal.Converters
+﻿namespace Webcal.Converters
 {
-    [ValueConversion(typeof(Image), typeof(BitmapSource))]
+    using System;
+    using System.Drawing;
+    using System.Globalization;
+    using System.Windows.Data;
+    using System.Windows.Media.Imaging;
+    using Library;
+
+    [ValueConversion(typeof (Image), typeof (BitmapSource))]
     public class ImageToBitmapSourceConverter : IValueConverter
     {
-        #region Implementation of IValueConverter
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is Image))
                 return null;
 
-            return ((Image)value).ToBitmapSource();
+            return ((Image) value).ToBitmapSource();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

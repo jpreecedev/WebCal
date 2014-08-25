@@ -1,33 +1,24 @@
-﻿using System;
-using System.Runtime.InteropServices;
-
-namespace Webcal.Library.MAPI
+﻿namespace Webcal.Library.MAPI
 {
+    using System;
+    using System.Runtime.InteropServices;
+
     internal class MAPIHelperInterop
     {
-        #region Constructors
+        public const int MAPI_LOGON_UI = 0x1;
 
         private MAPIHelperInterop()
         {
             // Intenationally blank
         }
 
-        #endregion Constructors
-
-        #region Constants
-
-        public const int MAPI_LOGON_UI = 0x1;
-
-        #endregion Constants
-
-        #region APIs
 
         [DllImport("MAPI32.DLL", CharSet = CharSet.Ansi)]
         public static extern int MAPILogon(IntPtr hwnd, string prf, string pw, int flg, int rsv, ref IntPtr sess);
 
-        #endregion APIs
+        [DllImport("MAPI32.DLL")]
+        public static extern int MAPISendMail(IntPtr session, IntPtr hwnd, MapiMessage message, int flg, int rsv);
 
-        #region Structs
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
         public class MapiMessage
@@ -56,11 +47,5 @@ namespace Webcal.Library.MAPI
             public int eIDSize = 0;
             public IntPtr EntryID = IntPtr.Zero;
         }
-
-        [DllImport("MAPI32.DLL")]
-        public static extern int MAPISendMail(IntPtr session, IntPtr hwnd, MapiMessage message, int flg, int rsv);
-
-        #endregion Structs
     }
-
 }

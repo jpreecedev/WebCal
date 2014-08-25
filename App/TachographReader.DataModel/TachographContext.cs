@@ -1,18 +1,13 @@
-﻿using System.Data.Entity;
-using Webcal.Shared;
-using Webcal.DataModel;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System.Data.Entity;
+    using Shared;
+
     public class TachographContext : DbContext
     {
-        public TachographContext(): base()
+        public TachographContext()
         {
             Configuration.LazyLoadingEnabled = false;
-
-            var type1 = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
-            var type2 = typeof(System.Data.Entity.SqlServerCompact.SqlCeProviderServices);
-
         }
 
         public DbSet<TachographDocument> TachographDocuments { get; set; }

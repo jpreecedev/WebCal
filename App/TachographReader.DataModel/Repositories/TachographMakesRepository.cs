@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-using Webcal.DataModel;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class TachographMakesRepository : BaseRepository, IRepository<TachographMake>
     {
-        #region Implementation of IRepository<TachographMake>
-
         public void AddOrUpdate(TachographMake entity)
         {
             Safely(() =>
             {
-                var existing = Context.TachographMakes.Find(entity.Id);
+                TachographMake existing = Context.TachographMakes.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<TachographMake>().Add(entity);
-                }
             });
         }
 
@@ -41,11 +34,11 @@ namespace Webcal.DataModel.Repositories
         public ICollection<TachographMake> GetAll()
         {
             return Safely(() =>
-                              {
-                                  List<TachographMake> items = Context.TachographMakes.Include("Models").ToList();
-                                  items.Insert(0, null);
-                                  return items;
-                              });
+            {
+                List<TachographMake> items = Context.TachographMakes.Include("Models").ToList();
+                items.Insert(0, null);
+                return items;
+            });
         }
 
         public ICollection<TachographMake> Get(Expression<Func<TachographMake, bool>> predicate)
@@ -62,7 +55,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.TachographMakes.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

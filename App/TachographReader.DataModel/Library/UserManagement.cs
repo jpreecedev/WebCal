@@ -1,12 +1,11 @@
-﻿using System;
-using System.Security.Cryptography;
-using System.Text;
-using Webcal.Shared;
-using Webcal.DataModel;
-using Webcal.DataModel.Properties;
-
-namespace Webcal.DataModel.Library
+﻿namespace Webcal.DataModel.Library
 {
+    using System;
+    using System.Security.Cryptography;
+    using System.Text;
+    using Properties;
+    using Shared;
+
     public static class UserManagement
     {
         public static string LoggedInUserName { get; set; }
@@ -58,7 +57,7 @@ namespace Webcal.DataModel.Library
             if (string.IsNullOrEmpty(username))
                 throw new ArgumentNullException();
 
-            repository.Remove(new User 
+            repository.Remove(new User
             {
                 Username = username
             });
@@ -75,9 +74,7 @@ namespace Webcal.DataModel.Library
 
             User user = repository.FirstOrDefault(u => string.Equals(LoggedInUserName, u.Username, StringComparison.CurrentCultureIgnoreCase));
             if (user == null)
-            {
                 return false;
-            }
 
             if (string.Equals(user.Password, Encrypt(oldPassword)))
             {
@@ -100,9 +97,7 @@ namespace Webcal.DataModel.Library
 
             User user = repository.FirstOrDefault(u => string.Equals(LoggedInUserName, u.Username, StringComparison.CurrentCultureIgnoreCase));
             if (user == null)
-            {
                 return false;
-            }
 
             if (string.Equals(SelectedUser.Password, oldPassword))
             {
@@ -120,10 +115,10 @@ namespace Webcal.DataModel.Library
                 throw new InvalidOperationException(Resources.EXC_USER_REPOSITORY_IS_REQUIRED);
 
             repository.Add(new User
-                               {
-                                   Username = "superuser",
-                                   Password = "–6¬•Å0³½v‰:•Z;í½z*Ë¼dÌ¢MMðÃ4QY"
-                               });
+            {
+                Username = "superuser",
+                Password = "–6¬•Å0³½v‰:•Z;í½z*Ë¼dÌ¢MMðÃ4QY"
+            });
         }
 
         public static bool HasTimedOut()

@@ -1,31 +1,21 @@
-﻿using System;
-using System.Data.Entity.Validation;
-using System.Windows;
-using Webcal.Shared;
-using Webcal.DataModel.Properties;
-using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Data.Entity.Validation;
+    using System.Windows;
+    using Properties;
+    using Shared;
+    using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
+
     public class BaseRepository
     {
-        #region Constructor
-
         public BaseRepository()
         {
             Context = new TachographContext();
         }
-
-        #endregion
-
-        #region Protected Properties
-
+        
         protected TachographContext Context { get; set; }
-
-        #endregion
-
-        #region Protected Methods
-
+        
         protected void Safely(Action action)
         {
             try
@@ -68,10 +58,6 @@ namespace Webcal.DataModel.Repositories
             return default(T);
         }
 
-        #endregion
-
-        #region Public Methods
-
         public void Save()
         {
             try
@@ -83,16 +69,10 @@ namespace Webcal.DataModel.Repositories
                 MessageBox.Show(string.Format("{0}\n\n{1}", Resources.EXC_UNABLE_SAVE_CHANGES, ExceptionPolicy.HandleException(ex)), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        #endregion
-
-        #region Implementation of IDisposable
-
+        
         public void Dispose()
         {
             Context = null;
         }
-
-        #endregion
     }
 }

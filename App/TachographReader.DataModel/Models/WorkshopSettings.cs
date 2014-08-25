@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System.Collections.Generic;
+
     public class WorkshopSettings : BaseModel
     {
-        #region Public Properties
-
         public int Id { get; set; }
 
         public bool AutoBackup { get; set; }
@@ -29,7 +27,5 @@ namespace Webcal.DataModel
         public string PhoneNumber { get; set; }
 
         public bool AutoPrintLabels { get; set; }
-
-        #endregion
     }
 }

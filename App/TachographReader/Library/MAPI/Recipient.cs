@@ -2,29 +2,23 @@ namespace Webcal.Library.MAPI
 {
     public class Recipient
     {
-        #region Public Properties
-
         /// <summary>
-        /// The email address of this recipient.
+        ///     The email address of this recipient.
         /// </summary>
         public string Address = null;
 
         /// <summary>
-        /// The display name of this recipient.
+        ///     The display name of this recipient.
         /// </summary>
         public string DisplayName = null;
 
         /// <summary>
-        /// How the recipient will receive this message (To, CC, BCC).
+        ///     How the recipient will receive this message (To, CC, BCC).
         /// </summary>
         public RecipientType RecipientType = RecipientType.To;
 
-        #endregion Public Properties
-
-        #region Constructors
-
         /// <summary>
-        /// Creates a new recipient with the specified address.
+        ///     Creates a new recipient with the specified address.
         /// </summary>
         public Recipient(string address)
         {
@@ -32,7 +26,7 @@ namespace Webcal.Library.MAPI
         }
 
         /// <summary>
-        /// Creates a new recipient with the specified address and display name.
+        ///     Creates a new recipient with the specified address and display name.
         /// </summary>
         public Recipient(string address, string displayName)
         {
@@ -41,7 +35,7 @@ namespace Webcal.Library.MAPI
         }
 
         /// <summary>
-        /// Creates a new recipient with the specified address and recipient type.
+        ///     Creates a new recipient with the specified address and recipient type.
         /// </summary>
         public Recipient(string address, RecipientType recipientType)
         {
@@ -50,7 +44,7 @@ namespace Webcal.Library.MAPI
         }
 
         /// <summary>
-        /// Creates a new recipient with the specified address, display name and recipient type.
+        ///     Creates a new recipient with the specified address, display name and recipient type.
         /// </summary>
         public Recipient(string address, string displayName, RecipientType recipientType)
         {
@@ -59,29 +53,21 @@ namespace Webcal.Library.MAPI
             RecipientType = recipientType;
         }
 
-        #endregion Constructors
-
-        #region Internal Methods
-
         internal MAPIHelperInterop.MapiRecipDesc GetInteropRepresentation()
         {
-            MAPIHelperInterop.MapiRecipDesc interop = new MAPIHelperInterop.MapiRecipDesc();
+            var interop = new MAPIHelperInterop.MapiRecipDesc();
 
             if (DisplayName == null)
-            {
                 interop.Name = Address;
-            }
             else
             {
                 interop.Name = DisplayName;
                 interop.Address = Address;
             }
 
-            interop.RecipientClass = (int)RecipientType;
+            interop.RecipientClass = (int) RecipientType;
 
             return interop;
         }
-
-        #endregion Internal Methods
     }
 }

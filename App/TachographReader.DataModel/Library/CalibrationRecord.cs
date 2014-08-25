@@ -1,13 +1,11 @@
-﻿using System;
-
-namespace Webcal.DataModel.Library
+﻿namespace Webcal.DataModel.Library
 {
+    using System;
+
     public class CalibrationRecord : BaseNotification
     {
         private DateTime _calibrationTime;
-
-        #region Public Properties
-
+        
         public DateTime CalibrationTime
         {
             get { return _calibrationTime; }
@@ -53,7 +51,5 @@ namespace Webcal.DataModel.Library
         public bool IsSelected { get; set; }
 
         public string CardSerialNumber { get; set; }
-
-        #endregion
     }
 }

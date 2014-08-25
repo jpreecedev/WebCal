@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-using Webcal.DataModel;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class RegistrationRepository : BaseRepository, IRepository<RegistrationData>
     {
-        #region Implementation of IRepository<RegistrationData>
-
         public void AddOrUpdate(RegistrationData entity)
         {
             Safely(() =>
             {
-                var existing = Context.RegistrationData.Find(entity.Id);
+                RegistrationData existing = Context.RegistrationData.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<RegistrationData>().Add(entity);
-                }
             });
         }
 
@@ -57,7 +50,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.RegistrationData.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

@@ -1,18 +1,16 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Shared;
-using Webcal.Properties;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using System.Collections.ObjectModel;
+    using System.Windows.Controls;
+    using Core;
+    using DataModel;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public class InspectionEquipmentsViewModel : BaseSettingsViewModel
     {
         private InspectionEquipment _selectedInspectionEquipment;
-
-        #region Public Properties
 
         public IRepository<InspectionEquipment> Repository { get; set; }
 
@@ -28,10 +26,9 @@ namespace Webcal.Views.Settings
             }
         }
 
-        #endregion
-
-        #region Overrides
-
+        public DelegateCommand<UserControl> AddInspectionEquipmentCommand { get; set; }
+        public DelegateCommand<object> RemoveInspectionEquipmentCommand { get; set; }
+        
         protected override void InitialiseCommands()
         {
             AddInspectionEquipmentCommand = new DelegateCommand<UserControl>(OnAddInspectionEquipment);
@@ -53,15 +50,7 @@ namespace Webcal.Views.Settings
         {
             Repository.Save();
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Add Inspection Equipment
-
-        public DelegateCommand<UserControl> AddInspectionEquipmentCommand { get; set; }
-
+        
         private void OnAddInspectionEquipment(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_INSPECTION_EQUIPMENT, OnAddInspectionEquipment);
@@ -71,18 +60,12 @@ namespace Webcal.Views.Settings
         {
             if (!string.IsNullOrEmpty(result))
             {
-                InspectionEquipment inspectionEquipment = new InspectionEquipment { Name = result };
+                var inspectionEquipment = new InspectionEquipment {Name = result};
                 InspectionEquipments.Add(inspectionEquipment);
                 Repository.Add(inspectionEquipment);
             }
         }
-
-        #endregion
-
-        #region Command : Remove Inspection Equipment
-
-        public DelegateCommand<object> RemoveInspectionEquipmentCommand { get; set; }
-
+        
         private bool CanRemoveInspectionEquipment(object obj)
         {
             return SelectedInspectionEquipment != null;
@@ -94,18 +77,10 @@ namespace Webcal.Views.Settings
             InspectionEquipments.Remove(SelectedInspectionEquipment);
         }
 
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
         private void RefreshCommands()
         {
             AddInspectionEquipmentCommand.RaiseCanExecuteChanged();
             RemoveInspectionEquipmentCommand.RaiseCanExecuteChanged();
         }
-
-        #endregion
     }
 }

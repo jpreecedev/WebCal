@@ -1,15 +1,15 @@
-using System;
-using System.Xml.Linq;
-
 namespace Webcal.DataModel.Library
 {
+    using System;
+    using System.Xml.Linq;
+
     public static class Extensions
     {
         public static bool SafelyGetValueAsBool(this XAttribute attribute)
         {
             try
             {
-                return (bool)attribute;
+                return (bool) attribute;
             }
             catch
             {

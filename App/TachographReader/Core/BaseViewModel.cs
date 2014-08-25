@@ -1,18 +1,16 @@
-﻿using System;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Threading;
-using Webcal.Library;
-using Webcal.Views;
-using Webcal.Windows;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System;
+    using System.ComponentModel;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Threading;
+    using Windows;
+    using Library;
+    using Views;
+
     public class BaseViewModel : BaseNotification, IViewModel
     {
-        #region Constructor
-
         public BaseViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
@@ -21,29 +19,20 @@ namespace Webcal.Core
             Dispatcher.CurrentDispatcher.BeginInvoke(new Action(InternalLoad), DispatcherPriority.Loaded);
         }
 
-        #endregion
-
-        #region Public Properties
-
         public bool HasChanged { get; protected set; }
 
         public MainWindowViewModel MainWindow { get; set; }
 
         public Action<bool, object> DoneCallback { get; set; }
-
-        #endregion
-
-        #region Public Methods
-
+        
         public virtual void OnClosing(bool cancelled)
         {
-
         }
 
-        #endregion
-
-        #region Protected Methods
-
+        public virtual void Dispose()
+        {
+        }
+        
         protected bool AskQuestion(string msg)
         {
             return MessageBoxHelper.AskQuestion(msg);
@@ -69,7 +58,7 @@ namespace Webcal.Core
             if (window == null || string.IsNullOrEmpty(prompt) || callback == null)
                 return;
 
-            SettingsViewModel settingsViewModel = window.DataContext as SettingsViewModel;
+            var settingsViewModel = window.DataContext as SettingsViewModel;
             if (settingsViewModel != null)
             {
                 settingsViewModel.IsPromptVisible = true;
@@ -111,10 +100,6 @@ namespace Webcal.Core
                 DoneCallback.Invoke(false, parameter);
         }
 
-        #endregion
-
-        #region Private Methods
-
         private void InternalLoad()
         {
             InitialiseCommands();
@@ -123,16 +108,5 @@ namespace Webcal.Core
             Load();
             AfterLoad();
         }
-
-        #endregion
-
-        #region IDisposable Members
-
-        public virtual void Dispose()
-        {
-
-        }
-
-        #endregion
     }
 }

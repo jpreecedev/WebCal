@@ -1,21 +1,20 @@
-﻿using System;
-using System.Drawing;
-using System.Windows;
-using StructureMap;
-using Webcal.Shared;
-using Webcal.Core;
-using Webcal.DataModel.Library;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Properties;
-using BaseNotification = Webcal.Core.BaseNotification;
-
-namespace Webcal.Windows.SignatureCaptureWindow
+﻿namespace Webcal.Windows.SignatureCaptureWindow
 {
+    using System;
+    using System.Drawing;
+    using System.Windows;
+    using Core;
+    using DataModel;
+    using DataModel.Library;
+    using Imaging;
+    using Library;
+    using Properties;
+    using Shared;
+    using StructureMap;
+    using BaseNotification = Core.BaseNotification;
+
     public class SignatureCaptureWindowViewModel : BaseNotification
     {
-        #region Constructor
-
         public SignatureCaptureWindowViewModel()
         {
             InitialiseCommands();
@@ -23,27 +22,21 @@ namespace Webcal.Windows.SignatureCaptureWindow
             Initialise();
         }
 
+        public IRepository<User> Repository { get; set; }
+
+        public User User { get; private set; }
+        
+        public DelegateCommand<Window> CloseCommand { get; set; }
+
+        public DelegateCommand<Window> SaveCommand { get; set; }
+        
+        public DelegateCommand<object> BrowseCommand { get; set; }
+
         private void Initialise()
         {
             //Must ensure we always have the most up-to-date instance of the user object
             User = Repository.First(user => string.Equals(user.Username, UserManagement.SelectedUser.Username, StringComparison.CurrentCultureIgnoreCase));
         }
-
-        #endregion
-
-        #region Public Properties
-
-        public IRepository<User> Repository { get; set; }
-
-        public User User { get; private set; }
-        
-        #endregion
-
-        #region Commands
-
-        #region Command : Close
-
-        public DelegateCommand<Window> CloseCommand { get; set; }
 
         private static void OnClose(Window window)
         {
@@ -52,12 +45,6 @@ namespace Webcal.Windows.SignatureCaptureWindow
 
             window.Close();
         }
-
-        #endregion
-
-        #region Command : Save
-
-        public DelegateCommand<Window> SaveCommand { get; set; }
 
         private void OnSave(Window window)
         {
@@ -68,12 +55,6 @@ namespace Webcal.Windows.SignatureCaptureWindow
             Repository.Save();
             window.Close();
         }
-
-        #endregion
-
-        #region Command : Browse
-
-        public DelegateCommand<object> BrowseCommand { get; set; }
 
         private void OnBrowse(object arg)
         {
@@ -86,7 +67,7 @@ namespace Webcal.Windows.SignatureCaptureWindow
 
                     try
                     {
-                        string path = Imaging.Signature.Transform(new Bitmap(User.Image));
+                        string path = Signature.Transform(new Bitmap(User.Image));
                         User.Image = ImageHelper.LoadImageSafely(path);
                     }
                     catch (Exception ex)
@@ -100,13 +81,7 @@ namespace Webcal.Windows.SignatureCaptureWindow
                 }
             }
         }
-
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
+        
         private void InitialiseCommands()
         {
             BrowseCommand = new DelegateCommand<object>(OnBrowse);
@@ -118,7 +93,5 @@ namespace Webcal.Windows.SignatureCaptureWindow
         {
             Repository = ObjectFactory.GetInstance<IRepository<User>>();
         }
-
-        #endregion
     }
 }

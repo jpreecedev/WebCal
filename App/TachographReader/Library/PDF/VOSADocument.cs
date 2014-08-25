@@ -1,17 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Resources;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Properties;
-using Webcal.Shared;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-
 namespace Webcal.Library.PDF
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Resources;
+    using Core;
+    using DataModel;
+    using iTextSharp.text;
+    using iTextSharp.text.pdf;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public static class VOSADocument
     {
         public static PDFDocument Document { get; set; }
@@ -31,7 +31,7 @@ namespace Webcal.Library.PDF
                     AddPage(i);
 
                     CreateHeader(start, end);
-                    CreateDataTable(documents.Skip(i * itemsPerPage).Take(itemsPerPage).ToList());
+                    CreateDataTable(documents.Skip(i*itemsPerPage).Take(itemsPerPage).ToList());
                     CreateFooter();
                 }
             }
@@ -47,11 +47,11 @@ namespace Webcal.Library.PDF
             //VOSA Logo
             StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/Vosa.png");
 
-            byte[] rawData = new byte[resourceStream.Stream.Length];
+            var rawData = new byte[resourceStream.Stream.Length];
             resourceStream.Stream.Read(rawData, 0, rawData.Length);
             Document.AddImage(rawData, 100, 45, Document.Width - 115, Document.Height - 60);
 
-            ColumnText column2 = new ColumnText(Document.ContentByte);
+            var column2 = new ColumnText(Document.ContentByte);
             column2.SetSimpleColumn(50, Document.Height - 50, 500, 100);
 
             Document.AddParagraph(Resources.TXT_REGISTER_OF_TACHOGRAPH_PLAQUES_ISSUES, column2, Document.GetLargeFont(true));
@@ -93,18 +93,16 @@ namespace Webcal.Library.PDF
         private static string GetCompanyName(RegistrationData registrationData)
         {
             if (!string.IsNullOrEmpty(registrationData.LicenseKey) || registrationData.ExpirationDate < DateTime.Now.Date) //Registered
-            {
                 return registrationData.CompanyName;
-            }
 
             return Resources.TXT_SKILLRAY_UNLICENSED_SOFTWARE;
         }
 
         private static void CreateDataTable(IList<TachographDocument> documents)
         {
-            PdfPTable table = new PdfPTable(10);
+            var table = new PdfPTable(10);
 
-            table.SetWidths(new float[] { 170, 100, 100, 130, 100, 100, 100, 100, 110, 150 });
+            table.SetWidths(new float[] {170, 100, 100, 130, 100, 100, 100, 100, 110, 150});
 
             Document.AddCell(table, Resources.TXT_VOSA_REGISTRATION_HEADER);
             Document.AddCell(table, Resources.TXT_VOSA_VEHICLE_TYPE_HEADER);
@@ -139,7 +137,9 @@ namespace Webcal.Library.PDF
                 else
                 {
                     for (int i = 0; i < 11; i++)
+                    {
                         AddCell(table, "");
+                    }
                 }
             }
 
@@ -157,7 +157,7 @@ namespace Webcal.Library.PDF
 
         private static void AddCell(PdfPTable table, string text)
         {
-            PdfPCell cell = new PdfPCell(new Phrase(text, Document.GetXSmallFont(false)));
+            var cell = new PdfPCell(new Phrase(text, Document.GetXSmallFont(false)));
             cell.MinimumHeight = 22;
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cell);
@@ -166,7 +166,7 @@ namespace Webcal.Library.PDF
         private static void CreateFooter()
         {
             StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/Footer.png");
-            byte[] rawData = new byte[resourceStream.Stream.Length];
+            var rawData = new byte[resourceStream.Stream.Length];
             resourceStream.Stream.Read(rawData, 0, rawData.Length);
 
             Document.AddImage(rawData, 525, 171, Document.MarginLeft + 8, 20);
@@ -182,7 +182,7 @@ namespace Webcal.Library.PDF
             if (string.IsNullOrEmpty(technicianName))
                 return string.Empty;
 
-            string[] split = technicianName.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            string[] split = technicianName.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
             return split.Aggregate(string.Empty, (current, s) => current + s.Substring(0, 1).ToUpper());
         }
 
@@ -199,7 +199,7 @@ namespace Webcal.Library.PDF
             if (documentCount <= itemsPerPage)
                 return 1;
 
-            return (documentCount / itemsPerPage) + (documentCount % itemsPerPage > 0 ? 1 : 0);
+            return (documentCount/itemsPerPage) + (documentCount%itemsPerPage > 0 ? 1 : 0);
         }
     }
 }

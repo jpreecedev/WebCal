@@ -1,19 +1,17 @@
-﻿using System.Reflection;
-using System.Windows.Controls;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.DataModel.Core;
-using Webcal.Library;
-using Webcal.Properties;
-using Webcal.Windows.ReprintWindow;
-
-namespace Webcal.Views
+﻿namespace Webcal.Views
 {
+    using System.Reflection;
+    using System.Windows.Controls;
+    using Windows.ReprintWindow;
+    using Core;
+    using DataModel;
+    using DataModel.Core;
+    using Library;
+    using Properties;
+    using StructureMap;
+
     public class HomeScreenViewModel : BaseViewModel
     {
-        #region Public Properties
-
         public double ButtonHeight { get; set; }
 
         public double ButtonWidth { get; set; }
@@ -39,10 +37,12 @@ namespace Webcal.Views
             }
         }
 
-        #endregion
-
-        #region Overrides
-
+        public DelegateCommand<object> NewDigitalTachographCommand { get; set; }
+        public DelegateCommand<object> NewAnalogueTachographDocumentCommand { get; set; }
+        public DelegateCommand<object> ReprintLabelCommand { get; set; }
+        public DelegateCommand<object> ReprintCertificateCommand { get; set; }
+        public DelegateCommand<UserControl> ResizeCommand { get; set; }
+        
         protected override void InitialiseCommands()
         {
             NewDigitalTachographCommand = new DelegateCommand<object>(OnNewDigitalDocument);
@@ -61,64 +61,32 @@ namespace Webcal.Views
         {
             SaveAutoPrintLabels();
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : New Digital Tachograph Document
-
-        public DelegateCommand<object> NewDigitalTachographCommand { get; set; }
-
+        
         private void OnNewDigitalDocument(object obj)
         {
-            NewTachographViewModel viewModel = (NewTachographViewModel)MainWindow.ShowView<NewTachographView>();
+            var viewModel = (NewTachographViewModel) MainWindow.ShowView<NewTachographView>();
             viewModel.SetDocumentTypes(true);
         }
-
-        #endregion
-
-        #region Command : New Analogue Tachograph Document
-
-        public DelegateCommand<object> NewAnalogueTachographDocumentCommand { get; set; }
-
+        
         private void OnNewAnalogueDocument(object param)
         {
-            NewTachographViewModel viewModel = (NewTachographViewModel)MainWindow.ShowView<NewAnalogueTachographView>();
+            var viewModel = (NewTachographViewModel) MainWindow.ShowView<NewAnalogueTachographView>();
             viewModel.SetDocumentTypes(false);
         }
-
-        #endregion
-
-        #region Command : Reprint Label
-
-        public DelegateCommand<object> ReprintLabelCommand { get; set; }
-
+        
         private void OnReprintLabel(object obj)
         {
-            ReprintWindow window = new ReprintWindow();
-            window.DataContext = new ReprintWindowViewModel { ReprintMode = ReprintMode.Label };
+            var window = new ReprintWindow();
+            window.DataContext = new ReprintWindowViewModel {ReprintMode = ReprintMode.Label};
             window.ShowDialog();
         }
-
-        #endregion
-
-        #region Command : Reprint Certificate
-
-        public DelegateCommand<object> ReprintCertificateCommand { get; set; }
-
+        
         private void OnReprintCertificate(object obj)
         {
-            ReprintWindow window = new ReprintWindow();
-            window.DataContext = new ReprintWindowViewModel { ReprintMode = ReprintMode.Certificate };
+            var window = new ReprintWindow();
+            window.DataContext = new ReprintWindowViewModel {ReprintMode = ReprintMode.Certificate};
             window.ShowDialog();
         }
-
-        #endregion
-
-        #region Command : Resize Command
-
-        public DelegateCommand<UserControl> ResizeCommand { get; set; }
 
         private void OnResize(UserControl userControl)
         {
@@ -147,31 +115,23 @@ namespace Webcal.Views
             }
         }
 
-        #endregion
+        private static bool GetAutoPrintLabels()
+        {
+            //This is not nice, but is necessary to prevent data loss
 
-        #endregion
-
-        #region Private Methods
-
-       private static bool GetAutoPrintLabels()
-       {
-           //This is not nice, but is necessary to prevent data loss
-
-           IGeneralSettingsRepository repository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
-           WorkshopSettings workshopSettings = repository.GetSettings();
-           return workshopSettings.AutoPrintLabels;
-       }
+            var repository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            WorkshopSettings workshopSettings = repository.GetSettings();
+            return workshopSettings.AutoPrintLabels;
+        }
 
         private void SaveAutoPrintLabels()
         {
             //This is not nice, but is necessary to prevent data loss
 
-            IGeneralSettingsRepository repository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            var repository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
             WorkshopSettings workshopSettings = repository.GetSettings();
             workshopSettings.AutoPrintLabels = AutoPrintLabels;
             repository.Save(workshopSettings);
         }
-
-        #endregion
     }
 }

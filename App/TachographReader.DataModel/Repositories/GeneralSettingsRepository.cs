@@ -1,25 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Webcal.DataModel.Core;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using Core;
+
     public class GeneralSettingsRepository : BaseRepository, IGeneralSettingsRepository
     {
-        #region Implementation of IGeneralSettingsRepository
-
         public WorkshopSettings GetSettings()
         {
             List<WorkshopSettings> workshopSettings = Safely(() => Context.WorkshopSettings.Include("BackupDaysOfWeek")).ToList();
 
             if (workshopSettings.Count == 0)
-            {
                 return null;
-            }
             if (workshopSettings.Count == 1)
-            {
                 return workshopSettings.First();
-            }
 
             return GetWorkshopSettings(workshopSettings);
         }
@@ -28,22 +23,19 @@ namespace Webcal.DataModel.Repositories
         {
             List<CustomerContact> customerSettings = Safely(() => Context.CustomerContacts).ToList();
 
-           return GetCustomerContactSettings(customerSettings, name);
+            return GetCustomerContactSettings(customerSettings, name);
         }
 
         public void Save(WorkshopSettings settings)
         {
             Safely(() =>
-                       {
-                           Context.WorkshopSettings.Attach(settings);
-                           Context.Entry(settings).State = System.Data.Entity.EntityState.Modified;
-                           Context.SaveChanges();
-                       });
+            {
+                Context.WorkshopSettings.Attach(settings);
+                Context.Entry(settings).State = EntityState.Modified;
+                Context.SaveChanges();
+            });
         }
 
-        #endregion
-
-        #region Private Methods
 
         private static WorkshopSettings GetWorkshopSettings(IEnumerable<WorkshopSettings> all)
         {
@@ -59,7 +51,5 @@ namespace Webcal.DataModel.Repositories
         {
             return all.FirstOrDefault(c => c.Name == name);
         }
-
-        #endregion
     }
 }

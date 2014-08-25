@@ -1,13 +1,11 @@
-﻿using System;
-using System.Windows;
-using Webcal.Core;
-
-namespace Webcal.Windows.DateRangePickerWindow
+﻿namespace Webcal.Windows.DateRangePickerWindow
 {
+    using System;
+    using System.Windows;
+    using Core;
+
     public class DateRangePickerWindowViewModel : BaseViewModel
     {
-        #region Constructor
-
         public DateRangePickerWindowViewModel()
         {
             SelectCommand = new DelegateCommand<Window>(OnSelect);
@@ -16,21 +14,14 @@ namespace Webcal.Windows.DateRangePickerWindow
             StartDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             EndDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
         }
-
-        #endregion
-
-        #region Public Properties
-
+        
         public DateTime StartDateTime { get; set; }
 
         public DateTime EndDateTime { get; set; }
 
-        #endregion
-
-
-        #region Command : Select
-
         public DelegateCommand<Window> SelectCommand { get; set; }
+
+        public DelegateCommand<Window> CancelCommand { get; set; }
 
         private void OnSelect(Window window)
         {
@@ -38,20 +29,10 @@ namespace Webcal.Windows.DateRangePickerWindow
             window.Close();
         }
 
-        #endregion
-
-
-        #region Command : Cancel
-
-        public DelegateCommand<Window> CancelCommand { get; set; }
-
         private void OnCancel(Window window)
         {
             window.DialogResult = false;
             window.Close();
         }
-
-        #endregion
-
     }
 }

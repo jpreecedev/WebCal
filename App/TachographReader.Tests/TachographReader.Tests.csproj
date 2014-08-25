@@ -64,9 +64,9 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq, Version=4.1.1311.615, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+    <Reference Include="Moq, Version=4.2.1408.717, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\libs\Moq.4.1.1311.0615\lib\net40\Moq.dll</HintPath>
+      <HintPath>..\..\libs\Moq.4.2.1408.0717\lib\net40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -97,16 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TachographReader.DataModel\TachographReader.DataModel.csproj">
-      <Project>{2E23907B-6B71-46F8-8CBD-7C82A1327C07}</Project>
+      <Project>{2e23907b-6b71-46f8-8cbd-7c82a1327c07}</Project>
       <Name>TachographReader.DataModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\TachographReader.Shared\TachographReader.Shared.csproj">
       <Project>{13eba933-528c-458c-9b71-8295b199f591}</Project>
       <Name>TachographReader.Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TachographReader\TachographReader.csproj">
-      <Project>{d4ee3ea7-9e62-46b1-8183-9139c33c9a20}</Project>
-      <Name>TachographReader</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

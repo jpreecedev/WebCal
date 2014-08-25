@@ -1,98 +1,98 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Threading;
-using Webcal.Core;
-using Webcal.DataModel.Library;
-using Webcal.Library;
-using Webcal.Shared;
-using Webcal.Views;
-using Webcal.Properties;
-
-namespace Webcal.Windows
+﻿namespace Webcal.Windows
 {
+    using System;
+    using System.Diagnostics;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Threading;
+    using Core;
+    using Library;
+    using Properties;
+    using Shared;
+    using Views;
+
     public class MainWindowViewModel : BaseNavigationViewModel
     {
-        #region Constructor
-
         public MainWindowViewModel()
         {
             ShowView<HomeScreenView>();
-            //MR commented out the below as per request from Andy
-            //short term update, this will be put back at some point
-            //InitialiseTimeoutTimer();
         }
-
-        private void InitialiseTimeoutTimer()
-        {
-            TimeoutTimer = new DispatcherTimer();
-            TimeoutTimer.Tick += OnTimeoutTimerTick;
-            TimeoutTimer.Interval = new TimeSpan(0, 0, 30);
-            TimeoutTimer.Start();
-        }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Settings
 
         public DelegateCommand<object> SettingsCommand { get; set; }
+        
+        public DelegateCommand<object> GenerateReportCommand { get; set; }
+        
+        public DelegateCommand<object> BackupDatabaseCommand { get; set; }
+        
+        public DelegateCommand<object> RestoreDatabaseCommand { get; set; }
 
+        public DelegateCommand<object> CopyWorkshopCardCommand { get; set; }
+
+        public DelegateCommand<Window> ExitCommand { get; set; }
+
+        public DelegateCommand<object> HomeScreenCommand { get; set; }
+        
+        public DelegateCommand<object> NewTachographCommand { get; set; }
+        
+        public DelegateCommand<object> NewAnalogueTachographCommand { get; set; }
+
+        public DelegateCommand<object> NewUndownloadabilityCommand { get; set; }
+
+        public DelegateCommand<object> TachographHistoryCommand { get; set; }
+
+        public DelegateCommand<object> UndownloadabilityHistoryCommand { get; set; }
+
+        public DelegateCommand<object> CalibrationsCommand { get; set; }
+
+        public DelegateCommand<object> DriverCardFilesCommand { get; set; }
+
+        public DelegateCommand<object> WorkshopCardFilesCommand { get; set; }
+        
+        public DelegateCommand<object> ShowWindowCommand { get; set; }
+
+        public DelegateCommand<object> ExitTrayCommand { get; set; }
+        
+        public DelegateCommand<object> CancelCommand { get; set; }
+
+        public DelegateCommand<object> NewSpeedlimiterCommand { get; set; }
+
+        public DelegateCommand<object> ViewTechnicalInformationCommand { get; set; }
+
+        public DelegateCommand<object> UpdateCommand { get; set; }
+
+        public DelegateCommand<object> SaveModalCommand { get; set; }
+
+        public DelegateCommand<object> CancelModalCommand { get; set; }
+
+        public DispatcherTimer TimeoutTimer { get; set; }
+
+        public bool IsLocked { get; set; }
+
+        public bool IsNavigationLocked { get; set; }
+        
         private void OnSettings(object param)
         {
             ShowSettingsModalView();
         }
-
-        #endregion
-
-        #region Command : Generate Report
-
-        public DelegateCommand<object> GenerateReportCommand { get; set; }
-
+       
         private void OnGenerateReport(object param)
         {
             ShowModalView<GenerateReportView>();
         }
-
-        #endregion
-
-        #region Command : Backup Database
-
-        public DelegateCommand<object> BackupDatabaseCommand { get; set; }
 
         private void OnBackupDatabase(object param)
         {
             BackupRestoreManager.BackUp();
         }
 
-        #endregion
-
-        #region Command : Restore Database
-
-        public DelegateCommand<object> RestoreDatabaseCommand { get; set; }
-
         private void OnRestoreDatabase(object param)
         {
             BackupRestoreManager.Restore();
         }
 
-        #endregion
-
-        #region Command : Copy Workshop Card
-
-        public DelegateCommand<object> CopyWorkshopCardCommand { get; set; }
-
         private void OnCopyWorkshopCard(object param)
         {
         }
-
-        #endregion
-
-        #region Command : Exit Command
-
-        public DelegateCommand<Window> ExitCommand { get; set; }
 
         private void OnExit(Window window)
         {
@@ -100,135 +100,62 @@ namespace Webcal.Windows
                 window.Close();
         }
 
-        #endregion
-
-        #region Command : New Home Screen Command
-
-        public DelegateCommand<object> HomeScreenCommand { get; set; }
-
         private void OnHomeScreenCommand(object param)
         {
             ShowView<HomeScreenView>();
         }
 
-        #endregion
-
-        #region Command : New Tachograph Command
-
-        public DelegateCommand<object> NewTachographCommand { get; set; }
-
         private void OnNewTachograph(object param)
         {
-            NewTachographViewModel viewModel = (NewTachographViewModel)ShowView<NewTachographView>();
+            var viewModel = (NewTachographViewModel) ShowView<NewTachographView>();
             viewModel.SetDocumentTypes(true);
-
         }
-
-        #endregion
-
-        #region Command : New Analogue Tachograph Command
-
-        public DelegateCommand<object> NewAnalogueTachographCommand { get; set; }
 
         private void OnNewAnalogueTachograph(object param)
         {
-            NewTachographViewModel viewModel = (NewTachographViewModel)ShowView<NewAnalogueTachographView>();
+            var viewModel = (NewTachographViewModel) ShowView<NewAnalogueTachographView>();
             viewModel.SetDocumentTypes(false);
         }
-
-        #endregion
-
-        #region Command : New Undownloadability Command
-
-        public DelegateCommand<object> NewUndownloadabilityCommand { get; set; }
 
         private void OnNewUndownloadability(object param)
         {
             ShowView<NewUndownloadabilityView>();
         }
 
-        #endregion
-
-        #region Command : Tachograph History Command
-
-        public DelegateCommand<object> TachographHistoryCommand { get; set; }
-
         private void OnTachographHistory(object param)
         {
             ShowView<TachographHistoryView>();
         }
-
-        #endregion
-
-        #region Command : Undownloadability History Command
-
-        public DelegateCommand<object> UndownloadabilityHistoryCommand { get; set; }
 
         private void OnUndownloadabilityHistory(object param)
         {
             ShowView<UndownloadabilityHistoryView>();
         }
 
-        #endregion
-
-        #region Command : Calibrations Command
-
-        public DelegateCommand<object> CalibrationsCommand { get; set; }
-
         private void OnCalibrations(object param)
         {
             ShowView<CalibrationsView>();
         }
-
-        #endregion
-
-        #region Command : Driver Card Files Command
-
-        public DelegateCommand<object> DriverCardFilesCommand { get; set; }
 
         private void OnDriverCardFiles(object param)
         {
             ShowView<DriverCardFilesView>();
         }
 
-        #endregion
-
-        #region Command : Workshop Card Files Command
-
-        public DelegateCommand<object> WorkshopCardFilesCommand { get; set; }
-
         private void OnWorkshopCardFiles(object param)
         {
             ShowView<WorkshopCardFilesView>();
         }
-
-        #endregion
-
-        #region Command : Show Window Command
-
-        public DelegateCommand<object> ShowWindowCommand { get; set; }
 
         private static void OnShowWindow(object obj)
         {
             Application.Current.MainWindow.WindowState = WindowState.Maximized;
         }
 
-        #endregion
-
-        #region Command : Exit Tray Command
-
-        public DelegateCommand<object> ExitTrayCommand { get; set; }
-
         private static void OnExitTray(object obj)
         {
             Application.Current.MainWindow.Close();
         }
-
-        #endregion
-
-        #region Command : Cancel
-
-        public DelegateCommand<object> CancelCommand { get; set; }
 
         private void OnCancel(object obj)
         {
@@ -244,92 +171,40 @@ namespace Webcal.Windows
             ShowView<HomeScreenView>();
         }
 
-        #endregion
-
-        #region Command : New Speedlimiter
-
-        public DelegateCommand<object> NewSpeedlimiterCommand { get; set; }
-
         private void OnNewSpeedlimiter(object obj)
         {
             ShowView<SpeedlimiterView>();
         }
 
-        #endregion
-
-        #region Command : View Technical Information
-
-        public DelegateCommand<object> ViewTechnicalInformationCommand { get; set; }
-
         private static void OnViewTechnicalInformation(object obj)
         {
-            ExceptionWindow.ExceptionWindow exceptionWindow = new ExceptionWindow.ExceptionWindow();
+            var exceptionWindow = new ExceptionWindow.ExceptionWindow();
             exceptionWindow.ShowDialog();
         }
-
-        #endregion
-
-        #region Command : Update
-
-        public DelegateCommand<object> UpdateCommand { get; set; }
 
         private void OnUpdate(object arg)
         {
             Process.Start("AutoUpdater.exe", "/checknow");
         }
 
-        #endregion
-
-        #region Command : Save Modal
-
-        public DelegateCommand<object> SaveModalCommand { get; set; }
-
         private void OnSaveModal(object obj)
         {
             CloseSettingsModal(true);
 
-            INewDocumentViewModel documentViewModel = View.DataContext as INewDocumentViewModel;
+            var documentViewModel = View.DataContext as INewDocumentViewModel;
             if (documentViewModel != null)
-            {
                 documentViewModel.OnModalClosed();
-            }
         }
-
-        #endregion
-
-        #region Command : Cancel Modal
-
-        public DelegateCommand<object> CancelModalCommand { get; set; }
 
         private void OnCancelModal(object obj)
         {
             CloseSettingsModal(false);
         }
-
-        #endregion
-
-        #endregion
-
-        #region Public Properties
-
-        public DispatcherTimer TimeoutTimer { get; set; }
-
-        public bool IsLocked { get; set; }
-
-        public bool IsNavigationLocked { get; set; }
-
-        #endregion
-
-        #region Public Methods
-
+        
         public IViewModel ShowView<T>() where T : UserControl, new()
         {
             return ShowView<T>(this);
         }
-
-        #endregion
-
-        #region Overrides
 
         protected override void InitialiseCommands()
         {
@@ -357,17 +232,13 @@ namespace Webcal.Windows
             SaveModalCommand = new DelegateCommand<object>(OnSaveModal);
             CancelModalCommand = new DelegateCommand<object>(OnCancelModal);
         }
-
-        #endregion
-
-        #region Private Methods
-
+        
         private void CloseSettingsModal(bool save)
         {
-            SettingsView settingsView = ModalView as SettingsView;
+            var settingsView = ModalView as SettingsView;
             if (settingsView != null)
             {
-                SettingsViewModel vm = (SettingsViewModel)settingsView.DataContext;
+                var vm = (SettingsViewModel) settingsView.DataContext;
 
                 try
                 {
@@ -382,23 +253,5 @@ namespace Webcal.Windows
             }
             IsModalWindowVisible = false;
         }
-
-        private void OnTimeoutTimerTick(object sender, EventArgs e)
-        {
-            if (IsLocked || !UserManagement.HasTimedOut()) 
-                return;
-
-            IsLocked = true;
-            LogInWindow.LogInWindow logInWindow = new LogInWindow.LogInWindow();
-            if (logInWindow.ShowDialog() == true)
-            {
-                IsLocked = false;
-                UserManagement.LastCommandExecuted = DateTime.Now;
-            }
-            else
-                Application.Current.Shutdown(0);
-        }
-
-        #endregion
     }
 }

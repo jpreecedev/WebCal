@@ -1,26 +1,23 @@
-﻿using System;
-using System.Data.Entity;
-using System.Windows;
-using StructureMap;
-using Webcal.Shared;
-using Webcal.DataModel;
-using Webcal.DataModel.Properties;
-using Webcal.DataModel.Repositories;
-using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
-using System.IO;
-
-namespace Webcal.DataModel.Core
+﻿namespace Webcal.DataModel.Core
 {
+    using System;
+    using System.Data.Entity;
+    using System.IO;
+    using System.Windows;
+    using Properties;
+    using Repositories;
+    using Shared;
+    using StructureMap;
+    using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
+
     public static class ContainerBootstrapper
     {
         public static bool Initialise(IInitializationExpression x)
         {
             try
             {
-                if (File.Exists(Environment.SpecialFolder.MyDocuments.ToString() + "\\webcal.sdf"))
-                {
+                if (File.Exists(Environment.SpecialFolder.MyDocuments + "\\webcal.sdf"))
                     Database.SetInitializer(new TachographInitialiser());
-                }
 
                 x.For<IRepository<VehicleMake>>().Use<VehicleRepository>();
                 x.For<IRepository<UndownloadabilityDocument>>().Use<UndownloadabilityDocumentRepository>();
@@ -55,9 +52,7 @@ namespace Webcal.DataModel.Core
             try
             {
                 if (!File.Exists(dbLocation))
-                {
-               Database.SetInitializer(new TachographInitialiser());
-               }
+                    Database.SetInitializer(new TachographInitialiser());
                 x.For<IRepository<VehicleMake>>().Use(() => new VehicleRepository());
                 x.For<IRepository<UndownloadabilityDocument>>().Use(() => new UndownloadabilityDocumentRepository());
                 x.For<IRepository<TachographDocument>>().Use(() => new TachographDocumentRepository());

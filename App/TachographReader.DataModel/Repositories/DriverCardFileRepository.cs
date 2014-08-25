@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.DataModel;
-using Webcal.Shared;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class DriverCardFileRepository : BaseRepository, IRepository<DriverCardFile>
     {
-        #region Implementation of IRepository<DriverCardFile>
-
         public void AddOrUpdate(DriverCardFile entity)
         {
             Safely(() =>
             {
-                var existing = Context.DriverCardFiles.Find(entity.Id);
+                DriverCardFile existing = Context.DriverCardFiles.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<DriverCardFile>().Add(entity);
-                }
             });
         }
 
@@ -57,7 +50,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.DriverCardFiles.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

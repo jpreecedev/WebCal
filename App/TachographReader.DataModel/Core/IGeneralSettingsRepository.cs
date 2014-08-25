@@ -1,6 +1,4 @@
-﻿using Webcal.DataModel;
-
-namespace Webcal.DataModel.Core
+﻿namespace Webcal.DataModel.Core
 {
     public interface IGeneralSettingsRepository
     {
@@ -9,7 +7,5 @@ namespace Webcal.DataModel.Core
         void Save(WorkshopSettings settings);
 
         CustomerContact GetCustomerSettings(string name);
-
-        //void Save(CustomerContact settings);
     }
 }

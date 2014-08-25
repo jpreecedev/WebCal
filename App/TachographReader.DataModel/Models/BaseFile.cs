@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.IO;
+
     public class BaseFile : BaseModel
     {
         public int Id { get; set; }

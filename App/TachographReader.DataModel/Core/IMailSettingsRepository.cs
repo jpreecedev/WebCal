@@ -1,6 +1,4 @@
-﻿using Webcal.DataModel;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
     public interface IMailSettingsRepository
     {

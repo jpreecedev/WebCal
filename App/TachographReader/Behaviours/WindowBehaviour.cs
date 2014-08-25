@@ -1,15 +1,15 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Interop;
-
-namespace Webcal.Behaviours
+﻿namespace Webcal.Behaviours
 {
+    using System;
+    using System.Runtime.InteropServices;
+    using System.Windows;
+    using System.Windows.Interop;
+
     public class WindowBehavior
     {
+        private const int GWL_STYLE = -16;
+        private const int WS_SYSMENU = 0x80000;
         private static readonly Type OwnerType = typeof (WindowBehavior);
-
-        #region HideCloseButton (attached property)
 
         public static readonly DependencyProperty HideCloseButtonProperty =
             DependencyProperty.RegisterAttached(
@@ -19,20 +19,30 @@ namespace Webcal.Behaviours
                 new FrameworkPropertyMetadata(false, HideCloseButtonChangedCallback));
 
         private static readonly RoutedEventHandler HideWhenLoadedDelegate = (sender, args) =>
-                                                                                {
-                                                                                    if (sender is Window == false) return;
-                                                                                    Window w = (Window) sender;
-                                                                                    HideCloseButton(w);
-                                                                                    w.Loaded -= HideWhenLoadedDelegate;
-                                                                                };
+        {
+            if (sender is Window == false) return;
+            var w = (Window) sender;
+            HideCloseButton(w);
+            w.Loaded -= HideWhenLoadedDelegate;
+        };
 
         private static readonly RoutedEventHandler ShowWhenLoadedDelegate = (sender, args) =>
-                                                                                {
-                                                                                    if (sender is Window == false) return;
-                                                                                    Window w = (Window) sender;
-                                                                                    HideCloseButton(w);
-                                                                                    w.Loaded -= ShowWhenLoadedDelegate;
-                                                                                };
+        {
+            if (sender is Window == false) return;
+            var w = (Window) sender;
+            HideCloseButton(w);
+            w.Loaded -= ShowWhenLoadedDelegate;
+        };
+
+        private static readonly DependencyPropertyKey IsHiddenCloseButtonKey =
+            DependencyProperty.RegisterAttachedReadOnly(
+                "IsHiddenCloseButton",
+                typeof (bool),
+                OwnerType,
+                new FrameworkPropertyMetadata(false));
+
+        public static readonly DependencyProperty IsHiddenCloseButtonProperty =
+            IsHiddenCloseButtonKey.DependencyProperty;
 
         [AttachedPropertyBrowsableForType(typeof (Window))]
         public static bool GetHideCloseButton(Window obj)
@@ -48,32 +58,24 @@ namespace Webcal.Behaviours
 
         private static void HideCloseButtonChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            Window window = d as Window;
+            var window = d as Window;
             if (window == null) return;
 
-            bool hideCloseButton = (bool) e.NewValue;
+            var hideCloseButton = (bool) e.NewValue;
             if (hideCloseButton && !GetIsHiddenCloseButton(window))
             {
                 if (!window.IsLoaded)
-                {
                     window.Loaded += HideWhenLoadedDelegate;
-                }
                 else
-                {
                     HideCloseButton(window);
-                }
                 SetIsHiddenCloseButton(window, true);
             }
             else if (!hideCloseButton && GetIsHiddenCloseButton(window))
             {
                 if (!window.IsLoaded)
-                {
                     window.Loaded -= ShowWhenLoadedDelegate;
-                }
                 else
-                {
                     ShowCloseButton(window);
-                }
                 SetIsHiddenCloseButton(window, false);
             }
         }
@@ -90,10 +92,6 @@ namespace Webcal.Behaviours
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) | WS_SYSMENU);
         }
 
-        #region Win32 imports
-
-        private const int GWL_STYLE = -16;
-        private const int WS_SYSMENU = 0x80000;
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
@@ -101,21 +99,6 @@ namespace Webcal.Behaviours
         [DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
-        #endregion
-
-        #endregion
-
-        #region IsHiddenCloseButton (readonly attached property)
-
-        private static readonly DependencyPropertyKey IsHiddenCloseButtonKey =
-            DependencyProperty.RegisterAttachedReadOnly(
-                "IsHiddenCloseButton",
-                typeof (bool),
-                OwnerType,
-                new FrameworkPropertyMetadata(false));
-
-        public static readonly DependencyProperty IsHiddenCloseButtonProperty =
-            IsHiddenCloseButtonKey.DependencyProperty;
 
         [AttachedPropertyBrowsableForType(typeof (Window))]
         public static bool GetIsHiddenCloseButton(Window obj)
@@ -127,7 +110,5 @@ namespace Webcal.Behaviours
         {
             obj.SetValue(IsHiddenCloseButtonKey, value);
         }
-
-        #endregion
     }
 }

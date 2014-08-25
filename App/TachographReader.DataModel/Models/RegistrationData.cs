@@ -1,9 +1,9 @@
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using Webcal.Shared;
-
 namespace Webcal.DataModel
 {
+    using System;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using Shared;
+
     [Table("RegistrationData")]
     public class RegistrationData : BaseModel
     {

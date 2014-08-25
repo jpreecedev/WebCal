@@ -1,12 +1,12 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Windows;
-using System.Windows.Resources;
-using Webcal.Properties;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using System.Drawing;
+    using System.IO;
+    using System.Windows;
+    using System.Windows.Resources;
+    using Properties;
+
     public static class DocumentHelper
     {
         private static readonly string TempByEnvironmentVariable = Environment.GetEnvironmentVariable("TEMP");
@@ -18,7 +18,7 @@ namespace Webcal.Library
                 throw new ArgumentNullException("simplePath");
 
             StreamResourceInfo streamResourceInfo = GetResourceStreamFromSimplePath(simplePath);
-            using (StreamReader reader = new StreamReader(streamResourceInfo.Stream))
+            using (var reader = new StreamReader(streamResourceInfo.Stream))
             {
                 return reader.ReadToEnd();
             }
@@ -31,7 +31,7 @@ namespace Webcal.Library
 
             image.Save(destinationPath, image.RawFormat);
         }
-        
+
         public static string GetTemporaryDirectory()
         {
             if (!string.IsNullOrEmpty(TempByEnvironmentVariable))
@@ -48,12 +48,10 @@ namespace Webcal.Library
             if (simplePath.StartsWith("../"))
                 simplePath = simplePath.Substring(3, simplePath.Length - 3);
 
-            var resourceInfo = Application.GetResourceStream(new Uri(string.Format("pack://application:,,,/{0}", simplePath), UriKind.Absolute));
+            StreamResourceInfo resourceInfo = Application.GetResourceStream(new Uri(string.Format("pack://application:,,,/{0}", simplePath), UriKind.Absolute));
 
             if (resourceInfo == null)
-            {
                 throw new InvalidOperationException(string.Format(Resources.EXC_COULD_NOT_LOCATE_RESOURCE, simplePath));
-            }
 
             return resourceInfo;
         }

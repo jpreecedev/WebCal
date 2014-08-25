@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System.ComponentModel;
+
     public class BaseNotification : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

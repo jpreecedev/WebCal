@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Webcal.Shared
+﻿namespace Webcal.Shared
 {
+    using System;
+
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = true)]
     public sealed class MacroAttribute : Attribute
     {

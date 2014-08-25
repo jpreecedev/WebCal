@@ -1,24 +1,16 @@
-﻿using Webcal.Controls;
-using Webcal.Core;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using Controls;
+    using Core;
+
     public class ShortcutSettingsViewModel : BaseViewModel
     {
-        #region Overrides
+        public DelegateCommand<Shortcut> ShortcutCommand { get; set; }
 
         protected override void InitialiseCommands()
         {
             ShortcutCommand = new DelegateCommand<Shortcut>(OnShortcut);
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Shortcut
-
-        public DelegateCommand<Shortcut> ShortcutCommand { get; set; }
 
         private static void OnShortcut(Shortcut shortcut)
         {
@@ -32,9 +24,5 @@ namespace Webcal.Views.Settings
                 shortcut.SettingsViewModel.SetSelectedTreeViewItem(shortcut.View);
             }
         }
-
-        #endregion
-
-        #endregion
     }
 }

@@ -1,15 +1,14 @@
-﻿using System;
-using System.IO;
-using System.Net;
-using System.Net.Mail;
-using System.Security.AccessControl;
-using StructureMap;
-using Webcal.DataModel;
-using Webcal.Library.MAPI;
-using Webcal.Shared;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using System.IO;
+    using System.Net;
+    using System.Net.Mail;
+    using DataModel;
+    using MAPI;
+    using Shared;
+    using StructureMap;
+
     public static class EmailHelper
     {
         public static void SendEmail(Document document, string attachmentPath)
@@ -17,7 +16,7 @@ namespace Webcal.Library
             if (document == null) return;
             if (document.CustomerContact == null || string.IsNullOrEmpty(document.CustomerContact)) return;
 
-            IMailSettingsRepository mailRepository = ObjectFactory.GetInstance<IMailSettingsRepository>();
+            var mailRepository = ObjectFactory.GetInstance<IMailSettingsRepository>();
             MailSettings settings = mailRepository.GetSettings();
 
             if (!settings.AutoEmailCertificates && !settings.PersonaliseMyEmails)
@@ -31,24 +30,20 @@ namespace Webcal.Library
             string body = MacroHelper.FindAndReplace(settings.Body, document);
 
             if (settings.PersonaliseMyEmails)
-            {
                 SendViaMAPIMessage(attachmentPath, subject, body, recipient);
-            }
             else
-            {
                 SendViaSMTPClient(document, attachmentPath, recipient, subject, body);
-            }
         }
 
         private static void SendViaMAPIMessage(string attachmentPath, string subject, string body, string recipient)
         {
             if (string.IsNullOrEmpty(recipient)) return;
 
-            MapiMailMessage mapiMailMessage = new MapiMailMessage
-                                                  {
-                                                      Subject = subject,
-                                                      Body = body
-                                                  };
+            var mapiMailMessage = new MapiMailMessage
+            {
+                Subject = subject,
+                Body = body
+            };
 
             mapiMailMessage.Recipients.Add(recipient);
 
@@ -63,7 +58,7 @@ namespace Webcal.Library
             if (document == null) return;
             if (string.IsNullOrEmpty(recipient)) return;
 
-            using (MailMessage mailMessage = new MailMessage())
+            using (var mailMessage = new MailMessage())
             {
                 mailMessage.To.Add(recipient);
                 mailMessage.Subject = subject;
@@ -73,7 +68,7 @@ namespace Webcal.Library
                 if (!string.IsNullOrEmpty(attachmentPath) && File.Exists(attachmentPath))
                     mailMessage.Attachments.Add(new Attachment(attachmentPath));
 
-                using (SmtpClient smtp = new SmtpClient())
+                using (var smtp = new SmtpClient())
                 {
                     smtp.Credentials = new NetworkCredential("webcal@tachoworkshop.co.uk", "skillraywebcal");
                     smtp.Host = "mail.yellowbus.co.uk";
@@ -84,7 +79,7 @@ namespace Webcal.Library
 
         private static string GetRecipientEmailAddress(string customerContact)
         {
-            IRepository<CustomerContact> repository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
+            var repository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
             CustomerContact customer = repository.FirstOrDefault(contact => string.Equals(customerContact, contact.Name, StringComparison.CurrentCultureIgnoreCase));
 
             if (customer == null || string.IsNullOrEmpty(customer.Email))

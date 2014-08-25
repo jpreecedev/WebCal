@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-
-namespace Webcal.Shared
+﻿namespace Webcal.Shared
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq.Expressions;
+
     public interface IRepository<T> : IDisposable
     {
         void AddOrUpdate(T entity);
@@ -15,7 +15,7 @@ namespace Webcal.Shared
         ICollection<T> GetAll();
 
         ICollection<T> Get(Expression<Func<T, bool>> predicate);
-        
+
         T FirstOrDefault(Expression<Func<T, bool>> predicate);
 
         T First(Expression<Func<T, bool>> predicate);

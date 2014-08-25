@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class ExceptionRepository : BaseRepository, IRepository<DetailedException>
     {
-        #region Implementation of IRepository<DetailedException>
-
         public void AddOrUpdate(DetailedException entity)
         {
             Safely(() =>
             {
-                var existing = Context.Exceptions.Find(entity.Id);
+                DetailedException existing = Context.Exceptions.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<DetailedException>().Add(entity);
-                }
             });
         }
 
@@ -56,7 +50,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.Exceptions.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

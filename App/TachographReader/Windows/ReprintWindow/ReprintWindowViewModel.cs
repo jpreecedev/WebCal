@@ -1,21 +1,19 @@
-﻿using System;
-using System.IO;
-using System.Windows;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Library.PDF;
-using Webcal.Properties;
-using Webcal.Shared;
-using BaseNotification = Webcal.Core.BaseNotification;
-
-namespace Webcal.Windows.ReprintWindow
+﻿namespace Webcal.Windows.ReprintWindow
 {
+    using System;
+    using System.IO;
+    using System.Windows;
+    using Core;
+    using DataModel;
+    using Library;
+    using Library.PDF;
+    using Properties;
+    using Shared;
+    using StructureMap;
+    using BaseNotification = Core.BaseNotification;
+
     public class ReprintWindowViewModel : BaseNotification
     {
-        #region Constructor
-
         public ReprintWindowViewModel()
         {
             TachographDocumentRepository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
@@ -24,10 +22,6 @@ namespace Webcal.Windows.ReprintWindow
             ReprintCommand = new DelegateCommand<Window>(OnReprint);
             CancelCommand = new DelegateCommand<Window>(OnCancel);
         }
-
-        #endregion
-
-        #region Public Properties
 
         public string TitleText
         {
@@ -53,14 +47,10 @@ namespace Webcal.Windows.ReprintWindow
         public IRepository<UndownloadabilityDocument> UndownloadabilityDocumentRepository { get; set; }
 
         public ReprintMode ReprintMode { get; set; }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Reprint
-
+        
         public DelegateCommand<Window> ReprintCommand { get; set; }
+
+        public DelegateCommand<Window> CancelCommand { get; set; }
 
         private void OnReprint(Window window)
         {
@@ -78,12 +68,6 @@ namespace Webcal.Windows.ReprintWindow
             window.Close();
         }
 
-        #endregion
-
-        #region Command : Cancel
-
-        public DelegateCommand<Window> CancelCommand { get; set; }
-
         private static void OnCancel(Window window)
         {
             if (window == null)
@@ -91,13 +75,7 @@ namespace Webcal.Windows.ReprintWindow
 
             window.Close();
         }
-
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
+        
         private Document FindDocument()
         {
             TachographDocument tachographDocument = Find(TachographDocumentRepository);
@@ -113,7 +91,7 @@ namespace Webcal.Windows.ReprintWindow
 
         private T Find<T>(IRepository<T> repository) where T : Document
         {
-            var registrationNumber = RegistrationNumber.ToUpper().Replace(" ", "");
+            string registrationNumber = RegistrationNumber.ToUpper().Replace(" ", "");
             return repository.FirstOrDefault(item => string.Equals(item.RegistrationNumber, registrationNumber, StringComparison.CurrentCultureIgnoreCase));
         }
 
@@ -122,11 +100,9 @@ namespace Webcal.Windows.ReprintWindow
             if (document == null)
                 return;
 
-            TachographDocument tachographDocument = document as TachographDocument;
+            var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
-            {
                 PrintLabel(tachographDocument);
-            }
 
             PrintCertificate(document);
             MessageBoxHelper.ShowMessage(Resources.TXT_REPRINT_COMPLETED);
@@ -137,8 +113,10 @@ namespace Webcal.Windows.ReprintWindow
             if (ReprintMode != ReprintMode.Label)
                 return;
 
-            using (LabelHelper labelHelper = new LabelHelper())
+            using (var labelHelper = new LabelHelper())
+            {
                 labelHelper.Print(tachographDocument);
+            }
         }
 
         private void PrintCertificate(Document document)
@@ -147,11 +125,7 @@ namespace Webcal.Windows.ReprintWindow
                 return;
 
             if (PDFHelper.GenerateTachographPlaque(document, true))
-            {
                 PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
-            }
         }
-
-        #endregion
     }
 }

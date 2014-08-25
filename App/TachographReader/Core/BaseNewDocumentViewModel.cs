@@ -1,28 +1,27 @@
-﻿using System;
-using System.IO;
-using System.Windows;
-using System.Windows.Controls;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Library.PDF;
-using Webcal.Properties;
-using Webcal.Shared;
-using Webcal.Views;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System;
+    using System.IO;
+    using System.Windows;
+    using System.Windows.Controls;
+    using DataModel;
+    using Library;
+    using Library.PDF;
+    using Properties;
+    using Shared;
+    using Views;
+
     public class BaseNewDocumentViewModel : BaseMainViewModel, INewDocumentViewModel
     {
-        #region Protected Properties
-
         protected SmartCardMonitor SmartCardReader
         {
             get { return SmartCardMonitor.Instance; }
         }
 
-        #endregion
+        public DelegateCommand<Grid> ExportPDFCommand { get; set; }
+        public DelegateCommand<Grid> PrintCommand { get; set; }
+        public DelegateCommand<string> RegistrationChangedCommand { get; set; }
 
-        #region Overrides
 
         public virtual void OnModalClosed()
         {
@@ -43,17 +42,8 @@ namespace Webcal.Core
 
         protected virtual void RegistrationChanged(string registrationNumber)
         {
-
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Export PDF
-
-        public DelegateCommand<Grid> ExportPDFCommand { get; set; }
-
+        
         private void OnExportPDF(Grid root)
         {
             if (!IsValid(root))
@@ -79,12 +69,6 @@ namespace Webcal.Core
             }
         }
 
-        #endregion
-
-        #region Command : Print
-
-        public DelegateCommand<Grid> PrintCommand { get; set; }
-
         private void OnPrint(Grid root)
         {
             if (!IsValid(root))
@@ -104,12 +88,6 @@ namespace Webcal.Core
             }
         }
 
-        #endregion
-
-        #region Command : Registration Changed
-
-        public DelegateCommand<string> RegistrationChangedCommand { get; set; }
-
         private void OnRegistrationChanged(string registrationNumber)
         {
             if (string.IsNullOrEmpty(registrationNumber) || registrationNumber.Length < 3)
@@ -118,26 +96,18 @@ namespace Webcal.Core
             if (SmartCardReader != null)
                 RegistrationChanged(registrationNumber);
         }
-
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
+        
         private static Document GetNewDocument(FrameworkElement root)
         {
-            BaseNewDocumentViewModel sender = root.DataContext as BaseNewDocumentViewModel;
+            var sender = root.DataContext as BaseNewDocumentViewModel;
             if (sender == null)
                 return null;
 
-            NewTachographViewModel viewModel = sender as NewTachographViewModel;
+            var viewModel = sender as NewTachographViewModel;
             if (viewModel != null)
-            {
                 return viewModel.Document;
-            }
 
-            return ((NewUndownloadabilityViewModel)sender).Document;
+            return ((NewUndownloadabilityViewModel) sender).Document;
         }
 
         private void Close()
@@ -145,7 +115,5 @@ namespace Webcal.Core
             MainWindow.IsNavigationLocked = false;
             MainWindow.ShowView<HomeScreenView>();
         }
-
-        #endregion
     }
 }

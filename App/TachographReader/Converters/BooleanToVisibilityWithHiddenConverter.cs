@@ -1,21 +1,19 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
-
-namespace Webcal.Converters
+﻿namespace Webcal.Converters
 {
-    [ValueConversion(typeof(bool), typeof(Visibility))]
+    using System;
+    using System.Globalization;
+    using System.Windows;
+    using System.Windows.Data;
+
+    [ValueConversion(typeof (bool), typeof (Visibility))]
     public class BooleanToVisibilityWithHiddenConverter : IValueConverter
     {
-        #region Implementation of IValueConverter
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is bool))
                 return value;
 
-            bool b = (bool)value;
+            var b = (bool) value;
             return b ? Visibility.Visible : Visibility.Collapsed;
         }
 
@@ -23,7 +21,5 @@ namespace Webcal.Converters
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

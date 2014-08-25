@@ -1,27 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Controls;
-using Webcal.DataModel;
-
-namespace Webcal.Controls.DayOfWeekPicker
+﻿namespace Webcal.Controls.DayOfWeekPicker
 {
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Windows;
+    using System.Windows.Controls;
+    using DataModel;
+
     public class DayOfWeekPicker : UserControl, INotifyPropertyChanged
     {
-        #region Dependency Properties
+        public static readonly DependencyProperty DaysOfWeekProperty =
+            DependencyProperty.Register("DaysOfWeek", typeof (ICollection<CustomDayOfWeek>), typeof (DayOfWeekPicker), new PropertyMetadata(null));
 
         public ICollection<CustomDayOfWeek> DaysOfWeek
         {
-            get { return (ICollection<CustomDayOfWeek>)GetValue(DaysOfWeekProperty); }
+            get { return (ICollection<CustomDayOfWeek>) GetValue(DaysOfWeekProperty); }
             set { SetValue(DaysOfWeekProperty, value); }
         }
-
-        public static readonly DependencyProperty DaysOfWeekProperty =
-            DependencyProperty.Register("DaysOfWeek", typeof(ICollection<CustomDayOfWeek>), typeof(DayOfWeekPicker), new PropertyMetadata(null));
-
-        #endregion
-
-        #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -30,8 +24,5 @@ namespace Webcal.Controls.DayOfWeekPicker
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        #endregion
-
     }
 }

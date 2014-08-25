@@ -1,28 +1,29 @@
-﻿using System;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Windows.Resources;
-using StructureMap;
-using Webcal.DataModel.Core;
-using Webcal.DataModel.Library;
-using Webcal.DataModel;
-using Webcal.Properties;
-using Webcal.Shared;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-
-namespace Webcal.Library.PDF
+﻿namespace Webcal.Library.PDF
 {
+    using System;
+    using System.Drawing.Imaging;
+    using System.IO;
+    using System.Windows.Resources;
+    using DataModel;
+    using DataModel.Core;
+    using DataModel.Library;
+    using iTextSharp.text;
+    using iTextSharp.text.pdf;
+    using Properties;
+    using Shared;
+    using StructureMap;
+    using Image = System.Drawing.Image;
+
     public static class UndownloadabilityCertificate
     {
         public static void Create(PDFDocument document, UndownloadabilityDocument undownloadabilityDocument)
         {
-            IGeneralSettingsRepository settingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            var settingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
             WorkshopSettings settings = settingsRepository.GetSettings();
 
             StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/UndownloadHeader.png");
 
-            byte[] rawData = new byte[resourceStream.Stream.Length];
+            var rawData = new byte[resourceStream.Stream.Length];
             resourceStream.Stream.Read(rawData, 0, rawData.Length);
             document.AddImage(rawData, 390, 290, 59, document.Height - 350);
 
@@ -55,11 +56,11 @@ namespace Webcal.Library.PDF
                 AbsolutePositionText(document, undownloadabilityDocument.InspectionDate.Value.ToString("dd.MM.yyyy"), 125, 195, 200, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
 
             AbsolutePositionText(document, Resources.TXT_DATE, 125, 175, 200, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
-            
+
             TryAddSignature(document, 310, 170);
             AbsolutePositionText(document, string.Format(Resources.TXT_UNDOWNLOADABILITY_SIGNATURE, undownloadabilityDocument.Technician), 322, 175, 522, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
         }
-        
+
         private static string GetLine1Text(string make, string model, string serialNumber, string registration)
         {
             return string.Format(Resources.TXT_UNDOWNLOADABILITY_LINE_1, make, model, serialNumber, registration);
@@ -86,11 +87,11 @@ namespace Webcal.Library.PDF
             document.AddParagraph(text, absoluteColumn, font, alignment);
         }
 
-        private static byte[] ToByteArray(System.Drawing.Image imageIn)
+        private static byte[] ToByteArray(Image imageIn)
         {
             try
             {
-                using (MemoryStream ms = new MemoryStream())
+                using (var ms = new MemoryStream())
                 {
                     imageIn.Save(ms, ImageFormat.Jpeg);
                     return ms.ToArray();
@@ -106,11 +107,11 @@ namespace Webcal.Library.PDF
 
         private static void TryAddSignature(PDFDocument document, int x, int y)
         {
-            IRepository<User> userRepository = ObjectFactory.GetInstance<IRepository<User>>();
+            var userRepository = ObjectFactory.GetInstance<IRepository<User>>();
             User user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {
-                System.Drawing.Image image = ImageHelper.Scale(user.Image, 50);
+                Image image = ImageHelper.Scale(user.Image, 50);
                 document.AddImage(ToByteArray(image), image.Width, image.Height, x, y);
             }
         }

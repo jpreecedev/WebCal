@@ -1,24 +1,22 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Xml.Linq;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel.Library;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Shared;
-using Webcal.Windows.ProgressWindow;
-using Webcal.Properties;
-
-namespace Webcal.Views
+﻿namespace Webcal.Views
 {
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Windows.Controls;
+    using System.Xml.Linq;
+    using Windows.ProgressWindow;
+    using Core;
+    using DataModel;
+    using DataModel.Library;
+    using Library;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public class WorkshopCardFilesViewModel : BaseFilesViewModel
     {
-        #region Public Properties
-
         public IRepository<WorkshopCardFile> WorkshopCardFilesRepository { get; set; }
 
         public string Workshop { get; set; }
@@ -26,10 +24,7 @@ namespace Webcal.Views
         public bool IsReadFromCardEnabled { get; set; }
 
         public bool IsFormEnabled { get; set; }
-
-        #endregion
-
-        #region Overrides
+        public DelegateCommand<Grid> ReadFromCardCommand { get; set; }
 
         protected override void Load()
         {
@@ -78,7 +73,7 @@ namespace Webcal.Views
 
         protected override void OnStoredFileRemoved()
         {
-            WorkshopCardFilesRepository.Remove((WorkshopCardFile)SelectedStoredFile);
+            WorkshopCardFilesRepository.Remove((WorkshopCardFile) SelectedStoredFile);
         }
 
         protected override void OnEmptyFields()
@@ -92,46 +87,32 @@ namespace Webcal.Views
             WorkshopCardFilesRepository.Save();
         }
 
-        #endregion
-
-        #region Commands
-
-        #region Command : Read From Card
-
-        public DelegateCommand<Grid> ReadFromCardCommand { get; set; }
-
         private void OnReadFromCard(Grid root)
         {
             if (root == null)
                 return;
 
-            ProgressWindow progressWindow = new ProgressWindow();
+            var progressWindow = new ProgressWindow();
 
-            Task<string> task = new Task<string>(SmartCardMonitor.Instance.GetCardDump);
+            var task = new Task<string>(SmartCardMonitor.Instance.GetCardDump);
             task.Start();
             task.ContinueWith(t =>
-                                  {
-                                      progressWindow.Close();
+            {
+                progressWindow.Close();
 
-                                      if (string.IsNullOrEmpty(t.Result))
-                                      {
-                                          ShowError(Resources.TXT_UNABLE_READ_SMART_CARD);
-                                          return;
-                                      }
+                if (string.IsNullOrEmpty(t.Result))
+                {
+                    ShowError(Resources.TXT_UNABLE_READ_SMART_CARD);
+                    return;
+                }
 
-                                      DisplayWorkshopCardDetails(t.Result);
-                                  },
-                              TaskScheduler.FromCurrentSynchronizationContext());
+                DisplayWorkshopCardDetails(t.Result);
+            },
+                TaskScheduler.FromCurrentSynchronizationContext());
 
             progressWindow.ShowDialog();
         }
-
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
+        
         private void DisplayWorkshopCardDetails(string xml)
         {
             try
@@ -163,7 +144,5 @@ namespace Webcal.Views
                 MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ex)));
             }
         }
-
-        #endregion
     }
 }

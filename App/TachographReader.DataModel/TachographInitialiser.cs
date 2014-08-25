@@ -1,10 +1,9 @@
-﻿using System.Data.Entity;
-using Webcal.DataModel.Migrations;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System.Data.Entity;
+    using Migrations;
+
     public class TachographInitialiser : MigrateDatabaseToLatestVersion<TachographContext, Configuration>
     {
-
     }
 }

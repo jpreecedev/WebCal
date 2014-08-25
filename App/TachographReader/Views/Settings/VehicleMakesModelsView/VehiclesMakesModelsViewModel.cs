@@ -1,21 +1,19 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Shared;
-using Webcal.Properties;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using System.Collections.ObjectModel;
+    using System.Windows.Controls;
+    using Core;
+    using DataModel;
+    using Library;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public class VehiclesMakesModelsViewModel : BaseSettingsViewModel
     {
         private VehicleMake _selectedMake;
         private VehicleModel _selectedModel;
-
-        #region Public Properties
-
+        
         public ObservableCollection<VehicleMake> Makes { get; set; }
 
         public IRepository<VehicleMake> Repository { get; set; }
@@ -40,10 +38,11 @@ namespace Webcal.Views.Settings
             }
         }
 
-        #endregion
-
-        #region Overrides
-
+        public DelegateCommand<UserControl> AddMakeCommand { get; set; }
+        public DelegateCommand<object> RemoveMakeCommand { get; set; }
+        public DelegateCommand<UserControl> AddModelCommand { get; set; }
+        public DelegateCommand<object> RemoveModelCommand { get; set; }
+        
         protected override void InitialiseCommands()
         {
             AddMakeCommand = new DelegateCommand<UserControl>(OnAddMake);
@@ -67,15 +66,7 @@ namespace Webcal.Views.Settings
         {
             Repository.Save();
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Add Make
-
-        public DelegateCommand<UserControl> AddMakeCommand { get; set; }
-
+        
         private void OnAddMake(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_MAKE_OF_VEHICLE, OnAddMake);
@@ -85,17 +76,11 @@ namespace Webcal.Views.Settings
         {
             if (!string.IsNullOrEmpty(result))
             {
-                VehicleMake vehicleMake = new VehicleMake {Name = result};
+                var vehicleMake = new VehicleMake {Name = result};
                 Makes.Add(vehicleMake);
                 Repository.Add(vehicleMake);
             }
         }
-
-        #endregion
-
-        #region Command : Remove Make Command
-
-        public DelegateCommand<object> RemoveMakeCommand { get; set; }
 
         private void OnRemoveMake(object obj)
         {
@@ -107,12 +92,6 @@ namespace Webcal.Views.Settings
         {
             return SelectedMake != null;
         }
-
-        #endregion
-
-        #region Command : Add Model Command
-
-        public DelegateCommand<UserControl> AddModelCommand { get; set; }
 
         private void OnAddModel(UserControl window)
         {
@@ -130,12 +109,6 @@ namespace Webcal.Views.Settings
             return SelectedMake != null;
         }
 
-        #endregion
-
-        #region Command : Remove Model Command
-
-        public DelegateCommand<object> RemoveModelCommand { get; set; }
-
         private void OnRemoveModel(object obj)
         {
             SelectedMake.Models.Remove(SelectedModel);
@@ -146,12 +119,6 @@ namespace Webcal.Views.Settings
             return SelectedModel != null;
         }
 
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
         private void RefreshCommands()
         {
             AddMakeCommand.RaiseCanExecuteChanged();
@@ -159,7 +126,5 @@ namespace Webcal.Views.Settings
             AddModelCommand.RaiseCanExecuteChanged();
             RemoveModelCommand.RaiseCanExecuteChanged();
         }
-
-        #endregion
     }
 }

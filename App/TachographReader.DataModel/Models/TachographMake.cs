@@ -1,7 +1,7 @@
-﻿using System.Collections.ObjectModel;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System.Collections.ObjectModel;
+
     public class TachographMake : Make
     {
         private ObservableCollection<TachographModel> _models;

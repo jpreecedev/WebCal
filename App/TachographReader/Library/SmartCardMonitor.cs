@@ -1,31 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Xml.Linq;
-using PCSC;
-using Webcal.DataModel.Library;
-using Webcal.Properties;
-using Webcal.Shared;
-using Webcal.Windows;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Xml.Linq;
+    using Windows;
+    using DataModel.Library;
+    using PCSC;
+    using Properties;
+    using Shared;
+
     public sealed class SmartCardMonitor : IDisposable
     {
         private static SmartCardMonitor _instance;
         private SCardMonitor _monitor;
         private List<string> _readers;
 
-        #region Implementation of ISmartCardReader
-
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
         public static SmartCardMonitor Instance
         {
-            get
+            get { return _instance ?? (_instance = new SmartCardMonitor()); }
+        }
+
+        public void Dispose()
+        {
+            if (_monitor != null)
             {
-                return _instance ?? (_instance = new SmartCardMonitor());
+                _monitor.Cancel();
+                _monitor.Dispose();
             }
         }
 
@@ -59,7 +63,7 @@ namespace Webcal.Library
                 if (string.IsNullOrEmpty(xml))
                     return null;
 
-                List<CalibrationRecord> result = new List<CalibrationRecord>();
+                var result = new List<CalibrationRecord>();
                 XDocument document = XDocument.Parse(xml);
 
                 foreach (XElement element in document.Descendants("CalibrationRecord"))
@@ -76,7 +80,6 @@ namespace Webcal.Library
                 }
 
                 return result;
-
             }
             catch (Exception ex)
             {
@@ -99,29 +102,23 @@ namespace Webcal.Library
 
             return null;
         }
-
-        #endregion
-
-        #region Private Methods
-
+        
         private void OnInitialised(object sender, CardStatusEventArgs e)
         {
             if (e.State == (SCRState.Present | SCRState.Unpowered))
-            {
                 ReadSmartCard(string.Empty);
-            }
         }
 
         private string ReadSmartCard(string arguments)
         {
             try
             {
-                ProcessStartInfo processInfo = new ProcessStartInfo("java.exe", string.Format("-jar Resources\\SmartCardReader.jar {0}", arguments))
-                                                   {
-                                                       CreateNoWindow = true,
-                                                       UseShellExecute = false,
-                                                       RedirectStandardOutput = true,
-                                                   };
+                var processInfo = new ProcessStartInfo("java.exe", string.Format("-jar Resources\\SmartCardReader.jar {0}", arguments))
+                {
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                };
 
                 using (Process proc = Process.Start(processInfo))
                 {
@@ -131,11 +128,8 @@ namespace Webcal.Library
                     proc.WaitForExit();
 
                     if (proc.ExitCode == 0)
-                    {
                         return content;
-                    }
                 }
-
             }
             catch (Exception ex)
             {
@@ -152,7 +146,7 @@ namespace Webcal.Library
 
             try
             {
-                using (SCardContext context = new SCardContext())
+                using (var context = new SCardContext())
                 {
                     context.Establish(SCardScope.System);
                     readers = context.GetReaders().ToList();
@@ -169,7 +163,8 @@ namespace Webcal.Library
 
         private static CalibrationRecord ReadCalibrationRecord(XContainer element)
         {
-            var cr = new CalibrationRecord{
+            var cr = new CalibrationRecord
+            {
                 CalibrationTime = element.Element("CalibrationTime").SafelyGetValueAsDateTime(),
                 MaxSpeed = element.Element("MaxSpeed").SafelyGetValueAsDouble(),
                 NextCalibrationDate = element.Element("NextCalibrationDate").SafelyGetValueAsDateTime(),
@@ -187,33 +182,15 @@ namespace Webcal.Library
                 KFactor = element.Element("KFactor").SafelyGetValue(),
                 TachographManufacturer = element.Element("VuManufacturer").SafelyGetValue(),
                 CardSerialNumber = element.Element("CardSerialNumber").SafelyGetValue()
-                };
+            };
             if (cr.OdometerValue == "16777215")
-            {
                 cr.OdometerValue = "";
-            }
             return cr;
-
         }
 
         private void UnlockMainWindow()
         {
             MainWindowViewModel.IsNavigationLocked = false;
         }
-
-        #endregion
-
-        #region Implementation of IDisposable
-
-        public void Dispose()
-        {
-            if (_monitor != null)
-            {
-                _monitor.Cancel();
-                _monitor.Dispose();
-            }
-        }
-
-        #endregion
     }
 }

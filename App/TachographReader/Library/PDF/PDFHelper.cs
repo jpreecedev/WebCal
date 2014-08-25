@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using StructureMap;
-using Webcal.DataModel;
-using Webcal.DataModel.Core;
-using Webcal.Properties;
-using Webcal.Shared;
-
-namespace Webcal.Library.PDF
+﻿namespace Webcal.Library.PDF
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Linq;
+    using System.Runtime.InteropServices;
+    using System.Text;
+    using DataModel;
+    using DataModel.Core;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public static class PDFHelper
     {
         public static string LastPDFOutputPath = string.Empty;
@@ -27,11 +27,11 @@ namespace Webcal.Library.PDF
 
             document.InspectionDate = DateTime.Now;
 
-            UndownloadabilityDocument undownloadabilityDocument = document as UndownloadabilityDocument;
+            var undownloadabilityDocument = document as UndownloadabilityDocument;
             if (undownloadabilityDocument != null)
                 return GenerateTachographPlaque(undownloadabilityDocument, saveToTempDirectory);
 
-            TachographDocument tachographDocument = document as TachographDocument;
+            var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
                 return GenerateTachographPlaque(tachographDocument, saveToTempDirectory);
 
@@ -46,7 +46,7 @@ namespace Webcal.Library.PDF
             DialogHelperResult result = Save(saveToTempDirectory);
             if (result.Result == true)
             {
-                using (PDFDocument pdfDocument = new PDFDocument(result.FileName))
+                using (var pdfDocument = new PDFDocument(result.FileName))
                 {
                     IPlaque plaque = document.TachographHasAdapter ? (IPlaque) new FullPlaqueDocument() : new MinimalPlaqueDocument();
                     plaque.CreateFullCertificate(pdfDocument, document);
@@ -67,7 +67,7 @@ namespace Webcal.Library.PDF
             DialogHelperResult result = Save(saveToTempDirectory);
             if (result.Result == true)
             {
-                using (PDFDocument pdfDocument = new PDFDocument(result.FileName))
+                using (var pdfDocument = new PDFDocument(result.FileName))
                 {
                     UndownloadabilityCertificate.Create(pdfDocument, document);
                 }
@@ -82,9 +82,7 @@ namespace Webcal.Library.PDF
         {
             DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PDF, "");
             if (result.Result == true)
-            {
                 VOSADocument.Create(result.FileName, documents, start, end);
-            }
         }
 
         public static bool Print(string filePath)
@@ -101,7 +99,7 @@ namespace Webcal.Library.PDF
 
             try
             {
-                Process proc = new Process();
+                var proc = new Process();
                 proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 proc.StartInfo.Verb = "Print";
                 proc.StartInfo.FileName = pdfExecutablePath;
@@ -129,7 +127,7 @@ namespace Webcal.Library.PDF
 
         private static string GetStartupArguments(string filePath)
         {
-            IPrinterSettingsRepository repository = ObjectFactory.GetInstance<IPrinterSettingsRepository>();
+            var repository = ObjectFactory.GetInstance<IPrinterSettingsRepository>();
             PrinterSettings settings = repository.GetSettings();
 
             if (settings.AlwaysAskForPrinter || string.IsNullOrEmpty(settings.DefaultPrinterName))
@@ -141,7 +139,7 @@ namespace Webcal.Library.PDF
 
         private static string FindExecutable(string path)
         {
-            StringBuilder executable = new StringBuilder(1024);
+            var executable = new StringBuilder(1024);
             int result = FindExecutable(path, string.Empty, executable);
             return result >= 32 ? executable.ToString() : string.Empty;
         }
@@ -165,7 +163,7 @@ namespace Webcal.Library.PDF
             if (saveToTempDirectory)
             {
                 string path = Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf");
-                return new DialogHelperResult { FileName = path, Result = true };
+                return new DialogHelperResult {FileName = path, Result = true};
             }
 
             DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);

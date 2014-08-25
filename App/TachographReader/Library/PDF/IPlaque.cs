@@ -1,7 +1,7 @@
-﻿using Webcal.DataModel;
-
-namespace Webcal.Library.PDF
+﻿namespace Webcal.Library.PDF
 {
+    using DataModel;
+
     public interface IPlaque
     {
         void Create(PDFDocument pdfDocument, TachographDocument tachographDocument);

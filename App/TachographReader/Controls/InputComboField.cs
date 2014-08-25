@@ -1,26 +1,92 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-
-namespace Webcal.Controls
+﻿namespace Webcal.Controls
 {
-    [TemplatePart(Name = "Combo", Type = typeof(InputComboField))]
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows;
+    using System.Windows.Controls;
+
+    [TemplatePart(Name = "Combo", Type = typeof (InputComboField))]
     public class InputComboField : BaseInputField
     {
+        public static readonly DependencyProperty LabelProperty =
+            DependencyProperty.Register("Label", typeof (string), typeof (InputComboField), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty IsEditableProperty =
+            DependencyProperty.Register("IsEditable", typeof (bool), typeof (InputComboField), new PropertyMetadata(true));
+
+        public static readonly DependencyProperty ItemsSourceProperty =
+            DependencyProperty.Register("ItemsSource", typeof (IEnumerable), typeof (InputComboField), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty DisplayMemberPathProperty =
+            DependencyProperty.Register("DisplayMemberPath", typeof (string), typeof (InputComboField), new PropertyMetadata(string.Empty));
+
+        public static readonly DependencyProperty SelectedTextProperty =
+            DependencyProperty.Register("SelectedText", typeof (string), typeof (InputComboField), new PropertyMetadata(null, ReValidate));
+
+        public static readonly DependencyProperty SelectedItemProperty =
+            DependencyProperty.Register("SelectedItem", typeof (object), typeof (InputComboField), new PropertyMetadata(null, SelectedItemChanged));
+
+        public static readonly DependencyProperty IsSynchronisedWithCurrentItemProperty =
+            DependencyProperty.Register("IsSynchronisedWithCurrentItem", typeof (bool), typeof (InputComboField), new PropertyMetadata(false));
+
+        public static readonly DependencyProperty SelectedIndexProperty =
+            DependencyProperty.Register("SelectedIndex", typeof (int), typeof (InputComboField), new PropertyMetadata(-1));
+
         private ComboBox _combo;
-
-        #region Constructor
-
+        
         static InputComboField()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(InputComboField), new FrameworkPropertyMetadata(typeof(InputComboField)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof (InputComboField), new FrameworkPropertyMetadata(typeof (InputComboField)));
         }
 
-        #endregion
+        public string Label
+        {
+            get { return (string) GetValue(LabelProperty); }
+            set { SetValue(LabelProperty, value); }
+        }
 
-        #region Overrides
+        public bool IsEditable
+        {
+            get { return (bool) GetValue(IsEditableProperty); }
+            set { SetValue(IsEditableProperty, value); }
+        }
+
+        public IEnumerable ItemsSource
+        {
+            get { return (IEnumerable) GetValue(ItemsSourceProperty); }
+            set { SetValue(ItemsSourceProperty, value); }
+        }
+
+        public string DisplayMemberPath
+        {
+            get { return (string) GetValue(DisplayMemberPathProperty); }
+            set { SetValue(DisplayMemberPathProperty, value); }
+        }
+
+        public string SelectedText
+        {
+            get { return (string) GetValue(SelectedTextProperty); }
+            set { SetValue(SelectedTextProperty, value); }
+        }
+
+        public object SelectedItem
+        {
+            get { return GetValue(SelectedItemProperty); }
+            set { SetValue(SelectedItemProperty, value); }
+        }
+
+        public bool IsSynchronisedWithCurrentItem
+        {
+            get { return (bool) GetValue(IsSynchronisedWithCurrentItemProperty); }
+            set { SetValue(IsSynchronisedWithCurrentItemProperty, value); }
+        }
+
+        public int SelectedIndex
+        {
+            get { return (int) GetValue(SelectedIndexProperty); }
+            set { SetValue(SelectedIndexProperty, value); }
+        }
 
         public override void OnApplyTemplate()
         {
@@ -34,9 +100,7 @@ namespace Webcal.Controls
             HasValidated = true;
 
             if (!IsMandatory)
-            {
                 return Valid = true;
-            }
 
             return Valid = (!string.IsNullOrEmpty(SelectedText));
         }
@@ -55,104 +119,22 @@ namespace Webcal.Controls
             base.ReValidated();
 
             //BLATENT LAST MINUTE HACK
-            IList<string> source = ItemsSource as IList<string>;
+            var source = ItemsSource as IList<string>;
 
             if (source != null && source.Any(t => t == SelectedText))
                 SelectedIndex = source.IndexOf(SelectedText);
         }
 
-        #endregion
-
-        #region Dependency Properties
-
-        public static readonly DependencyProperty LabelProperty =
-            DependencyProperty.Register("Label", typeof(string), typeof(InputComboField), new PropertyMetadata(null));
-
-        public static readonly DependencyProperty IsEditableProperty =
-            DependencyProperty.Register("IsEditable", typeof(bool), typeof(InputComboField), new PropertyMetadata(true));
-
-        public static readonly DependencyProperty ItemsSourceProperty =
-            DependencyProperty.Register("ItemsSource", typeof(IEnumerable), typeof(InputComboField), new PropertyMetadata(null));
-
-        public static readonly DependencyProperty DisplayMemberPathProperty =
-            DependencyProperty.Register("DisplayMemberPath", typeof(string), typeof(InputComboField), new PropertyMetadata(string.Empty));
-
-        public static readonly DependencyProperty SelectedTextProperty =
-            DependencyProperty.Register("SelectedText", typeof(string), typeof(InputComboField), new PropertyMetadata(null, ReValidate));
-
-        public static readonly DependencyProperty SelectedItemProperty =
-            DependencyProperty.Register("SelectedItem", typeof(object), typeof(InputComboField), new PropertyMetadata(null, SelectedItemChanged));
-
-        public static readonly DependencyProperty IsSynchronisedWithCurrentItemProperty =
-            DependencyProperty.Register("IsSynchronisedWithCurrentItem", typeof(bool), typeof(InputComboField), new PropertyMetadata(false));
-
-        public static readonly DependencyProperty SelectedIndexProperty =
-            DependencyProperty.Register("SelectedIndex", typeof(int), typeof(InputComboField), new PropertyMetadata(-1));
-
-        public string Label
-        {
-            get { return (string)GetValue(LabelProperty); }
-            set { SetValue(LabelProperty, value); }
-        }
-
-        public bool IsEditable
-        {
-            get { return (bool)GetValue(IsEditableProperty); }
-            set { SetValue(IsEditableProperty, value); }
-        }
-
-        public IEnumerable ItemsSource
-        {
-            get { return (IEnumerable)GetValue(ItemsSourceProperty); }
-            set { SetValue(ItemsSourceProperty, value); }
-        }
-
-        public string DisplayMemberPath
-        {
-            get { return (string)GetValue(DisplayMemberPathProperty); }
-            set { SetValue(DisplayMemberPathProperty, value); }
-        }
-
-        public string SelectedText
-        {
-            get { return (string)GetValue(SelectedTextProperty); }
-            set { SetValue(SelectedTextProperty, value); }
-        }
-
-        public object SelectedItem
-        {
-            get { return GetValue(SelectedItemProperty); }
-            set { SetValue(SelectedItemProperty, value); }
-        }
-
-        public bool IsSynchronisedWithCurrentItem
-        {
-            get { return (bool)GetValue(IsSynchronisedWithCurrentItemProperty); }
-            set { SetValue(IsSynchronisedWithCurrentItemProperty, value); }
-        }
-
-        public int SelectedIndex
-        {
-            get { return (int)GetValue(SelectedIndexProperty); }
-            set { SetValue(SelectedIndexProperty, value); }
-        }
-
         private static void SelectedItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            InputComboField control = d as InputComboField;
+            var control = d as InputComboField;
             if (control != null)
             {
                 if (e.NewValue == null)
-                {
                     control.SelectedText = null;
-                }
                 else
-                {
                     control.SelectedText = e.NewValue.ToString();
-                }
             }
         }
-
-        #endregion
     }
 }

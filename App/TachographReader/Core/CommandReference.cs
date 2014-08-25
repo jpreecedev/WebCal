@@ -1,9 +1,9 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Input;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Input;
+
     public class CommandReference : Freezable, ICommand
     {
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof (ICommand), typeof (CommandReference), new PropertyMetadata(OnCommandChanged));
@@ -23,7 +23,6 @@ namespace Webcal.Core
             set { SetValue(CommandParameterProperty, value); }
         }
 
-        #region ICommand Members
 
         public bool CanExecute(object parameter)
         {
@@ -38,35 +37,25 @@ namespace Webcal.Core
         }
 
         public event EventHandler CanExecuteChanged;
-
-        #endregion
-
+        
         private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            CommandReference commandReference = d as CommandReference;
+            var commandReference = d as CommandReference;
             if (commandReference != null)
             {
-                ICommand oldCommand = e.OldValue as ICommand;
-                ICommand newCommand = e.NewValue as ICommand;
+                var oldCommand = e.OldValue as ICommand;
+                var newCommand = e.NewValue as ICommand;
 
                 if (oldCommand != null)
-                {
                     oldCommand.CanExecuteChanged -= commandReference.CanExecuteChanged;
-                }
                 if (newCommand != null)
-                {
                     newCommand.CanExecuteChanged += commandReference.CanExecuteChanged;
-                }
             }
         }
-
-        #region Freezable
 
         protected override Freezable CreateInstanceCore()
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

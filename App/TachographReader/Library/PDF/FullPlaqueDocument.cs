@@ -1,11 +1,11 @@
-using System.Drawing;
-using Webcal.DataModel;
-using Webcal.Properties;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-
 namespace Webcal.Library.PDF
 {
+    using System.Drawing;
+    using DataModel;
+    using iTextSharp.text;
+    using iTextSharp.text.pdf;
+    using Properties;
+
     public class FullPlaqueDocument : BasePlaqueDocument
     {
         protected override string GetTitle()
@@ -48,7 +48,7 @@ namespace Webcal.Library.PDF
 
             AbsolutePositionText(document, Resources.TXT_SET_K_FACTOR, (startHorizontal + 150), (startVertical + 72), 550, 72, document.GetRegularFont(false));
             AbsolutePositionText(document, tachographDocument.KFactor, (startHorizontal + 150), (startVertical + 84), 550, 72, document.GetLargerFont(false));
-            
+
             //Vehicle
 
             AbsolutePositionText(document, Resources.TXT_MAKE_AND_MODEL, (startHorizontal + 150), (startVertical + 104), 550, 72, document.GetRegularFont(false));
@@ -68,8 +68,7 @@ namespace Webcal.Library.PDF
 
             AbsolutePositionText(document, string.Format(Resources.TXT_IMP_KM, tachographDocument.WFactor), (startHorizontal + 150), (startVertical + 168), 550, 72, document.GetLargerFont(false));
             AbsolutePositionText(document, string.Format(Resources.TXT_MM, tachographDocument.LFactor), (startHorizontal + 347), (startVertical + 168), 550, 72, document.GetLargerFont(false));
-
-
+            
             //M1N1 Adapter
 
             AbsolutePositionText(document, Resources.TXT_M1N1_SERIAL_NUMBER, (startHorizontal + 150), (startVertical + 188), 550, 72, document.GetRegularFont(false));
@@ -109,9 +108,9 @@ namespace Webcal.Library.PDF
 
         protected override void CreateMediumLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-            PdfPTable table = new PdfPTable(4);
+            var table = new PdfPTable(4);
             table.TotalWidth = 266;
-            table.SetWidths(new float[] { 108, 54, 54, 108 });
+            table.SetWidths(new float[] {108, 54, 54, 108});
 
             GetWorkshopImage(document, table);
 
@@ -139,9 +138,9 @@ namespace Webcal.Library.PDF
 
         protected override void CreateSmallLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-            PdfPTable table = new PdfPTable(4);
+            var table = new PdfPTable(4);
             table.TotalWidth = 136;
-            table.SetWidths(new float[] { 58, 10, 10, 58 });
+            table.SetWidths(new float[] {58, 10, 10, 58});
 
             GetSmallImage(document, table);
 

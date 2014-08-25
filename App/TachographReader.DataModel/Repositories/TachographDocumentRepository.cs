@@ -1,28 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class TachographDocumentRepository : BaseRepository, IRepository<TachographDocument>
     {
-        #region Implementation of IRepository<TachographDocument>
-
         public void AddOrUpdate(TachographDocument entity)
         {
             Safely(() =>
             {
-                var existing = Context.TachographDocuments.Find(entity.Id);
+                TachographDocument existing = Context.TachographDocuments.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(existing).CurrentValues.SetValues(entity);
-                }
                 else
-                {
                     Context.Set<TachographDocument>().Add(entity);
-                }
             });
         }
 
@@ -55,7 +49,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.TachographDocuments.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

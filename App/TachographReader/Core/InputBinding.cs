@@ -1,7 +1,7 @@
-﻿using System.Windows.Data;
-
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
+    using System.Windows.Data;
+
     public class InputBinding : Binding
     {
         public InputBinding()

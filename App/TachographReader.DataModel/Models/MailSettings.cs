@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class MailSettings : BaseModel
     {
         public int Id { get; set; }
@@ -12,10 +12,7 @@ namespace Webcal.DataModel
 
         public bool AllowEditingOfEmail
         {
-            get
-            {
-                return (AutoEmailCertificates || PersonaliseMyEmails);
-            }
+            get { return (AutoEmailCertificates || PersonaliseMyEmails); }
         }
 
         [MaxLength]

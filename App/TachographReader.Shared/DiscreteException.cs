@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Webcal.Shared
+﻿namespace Webcal.Shared
 {
+    using System;
+
     [Serializable]
     public class DiscreteException
     {

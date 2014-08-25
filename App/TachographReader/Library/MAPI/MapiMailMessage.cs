@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Threading;
-
-namespace Webcal.Library.MAPI
+﻿namespace Webcal.Library.MAPI
 {
+    using System;
+    using System.Collections;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Runtime.InteropServices;
+    using System.Threading;
+
     public class MapiMailMessage
     {
-        #region Private Members
-
         private readonly ManualResetEvent _manualResetEvent;
-
-        #endregion
-
-        #region Constructor
-
+        
         public MapiMailMessage()
         {
             Files = new ArrayList();
@@ -37,10 +31,6 @@ namespace Webcal.Library.MAPI
             Body = body;
         }
 
-        #endregion
-
-        #region Public Properties
-
         public string Subject { get; set; }
 
         public string Body { get; set; }
@@ -48,31 +38,22 @@ namespace Webcal.Library.MAPI
         public RecipientCollection Recipients { get; private set; }
 
         public ArrayList Files { get; private set; }
-
-        #endregion
-
-        #region Public Methods
-
+        
         public void ShowDialog()
         {
-            Thread t = new Thread(ShowMail) { IsBackground = true }; /*ApartmentState = ApartmentState.STA */
+            var t = new Thread(ShowMail) {IsBackground = true}; /*ApartmentState = ApartmentState.STA */
             t.Start();
 
             _manualResetEvent.WaitOne();
             _manualResetEvent.Reset();
         }
 
-        #endregion
-
-        #region Private Methods
-
         private void ShowMail()
         {
-            MAPIHelperInterop.MapiMessage message = new MAPIHelperInterop.MapiMessage();
+            var message = new MAPIHelperInterop.MapiMessage();
 
             using (RecipientCollection.InteropRecipientCollection interopRecipients = Recipients.GetInteropRepresentation())
             {
-
                 message.Subject = Subject;
                 message.NoteText = Body;
 
@@ -102,9 +83,7 @@ namespace Webcal.Library.MAPI
 
                 // Check for error
                 if (error != SUCCESS_SUCCESS)
-                {
                     LogErrorMapi(error);
-                }
             }
         }
 
@@ -112,15 +91,15 @@ namespace Webcal.Library.MAPI
         {
             if (message.Files == IntPtr.Zero) return;
 
-            Type fileDescType = typeof(MapiFileDescriptor);
+            Type fileDescType = typeof (MapiFileDescriptor);
             int fsize = Marshal.SizeOf(fileDescType);
 
             // Get the ptr to the files
-            int runptr = (int)message.Files;
+            var runptr = (int) message.Files;
             // Release each file
             for (int i = 0; i < message.FileCount; i++)
             {
-                Marshal.DestroyStructure((IntPtr)runptr, fileDescType);
+                Marshal.DestroyStructure((IntPtr) runptr, fileDescType);
                 runptr += fsize;
             }
             // Release the file
@@ -131,27 +110,23 @@ namespace Webcal.Library.MAPI
         {
             fileCount = 0;
             if (Files == null)
-            {
                 return IntPtr.Zero;
-            }
             if ((Files.Count <= 0) || (Files.Count > 100))
-            {
                 return IntPtr.Zero;
-            }
 
-            Type atype = typeof(MapiFileDescriptor);
+            Type atype = typeof (MapiFileDescriptor);
             int asize = Marshal.SizeOf(atype);
-            IntPtr ptra = Marshal.AllocHGlobal(Files.Count * asize);
+            IntPtr ptra = Marshal.AllocHGlobal(Files.Count*asize);
 
-            MapiFileDescriptor mfd = new MapiFileDescriptor();
+            var mfd = new MapiFileDescriptor();
             mfd.position = -1;
-            int runptr = (int)ptra;
+            var runptr = (int) ptra;
             for (int i = 0; i < Files.Count; i++)
             {
-                string path = Files[i] as string;
+                var path = Files[i] as string;
                 mfd.name = Path.GetFileName(path);
                 mfd.path = path;
-                Marshal.StructureToPtr(mfd, (IntPtr)runptr, false);
+                Marshal.StructureToPtr(mfd, (IntPtr) runptr, false);
                 runptr += asize;
             }
 
@@ -288,7 +263,5 @@ namespace Webcal.Library.MAPI
             public string name;
             public IntPtr type = IntPtr.Zero;
         }
-
-        #endregion
     }
 }

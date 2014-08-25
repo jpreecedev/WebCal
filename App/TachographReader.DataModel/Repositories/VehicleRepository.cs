@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.DataModel;
-using Webcal.Shared;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class VehicleRepository : BaseRepository, IRepository<VehicleMake>
     {
-        #region Implementation of IRepository<VehicleMake>
-
         public void AddOrUpdate(VehicleMake entity)
         {
             Safely(() =>
             {
-                var existing = Context.VehicleMakes.Find(entity.Id);
+                VehicleMake existing = Context.VehicleMakes.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<VehicleMake>().Add(entity);
-                }
             });
         }
 
@@ -41,20 +34,19 @@ namespace Webcal.DataModel.Repositories
         public ICollection<VehicleMake> GetAll()
         {
             return Safely(() =>
-                              {
-                                  //Workaround to avoid the selected item being defaulted in
-                                  List<VehicleMake> items = Context.VehicleMakes.Include("Models").ToList();
-                                  
+            {
+                //Workaround to avoid the selected item being defaulted in
+                List<VehicleMake> items = Context.VehicleMakes.Include("Models").ToList();
+                
+                foreach (VehicleMake item in items)
+                {
+                    item.Models.Insert(0, new VehicleModel());
+                }
 
-                                  foreach (var item in items)
-                                  {
-                                      item.Models.Insert(0, new VehicleModel());
-                                  }
+                items.Insert(0, null);
 
-                                  items.Insert(0, null);
-
-                                  return items;
-                              });
+                return items;
+            });
         }
 
         public ICollection<VehicleMake> Get(Expression<Func<VehicleMake, bool>> predicate)
@@ -71,7 +63,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.VehicleMakes.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

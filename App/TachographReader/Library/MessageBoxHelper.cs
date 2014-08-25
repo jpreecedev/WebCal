@@ -1,9 +1,9 @@
-﻿using System.Windows;
-using Webcal.Properties;
-using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System.Windows;
+    using Properties;
+    using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
+
     public static class MessageBoxHelper
     {
         public static bool AskQuestion(string msg)

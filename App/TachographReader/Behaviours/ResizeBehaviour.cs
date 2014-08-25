@@ -1,15 +1,15 @@
-﻿using System.Windows;
-using System.Windows.Input;
-
-namespace Webcal.Behaviours
+﻿namespace Webcal.Behaviours
 {
+    using System.Windows;
+    using System.Windows.Input;
+
     public class ResizeBehaviour
     {
         public static DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached("Command", typeof(ICommand), typeof(ResizeBehaviour), new UIPropertyMetadata(CommandChanged));
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (ResizeBehaviour), new UIPropertyMetadata(CommandChanged));
 
         public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.RegisterAttached("CommandParameter", typeof(object), typeof(ResizeBehaviour));
+            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (ResizeBehaviour));
 
         public static object GetCommandParameter(DependencyObject obj)
         {
@@ -28,27 +28,23 @@ namespace Webcal.Behaviours
 
         private static void CommandChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            FrameworkElement control = target as FrameworkElement;
+            var control = target as FrameworkElement;
             if (control != null)
             {
                 if ((e.NewValue != null) && (e.OldValue == null))
-                {
                     control.SizeChanged += OnSizeChanged;
-                }
                 else if ((e.NewValue == null) && (e.OldValue != null))
-                {
                     control.SizeChanged -= OnSizeChanged;
-                }
             }
         }
 
         private static void OnSizeChanged(object sender, RoutedEventArgs e)
         {
-            FrameworkElement control = sender as FrameworkElement;
+            var control = sender as FrameworkElement;
             if (control == null)
                 return;
 
-            ICommand command = (ICommand)control.GetValue(CommandProperty);
+            var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(control.GetValue(CommandParameterProperty));
         }
     }

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System;
+
     public class BaseModel : BaseNotification, ICloneable
     {
         public virtual object Clone()
@@ -11,7 +11,7 @@ namespace Webcal.DataModel
 
         public virtual T Clone<T>()
         {
-            return (T)Clone();
+            return (T) Clone();
         }
     }
 }

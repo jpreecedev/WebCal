@@ -60,8 +60,7 @@ namespace Webcal.Imaging
             get { return formatTranslations; }
         }
 
-        #region Public Propertis
-
+        
         /// <summary>
         /// Red component's input range.
         /// </summary>
@@ -200,8 +199,7 @@ namespace Webcal.Imaging
             }
         }
 
-        #endregion
-
+        
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LevelsLinear"/> class.

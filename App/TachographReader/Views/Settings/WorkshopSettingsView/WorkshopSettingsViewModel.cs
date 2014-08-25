@@ -1,20 +1,21 @@
-﻿using System;
-using System.Globalization;
-using System.IO;
-using System.Windows.Forms;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel.Core;
-using Webcal.DataModel;
-using Webcal.Properties;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using System;
+    using System.IO;
+    using System.Windows.Forms;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using Core;
+    using DataModel;
+    using DataModel.Core;
+    using Properties;
+    using StructureMap;
+
     public class WorkshopSettingsViewModel : BaseSettingsViewModel
     {
-  
+        private string _advertImagePath;
+        private string _logoImagePath;
+
         public WorkshopSettingsViewModel()
         {
             GeneralSettingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
@@ -34,7 +35,6 @@ namespace Webcal.Views.Settings
             }
         }
 
-
         public IGeneralSettingsRepository GeneralSettingsRepository { get; set; }
 
         public DelegateCommand<object> BrowseCommand { get; set; }
@@ -42,31 +42,9 @@ namespace Webcal.Views.Settings
 
         public WorkshopSettings Settings { get; set; }
 
-        private ImageSource _logo;
+        public ImageSource CompanyLogo { get; set; }
 
-        private string _logoImagePath;
-
-        public ImageSource CompanyLogo
-        {
-            get { return _logo; }
-            set
-            {
-                _logo = value;
-            }
-        }
-
-        private string _advertImagePath;
-
-        private ImageSource _advert;
-
-        public ImageSource AdvertisingImage
-        {
-            get { return _advert; }
-            set
-            {
-                _advert = value;
-            }
-        } 
+        public ImageSource AdvertisingImage { get; set; }
 
         protected override void Load()
         {
@@ -78,21 +56,17 @@ namespace Webcal.Views.Settings
             GeneralSettingsRepository.Save(Settings);
         }
 
-
-
         private void OnBrowse(object obj)
         {
-
             var op = new OpenFileDialog();
-            var folderpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "ContactImages");
+            string folderpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "ContactImages");
 
             op.Title = Resources.WorkshopSettingsViewModel_OnBrowse_Select_a_picture;
             op.Filter = Resources.SELECT_BITMAP_IMAGE;
 
-            var myResult = op.ShowDialog() == DialogResult.OK;
+            bool myResult = op.ShowDialog() == DialogResult.OK;
             if (myResult)
             {
-
                 if (!Directory.Exists(folderpath)) Directory.CreateDirectory(folderpath);
                 foreach (string file in Directory.GetFiles(folderpath))
                 {
@@ -104,19 +78,16 @@ namespace Webcal.Views.Settings
                 _logoImagePath = ImageFilePath();
                 CompanyLogo = BitmapFrame.Create(new Uri(op.FileName), BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
             }
-
         }
-        
+
         private static string ImageFilePath()
         {
-            var folderpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "ContactImages");
+            string folderpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "ContactImages");
 
             string companyLogo = null;
 
             if (!Directory.Exists(folderpath))
-            {
                 Directory.CreateDirectory(folderpath);
-            }
 
             foreach (string file in Directory.GetFiles(folderpath))
             {
@@ -125,24 +96,17 @@ namespace Webcal.Views.Settings
             return companyLogo;
         }
 
-
-
-
-
-
         private void OnAdvertBrowse(object obj)
         {
-
             var op = new OpenFileDialog();
-            var folderpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "AdvertImages");
+            string folderpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "AdvertImages");
 
             op.Title = Resources.WorkshopSettingsViewModel_OnBrowse_Select_an_advert;
             op.Filter = Resources.SELECT_BITMAP_IMAGE;
 
-            var myResult = op.ShowDialog() == DialogResult.OK;
+            bool myResult = op.ShowDialog() == DialogResult.OK;
             if (myResult)
             {
-
                 if (!Directory.Exists(folderpath)) Directory.CreateDirectory(folderpath);
                 foreach (string file in Directory.GetFiles(folderpath))
                 {
@@ -154,21 +118,16 @@ namespace Webcal.Views.Settings
                 _advertImagePath = AdvertFilePath();
                 AdvertisingImage = BitmapFrame.Create(new Uri(op.FileName), BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
             }
-
         }
-
-
 
         private static string AdvertFilePath()
         {
-            var folderpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "AdvertImages");
+            string folderpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "AdvertImages");
 
             string advertLogo = null;
 
             if (!Directory.Exists(folderpath))
-            {
                 Directory.CreateDirectory(folderpath);
-            }
 
             foreach (string file in Directory.GetFiles(folderpath))
             {
@@ -176,6 +135,5 @@ namespace Webcal.Views.Settings
             }
             return advertLogo;
         }
-
     }
 }

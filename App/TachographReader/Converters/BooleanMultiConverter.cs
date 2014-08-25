@@ -1,14 +1,12 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Data;
-
-namespace Webcal.Converters
+﻿namespace Webcal.Converters
 {
+    using System;
+    using System.Globalization;
+    using System.Linq;
+    using System.Windows.Data;
+
     public class BooleanMultiConverter : IMultiValueConverter
     {
-        #region Implementation of IMultiValueConverter
-
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             if (values == null)
@@ -21,7 +19,5 @@ namespace Webcal.Converters
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

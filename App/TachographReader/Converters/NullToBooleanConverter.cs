@@ -1,14 +1,12 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Data;
-
-namespace Webcal.Converters
+﻿namespace Webcal.Converters
 {
-    [ValueConversion(typeof(object), typeof(bool))]
+    using System;
+    using System.Globalization;
+    using System.Windows.Data;
+
+    [ValueConversion(typeof (object), typeof (bool))]
     public class NullToBooleanConverter : IValueConverter
     {
-        #region Implementation of IValueConverter
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return value == null;
@@ -18,7 +16,5 @@ namespace Webcal.Converters
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

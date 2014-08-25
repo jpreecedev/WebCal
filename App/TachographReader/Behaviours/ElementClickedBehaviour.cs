@@ -1,12 +1,12 @@
-﻿using System.Windows;
-using System.Windows.Input;
-
-namespace Webcal.Behaviours
+﻿namespace Webcal.Behaviours
 {
+    using System.Windows;
+    using System.Windows.Input;
+
     public class ElementClickedBehaviour
     {
         public static DependencyProperty CommandProperty =
-          DependencyProperty.RegisterAttached("Command", typeof(ICommand), typeof(ElementClickedBehaviour), new UIPropertyMetadata(CommandChanged));
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (ElementClickedBehaviour), new UIPropertyMetadata(CommandChanged));
 
         public static void SetCommand(DependencyObject target, ICommand value)
         {
@@ -15,27 +15,23 @@ namespace Webcal.Behaviours
 
         private static void CommandChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            FrameworkElement control = target as FrameworkElement;
+            var control = target as FrameworkElement;
             if (control != null)
             {
                 if ((e.NewValue != null) && (e.OldValue == null))
-                {
                     control.MouseLeftButtonDown += OnButtonClick;
-                }
                 else if ((e.NewValue == null) && (e.OldValue != null))
-                {
                     control.MouseLeftButtonDown -= OnButtonClick;
-                }
             }
         }
 
         private static void OnButtonClick(object sender, RoutedEventArgs e)
         {
-            FrameworkElement control = sender as FrameworkElement;
+            var control = sender as FrameworkElement;
             if (control == null)
                 return;
 
-            ICommand command = (ICommand)control.GetValue(CommandProperty);
+            var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(null);
         }
     }

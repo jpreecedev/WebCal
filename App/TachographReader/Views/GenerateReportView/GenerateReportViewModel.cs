@@ -1,20 +1,18 @@
-﻿using System;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using Webcal.Core;
-using Webcal.Library;
-using Webcal.Properties;
-
-namespace Webcal.Views
+﻿namespace Webcal.Views
 {
+    using System;
+    using System.Linq;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Core;
+    using Library;
+    using Properties;
+
     public class GenerateReportViewModel : BaseNavigationViewModel
     {
-        private bool _isDocumentExpireThisMonthChecked;
         private bool _isDocumentExpireNextMonthChecked;
-
-        #region Constructor
-
+        private bool _isDocumentExpireThisMonthChecked;
+        
         public GenerateReportViewModel()
         {
             IsExpiringDocumentsChecked = true;
@@ -22,11 +20,7 @@ namespace Webcal.Views
             IsQuickSelectionChecked = true;
             IsDocumentExpireThisMonthChecked = true;
         }
-
-        #endregion
-
-        #region Public Properties
-
+        
         public bool IsExpiringDocumentsChecked { get; set; }
 
         public bool IsDocumentStatisticsChecked { get; set; }
@@ -69,22 +63,13 @@ namespace Webcal.Views
             }
         }
 
-        #endregion
 
-        #region Overrides
+        public DelegateCommand<Grid> GenerateReportCommand { get; set; }
 
         protected override void InitialiseCommands()
         {
             GenerateReportCommand = new DelegateCommand<Grid>(OnGenerateReport);
         }
-
-        #endregion
-
-        #region Commands
-
-        #region Command : Generate Report
-
-        public DelegateCommand<Grid> GenerateReportCommand { get; set; }
 
         private void OnGenerateReport(Grid root)
         {
@@ -111,12 +96,6 @@ namespace Webcal.Views
             }
         }
 
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
         private void SetStartEndDates(bool thisMonth)
         {
             if (thisMonth)
@@ -142,7 +121,5 @@ namespace Webcal.Views
 
             return isValid;
         }
-
-        #endregion
     }
 }

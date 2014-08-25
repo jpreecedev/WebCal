@@ -1,12 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using Webcal.DataModel;
-using Webcal.Shared;
-
-namespace Webcal.Library
+﻿namespace Webcal.Library
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text.RegularExpressions;
+    using DataModel;
+    using Shared;
+
     public static class MacroHelper
     {
         public static string FindAndReplace(string content, Document document)
@@ -23,7 +23,7 @@ namespace Webcal.Library
         {
             PropertyInfo property = document.GetType().GetProperties().FirstOrDefault(prop =>
             {
-                MacroAttribute attribute = Attribute.GetCustomAttribute(prop, typeof(MacroAttribute)) as MacroAttribute;
+                var attribute = Attribute.GetCustomAttribute(prop, typeof (MacroAttribute)) as MacroAttribute;
                 return attribute != null && string.Equals(mapping, attribute.Placeholder, StringComparison.CurrentCultureIgnoreCase);
             });
 

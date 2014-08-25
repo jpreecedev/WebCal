@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-using Webcal.DataModel;
-
 namespace TachographReader.Tests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Webcal.DataModel;
+    using Webcal.Shared;
+
     public class MockUserRepository : IRepository<User>
     {
         private readonly IList<User> _users;
@@ -16,16 +16,10 @@ namespace TachographReader.Tests
             _users = new List<User>();
         }
 
-        #region Implementation of IDisposable
-
         public void Dispose()
         {
             throw new NotImplementedException();
         }
-
-        #endregion
-
-        #region Implementation of IRepository<User>
 
         public void AddOrUpdate(User entity)
         {
@@ -66,7 +60,5 @@ namespace TachographReader.Tests
         {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

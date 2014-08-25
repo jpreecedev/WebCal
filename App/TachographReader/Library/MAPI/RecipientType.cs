@@ -5,12 +5,12 @@
         To = 1,
 
         /// <summary>
-        /// Recipient will be in the CC list.
+        ///     Recipient will be in the CC list.
         /// </summary>
         CC = 2,
 
         /// <summary>
-        /// Recipient will be in the BCC list.
+        ///     Recipient will be in the BCC list.
         /// </summary>
         BCC = 3
     };

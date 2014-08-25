@@ -1,6 +1,4 @@
-﻿using Webcal.DataModel;
-
-namespace Webcal.DataModel.Core
+﻿namespace Webcal.DataModel.Core
 {
     public interface IPrinterSettingsRepository
     {

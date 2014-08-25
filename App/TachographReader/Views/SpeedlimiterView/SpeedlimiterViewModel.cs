@@ -1,7 +1,7 @@
-﻿using Webcal.Core;
-
-namespace Webcal.Views
+﻿namespace Webcal.Views
 {
+    using Core;
+
     public class SpeedlimiterViewModel : BaseNewDocumentViewModel
     {
     }

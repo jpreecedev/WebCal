@@ -1,14 +1,12 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
-
-namespace Webcal.Shared
+﻿namespace Webcal.Shared
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.Runtime.Serialization;
+
     [DataContract, Serializable]
     public class DetailedException
     {
-        #region Public Properties
-
         [DataMember]
         public int Id { get; set; }
 
@@ -25,8 +23,5 @@ namespace Webcal.Shared
 
         [DataMember]
         public DateTime Occurred { get; set; }
-
-        #endregion
     }
-
 }

@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using Webcal.Shared;
-using Webcal.DataModel;
-
-namespace Webcal.DataModel.Repositories
+﻿namespace Webcal.DataModel.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Shared;
+
     public class InspectionMethodsRepository : BaseRepository, IRepository<InspectionMethod>
     {
-        #region Implementation of IRepository<InspectionMethod>
-
         public void AddOrUpdate(InspectionMethod entity)
         {
             Safely(() =>
             {
-                var existing = Context.InspectionMethods.Find(entity.Id);
+                InspectionMethod existing = Context.InspectionMethods.Find(entity.Id);
                 if (existing != null)
-                {
                     Context.Entry(entity).State = EntityState.Modified;
-                }
                 else
-                {
                     Context.Set<InspectionMethod>().Add(entity);
-                }
             });
         }
 
@@ -57,7 +50,5 @@ namespace Webcal.DataModel.Repositories
         {
             return Safely(() => Context.InspectionMethods.First(predicate.Compile()));
         }
-
-        #endregion
     }
 }

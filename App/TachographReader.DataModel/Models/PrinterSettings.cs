@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
     [Table("PrinterSettings")]
     public class PrinterSettings : BaseModel
     {

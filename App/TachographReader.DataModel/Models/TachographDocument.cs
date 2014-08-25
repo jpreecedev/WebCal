@@ -1,26 +1,24 @@
-﻿using System;
-using Webcal.DataModel.Library;
-using Webcal.Shared;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System;
+    using Library;
+    using Shared;
+
     public class TachographDocument : Document
     {
-        #region Public Properties
-
         [Macro(Placeholder = "{VIN}", Meaning = "Vehicle Identification Number")]
         public string VIN { get; set; }
 
-        [Macro(Placeholder="{VehMake}", Meaning="Vehicle Make")]
+        [Macro(Placeholder = "{VehMake}", Meaning = "Vehicle Make")]
         public string VehicleMake { get; set; }
 
-        [Macro(Placeholder="{VehModel}", Meaning="Vehicle Model")]
+        [Macro(Placeholder = "{VehModel}", Meaning = "Vehicle Model")]
         public string VehicleModel { get; set; }
 
-        [Macro(Placeholder="{TyreSize}", Meaning="Tyre Size")]
+        [Macro(Placeholder = "{TyreSize}", Meaning = "Tyre Size")]
         public string TyreSize { get; set; }
 
-        [Macro(Placeholder="{VehType}", Meaning="Vehicle Type")]
+        [Macro(Placeholder = "{VehType}", Meaning = "Vehicle Type")]
         public string VehicleType { get; set; }
 
         [Macro(Placeholder = "{WFac}", Meaning = "W Factor")]
@@ -65,11 +63,7 @@ namespace Webcal.DataModel
         public DateTime? CalibrationTime { get; set; }
 
         public bool IsDigital { get; set; }
-
-        #endregion
-
-        #region Public Methods
-
+        
         public void Convert(CalibrationRecord calibrationRecord)
         {
             if (calibrationRecord == null)
@@ -87,7 +81,5 @@ namespace Webcal.DataModel
             CardSerialNumber = calibrationRecord.CardSerialNumber;
             CalibrationTime = calibrationRecord.CalibrationTime;
         }
-
-        #endregion
     }
 }

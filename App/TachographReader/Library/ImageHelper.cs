@@ -1,14 +1,14 @@
-using System;
-using System.Drawing;
-using Webcal.Properties;
-
 namespace Webcal.Library
 {
+    using System;
+    using System.Drawing;
+    using Properties;
+
     public static class ImageHelper
     {
         public static Image LoadImageSafely(string imagePath)
         {
-            using (Bitmap bmpTemp = new Bitmap(imagePath))
+            using (var bmpTemp = new Bitmap(imagePath))
             {
                 return new Bitmap(bmpTemp);
             }
@@ -22,8 +22,8 @@ namespace Webcal.Library
             if (image.Height <= maxHeight) //No scaling required
                 return image;
 
-            double aspectRatio = Math.Round((double)image.Width / image.Height, 2);
-            int newWidth = (int)Math.Round(aspectRatio * 50);
+            double aspectRatio = Math.Round((double) image.Width/image.Height, 2);
+            var newWidth = (int) Math.Round(aspectRatio*50);
 
             return Resize(image, new Size(newWidth, maxHeight));
         }
@@ -40,8 +40,8 @@ namespace Webcal.Library
             if (image.Height <= maxHeight) //No scaling required
                 return image;
 
-            double aspectRatio = Math.Round((double)image.Width / image.Height, 2);
-            int newWidth = (int)Math.Round(aspectRatio * 50);
+            double aspectRatio = Math.Round((double) image.Width/image.Height, 2);
+            var newWidth = (int) Math.Round(aspectRatio*50);
 
             return Resize(image, new Size(newWidth, maxHeight));
         }

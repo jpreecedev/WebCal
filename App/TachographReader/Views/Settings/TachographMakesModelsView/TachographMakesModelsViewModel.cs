@@ -1,20 +1,18 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Shared;
-using Webcal.Properties;
-
-namespace Webcal.Views.Settings
+﻿namespace Webcal.Views.Settings
 {
+    using System.Collections.ObjectModel;
+    using System.Windows.Controls;
+    using Core;
+    using DataModel;
+    using Library;
+    using Properties;
+    using Shared;
+    using StructureMap;
+
     public class TachographMakesModelsViewModel : BaseSettingsViewModel
     {
         private TachographMake _selectedMake;
         private TachographModel _selectedModel;
-
-        #region Public Properties
 
         public ObservableCollection<TachographMake> Makes { get; set; }
 
@@ -39,11 +37,11 @@ namespace Webcal.Views.Settings
         }
 
         public IRepository<TachographMake> Repository { get; set; }
-
-        #endregion
-
-        #region Overrides
-
+        public DelegateCommand<UserControl> AddMakeCommand { get; set; }
+        public DelegateCommand<object> RemoveMakeCommand { get; set; }
+        public DelegateCommand<UserControl> AddModelCommand { get; set; }
+        public DelegateCommand<object> RemoveModelCommand { get; set; }
+        
         protected override void Load()
         {
             Makes = new ObservableCollection<TachographMake>(Repository.GetAll().RemoveAt(0));
@@ -68,14 +66,6 @@ namespace Webcal.Views.Settings
             Repository.Save();
         }
 
-        #endregion
-
-        #region Commands
-
-        #region Command : Add Make
-
-        public DelegateCommand<UserControl> AddMakeCommand { get; set; }
-
         private void OnAddMake(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_MAKE_OF_TACHOGRAPH, OnAddMake);
@@ -85,17 +75,11 @@ namespace Webcal.Views.Settings
         {
             if (!string.IsNullOrEmpty(result))
             {
-                TachographMake make = new TachographMake {Name = result};
+                var make = new TachographMake {Name = result};
                 Makes.Add(make);
                 Repository.Add(make);
             }
         }
-
-        #endregion
-
-        #region Command : Remove Make
-
-        public DelegateCommand<object> RemoveMakeCommand { get; set; }
 
         private bool CanRemoveMake(object obj)
         {
@@ -110,13 +94,7 @@ namespace Webcal.Views.Settings
             Repository.Remove(SelectedMake);
             Makes.Remove(SelectedMake);
         }
-
-        #endregion
-
-        #region Command : Add Model
-
-        public DelegateCommand<UserControl> AddModelCommand { get; set; }
-
+        
         private void OnAddModel(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_MODEL_OF_TACHOGRAPH, OnAddModel);
@@ -126,7 +104,7 @@ namespace Webcal.Views.Settings
         {
             if (!string.IsNullOrEmpty(result))
             {
-                TachographModel model = new TachographModel {Name = result};
+                var model = new TachographModel {Name = result};
                 SelectedMake.Models.Add(model);
             }
         }
@@ -136,11 +114,6 @@ namespace Webcal.Views.Settings
             return SelectedMake != null;
         }
 
-        #endregion
-
-        #region Command : Remove Model
-
-        public DelegateCommand<object> RemoveModelCommand { get; set; }
 
         private void OnRemoveModel(object obj)
         {
@@ -152,12 +125,6 @@ namespace Webcal.Views.Settings
             return SelectedModel != null;
         }
 
-        #endregion
-
-        #endregion
-
-        #region Private Methods
-
         private void RefreshCommands()
         {
             AddMakeCommand.RaiseCanExecuteChanged();
@@ -165,7 +132,5 @@ namespace Webcal.Views.Settings
             AddModelCommand.RaiseCanExecuteChanged();
             RemoveModelCommand.RaiseCanExecuteChanged();
         }
-
-        #endregion
     }
 }

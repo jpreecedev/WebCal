@@ -8,32 +8,25 @@ namespace Webcal.Controls
     [BaseControl]
     public abstract class BaseInputTextField : TextBox, IValidate, INotifyPropertyChanged
     {
-        #region Constructor
-
+        
         protected BaseInputTextField()
         {
             Valid = true;
             TextChanged += (sender, e) => ReValidate(this, new DependencyPropertyChangedEventArgs());
         }
 
-        #endregion
-
-        #region Public Properties
-
+        
+        
         public bool Valid { get; set; }
 
-        #endregion
-
-        #region Abstract Members
-
+        
+        
         public abstract void OnClear();
 
         public abstract bool IsValid();
 
-        #endregion
-
-        #region Protected Methods
-
+        
+        
         protected bool HasValidated { get; set; }
 
         protected static void ReValidate(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -45,10 +38,8 @@ namespace Webcal.Controls
             }
         }
 
-        #endregion
-
-        #region Dependency Properties
-
+        
+        
         public bool IsMandatory
         {
             get { return (bool)GetValue(IsMandatoryProperty); }
@@ -76,10 +67,8 @@ namespace Webcal.Controls
         public static readonly DependencyProperty IsHighlightedProperty =
             DependencyProperty.Register("IsHighlighted", typeof(bool), typeof(BaseInputTextField), new PropertyMetadata(false));
 
-        #endregion
-
-        #region INotifyPropertyChanged Members
-
+        
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -88,6 +77,5 @@ namespace Webcal.Controls
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        #endregion
-    }
+            }
 }

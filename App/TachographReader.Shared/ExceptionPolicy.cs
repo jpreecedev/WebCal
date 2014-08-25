@@ -1,14 +1,14 @@
-﻿using StructureMap;
-using System;
-using System.Data.Entity.Validation;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Serialization;
-using Webcal.Shared.Properties;
-
-namespace Webcal.Shared
+﻿namespace Webcal.Shared
 {
+    using System;
+    using System.Data.Entity.Validation;
+    using System.IO;
+    using System.Text;
+    using System.Windows.Forms;
+    using System.Xml.Serialization;
+    using Properties;
+    using StructureMap;
+
     public static class ExceptionPolicy
     {
         public static string HandleException(Exception exception)
@@ -18,15 +18,15 @@ namespace Webcal.Shared
 
             try
             {
-                IRepository<DetailedException> repository = ObjectFactory.GetInstance<IRepository<DetailedException>>();
+                var repository = ObjectFactory.GetInstance<IRepository<DetailedException>>();
 
                 repository.Add(new DetailedException
-                                   {
-                                       ApplicationName = AppDomain.CurrentDomain.FriendlyName,
-                                       ExceptionDetails = string.Format("{0}\n{1}", exception.Message, exception.StackTrace),
-                                       Occurred = DateTime.Now,
-                                       RawImage = ScreenshotHelper.TakeScreenshot()
-                                   });
+                {
+                    ApplicationName = AppDomain.CurrentDomain.FriendlyName,
+                    ExceptionDetails = string.Format("{0}\n{1}", exception.Message, exception.StackTrace),
+                    Occurred = DateTime.Now,
+                    RawImage = ScreenshotHelper.TakeScreenshot()
+                });
 
                 repository.Save();
             }
@@ -38,17 +38,15 @@ namespace Webcal.Shared
                     Application.Exit();
                 }
                 else
-                {
                     MessageBox.Show(ex.Message, Resources.TXT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
-            
+
             return GetExceptionMessage(exception);
         }
 
         public static void Serialize(object obj, string outputPath)
         {
-            XmlSerializer serializerObj = new XmlSerializer(obj.GetType());
+            var serializerObj = new XmlSerializer(obj.GetType());
 
             using (TextWriter writeFileStream = new StreamWriter(outputPath))
             {
@@ -58,7 +56,7 @@ namespace Webcal.Shared
 
         private static string GetExceptionMessage(Exception exception)
         {
-            DbEntityValidationException dbEntityValidationException = exception as DbEntityValidationException;
+            var dbEntityValidationException = exception as DbEntityValidationException;
             if (dbEntityValidationException != null)
                 return ExtractEntityValidationExceptions(dbEntityValidationException);
 
@@ -70,7 +68,7 @@ namespace Webcal.Shared
             if (exception == null)
                 return string.Empty;
 
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
             foreach (DbEntityValidationResult entityValidationError in exception.EntityValidationErrors)
             {
@@ -87,13 +85,10 @@ namespace Webcal.Shared
 
         private static string GetExceptionMessage(string message, Exception exception)
         {
-            //message += string.Format("  > {0}\n", exception.Message);
             message += string.Format("{0}\n{1}", exception.Message, exception.StackTrace);
 
             if (exception.InnerException != null)
-            {
                 return GetExceptionMessage(message, exception.InnerException);
-            }
 
             return message;
         }

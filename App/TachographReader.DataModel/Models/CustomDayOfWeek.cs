@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using Webcal.DataModel.Properties;
-
-namespace Webcal.DataModel
+﻿namespace Webcal.DataModel
 {
+    using System;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using Properties;
+
     public class CustomDayOfWeek : BaseNotification
     {
         public int Id { get; set; }

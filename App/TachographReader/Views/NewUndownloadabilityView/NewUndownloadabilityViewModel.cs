@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using StructureMap;
-using Webcal.Shared;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Library;
-
-namespace Webcal.Views
+﻿namespace Webcal.Views
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using Core;
+    using DataModel;
+    using Library;
+    using Shared;
+    using StructureMap;
+
     public class NewUndownloadabilityViewModel : BaseNewDocumentViewModel
     {
-        #region Constructors
-
         public NewUndownloadabilityViewModel()
         {
             Document = new UndownloadabilityDocument();
@@ -23,10 +21,6 @@ namespace Webcal.Views
         {
             Document = document;
         }
-
-        #endregion
-
-        #region Public Properties
 
         public UndownloadabilityDocument Document { get; set; }
 
@@ -43,11 +37,7 @@ namespace Webcal.Views
         public ICollection<UndownloadabilityDocument> AllUndownloadabilityDocuments { get; set; }
 
         public bool IsReadOnly { get; set; }
-
-        #endregion
-
-        #region Overrides
-
+        
         protected override void Load()
         {
             Populate();
@@ -83,17 +73,13 @@ namespace Webcal.Views
             if (!allDocuments.IsNullOrEmpty())
             {
                 UndownloadabilityDocument match = allDocuments.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
-                                                              .OrderByDescending(doc => doc.Created)
-                                                              .FirstOrDefault();
+                    .OrderByDescending(doc => doc.Created)
+                    .FirstOrDefault();
 
                 if (match != null)
                     Document = match;
             }
         }
-
-        #endregion
-
-        #region Private Methods
 
         private void Populate()
         {
@@ -102,11 +88,7 @@ namespace Webcal.Views
 
             Technician defaultTechnician = Technicians.FirstOrDefault(technician => technician != null && technician.IsDefault);
             if (defaultTechnician != null)
-            {
                 Document.Technician = defaultTechnician.Name;
-            }
         }
-
-        #endregion
     }
 }

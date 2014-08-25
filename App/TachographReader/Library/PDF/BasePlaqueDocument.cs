@@ -1,21 +1,24 @@
-﻿using System;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Windows.Resources;
-using StructureMap;
-using Webcal.DataModel;
-using Webcal.DataModel.Core;
-using Webcal.DataModel.Library;
-using Webcal.Properties;
-using Webcal.Shared;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-
-namespace Webcal.Library.PDF
+﻿namespace Webcal.Library.PDF
 {
+    using System;
+    using System.Drawing.Imaging;
+    using System.IO;
+    using System.Linq;
+    using System.Windows.Resources;
+    using Core;
+    using DataModel;
+    using DataModel.Core;
+    using DataModel.Library;
+    using iTextSharp.text;
+    using iTextSharp.text.pdf;
+    using Properties;
+    using Shared;
+    using StructureMap;
+    using Image = System.Drawing.Image;
+
     public class BasePlaqueDocument : IPlaque
     {
+        public const int TOTAL_PAGE_HEIGHT = 820;
         private readonly IGeneralSettingsRepository _generalSettingsRepository;
 
         public BasePlaqueDocument()
@@ -23,14 +26,11 @@ namespace Webcal.Library.PDF
             _generalSettingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
             WorkshopSettings = _generalSettingsRepository.GetSettings();
             RegistrationData = GetRegistrationData();
-
         }
 
         protected RegistrationData RegistrationData { get; set; }
         protected CustomerContact CustomerContact { get; set; }
         protected WorkshopSettings WorkshopSettings { get; set; }
-
-        public const int TOTAL_PAGE_HEIGHT = 820;
 
         public void Create(PDFDocument pdfDocument, TachographDocument tachographDocument)
         {
@@ -57,7 +57,6 @@ namespace Webcal.Library.PDF
             CreateLargeLabelAddress(pdfDocument, tachographDocument, 0, 230);
             CreateLargeLabel(pdfDocument, tachographDocument, 0, 400);
             CreateLargeLabelExpiry(pdfDocument, tachographDocument, 0, 360);
-
         }
 
         public void CreateFullCertificate(PDFDocument pdfDocument, TachographDocument tachographDocument)
@@ -65,7 +64,7 @@ namespace Webcal.Library.PDF
             CustomerContact = _generalSettingsRepository.GetCustomerSettings(tachographDocument.CustomerContact);
             CreateLargeCertificate(pdfDocument, tachographDocument);
         }
-    
+
 
         protected virtual string GetTitle()
         {
@@ -93,21 +92,21 @@ namespace Webcal.Library.PDF
         protected void GetWorkshopImage(PDFDocument document, PdfPTable table)
         {
             DocumentHelper.SaveImageToDisk(GetWorkshopImage(), Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo2.png"));
-            Image itextSharpImage = document.GetImage(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo2.png"), 195, 51);
+            iTextSharp.text.Image itextSharpImage = document.GetImage(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo2.png"), 195, 51);
             document.AddSpannedCell(table, itextSharpImage, 2, document.GetRegularFont(false), 29);
         }
 
         protected void GetSmallImage(PDFDocument document, PdfPTable table)
         {
             DocumentHelper.SaveImageToDisk(GetWorkshopImage(), Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo.png"));
-            Image itextSharpImage = document.GetImage(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo.png"), 205, 53);
+            iTextSharp.text.Image itextSharpImage = document.GetImage(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo.png"), 205, 53);
             document.AddSpannedCell(table, itextSharpImage, 4, document.GetRegularFont(false), 40);
         }
 
-        protected System.Drawing.Image GetWorkshopImage()
+        protected Image GetWorkshopImage()
         {
             StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/skillray-small1.png");
-            return System.Drawing.Image.FromStream(resourceStream.Stream);
+            return Image.FromStream(resourceStream.Stream);
         }
 
         protected string TrimDocumentType(string type)
@@ -118,9 +117,9 @@ namespace Webcal.Library.PDF
         protected string GetCalibrationTime(DateTime? calibrationTime)
         {
             if (calibrationTime == null)
-                return DateTime.Now.ToString(Core.Constants.DateFormat);
+                return DateTime.Now.ToString(Constants.DateFormat);
 
-            return calibrationTime.Value.ToString(Core.Constants.DateFormat);
+            return calibrationTime.Value.ToString(Constants.DateFormat);
         }
 
         protected Paragraph GetLicenseNumberParagraph(PDFDocument document, bool small)
@@ -128,7 +127,7 @@ namespace Webcal.Library.PDF
             Font smallFont = small ? document.GetSmallFont(false) : document.GetRegularFont(false);
             Font regularFont = small ? document.GetSmallFont(true) : document.GetRegularFont(true);
 
-            Paragraph paragraph = new Paragraph();
+            var paragraph = new Paragraph();
             paragraph.Add(new Chunk(Resources.TXT_LICENSE_NO_MINIMAL, smallFont));
             paragraph.Add(new Chunk(RegistrationData.SealNumber, regularFont)); // License
             return paragraph;
@@ -136,7 +135,7 @@ namespace Webcal.Library.PDF
 
         protected void AddTitle(PDFDocument document, string title)
         {
-            Paragraph paragraph = new Paragraph(title, document.GetXLargeFont(false));
+            var paragraph = new Paragraph(title, document.GetXLargeFont(false));
             paragraph.Alignment = Element.ALIGN_CENTER;
             document.Document.Add(paragraph);
         }
@@ -161,47 +160,38 @@ namespace Webcal.Library.PDF
 
         protected virtual void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument)
         {
-
         }
 
         protected virtual void CreateLargeLabel(PDFDocument document, TachographDocument tachographDocument, int startHorizontal, int startVertical)
         {
-
         }
 
         protected virtual void CreateLargeLabelAddress(PDFDocument document, TachographDocument tachographDocument, int startHorizontal, int startVertical)
         {
-
         }
 
         protected virtual void CreateLargeLabelExpiry(PDFDocument document, TachographDocument tachographDocument, int startHorizontal, int startVertical)
         {
-
         }
 
         protected virtual void CreateLargeLabelLogos(PDFDocument document, TachographDocument tachographDocument, int startHorizontal, int startVertical)
         {
-
         }
 
         protected virtual void DrawLargeLabelRectangle(PDFDocument document, int startHorizontal, int startVertical)
         {
-
         }
 
         protected virtual void CreateKFactorLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-
         }
 
         protected virtual void CreateMediumLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-
         }
 
         protected virtual void CreateSmallLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-
         }
 
         private static RegistrationData GetRegistrationData()
@@ -209,11 +199,11 @@ namespace Webcal.Library.PDF
             return ObjectFactory.GetInstance<IRepository<RegistrationData>>().GetAll().First();
         }
 
-        protected static byte[] ToByteArray(System.Drawing.Image imageIn)
+        protected static byte[] ToByteArray(Image imageIn)
         {
             try
             {
-                using (MemoryStream ms = new MemoryStream())
+                using (var ms = new MemoryStream())
                 {
                     imageIn.Save(ms, ImageFormat.Jpeg);
                     return ms.ToArray();
@@ -229,11 +219,11 @@ namespace Webcal.Library.PDF
 
         protected void TryAddSignature(PDFDocument document, int x, int y)
         {
-            IRepository<User> userRepository = ObjectFactory.GetInstance<IRepository<User>>();
+            var userRepository = ObjectFactory.GetInstance<IRepository<User>>();
             User user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {
-                System.Drawing.Image image = ImageHelper.Scale(user.Image, 50);
+                Image image = ImageHelper.Scale(user.Image, 50);
                 document.AddImage(ToByteArray(image), image.Width, image.Height, x, 80);
             }
         }
