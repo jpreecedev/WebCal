@@ -1,20 +1,20 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachographReader", "TachographReader\TachographReader.csproj", "{D4EE3EA7-9E62-46B1-8183-9139C33C9A20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal", "Webcal\Webcal.csproj", "{D4EE3EA7-9E62-46B1-8183-9139C33C9A20}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2E23907B-6B71-46F8-8CBD-7C82A1327C07} = {2E23907B-6B71-46F8-8CBD-7C82A1327C07}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachographReader.DataModel", "TachographReader.DataModel\TachographReader.DataModel.csproj", "{2E23907B-6B71-46F8-8CBD-7C82A1327C07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal.DataModel", "Webcal.DataModel\Webcal.DataModel.csproj", "{2E23907B-6B71-46F8-8CBD-7C82A1327C07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachographReader.Shared", "TachographReader.Shared\TachographReader.Shared.csproj", "{13EBA933-528C-458C-9B71-8295B199F591}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal.Shared", "Webcal.Shared\Webcal.Shared.csproj", "{13EBA933-528C-458C-9B71-8295B199F591}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupRestoreUtility", "BackupRestoreUtility\BackupRestoreUtility.csproj", "{C618F8E6-AF65-459E-80E1-2A0AE813C839}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachographReader.Tests", "TachographReader.Tests\TachographReader.Tests.csproj", "{A9B475A9-725A-4479-90B3-661019C486F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal.Tests", "Webcal.Tests\Webcal.Tests.csproj", "{A9B475A9-725A-4479-90B3-661019C486F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachographReader.Imaging", "TachographReader.Imaging\TachographReader.Imaging.csproj", "{59469480-B14D-4469-810A-08A7052D15B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal.Imaging", "Webcal.Imaging\Webcal.Imaging.csproj", "{59469480-B14D-4469-810A-08A7052D15B5}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
@@ -22,24 +22,24 @@ Global
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://10.11.12.63/tfs/repository
 		SccLocalPath0 = .
-		SccProjectUniqueName1 = TachographReader\\TachographReader.csproj
-		SccProjectName1 = TachographReader
-		SccLocalPath1 = TachographReader
-		SccProjectUniqueName2 = TachographReader.DataModel\\TachographReader.DataModel.csproj
-		SccProjectName2 = TachographReader.DataModel
-		SccLocalPath2 = TachographReader.DataModel
-		SccProjectUniqueName3 = TachographReader.Shared\\TachographReader.Shared.csproj
-		SccProjectName3 = TachographReader.Shared
-		SccLocalPath3 = TachographReader.Shared
+		SccProjectUniqueName1 = Webcal\\Webcal.csproj
+		SccProjectName1 = Webcal
+		SccLocalPath1 = Webcal
+		SccProjectUniqueName2 = Webcal.DataModel\\Webcal.DataModel.csproj
+		SccProjectName2 = Webcal.DataModel
+		SccLocalPath2 = Webcal.DataModel
+		SccProjectUniqueName3 = Webcal.Shared\\Webcal.Shared.csproj
+		SccProjectName3 = Webcal.Shared
+		SccLocalPath3 = Webcal.Shared
 		SccProjectUniqueName4 = BackupRestoreUtility\\BackupRestoreUtility.csproj
 		SccProjectName4 = BackupRestoreUtility
 		SccLocalPath4 = BackupRestoreUtility
-		SccProjectUniqueName5 = TachographReader.Tests\\TachographReader.Tests.csproj
-		SccProjectName5 = TachographReader.Tests
-		SccLocalPath5 = TachographReader.Tests
-		SccProjectUniqueName6 = TachographReader.Imaging\\TachographReader.Imaging.csproj
-		SccProjectName6 = TachographReader.Imaging
-		SccLocalPath6 = TachographReader.Imaging
+		SccProjectUniqueName5 = Webcal.Tests\\Webcal.Tests.csproj
+		SccProjectName5 = Webcal.Tests
+		SccLocalPath5 = Webcal.Tests
+		SccProjectUniqueName6 = Webcal.Imaging\\Webcal.Imaging.csproj
+		SccProjectName6 = Webcal.Imaging
+		SccLocalPath6 = Webcal.Imaging
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
