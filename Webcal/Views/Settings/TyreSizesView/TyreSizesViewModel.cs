@@ -4,9 +4,9 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class TyreSizesViewModel : BaseSettingsViewModel
     {
@@ -43,7 +43,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<TyreSize>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<TyreSize>>();
         }
 
         public override void Save()

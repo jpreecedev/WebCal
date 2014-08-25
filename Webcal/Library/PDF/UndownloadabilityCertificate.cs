@@ -18,7 +18,7 @@
     {
         public static void Create(PDFDocument document, UndownloadabilityDocument undownloadabilityDocument)
         {
-            var settingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            var settingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
             WorkshopSettings settings = settingsRepository.GetSettings();
 
             StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/UndownloadHeader.png");
@@ -107,7 +107,7 @@
 
         private static void TryAddSignature(PDFDocument document, int x, int y)
         {
-            var userRepository = ObjectFactory.GetInstance<IRepository<User>>();
+            var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
             User user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {

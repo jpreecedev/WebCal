@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Xml.Linq;
     using Windows;
+    using DataModel.Core;
     using DataModel.Library;
     using PCSC;
     using Properties;
@@ -75,7 +76,7 @@
                     catch (Exception ex)
                     {
                         //Something very wrong, keep it quiet tho
-                        ExceptionPolicy.HandleException(ex);
+                        ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex);
                     }
                 }
 
@@ -83,7 +84,7 @@
             }
             catch (Exception ex)
             {
-                ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex);
             }
 
             return null;
@@ -97,7 +98,7 @@
             }
             catch (Exception ex)
             {
-                ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex);
             }
 
             return null;
@@ -133,7 +134,7 @@
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ex)));
+                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
                 UnlockMainWindow();
             }
 

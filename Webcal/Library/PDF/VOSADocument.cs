@@ -6,6 +6,7 @@ namespace Webcal.Library.PDF
     using System.Windows.Resources;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
     using Properties;
@@ -174,7 +175,7 @@ namespace Webcal.Library.PDF
 
         private static RegistrationData GetRegistrationData()
         {
-            return ObjectFactory.GetInstance<IRepository<RegistrationData>>().GetAll().First();
+            return ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().GetAll().First();
         }
 
         private static string GetTechnicianInitials(string technicianName)

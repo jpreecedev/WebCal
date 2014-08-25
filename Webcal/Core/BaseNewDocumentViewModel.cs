@@ -5,6 +5,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Library.PDF;
     using Properties;
@@ -65,7 +66,7 @@
             }
             catch (Exception ex)
             {
-                ShowError(Resources.ERR_UNABLE_GENERATE_PDF, ExceptionPolicy.HandleException(ex));
+                ShowError(Resources.ERR_UNABLE_GENERATE_PDF, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
             }
         }
 

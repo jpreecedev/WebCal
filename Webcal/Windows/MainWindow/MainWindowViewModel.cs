@@ -6,6 +6,7 @@
     using System.Windows.Controls;
     using System.Windows.Threading;
     using Core;
+    using DataModel.Core;
     using Library;
     using Properties;
     using Shared;
@@ -248,7 +249,7 @@
                 }
                 catch (Exception ex)
                 {
-                    ExceptionPolicy.HandleException(ex);
+                    ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex);
                 }
             }
             IsModalWindowVisible = false;

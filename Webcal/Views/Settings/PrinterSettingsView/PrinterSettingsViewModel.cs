@@ -33,7 +33,7 @@ namespace Webcal.Views.Settings
 
         protected override void InitialiseRepositories()
         {
-            SettingsRepository = ObjectFactory.GetInstance<IPrinterSettingsRepository>();
+            SettingsRepository = ContainerBootstrapper.Container.GetInstance<IPrinterSettingsRepository>();
         }
 
         public override void Save()

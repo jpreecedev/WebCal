@@ -4,9 +4,9 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class InspectionEquipmentsViewModel : BaseSettingsViewModel
     {
@@ -43,7 +43,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<InspectionEquipment>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<InspectionEquipment>>();
         }
 
         public override void Save()

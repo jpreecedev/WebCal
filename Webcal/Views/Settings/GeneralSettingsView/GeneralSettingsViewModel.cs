@@ -57,7 +57,7 @@
 
         protected override void InitialiseRepositories()
         {
-            SettingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            SettingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
         }
 
         public override void Save()

@@ -4,10 +4,10 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class VehiclesMakesModelsViewModel : BaseSettingsViewModel
     {
@@ -53,7 +53,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<VehicleMake>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<VehicleMake>>();
         }
 
         protected override void Load()

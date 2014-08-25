@@ -12,11 +12,24 @@
 
     public static class ContainerBootstrapper
     {
+        private static readonly Container _container;
+        private static readonly string _databasePath = Environment.SpecialFolder.MyDocuments + "\\webcal.sdf";
+
+        static ContainerBootstrapper()
+        {
+            _container = new Container(expression => Configure(expression));
+        }
+
+        public static Container Container
+        {
+            get { return _container; }
+        }
+
         public static bool Initialise(IInitializationExpression x)
         {
             try
             {
-                if (File.Exists(Environment.SpecialFolder.MyDocuments + "\\webcal.sdf"))
+                if (File.Exists(_databasePath))
                     Database.SetInitializer(new TachographInitialiser());
 
                 x.For<IRepository<VehicleMake>>().Use<VehicleRepository>();
@@ -40,19 +53,20 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(ex)), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(Container, ex)), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             return true;
         }
 
-        public static bool Configure(ConfigurationExpression x, string dbLocation)
+        public static bool Configure(ConfigurationExpression x)
         {
             try
             {
-                if (!File.Exists(dbLocation))
+                if (!File.Exists(_databasePath))
                     Database.SetInitializer(new TachographInitialiser());
+
                 x.For<IRepository<VehicleMake>>().Use(() => new VehicleRepository());
                 x.For<IRepository<UndownloadabilityDocument>>().Use(() => new UndownloadabilityDocumentRepository());
                 x.For<IRepository<TachographDocument>>().Use(() => new TachographDocumentRepository());
@@ -74,7 +88,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(ex)), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(Container, ex)), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 

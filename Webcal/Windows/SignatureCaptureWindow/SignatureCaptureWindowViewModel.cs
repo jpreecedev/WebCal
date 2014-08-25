@@ -5,12 +5,12 @@
     using System.Windows;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using DataModel.Library;
     using Imaging;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
     using BaseNotification = Core.BaseNotification;
 
     public class SignatureCaptureWindowViewModel : BaseNotification
@@ -72,7 +72,7 @@
                     }
                     catch (Exception ex)
                     {
-                        MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_TO_APPLY_TRANSFORMATIONS, ExceptionPolicy.HandleException(ex)));
+                        MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_TO_APPLY_TRANSFORMATIONS, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
                     }
                 }
                 catch
@@ -91,7 +91,7 @@
 
         private void InitialseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<User>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
         }
     }
 }

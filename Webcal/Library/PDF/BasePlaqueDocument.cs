@@ -23,7 +23,7 @@
 
         public BasePlaqueDocument()
         {
-            _generalSettingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            _generalSettingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
             WorkshopSettings = _generalSettingsRepository.GetSettings();
             RegistrationData = GetRegistrationData();
         }
@@ -196,7 +196,7 @@
 
         private static RegistrationData GetRegistrationData()
         {
-            return ObjectFactory.GetInstance<IRepository<RegistrationData>>().GetAll().First();
+            return ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().GetAll().First();
         }
 
         protected static byte[] ToByteArray(Image imageIn)
@@ -219,7 +219,7 @@
 
         protected void TryAddSignature(PDFDocument document, int x, int y)
         {
-            var userRepository = ObjectFactory.GetInstance<IRepository<User>>();
+            var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
             User user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {

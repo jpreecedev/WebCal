@@ -2,7 +2,7 @@
 {
     using Core;
     using DataModel;
-    using StructureMap;
+    using DataModel.Core;
 
     public class MailSettingsViewModel : BaseSettingsViewModel
     {
@@ -28,7 +28,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IMailSettingsRepository>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>();
         }
 
         public override void Save()

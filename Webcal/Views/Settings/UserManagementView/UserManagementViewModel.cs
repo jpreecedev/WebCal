@@ -7,11 +7,11 @@
     using Windows.SignatureCaptureWindow;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using DataModel.Library;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class UserManagementViewModel : BaseSettingsViewModel
     {
@@ -51,7 +51,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<User>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
         }
 
         public override void Save()

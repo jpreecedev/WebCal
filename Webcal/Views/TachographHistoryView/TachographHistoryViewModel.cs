@@ -7,10 +7,10 @@
     using System.Linq;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Library.PDF;
     using Shared;
-    using StructureMap;
 
     public class TachographHistoryViewModel : BaseHistoryViewModel
     {
@@ -25,7 +25,7 @@
 
         protected override void InitialiseRepositories()
         {
-            TachographDocumentsRepository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
+            TachographDocumentsRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
         }
 
         protected override void InitialiseCommands()

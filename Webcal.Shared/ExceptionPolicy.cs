@@ -1,24 +1,24 @@
 ﻿namespace Webcal.Shared
 {
+    using Properties;
+    using StructureMap;
     using System;
     using System.Data.Entity.Validation;
     using System.IO;
     using System.Text;
     using System.Windows.Forms;
     using System.Xml.Serialization;
-    using Properties;
-    using StructureMap;
 
     public static class ExceptionPolicy
     {
-        public static string HandleException(Exception exception)
+        public static string HandleException(Container container, Exception exception)
         {
             if (exception == null)
                 return string.Empty;
 
             try
             {
-                var repository = ObjectFactory.GetInstance<IRepository<DetailedException>>();
+                var repository = container.GetInstance<IRepository<DetailedException>>();
 
                 repository.Add(new DetailedException
                 {

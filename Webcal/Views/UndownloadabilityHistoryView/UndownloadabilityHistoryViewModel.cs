@@ -4,10 +4,10 @@
     using System.IO;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Library.PDF;
     using Shared;
-    using StructureMap;
 
     public class UndownloadabilityHistoryViewModel : BaseHistoryViewModel
     {
@@ -31,7 +31,7 @@
 
         protected override void InitialiseRepositories()
         {
-            UndownloadabilityDocumentsRepository = ObjectFactory.GetInstance<IRepository<UndownloadabilityDocument>>();
+            UndownloadabilityDocumentsRepository = ContainerBootstrapper.Container.GetInstance<IRepository<UndownloadabilityDocument>>();
         }
 
         protected override void InitialiseCommands()

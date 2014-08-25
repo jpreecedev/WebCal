@@ -5,19 +5,19 @@
     using System.Windows;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Library.PDF;
     using Properties;
     using Shared;
-    using StructureMap;
     using BaseNotification = Core.BaseNotification;
 
     public class ReprintWindowViewModel : BaseNotification
     {
         public ReprintWindowViewModel()
         {
-            TachographDocumentRepository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
-            UndownloadabilityDocumentRepository = ObjectFactory.GetInstance<IRepository<UndownloadabilityDocument>>();
+            TachographDocumentRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
+            UndownloadabilityDocumentRepository = ContainerBootstrapper.Container.GetInstance<IRepository<UndownloadabilityDocument>>();
 
             ReprintCommand = new DelegateCommand<Window>(OnReprint);
             CancelCommand = new DelegateCommand<Window>(OnCancel);

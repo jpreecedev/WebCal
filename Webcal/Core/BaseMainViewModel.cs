@@ -6,11 +6,11 @@
     using System.Windows;
     using Controls;
     using DataModel;
+    using DataModel.Core;
     using EventArguments;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
     using Views;
     using Views.Settings;
 
@@ -21,7 +21,7 @@
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
                 return;
 
-            CustomerContactRepository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
+            CustomerContactRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
             CustomerContacts = new ObservableCollection<CustomerContact>(CustomerContactRepository.GetAll());
         }
 

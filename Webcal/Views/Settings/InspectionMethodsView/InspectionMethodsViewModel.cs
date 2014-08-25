@@ -4,9 +4,9 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class InspectionMethodsViewModel : BaseSettingsViewModel
     {
@@ -37,7 +37,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<InspectionMethod>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<InspectionMethod>>();
         }
 
         protected override void Load()

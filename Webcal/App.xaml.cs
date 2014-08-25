@@ -62,9 +62,6 @@
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
-            if (!InitialiseObjectFactory())
-                return false;
-
             //Resource dictionaries must be set in code to avoid issues with older operating systems
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative)});
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri(string.Format("pack://application:,,,/Fluent;Component/Themes/Office2010/{0}.xaml", "Silver"))});
@@ -76,15 +73,6 @@
             BackupRestoreManager.BackupIfRequired(generalSettings.GetSettings());
 
             return true;
-        }
-
-        private static bool InitialiseObjectFactory()
-        {
-            bool canContinue = false;
-
-            ObjectFactory.Configure(x => canContinue = ContainerBootstrapper.Configure(x, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\webcal.sdf"));
-
-            return canContinue;
         }
 
         private static void CheckForUpdates()
@@ -100,7 +88,7 @@
 
         private static void CurrentDispatcher_UnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Webcal.Properties.Resources.EXC_UNHANDLED_EXCEPTION, ExceptionPolicy.HandleException(e.Exception)));
+            MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Webcal.Properties.Resources.EXC_UNHANDLED_EXCEPTION, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, e.Exception)));
             e.Handled = true;
         }
     }

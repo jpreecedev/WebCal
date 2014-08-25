@@ -6,6 +6,7 @@
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
+    using Core;
     using Shared;
 
     public class User : BaseModel
@@ -70,7 +71,7 @@
             }
             catch (Exception ex)
             {
-                ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex);
             }
 
             return null;

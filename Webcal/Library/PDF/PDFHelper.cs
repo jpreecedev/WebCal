@@ -118,7 +118,7 @@
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.EXC_UNABLE_PRINT_PDF, ExceptionPolicy.HandleException(ex)));
+                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.EXC_UNABLE_PRINT_PDF, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
                 return false;
             }
 
@@ -127,7 +127,7 @@
 
         private static string GetStartupArguments(string filePath)
         {
-            var repository = ObjectFactory.GetInstance<IPrinterSettingsRepository>();
+            var repository = ContainerBootstrapper.Container.GetInstance<IPrinterSettingsRepository>();
             PrinterSettings settings = repository.GetSettings();
 
             if (settings.AlwaysAskForPrinter || string.IsNullOrEmpty(settings.DefaultPrinterName))

@@ -5,9 +5,9 @@
     using System.Net;
     using System.Net.Mail;
     using DataModel;
+    using DataModel.Core;
     using MAPI;
     using Shared;
-    using StructureMap;
 
     public static class EmailHelper
     {
@@ -16,7 +16,7 @@
             if (document == null) return;
             if (document.CustomerContact == null || string.IsNullOrEmpty(document.CustomerContact)) return;
 
-            var mailRepository = ObjectFactory.GetInstance<IMailSettingsRepository>();
+            var mailRepository = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>();
             MailSettings settings = mailRepository.GetSettings();
 
             if (!settings.AutoEmailCertificates && !settings.PersonaliseMyEmails)
@@ -79,7 +79,7 @@
 
         private static string GetRecipientEmailAddress(string customerContact)
         {
-            var repository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
+            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
             CustomerContact customer = repository.FirstOrDefault(contact => string.Equals(customerContact, contact.Name, StringComparison.CurrentCultureIgnoreCase));
 
             if (customer == null || string.IsNullOrEmpty(customer.Email))

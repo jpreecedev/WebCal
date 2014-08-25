@@ -18,7 +18,7 @@
 
         public WorkshopSettingsViewModel()
         {
-            GeneralSettingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            GeneralSettingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
             BrowseCommand = new DelegateCommand<object>(OnBrowse);
             BrowseAdvertCommand = new DelegateCommand<object>(OnAdvertBrowse);
             _logoImagePath = ImageFilePath();

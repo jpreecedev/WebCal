@@ -6,6 +6,7 @@
     using System.IO;
     using System.Linq;
     using DataModel;
+    using DataModel.Core;
     using Properties;
     using Shared;
 
@@ -99,7 +100,7 @@
             catch (Exception ex)
             {
                 if (!quiet)
-                    MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_COMPLETE_RESTORE, ExceptionPolicy.HandleException(ex)));
+                    MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_COMPLETE_RESTORE, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
             }
         }
 

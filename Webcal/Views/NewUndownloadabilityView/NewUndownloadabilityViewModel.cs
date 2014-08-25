@@ -6,9 +6,9 @@
     using System.Linq;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Shared;
-    using StructureMap;
 
     public class NewUndownloadabilityViewModel : BaseNewDocumentViewModel
     {
@@ -45,9 +45,9 @@
 
         protected override void InitialiseRepositories()
         {
-            UndownloadabilityRepository = ObjectFactory.GetInstance<IRepository<UndownloadabilityDocument>>();
-            TachographMakesRepository = ObjectFactory.GetInstance<IRepository<TachographMake>>();
-            TechnicianRepository = ObjectFactory.GetInstance<IRepository<Technician>>();
+            UndownloadabilityRepository = ContainerBootstrapper.Container.GetInstance<IRepository<UndownloadabilityDocument>>();
+            TachographMakesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
+            TechnicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
         }
 
         public override void OnModalClosed()

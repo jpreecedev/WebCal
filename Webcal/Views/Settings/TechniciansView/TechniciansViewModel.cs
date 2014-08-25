@@ -6,10 +6,10 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class TechniciansViewModel : BaseSettingsViewModel
     {
@@ -50,7 +50,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<Technician>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
         }
 
         public override void Save()

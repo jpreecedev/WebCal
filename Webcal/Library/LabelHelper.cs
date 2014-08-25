@@ -68,7 +68,7 @@
 
         public void Print(TachographDocument document)
         {
-            var printerSettingsRepository = ObjectFactory.GetInstance<IPrinterSettingsRepository>();
+            var printerSettingsRepository = ContainerBootstrapper.Container.GetInstance<IPrinterSettingsRepository>();
             PrinterSettings printerSettings = printerSettingsRepository.GetSettings();
 
             if (!CanPrintLabel(printerSettings) || Font == null)
@@ -97,7 +97,7 @@
                 g.DrawLine(pen, 0, GetLast(), 0, GetLast() + _lineHeight*3);
                 g.DrawImage(GetWorkshopImage(), -225, -260, 93, 92);
 
-                var settingsRepository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+                var settingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
                 WorkshopSettings settings = settingsRepository.GetSettings();
 
                 if (!string.IsNullOrEmpty(settings.WorkshopName))
@@ -213,12 +213,12 @@
 
         private static RegistrationData GetRegistrationData()
         {
-            return ObjectFactory.GetInstance<IRepository<RegistrationData>>().GetAll().First();
+            return ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().GetAll().First();
         }
 
         private static WorkshopSettings GetWorkshopSettings()
         {
-            return ObjectFactory.GetInstance<IGeneralSettingsRepository>().GetSettings();
+            return ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>().GetSettings();
         }
 
         private static Font GetFont(int fontSize, bool bold)

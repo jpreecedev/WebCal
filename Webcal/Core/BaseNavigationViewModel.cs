@@ -6,6 +6,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using Windows;
+    using DataModel.Core;
     using EventArguments;
     using Properties;
     using Shared;
@@ -163,7 +164,7 @@
             }
             catch (Exception ex)
             {
-                ShowError(Resources.EXC_UNABLE_CREATE_SETTINGS_VIEW, ExceptionPolicy.HandleException(ex));
+                ShowError(Resources.EXC_UNABLE_CREATE_SETTINGS_VIEW, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
             }
 
             return null;

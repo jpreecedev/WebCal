@@ -119,7 +119,7 @@
         {
             //This is not nice, but is necessary to prevent data loss
 
-            var repository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            var repository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
             WorkshopSettings workshopSettings = repository.GetSettings();
             return workshopSettings.AutoPrintLabels;
         }
@@ -128,7 +128,7 @@
         {
             //This is not nice, but is necessary to prevent data loss
 
-            var repository = ObjectFactory.GetInstance<IGeneralSettingsRepository>();
+            var repository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
             WorkshopSettings workshopSettings = repository.GetSettings();
             workshopSettings.AutoPrintLabels = AutoPrintLabels;
             repository.Save(workshopSettings);

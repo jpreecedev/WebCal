@@ -9,11 +9,11 @@
     using Windows.ProgressWindow;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using DataModel.Library;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class WorkshopCardFilesViewModel : BaseFilesViewModel
     {
@@ -35,7 +35,7 @@
 
         protected override void InitialiseRepositories()
         {
-            WorkshopCardFilesRepository = ObjectFactory.GetInstance<IRepository<WorkshopCardFile>>();
+            WorkshopCardFilesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<WorkshopCardFile>>();
         }
 
         protected override void InitialiseCommands()
@@ -67,7 +67,7 @@
             }
             catch (Exception ex)
             {
-                ShowError(Resources.EXC_UNABLE_ADD_WORKSHOP_CARD_FILE, ExceptionPolicy.HandleException(ex));
+                ShowError(Resources.EXC_UNABLE_ADD_WORKSHOP_CARD_FILE, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
             }
         }
 
@@ -141,7 +141,7 @@
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ex)));
+                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
             }
         }
     }

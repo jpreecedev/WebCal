@@ -6,9 +6,9 @@
     using Controls;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class RegistrationSettingsViewModel : BaseSettingsViewModel
     {
@@ -51,7 +51,7 @@
         
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<RegistrationData>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>();
         }
 
         protected override void Load()

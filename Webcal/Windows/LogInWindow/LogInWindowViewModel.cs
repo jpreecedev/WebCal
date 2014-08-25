@@ -4,11 +4,11 @@
     using System.Windows;
     using System.Windows.Controls;
     using Core;
+    using DataModel.Core;
     using DataModel.Library;
     using DataModel.Repositories;
     using Library;
     using Properties;
-    using StructureMap;
 
     public class LogInWindowViewModel : BaseNotification
     {
@@ -33,7 +33,7 @@
             if (passwordBox == null)
                 return;
 
-            var repository = ObjectFactory.GetInstance<UserRepository>();
+            var repository = ContainerBootstrapper.Container.GetInstance<UserRepository>();
             if (UserManagement.Validate(repository, Username, passwordBox.Password))
             {
                 UserManagement.LoggedInUserName = Username;

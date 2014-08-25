@@ -11,11 +11,11 @@
     using System.Xml.Linq;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using DataModel.Library;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class NewTachographViewModel : BaseNewDocumentViewModel
     {
@@ -89,12 +89,12 @@
 
         protected override void InitialiseRepositories()
         {
-            VehicleRepository = ObjectFactory.GetInstance<IRepository<VehicleMake>>();
-            TyreSizesRepository = ObjectFactory.GetInstance<IRepository<TyreSize>>();
-            TachographMakesRepository = ObjectFactory.GetInstance<IRepository<TachographMake>>();
-            TechniciansRepository = ObjectFactory.GetInstance<IRepository<Technician>>();
-            TachographDocumentRepository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
-            WorkshopCardFilesRepository = ObjectFactory.GetInstance<IRepository<WorkshopCardFile>>();
+            VehicleRepository = ContainerBootstrapper.Container.GetInstance<IRepository<VehicleMake>>();
+            TyreSizesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TyreSize>>();
+            TachographMakesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
+            TechniciansRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
+            TachographDocumentRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
+            WorkshopCardFilesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<WorkshopCardFile>>();
         }
 
         protected override void Load()
@@ -212,12 +212,12 @@
                 catch (AggregateException aggregateEx)
                 {
                     SwitchReadButtonState(true);
-                    ShowError("{0}\n\n{1}", Resources.EXC_ERROR_WHILST_READING_SMART_CARD, ExceptionPolicy.HandleException(aggregateEx));
+                    ShowError("{0}\n\n{1}", Resources.EXC_ERROR_WHILST_READING_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, aggregateEx));
                 }
                 catch (Exception ex)
                 {
                     SwitchReadButtonState(true);
-                    ShowError("{0}\n\n{1}", Resources.EXC_ERROR_WHILST_READING_SMART_CARD, ExceptionPolicy.HandleException(ex));
+                    ShowError("{0}\n\n{1}", Resources.EXC_ERROR_WHILST_READING_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
                 }
             }
         }
@@ -316,7 +316,7 @@
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ex)));
+                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
             }
 
             return null;

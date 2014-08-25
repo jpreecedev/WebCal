@@ -5,16 +5,16 @@
     using System.Linq;
     using System.Windows;
     using Core;
+    using DataModel.Core;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class ExceptionWindowViewModel : BaseNotification
     {
         public ExceptionWindowViewModel()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<DetailedException>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<DetailedException>>();
             Exceptions = new ObservableCollection<DetailedException>(Repository.GetAll());
 
             ExportCommand = new DelegateCommand<object>(OnExport);

@@ -4,10 +4,10 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class TachographMakesModelsViewModel : BaseSettingsViewModel
     {
@@ -58,7 +58,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<TachographMake>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
         }
 
         public override void Save()

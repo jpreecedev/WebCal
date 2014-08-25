@@ -4,8 +4,8 @@
     using System.ComponentModel;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Shared;
-    using StructureMap;
 
     public class CustomerSettingsViewModel : BaseSettingsViewModel
     {
@@ -50,7 +50,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
+            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
         }
 
         protected override void Load()

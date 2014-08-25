@@ -6,10 +6,10 @@
     using System.Linq;
     using System.Text;
     using DataModel;
+    using DataModel.Core;
     using Microsoft.Office.Interop.Excel;
     using Properties;
     using Shared;
-    using StructureMap;
     using Constants = Core.Constants;
 
     public static class ExcelHelper
@@ -32,8 +32,8 @@
         {
             Worksheet worksheet = CreateWorksheet();
 
-            var repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
-            var customerRepository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
+            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
+            var customerRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
             ICollection<TachographDocument> allDocuments = repository.GetAll();
 
             SetDocumentTitle(worksheet, string.Format(Resources.TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE, start.ToString(Constants.DateFormat), end.ToString(Constants.DateFormat), office));
@@ -77,8 +77,8 @@
         private static void GenerateExpiringTachographDocumentsTextDocument(DateTime start, DateTime end, string office)
         {
             var builder = new StringBuilder();
-            var repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
-            var customerRepository = ObjectFactory.GetInstance<IRepository<CustomerContact>>();
+            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
+            var customerRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
 
             ICollection<TachographDocument> allDocuments = repository.GetAll();
             ICollection<CustomerContact> customers = customerRepository.Get(c => allDocuments.Any(d => string.Equals(d.CustomerContact, c.Name)));
@@ -277,7 +277,7 @@
 
         private static ICollection<TachographDocument> GetAllDocuments()
         {
-            var repository = ObjectFactory.GetInstance<IRepository<TachographDocument>>();
+            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
             return repository.GetAll();
         }
     }

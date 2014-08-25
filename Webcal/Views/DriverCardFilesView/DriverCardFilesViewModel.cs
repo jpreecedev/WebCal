@@ -4,10 +4,10 @@
     using System.IO;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using Library;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public class DriverCardFilesViewModel : BaseFilesViewModel
     {
@@ -22,7 +22,7 @@
 
         protected override void InitialiseRepositories()
         {
-            DriverCardFilesRepository = ObjectFactory.GetInstance<IRepository<DriverCardFile>>();
+            DriverCardFilesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<DriverCardFile>>();
         }
 
         protected override void OnAddStoredFile()
@@ -49,7 +49,7 @@
             }
             catch (Exception ex)
             {
-                ShowError(Resources.EXC_UNABLE_TO_CREATE_DRIVER_CARD, ExceptionPolicy.HandleException(ex));
+                ShowError(Resources.EXC_UNABLE_TO_CREATE_DRIVER_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
             }
         }
 
