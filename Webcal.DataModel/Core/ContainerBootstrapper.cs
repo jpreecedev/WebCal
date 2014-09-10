@@ -17,7 +17,11 @@
 
         static ContainerBootstrapper()
         {
-            _container = new Container(expression => Configure(expression));
+            _container = new Container(expression =>
+            {
+                Configure(expression);
+                Initialise(expression);
+            });
         }
 
         public static Container Container
@@ -25,7 +29,7 @@
             get { return _container; }
         }
 
-        public static bool Initialise(IInitializationExpression x)
+        public static bool Initialise(ConfigurationExpression x)
         {
             try
             {

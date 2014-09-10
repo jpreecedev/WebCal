@@ -1,6 +1,7 @@
 ﻿namespace Webcal.DataModel.Library
 {
     using System;
+    using System.Windows;
     using Core;
     using Properties;
     using Repositories;
