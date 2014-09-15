@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Data.Entity;
     using System.Linq;
     using System.Linq.Expressions;
@@ -36,10 +37,11 @@
             return Safely(() =>
             {
                 //Workaround to avoid the selected item being defaulted in
-                List<VehicleMake> items = Context.VehicleMakes.Include("Models").ToList();
+                List<VehicleMake> items = Context.VehicleMakes.Include(c => c.Models).OrderBy(c => c.Name).ToList();
                 
                 foreach (VehicleMake item in items)
                 {
+                    item.Models = new ObservableCollection<VehicleModel>(item.Models.OrderBy(c => c.Name));
                     item.Models.Insert(0, new VehicleModel());
                 }
 
@@ -51,7 +53,7 @@
 
         public ICollection<VehicleMake> Get(Expression<Func<VehicleMake, bool>> predicate)
         {
-            return Safely(() => Context.VehicleMakes.Include("Models").Where(predicate.Compile()).ToList());
+            return Safely(() => Context.VehicleMakes.Include(c => c.Models).Where(predicate.Compile()).ToList());
         }
 
         public VehicleMake FirstOrDefault(Expression<Func<VehicleMake, bool>> predicate)

@@ -33,7 +33,7 @@
 
         public ICollection<InspectionEquipment> GetAll()
         {
-            return Safely(() => Context.InspectionEquipments.ToList());
+            return Safely(() => Context.InspectionEquipments.OrderBy(c => c.Name).ToList());
         }
 
         public ICollection<InspectionEquipment> Get(Expression<Func<InspectionEquipment, bool>> predicate)

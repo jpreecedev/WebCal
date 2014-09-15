@@ -21,9 +21,6 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical">
             <Image Source="..\..\Images\webcal.png"
@@ -32,12 +29,6 @@
             <TextBlock Text="{Binding VersionNumber, Mode=OneTime, StringFormat='Product Version: {0}'}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center">
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="5"
-                                      Color="Red"
-                                      Opacity=".2"
-                                      RenderingBias="Performance" />
-                </TextBlock.Effect>
                 <TextBlock.RenderTransform>
                     <TranslateTransform Y="-30" />
                 </TextBlock.RenderTransform>

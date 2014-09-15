@@ -35,7 +35,7 @@
         {
             return Safely(() =>
             {
-                List<Technician> technicians = Context.Technicians.ToList();
+                List<Technician> technicians = Context.Technicians.OrderBy(c => c.Name).ToList();
                 technicians.Insert(0, null);
                 return technicians;
             });

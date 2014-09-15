@@ -9,7 +9,7 @@
     {
         public WorkshopSettings GetSettings()
         {
-            List<WorkshopSettings> workshopSettings = Safely(() => Context.WorkshopSettings.Include("BackupDaysOfWeek")).ToList();
+            List<WorkshopSettings> workshopSettings = Safely(() => Context.WorkshopSettings.Include(c => c.BackupDaysOfWeek)).ToList();
 
             if (workshopSettings.Count == 0)
                 return null;

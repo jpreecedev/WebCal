@@ -567,7 +567,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="TachographReader_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Table.png" />

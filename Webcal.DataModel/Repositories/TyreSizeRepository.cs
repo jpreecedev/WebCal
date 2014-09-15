@@ -33,7 +33,7 @@
 
         public ICollection<TyreSize> GetAll()
         {
-            return Safely(() => Context.TyreSizes.ToList());
+            return Safely(() => Context.TyreSizes.OrderBy(c => c.Size).ToList());
         }
 
         public ICollection<TyreSize> Get(Expression<Func<TyreSize, bool>> predicate)

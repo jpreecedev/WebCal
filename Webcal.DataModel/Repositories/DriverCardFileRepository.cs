@@ -33,12 +33,12 @@
 
         public ICollection<DriverCardFile> GetAll()
         {
-            return Safely(() => Context.DriverCardFiles.Include("Customer").ToList());
+            return Safely(() => Context.DriverCardFiles.Include(c => c.Customer).ToList());
         }
 
         public ICollection<DriverCardFile> Get(Expression<Func<DriverCardFile, bool>> predicate)
         {
-            return Safely(() => Context.DriverCardFiles.Include("Customer").Where(predicate.Compile()).ToList());
+            return Safely(() => Context.DriverCardFiles.Include(c => c.Customer).Where(predicate.Compile()).ToList());
         }
 
         public DriverCardFile FirstOrDefault(Expression<Func<DriverCardFile, bool>> predicate)

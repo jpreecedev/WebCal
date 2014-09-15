@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Data.Entity;
     using System.Linq;
     using System.Linq.Expressions;
@@ -35,15 +36,24 @@
         {
             return Safely(() =>
             {
-                List<TachographMake> items = Context.TachographMakes.Include("Models").ToList();
+                //Workaround to avoid the selected item being defaulted in
+                List<TachographMake> items = Context.TachographMakes.Include(c => c.Models).OrderBy(c => c.Name).ToList();
+
+                foreach (TachographMake item in items)
+                {
+                    item.Models = new ObservableCollection<TachographModel>(item.Models.OrderBy(c => c.Name));
+                    item.Models.Insert(0, new TachographModel());
+                }
+
                 items.Insert(0, null);
+
                 return items;
             });
         }
 
         public ICollection<TachographMake> Get(Expression<Func<TachographMake, bool>> predicate)
         {
-            return Safely(() => Context.TachographMakes.Include("Models").Where(predicate.Compile()).ToList());
+            return Safely(() => Context.TachographMakes.Include(c => c.Models).Where(predicate.Compile()).ToList());
         }
 
         public TachographMake FirstOrDefault(Expression<Func<TachographMake, bool>> predicate)
