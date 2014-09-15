@@ -1,5 +1,4 @@
-﻿
-    <UserControl x:Class="Webcal.Views.NewTachographView"
+﻿    <UserControl x:Class="Webcal.Views.NewTachographView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,8 +7,7 @@
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:core="clr-namespace:Webcal.Core"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
-             xmlns:windows="clr-namespace:Webcal.Windows"
-             mc:Ignorable="d"
+                 mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="1000">
     <UserControl.DataContext>
@@ -69,7 +67,6 @@
                 <ctrls:InputComboField x:Name="DocumentTypeCombo"
                                        IsMandatory="True"
                                        IsEditable="False"
-                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                        ItemsSource="{Binding DocumentTypes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        SelectedItem="{Binding Document.DocumentType, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        Label="Document type"
@@ -394,29 +391,16 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <!--<TextBlock Text="M1N1 adapter data"
-                           Style="{StaticResource SubHeaderFont}"
-                           Grid.Row="17" />-->
-
-                <!--<CheckBox x:Name="HasM1N1AdapterCheckBox"
-                          Content="Tachograph has M1N1 adapter"
-                          IsChecked="{Binding Document.TachographHasAdapter}"
-                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                          Grid.Row="18"
-                          Margin="0,5,10,10" />-->
-
                 <ctrls:InputTextField Label="PPR/N-constant"
                                       IsMandatory="False"
                                       Text="{core:InputBinding Document.TachographAdapterSerialNumber}"
                                       Grid.Row="17">
-                    <!--<ctrls:InputTextField.IsEnabled>
+                    <ctrls:InputTextField.IsEnabled>
                         <MultiBinding Converter="{StaticResource BoolMultiConverter}">
                             <Binding Path="IsReadOnly"
                                      Converter="{StaticResource InvBool}" />
-                            <Binding Path="IsChecked"
-                                     ElementName="HasM1N1AdapterCheckBox" />
                         </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>-->
+                    </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
                 <ctrls:InputTextField Label="OP Shaft / Drive Shaft PPR"
@@ -424,30 +408,13 @@
                                       Text="{core:InputBinding Document.TachographAdapterLocation}"
                                       Grid.Row="17"
                                       Grid.Column="3">
-                    <!--<ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource BoolMultiConverter}">
-                            <Binding Path="IsReadOnly"
-                                     Converter="{StaticResource InvBool}" />
-                            <Binding Path="IsChecked"
-                                     ElementName="HasM1N1AdapterCheckBox" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>-->
-                </ctrls:InputTextField>
-
-                <!--<ctrls:InputTextField Label="Cable color"
-                                      IsAutoPopulated="True"
-                                      IsMandatory="{core:InputBinding Document.TachographHasAdapter}"
-                                      Text="{core:InputBinding Document.TachographCableColor}"
-                                      Grid.Row="20">
                     <ctrls:InputTextField.IsEnabled>
                         <MultiBinding Converter="{StaticResource BoolMultiConverter}">
                             <Binding Path="IsReadOnly"
                                      Converter="{StaticResource InvBool}" />
-                            <Binding Path="IsChecked"
-                                     ElementName="HasM1N1AdapterCheckBox" />
                         </MultiBinding>
                     </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>-->
+                </ctrls:InputTextField>
 
                 <TextBlock Text="Customer data"
                            Style="{StaticResource SubHeaderFont}"
@@ -459,18 +426,9 @@
                                        IsEditable="False"
                                        ItemsSource="{Binding CustomerContacts, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        SelectedItem="{Binding Document.CustomerContact, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                       DisplayMemberPath="Name">
-                    <ctrls:InputComboField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.CustomerContact" />
-                        </MultiBinding>
-                    </ctrls:InputComboField.IsEnabled>
-                    
-                </ctrls:InputComboField>
+                                       DisplayMemberPath="Name" />
 
                 <Button Command="{Binding NewCustomerCommand}"
-                        IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                         Style="{StaticResource NewCustomerButton}"
                         Grid.Row="20"
                         Grid.Column="2" />

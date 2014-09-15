@@ -16,6 +16,10 @@
         {
             LogInCommand = new DelegateCommand<Window>(OnLogIn);
             CancelCommand = new DelegateCommand<Window>(OnCancel);
+
+#if DEBUG
+            Username = "superuser";
+#endif
         }
 
         public string Username { get; set; }

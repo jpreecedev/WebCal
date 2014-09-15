@@ -5,6 +5,7 @@
         Title="Capture Signature"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
+        Icon="../../Main Icon.ico"
         Height="300"
         Width="500"
         AllowDrop="True">
