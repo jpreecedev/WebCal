@@ -37,16 +37,19 @@
             return Safely(() =>
             {
                 //Workaround to avoid the selected item being defaulted in
-                List<VehicleMake> items = Context.VehicleMakes.Include(c => c.Models).OrderBy(c => c.Name).ToList();
+                List<VehicleMake> items = Context.VehicleMakes.Include(c => c.Models).Where(c => c.Name != null).OrderBy(c => c.Name).ToList();
                 
                 foreach (VehicleMake item in items)
                 {
-                    item.Models = new ObservableCollection<VehicleModel>(item.Models.OrderBy(c => c.Name));
-                    item.Models.Insert(0, new VehicleModel());
+                    item.Models = new ObservableCollection<VehicleModel>(item.Models.Where(m => m.Name != null).OrderBy(c => c.Name));
+
+                    if (item.Models.All(m => m.Name != null))
+                    {
+                        item.Models.Insert(0, new VehicleModel());                        
+                    }
                 }
 
                 items.Insert(0, null);
-
                 return items;
             });
         }
