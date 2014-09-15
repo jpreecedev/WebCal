@@ -109,7 +109,7 @@
 
                 proc.Start();
                 proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                proc.WaitForExit(10000);
+                proc.WaitForExit(Int32.MaxValue);
 
                 proc.EnableRaisingEvents = true;
 

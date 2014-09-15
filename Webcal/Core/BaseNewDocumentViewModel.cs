@@ -44,7 +44,7 @@
         protected virtual void RegistrationChanged(string registrationNumber)
         {
         }
-        
+
         private void OnExportPDF(Grid root)
         {
             if (!IsValid(root))
@@ -81,11 +81,17 @@
             Document document = GetNewDocument(root);
             if (PDFHelper.GenerateTachographPlaque(document, true))
             {
-                PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
-                EmailHelper.SendEmail(document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
-
                 Add();
-                Close();
+
+                try
+                {
+                    PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                    EmailHelper.SendEmail(document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                }
+                finally
+                {
+                    Close();
+                }
             }
         }
 
@@ -97,7 +103,7 @@
             if (SmartCardReader != null)
                 RegistrationChanged(registrationNumber);
         }
-        
+
         private static Document GetNewDocument(FrameworkElement root)
         {
             var sender = root.DataContext as BaseNewDocumentViewModel;
@@ -108,7 +114,7 @@
             if (viewModel != null)
                 return viewModel.Document;
 
-            return ((NewUndownloadabilityViewModel) sender).Document;
+            return ((NewUndownloadabilityViewModel)sender).Document;
         }
 
         private void Close()
