@@ -34,7 +34,7 @@
 
         public ICollection<UndownloadabilityDocument> GetAll()
         {
-            return Safely(() => Context.UndownloadabilityDocuments.ToList());
+            return Safely(() => Context.UndownloadabilityDocuments.OrderByDescending(d => d.Created).ToList());
         }
 
         public ICollection<UndownloadabilityDocument> Get(Expression<Func<UndownloadabilityDocument, bool>> predicate)

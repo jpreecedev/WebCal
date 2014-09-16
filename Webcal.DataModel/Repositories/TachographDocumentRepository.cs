@@ -40,7 +40,7 @@
 
         public ICollection<TachographDocument> GetAll()
         {
-            return Safely(() => Context.TachographDocuments.ToList());
+            return Safely(() => Context.TachographDocuments.OrderByDescending(d => d.Created).ToList());
         }
 
         public ICollection<TachographDocument> Get(Expression<Func<TachographDocument, bool>> predicate)
