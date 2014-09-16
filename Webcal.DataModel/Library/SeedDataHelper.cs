@@ -1,7 +1,6 @@
 ﻿namespace Webcal.DataModel.Library
 {
     using System;
-    using System.Windows;
     using Core;
     using Properties;
     using Repositories;
@@ -29,10 +28,12 @@
                 userRepository.Save();
             }
 
+            UserManagement.AddDefaultUser();
+
             return generalSettings;
         }
 
-        public static void Seed(TachographContext context)
+        private static void Seed(TachographContext context)
         {
             if (context == null)
                 return;

@@ -1,8 +1,10 @@
 ﻿namespace Webcal.DataModel.Library
 {
     using System;
+    using System.Data.Entity;
     using System.Security.Cryptography;
     using System.Text;
+    using Core;
     using Properties;
     using Shared;
 
@@ -157,6 +159,20 @@
                 byte[] result = shaM.ComputeHash(data);
 
                 return Encoding.Default.GetString(result);
+            }
+        }
+
+        public static void AddDefaultUser()
+        {
+            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
+
+            if (repository != null)
+            {
+                if (!UserExists(repository, "tacho"))
+                {
+                    AddUser(repository, "tacho", "tacho");
+                    repository.Save();
+                }
             }
         }
     }
