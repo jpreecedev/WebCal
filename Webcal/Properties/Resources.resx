@@ -409,7 +409,7 @@ This could be due to either;
     <value xml:space="preserve">DATE: </value>
   </data>
   <data name="TXT_EXP">
-    <value xml:space="preserve">EXP: </value>
+    <value xml:space="preserve">NEXT CALIBRATION DUE: </value>
   </data>
   <data name="TXT_SIGNATURE_TECHNICIAN">
     <value xml:space="preserve">{0}</value>

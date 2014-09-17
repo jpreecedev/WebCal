@@ -18,7 +18,7 @@
             CancelCommand = new DelegateCommand<Window>(OnCancel);
 
 #if DEBUG
-            Username = "superuser";
+            Username = "tacho";
 #endif
         }
 

@@ -376,7 +376,7 @@ namespace Webcal.Library.PDF
             string expiryDate = (GetCalibrationTime(calibrationDate.Value.AddYears(2).AddDays(-1)));
 
             AbsolutePositionText(document, Resources.TXT_DATE.ToUpper(), (startHorizontal + 370), (startVertical + 210), 355, 40, document.GetRegularFont(true));
-            AbsolutePositionText(document, Resources.TXT_EXP.ToUpper(), (startHorizontal + 370), (startVertical + 220), 355, 40, document.GetRegularFont(true));
+            AbsolutePositionText(document, Resources.TXT_EXP.ToUpper(), (startHorizontal + 260), (startVertical + 220), 400, 40, document.GetRegularFont(true));
 
             AbsolutePositionText(document, GetCalibrationTime(tachographDocument.CalibrationTime).ToUpper(), (startHorizontal + 450), (startVertical + 210), 390, 40, document.GetRegularFont(false));
             AbsolutePositionText(document, expiryDate.ToUpper(), (startHorizontal + 450), (startVertical + 220), 390, 40, document.GetRegularFont(false));
