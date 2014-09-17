@@ -658,7 +658,7 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DIGITAL INSPECTIONS:.
+        ///   Looks up a localized string similar to DIGITAL CALIBRATIONS:.
         /// </summary>
         internal static string TXT_DIGITAL_INSPECTIONS {
             get {

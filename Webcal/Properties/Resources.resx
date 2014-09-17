@@ -445,7 +445,7 @@ This could be due to either;
     <value xml:space="preserve">CUSTOMER DETAILS:</value>
   </data>
   <data name="TXT_DIGITAL_INSPECTIONS">
-    <value xml:space="preserve">DIGITAL INSPECTIONS:</value>
+    <value xml:space="preserve">DIGITAL CALIBRATIONS:</value>
   </data>
   <data name="TXT_VRN">
     <value xml:space="preserve">VRN:</value>
