@@ -2,6 +2,7 @@
 {
     using System;
     using Library;
+    using Properties;
     using Shared;
 
     public class TachographDocument : Document
@@ -63,7 +64,22 @@
         public DateTime? CalibrationTime { get; set; }
 
         public bool IsDigital { get; set; }
-        
+
+        public override bool IsNew
+        {
+            get
+            {
+                return string.IsNullOrEmpty(RegistrationNumber) &&
+                       string.IsNullOrEmpty(VIN) &&
+                       string.IsNullOrEmpty(VehicleMake) &&
+                       string.IsNullOrEmpty(VehicleModel) &&
+                       string.IsNullOrEmpty(TyreSize) &&
+                       string.IsNullOrEmpty(WFactor) &&
+                       string.IsNullOrEmpty(KFactor) &&
+                       string.IsNullOrEmpty(LFactor);
+            }
+        }
+
         public void Convert(CalibrationRecord calibrationRecord)
         {
             if (calibrationRecord == null)
@@ -80,6 +96,14 @@
             SerialNumber = calibrationRecord.VuSerialNumber;
             CardSerialNumber = calibrationRecord.CardSerialNumber;
             CalibrationTime = calibrationRecord.CalibrationTime;
+        }
+
+        protected override void OnDocumentTypeChanged(string newValue)
+        {
+            if (IsNew && string.Equals(DocumentType, Resources.TXT_MINOR_WORK_DETAILS) && string.IsNullOrEmpty(MinorWorkDetails))
+            {
+                MinorWorkDetails = Resources.TXT_ACTIVITY_MODE_CHANGE;
+            }
         }
     }
 }

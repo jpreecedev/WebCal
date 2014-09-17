@@ -181,4 +181,7 @@
   <data name="EXC_USER_REPOSITORY_IS_REQUIRED">
     <value xml:space="preserve">The user repository is required to create the super user account.</value>
   </data>
+  <data name="TXT_ACTIVITY_MODE_CHANGE" xml:space="preserve">
+    <value>Activity Mode Change</value>
+  </data>
 </root>

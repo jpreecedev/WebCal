@@ -80,8 +80,7 @@
                                       Visibility="{Binding SelectedItem, ElementName=DocumentTypeCombo, Converter={StaticResource DocType2Vis}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}">
                     <ctrls:InputTextField.IsEnabled>
                         <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly"
-                                     Converter="{StaticResource InvBool}" />
+                            <Binding Path="IsReadOnly" />
                             <Binding Path="Document.MinorWorkDetails" />
                         </MultiBinding>
                     </ctrls:InputTextField.IsEnabled>
