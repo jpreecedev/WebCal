@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Threading;
@@ -14,7 +15,9 @@
         public BaseViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
                 return;
+            }
 
             Dispatcher.CurrentDispatcher.BeginInvoke(new Action(InternalLoad), DispatcherPriority.Loaded);
         }
@@ -24,7 +27,7 @@
         public MainWindowViewModel MainWindow { get; set; }
 
         public Action<bool, object> DoneCallback { get; set; }
-        
+
         public virtual void OnClosing(bool cancelled)
         {
         }
@@ -32,7 +35,7 @@
         public virtual void Dispose()
         {
         }
-        
+
         protected bool AskQuestion(string msg)
         {
             return MessageBoxHelper.AskQuestion(msg);
@@ -56,7 +59,9 @@
         protected void GetInputFromUser(UserControl window, string prompt, Action<string> callback)
         {
             if (window == null || string.IsNullOrEmpty(prompt) || callback == null)
+            {
                 return;
+            }
 
             var settingsViewModel = window.DataContext as SettingsViewModel;
             if (settingsViewModel != null)
@@ -75,6 +80,18 @@
         {
         }
 
+        protected bool IsValid(DependencyObject root)
+        {
+            bool isValid = true;
+
+            foreach (IValidate child in root.FindValidatableChildren().Where(child => !child.IsValid()))
+            {
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
         protected virtual void BeforeLoad()
         {
         }
@@ -91,13 +108,17 @@
         protected void Saved(object parameter)
         {
             if (DoneCallback != null)
+            {
                 DoneCallback.Invoke(true, parameter);
+            }
         }
 
         protected void Cancelled(object parameter)
         {
             if (DoneCallback != null)
+            {
                 DoneCallback.Invoke(false, parameter);
+            }
         }
 
         private void InternalLoad()

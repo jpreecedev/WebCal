@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal", "Webcal\Webcal.csproj", "{D4EE3EA7-9E62-46B1-8183-9139C33C9A20}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2E23907B-6B71-46F8-8CBD-7C82A1327C07} = {2E23907B-6B71-46F8-8CBD-7C82A1327C07}
@@ -17,30 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal.Imaging", "Webcal.Imaging\Webcal.Imaging.csproj", "{59469480-B14D-4469-810A-08A7052D15B5}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://10.11.12.63/tfs/repository
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Webcal\\Webcal.csproj
-		SccProjectName1 = Webcal
-		SccLocalPath1 = Webcal
-		SccProjectUniqueName2 = Webcal.DataModel\\Webcal.DataModel.csproj
-		SccProjectName2 = Webcal.DataModel
-		SccLocalPath2 = Webcal.DataModel
-		SccProjectUniqueName3 = Webcal.Shared\\Webcal.Shared.csproj
-		SccProjectName3 = Webcal.Shared
-		SccLocalPath3 = Webcal.Shared
-		SccProjectUniqueName4 = BackupRestoreUtility\\BackupRestoreUtility.csproj
-		SccProjectName4 = BackupRestoreUtility
-		SccLocalPath4 = BackupRestoreUtility
-		SccProjectUniqueName5 = Webcal.Tests\\Webcal.Tests.csproj
-		SccProjectName5 = Webcal.Tests
-		SccLocalPath5 = Webcal.Tests
-		SccProjectUniqueName6 = Webcal.Imaging\\Webcal.Imaging.csproj
-		SccProjectName6 = Webcal.Imaging
-		SccLocalPath6 = Webcal.Imaging
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms

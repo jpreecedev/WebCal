@@ -190,6 +190,7 @@
     <Compile Include="Controls\DayOfWeekPicker\DayOfWeekPicker.cs" />
     <Compile Include="Controls\InputComboField.cs" />
     <Compile Include="Controls\InputDatePickerField.cs" />
+    <Compile Include="Controls\InputNumberPicker.cs" />
     <Compile Include="Controls\InputTextField.cs" />
     <Compile Include="Controls\PopupWindow.cs" />
     <Compile Include="Controls\Shortcut.cs" />
@@ -254,6 +255,7 @@
     <Compile Include="Library\PDF\PlaqueDocumentType.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
     <Compile Include="Library\PDF\VOSADocument.cs" />
+    <Compile Include="Library\QueueManager.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
     <Compile Include="Library\SmartCardMonitor.cs" />

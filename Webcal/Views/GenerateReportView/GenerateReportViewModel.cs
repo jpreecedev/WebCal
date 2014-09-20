@@ -1,8 +1,6 @@
 ﻿namespace Webcal.Views
 {
     using System;
-    using System.Linq;
-    using System.Windows;
     using System.Windows.Controls;
     using Core;
     using Library;
@@ -12,7 +10,7 @@
     {
         private bool _isDocumentExpireNextMonthChecked;
         private bool _isDocumentExpireThisMonthChecked;
-        
+
         public GenerateReportViewModel()
         {
             IsExpiringDocumentsChecked = true;
@@ -20,7 +18,7 @@
             IsQuickSelectionChecked = true;
             IsDocumentExpireThisMonthChecked = true;
         }
-        
+
         public bool IsExpiringDocumentsChecked { get; set; }
 
         public bool IsDocumentStatisticsChecked { get; set; }
@@ -47,7 +45,9 @@
                 _isDocumentExpireThisMonthChecked = value;
 
                 if (value)
+                {
                     SetStartEndDates(true);
+                }
             }
         }
 
@@ -59,7 +59,9 @@
                 _isDocumentExpireNextMonthChecked = value;
 
                 if (value)
+                {
                     SetStartEndDates(false);
+                }
             }
         }
 
@@ -90,7 +92,9 @@
             if (IsExpiringDocumentsChecked)
             {
                 if (StartDateTime == null || EndDateTime == null)
+                {
                     return;
+                }
 
                 ExcelHelper.GenerateExpiringTachographDocumentsReport(fileFormat, StartDateTime.Value, EndDateTime.Value, Office);
             }
@@ -108,18 +112,6 @@
                 StartDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1);
                 EndDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(2).AddDays(-1);
             }
-        }
-
-        private bool IsValid(DependencyObject root)
-        {
-            bool isValid = true;
-
-            foreach (IValidate child in root.FindValidatableChildren().Where(child => !child.IsValid()))
-            {
-                isValid = false;
-            }
-
-            return isValid;
         }
     }
 }

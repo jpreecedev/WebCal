@@ -47,7 +47,9 @@
             context.PrinterSettings.Add(new PrinterSettings
             {
                 AlwaysAskForPrinter = true,
-                IsPortrait = true
+                IsPortrait = true,
+                DefaultNumberOfCopies = 1,
+                LabelNumberOfCopies = 1
             });
 
             context.RegistrationData.Add(new RegistrationData

@@ -61,7 +61,7 @@
 
         public DelegateCommand<object> UpdateCommand { get; set; }
 
-        public DelegateCommand<object> SaveModalCommand { get; set; }
+        public DelegateCommand<UserControl> SaveModalCommand { get; set; }
 
         public DelegateCommand<object> CancelModalCommand { get; set; }
 
@@ -188,8 +188,14 @@
             Process.Start("AutoUpdater.exe", "/checknow");
         }
 
-        private void OnSaveModal(object obj)
+        private void OnSaveModal(UserControl view)
         {
+            if (!IsValid(view))
+            {
+                ShowError(Resources.EXC_MISSING_FIELDS);
+                return;
+            }
+
             CloseSettingsModal(true);
 
             var documentViewModel = View.DataContext as INewDocumentViewModel;
@@ -230,7 +236,7 @@
             CancelCommand = new DelegateCommand<object>(OnCancel);
             ViewTechnicalInformationCommand = new DelegateCommand<object>(OnViewTechnicalInformation);
             UpdateCommand = new DelegateCommand<object>(OnUpdate);
-            SaveModalCommand = new DelegateCommand<object>(OnSaveModal);
+            SaveModalCommand = new DelegateCommand<UserControl>(OnSaveModal);
             CancelModalCommand = new DelegateCommand<object>(OnCancelModal);
         }
         

@@ -13,10 +13,14 @@
 
         public string DefaultPrinterName { get; set; }
 
+        public int DefaultNumberOfCopies { get; set; }
+
         public string DefaultLabelPrinter { get; set; }
 
         public bool IsPortrait { get; set; }
 
         public bool IsLandscape { get; set; }
+
+        public int LabelNumberOfCopies { get; set; }
     }
 }

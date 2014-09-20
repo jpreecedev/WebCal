@@ -141,6 +141,8 @@
 
             bitmap.Save(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "label.bmp"));
             PrinterSettings.PrinterName = printerSettings.DefaultLabelPrinter;
+            PrinterSettings.Copies = (short) printerSettings.LabelNumberOfCopies;
+
             Print();
         }
 

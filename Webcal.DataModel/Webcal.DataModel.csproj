@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201408251416291_AddedIndexes.Designer.cs">
       <DependentUpon>201408251416291_AddedIndexes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409181234044_AddNumberOfCopies.cs" />
+    <Compile Include="Migrations\201409181234044_AddNumberOfCopies.Designer.cs">
+      <DependentUpon>201409181234044_AddNumberOfCopies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomDayOfWeek.cs" />
     <Compile Include="Models\CustomerContact.cs" />
@@ -242,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408251416291_AddedIndexes.resx">
       <DependentUpon>201408251416291_AddedIndexes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409181234044_AddNumberOfCopies.resx">
+      <DependentUpon>201409181234044_AddNumberOfCopies.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

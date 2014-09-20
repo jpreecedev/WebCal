@@ -45,7 +45,9 @@
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         public abstract bool IsValid();
+
         public abstract void Clear();
 
         protected static void ReValidate(DependencyObject d, DependencyPropertyChangedEventArgs e)

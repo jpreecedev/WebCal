@@ -49,6 +49,7 @@
                             Command="{Binding DataContext.CancelModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
                     <Button Content="Save All &amp; Close"
                             Command="{Binding DataContext.SaveModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                            CommandParameter="{Binding View}"
                             Margin="5,10,10,10"
                             Width="100"/>
                 </StackPanel>

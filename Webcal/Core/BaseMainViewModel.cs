@@ -53,18 +53,6 @@
                 MainWindow.ModalClosedEvent -= OnSmallModalClosed;
         }
 
-        protected bool IsValid(DependencyObject root)
-        {
-            bool isValid = true;
-
-            foreach (IValidate child in root.FindValidatableChildren().Where(child => !child.IsValid()))
-            {
-                isValid = false;
-            }
-
-            return isValid;
-        }
-
         private void OnNewCustomer(object obj)
         {
             MainWindow.ShowSmallModal<CustomerSettingsView>();
