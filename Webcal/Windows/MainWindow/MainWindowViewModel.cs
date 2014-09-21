@@ -59,6 +59,8 @@
 
         public DelegateCommand<object> ViewTechnicalInformationCommand { get; set; }
 
+        public DelegateCommand<object> ViewTaskQueueCommand { get; set; } 
+
         public DelegateCommand<object> UpdateCommand { get; set; }
 
         public DelegateCommand<UserControl> SaveModalCommand { get; set; }
@@ -183,6 +185,12 @@
             exceptionWindow.ShowDialog();
         }
 
+        private static void OnViewTaskQueue(object obj)
+        {
+            var workerProgressWindow = new WorkerProgressWindow.WorkerProgressWindow();
+            workerProgressWindow.ShowDialog();
+        }
+
         private void OnUpdate(object arg)
         {
             Process.Start("AutoUpdater.exe", "/checknow");
@@ -235,11 +243,12 @@
             NewSpeedlimiterCommand = new DelegateCommand<object>(OnNewSpeedlimiter);
             CancelCommand = new DelegateCommand<object>(OnCancel);
             ViewTechnicalInformationCommand = new DelegateCommand<object>(OnViewTechnicalInformation);
+            ViewTaskQueueCommand = new DelegateCommand<object>(OnViewTaskQueue);
             UpdateCommand = new DelegateCommand<object>(OnUpdate);
             SaveModalCommand = new DelegateCommand<UserControl>(OnSaveModal);
             CancelModalCommand = new DelegateCommand<object>(OnCancelModal);
         }
-        
+
         private void CloseSettingsModal(bool save)
         {
             var settingsView = ModalView as SettingsView;

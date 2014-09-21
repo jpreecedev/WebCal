@@ -74,6 +74,15 @@
                                          Text="Shows the restore utility" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
+                    <r:MenuItem Header="View Task Queue"
+                                Icon="..\..\Images\queue.png"
+                                Command="{Binding ViewTaskQueueCommand}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="View Task Queue"
+                                         Image="..\..\Images\queue.png"
+                                         Text="Displays the list of tasks currently running" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
                     <r:MenuItem Header="Check For Updates"
                                 Icon="..\..\Images\Update.png"
                                 Command="{Binding UpdateCommand}"

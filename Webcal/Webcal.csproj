@@ -212,6 +212,8 @@
     <Compile Include="Core\BaseFilesViewModel.cs" />
     <Compile Include="Core\BaseHistoryViewModel.cs" />
     <Compile Include="Core\BaseMainViewModel.cs" />
+    <Compile Include="Core\BaseModalWindow.cs" />
+    <Compile Include="Core\BaseModalWindowViewModel.cs" />
     <Compile Include="Core\BaseNavigationViewModel.cs" />
     <Compile Include="Core\BaseNewDocumentViewModel.cs" />
     <Compile Include="Core\BaseNotification.cs" />
@@ -259,6 +261,8 @@
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
     <Compile Include="Library\SmartCardMonitor.cs" />
+    <Compile Include="Library\ViewModels\WorkerViewModel.cs" />
+    <Compile Include="Library\WorkerHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -395,6 +399,10 @@
       <DependentUpon>SignatureCaptureWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SignatureCaptureWindow\SignatureCaptureWindowViewModel.cs" />
+    <Compile Include="Windows\WorkerProgressWindow\WorkerProgressWindow.xaml.cs">
+      <DependentUpon>WorkerProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WorkerProgressWindow\WorkerProgressWindowViewModel.cs" />
     <Page Include="Views\NewTachographView\NewAnalogueTachographView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -543,6 +551,10 @@
     <Page Include="Windows\SignatureCaptureWindow\SignatureCaptureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WorkerProgressWindow\WorkerProgressWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -763,6 +775,9 @@
       <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
       <Name>Webcal.Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\queue.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
