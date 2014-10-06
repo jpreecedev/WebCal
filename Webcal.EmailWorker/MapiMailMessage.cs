@@ -1,4 +1,4 @@
-﻿namespace Webcal.Library.MAPI
+﻿namespace Webcal.EmailWorker
 {
     using System;
     using System.Collections;
@@ -41,8 +41,7 @@
         
         public void ShowDialog()
         {
-            var t = new Thread(ShowMail) {IsBackground = true}; /*ApartmentState = ApartmentState.STA */
-            t.Start();
+            ShowMail();
 
             _manualResetEvent.WaitOne();
             _manualResetEvent.Reset();

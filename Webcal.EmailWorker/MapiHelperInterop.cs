@@ -1,4 +1,4 @@
-﻿namespace Webcal.Library.MAPI
+﻿namespace Webcal.EmailWorker
 {
     using System;
     using System.Runtime.InteropServices;
@@ -11,7 +11,6 @@
         {
             // Intenationally blank
         }
-
 
         [DllImport("MAPI32.DLL", CharSet = CharSet.Ansi)]
         public static extern int MAPILogon(IntPtr hwnd, string prf, string pw, int flg, int rsv, ref IntPtr sess);

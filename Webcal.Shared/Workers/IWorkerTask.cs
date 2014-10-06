@@ -3,6 +3,6 @@
     public interface IWorkerTask
     {
         WorkerTaskName TaskName { get; set; }
-        string[] Parameters { get; set; }
+        IWorkerParameters Parameters { get; set; }
     }
 }

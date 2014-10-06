@@ -1,4 +1,4 @@
-﻿namespace Webcal.Library.MAPI
+﻿namespace Webcal.EmailWorker
 {
     public enum RecipientType
     {

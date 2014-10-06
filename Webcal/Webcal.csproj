@@ -240,12 +240,6 @@
     <Compile Include="Library\LabelHelper.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Library\MacroHelper.cs" />
-    <Compile Include="Library\MAPI\MapiHelperInterop.cs" />
-    <Compile Include="Library\MAPI\MapiMailMessage.cs" />
-    <Compile Include="Library\MAPI\Recipient.cs" />
-    <Compile Include="Library\MAPI\RecipientCollection.cs" />
-    <Compile Include="Library\MAPI\RecipientType.cs" />
     <Compile Include="Library\MessageBoxHelper.cs" />
     <Compile Include="Library\PDF\BasePlaqueDocument.cs" />
     <Compile Include="Library\PDF\FullCertificate.cs" />
@@ -257,7 +251,6 @@
     <Compile Include="Library\PDF\PlaqueDocumentType.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
     <Compile Include="Library\PDF\VOSADocument.cs" />
-    <Compile Include="Library\QueueManager.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
     <Compile Include="Library\SmartCardMonitor.cs" />
@@ -778,6 +771,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\queue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\email.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

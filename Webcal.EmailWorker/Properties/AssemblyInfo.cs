@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Webcal.DataModel")]
-[assembly: AssemblyDescription("Tachograph workshop card reader")]
+[assembly: AssemblyTitle("Webcal.EmailWorker")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Skillray Transport Services UK")]
-[assembly: AssemblyProduct("Webcal")]
+[assembly: AssemblyProduct("Webcal.EmailWorker")]
 [assembly: AssemblyCopyright("Copyright © Skillray 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("134ea9c9-a124-4d27-a074-ca87433c1038")]
+[assembly: Guid("e2673da7-504b-483f-8e62-a4d2d282bb49")]
 
 // Version information for an assembly consists of the following four values:
 //

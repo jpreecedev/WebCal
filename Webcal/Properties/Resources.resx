@@ -884,4 +884,7 @@ Invoice number</value>
   <data name="SELECT_BITMAP_IMAGE" xml:space="preserve">
     <value>All supported graphics|*.jpg;*.jpeg;*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|Portable Network Graphic (*.png)|*.png</value>
   </data>
+  <data name="EXEC_UNABLE_TO_FIND_PLUGIN" xml:space="preserve">
+    <value>Unable to find plugin for given task ({0})</value>
+  </data>
 </root>

@@ -1,0 +1,28 @@
+﻿namespace Webcal.PrintWorker
+{
+    using Shared.Workers;
+
+    public class PrintParameters : WorkerParameters
+    {
+        public PrintParameters(IWorkerParameters parameters)
+            :base(parameters)
+        {
+            
+        }
+
+        public string FilePath
+        {
+            get { return GetParameter<string>("FilePath"); }
+        }
+
+        public bool AlwaysAskForPrinter
+        {
+            get { return GetParameter<bool>("AlwaysAskForPrinter"); }
+        }
+
+        public string DefaultPrinterName
+        {
+            get { return GetParameter<string>("DefaultPrinterName"); }
+        }
+    }
+}

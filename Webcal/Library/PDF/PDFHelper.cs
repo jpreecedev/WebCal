@@ -5,6 +5,8 @@
     using System.Globalization;
     using System.IO;
     using DataModel;
+    using DataModel.Core;
+    using Shared.Workers;
 
     public static class PDFHelper
     {
@@ -88,7 +90,17 @@
 
         public static void Print(string path)
         {
+            var repository = ContainerBootstrapper.Container.GetInstance<IPrinterSettingsRepository>();
+            var settings = repository.GetSettings();
 
+            var workerTask = new WorkerTask {TaskName = WorkerTaskName.Print};
+
+            workerTask.Parameters = new WorkerParameters();
+            workerTask.Parameters.SetParameter("FilePath", path);
+            workerTask.Parameters.SetParameter("AlwaysAskForPrinter", settings.AlwaysAskForPrinter);
+            workerTask.Parameters.SetParameter("DefaultPrinterName", settings.DefaultPrinterName);
+
+            WorkerHelper.RunTask(workerTask);
         }
 
         private static DialogHelperResult Save(bool saveToTempDirectory)

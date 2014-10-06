@@ -411,6 +411,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to find plugin for given task ({0}).
+        /// </summary>
+        internal static string EXEC_UNABLE_TO_FIND_PLUGIN {
+            get {
+                return ResourceManager.GetString("EXEC_UNABLE_TO_FIND_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The file specified does not exist or you don&apos;t have permission to access it..
         /// </summary>
         internal static string MSG_EXC_CANNOT_ACCESS_FILE {

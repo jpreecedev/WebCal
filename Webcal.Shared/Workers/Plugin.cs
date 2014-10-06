@@ -10,10 +10,10 @@
             get { return (string)this["name"]; }
         }
 
-        [ConfigurationProperty("type", IsRequired = true)]
-        public string Type
+        [ConfigurationProperty("path", IsRequired = true)]
+        public string Path
         {
-            get { return (string)this["type"]; }
+            get { return (string)this["path"]; }
         }
     }
 }

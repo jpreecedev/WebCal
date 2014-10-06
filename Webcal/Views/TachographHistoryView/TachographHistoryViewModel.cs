@@ -60,10 +60,10 @@
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
             {
-                //email report
-
                 if (PDFHelper.GenerateTachographPlaque(document, true))
+                {
                     EmailHelper.SendEmail(document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                }
             }
         }
 
