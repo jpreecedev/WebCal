@@ -15,6 +15,16 @@
             get { return (AutoEmailCertificates || PersonaliseMyEmails); }
         }
 
+        public bool DontSendEmails
+        {
+            get
+            {
+                return !AllowEditingOfEmail &&
+                       !AutoEmailCertificates &&
+                       !PersonaliseMyEmails;
+            }
+        }
+
         [MaxLength]
         public string Subject { get; set; }
 

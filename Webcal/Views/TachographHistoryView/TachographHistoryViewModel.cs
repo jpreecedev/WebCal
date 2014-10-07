@@ -15,6 +15,10 @@
     public class TachographHistoryViewModel : BaseHistoryViewModel
     {
         public IRepository<TachographDocument> TachographDocumentsRepository { get; set; }
+
+        public WorkshopSettings WorkshopSettings { get; set; }
+        public MailSettings MailSettings { get; set; }
+
         public DelegateCommand<object> ReprintLabelCommand { get; set; }
         public DelegateCommand<object> ReprintCertificateCommand { get; set; }
 
@@ -26,6 +30,8 @@
         protected override void InitialiseRepositories()
         {
             TachographDocumentsRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
+            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>().GetSettings();
+            MailSettings = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>().GetSettings();
         }
 
         protected override void InitialiseCommands()
@@ -38,7 +44,10 @@
 
         protected override void OnDocumentSelected(Document document)
         {
-            if (document == null) return;
+            if (document == null)
+            {
+                return;
+            }
 
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
@@ -55,14 +64,17 @@
 
         protected override void OnEmailReportSelected(Document document)
         {
-            if (document == null) return;
+            if (document == null)
+            {
+                return;
+            }
 
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
             {
                 if (PDFHelper.GenerateTachographPlaque(document, true))
                 {
-                    EmailHelper.SendEmail(document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                    EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
                 }
             }
         }
@@ -88,10 +100,15 @@
         private void OnReprintCertificate(object obj)
         {
             var document = SelectedDocument as TachographDocument;
-            if (document == null) return;
+            if (document == null)
+            {
+                return;
+            }
 
             if (PDFHelper.GenerateTachographPlaque(document, true))
+            {
                 PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+            }
         }
     }
 }

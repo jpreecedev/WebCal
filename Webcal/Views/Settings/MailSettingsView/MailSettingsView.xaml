@@ -15,15 +15,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
             <RowDefinition />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="Email settings"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="25" />
                 <RowDefinition Height="10" />
@@ -37,7 +35,7 @@
             <StackPanel Orientation="Horizontal">
 
                 <RadioButton Content="Don't send emails"
-                             IsChecked="{Binding DontSendEmails, Mode=OneWay}"/>
+                             IsChecked="{Binding MailSettings.DontSendEmails, Mode=OneWay}"/>
 
                 <RadioButton x:Name="EmailCertificatesCheckBox"
                           Content="Automatically email certificates"
@@ -45,7 +43,7 @@
                           Margin="30,0,0,0" />
 
                 <RadioButton x:Name="PersonaliseEmailsCheckBox"
-                          Content="Personalise my emails"
+                          Content="Allow me to make edits before sending"
                           IsChecked="{Binding MailSettings.PersonaliseMyEmails, UpdateSourceTrigger=PropertyChanged}"
                           Margin="30,0,0,0" />
 
@@ -76,5 +74,23 @@
                      Height="Auto"
                      Grid.Row="6"/>
         </Grid>
+        
+        <StackPanel Grid.Row="2"
+                    Orientation="Vertical"
+                    Margin="0,5,0,0">
+            <TextBlock Text="Default Sending Preferences"/>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                <CheckBox Content="Send To Office"
+                          IsChecked="{Binding WorkshopSettings.SendToOffice}"
+                          Margin="0,0,10,0" />
+                <CheckBox Content="Send To Customer"
+                          IsChecked="{Binding WorkshopSettings.SendToCustomer}"
+                          Margin="0,0,10,0" />
+                <CheckBox Content="Do not send"
+                          IsChecked="{Binding WorkshopSettings.DoNotSend}" />
+            </StackPanel>
+        </StackPanel>
+        
     </Grid>
 </core:BaseSettingsView>

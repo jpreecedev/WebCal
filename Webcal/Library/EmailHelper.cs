@@ -9,51 +9,77 @@
 
     public static class EmailHelper
     {
-        public static void SendEmail(Document document, string attachmentPath)
+        public static void SendEmail(WorkshopSettings workshopSettings, MailSettings mailSettings, Document document, string attachmentPath)
         {
-            if (document == null || document.CustomerContact == null || string.IsNullOrEmpty(document.CustomerContact))
+            if (workshopSettings == null)
+            {
+                throw new ArgumentNullException("workshopSettings");
+            }
+            if (mailSettings == null)
+            {
+                throw new ArgumentNullException("mailSettings");
+            }
+            if (document == null)
             {
                 return;
             }
 
-            var mailRepository = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>();
-            MailSettings settings = mailRepository.GetSettings();
-
-            if (!settings.AutoEmailCertificates && !settings.PersonaliseMyEmails)
-            {
-                return;
-            }
-
-            string recipient = GetRecipientEmailAddress(document.CustomerContact);
+            string recipient = GetRecipientEmailAddresses(workshopSettings, mailSettings, document.CustomerContact);
             if (string.IsNullOrEmpty(recipient))
             {
                 return;
             }
 
-            CreateEmailTask(settings, attachmentPath, recipient);
+            CreateEmailTask(mailSettings, attachmentPath, recipient);
         }
 
-        private static string GetRecipientEmailAddress(string customerContact)
+        private static string GetRecipientEmailAddresses(WorkshopSettings workshopSettings, MailSettings mailSettings, string customerContact)
         {
-            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
-            CustomerContact customer = repository.FirstOrDefault(contact => string.Equals(customerContact, contact.Name, StringComparison.CurrentCultureIgnoreCase));
+            string recipients = string.Empty;
 
-            if (customer == null || string.IsNullOrEmpty(customer.Email))
+            if (mailSettings != null && !mailSettings.DontSendEmails && !workshopSettings.DoNotSend)
             {
-                return string.Empty;
+                if (workshopSettings.SendToOffice)
+                {
+                    recipients = AppendRecipient(recipients, workshopSettings.MainEmailAddress);
+                    recipients = AppendRecipient(recipients, workshopSettings.SecondaryEmailAddress);
+                }
+                if (workshopSettings.SendToCustomer && !string.IsNullOrEmpty(customerContact))
+                {
+                    var repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+                    CustomerContact customer = repository.FirstOrDefault(contact => string.Equals(customerContact, contact.Name, StringComparison.CurrentCultureIgnoreCase));
+
+                    if (customer == null || string.IsNullOrEmpty(customer.Email))
+                    {
+                        return string.Empty;
+                    }
+                    if (IsValidEmail(customer.Email))
+                    {
+                        recipients = AppendRecipient(recipients, customer.Email);
+                    }
+                }
             }
 
-            if (!IsValidEmail(customer.Email))
+            return recipients;
+        }
+
+        private static string AppendRecipient(string existingRecipient, string newRecipient)
+        {
+            if (string.IsNullOrEmpty(newRecipient))
             {
-                return string.Empty;
+                return existingRecipient;
             }
 
-            return customer.Email;
+            if (string.IsNullOrEmpty(existingRecipient))
+            {
+                return newRecipient;
+            }
+            return existingRecipient + ", " + newRecipient;
         }
 
         private static void CreateEmailTask(MailSettings settings, string attachmentPath, string recipient)
         {
-            var workerTask = new WorkerTask { TaskName = WorkerTaskName.Email };
+            var workerTask = new WorkerTask {TaskName = WorkerTaskName.Email};
 
             workerTask.Parameters = new WorkerParameters();
             workerTask.Parameters.SetParameter("PersonaliseMyEmails", settings.PersonaliseMyEmails);

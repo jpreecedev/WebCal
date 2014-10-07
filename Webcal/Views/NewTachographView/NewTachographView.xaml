@@ -1,4 +1,4 @@
-﻿    <UserControl x:Class="Webcal.Views.NewTachographView"
+﻿<UserControl x:Class="Webcal.Views.NewTachographView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,7 +7,7 @@
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:core="clr-namespace:Webcal.Core"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
-                 mc:Ignorable="d"
+             mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="1000">
     <UserControl.DataContext>
@@ -169,7 +169,8 @@
                         </ctrls:InputComboField.IsEnabled>
                     </ctrls:InputComboField>
 
-                    <ctrls:InputComboField x:Name="VehicleModelCombo" Label="Model"
+                    <ctrls:InputComboField x:Name="VehicleModelCombo"
+                                           Label="Model"
                                            ItemsSource="{Binding Models, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            SelectedText="{Binding DataContext.Document.VehicleModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            IsSynchronisedWithCurrentItem="True"
@@ -431,10 +432,25 @@
                         Style="{StaticResource NewCustomerButton}"
                         Grid.Row="20"
                         Grid.Column="2" />
+                
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="21"
+                            Margin="0,20,0,0"
+                            Visibility="{Binding MailSettings.DontSendEmails, Converter={StaticResource InvBool2Vis}}">
+                    <CheckBox Content="Send To Office"
+                              IsChecked="{Binding WorkshopSettings.SendToOffice}"
+                              Margin="0,0,10,0"/>
+                    <CheckBox Content="Send To Customer"
+                              IsChecked="{Binding WorkshopSettings.SendToCustomer}"
+                              Margin="0,0,10,0" />
+                    <CheckBox Content="Do not send"
+                              IsChecked="{Binding WorkshopSettings.DoNotSend}" />
+                </StackPanel>
 
                 <StackPanel Orientation="Horizontal"
                             Grid.Row="21"
-                            Grid.ColumnSpan="3"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right">
 
@@ -448,7 +464,7 @@
 
                     <Button Content="Cancel"
                             Command="{Binding CancelCommand}"
-                            IsEnabled="{Binding DataContext.IsNavigationLocked, RelativeSource={RelativeSource AncestorType={x:Type Window}}, Converter={StaticResource InvBool}}"/>
+                            IsEnabled="{Binding DataContext.IsNavigationLocked, RelativeSource={RelativeSource AncestorType={x:Type Window}}, Converter={StaticResource InvBool}}" />
 
                 </StackPanel>
             </Grid>

@@ -40,12 +40,19 @@
 
             <ctrls:InputTextField Label="Phone Number"
                                   Text="{core:InputBinding Settings.PhoneNumber}" />
+
+            <ctrls:InputTextField Label="Main Email Address"
+                                  Text="{core:InputBinding Settings.MainEmailAddress}" />
+
+            <ctrls:InputTextField Label="Secondary Email Address"
+                                  Text="{core:InputBinding Settings.SecondaryEmailAddress}" />
+            
             <StackPanel Orientation="Horizontal"
                         Margin="0,20,0,0">
-                <Button Content="Load Logo"
+                <Button Content="Choose Logo"
                         Command="{Binding BrowseCommand}"
                         HorizontalAlignment="Left"
-                        Width="70" />
+                        Width="80" />
                 <Image Source="{Binding CompanyLogo}" 
                        Width="100"
                        Height="100"

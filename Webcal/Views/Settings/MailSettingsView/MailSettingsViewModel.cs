@@ -10,16 +10,9 @@
 
         public IMailSettingsRepository Repository { get; set; }
 
-        public bool DontSendEmails
-        {
-            get
-            {
-                return MailSettings != null &&
-                       !MailSettings.AllowEditingOfEmail &&
-                       !MailSettings.AutoEmailCertificates &&
-                       !MailSettings.PersonaliseMyEmails;
-            }
-        }
+        public IGeneralSettingsRepository GeneralSettingsRepository { get; set; }
+
+        public WorkshopSettings WorkshopSettings { get; set; }
 
         protected override void Load()
         {
@@ -29,11 +22,14 @@
         protected override void InitialiseRepositories()
         {
             Repository = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>();
+            GeneralSettingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
+            WorkshopSettings = GeneralSettingsRepository.GetSettings();
         }
 
         public override void Save()
         {
             Repository.Save(MailSettings);
+            GeneralSettingsRepository.Save(WorkshopSettings);
         }
     }
 }

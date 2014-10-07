@@ -89,6 +89,8 @@
 
         protected override void InitialiseRepositories()
         {
+            base.InitialiseRepositories();
+
             VehicleRepository = ContainerBootstrapper.Container.GetInstance<IRepository<VehicleMake>>();
             TyreSizesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TyreSize>>();
             TachographMakesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
@@ -114,7 +116,9 @@
             Document.Created = DateTime.Now;
 
             if (Document.CalibrationTime == null)
+            {
                 Document.CalibrationTime = DateTime.Now;
+            }
 
             TachographDocumentRepository.AddOrUpdate(Document);
             TachographDocumentRepository.Save();
@@ -124,7 +128,9 @@
         protected override void RegistrationChanged(string registrationNumber)
         {
             if (string.IsNullOrEmpty(registrationNumber))
+            {
                 return;
+            }
 
             //Remove all spaces from registration number
             Document.RegistrationNumber = registrationNumber.Replace(" ", "").ToUpper();
@@ -136,7 +142,10 @@
                     .OrderByDescending(doc => doc.Created)
                     .FirstOrDefault();
 
-                if (match == null) return;
+                if (match == null)
+                {
+                    return;
+                }
                 Document.CalibrationTime = DateTime.Now;
                 Document.CardSerialNumber = match.CardSerialNumber;
                 Document.Created = DateTime.Now;
@@ -161,7 +170,6 @@
                 Document.VehicleModel = match.VehicleModel;
                 Document.VehicleType = match.VehicleType;
                 Document.VIN = match.VIN;
-                //Document = match;
             }
         }
 
@@ -174,7 +182,7 @@
                 try
                 {
                     bool autoRead = obj != null;
-                    
+
                     IsCardReadUserInitiated = obj == null;
                     SwitchReadButtonState(false);
 
@@ -190,14 +198,18 @@
                     else
                     {
                         if (string.IsNullOrEmpty(LastPlateRead))
+                        {
                             LastPlateRead = "";
+                        }
 
                         if (LastPlateRead != calibrationRecord.VehicleRegistrationNumber || !autoRead)
                         {
                             LastPlateRead = calibrationRecord.VehicleRegistrationNumber;
 
                             if (RegistrationChangedCommand != null)
+                            {
                                 RegistrationChangedCommand.Execute(calibrationRecord.VehicleRegistrationNumber);
+                            }
 
                             MainWindow.IsNavigationLocked = true;
 
@@ -221,11 +233,13 @@
                 }
             }
         }
-        
+
         private void OnPrintLabel(DependencyObject root)
         {
             if (root == null)
+            {
                 return;
+            }
 
             if (!IsValid(root))
             {
@@ -259,7 +273,9 @@
 
             Technician defaultTechnician = Technicians.FirstOrDefault(technician => technician != null && technician.IsDefault);
             if (defaultTechnician != null)
+            {
                 Document.Technician = defaultTechnician.Name;
+            }
         }
 
         private void GenerateDump()
@@ -294,7 +310,9 @@
             try
             {
                 if (string.IsNullOrEmpty(xml))
+                {
                     return null;
+                }
 
                 XDocument document = XDocument.Parse(xml);
                 XElement first = document.Descendants("CardDump").FirstOrDefault();
@@ -327,10 +345,14 @@
             using (var labelHelper = new LabelHelper())
             {
                 if (document.CalibrationTime == null)
+                {
                     document.CalibrationTime = DateTime.Now;
+                }
 
                 if (labelHelper.CanPrint())
+                {
                     labelHelper.Print(document);
+                }
             }
         }
     }

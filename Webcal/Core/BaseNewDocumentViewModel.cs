@@ -23,6 +23,9 @@
         public DelegateCommand<Grid> PrintCommand { get; set; }
         public DelegateCommand<string> RegistrationChangedCommand { get; set; }
 
+        public WorkshopSettings WorkshopSettings { get; set; }
+
+        public MailSettings MailSettings { get; set; }
 
         public virtual void OnModalClosed()
         {
@@ -35,6 +38,14 @@
             ExportPDFCommand = new DelegateCommand<Grid>(OnExportPDF);
             PrintCommand = new DelegateCommand<Grid>(OnPrint);
             RegistrationChangedCommand = new DelegateCommand<string>(OnRegistrationChanged);
+        }
+
+        protected override void InitialiseRepositories()
+        {
+            base.InitialiseRepositories();
+
+            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>().GetSettings();
+            MailSettings = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>().GetSettings();
         }
 
         protected virtual void Add()
@@ -58,7 +69,7 @@
                 Document document = GetNewDocument(root);
                 if (PDFHelper.GenerateTachographPlaque(document, false))
                 {
-                    EmailHelper.SendEmail(document, PDFHelper.LastPDFOutputPath);
+                    EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, PDFHelper.LastPDFOutputPath);
 
                     Add();
                     Close();
@@ -86,7 +97,7 @@
                 try
                 {
                     PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
-                    EmailHelper.SendEmail(document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                    EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
                 }
                 finally
                 {
