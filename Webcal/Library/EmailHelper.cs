@@ -37,25 +37,30 @@
         {
             string recipients = string.Empty;
 
-            if (mailSettings != null && !mailSettings.DontSendEmails && !workshopSettings.DoNotSend)
+            if (mailSettings == null || mailSettings.DontSendEmails || workshopSettings.DoNotSend)
             {
-                if (workshopSettings.SendToOffice)
-                {
-                    recipients = AppendRecipient(recipients, workshopSettings.MainEmailAddress);
-                    recipients = AppendRecipient(recipients, workshopSettings.SecondaryEmailAddress);
-                }
-                if (workshopSettings.SendToCustomer && !string.IsNullOrEmpty(customerContact))
-                {
-                    var repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
-                    CustomerContact customer = repository.FirstOrDefault(contact => string.Equals(customerContact, contact.Name, StringComparison.CurrentCultureIgnoreCase));
+                return recipients;
+            }
 
-                    if (customer == null || string.IsNullOrEmpty(customer.Email))
-                    {
-                        return string.Empty;
-                    }
+            if (workshopSettings.SendToOffice)
+            {
+                recipients = AppendRecipient(recipients, workshopSettings.MainEmailAddress);
+                recipients = AppendRecipient(recipients, workshopSettings.SecondaryEmailAddress);
+            }
+            if (workshopSettings.SendToCustomer && !string.IsNullOrEmpty(customerContact))
+            {
+                var repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+                CustomerContact customer = repository.FirstOrDefault(contact => string.Equals(customerContact, contact.Name, StringComparison.CurrentCultureIgnoreCase));
+
+                if (customer != null)
+                {
                     if (IsValidEmail(customer.Email))
                     {
                         recipients = AppendRecipient(recipients, customer.Email);
+                    }
+                    if (IsValidEmail(customer.SecondaryEmail))
+                    {
+                        recipients = AppendRecipient(recipients, customer.SecondaryEmail);
                     }
                 }
             }
@@ -74,12 +79,12 @@
             {
                 return newRecipient;
             }
-            return existingRecipient + ", " + newRecipient;
+            return existingRecipient + "; " + newRecipient;
         }
 
         private static void CreateEmailTask(MailSettings settings, string attachmentPath, string recipient)
         {
-            var workerTask = new WorkerTask {TaskName = WorkerTaskName.Email};
+            var workerTask = new WorkerTask { TaskName = WorkerTaskName.Email };
 
             workerTask.Parameters = new WorkerParameters();
             workerTask.Parameters.SetParameter("PersonaliseMyEmails", settings.PersonaliseMyEmails);

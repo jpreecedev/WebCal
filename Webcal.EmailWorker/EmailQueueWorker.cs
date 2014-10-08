@@ -16,9 +16,6 @@
 
         public override void Start(IWorkerParameters parameters)
         {
-            Debugger.Launch();
-            Debugger.Break();
-
             var emailParameters = new EmailParameters(parameters);
 
             if (emailParameters.PersonaliseMyEmails)
