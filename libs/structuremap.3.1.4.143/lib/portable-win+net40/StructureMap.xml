@@ -130,54 +130,6 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:StructureMap.IContainer.Configure(System.Action{StructureMap.ConfigurationExpression})">
-            <summary>
-            Used to add additional configuration to a Container *after* the initialization.
-            </summary>
-            <param name="configure"></param>
-        </member>
-        <member name="M:StructureMap.IContainer.Inject``1(``0)">
-            <summary>
-            Injects the given object into a Container as the default for the designated
-            TPluginType.  Mostly used for temporarily setting up return values of the Container
-            to introduce mocks or stubs during automated testing scenarios
-            </summary>
-            <typeparam name="TPluginType"></typeparam>
-            <param name="instance"></param>
-        </member>
-        <member name="M:StructureMap.IContainer.Inject(System.Type,System.Object)">
-            <summary>
-            Injects the given object into a Container as the default for the designated
-            pluginType.  Mostly used for temporarily setting up return values of the Container
-            to introduce mocks or stubs during automated testing scenarios
-            </summary>
-            <param name="pluginType"></param>
-            <param name="object"></param>
-        </member>
-        <member name="M:StructureMap.IContainer.GetProfile(System.String)">
-            <summary>
-            Gets a new child container for the named profile using that profile's defaults with
-            fallback to the original parent
-            </summary>
-            <param name="profileName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:StructureMap.IContainer.WhatDoIHave(System.Type,System.Reflection.Assembly,System.String,System.String)">
-            <summary>
-            Returns a report detailing the complete configuration of all PluginTypes and Instances
-            </summary>
-            <returns></returns>
-            <param name="pluginType">Optional parameter to filter the results down to just this plugin type</param>
-            <param name="assembly">Optional parameter to filter the results down to only plugin types from this Assembly</param>
-            <param name="@namespace">Optional parameter to filter the results down to only plugin types from this namespace</param>
-            <param name="typeName">Optional parameter to filter the results down to any plugin type whose name contains this text</param>
-        </member>
-        <member name="M:StructureMap.IContainer.AssertConfigurationIsValid">
-            <summary>
-            Use with caution!  Does a full environment test of the configuration of this container.  Will try to create every configured
-            instance and afterward calls any methods marked with the [ValidationMethod] attribute
-            </summary>
-        </member>
         <member name="M:StructureMap.IContainer.GetAllInstances``1(StructureMap.Pipeline.ExplicitArguments)">
             <summary>
             Gets all configured instances of type T using explicitly configured arguments from the "args"
@@ -201,23 +153,6 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="args"></param>
-            <returns></returns>
-        </member>
-        <member name="M:StructureMap.IContainer.With``1(``0)">
-            <summary>
-            Starts a request for an instance or instances with explicitly configured arguments.  Specifies that any dependency
-            of type T should be "arg"
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="arg"></param>
-            <returns></returns>
-        </member>
-        <member name="M:StructureMap.IContainer.With(System.String)">
-            <summary>
-            Starts a request for an instance or instances with explicitly configured arguments.  Specifies that any dependency or primitive argument
-            with the designated name should be the next value.
-            </summary>
-            <param name="argName"></param>
             <returns></returns>
         </member>
         <member name="M:StructureMap.IContainer.GetInstance(System.Type,StructureMap.Pipeline.ExplicitArguments)">
@@ -281,7 +216,80 @@
             <param name="arg"></param>
             <returns></returns>
         </member>
+        <member name="M:StructureMap.IContainer.With(System.Action{StructureMap.IExplicitArgsExpression})">
+            <summary>
+            Starts a request for an instance or instances with explicitly configured
+            arguments
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StructureMap.IContainer.With``1(``0)">
+            <summary>
+            Starts a request for an instance or instances with explicitly configured arguments.  Specifies that any dependency
+            of type T should be "arg"
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StructureMap.IContainer.With(System.String)">
+            <summary>
+            Starts a request for an instance or instances with explicitly configured arguments.  Specifies that any dependency or primitive argument
+            with the designated name should be the next value.
+            </summary>
+            <param name="argName"></param>
+            <returns></returns>
+        </member>
         <!-- Badly formed XML comment ignored for member "M:StructureMap.IContainer.ForObject(System.Object)" -->
+        <member name="M:StructureMap.IContainer.Configure(System.Action{StructureMap.ConfigurationExpression})">
+            <summary>
+            Used to add additional configuration to a Container *after* the initialization.
+            </summary>
+            <param name="configure"></param>
+        </member>
+        <member name="M:StructureMap.IContainer.Inject``1(``0)">
+            <summary>
+            Injects the given object into a Container as the default for the designated
+            TPluginType.  Mostly used for temporarily setting up return values of the Container
+            to introduce mocks or stubs during automated testing scenarios
+            </summary>
+            <typeparam name="TPluginType"></typeparam>
+            <param name="instance"></param>
+        </member>
+        <member name="M:StructureMap.IContainer.Inject(System.Type,System.Object)">
+            <summary>
+            Injects the given object into a Container as the default for the designated
+            pluginType.  Mostly used for temporarily setting up return values of the Container
+            to introduce mocks or stubs during automated testing scenarios
+            </summary>
+            <param name="pluginType"></param>
+            <param name="object"></param>
+        </member>
+        <member name="M:StructureMap.IContainer.GetProfile(System.String)">
+            <summary>
+            Gets a new child container for the named profile using that profile's defaults with
+            fallback to the original parent
+            </summary>
+            <param name="profileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StructureMap.IContainer.WhatDoIHave(System.Type,System.Reflection.Assembly,System.String,System.String)">
+            <summary>
+            Returns a report detailing the complete configuration of all PluginTypes and Instances
+            </summary>
+            <returns></returns>
+            <param name="pluginType">Optional parameter to filter the results down to just this plugin type</param>
+            <param name="assembly">Optional parameter to filter the results down to only plugin types from this Assembly</param>
+            <param name="@namespace">Optional parameter to filter the results down to only plugin types from this namespace</param>
+            <param name="typeName">Optional parameter to filter the results down to any plugin type whose name contains this text</param>
+        </member>
+        <member name="M:StructureMap.IContainer.AssertConfigurationIsValid">
+            <summary>
+            Use with caution!  Does a full environment test of the configuration of this container.  Will try to create every configured
+            instance and afterward calls any methods marked with the [ValidationMethod] attribute
+            </summary>
+        </member>
         <member name="M:StructureMap.IContainer.GetNestedContainer">
             <summary>
             Starts a "Nested" Container for atomic, isolated access
@@ -293,14 +301,6 @@
             Starts a new "Nested" Container for atomic, isolated service location.  Opens 
             </summary>
             <param name="profileName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:StructureMap.IContainer.With(System.Action{StructureMap.IExplicitArgsExpression})">
-            <summary>
-            Starts a request for an instance or instances with explicitly configured
-            arguments
-            </summary>
-            <param name="action"></param>
             <returns></returns>
         </member>
         <member name="M:StructureMap.IContainer.CreateChildContainer">
@@ -1613,9 +1613,7 @@
         </member>
         <member name="M:StructureMap.Configuration.DSL.Expressions.GenericFamilyExpression.LifecycleIs(StructureMap.Pipeline.ILifecycle)">
             <summary>
-            Registers an IBuildInterceptor for this Plugin Type that executes before
-            any object of this PluginType is created.  IBuildInterceptor's can be
-            used to create a custom scope
+            Assign a lifecycle to the PluginFamily
             </summary>
             <param name="lifecycle"></param>
             <returns></returns>
@@ -2937,6 +2935,11 @@
             </summary>
             <param name="name"></param>
             <returns></returns>
+        </member>
+        <member name="T:StructureMap.Pipeline.ObjectLifecycle">
+            <summary>
+            Used internally to mark objects that are injected directly into the container
+            </summary>
         </member>
         <member name="T:StructureMap.Pipeline.SmartInstance`2">
             <summary>
