@@ -42,18 +42,27 @@
             {
                 SendMessage("Preparing to print");
 
-                var proc = new Process();
-                proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                proc.StartInfo.Verb = "Print";
-                proc.StartInfo.FileName = pdfExecutablePath;
-                proc.StartInfo.UseShellExecute = false;
-                proc.StartInfo.CreateNoWindow = true;
-                proc.StartInfo.Arguments = GetStartupArguments(printParameters.FilePath, printParameters);
+                var proc = new Process
+                {
+                    StartInfo =
+                    {
+                        WindowStyle = ProcessWindowStyle.Hidden, 
+                        Verb = "Print",
+                        FileName = pdfExecutablePath,
+                        UseShellExecute = false, 
+                        CreateNoWindow = true, 
+                        Arguments = GetStartupArguments(printParameters.FilePath, printParameters)
+                    }
+                };
+
                 proc.EnableRaisingEvents = true;
 
-                proc.Start();
-                proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                proc.WaitForExit(60000);
+                for (int i = 0; i < printParameters.DefaultNumberOfCopies; i++)
+                {
+                    proc.Start();
+                    proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    proc.WaitForExit(180000);
+                }
 
                 SendMessage("Print complete, tidying up.");
 

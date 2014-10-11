@@ -24,5 +24,15 @@
         {
             get { return GetParameter<string>("DefaultPrinterName"); }
         }
+
+        public int DefaultNumberOfCopies
+        {
+            get { return GetParameter<int>("DefaultNumberOfCopies"); }
+        }
+
+        public int LabelNumberOfCopies
+        {
+            get { return GetParameter<int>("LabelNumberOfCopies"); }            
+        }
     }
 }

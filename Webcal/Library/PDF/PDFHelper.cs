@@ -99,6 +99,8 @@
             workerTask.Parameters.SetParameter("FilePath", path);
             workerTask.Parameters.SetParameter("AlwaysAskForPrinter", settings.AlwaysAskForPrinter);
             workerTask.Parameters.SetParameter("DefaultPrinterName", settings.DefaultPrinterName);
+            workerTask.Parameters.SetParameter("DefaultNumberOfCopies", settings.DefaultNumberOfCopies);
+            workerTask.Parameters.SetParameter("LabelNumberOfCopies", settings.LabelNumberOfCopies);
 
             WorkerHelper.RunTask(workerTask);
         }
