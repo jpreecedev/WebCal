@@ -117,24 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EXC_ENTITY_VALIDATION_ERRORS" xml:space="preserve">
-    <value>Entity "{0}" has the following errors:
-</value>
-  </data>
-  <data name="EXC_VALIDATION_ERROR_PROPERTY" xml:space="preserve">
-    <value>{1}
-</value>
-  </data>
-  <data name="ERR_UNABLE_FIND_DATA_PROVIDER" xml:space="preserve">
-    <value>Unable to find the requested .Net Framework Data Provider.  It may not be installed.</value>
-  </data>
-  <data name="ERR_UNABLE_FIND_SQL_CE" xml:space="preserve">
-    <value>An error occurred.  SQL CE 4.0 may not be installed.</value>
-  </data>
   <data name="TXT_ERROR" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="EXC_IMAGE_COULD_NOT_BE_LOADED" xml:space="preserve">
-    <value>Image could not be loaded</value>
+  <data name="TXT_SIX_YEAR_CALIBRATION">
+    <value xml:space="preserve">6 - 6 year calibration</value>
+  </data>
+  <data name="TXT_TWO_YEAR_INSPECTION">
+    <value xml:space="preserve">2 - 2 year inspection</value>
+  </data>
+  <data name="TXT_RECALIBRATION">
+    <value xml:space="preserve">R - Recalibration</value>
+  </data>
+  <data name="TXT_MINOR_WORK_DETAILS">
+    <value xml:space="preserve">M - Minor Work</value>
+  </data>
+  <data name="TXT_INSTALLATION_CALIBRATION">
+    <value xml:space="preserve">I - Installation / Initial calibration</value>
+  </data>
+  <data name="TXT_LABEL_INITIAL_CALIBRATION">
+    <value xml:space="preserve">Initial Calibration</value>
+  </data>
+  <data name="TXT_LABEL_MINOR_WORK">
+    <value xml:space="preserve">Minor Work</value>
+  </data>
+  <data name="TXT_LABEL_RECALIBRATION">
+    <value xml:space="preserve">Recalibration</value>
+  </data>
+  <data name="TXT_LABEL_TWO_YEAR_INSPECTION">
+    <value xml:space="preserve">2yr Inspection</value>
+  </data>
+  <data name="TXT_LABEL_SIX_YEAR_CALIBRATION">
+    <value xml:space="preserve">6yr Calibration</value>
+  </data>
+  <data name="TXT_LABEL_DIGITAL_INITIAL_CALIBRATION">
+    <value xml:space="preserve">Digital Initial</value>
+  </data>
+  <data name="TXT_LABEL_DIGITAL_TWO_YEAR">
+    <value xml:space="preserve">Digital 2yr</value>
+  </data>
+  <data name="TXT_DATE">
+    <value xml:space="preserve">DATE: </value>
+  </data>
+  <data name="TXT_DIGITAL_INITIAL_CALIBRATION">
+    <value xml:space="preserve">3 - Digital initial calibration</value>
+  </data>
+  <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION">
+    <value xml:space="preserve">4 - Digital 2 year calibration</value>
+  </data>
+  <data name="TXT_SKILLRAY">
+    <value xml:space="preserve">Skillray</value>
+  </data>
+  <data name="TXT_LABEL_CUSTOMER_NAME">
+    <value xml:space="preserve">{0}</value>
+  </data>
+  <data name="TXT_LABEL_CUSTOMER_PHONE_NUMBER">
+    <value xml:space="preserve">Phone number: {0}</value>
+  </data>
+  <data name="TXT_LABEL_K_FACTOR">
+    <value xml:space="preserve">K={0} imp/km</value>
+  </data>
+  <data name="TXT_LABEL_W_FACTOR">
+    <value xml:space="preserve">W={0} imp/km</value>
+  </data>
+  <data name="TXT_LABEL_L_FACTOR">
+    <value xml:space="preserve">L={0} mm</value>
+  </data>
+  <data name="TXT_LABEL_SEAL_NUMBER">
+    <value xml:space="preserve">Seal no={0}</value>
+  </data>
+  <data name="TXT_LABEL_VIN">
+    <value xml:space="preserve">VIN={0}</value>
+  </data>
+  <data name="TXT_LABEL_SERIAL_NUMBER">
+    <value xml:space="preserve">Serial No: {0}</value>
+  </data>
+  <data name="TXT_LABEL_TYRE_SIZE">
+    <value xml:space="preserve">Tyre size: {0}</value>
+  </data>
+  <data name="TXT_DEMO">
+    <value xml:space="preserve">Demo</value>
+  </data>
+  <data name="EXC_UNABLE_FIND_LABEL_FONT">
+    <value xml:space="preserve">Unable to find font 'Lucida Console'.  Printing cannot continue</value>
   </data>
 </root>

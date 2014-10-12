@@ -68,6 +68,7 @@
       <HintPath>..\libs\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="StructureMap, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libs\structuremap.3.1.4.143\lib\net40\StructureMap.dll</HintPath>
@@ -92,6 +93,7 @@
     <Compile Include="DiscreteException.cs" />
     <Compile Include="ExceptionPolicy.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="ImageHelper.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="LicenseManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -256,15 +256,6 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Image could not be loaded.
-        /// </summary>
-        internal static string EXC_IMAGE_COULD_NOT_BE_LOADED {
-            get {
-                return ResourceManager.GetString("EXC_IMAGE_COULD_NOT_BE_LOADED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Please ensure that all fields are completed before adding.
         /// </summary>
         internal static string EXC_INCOMPLETE_FIELDS {
@@ -317,15 +308,6 @@ namespace Webcal.Properties {
         internal static string EXC_UNABLE_EXPORT_PDF {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_EXPORT_PDF", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find font &apos;Lucida Console&apos;.  Printing cannot continue.
-        /// </summary>
-        internal static string EXC_UNABLE_FIND_LABEL_FONT {
-            get {
-                return ResourceManager.GetString("EXC_UNABLE_FIND_LABEL_FONT", resourceCulture);
             }
         }
         
@@ -631,7 +613,7 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DATE: .
+        ///   Looks up a localized string similar to DATE:.
         /// </summary>
         internal static string TXT_DATE {
             get {
@@ -658,15 +640,6 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3 - Digital initial calibration.
-        /// </summary>
-        internal static string TXT_DIGITAL_INITIAL_CALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_DIGITAL_INITIAL_CALIBRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to DIGITAL CALIBRATIONS:.
         /// </summary>
         internal static string TXT_DIGITAL_INSPECTIONS {
@@ -681,15 +654,6 @@ namespace Webcal.Properties {
         internal static string TXT_DIGITAL_TACHOGRAPH_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_DIGITAL_TACHOGRAPH_DOCUMENT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 4 - Digital 2 year calibration.
-        /// </summary>
-        internal static string TXT_DIGITAL_TWO_YEAR_CALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_DIGITAL_TWO_YEAR_CALIBRATION", resourceCulture);
             }
         }
         
@@ -928,15 +892,6 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I - Installation / Initial calibration.
-        /// </summary>
-        internal static string TXT_INSTALLATION_CALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_INSTALLATION_CALIBRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to K: {0} imp/km.
         /// </summary>
         internal static string TXT_K_FACTOR_IMP_KM {
@@ -1000,114 +955,6 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}.
-        /// </summary>
-        internal static string TXT_LABEL_CUSTOMER_NAME {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_CUSTOMER_NAME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Phone number: {0}.
-        /// </summary>
-        internal static string TXT_LABEL_CUSTOMER_PHONE_NUMBER {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_CUSTOMER_PHONE_NUMBER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Digital Initial.
-        /// </summary>
-        internal static string TXT_LABEL_DIGITAL_INITIAL_CALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_DIGITAL_INITIAL_CALIBRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Digital 2yr.
-        /// </summary>
-        internal static string TXT_LABEL_DIGITAL_TWO_YEAR {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_DIGITAL_TWO_YEAR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Initial Calibration.
-        /// </summary>
-        internal static string TXT_LABEL_INITIAL_CALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_INITIAL_CALIBRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to K={0} imp/km.
-        /// </summary>
-        internal static string TXT_LABEL_K_FACTOR {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_K_FACTOR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to L={0} mm.
-        /// </summary>
-        internal static string TXT_LABEL_L_FACTOR {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_L_FACTOR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Minor Work.
-        /// </summary>
-        internal static string TXT_LABEL_MINOR_WORK {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_MINOR_WORK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Recalibration.
-        /// </summary>
-        internal static string TXT_LABEL_RECALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_RECALIBRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Seal no={0}.
-        /// </summary>
-        internal static string TXT_LABEL_SEAL_NUMBER {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_SEAL_NUMBER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Serial No: {0}.
-        /// </summary>
-        internal static string TXT_LABEL_SERIAL_NUMBER {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_SERIAL_NUMBER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 6yr Calibration.
-        /// </summary>
-        internal static string TXT_LABEL_SIX_YEAR_CALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_SIX_YEAR_CALIBRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Technician ID:{0}.
         /// </summary>
         internal static string TXT_LABEL_TECHNICIAN_NAME {
@@ -1117,47 +964,11 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2yr Inspection.
-        /// </summary>
-        internal static string TXT_LABEL_TWO_YEAR_INSPECTION {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_TWO_YEAR_INSPECTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tyre size: {0}.
-        /// </summary>
-        internal static string TXT_LABEL_TYRE_SIZE {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_TYRE_SIZE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to VIN={0}.
-        /// </summary>
-        internal static string TXT_LABEL_VIN {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_VIN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to VU Serial No:{0}.
         /// </summary>
         internal static string TXT_LABEL_VU_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_LABEL_VU_SERIAL_NUMBER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to W={0} imp/km.
-        /// </summary>
-        internal static string TXT_LABEL_W_FACTOR {
-            get {
-                return ResourceManager.GetString("TXT_LABEL_W_FACTOR", resourceCulture);
             }
         }
         
@@ -1477,15 +1288,6 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to R - Recalibration.
-        /// </summary>
-        internal static string TXT_RECALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_RECALIBRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Recalibration.
         /// </summary>
         internal static string TXT_RECALIBRATION_CERTIFICATE {
@@ -1648,15 +1450,6 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6 - 6 year calibration.
-        /// </summary>
-        internal static string TXT_SIX_YEAR_CALIBRATION {
-            get {
-                return ResourceManager.GetString("TXT_SIX_YEAR_CALIBRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Skillray.
         /// </summary>
         internal static string TXT_SKILLRAY {
@@ -1815,15 +1608,6 @@ namespace Webcal.Properties {
         internal static string TXT_TECHNICIANS {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2 - 2 year inspection.
-        /// </summary>
-        internal static string TXT_TWO_YEAR_INSPECTION {
-            get {
-                return ResourceManager.GetString("TXT_TWO_YEAR_INSPECTION", resourceCulture);
             }
         }
         

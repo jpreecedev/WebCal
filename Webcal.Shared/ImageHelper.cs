@@ -1,4 +1,4 @@
-namespace Webcal.Library
+namespace Webcal.Shared
 {
     using System;
     using System.Drawing;
@@ -16,11 +16,19 @@ namespace Webcal.Library
 
         public static Image Scale(Image image, int maxHeight)
         {
-            if (image == null) throw new ArgumentNullException("image");
-            if (maxHeight < 0) throw new ArgumentNullException("maxHeight");
+            if (image == null)
+            {
+                throw new ArgumentNullException("image");
+            }
+            if (maxHeight < 0)
+            {
+                throw new ArgumentNullException("maxHeight");
+            }
 
             if (image.Height <= maxHeight) //No scaling required
+            {
                 return image;
+            }
 
             double aspectRatio = Math.Round((double) image.Width/image.Height, 2);
             var newWidth = (int) Math.Round(aspectRatio*50);
@@ -30,15 +38,25 @@ namespace Webcal.Library
 
         public static Image Scale(string path, int maxHeight)
         {
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException("path");
-            if (maxHeight < 0) throw new ArgumentNullException("maxHeight");
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new ArgumentNullException("path");
+            }
+            if (maxHeight < 0)
+            {
+                throw new ArgumentNullException("maxHeight");
+            }
 
             Image image = LoadImageSafely(path);
             if (image == null)
+            {
                 throw new InvalidOperationException(Resources.EXC_IMAGE_COULD_NOT_BE_LOADED);
+            }
 
             if (image.Height <= maxHeight) //No scaling required
+            {
                 return image;
+            }
 
             double aspectRatio = Math.Round((double) image.Width/image.Height, 2);
             var newWidth = (int) Math.Round(aspectRatio*50);

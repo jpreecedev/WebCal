@@ -342,18 +342,12 @@
 
         private static void PrintLabel(TachographDocument document)
         {
-            using (var labelHelper = new LabelHelper())
+            if (document.CalibrationTime == null)
             {
-                if (document.CalibrationTime == null)
-                {
-                    document.CalibrationTime = DateTime.Now;
-                }
-
-                if (labelHelper.CanPrint())
-                {
-                    labelHelper.Print(document);
-                }
+                document.CalibrationTime = DateTime.Now;
             }
+
+            LabelHelper.Print(document);
         }
     }
 }

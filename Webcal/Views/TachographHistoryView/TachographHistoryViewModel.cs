@@ -53,8 +53,8 @@
             if (tachographDocument != null)
             {
                 NewTachographViewModel viewModel = tachographDocument.IsDigital
-                    ? (NewTachographViewModel) MainWindow.ShowView<NewTachographView>()
-                    : (NewTachographViewModel) MainWindow.ShowView<NewAnalogueTachographView>();
+                    ? (NewTachographViewModel)MainWindow.ShowView<NewTachographView>()
+                    : (NewTachographViewModel)MainWindow.ShowView<NewAnalogueTachographView>();
 
                 viewModel.Document = tachographDocument;
                 viewModel.SetDocumentTypes(tachographDocument.IsDigital);
@@ -90,10 +90,7 @@
             var document = SelectedDocument as TachographDocument;
             if (document != null)
             {
-                using (var labelHelper = new LabelHelper())
-                {
-                    labelHelper.Print(document);
-                }
+                LabelHelper.Print(document);
             }
         }
 

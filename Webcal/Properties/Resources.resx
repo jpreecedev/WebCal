@@ -134,6 +134,9 @@ Any unsaved changes will be lost.</value>
   <data name="TXT_GIVE_MAKE_OF_VEHICLE" xml:space="preserve">
     <value>Give make of vehicle</value>
   </data>
+    <data name="TXT_MINOR_WORK_DETAILS">
+    <value xml:space="preserve">M - Minor Work</value>
+  </data>
   <data name="TXT_GIVE_MODEL_OF_VEHICLE" xml:space="preserve">
     <value>Give model of vehicle</value>
   </data>
@@ -197,547 +200,514 @@ Any unsaved changes will be lost.</value>
   <data name="EXC_MISSING_FIELDS" xml:space="preserve">
     <value>Please ensure that all required files are completed with a valid value</value>
   </data>
-  <data name="TXT_YES">
-    <value xml:space="preserve">Yes</value>
+  <data name="TXT_YES" xml:space="preserve">
+    <value>Yes</value>
   </data>
-  <data name="TXT_NO">
-    <value xml:space="preserve">No</value>
+  <data name="TXT_NO" xml:space="preserve">
+    <value>No</value>
   </data>
-  <data name="MSG_EXC_CANNOT_ACCESS_FILE">
-    <value xml:space="preserve">The file specified does not exist or you don't have permission to access it.</value>
+  <data name="MSG_EXC_CANNOT_ACCESS_FILE" xml:space="preserve">
+    <value>The file specified does not exist or you don't have permission to access it.</value>
   </data>
-  <data name="ERR_UNABLE_LOAD_GIVEN_FILE">
-    <value xml:space="preserve">Unable to load the file specified.</value>
+  <data name="ERR_UNABLE_LOAD_GIVEN_FILE" xml:space="preserve">
+    <value>Unable to load the file specified.</value>
   </data>
-  <data name="TXT_READ_FROM_CARD">
-    <value xml:space="preserve">Read from card</value>
+  <data name="TXT_READ_FROM_CARD" xml:space="preserve">
+    <value>Read from card</value>
   </data>
-  <data name="TXT_READING">
-    <value xml:space="preserve">Reading...</value>
+  <data name="TXT_READING" xml:space="preserve">
+    <value>Reading...</value>
   </data>
-  <data name="EXC_NO_SMART_CARD_READERS_FOUND">
-    <value xml:space="preserve">No smart card/reader was found.</value>
+  <data name="EXC_NO_SMART_CARD_READERS_FOUND" xml:space="preserve">
+    <value>No smart card/reader was found.</value>
   </data>
-  <data name="EXC_UNABLE_TO_CREATE_DRIVER_CARD">
-    <value xml:space="preserve">Unable to create driver card file.</value>
+  <data name="EXC_UNABLE_TO_CREATE_DRIVER_CARD" xml:space="preserve">
+    <value>Unable to create driver card file.</value>
   </data>
-  <data name="EXC_UNABLE_TO_CREATE_TACHOGRAPH_FILE">
-    <value xml:space="preserve">Unable to create tachograph file</value>
+  <data name="EXC_UNABLE_TO_CREATE_TACHOGRAPH_FILE" xml:space="preserve">
+    <value>Unable to create tachograph file</value>
   </data>
-  <data name="EXC_UNABLE_CREATE_SETTINGS_VIEW">
-    <value xml:space="preserve">Unable to create the settings view.
+  <data name="EXC_UNABLE_CREATE_SETTINGS_VIEW" xml:space="preserve">
+    <value>Unable to create the settings view.
     </value>
   </data>
-  <data name="TXT_PAGE_NUMBER_FORMAT">
-    <value xml:space="preserve">Page {page} of {numpages}</value>
+  <data name="TXT_PAGE_NUMBER_FORMAT" xml:space="preserve">
+    <value>Page {page} of {numpages}</value>
   </data>
-  <data name="TXT_GENERATED_REPORT">
-    <value xml:space="preserve">Generated Report</value>
+  <data name="TXT_GENERATED_REPORT" xml:space="preserve">
+    <value>Generated Report</value>
   </data>
-  <data name="EXC_UNABLE_GENERATE_EXCEL_SPREADSHEET">
-    <value xml:space="preserve">Unable to generate Microsoft Excel spreadsheet.</value>
+  <data name="EXC_UNABLE_GENERATE_EXCEL_SPREADSHEET" xml:space="preserve">
+    <value>Unable to generate Microsoft Excel spreadsheet.</value>
   </data>
-  <data name="EXC_ERROR_WHILST_READING_SMART_CARD">
-    <value xml:space="preserve">An error occurred whilst trying to read the smart card.</value>
+  <data name="EXC_ERROR_WHILST_READING_SMART_CARD" xml:space="preserve">
+    <value>An error occurred whilst trying to read the smart card.</value>
   </data>
-  <data name="TXT_REGISTRATION_NUMBER">
-    <value xml:space="preserve">Registration number</value>
+  <data name="TXT_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration number</value>
   </data>
-  <data name="TXT_CUSTOMER">
-    <value xml:space="preserve">Customer</value>
+  <data name="TXT_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
   </data>
-  <data name="TXT_OFFICE">
-    <value xml:space="preserve">Office</value>
+  <data name="TXT_OFFICE" xml:space="preserve">
+    <value>Office</value>
   </data>
-  <data name="TXT_DOCUMENT_TYPE">
-    <value xml:space="preserve">Document Type</value>
+  <data name="TXT_DOCUMENT_TYPE" xml:space="preserve">
+    <value>Document Type</value>
   </data>
-  <data name="EXC_UNABLE_ADD_WORKSHOP_CARD_FILE">
-    <value xml:space="preserve">Unable to add workshop card file.
+  <data name="EXC_UNABLE_ADD_WORKSHOP_CARD_FILE" xml:space="preserve">
+    <value>Unable to add workshop card file.
 </value>
   </data>
-  <data name="EXC_COULD_NOT_LOCATE_RESOURCE">
-    <value xml:space="preserve">Could not locate resource '{0}'</value>
+  <data name="EXC_COULD_NOT_LOCATE_RESOURCE" xml:space="preserve">
+    <value>Could not locate resource '{0}'</value>
   </data>
-  <data name="ERR_COULD_NOT_FIND_TEMP_DIR">
-    <value xml:space="preserve">Could not establish the temp directory</value>
+  <data name="ERR_COULD_NOT_FIND_TEMP_DIR" xml:space="preserve">
+    <value>Could not establish the temp directory</value>
   </data>
-  <data name="EXC_UNABLE_PREVIEW_DOCUMENT">
-    <value xml:space="preserve">Unable to preview the document</value>
+  <data name="EXC_UNABLE_PREVIEW_DOCUMENT" xml:space="preserve">
+    <value>Unable to preview the document</value>
   </data>
-  <data name="EXC_UNABLE_GENERATE_PRINT_PREVIEW">
-    <value xml:space="preserve">Unable to generate print preview</value>
+  <data name="EXC_UNABLE_GENERATE_PRINT_PREVIEW" xml:space="preserve">
+    <value>Unable to generate print preview</value>
   </data>
-  <data name="EXC_CANNOT_PRINT_PDF">
-    <value xml:space="preserve">Could not find a program capable of opening PDF files.</value>
+  <data name="EXC_CANNOT_PRINT_PDF" xml:space="preserve">
+    <value>Could not find a program capable of opening PDF files.</value>
   </data>
-  <data name="EXC_UNABLE_PRINT_PDF">
-    <value xml:space="preserve">Unable to print PDF</value>
+  <data name="EXC_UNABLE_PRINT_PDF" xml:space="preserve">
+    <value>Unable to print PDF</value>
   </data>
-  <data name="EXC_UNABLE_EXPORT_PDF">
-    <value xml:space="preserve">Unable to export PDF file</value>
+  <data name="EXC_UNABLE_EXPORT_PDF" xml:space="preserve">
+    <value>Unable to export PDF file</value>
   </data>
-  <data name="TXT_INFORMATION">
-    <value xml:space="preserve">Information</value>
+  <data name="TXT_INFORMATION" xml:space="preserve">
+    <value>Information</value>
   </data>
-  <data name="TXT_EXPORT_COMPLETE">
-    <value xml:space="preserve">Export complete</value>
+  <data name="TXT_EXPORT_COMPLETE" xml:space="preserve">
+    <value>Export complete</value>
   </data>
-  <data name="TXT_DOCUMENT_PRINTED">
-    <value xml:space="preserve">The document has been sent to your default printer</value>
+  <data name="TXT_DOCUMENT_PRINTED" xml:space="preserve">
+    <value>The document has been sent to your default printer</value>
   </data>
-  <data name="ERR_GIVEN_SERIAL_IS_INVALID">
-    <value xml:space="preserve">The given serial is invalid.</value>
+  <data name="ERR_GIVEN_SERIAL_IS_INVALID" xml:space="preserve">
+    <value>The given serial is invalid.</value>
   </data>
-  <data name="ERR_LICENSE_KEY_HAS_EXPIRED">
-    <value xml:space="preserve">The given license key has expired</value>
+  <data name="ERR_LICENSE_KEY_HAS_EXPIRED" xml:space="preserve">
+    <value>The given license key has expired</value>
   </data>
-  <data name="MSG_INF_SOFTWARE_HAS_BEEN_REGISTERED">
-    <value xml:space="preserve">This software has been registered
+  <data name="MSG_INF_SOFTWARE_HAS_BEEN_REGISTERED" xml:space="preserve">
+    <value>This software has been registered
 
 Expiration date: {0}</value>
   </data>
-  <data name="TXT_LICENSE_KEY">
-    <value xml:space="preserve">License Key</value>
+  <data name="TXT_LICENSE_KEY" xml:space="preserve">
+    <value>License Key</value>
   </data>
-  <data name="ERR_UNABLE_GENERATE_PDF">
-    <value xml:space="preserve">Unable to generate PDF.
+  <data name="ERR_UNABLE_GENERATE_PDF" xml:space="preserve">
+    <value>Unable to generate PDF.
     
 {0}</value>
   </data>
-  <data name="ERR_CONVERSION_ERROR_NUMBER">
-    <value xml:space="preserve">PDF conversion error number: </value>
+  <data name="ERR_CONVERSION_ERROR_NUMBER" xml:space="preserve">
+    <value>PDF conversion error number: </value>
   </data>
-  <data name="TXT_UNABLE_COMPLETE_RESTORE">
-    <value xml:space="preserve">Unable to complete the restore operation.</value>
+  <data name="TXT_UNABLE_COMPLETE_RESTORE" xml:space="preserve">
+    <value>Unable to complete the restore operation.</value>
   </data>
-  <data name="EXC_CANNOT_BACKUP_DATABASE">
-    <value xml:space="preserve">Unable to perform a backup.  Backups can only be created when working with SQL Server CE databases.</value>
+  <data name="EXC_CANNOT_BACKUP_DATABASE" xml:space="preserve">
+    <value>Unable to perform a backup.  Backups can only be created when working with SQL Server CE databases.</value>
   </data>
-  <data name="EXC_UNABLE_VERIFY_DATABASE_PATH">
-    <value xml:space="preserve">Unable to verify the database path</value>
+  <data name="EXC_UNABLE_VERIFY_DATABASE_PATH" xml:space="preserve">
+    <value>Unable to verify the database path</value>
   </data>
-  <data name="ERR_DAY_OF_WEEK_NOT_RECOGNISED">
-    <value xml:space="preserve">Day of week not recognised</value>
+  <data name="ERR_DAY_OF_WEEK_NOT_RECOGNISED" xml:space="preserve">
+    <value>Day of week not recognised</value>
   </data>
-  <data name="TXT_NO_PATH_SPECIFIED">
-    <value xml:space="preserve">(No path specified)</value>
+  <data name="TXT_NO_PATH_SPECIFIED" xml:space="preserve">
+    <value>(No path specified)</value>
   </data>
-  <data name="TXT_CREATED_REPORTS_PER_YEAR_PER_CUSTOMER">
-    <value xml:space="preserve">Created reports per year and per customer - office: {0}</value>
+  <data name="TXT_CREATED_REPORTS_PER_YEAR_PER_CUSTOMER" xml:space="preserve">
+    <value>Created reports per year and per customer - office: {0}</value>
   </data>
-  <data name="TXT_TACHOGRAPH_DOCUMENTS_PER_YEAR">
-    <value xml:space="preserve">Tachograph documents created per year</value>
+  <data name="TXT_TACHOGRAPH_DOCUMENTS_PER_YEAR" xml:space="preserve">
+    <value>Tachograph documents created per year</value>
   </data>
-  <data name="TXT_YEAR">
-    <value xml:space="preserve">Year</value>
+  <data name="TXT_YEAR" xml:space="preserve">
+    <value>Year</value>
   </data>
-  <data name="TXT_NUMBER_OF_DOCUMENTS">
-    <value xml:space="preserve">Number of documents</value>
+  <data name="TXT_NUMBER_OF_DOCUMENTS" xml:space="preserve">
+    <value>Number of documents</value>
   </data>
-  <data name="TXT_TACHOGRAPH_DOCUMENTS_BY_CUSTOMER">
-    <value xml:space="preserve">Tachograph documents created by customer</value>
+  <data name="TXT_TACHOGRAPH_DOCUMENTS_BY_CUSTOMER" xml:space="preserve">
+    <value>Tachograph documents created by customer</value>
   </data>
-  <data name="TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE">
-    <value xml:space="preserve">Tachograph documents that will expire between {0} and {1} - office: {2}</value>
+  <data name="TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE" xml:space="preserve">
+    <value>Tachograph documents that will expire between {0} and {1} - office: {2}</value>
   </data>
-  <data name="TXT_EMAIL">
-    <value xml:space="preserve">Email</value>
+  <data name="TXT_EMAIL" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="TXT_PHONE_NUMBER">
-    <value xml:space="preserve">Phone Number</value>
+  <data name="TXT_PHONE_NUMBER" xml:space="preserve">
+    <value>Phone Number</value>
   </data>
-  <data name="TXT_DATE_OF_INSPECTION">
-    <value xml:space="preserve">Date of inspection</value>
+  <data name="TXT_DATE_OF_INSPECTION" xml:space="preserve">
+    <value>Date of inspection</value>
   </data>
-  <data name="TXT_DATA_DIRECTORY">
-    <value xml:space="preserve">DataDirectory</value>
+  <data name="TXT_DATA_DIRECTORY" xml:space="preserve">
+    <value>DataDirectory</value>
   </data>
-  <data name="ERR_UNABLE_READ_CALIBRATION_HISTORY_DATA">
-    <value xml:space="preserve">Unable to retrieve calibration history data.</value>
+  <data name="ERR_UNABLE_READ_CALIBRATION_HISTORY_DATA" xml:space="preserve">
+    <value>Unable to retrieve calibration history data.</value>
   </data>
-  <data name="ERR_UNABLE_GET_CALIBRATION_HISTORY">
-    <value xml:space="preserve">Unable to retrieve calibration history from the smart card.
+  <data name="ERR_UNABLE_GET_CALIBRATION_HISTORY" xml:space="preserve">
+    <value>Unable to retrieve calibration history from the smart card.
 
 This could be due to either;
   An error reading the card
   There is no calibration history present on the card.</value>
   </data>
-  <data name="TXT_UNABLE_READ_SMART_CARD">
-    <value xml:space="preserve">Unable to read smart card.</value>
+  <data name="TXT_UNABLE_READ_SMART_CARD" xml:space="preserve">
+    <value>Unable to read smart card.</value>
   </data>
-  <data name="TXT_GENERATING_WORKSHOP_CARD_FILE">
-    <value xml:space="preserve">Generating workshop card file...</value>
+  <data name="TXT_GENERATING_WORKSHOP_CARD_FILE" xml:space="preserve">
+    <value>Generating workshop card file...</value>
   </data>
-  <data name="TXT_WORKSHOP_CARD_FILE_GENERATED">
-    <value xml:space="preserve">Workshop card file was generated.</value>
+  <data name="TXT_WORKSHOP_CARD_FILE_GENERATED" xml:space="preserve">
+    <value>Workshop card file was generated.</value>
   </data>
-  <data name="TXT_UNABLE_GENERATE_WORKSHOP_CARD">
-    <value xml:space="preserve">Unable to generate workshop card file.</value>
+  <data name="TXT_UNABLE_GENERATE_WORKSHOP_CARD" xml:space="preserve">
+    <value>Unable to generate workshop card file.</value>
   </data>
-  <data name="TXT_SELECT_CUSTOMER_ON_LEFT">
-    <value xml:space="preserve">Enter customer details on the right, or select a customer on the right to edit.</value>
+  <data name="TXT_SELECT_CUSTOMER_ON_LEFT" xml:space="preserve">
+    <value>Enter customer details on the right, or select a customer on the right to edit.</value>
   </data>
-  <data name="TXT_ENTER_VALID_LICENSE_KEY">
-    <value xml:space="preserve">Enter a valid license key and the field will turn green</value>
+  <data name="TXT_ENTER_VALID_LICENSE_KEY" xml:space="preserve">
+    <value>Enter a valid license key and the field will turn green</value>
   </data>
-  <data name="TXT_SELECT_DAYS_FOR_BACKUP">
-    <value xml:space="preserve">Select the days of the week to perform an automatic backup.</value>
+  <data name="TXT_SELECT_DAYS_FOR_BACKUP" xml:space="preserve">
+    <value>Select the days of the week to perform an automatic backup.</value>
   </data>
-  <data name="TXT_NOTHING_TO_EXPORT">
-    <value xml:space="preserve">Nothing to export</value>
+  <data name="TXT_NOTHING_TO_EXPORT" xml:space="preserve">
+    <value>Nothing to export</value>
   </data>
-  <data name="TXT_TACHOGRAPH_AND_M1N1_INSPECTION_PLATE">
-    <value xml:space="preserve">Tachograph and M1N1 inspection plate</value>
+  <data name="TXT_TACHOGRAPH_AND_M1N1_INSPECTION_PLATE" xml:space="preserve">
+    <value>Tachograph and M1N1 inspection plate</value>
   </data>
-  <data name="TXT_CERTIFICATION_INSPECTION_SEALING_TACHOGRAPH_M1N1">
-    <value xml:space="preserve">Certification of the inspection and sealing of tachograph and M1N1 adapter</value>
+  <data name="TXT_CERTIFICATION_INSPECTION_SEALING_TACHOGRAPH_M1N1" xml:space="preserve">
+    <value>Certification of the inspection and sealing of tachograph and M1N1 adapter</value>
   </data>
-  <data name="TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE">
-    <value xml:space="preserve">TACHOGRAPH CALIBRATION CERTIFICATE</value>
+  <data name="TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE" xml:space="preserve">
+    <value>TACHOGRAPH CALIBRATION CERTIFICATE</value>
   </data>
-  <data name="TXT_TACHOGRAPH">
-    <value xml:space="preserve">TACHOGRAPH:</value>
+  <data name="TXT_TACHOGRAPH" xml:space="preserve">
+    <value>TACHOGRAPH:</value>
   </data>
-  <data name="TXT_VEHICLE">
-    <value xml:space="preserve">VEHICLE:</value>
+  <data name="TXT_VEHICLE" xml:space="preserve">
+    <value>VEHICLE:</value>
   </data>
-  <data name="TXT_M1N1_ADAPTER">
-    <value xml:space="preserve">M1N1 Adapter</value>
+  <data name="TXT_M1N1_ADAPTER" xml:space="preserve">
+    <value>M1N1 Adapter</value>
   </data>
-  <data name="TXT_DATE">
-    <value xml:space="preserve">DATE: </value>
+  <data name="TXT_EXP" xml:space="preserve">
+    <value>NEXT CALIBRATION DUE: </value>
   </data>
-  <data name="TXT_EXP">
-    <value xml:space="preserve">NEXT CALIBRATION DUE: </value>
+  <data name="TXT_SIGNATURE_TECHNICIAN" xml:space="preserve">
+    <value>{0}</value>
   </data>
-  <data name="TXT_SIGNATURE_TECHNICIAN">
-    <value xml:space="preserve">{0}</value>
+  <data name="TXT_MAKE" xml:space="preserve">
+    <value>Make:</value>
   </data>
-  <data name="TXT_MAKE">
-    <value xml:space="preserve">Make:</value>
+  <data name="TXT_TYPE" xml:space="preserve">
+    <value>Type:</value>
   </data>
-  <data name="TXT_TYPE">
-    <value xml:space="preserve">Type:</value>
+  <data name="TXT_ODOMETER_READING" xml:space="preserve">
+    <value>Odometer reading:</value>
   </data>
-  <data name="TXT_ODOMETER_READING">
-    <value xml:space="preserve">Odometer reading:</value>
+  <data name="TXT_SERIAL_NUMBER" xml:space="preserve">
+    <value>Serial number:</value>
   </data>
-  <data name="TXT_SERIAL_NUMBER">
-    <value xml:space="preserve">Serial number:</value>
+  <data name="TXT_SET_K_FACTOR" xml:space="preserve">
+    <value>Set k factor:</value>
   </data>
-  <data name="TXT_SET_K_FACTOR">
-    <value xml:space="preserve">Set k factor:</value>
+  <data name="TXT_MAKE_AND_MODEL" xml:space="preserve">
+    <value>Make and Model</value>
   </data>
-  <data name="TXT_MAKE_AND_MODEL">
-    <value xml:space="preserve">Make and Model</value>
+  <data name="TXT_AUTHORISED_TACHOGRAPH_CENTER" xml:space="preserve">
+    <value>Authorised Tachograph Center:</value>
   </data>
-  <data name="TXT_AUTHORISED_TACHOGRAPH_CENTER">
-    <value xml:space="preserve">Authorised Tachograph Center:</value>
+  <data name="TXT_AUTHORISED_TESTERS_SIGNATURE" xml:space="preserve">
+    <value>Authorised Testers Signature:</value>
   </data>
-  <data name="TXT_AUTHORISED_TESTERS_SIGNATURE">
-    <value xml:space="preserve">Authorised Testers Signature:</value>
+  <data name="TXT_ANALOGUE_INSPECTIONS" xml:space="preserve">
+    <value>ANALOGUE INSPECTIONS:</value>
   </data>
-  <data name="TXT_ANALOGUE_INSPECTIONS">
-    <value xml:space="preserve">ANALOGUE INSPECTIONS:</value>
+  <data name="TXT_CUSTOMER_DETAILS" xml:space="preserve">
+    <value>CUSTOMER DETAILS:</value>
   </data>
-  <data name="TXT_CUSTOMER_DETAILS">
-    <value xml:space="preserve">CUSTOMER DETAILS:</value>
+  <data name="TXT_DIGITAL_INSPECTIONS" xml:space="preserve">
+    <value>DIGITAL CALIBRATIONS:</value>
   </data>
-  <data name="TXT_DIGITAL_INSPECTIONS">
-    <value xml:space="preserve">DIGITAL CALIBRATIONS:</value>
+  <data name="TXT_VRN" xml:space="preserve">
+    <value>VRN:</value>
   </data>
-  <data name="TXT_VRN">
-    <value xml:space="preserve">VRN:</value>
+  <data name="TXT_VIN" xml:space="preserve">
+    <value>VIN:</value>
   </data>
-  <data name="TXT_VIN">
-    <value xml:space="preserve">VIN:</value>
+  <data name="TXT_TYRE_SIZE" xml:space="preserve">
+    <value>Tyre Size:</value>
   </data>
-  <data name="TXT_TYRE_SIZE">
-    <value xml:space="preserve">Tyre Size:</value>
+  <data name="TXT_W_FACTOR" xml:space="preserve">
+    <value>W factor:</value>
   </data>
-  <data name="TXT_W_FACTOR">
-    <value xml:space="preserve">W factor:</value>
+  <data name="TXT_IMP_KM" xml:space="preserve">
+    <value>{0} imp/km</value>
   </data>
-  <data name="TXT_IMP_KM">
-    <value xml:space="preserve">{0} imp/km</value>
+  <data name="TXT_TYRE_L_FACTOR" xml:space="preserve">
+    <value>Tyre L factor:</value>
   </data>
-  <data name="TXT_TYRE_L_FACTOR">
-    <value xml:space="preserve">Tyre L factor:</value>
+  <data name="TXT_MM" xml:space="preserve">
+    <value>{0} mm</value>
   </data>
-  <data name="TXT_MM">
-    <value xml:space="preserve">{0} mm</value>
+  <data name="TXT_M1N1_SERIAL_NUMBER" xml:space="preserve">
+    <value>M1N1 S/N</value>
   </data>
-  <data name="TXT_M1N1_SERIAL_NUMBER">
-    <value xml:space="preserve">M1N1 S/N</value>
+  <data name="TXT_COLOR" xml:space="preserve">
+    <value>Colour</value>
   </data>
-  <data name="TXT_COLOR">
-    <value xml:space="preserve">Colour</value>
+  <data name="TXT_LOCATION" xml:space="preserve">
+    <value>Location</value>
   </data>
-  <data name="TXT_LOCATION">
-    <value xml:space="preserve">Location</value>
+  <data name="TXT_DISTRIBUTOR_SEAL" xml:space="preserve">
+    <value>Distributor Seal:  {0}</value>
   </data>
-  <data name="TXT_DISTRIBUTOR_SEAL">
-    <value xml:space="preserve">Distributor Seal:  {0}</value>
+  <data name="TXT_W_FACTOR_IMP_KM" xml:space="preserve">
+    <value>W: {0} imp/km</value>
   </data>
-  <data name="TXT_W_FACTOR_IMP_KM">
-    <value xml:space="preserve">W: {0} imp/km</value>
+  <data name="TXT_K_FACTOR_IMP_KM" xml:space="preserve">
+    <value>K: {0} imp/km</value>
   </data>
-  <data name="TXT_K_FACTOR_IMP_KM">
-    <value xml:space="preserve">K: {0} imp/km</value>
+  <data name="TXT_L_FACTOR_MM" xml:space="preserve">
+    <value>L: {0} mm</value>
   </data>
-  <data name="TXT_L_FACTOR_MM">
-    <value xml:space="preserve">L: {0} mm</value>
+  <data name="TXT_VIN_SMALL_LABEL" xml:space="preserve">
+    <value>VIN: {0}</value>
   </data>
-  <data name="TXT_VIN_SMALL_LABEL">
-    <value xml:space="preserve">VIN: {0}</value>
+  <data name="TXT_TYRE_SIZE_SMALL_LABEL" xml:space="preserve">
+    <value>Tyre Size       {0}</value>
   </data>
-  <data name="TXT_TYRE_SIZE_SMALL_LABEL">
-    <value xml:space="preserve">Tyre Size       {0}</value>
+  <data name="TXT_SERIAL_NUMBER_SMALL_LABEL" xml:space="preserve">
+    <value>Serial number   {0}</value>
   </data>
-  <data name="TXT_SERIAL_NUMBER_SMALL_LABEL">
-    <value xml:space="preserve">Serial number   {0}</value>
+  <data name="TXT_M1N1_SERIAL_SMALL_LABEL" xml:space="preserve">
+    <value>M1N1 S/N:       {0}</value>
   </data>
-  <data name="TXT_M1N1_SERIAL_SMALL_LABEL">
-    <value xml:space="preserve">M1N1 S/N:       {0}</value>
+  <data name="TXT_LOCATION_SMALL_LABEL" xml:space="preserve">
+    <value>Location        {0}</value>
   </data>
-  <data name="TXT_LOCATION_SMALL_LABEL">
-    <value xml:space="preserve">Location        {0}</value>
+  <data name="TXT_COLOR_SMALL_LABEL" xml:space="preserve">
+    <value>Colour          {0}</value>
   </data>
-  <data name="TXT_COLOR_SMALL_LABEL">
-    <value xml:space="preserve">Colour          {0}</value>
+  <data name="TXT_W_FACTOR_MEDIUM_LABEL" xml:space="preserve">
+    <value>W: {0} imp/km</value>
   </data>
-  <data name="TXT_W_FACTOR_MEDIUM_LABEL">
-    <value xml:space="preserve">W: {0} imp/km</value>
+  <data name="TXT_K_FACTOR_MEDIUM_LABEL" xml:space="preserve">
+    <value>K: {0} imp/km</value>
   </data>
-  <data name="TXT_K_FACTOR_MEDIUM_LABEL">
-    <value xml:space="preserve">K: {0} imp/km</value>
+  <data name="TXT_L_FACTOR_MEDIUM_LABEL" xml:space="preserve">
+    <value>L: {0} mm</value>
   </data>
-  <data name="TXT_L_FACTOR_MEDIUM_LABEL">
-    <value xml:space="preserve">L: {0} mm</value>
+  <data name="TXT_VIN_MEDIUM_LABEL" xml:space="preserve">
+    <value>VIN: {0}</value>
   </data>
-  <data name="TXT_VIN_MEDIUM_LABEL">
-    <value xml:space="preserve">VIN: {0}</value>
+  <data name="TXT_TYRE_SIZE_MEDIUM_LABEL" xml:space="preserve">
+    <value>Tyre Size        {0}</value>
   </data>
-  <data name="TXT_TYRE_SIZE_MEDIUM_LABEL">
-    <value xml:space="preserve">Tyre Size        {0}</value>
+  <data name="TXT_SERIAL_NUMBER_MEDIUM_LABEL" xml:space="preserve">
+    <value>Serial number    {0}</value>
   </data>
-  <data name="TXT_SERIAL_NUMBER_MEDIUM_LABEL">
-    <value xml:space="preserve">Serial number    {0}</value>
+  <data name="TXT_M1N1_SERIAL_NUMBER_MEDIUM_LABEL" xml:space="preserve">
+    <value>M1N1 S/N:        {0}</value>
   </data>
-  <data name="TXT_M1N1_SERIAL_NUMBER_MEDIUM_LABEL">
-    <value xml:space="preserve">M1N1 S/N:        {0}</value>
+  <data name="TXT_LOCATION_MEDIUM_LABEL" xml:space="preserve">
+    <value>Location         {0}</value>
   </data>
-  <data name="TXT_LOCATION_MEDIUM_LABEL">
-    <value xml:space="preserve">Location         {0}</value>
+  <data name="TXT_COLOUR_MEDIUM_LABEL" xml:space="preserve">
+    <value>Colour           {0}</value>
   </data>
-  <data name="TXT_COLOUR_MEDIUM_LABEL">
-    <value xml:space="preserve">Colour           {0}</value>
+  <data name="TXT_LICENSE_NUMBER_LABEL" xml:space="preserve">
+    <value>Seal No:   </value>
   </data>
-  <data name="TXT_LICENSE_NUMBER_LABEL">
-    <value xml:space="preserve">Seal No:   </value>
+  <data name="TXT_TACHOGRAPH_PLAQUE" xml:space="preserve">
+    <value>Tachograph plaque</value>
   </data>
-  <data name="TXT_TACHOGRAPH_PLAQUE">
-    <value xml:space="preserve">Tachograph plaque</value>
+  <data name="TXT_LICENSE_NO_MINIMAL" xml:space="preserve">
+    <value>Seal No:   </value>
   </data>
-  <data name="TXT_LICENSE_NO_MINIMAL">
-    <value xml:space="preserve">Seal No:   </value>
+  <data name="TXT_TACHOGRAPH_RECORD_SHEET" xml:space="preserve">
+    <value>Tachograph Record Sheet</value>
   </data>
-  <data name="TXT_TACHOGRAPH_RECORD_SHEET">
-    <value xml:space="preserve">Tachograph Record Sheet</value>
+  <data name="TXT_SIGNATURE_TECHNICIAN_LARGE" xml:space="preserve">
+    <value>Signature/{0}</value>
   </data>
-  <data name="TXT_SIGNATURE_TECHNICIAN_LARGE">
-    <value xml:space="preserve">Signature/{0}</value>
+  <data name="TXT_MINOR_WORK_DETAILS_DETAILS" xml:space="preserve">
+    <value>Minor Work Details:</value>
   </data>
-  <data name="TXT_MINOR_WORK_DETAILS">
-    <value xml:space="preserve">M - Minor Work</value>
+  <data name="TXT_WORK_CARRIED_OUT" xml:space="preserve">
+    <value>Work Carried Out:</value>
   </data>
-  <data name="TXT_MINOR_WORK_DETAILS_DETAILS">
-    <value xml:space="preserve">Minor Work Details:</value>
+  <data name="TXT_UNDOWNLOADABILITY_LINE_4" xml:space="preserve">
+    <value>This document is to be retained by the vehicle operator for the required time period, and presented when requested as required in ECC Regulation 3821/85, Annex 1B.</value>
   </data>
-  <data name="TXT_WORK_CARRIED_OUT">
-    <value xml:space="preserve">Work Carried Out:</value>
+  <data name="TXT_UNDOWNLOADABILITY_LINE_3" xml:space="preserve">
+    <value>This certificate provides the control authorities with confirmation that the data recorded in the unit is not available and was not downloadable from the VU when the vehicle was presented to the named Approved Tachograph Centre.</value>
   </data>
-  <data name="TXT_UNDOWNLOADABILITY_LINE_4">
-    <value xml:space="preserve">This document is to be retained by the vehicle operator for the required time period, and presented when requested as required in ECC Regulation 3821/85, Annex 1B.</value>
+  <data name="TXT_UNDOWNLOADABILITY_LINE_2" xml:space="preserve">
+    <value>Therefore no downloaded data can be provided to the user of the VU.</value>
   </data>
-  <data name="TXT_UNDOWNLOADABILITY_LINE_3">
-    <value xml:space="preserve">This certificate provides the control authorities with confirmation that the data recorded in the unit is not available and was not downloadable from the VU when the vehicle was presented to the named Approved Tachograph Centre.</value>
+  <data name="TXT_UNDOWNLOADABILITY_LINE_1" xml:space="preserve">
+    <value>Due to the malfunction of the tachograph [{0} - {1}, {2}] installed into vehicle [{3}] the data recorded in the VU's memory was unable to be downloaded.</value>
   </data>
-  <data name="TXT_UNDOWNLOADABILITY_LINE_2">
-    <value xml:space="preserve">Therefore no downloaded data can be provided to the user of the VU.</value>
+  <data name="TXT_TACHOGRAPH_MAKE" xml:space="preserve">
+    <value>Tachograph make</value>
   </data>
-  <data name="TXT_UNDOWNLOADABILITY_LINE_1">
-    <value xml:space="preserve">Due to the malfunction of the tachograph [{0} - {1}, {2}] installed into vehicle [{3}] the data recorded in the VU's memory was unable to be downloaded.</value>
+  <data name="TXT_TACHOGRAPH_MODEL" xml:space="preserve">
+    <value>Tachograph model</value>
   </data>
-  <data name="TXT_TACHOGRAPH_MAKE">
-    <value xml:space="preserve">Tachograph make</value>
+  <data name="TXT_TACHOGRAPH_NUMBER" xml:space="preserve">
+    <value>Tachograph number</value>
   </data>
-  <data name="TXT_TACHOGRAPH_MODEL">
-    <value xml:space="preserve">Tachograph model</value>
+  <data name="TXT_UNDOWNLOADABILITY_SIGNATURE" xml:space="preserve">
+    <value>Signature/{0}</value>
   </data>
-  <data name="TXT_TACHOGRAPH_NUMBER">
-    <value xml:space="preserve">Tachograph number</value>
+  <data name="TXT_UNLICENSED" xml:space="preserve">
+    <value>Unlicensed</value>
   </data>
-  <data name="TXT_UNDOWNLOADABILITY_SIGNATURE">
-    <value xml:space="preserve">Signature/{0}</value>
+  <data name="TXT_SOFTWARE" xml:space="preserve">
+    <value>Software</value>
   </data>
-  <data name="TXT_SKILLRAY">
-    <value xml:space="preserve">Skillray</value>
+  <data name="EXC_UNABLE_GENERATE_CARD_DUMP" xml:space="preserve">
+    <value>Unable to generate card dump</value>
   </data>
-  <data name="TXT_UNLICENSED">
-    <value xml:space="preserve">Unlicensed</value>
+  <data name="TXT_SKILLRAY_UNLICENSED_SOFTWARE" xml:space="preserve">
+    <value>Skillray Demo Unlicensed Software</value>
   </data>
   <data name="TXT_DEMO">
     <value xml:space="preserve">Demo</value>
   </data>
-  <data name="TXT_SOFTWARE">
-    <value xml:space="preserve">Software</value>
+  <data name="TXT_SKILLRAY">
+    <value xml:space="preserve">Skillray</value>
   </data>
-  <data name="EXC_UNABLE_GENERATE_CARD_DUMP">
-    <value xml:space="preserve">Unable to generate card dump</value>
+  <data name="TXT_GV_212" xml:space="preserve">
+    <value>GV 212</value>
   </data>
-  <data name="TXT_SKILLRAY_UNLICENSED_SOFTWARE">
-    <value xml:space="preserve">Skillray Demo Unlicensed Software</value>
+  <data name="TXT_REGISTER_OF_TACHOGRAPH_PLAQUES_ISSUES" xml:space="preserve">
+    <value>REGISTER OF TACHOGRAPH PLAQUES ISSUED</value>
   </data>
-  <data name="TXT_GV_212">
-    <value xml:space="preserve">GV 212</value>
+  <data name="TXT_NAME_OF_TACHOGRAPH_CENTER" xml:space="preserve">
+    <value>Name of Tachograph Centre</value>
   </data>
-  <data name="TXT_REGISTER_OF_TACHOGRAPH_PLAQUES_ISSUES">
-    <value xml:space="preserve">REGISTER OF TACHOGRAPH PLAQUES ISSUED</value>
+  <data name="TXT_SEAL_OF_TACHOGRAPH_CENTER" xml:space="preserve">
+    <value>Seal Number of Tachograph Centre</value>
   </data>
-  <data name="TXT_NAME_OF_TACHOGRAPH_CENTER">
-    <value xml:space="preserve">Name of Tachograph Centre</value>
+  <data name="TXT_REGISTER_BETWEEN" xml:space="preserve">
+    <value>Register between</value>
   </data>
-  <data name="TXT_SEAL_OF_TACHOGRAPH_CENTER">
-    <value xml:space="preserve">Seal Number of Tachograph Centre</value>
+  <data name="TXT_AND" xml:space="preserve">
+    <value>and</value>
   </data>
-  <data name="TXT_REGISTER_BETWEEN">
-    <value xml:space="preserve">Register between</value>
+  <data name="TXT_MINIMAL_LICENSE_NUMBER" xml:space="preserve">
+    <value>Seal number   {0}</value>
   </data>
-  <data name="TXT_AND">
-    <value xml:space="preserve">and</value>
+  <data name="QTN_WOULD_YOU_LIKE_BACKUP_DATABASE" xml:space="preserve">
+    <value>Would you like to back-up the database?</value>
   </data>
-  <data name="TXT_MINIMAL_LICENSE_NUMBER">
-    <value xml:space="preserve">Seal number   {0}</value>
+  <data name="ERR_UNABLE_READ_SMART_CARD" xml:space="preserve">
+    <value>Unable to read the smart card.  Please try again.</value>
   </data>
-  <data name="QTN_WOULD_YOU_LIKE_BACKUP_DATABASE">
-    <value xml:space="preserve">Would you like to back-up the database?</value>
+  <data name="EXC_UNHANDLED_EXCEPTION" xml:space="preserve">
+    <value>An unhandled error occurred.</value>
   </data>
-  <data name="ERR_UNABLE_READ_SMART_CARD">
-    <value xml:space="preserve">Unable to read the smart card.  Please try again.</value>
+  <data name="TXT_DIGITAL_TACHOGRAPH_DOCUMENT" xml:space="preserve">
+    <value>New Digital Tachograph Document</value>
   </data>
-  <data name="EXC_UNHANDLED_EXCEPTION">
-    <value xml:space="preserve">An unhandled error occurred.</value>
+  <data name="TXT_ANALOGUE_TACHOGRAPH_DOCUMENT" xml:space="preserve">
+    <value>New Analogue Tachograph Document</value>
   </data>
-  <data name="TXT_DIGITAL_TACHOGRAPH_DOCUMENT">
-    <value xml:space="preserve">New Digital Tachograph Document</value>
+  <data name="TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT" xml:space="preserve">
+    <value>Re-Print Certificate</value>
   </data>
-  <data name="TXT_ANALOGUE_TACHOGRAPH_DOCUMENT">
-    <value xml:space="preserve">New Analogue Tachograph Document</value>
+  <data name="TXT_PLAQUE_TACHOGRAPH_DOCUMENT" xml:space="preserve">
+    <value>Re-Print Plaque</value>
   </data>
-  <data name="TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT">
-    <value xml:space="preserve">Re-Print Certificate</value>
+  <data name="TXT_TACHOGRAPH_INSTALLATION_PLAQUE" xml:space="preserve">
+    <value>Tachograph Installation Plaque</value>
   </data>
-  <data name="TXT_PLAQUE_TACHOGRAPH_DOCUMENT">
-    <value xml:space="preserve">Re-Print Plaque</value>
+  <data name="TXT_LABEL_VU_SERIAL_NUMBER" xml:space="preserve">
+    <value>VU Serial No:{0}</value>
   </data>
-  <data name="TXT_TACHOGRAPH_INSTALLATION_PLAQUE">
-    <value xml:space="preserve">Tachograph Installation Plaque</value>
+  <data name="TXT_LABEL_WORKSHOP_NAME" xml:space="preserve">
+    <value>Workshop:{0}</value>
   </data>
-  <data name="TXT_LABEL_VU_SERIAL_NUMBER">
-    <value xml:space="preserve">VU Serial No:{0}</value>
+  <data name="TXT_WORKSHOP_NUMBER" xml:space="preserve">
+    <value>Workshop number:{0}</value>
   </data>
-  <data name="TXT_LABEL_WORKSHOP_NAME">
-    <value xml:space="preserve">Workshop:{0}</value>
+  <data name="TXT_LABEL_ADDRESS_!" xml:space="preserve">
+    <value>Address:{0}</value>
   </data>
-  <data name="TXT_WORKSHOP_NUMBER">
-    <value xml:space="preserve">Workshop number:{0}</value>
+  <data name="TXT_LABEL_TECHNICIAN_NAME" xml:space="preserve">
+    <value>Technician ID:{0}</value>
   </data>
-  <data name="TXT_LABEL_ADDRESS_!">
-    <value xml:space="preserve">Address:{0}</value>
+  <data name="TXT_LABEL_CALIBRATION_DATE" xml:space="preserve">
+    <value>Calibration Date:{0}</value>
   </data>
-  <data name="TXT_LABEL_TECHNICIAN_NAME">
-    <value xml:space="preserve">Technician ID:{0}</value>
+  <data name="TXT_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
   </data>
-  <data name="TXT_LABEL_CALIBRATION_DATE">
-    <value xml:space="preserve">Calibration Date:{0}</value>
+  <data name="TXT_LABEL_COMPANY_NAME" xml:space="preserve">
+    <value>{0}</value>
   </data>
-  <data name="TXT_TECHNICIAN">
-    <value xml:space="preserve">Technician</value>
-  </data>
-  <data name="TXT_LABEL_CUSTOMER_NAME">
-    <value xml:space="preserve">{0}</value>
-  </data>
-  <data name="TXT_LABEL_CUSTOMER_PHONE_NUMBER">
-    <value xml:space="preserve">Phone number: {0}</value>
-  </data>
-  <data name="TXT_LABEL_K_FACTOR">
-    <value xml:space="preserve">K={0} imp/km</value>
-  </data>
-  <data name="TXT_LABEL_W_FACTOR">
-    <value xml:space="preserve">W={0} imp/km</value>
-  </data>
-  <data name="TXT_LABEL_L_FACTOR">
-    <value xml:space="preserve">L={0} mm</value>
-  </data>
-  <data name="TXT_LABEL_SEAL_NUMBER">
-    <value xml:space="preserve">Seal no={0}</value>
-  </data>
-  <data name="TXT_LABEL_VIN">
-    <value xml:space="preserve">VIN={0}</value>
-  </data>
-  <data name="TXT_LABEL_SERIAL_NUMBER">
-    <value xml:space="preserve">Serial No: {0}</value>
-  </data>
-  <data name="TXT_LABEL_TYRE_SIZE">
-    <value xml:space="preserve">Tyre size: {0}</value>
-  </data>
-  <data name="TXT_LABEL_COMPANY_NAME">
-    <value xml:space="preserve">{0}</value>
-  </data>
-  <data name="TXT_VOSA_REGISTRATION_HEADER">
-    <value xml:space="preserve">1
+  <data name="TXT_VOSA_REGISTRATION_HEADER" xml:space="preserve">
+    <value>1
 Registration/
 Chassis No</value>
   </data>
-  <data name="TXT_VOSA_VEHICLE_TYPE_HEADER">
-    <value xml:space="preserve">2
+  <data name="TXT_VOSA_VEHICLE_TYPE_HEADER" xml:space="preserve">
+    <value>2
 Veh
 Type
 (~)</value>
   </data>
-  <data name="TXT_VOSA_TACHOGRAPH_DETAILS_HEADER">
-    <value xml:space="preserve">3
+  <data name="TXT_VOSA_TACHOGRAPH_DETAILS_HEADER" xml:space="preserve">
+    <value>3
 Tachograph Details
 
 Type (+)      Head Serial No</value>
   </data>
-  <data name="TXT_VOSA_TYPE_INSPECTION_HEADER">
-    <value xml:space="preserve">4
+  <data name="TXT_VOSA_TYPE_INSPECTION_HEADER" xml:space="preserve">
+    <value>4
 Type
 of
 Insp
 (#)</value>
   </data>
-  <data name="TXT_VOSA_TURNS_HEADER">
-    <value xml:space="preserve">5
+  <data name="TXT_VOSA_TURNS_HEADER" xml:space="preserve">
+    <value>5
 W
 Turns/Km
 or
 Imp/Km</value>
   </data>
-  <data name="TXT_VOSA_L_HEADER">
-    <value xml:space="preserve">6
+  <data name="TXT_VOSA_L_HEADER" xml:space="preserve">
+    <value>6
 L
 mm</value>
   </data>
-  <data name="TXT_VOSA_DATE_HEADER">
-    <value xml:space="preserve">7
+  <data name="TXT_VOSA_DATE_HEADER" xml:space="preserve">
+    <value>7
 Date</value>
   </data>
-  <data name="TXT_VOSA_TECH_INITIALS_HEADER">
-    <value xml:space="preserve">8
+  <data name="TXT_VOSA_TECH_INITIALS_HEADER" xml:space="preserve">
+    <value>8
 Nom.
 Tech.
 Initials,
@@ -745,135 +715,87 @@ login or
 smartcard
 number</value>
   </data>
-  <data name="TXT_VOSA_INVOICE_NUMBER_HEADER">
-    <value xml:space="preserve">9
+  <data name="TXT_VOSA_INVOICE_NUMBER_HEADER" xml:space="preserve">
+    <value>9
 Invoice number</value>
   </data>
-  <data name="TXT_INSTALLATION_CALIBRATION">
-    <value xml:space="preserve">I - Installation / Initial calibration</value>
+  <data name="ERR_CANNOT_VERIFY_USERNAME_PASSWORD" xml:space="preserve">
+    <value>Unable to verify the given username and/or password</value>
   </data>
-  <data name="TXT_RECALIBRATION">
-    <value xml:space="preserve">R - Recalibration</value>
+  <data name="TXT_USER_MANAGEMENT" xml:space="preserve">
+    <value>User Management</value>
   </data>
-  <data name="TXT_TWO_YEAR_INSPECTION">
-    <value xml:space="preserve">2 - 2 year inspection</value>
+  <data name="TXT_ERR_ENTER_UNIQUE_USERNAME" xml:space="preserve">
+    <value>Please enter a valid unique username, and a password.</value>
   </data>
-  <data name="TXT_SIX_YEAR_CALIBRATION">
-    <value xml:space="preserve">6 - 6 year calibration</value>
+  <data name="TXT_ERR_SELECT_USER_TO_REMOVE" xml:space="preserve">
+    <value>Please select a user from the right hand menu to remove.</value>
   </data>
-  <data name="TXT_DIGITAL_INITIAL_CALIBRATION">
-    <value xml:space="preserve">3 - Digital initial calibration</value>
+  <data name="TXT_PASSWORD_HAS_BEEN_CHANGED" xml:space="preserve">
+    <value>Your password has been changed.</value>
   </data>
-  <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION">
-    <value xml:space="preserve">4 - Digital 2 year calibration</value>
+  <data name="TXT_PASSWORD_HAS_BEEN_RESET" xml:space="preserve">
+    <value>Your password has been reset to "password" (without quotation marks).</value>
   </data>
-  <data name="TXT_LABEL_INITIAL_CALIBRATION">
-    <value xml:space="preserve">Initial Calibration</value>
+  <data name="ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER" xml:space="preserve">
+    <value>Please log in as superuser to reset your password.</value>
   </data>
-  <data name="TXT_LABEL_MINOR_WORK">
-    <value xml:space="preserve">Minor Work</value>
+  <data name="ERR_DO_NOT_RESET_OWN_PASSWORD" xml:space="preserve">
+    <value>Please don't reset your own password.</value>
   </data>
-  <data name="TXT_LABEL_RECALIBRATION">
-    <value xml:space="preserve">Recalibration</value>
+  <data name="ERR_COULD_NOT_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Unable to change your password, please make sure your old password is correct.</value>
   </data>
-  <data name="TXT_LABEL_TWO_YEAR_INSPECTION">
-    <value xml:space="preserve">2yr Inspection</value>
+  <data name="ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE" xml:space="preserve">
+    <value>Unable to load the given file.</value>
   </data>
-  <data name="TXT_LABEL_SIX_YEAR_CALIBRATION">
-    <value xml:space="preserve">6yr Calibration</value>
+  <data name="ERR_UNABLE_TO_APPLY_TRANSFORMATIONS" xml:space="preserve">
+    <value>Unable to apply transformations to the image.</value>
   </data>
-  <data name="TXT_LABEL_DIGITAL_INITIAL_CALIBRATION">
-    <value xml:space="preserve">Digital Initial</value>
+  <data name="TXT_MAIL_SETTINGS" xml:space="preserve">
+    <value>Email Settings</value>
   </data>
-  <data name="TXT_LABEL_DIGITAL_TWO_YEAR">
-    <value xml:space="preserve">Digital 2yr</value>
+  <data name="ERR_UNABLE_FIND_ANY_MATCHES" xml:space="preserve">
+    <value>Unable to find any matches</value>
   </data>
-  <data name="EXC_UNABLE_FIND_LABEL_FONT">
-    <value xml:space="preserve">Unable to find font 'Lucida Console'.  Printing cannot continue</value>
+  <data name="TXT_REPRINT_LABEL" xml:space="preserve">
+    <value>Re-Print Plaque</value>
   </data>
-  <data name="ERR_CANNOT_VERIFY_USERNAME_PASSWORD">
-    <value xml:space="preserve">Unable to verify the given username and/or password</value>
+  <data name="TXT_REPRINT_CERTIFICATE" xml:space="preserve">
+    <value>Re-Print Certificate</value>
   </data>
-  <data name="TXT_USER_MANAGEMENT">
-    <value xml:space="preserve">User Management</value>
+  <data name="TXT_REPRINT_COMPLETED" xml:space="preserve">
+    <value>Re-print completed.</value>
   </data>
-  <data name="TXT_ERR_ENTER_UNIQUE_USERNAME">
-    <value xml:space="preserve">Please enter a valid unique username, and a password.</value>
+  <data name="TXT_RECALIBRATION_CERTIFICATE" xml:space="preserve">
+    <value>Recalibration</value>
   </data>
-  <data name="TXT_ERR_SELECT_USER_TO_REMOVE">
-    <value xml:space="preserve">Please select a user from the right hand menu to remove.</value>
+  <data name="TXT_2_YEAR" xml:space="preserve">
+    <value>2 Year</value>
   </data>
-  <data name="TXT_PASSWORD_HAS_BEEN_CHANGED">
-    <value xml:space="preserve">Your password has been changed.</value>
+  <data name="TXT_6_YEAR" xml:space="preserve">
+    <value>6 Year</value>
   </data>
-  <data name="TXT_PASSWORD_HAS_BEEN_RESET">
-    <value xml:space="preserve">Your password has been reset to "password" (without quotation marks).</value>
+  <data name="TXT_CALIBRATION" xml:space="preserve">
+    <value>Calibration</value>
   </data>
-  <data name="ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER">
-    <value xml:space="preserve">Please log in as superuser to reset your password.</value>
+  <data name="TXT_MINOR_WORK" xml:space="preserve">
+    <value>Minor Work</value>
   </data>
-  <data name="ERR_DO_NOT_RESET_OWN_PASSWORD">
-    <value xml:space="preserve">Please don't reset your own password.</value>
+  <data name="TXT_WEBCAL_WEBCALNAME" xml:space="preserve">
+    <value>Webcal</value>
   </data>
-  <data name="ERR_COULD_NOT_CHANGE_PASSWORD">
-    <value xml:space="preserve">Unable to change your password, please make sure your old password is correct.</value>
+  <data name="TXT_WEBCAL_STREET" xml:space="preserve">
+    <value>Unit 10</value>
   </data>
-  <data name="ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE">
-    <value xml:space="preserve">Unable to load the given file.</value>
+  <data name="TXT_WEBCAL_TOWN" xml:space="preserve">
+    <value>Rufford Court</value>
   </data>
-  <data name="ERR_UNABLE_TO_APPLY_TRANSFORMATIONS">
-    <value xml:space="preserve">Unable to apply transformations to the image.</value>
+  <data name="TXT_WEBCAL_CITY" xml:space="preserve">
+    <value>Hardwick Grange</value>
   </data>
-  <data name="EXC_IMAGE_COULD_NOT_BE_LOADED">
-    <value xml:space="preserve">Image could not be loaded</value>
-  </data>
-  <data name="TXT_MAIL_SETTINGS">
-    <value xml:space="preserve">Email Settings</value>
-  </data>
-  <data name="ERR_UNABLE_FIND_ANY_MATCHES">
-    <value xml:space="preserve">Unable to find any matches</value>
-  </data>
-  <data name="TXT_REPRINT_LABEL">
-    <value xml:space="preserve">Re-Print Plaque</value>
-  </data>
-  <data name="TXT_REPRINT_CERTIFICATE">
-    <value xml:space="preserve">Re-Print Certificate</value>
-  </data>
-  <data name="TXT_REPRINT_COMPLETED">
-    <value xml:space="preserve">Re-print completed.</value>
-  </data>
-
-  <data name="TXT_RECALIBRATION_CERTIFICATE">
-    <value xml:space="preserve">Recalibration</value>
-  </data>
-  <data name="TXT_2_YEAR">
-    <value xml:space="preserve">2 Year</value>
-  </data>
-  <data name="TXT_6_YEAR">
-    <value xml:space="preserve">6 Year</value>
-  </data>
-  <data name="TXT_CALIBRATION">
-    <value xml:space="preserve">Calibration</value>
-  </data>
-  <data name="TXT_MINOR_WORK">
-    <value xml:space="preserve">Minor Work</value>
-  </data>
-
-  
-  <data name="TXT_WEBCAL_WEBCALNAME">
-    <value xml:space="preserve">Webcal</value>
-  </data>
-  <data name="TXT_WEBCAL_STREET">
-    <value xml:space="preserve">Unit 10</value>
-  </data>
-  <data name="TXT_WEBCAL_TOWN">
-    <value xml:space="preserve">Rufford Court</value>
-  </data>
-  <data name="TXT_WEBCAL_CITY">
-    <value xml:space="preserve">Hardwick Grange</value>
-  </data>
-  <data name="TXT_WEBCAL_POSTCODE">
-    <value xml:space="preserve">WA1 4RF</value>
+  <data name="TXT_WEBCAL_POSTCODE" xml:space="preserve">
+    <value>WA1 4RF</value>
   </data>
   <data name="WorkshopSettingsViewModel_OnBrowse_Select_a_picture" xml:space="preserve">
     <value>Select a picture</value>
@@ -886,5 +808,8 @@ Invoice number</value>
   </data>
   <data name="EXEC_UNABLE_TO_FIND_PLUGIN" xml:space="preserve">
     <value>Unable to find plugin for given task ({0})</value>
+  </data>
+  <data name="TXT_DATE" xml:space="preserve">
+    <value>DATE:</value>
   </data>
 </root>

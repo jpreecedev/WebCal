@@ -3,6 +3,7 @@
     public enum WorkerTaskName 
     {
         Print,
-        Email
+        Email,
+        LabelPrint
     }
 }

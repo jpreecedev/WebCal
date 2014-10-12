@@ -4,6 +4,7 @@
     using Library;
     using Properties;
 
+    [Serializable]
     public class TachographDocument : Document
     {
         public string VIN { get; set; }

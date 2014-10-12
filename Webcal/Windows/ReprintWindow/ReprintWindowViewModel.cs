@@ -105,7 +105,6 @@
                 PrintLabel(tachographDocument);
 
             PrintCertificate(document);
-            MessageBoxHelper.ShowMessage(Resources.TXT_REPRINT_COMPLETED);
         }
 
         private void PrintLabel(TachographDocument tachographDocument)
@@ -113,10 +112,7 @@
             if (ReprintMode != ReprintMode.Label)
                 return;
 
-            using (var labelHelper = new LabelHelper())
-            {
-                labelHelper.Print(tachographDocument);
-            }
+            LabelHelper.Print(tachographDocument);
         }
 
         private void PrintCertificate(Document document)

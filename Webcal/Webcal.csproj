@@ -237,11 +237,8 @@
     <Compile Include="Core\IValidate.cs" />
     <Compile Include="Core\IViewModel.cs" />
     <Compile Include="EventArguments\ModalClosedEventArgs.cs" />
-    <Compile Include="Library\ImageHelper.cs" />
     <Compile Include="Library\IServiceProvider.cs" />
-    <Compile Include="Library\LabelHelper.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Library\LabelHelper.cs" />
     <Compile Include="Library\MessageBoxHelper.cs" />
     <Compile Include="Library\PDF\BasePlaqueDocument.cs" />
     <Compile Include="Library\PDF\FullCertificate.cs" />
