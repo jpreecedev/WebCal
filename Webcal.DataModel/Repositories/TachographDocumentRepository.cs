@@ -58,6 +58,11 @@
             return Safely(() => Context.TachographDocuments.First(predicate.Compile()));
         }
 
+        public IEnumerable<TachographDocument> Where(Expression<Func<TachographDocument, bool>> predicate)
+        {
+            return Safely(() => Context.TachographDocuments.Where(predicate.Compile()));
+        }
+
         private void CheckVehicleExists(TachographDocument entity)
         {
             if (entity == null)

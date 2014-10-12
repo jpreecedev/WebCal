@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Linq;
     using System.Windows;
     using Core;
     using DataModel;
@@ -92,7 +93,9 @@
         private T Find<T>(IRepository<T> repository) where T : Document
         {
             string registrationNumber = RegistrationNumber.ToUpper().Replace(" ", "");
-            return repository.FirstOrDefault(item => string.Equals(item.RegistrationNumber, registrationNumber, StringComparison.CurrentCultureIgnoreCase));
+            return repository.Where(item => string.Equals(item.RegistrationNumber, registrationNumber, StringComparison.CurrentCultureIgnoreCase))
+                             .OrderByDescending(item => item.InspectionDate)
+                             .FirstOrDefault();
         }
 
         private void Print(Document document)

@@ -50,5 +50,10 @@
         {
             return Safely(() => Context.CustomerContacts.First(predicate.Compile()));
         }
+
+        public IEnumerable<CustomerContact> Where(Expression<Func<CustomerContact, bool>> predicate)
+        {
+            return Safely(() => Context.CustomerContacts.Where(predicate.Compile()));
+        }
     }
 }

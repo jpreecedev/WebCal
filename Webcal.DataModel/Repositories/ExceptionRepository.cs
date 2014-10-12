@@ -50,5 +50,10 @@
         {
             return Safely(() => Context.Exceptions.First(predicate.Compile()));
         }
+
+        public IEnumerable<DetailedException> Where(Expression<Func<DetailedException, bool>> predicate)
+        {
+            return Safely(() => Context.Exceptions.Where(predicate.Compile()));            
+        }
     }
 }

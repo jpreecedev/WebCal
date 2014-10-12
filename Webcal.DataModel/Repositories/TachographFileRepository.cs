@@ -50,5 +50,10 @@
         {
             return Safely(() => Context.TachographFiles.First(predicate.Compile()));
         }
+
+        public IEnumerable<TachographFile> Where(Expression<Func<TachographFile, bool>> predicate)
+        {
+            return Safely(() => Context.TachographFiles.Where(predicate.Compile()));
+        }
     }
 }

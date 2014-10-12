@@ -50,5 +50,10 @@
         {
             return Safely(() => Context.TyreSizes.First(predicate.Compile()));
         }
+
+        public IEnumerable<TyreSize> Where(Expression<Func<TyreSize, bool>> predicate)
+        {
+            return Safely(() => Context.TyreSizes.Where(predicate.Compile()));
+        }
     }
 }

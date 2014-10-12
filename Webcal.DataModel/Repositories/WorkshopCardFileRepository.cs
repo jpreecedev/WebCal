@@ -50,5 +50,10 @@
         {
             return Safely(() => Context.WorkshopCardFiles.First(predicate.Compile()));
         }
+
+        public IEnumerable<WorkshopCardFile> Where(Expression<Func<WorkshopCardFile, bool>> predicate)
+        {
+            return Safely(() => Context.WorkshopCardFiles.Where(predicate.Compile()));
+        }
     }
 }

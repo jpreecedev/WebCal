@@ -56,6 +56,11 @@ namespace Webcal.Tests
             throw new NotImplementedException();
         }
 
+        public IEnumerable<User> Where(Expression<Func<User, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Save()
         {
             throw new NotImplementedException();

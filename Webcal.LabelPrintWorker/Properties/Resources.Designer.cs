@@ -70,6 +70,15 @@ namespace Webcal.LabelPrintWorker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DATE: {0}.
+        /// </summary>
+        internal static string TXT_CALIBRATION_DATE {
+            get {
+                return ResourceManager.GetString("TXT_CALIBRATION_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DATE: .
         /// </summary>
         internal static string TXT_DATE {

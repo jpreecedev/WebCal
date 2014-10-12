@@ -50,5 +50,10 @@
         {
             return Safely(() => Context.DriverCardFiles.First(predicate.Compile()));
         }
+
+        public IEnumerable<DriverCardFile> Where(Expression<Func<DriverCardFile, bool>> predicate)
+        {
+            return Safely(() => Context.DriverCardFiles.Where(predicate.Compile()));
+        }
     }
 }

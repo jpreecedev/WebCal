@@ -68,5 +68,10 @@
         {
             return Safely(() => Context.VehicleMakes.First(predicate.Compile()));
         }
+
+        public IEnumerable<VehicleMake> Where(Expression<Func<VehicleMake, bool>> predicate)
+        {
+            return Safely(() => Context.VehicleMakes.Where(predicate.Compile()));
+        }
     }
 }

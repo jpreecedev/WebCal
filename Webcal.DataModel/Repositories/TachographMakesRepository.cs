@@ -65,5 +65,10 @@
         {
             return Safely(() => Context.TachographMakes.First(predicate.Compile()));
         }
+
+        public IEnumerable<TachographMake> Where(Expression<Func<TachographMake, bool>> predicate)
+        {
+            return Safely(() => Context.TachographMakes.Where(predicate.Compile()));
+        }
     }
 }

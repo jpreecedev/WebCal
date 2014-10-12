@@ -2,14 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Drawing.Printing;
     using System.Globalization;
     using System.IO;
     using System.Linq;
-    using System.Windows.Resources;
     using Properties;
     using Shared;
     using Shared.Workers;
@@ -23,9 +21,6 @@
 
         public override void Start(IWorkerParameters parameters)
         {
-            Debugger.Launch();
-            Debugger.Break();
-
             var labelPrintParameters = new LabelPrintParameters(parameters);
 
             var labelPrintDocument = new LabelPrintDocument();
@@ -82,17 +77,15 @@
                     g.SmoothingMode = SmoothingMode.HighQuality;
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-                    g.TranslateTransform(bitmap.Width / 2, bitmap.Height / 2);
+                    g.TranslateTransform(bitmap.Width/2, bitmap.Height/2);
                     g.RotateTransform(270);
                     g.DrawLine(pen, LEFT_OFFSET, _horizontalLinesVerticalOffset, LINE_WIDTH, _horizontalLinesVerticalOffset);
 
                     for (int i = 0; i < 7; i++)
                     {
-                        g.DrawLine(pen, LEFT_OFFSET, Track(_horizontalLinesVerticalOffset += LINE_HEIGHT), LINE_WIDTH, GetLast());
+                        Track(_horizontalLinesVerticalOffset += LINE_HEIGHT);
                     }
 
-                    g.DrawLine(pen, 0, _trackedPositions[0], 0, _trackedPositions[2]);
-                    g.DrawLine(pen, 0, GetLast(), 0, GetLast() + LINE_HEIGHT * 3);
                     g.DrawImage(GetWorkshopImage(), -225, -260, 93, 92);
 
                     if (!string.IsNullOrEmpty(PrintParameters.WorkshopName))
@@ -107,40 +100,36 @@
                     DrawSpacedText(g, GetDocumentType(PrintParameters.DocumentType), brush, new PointF(LEFT_OFFSET, _textVerticalOffset));
 
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_K_FACTOR, PrintParameters.KFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
-                    DrawSpacedText(g, string.Format(Resources.TXT_LABEL_W_FACTOR, PrintParameters.WFactor), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, _textVerticalOffset));
-
+                    DrawSpacedText(g, string.Format(Resources.TXT_LABEL_W_FACTOR, PrintParameters.WFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_L_FACTOR, PrintParameters.LFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
-                    DrawSpacedText(g, string.Format(Resources.TXT_LABEL_SEAL_NUMBER, PrintParameters.SealNumber), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, _textVerticalOffset));
 
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_VIN, PrintParameters.VIN), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_SERIAL_NUMBER, PrintParameters.SerialNumber), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
+                    DrawSpacedText(g, string.Format(Resources.TXT_LABEL_SEAL_NUMBER, PrintParameters.SealNumber), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, _textVerticalOffset));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_TYRE_SIZE, PrintParameters.TyreSize), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
+                    DrawSpacedText(g, string.Format(Resources.TXT_CALIBRATION_DATE, GetCalibrationTime(PrintParameters.CalibrationTime)), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, _textVerticalOffset));
 
                     DrawSpacedText(g, GetCompanyName(), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
 
                     if (string.IsNullOrEmpty(PrintParameters.LicenseKey) && !(PrintParameters.ExpirationDate < DateTime.Now.Date))
                     {
                         DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, Track(_textVerticalOffset += TEXT_HEIGHT))); //address 1
-                        DrawSpacedText(g, Resources.TXT_DATE, brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, GetLast()));
                         DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, Track((_textVerticalOffset += TEXT_HEIGHT) - 15))); //town
                         DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, (_textVerticalOffset += TEXT_HEIGHT) - 30)); //post code
                     }
                     else
                     {
                         DrawSpacedText(g, PrintParameters.Address1 ?? string.Empty, brush, new PointF(LEFT_OFFSET, Track(_textVerticalOffset += TEXT_HEIGHT))); //address 1
-                        DrawSpacedText(g, Resources.TXT_DATE, brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, GetLast()));
                         DrawSpacedText(g, PrintParameters.Town ?? string.Empty, brush, new PointF(LEFT_OFFSET, Track((_textVerticalOffset += TEXT_HEIGHT) - 15))); //town
                         DrawSpacedText(g, PrintParameters.PostCode ?? string.Empty, brush, new PointF(LEFT_OFFSET, (_textVerticalOffset += TEXT_HEIGHT) - 30)); //post code
                     }
-
-                    DrawSpacedText(g, GetCalibrationTime(PrintParameters.CalibrationTime), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, GetLast()));
 
                     g.Flush();
                 }
 
                 bitmap.Save(Path.Combine(PrintParameters.TemporaryDirectory, "label.bmp"));
                 PrinterSettings.PrinterName = PrintParameters.DefaultLabelPrinter;
-                PrinterSettings.Copies = (short)PrintParameters.LabelNumberOfCopies;
+                PrinterSettings.Copies = (short) PrintParameters.LabelNumberOfCopies;
 
                 Print();
             }

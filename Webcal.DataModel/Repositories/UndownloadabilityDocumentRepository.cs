@@ -51,5 +51,10 @@
         {
             return Safely(() => Context.UndownloadabilityDocuments.First(predicate.Compile()));
         }
+
+        public IEnumerable<UndownloadabilityDocument> Where(Expression<Func<UndownloadabilityDocument, bool>> predicate)
+        {
+            return Safely(() => Context.UndownloadabilityDocuments.Where(predicate.Compile()));
+        }
     }
 }

@@ -20,6 +20,8 @@
 
         T First(Expression<Func<T, bool>> predicate);
 
+        IEnumerable<T> Where(Expression<Func<T, bool>> predicate);
+
         void Save();
     }
 }

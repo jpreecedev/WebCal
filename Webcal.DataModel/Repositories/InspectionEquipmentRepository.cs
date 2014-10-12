@@ -50,5 +50,10 @@
         {
             return Safely(() => Context.InspectionEquipments.First(predicate.Compile()));
         }
+
+        public IEnumerable<InspectionEquipment> Where(Expression<Func<InspectionEquipment, bool>> predicate)
+        {
+            return Safely(() => Context.InspectionEquipments.Where(predicate.Compile()));
+        }
     }
 }
