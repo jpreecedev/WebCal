@@ -11,7 +11,9 @@
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is bool))
+            {
                 return value;
+            }
 
             var b = (bool) value;
             return b ? Visibility.Visible : Visibility.Collapsed;

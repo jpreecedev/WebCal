@@ -11,19 +11,21 @@
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof (InputTextField), new FrameworkPropertyMetadata(typeof (InputTextField)));
         }
-        
+
         public string Label
         {
             get { return (string) GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
         }
-        
+
         public override bool IsValid()
         {
             HasValidated = true;
 
             if (!IsMandatory)
+            {
                 return Valid = true;
+            }
 
             return Valid = !string.IsNullOrEmpty(Text);
         }

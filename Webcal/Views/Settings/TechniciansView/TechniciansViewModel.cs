@@ -14,9 +14,7 @@
     public class TechniciansViewModel : BaseSettingsViewModel
     {
         private Technician _selectedTechnician;
-
         public IRepository<Technician> Repository { get; set; }
-
         public ObservableCollection<Technician> Technicians { get; set; }
 
         public Technician SelectedTechnician
@@ -32,7 +30,7 @@
         public DelegateCommand<UserControl> AddTechnicianCommand { get; set; }
         public DelegateCommand<object> RemoveTechnicianCommand { get; set; }
         public DelegateCommand<object> SetDefaultCommand { get; set; }
-        
+
         protected override void Load()
         {
             ICollection<Technician> technicians = Repository.GetAll().RemoveAt(0);
@@ -57,7 +55,7 @@
         {
             Repository.Save();
         }
-        
+
         private void OnAddTechnician(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_NAME_OF_TECHNICIAN, OnAddTechnician);
@@ -83,7 +81,7 @@
             Repository.Remove(SelectedTechnician);
             Technicians.Remove(SelectedTechnician);
         }
-        
+
         private bool CanSetDefault(object obj)
         {
             return SelectedTechnician != null;
@@ -92,7 +90,9 @@
         private void OnSetDefault(object obj)
         {
             if (Technicians.IsNullOrEmpty() || SelectedTechnician == null)
+            {
                 return;
+            }
 
             var copy = new List<Technician>(Technicians.ToArray());
             int selectedIndex = Technicians.IndexOf(SelectedTechnician);
@@ -106,7 +106,7 @@
             SelectedTechnician = Technicians[selectedIndex];
             SelectedTechnician.IsDefault = true;
         }
-        
+
         private void RefreshCommands()
         {
             AddTechnicianCommand.RaiseCanExecuteChanged();

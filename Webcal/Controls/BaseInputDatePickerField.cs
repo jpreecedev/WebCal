@@ -24,7 +24,6 @@
         }
 
         public bool Valid { get; set; }
-
         protected bool HasValidated { get; set; }
 
         public bool IsMandatory
@@ -52,7 +51,9 @@
         {
             var sender = d as BaseInputDatePickerField;
             if (sender != null && sender.HasValidated)
+            {
                 sender.IsValid();
+            }
         }
 
         public abstract void Clear();
@@ -60,7 +61,10 @@
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

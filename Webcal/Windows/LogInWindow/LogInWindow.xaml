@@ -11,7 +11,6 @@
         Height="250"
         Width="400"
         Title="Log In"
-        Icon="../../Main Icon.ico"
         FocusManager.FocusedElement="{Binding ElementName=UsernameTextBox}">
     <Window.DataContext>
         <vm:LogInWindowViewModel />

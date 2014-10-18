@@ -11,7 +11,6 @@
     using Library.PDF;
     using Properties;
     using Shared;
-    using BaseNotification = Core.BaseNotification;
 
     public class ReprintWindowViewModel : BaseNotification
     {
@@ -42,21 +41,18 @@
         }
 
         public string RegistrationNumber { get; set; }
-
         public IRepository<TachographDocument> TachographDocumentRepository { get; set; }
-
         public IRepository<UndownloadabilityDocument> UndownloadabilityDocumentRepository { get; set; }
-
         public ReprintMode ReprintMode { get; set; }
-        
         public DelegateCommand<Window> ReprintCommand { get; set; }
-
         public DelegateCommand<Window> CancelCommand { get; set; }
 
         private void OnReprint(Window window)
         {
             if (string.IsNullOrEmpty(RegistrationNumber))
+            {
                 return;
+            }
 
             Document document = FindDocument();
             if (document == null)
@@ -72,40 +68,44 @@
         private static void OnCancel(Window window)
         {
             if (window == null)
+            {
                 return;
+            }
 
             window.Close();
         }
-        
+
         private Document FindDocument()
         {
             TachographDocument tachographDocument = Find(TachographDocumentRepository);
             if (tachographDocument != null)
+            {
                 return tachographDocument;
+            }
 
-            UndownloadabilityDocument undownloadabilityDocument = Find(UndownloadabilityDocumentRepository);
-            if (undownloadabilityDocument != null)
-                return undownloadabilityDocument;
-
-            return null;
+            return Find(UndownloadabilityDocumentRepository);
         }
 
         private T Find<T>(IRepository<T> repository) where T : Document
         {
             string registrationNumber = RegistrationNumber.ToUpper().Replace(" ", "");
             return repository.Where(item => string.Equals(item.RegistrationNumber, registrationNumber, StringComparison.CurrentCultureIgnoreCase))
-                             .OrderByDescending(item => item.InspectionDate)
-                             .FirstOrDefault();
+                .OrderByDescending(item => item.InspectionDate)
+                .FirstOrDefault();
         }
 
         private void Print(Document document)
         {
             if (document == null)
+            {
                 return;
+            }
 
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
+            {
                 PrintLabel(tachographDocument);
+            }
 
             PrintCertificate(document);
         }
@@ -113,7 +113,9 @@
         private void PrintLabel(TachographDocument tachographDocument)
         {
             if (ReprintMode != ReprintMode.Label)
+            {
                 return;
+            }
 
             LabelHelper.Print(tachographDocument);
         }
@@ -121,10 +123,14 @@
         private void PrintCertificate(Document document)
         {
             if (ReprintMode != ReprintMode.Certificate)
+            {
                 return;
+            }
 
-            if (PDFHelper.GenerateTachographPlaque(document, true))
+            if (PDFHelper.GenerateTachographPlaque(document, true, true))
+            {
                 PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+            }
         }
     }
 }

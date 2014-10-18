@@ -8,45 +8,25 @@
     public class TachographDocument : Document
     {
         public string VIN { get; set; }
-
         public string VehicleMake { get; set; }
-
         public string VehicleModel { get; set; }
-
         public string TyreSize { get; set; }
-
         public string VehicleType { get; set; }
-
         public string WFactor { get; set; }
-
         public string KFactor { get; set; }
-
         public string LFactor { get; set; }
-
         public string OdometerReading { get; set; }
-
         public bool Tampered { get; set; }
-
         public string InvoiceNumber { get; set; }
-
         public string InspectionInfo { get; set; }
-
         public bool TachographHasAdapter { get; set; }
-
         public string TachographAdapterSerialNumber { get; set; }
-
         public string TachographAdapterLocation { get; set; }
-
         public string TachographCableColor { get; set; }
-
         public string MinorWorkDetails { get; set; }
-
         public string TachographType { get; set; }
-
         public string CardSerialNumber { get; set; }
-
         public DateTime? CalibrationTime { get; set; }
-
         public bool IsDigital { get; set; }
 
         public override bool IsNew

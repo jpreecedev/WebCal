@@ -14,15 +14,10 @@
     public class CalibrationsViewModel : BaseCardBrowserViewModel
     {
         public ObservableCollection<CalibrationRecord> CalibrationRecords { get; set; }
-
         public CalibrationRecord SelectedCalibrationRecord { get; set; }
-        
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
-        
         public DelegateCommand<object> SelectAllCommand { get; set; }
-
         public DelegateCommand<object> ClearSelectionCommand { get; set; }
-
         public DelegateCommand<object> ShowDetailsCommand { get; set; }
 
         protected override void InitialiseCommands()
@@ -57,7 +52,9 @@
         private void OnSelectAll(object obj)
         {
             if (CalibrationRecords.IsNullOrEmpty())
+            {
                 return;
+            }
 
             foreach (CalibrationRecord calibrationRecord in CalibrationRecords)
             {
@@ -68,7 +65,9 @@
         private void OnClearSelection(object obj)
         {
             if (CalibrationRecords.IsNullOrEmpty())
+            {
                 return;
+            }
 
             foreach (CalibrationRecord calibrationRecord in CalibrationRecords)
             {
@@ -79,7 +78,9 @@
         private void OnShowDetails(object obj)
         {
             if (SelectedCalibrationRecord == null)
+            {
                 return;
+            }
 
             var window = new CalibrationDetailsWindow();
             ((CalibrationDetailsViewModel) window.DataContext).CalibrationRecord = SelectedCalibrationRecord;

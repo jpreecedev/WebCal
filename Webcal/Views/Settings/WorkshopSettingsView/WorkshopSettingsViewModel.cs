@@ -8,8 +8,9 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
     using Properties;
-    using StructureMap;
+    using Shared;
 
     public class WorkshopSettingsViewModel : BaseSettingsViewModel
     {
@@ -18,7 +19,7 @@
 
         public WorkshopSettingsViewModel()
         {
-            GeneralSettingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
+            GeneralSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
             BrowseCommand = new DelegateCommand<object>(OnBrowse);
             BrowseAdvertCommand = new DelegateCommand<object>(OnAdvertBrowse);
             _logoImagePath = ImageFilePath();
@@ -35,20 +36,16 @@
             }
         }
 
-        public IGeneralSettingsRepository GeneralSettingsRepository { get; set; }
-
+        public ISettingsRepository<WorkshopSettings> GeneralSettingsRepository { get; set; }
         public DelegateCommand<object> BrowseCommand { get; set; }
         public DelegateCommand<object> BrowseAdvertCommand { get; set; }
-
         public WorkshopSettings Settings { get; set; }
-
         public ImageSource CompanyLogo { get; set; }
-
         public ImageSource AdvertisingImage { get; set; }
 
         protected override void Load()
         {
-            Settings = GeneralSettingsRepository.GetSettings();
+            Settings = GeneralSettingsRepository.GetWorkshopSettings();
         }
 
         public override void Save()
@@ -67,7 +64,10 @@
             bool myResult = op.ShowDialog() == DialogResult.OK;
             if (myResult)
             {
-                if (!Directory.Exists(folderpath)) Directory.CreateDirectory(folderpath);
+                if (!Directory.Exists(folderpath))
+                {
+                    Directory.CreateDirectory(folderpath);
+                }
                 foreach (string file in Directory.GetFiles(folderpath))
                 {
                     File.Delete(file);
@@ -87,7 +87,9 @@
             string companyLogo = null;
 
             if (!Directory.Exists(folderpath))
+            {
                 Directory.CreateDirectory(folderpath);
+            }
 
             foreach (string file in Directory.GetFiles(folderpath))
             {
@@ -107,7 +109,10 @@
             bool myResult = op.ShowDialog() == DialogResult.OK;
             if (myResult)
             {
-                if (!Directory.Exists(folderpath)) Directory.CreateDirectory(folderpath);
+                if (!Directory.Exists(folderpath))
+                {
+                    Directory.CreateDirectory(folderpath);
+                }
                 foreach (string file in Directory.GetFiles(folderpath))
                 {
                     File.Delete(file);
@@ -127,7 +132,9 @@
             string advertLogo = null;
 
             if (!Directory.Exists(folderpath))
+            {
                 Directory.CreateDirectory(folderpath);
+            }
 
             foreach (string file in Directory.GetFiles(folderpath))
             {

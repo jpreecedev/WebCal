@@ -4,6 +4,7 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
     using Shared;
     using Shared.Workers;
 
@@ -11,7 +12,7 @@
     {
         public static void Print(TachographDocument document)
         {
-            var workerTask = new WorkerTask { TaskName = WorkerTaskName.LabelPrint };
+            var workerTask = new WorkerTask {TaskName = WorkerTaskName.LabelPrint};
 
             var registrationData = GetRegistrationData();
             var workshopSettings = GetWorkshopSettings();
@@ -55,12 +56,12 @@
 
         private static WorkshopSettings GetWorkshopSettings()
         {
-            return ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>().GetSettings();
+            return ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
         }
 
         private static PrinterSettings GetPrinterSettings()
         {
-            return ContainerBootstrapper.Container.GetInstance<IPrinterSettingsRepository>().GetSettings();
+            return ContainerBootstrapper.Container.GetInstance<ISettingsRepository<PrinterSettings>>().GetPrinterSettings();
         }
     }
 }

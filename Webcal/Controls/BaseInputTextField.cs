@@ -24,7 +24,6 @@
         }
 
         public bool Valid { get; set; }
-
         protected bool HasValidated { get; set; }
 
         public bool IsMandatory

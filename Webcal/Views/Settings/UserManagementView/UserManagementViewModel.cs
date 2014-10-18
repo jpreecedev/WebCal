@@ -16,9 +16,7 @@
     public class UserManagementViewModel : BaseSettingsViewModel
     {
         public string NewUserName { get; set; }
-
         public IRepository<User> Repository { get; set; }
-
         public ObservableCollection<User> Users { get; set; }
 
         public User SelectedUser
@@ -33,7 +31,7 @@
         public DelegateCommand<Grid> ResetPasswordCommand { get; set; }
         public DelegateCommand<Grid> ClearPasswordCommand { get; set; }
         public DelegateCommand<object> ManageSignaturesCommand { get; set; }
-        
+
         protected override void InitialiseCommands()
         {
             AddCommand = new DelegateCommand<PasswordBox>(OnAdd);
@@ -64,9 +62,11 @@
             base.OnPropertyChanged(propertyName);
 
             if (string.Equals(propertyName, "NewUserName") || string.Equals(propertyName, "NewUserPassword"))
+            {
                 RefreshCommands();
+            }
         }
-        
+
         private void OnAdd(PasswordBox passwordBox)
         {
             bool hasEnteredDetails = !string.IsNullOrEmpty(NewUserName) && !string.IsNullOrEmpty(passwordBox.Password);
@@ -87,7 +87,9 @@
         private void OnClear(PasswordBox passwordBox)
         {
             if (passwordBox == null)
+            {
                 return;
+            }
 
             NewUserName = passwordBox.Password = string.Empty;
         }
@@ -95,7 +97,9 @@
         private void OnChangePassword(Grid grid)
         {
             if (grid == null)
+            {
                 return;
+            }
 
             IDictionary<string, string> passwords = GetPasswords(grid);
             string old = passwords["Old"];
@@ -103,13 +107,17 @@
 
             bool changed = UserManagement.ChangePassword(Repository, old, newPassword);
             if (changed)
+            {
                 MessageBoxHelper.ShowMessage(Resources.TXT_PASSWORD_HAS_BEEN_CHANGED);
+            }
             else
+            {
                 MessageBoxHelper.ShowError(Resources.ERR_COULD_NOT_CHANGE_PASSWORD);
+            }
 
             ClearPasswords(grid);
         }
-        
+
         private void OnResetPassword(Grid grid)
         {
             string currentUser = UserManagement.LoggedInUserName;
@@ -124,16 +132,22 @@
                 return;
             }
             if (grid == null)
+            {
                 return;
+            }
 
             string old = SelectedUser.Password;
             const string newPassword = "password";
 
             bool changed = UserManagement.ResetPassword(Repository, old, newPassword);
             if (changed)
+            {
                 MessageBoxHelper.ShowMessage(Resources.TXT_PASSWORD_HAS_BEEN_RESET);
+            }
             else
+            {
                 MessageBoxHelper.ShowError(Resources.ERR_COULD_NOT_CHANGE_PASSWORD);
+            }
 
             ClearPasswords(grid);
         }
@@ -141,7 +155,9 @@
         private void OnClearPassword(Grid grid)
         {
             if (grid == null)
+            {
                 return;
+            }
 
             ClearPasswords(grid);
         }
@@ -151,7 +167,7 @@
             var window = new SignatureCaptureWindow();
             window.ShowDialog();
         }
-        
+
         private void RefreshCommands()
         {
             AddCommand.RaiseCanExecuteChanged();
@@ -161,7 +177,9 @@
         private void ClearPasswords(DependencyObject root)
         {
             if (root == null)
+            {
                 return;
+            }
 
             IEnumerable<PasswordBox> children = root.FindVisualChildren<PasswordBox>();
             foreach (PasswordBox child in children)
@@ -173,7 +191,9 @@
         private IDictionary<string, string> GetPasswords(DependencyObject root)
         {
             if (root == null)
+            {
                 return null;
+            }
 
             var result = new Dictionary<string, string>();
 
@@ -181,9 +201,13 @@
             foreach (PasswordBox child in children)
             {
                 if (string.Equals(child.Name, "OldPasswordBox"))
+                {
                     result.Add("Old", child.Password);
+                }
                 else if (string.Equals(child.Name, "NewPasswordBox"))
+                {
                     result.Add("New", child.Password);
+                }
             }
 
             return result;

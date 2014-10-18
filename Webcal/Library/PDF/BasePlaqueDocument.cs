@@ -13,18 +13,20 @@
     using iTextSharp.text.pdf;
     using Properties;
     using Shared;
-    using StructureMap;
     using Image = System.Drawing.Image;
 
     public class BasePlaqueDocument : IPlaque
     {
-        public const int TOTAL_PAGE_HEIGHT = 820;
-        private readonly IGeneralSettingsRepository _generalSettingsRepository;
+        protected const int TotalPageHeight = 820;
+        private readonly IRepository<CustomerContact> _customerContactRepository;
+        private readonly ISettingsRepository<WorkshopSettings> _generalSettingsRepository;
 
         public BasePlaqueDocument()
         {
-            _generalSettingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
-            WorkshopSettings = _generalSettingsRepository.GetSettings();
+            _generalSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            _customerContactRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+
+            WorkshopSettings = _generalSettingsRepository.GetWorkshopSettings();
             RegistrationData = GetRegistrationData();
         }
 
@@ -34,25 +36,7 @@
 
         public void Create(PDFDocument pdfDocument, TachographDocument tachographDocument)
         {
-            ////SCALE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //int x = 20;
-            //int y = 0;
-            //while (y < 800)
-            //{
-            //    AbsolutePositionText(pdfDocument, y.ToString(), (x), (y), 0, 0, pdfDocument.GetSmallFont(false));
-            //    y += 10;
-            //}
-            //while (x < 600)
-            //{
-            //    AbsolutePositionText(pdfDocument, x.ToString(), (x), (0), 595, 0, pdfDocument.GetSmallFont(false));
-            //    x += 30;
-            //}    
-
-            //AddTitle(pdfDocument, GetTitle());
-            CustomerContact = _generalSettingsRepository.GetCustomerSettings(tachographDocument.CustomerContact);
-            //CreateSmallLabel(pdfDocument, tachographDocument);
-            //CreateMediumLabel(pdfDocument, tachographDocument);
-            //CreateKFactorLabel(pdfDocument, tachographDocument);
+            CustomerContact = _customerContactRepository.FirstOrDefault(c => c.Name == tachographDocument.CustomerContact);
             CreateLargeLabelLogos(pdfDocument, tachographDocument, 0, 10);
             CreateLargeLabelAddress(pdfDocument, tachographDocument, 0, 230);
             CreateLargeLabel(pdfDocument, tachographDocument, 0, 400);
@@ -61,10 +45,9 @@
 
         public void CreateFullCertificate(PDFDocument pdfDocument, TachographDocument tachographDocument)
         {
-            CustomerContact = _generalSettingsRepository.GetCustomerSettings(tachographDocument.CustomerContact);
+            CustomerContact = _customerContactRepository.FirstOrDefault(c => c.Name == tachographDocument.CustomerContact);
             CreateLargeCertificate(pdfDocument, tachographDocument);
         }
-
 
         protected virtual string GetTitle()
         {
@@ -117,7 +100,9 @@
         protected string GetCalibrationTime(DateTime? calibrationTime)
         {
             if (calibrationTime == null)
+            {
                 return DateTime.Now.ToString(Constants.DateFormat);
+            }
 
             return calibrationTime.Value.ToString(Constants.DateFormat);
         }
@@ -127,34 +112,38 @@
             Font smallFont = small ? document.GetSmallFont(false) : document.GetRegularFont(false);
             Font regularFont = small ? document.GetSmallFont(true) : document.GetRegularFont(true);
 
-            var paragraph = new Paragraph();
-            paragraph.Add(new Chunk(Resources.TXT_LICENSE_NO_MINIMAL, smallFont));
-            paragraph.Add(new Chunk(RegistrationData.SealNumber, regularFont)); // License
-            return paragraph;
+            return new Paragraph
+            {
+                new Chunk(Resources.TXT_LICENSE_NO_MINIMAL, smallFont),
+                new Chunk(RegistrationData.SealNumber, regularFont)
+            };
         }
 
         protected void AddTitle(PDFDocument document, string title)
         {
-            var paragraph = new Paragraph(title, document.GetXLargeFont(false));
-            paragraph.Alignment = Element.ALIGN_CENTER;
+            var paragraph = new Paragraph(title, document.GetXLargeFont(false))
+            {
+                Alignment = Element.ALIGN_CENTER
+            };
+
             document.Document.Add(paragraph);
         }
 
         protected void AbsolutePositionText(PDFDocument document, string text, float left, float top, float width, float height)
         {
-            ColumnText titleHeaderText = document.GetNewColumn(left, (TOTAL_PAGE_HEIGHT - top), width, height);
+            ColumnText titleHeaderText = document.GetNewColumn(left, (TotalPageHeight - top), width, height);
             document.AddParagraph(text, titleHeaderText, document.GetRegularFont(false));
         }
 
         protected void AbsolutePositionText(PDFDocument document, string text, float left, float top, float width, float height, Font font)
         {
-            ColumnText absoluteColumn = document.GetNewColumn(left, (TOTAL_PAGE_HEIGHT - top), width, height);
+            ColumnText absoluteColumn = document.GetNewColumn(left, (TotalPageHeight - top), width, height);
             document.AddParagraph(text, absoluteColumn, font);
         }
 
         protected void AbsolutePositionText(PDFDocument document, string text, float left, float top, float width, float height, Font font, int alignment)
         {
-            ColumnText absoluteColumn = document.GetNewColumn(left, (TOTAL_PAGE_HEIGHT - top), width, height);
+            ColumnText absoluteColumn = document.GetNewColumn(left, (TotalPageHeight - top), width, height);
             document.AddParagraph(text, absoluteColumn, font, alignment);
         }
 

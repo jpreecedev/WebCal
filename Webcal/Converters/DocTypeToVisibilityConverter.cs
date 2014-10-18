@@ -12,7 +12,9 @@
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (string.IsNullOrEmpty((string) value))
+            {
                 return Visibility.Visible;
+            }
 
             return (string) value == Resources.TXT_MINOR_WORK_DETAILS ? Visibility.Visible : Visibility.Collapsed;
         }

@@ -10,7 +10,9 @@
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             if (values == null)
+            {
                 return null;
+            }
 
             return values.OfType<bool>().All(v => v);
         }

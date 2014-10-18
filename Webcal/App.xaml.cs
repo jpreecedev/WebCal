@@ -5,13 +5,13 @@
     using System.Linq;
     using System.Windows;
     using System.Windows.Threading;
-    using StructureMap;
+    using Windows;
+    using Windows.LogInWindow;
+    using DataModel;
     using DataModel.Core;
     using DataModel.Library;
     using Library;
     using Shared;
-    using Windows;
-    using Windows.LogInWindow;
 
     public partial class App
     {
@@ -28,13 +28,17 @@
         private void Current_Startup(object sender, StartupEventArgs e)
         {
             if (e.Args.Any(a => a.Contains("build")))
+            {
                 _isBuild = true;
+            }
 
             var splashScreen = new SplashScreen("Images/splash.png");
             splashScreen.Show(false);
 
             if (!InitialiseApplication())
+            {
                 return;
+            }
 
             splashScreen.Close(new TimeSpan(0, 0, 0));
 
@@ -52,10 +56,14 @@
                     MainWindow.ShowDialog();
                 }
                 else
+                {
                     Current.Shutdown();
+                }
             }
             else
+            {
                 Current.Shutdown();
+            }
         }
 
         private static bool InitialiseApplication()
@@ -67,10 +75,10 @@
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri(string.Format("pack://application:,,,/Fluent;Component/Themes/Office2010/{0}.xaml", "Silver"))});
 
             //Seed database
-            IGeneralSettingsRepository generalSettings = SeedDataHelper.SeedDatabase();
+            ISettingsRepository<WorkshopSettings> generalSettings = SeedDataHelper.SeedDatabase();
 
             //Back up the database, if needed
-            BackupRestoreManager.BackupIfRequired(generalSettings.GetSettings());
+            BackupRestoreManager.BackupIfRequired(generalSettings.GetWorkshopSettings());
 
             return true;
         }

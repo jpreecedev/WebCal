@@ -46,11 +46,11 @@
                 {
                     StartInfo =
                     {
-                        WindowStyle = ProcessWindowStyle.Hidden, 
+                        WindowStyle = ProcessWindowStyle.Hidden,
                         Verb = "Print",
                         FileName = pdfExecutablePath,
-                        UseShellExecute = false, 
-                        CreateNoWindow = true, 
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
                         Arguments = GetStartupArguments(printParameters.FilePath, printParameters)
                     }
                 };

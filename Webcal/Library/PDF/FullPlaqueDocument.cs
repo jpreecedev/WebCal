@@ -20,11 +20,11 @@ namespace Webcal.Library.PDF
             //Outlining
             DrawLargeLabelRectangle(document, startHorizontal, startVertical);
 
-            document.DrawLine((startHorizontal + 50), (startVertical + 106), (startHorizontal + 545), (startVertical + 106), TOTAL_PAGE_HEIGHT);
-            document.DrawLine((startHorizontal + 50), (startVertical + 192), (startHorizontal + 545), (startVertical + 192), TOTAL_PAGE_HEIGHT);
-            document.DrawLine((startHorizontal + 50), (startVertical + 247), (startHorizontal + 545), (startVertical + 247), TOTAL_PAGE_HEIGHT);
-            document.DrawLine((startHorizontal + 150), (startVertical + 344), (startHorizontal + 298), (startVertical + 344), TOTAL_PAGE_HEIGHT);
-            document.DrawLine((startHorizontal + 347), (startVertical + 344), (startHorizontal + 494), (startVertical + 344), TOTAL_PAGE_HEIGHT);
+            document.DrawLine((startHorizontal + 50), (startVertical + 106), (startHorizontal + 545), (startVertical + 106), TotalPageHeight);
+            document.DrawLine((startHorizontal + 50), (startVertical + 192), (startHorizontal + 545), (startVertical + 192), TotalPageHeight);
+            document.DrawLine((startHorizontal + 50), (startVertical + 247), (startHorizontal + 545), (startVertical + 247), TotalPageHeight);
+            document.DrawLine((startHorizontal + 150), (startVertical + 344), (startHorizontal + 298), (startVertical + 344), TotalPageHeight);
+            document.DrawLine((startHorizontal + 347), (startVertical + 344), (startHorizontal + 494), (startVertical + 344), TotalPageHeight);
 
             AbsolutePositionText(document, Resources.TXT_TACHOGRAPH, (startHorizontal + 50), (startVertical + 52), 150, 20);
             AbsolutePositionText(document, Resources.TXT_VEHICLE, (startHorizontal + 50), (startVertical + 137), 150, 20);
@@ -68,7 +68,7 @@ namespace Webcal.Library.PDF
 
             AbsolutePositionText(document, string.Format(Resources.TXT_IMP_KM, tachographDocument.WFactor), (startHorizontal + 150), (startVertical + 168), 550, 72, document.GetLargerFont(false));
             AbsolutePositionText(document, string.Format(Resources.TXT_MM, tachographDocument.LFactor), (startHorizontal + 347), (startVertical + 168), 550, 72, document.GetLargerFont(false));
-            
+
             //M1N1 Adapter
 
             AbsolutePositionText(document, Resources.TXT_M1N1_SERIAL_NUMBER, (startHorizontal + 150), (startVertical + 188), 550, 72, document.GetRegularFont(false));
@@ -96,7 +96,7 @@ namespace Webcal.Library.PDF
             int height = 337;
 
             document.ContentByte.SetColorStroke(new BaseColor(Color.Black));
-            document.ContentByte.Rectangle((startHorizontal + 20), (TOTAL_PAGE_HEIGHT - (startVertical + 25 + height)), 555, height);
+            document.ContentByte.Rectangle((startHorizontal + 20), (TotalPageHeight - (startVertical + 25 + height)), 555, height);
             document.ContentByte.Stroke();
         }
 

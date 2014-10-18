@@ -6,20 +6,25 @@
     using System.IO;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
+    using Shared;
     using Shared.Workers;
 
     public static class PDFHelper
     {
         public static string LastPDFOutputPath = string.Empty;
 
-        public static bool GenerateTachographPlaque(Document document, bool saveToTempDirectory)
+        public static bool GenerateTachographPlaque(Document document, bool saveToTempDirectory, bool isHistoryMode)
         {
             if (document == null)
             {
                 return false;
             }
 
-            document.InspectionDate = DateTime.Now;
+            if (!isHistoryMode)
+            {
+                document.InspectionDate = DateTime.Now;
+            }
 
             var undownloadabilityDocument = document as UndownloadabilityDocument;
             if (undownloadabilityDocument != null)
@@ -90,8 +95,8 @@
 
         public static void Print(string path)
         {
-            var repository = ContainerBootstrapper.Container.GetInstance<IPrinterSettingsRepository>();
-            var settings = repository.GetSettings();
+            var repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<PrinterSettings>>();
+            var settings = repository.GetPrinterSettings();
 
             var workerTask = new WorkerTask {TaskName = WorkerTaskName.Print};
 

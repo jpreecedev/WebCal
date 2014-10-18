@@ -70,7 +70,6 @@ namespace Webcal.EmailWorker
             private int _count;
             private IntPtr _handle;
 
-
             /// <summary>
             ///     Default constructor for creating InteropRecipientCollection.
             /// </summary>
@@ -101,12 +100,10 @@ namespace Webcal.EmailWorker
                 }
             }
 
-
             public IntPtr Handle
             {
                 get { return _handle; }
             }
-
 
             /// <summary>
             ///     Disposes of resources.

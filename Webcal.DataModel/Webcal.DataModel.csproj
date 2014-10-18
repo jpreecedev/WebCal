@@ -105,12 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\BaseModel.cs" />
-    <Compile Include="Core\BaseNotification.cs" />
     <Compile Include="Core\ContainerBootstrapper.cs" />
-    <Compile Include="Core\IGeneralSettingsRepository.cs" />
-    <Compile Include="Core\IMailSettingsRepository.cs" />
-    <Compile Include="Core\IPrinterSettingsRepository.cs" />
     <Compile Include="Library\CalibrationRecord.cs" />
     <Compile Include="Library\Extensions.cs" />
     <Compile Include="Library\SeedDataHelper.cs" />
@@ -201,25 +196,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BaseRepository.cs" />
-    <Compile Include="Repositories\CustomerContactRepository.cs" />
-    <Compile Include="Repositories\DriverCardFileRepository.cs" />
-    <Compile Include="Repositories\ExceptionRepository.cs" />
-    <Compile Include="Repositories\GeneralSettingsRepository.cs" />
-    <Compile Include="Repositories\InspectionEquipmentRepository.cs" />
-    <Compile Include="Repositories\InspectionMethodsRepository.cs" />
-    <Compile Include="Repositories\MailRepository.cs" />
+    <Compile Include="Repositories\SettingsRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\TechnicianRepository.cs" />
     <Compile Include="Models\RegistrationData.cs" />
-    <Compile Include="Repositories\PrinterSettingsRepository.cs" />
-    <Compile Include="Repositories\RegistrationRepository.cs" />
     <Compile Include="Repositories\TachographDocumentRepository.cs" />
-    <Compile Include="Repositories\TachographFileRepository.cs" />
     <Compile Include="Repositories\TachographMakesRepository.cs" />
-    <Compile Include="Repositories\TyreSizeRepository.cs" />
-    <Compile Include="Repositories\UndownloadabilityDocumentRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\VehicleRepository.cs" />
-    <Compile Include="Repositories\WorkshopCardFileRepository.cs" />
     <Compile Include="TachographContext.cs" />
     <Compile Include="TachographInitialiser.cs" />
     <Compile Include="Library\UserManagement.cs" />

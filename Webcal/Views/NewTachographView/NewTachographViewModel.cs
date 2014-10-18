@@ -30,43 +30,24 @@
         }
 
         public TachographDocument Document { get; set; }
-
         public IRepository<VehicleMake> VehicleRepository { get; set; }
-
         public IRepository<TyreSize> TyreSizesRepository { get; set; }
-
         public IRepository<TachographMake> TachographMakesRepository { get; set; }
-
         public IRepository<Technician> TechniciansRepository { get; set; }
-
         public IRepository<TachographDocument> TachographDocumentRepository { get; set; }
-
         public IRepository<WorkshopCardFile> WorkshopCardFilesRepository { get; set; }
-
         public ObservableCollection<string> DocumentTypes { get; set; }
-
         public ObservableCollection<string> VehicleTypes { get; set; }
-
         public ObservableCollection<VehicleMake> VehicleMakes { get; set; }
-
         public ObservableCollection<TyreSize> TyreSizes { get; set; }
-
         public ObservableCollection<TachographMake> TachographMakes { get; set; }
-
         public ObservableCollection<Technician> Technicians { get; set; }
-
         public ICollection<TachographDocument> AllTachographDocuments { get; set; }
-
         public bool IsReadFromCardEnabled { get; set; }
-
         public string ReadFromCardContent { get; set; }
-
         public string StatusText { get; set; }
-
         public bool IsCardReadUserInitiated { get; set; }
-
         public bool IsReadOnly { get; set; }
-
         public string LastPlateRead { get; set; }
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<Grid> PrintLabelCommand { get; set; }
@@ -135,7 +116,7 @@
             //Remove all spaces from registration number
             Document.RegistrationNumber = registrationNumber.Replace(" ", "").ToUpper();
 
-            ICollection<TachographDocument> allDocuments = AllTachographDocuments ?? (AllTachographDocuments = TachographDocumentRepository.GetAll());
+            ICollection<TachographDocument> allDocuments = AllTachographDocuments ?? (AllTachographDocuments = TachographDocumentRepository.GetAll().OrderByDescending(c => c.Created).ToList());
             if (!allDocuments.IsNullOrEmpty())
             {
                 TachographDocument match = allDocuments.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))

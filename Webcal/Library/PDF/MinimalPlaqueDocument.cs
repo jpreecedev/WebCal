@@ -26,7 +26,9 @@ namespace Webcal.Library.PDF
             string companyLogo = null;
 
             if (!Directory.Exists(directoryInfo))
+            {
                 Directory.CreateDirectory(directoryInfo);
+            }
 
             foreach (string file in Directory.GetFiles(directoryInfo))
             {
@@ -42,11 +44,11 @@ namespace Webcal.Library.PDF
                     const float profileImageMaxHeight = 150;
                     const float profileImageMaxWidth = 200;
 
-                    float widthScale = profileImageMaxWidth / workshopImage.Width;
-                    float heightScale = profileImageMaxHeight / workshopImage.Height;
+                    float widthScale = profileImageMaxWidth/workshopImage.Width;
+                    float heightScale = profileImageMaxHeight/workshopImage.Height;
                     float scale = Math.Min(widthScale, heightScale);
-                    float newWidth = workshopImage.Width * scale;
-                    float newHeight = workshopImage.Height * scale;
+                    float newWidth = workshopImage.Width*scale;
+                    float newHeight = workshopImage.Height*scale;
 
                     document.AddImage(ToByteArray(workshopImage), newWidth, newHeight, (startHorizontal + 20), (startVertical + 675));
                 }
@@ -79,7 +81,9 @@ namespace Webcal.Library.PDF
                     verticalPos += 20;
                 }
                 if (CustomerContact.PostCode != "")
+                {
                     AbsolutePositionText(document, CustomerContact.PostCode, (startHorizontal + 350), (verticalPos), 580, 100, document.GetXLargeFont(false));
+                }
             }
 
 
@@ -103,7 +107,9 @@ namespace Webcal.Library.PDF
             }
 
             if (WorkshopSettings.PostCode != "")
+            {
                 AbsolutePositionText(document, WorkshopSettings.PostCode, (startHorizontal + 32), (verticalPos), 580, 100, document.GetXLargeFont(false));
+            }
         }
 
         protected override void CreateLargeLabelExpiry(PDFDocument document, TachographDocument tachographDocument, int startHorizontal, int startVertical)
@@ -122,10 +128,10 @@ namespace Webcal.Library.PDF
 
             //Outlining
             DrawLargeLabelRectangle(document, startHorizontal, startVertical);
-            document.DrawLine((startHorizontal + 50), (startVertical + 146), (startHorizontal + 545), (startVertical + 146), TOTAL_PAGE_HEIGHT);
-            document.DrawLine((startHorizontal + 50), (startVertical + 234), (startHorizontal + 545), (startVertical + 234), TOTAL_PAGE_HEIGHT);
-            document.DrawLine((startHorizontal + 150), (startVertical + 334), (startHorizontal + 298), (startVertical + 334), TOTAL_PAGE_HEIGHT);
-            document.DrawLine((startHorizontal + 347), (startVertical + 334), (startHorizontal + 494), (startVertical + 334), TOTAL_PAGE_HEIGHT);
+            document.DrawLine((startHorizontal + 50), (startVertical + 146), (startHorizontal + 545), (startVertical + 146), TotalPageHeight);
+            document.DrawLine((startHorizontal + 50), (startVertical + 234), (startHorizontal + 545), (startVertical + 234), TotalPageHeight);
+            document.DrawLine((startHorizontal + 150), (startVertical + 334), (startHorizontal + 298), (startVertical + 334), TotalPageHeight);
+            document.DrawLine((startHorizontal + 347), (startVertical + 334), (startHorizontal + 494), (startVertical + 334), TotalPageHeight);
 
             AbsolutePositionText(document, Resources.TXT_TACHOGRAPH, (startHorizontal + 50), (startVertical + 93), 150, 100);
             AbsolutePositionText(document, Resources.TXT_VEHICLE, (startHorizontal + 50), (startVertical + 175), 150, 100);
@@ -153,7 +159,7 @@ namespace Webcal.Library.PDF
             {
                 const int workDetailsHeight = 19;
                 document.ContentByte.SetColorStroke(new BaseColor(Color.Black));
-                document.ContentByte.Rectangle((startHorizontal + 20), (TOTAL_PAGE_HEIGHT - (startVertical + 44 + workDetailsHeight)), 555, workDetailsHeight);
+                document.ContentByte.Rectangle((startHorizontal + 20), (TotalPageHeight - (startVertical + 44 + workDetailsHeight)), 555, workDetailsHeight);
                 document.ContentByte.Stroke();
 
                 AbsolutePositionText(document, Resources.TXT_WORK_CARRIED_OUT, (startHorizontal + 50), (startVertical + 40), 150, 100, document.GetSmallerFont());
@@ -195,7 +201,7 @@ namespace Webcal.Library.PDF
             const int height = 283;
 
             document.ContentByte.SetColorStroke(new BaseColor(Color.Black));
-            document.ContentByte.Rectangle((startHorizontal + 20), (TOTAL_PAGE_HEIGHT - (startVertical + 66 + height)), 555, height);
+            document.ContentByte.Rectangle((startHorizontal + 20), (TotalPageHeight - (startVertical + 66 + height)), 555, height);
             document.ContentByte.Stroke();
         }
 
@@ -207,8 +213,8 @@ namespace Webcal.Library.PDF
 
         protected override void CreateMediumLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-            var table = new PdfPTable(4) { TotalWidth = 266 };
-            table.SetWidths(new float[] { 108, 54, 54, 108 });
+            var table = new PdfPTable(4) {TotalWidth = 266};
+            table.SetWidths(new float[] {108, 54, 54, 108});
 
             GetWorkshopImage(document, table);
             document.AddSpannedCell(table, TrimDocumentType(tachographDocument.DocumentType), 2, document.GetSmallerFont(), 29);
@@ -231,8 +237,8 @@ namespace Webcal.Library.PDF
 
         protected override void CreateSmallLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-            var table = new PdfPTable(4) { TotalWidth = 136 };
-            table.SetWidths(new float[] { 58, 10, 20, 48 });
+            var table = new PdfPTable(4) {TotalWidth = 136};
+            table.SetWidths(new float[] {58, 10, 20, 48});
 
             GetSmallImage(document, table);
 
@@ -259,25 +265,25 @@ namespace Webcal.Library.PDF
             int startHorizontal = 20;
             int startVertical = 0;
 
-            document.DrawLine((startHorizontal), (startVertical), (startHorizontal + 555), (startVertical), TOTAL_PAGE_HEIGHT);
+            document.DrawLine((startHorizontal), (startVertical), (startHorizontal + 555), (startVertical), TotalPageHeight);
 
-            document.DrawLine((startHorizontal), (startVertical), (startHorizontal), (startVertical + 800), TOTAL_PAGE_HEIGHT);
+            document.DrawLine((startHorizontal), (startVertical), (startHorizontal), (startVertical + 800), TotalPageHeight);
 
-            document.DrawLine((startHorizontal + 555), (startVertical), (startHorizontal + 555), (startVertical + 800), TOTAL_PAGE_HEIGHT);
+            document.DrawLine((startHorizontal + 555), (startVertical), (startHorizontal + 555), (startVertical + 800), TotalPageHeight);
 
-            document.DrawLine((startHorizontal), (startVertical + 800), (startHorizontal + 555), (startVertical + 800), TOTAL_PAGE_HEIGHT);
+            document.DrawLine((startHorizontal), (startVertical + 800), (startHorizontal + 555), (startVertical + 800), TotalPageHeight);
 
-            document.DrawLine((startHorizontal), (startVertical + 290), (startHorizontal + 555), (startVertical + 290), TOTAL_PAGE_HEIGHT);
+            document.DrawLine((startHorizontal), (startVertical + 290), (startHorizontal + 555), (startVertical + 290), TotalPageHeight);
 
             if (tachographDocument.MinorWorkDetails == null)
             {
-                document.DrawLine((startHorizontal), (startVertical + 400), (startHorizontal + 555), (startVertical + 400), TOTAL_PAGE_HEIGHT);
-                document.DrawLine((startHorizontal), (startVertical + 600), (startHorizontal + 555), (startVertical + 600), TOTAL_PAGE_HEIGHT);
+                document.DrawLine((startHorizontal), (startVertical + 400), (startHorizontal + 555), (startVertical + 400), TotalPageHeight);
+                document.DrawLine((startHorizontal), (startVertical + 600), (startHorizontal + 555), (startVertical + 600), TotalPageHeight);
             }
             else
             {
-                document.DrawLine((startHorizontal), (startVertical + 420), (startHorizontal + 555), (startVertical + 420), TOTAL_PAGE_HEIGHT);
-                document.DrawLine((startHorizontal), (startVertical + 630), (startHorizontal + 555), (startVertical + 630), TOTAL_PAGE_HEIGHT);
+                document.DrawLine((startHorizontal), (startVertical + 420), (startHorizontal + 555), (startVertical + 420), TotalPageHeight);
+                document.DrawLine((startHorizontal), (startVertical + 630), (startHorizontal + 555), (startVertical + 630), TotalPageHeight);
             }
 
             string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "ContactImages");
@@ -285,7 +291,9 @@ namespace Webcal.Library.PDF
             string companyLogo = null;
 
             if (!Directory.Exists(directoryInfo))
+            {
                 Directory.CreateDirectory(directoryInfo);
+            }
 
             foreach (string file in Directory.GetFiles(directoryInfo))
             {
@@ -301,11 +309,11 @@ namespace Webcal.Library.PDF
                     const float profileImageMaxHeight = 150;
                     const float profileImageMaxWidth = 200;
 
-                    float widthScale = profileImageMaxWidth / workshopImage.Width;
-                    float heightScale = profileImageMaxHeight / workshopImage.Height;
+                    float widthScale = profileImageMaxWidth/workshopImage.Width;
+                    float heightScale = profileImageMaxHeight/workshopImage.Height;
                     float scale = Math.Min(widthScale, heightScale);
-                    float newWidth = workshopImage.Width * scale;
-                    float newHeight = workshopImage.Height * scale;
+                    float newWidth = workshopImage.Width*scale;
+                    float newHeight = workshopImage.Height*scale;
 
                     document.AddImage(ToByteArray(workshopImage), newWidth, newHeight, (startHorizontal + 5), startVertical + 670);
                 }
@@ -316,7 +324,9 @@ namespace Webcal.Library.PDF
             string advertImage = null;
 
             if (!Directory.Exists(adDirectoryInfo))
+            {
                 Directory.CreateDirectory(adDirectoryInfo);
+            }
 
             foreach (string file in Directory.GetFiles(adDirectoryInfo))
             {
@@ -331,11 +341,11 @@ namespace Webcal.Library.PDF
                     const float profileImageMaxHeight = 145;
                     const float profileImageMaxWidth = 330;
 
-                    float widthScale = profileImageMaxWidth / finalAdvertImage.Width;
-                    float heightScale = profileImageMaxHeight / finalAdvertImage.Height;
+                    float widthScale = profileImageMaxWidth/finalAdvertImage.Width;
+                    float heightScale = profileImageMaxHeight/finalAdvertImage.Height;
                     float scale = Math.Min(widthScale, heightScale);
-                    float newWidth = finalAdvertImage.Width * scale;
-                    float newHeight = finalAdvertImage.Height * scale;
+                    float newWidth = finalAdvertImage.Width*scale;
+                    float newHeight = finalAdvertImage.Height*scale;
 
                     document.AddImage(ToByteArray(finalAdvertImage), newWidth, newHeight, (startHorizontal + 200), startVertical + 670);
                 }
@@ -343,7 +353,7 @@ namespace Webcal.Library.PDF
 
 
             AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE.ToUpper(), (startHorizontal + 200), (startVertical + 170), 580, 100, document.GetRegularFont(true));
-            document.DrawLine((startHorizontal + 200), (startVertical + 188), (startHorizontal + 367), (startVertical + 188), TOTAL_PAGE_HEIGHT);
+            document.DrawLine((startHorizontal + 200), (startVertical + 188), (startHorizontal + 367), (startVertical + 188), TotalPageHeight);
 
 
             if (CustomerContact != null)
@@ -371,7 +381,9 @@ namespace Webcal.Library.PDF
             DateTime? calibrationDate = tachographDocument.CalibrationTime;
 
             if (calibrationDate == null)
+            {
                 calibrationDate = DateTime.Today;
+            }
 
             string expiryDate = (GetCalibrationTime(calibrationDate.Value.AddYears(2).AddDays(-1)));
 
@@ -384,48 +396,64 @@ namespace Webcal.Library.PDF
             AbsolutePositionText(document, Resources.TXT_ANALOGUE_INSPECTIONS.ToUpper(), (startHorizontal + 5), (startVertical + 300), 590, 40, document.GetRegularFont(true));
 
             AbsolutePositionText(document, Resources.TXT_CALIBRATION.ToUpper(), (startHorizontal + 15), (startVertical + 310), 590, 40, document.GetRegularFont(false));
-            document.DrawCheckBox((startHorizontal + 5), (startVertical + 320), TOTAL_PAGE_HEIGHT);
+            document.DrawCheckBox((startHorizontal + 5), (startVertical + 320), TotalPageHeight);
             if (tachographDocument.DocumentType == "I - Installation / Initial calibration")
-                document.DrawCheck((startHorizontal + 5), (startVertical + 320), TOTAL_PAGE_HEIGHT);
+            {
+                document.DrawCheck((startHorizontal + 5), (startVertical + 320), TotalPageHeight);
+            }
 
             AbsolutePositionText(document, Resources.TXT_2_YEAR.ToUpper(), (startHorizontal + 15), (startVertical + 320), 590, 40, document.GetRegularFont(false));
-            document.DrawCheckBox((startHorizontal + 5), (startVertical + 330), TOTAL_PAGE_HEIGHT);
+            document.DrawCheckBox((startHorizontal + 5), (startVertical + 330), TotalPageHeight);
             if (tachographDocument.DocumentType == "2 - 2 year inspection")
-                document.DrawCheck((startHorizontal + 5), (startVertical + 330), TOTAL_PAGE_HEIGHT);
+            {
+                document.DrawCheck((startHorizontal + 5), (startVertical + 330), TotalPageHeight);
+            }
 
             AbsolutePositionText(document, Resources.TXT_6_YEAR.ToUpper(), (startHorizontal + 15), (startVertical + 330), 590, 40, document.GetRegularFont(false));
-            document.DrawCheckBox((startHorizontal + 5), (startVertical + 340), TOTAL_PAGE_HEIGHT);
+            document.DrawCheckBox((startHorizontal + 5), (startVertical + 340), TotalPageHeight);
             if (tachographDocument.DocumentType == "6 - 6 year calibration")
-                document.DrawCheck((startHorizontal + 5), (startVertical + 340), TOTAL_PAGE_HEIGHT);
+            {
+                document.DrawCheck((startHorizontal + 5), (startVertical + 340), TotalPageHeight);
+            }
 
             AbsolutePositionText(document, Resources.TXT_RECALIBRATION_CERTIFICATE.ToUpper(), (startHorizontal + 15), (startVertical + 340), 590, 40, document.GetRegularFont(false));
-            document.DrawCheckBox((startHorizontal + 5), (startVertical + 350), TOTAL_PAGE_HEIGHT);
+            document.DrawCheckBox((startHorizontal + 5), (startVertical + 350), TotalPageHeight);
             if (tachographDocument.DocumentType == "R - Recalibration")
-                document.DrawCheck((startHorizontal + 5), (startVertical + 350), TOTAL_PAGE_HEIGHT);
+            {
+                document.DrawCheck((startHorizontal + 5), (startVertical + 350), TotalPageHeight);
+            }
 
             AbsolutePositionText(document, Resources.TXT_MINOR_WORK.ToUpper(), (startHorizontal + 15),
                 (startVertical + 350), 590, 40, document.GetRegularFont(false));
-            document.DrawCheckBox((startHorizontal + 5), (startVertical + 360), TOTAL_PAGE_HEIGHT);
+            document.DrawCheckBox((startHorizontal + 5), (startVertical + 360), TotalPageHeight);
             if (tachographDocument.DocumentType == "M - Minor Work" && !tachographDocument.IsDigital)
-                document.DrawCheck((startHorizontal + 5), (startVertical + 360), TOTAL_PAGE_HEIGHT);
+            {
+                document.DrawCheck((startHorizontal + 5), (startVertical + 360), TotalPageHeight);
+            }
 
             AbsolutePositionText(document, Resources.TXT_DIGITAL_INSPECTIONS.ToUpper(), (startHorizontal + 240), (startVertical + 300), 590, 40, document.GetRegularFont(true));
 
             AbsolutePositionText(document, Resources.TXT_CALIBRATION.ToUpper(), (startHorizontal + 255), (startVertical + 310), 590, 40, document.GetRegularFont(false));
-            document.DrawCheckBox((startHorizontal + 240), (startVertical + 320), TOTAL_PAGE_HEIGHT);
+            document.DrawCheckBox((startHorizontal + 240), (startVertical + 320), TotalPageHeight);
             if (tachographDocument.DocumentType == "3 - Digital initial calibration")
-                document.DrawCheck((startHorizontal + 240), (startVertical + 320), TOTAL_PAGE_HEIGHT);
+            {
+                document.DrawCheck((startHorizontal + 240), (startVertical + 320), TotalPageHeight);
+            }
 
             AbsolutePositionText(document, Resources.TXT_2_YEAR.ToUpper(), (startHorizontal + 255),
                 (startVertical + 320), 590, 40, document.GetRegularFont(false));
-            document.DrawCheckBox((startHorizontal + 240), (startVertical + 330), TOTAL_PAGE_HEIGHT);
+            document.DrawCheckBox((startHorizontal + 240), (startVertical + 330), TotalPageHeight);
             if (tachographDocument.DocumentType == "4 - Digital 2 year calibration")
-                document.DrawCheck((startHorizontal + 240), (startVertical + 330), TOTAL_PAGE_HEIGHT);
+            {
+                document.DrawCheck((startHorizontal + 240), (startVertical + 330), TotalPageHeight);
+            }
 
             AbsolutePositionText(document, Resources.TXT_MINOR_WORK.ToUpper(), (startHorizontal + 255), (startVertical + 330), 590, 40, document.GetRegularFont(false));
-            document.DrawCheckBox((startHorizontal + 240), (startVertical + 340), TOTAL_PAGE_HEIGHT);
+            document.DrawCheckBox((startHorizontal + 240), (startVertical + 340), TotalPageHeight);
             if (tachographDocument.DocumentType == "M - Minor Work" && tachographDocument.IsDigital)
-                document.DrawCheck((startHorizontal + 240), (startVertical + 340), TOTAL_PAGE_HEIGHT);
+            {
+                document.DrawCheck((startHorizontal + 240), (startVertical + 340), TotalPageHeight);
+            }
 
             if (tachographDocument.MinorWorkDetails != null)
             {
@@ -485,7 +513,7 @@ namespace Webcal.Library.PDF
 
                 TryAddSignature(document, (startHorizontal + 300), (startVertical + 670));
 
-                document.DrawLine((startHorizontal + 300), (startVertical + 715), (startHorizontal + 490), (startVertical + 715), TOTAL_PAGE_HEIGHT);
+                document.DrawLine((startHorizontal + 300), (startVertical + 715), (startHorizontal + 490), (startVertical + 715), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 710), 550, 72, document.GetXSmallFont(false));
 
 
@@ -545,7 +573,9 @@ namespace Webcal.Library.PDF
                     AbsolutePositionText(document, WorkshopSettings.Address1, (startHorizontal + 30), (startVertical + 690), 550, 72, document.GetRegularFont(false));
                 }
                 if (WorkshopSettings.Town != null)
+                {
                     AbsolutePositionText(document, WorkshopSettings.Town, (startHorizontal + 30), (startVertical + 710), 550, 72, document.GetRegularFont(false));
+                }
 
                 if (WorkshopSettings.PostCode != null)
                 {
@@ -557,7 +587,7 @@ namespace Webcal.Library.PDF
 
                 TryAddSignature(document, (startHorizontal + 300), (startVertical + 690));
 
-                document.DrawLine((startHorizontal + 300), (startVertical + 735), (startHorizontal + 490), (startVertical + 735), TOTAL_PAGE_HEIGHT);
+                document.DrawLine((startHorizontal + 300), (startVertical + 735), (startHorizontal + 490), (startVertical + 735), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 730), 550, 72, document.GetXSmallFont(false));
 
                 Image image = Image.FromStream(DocumentHelper.GetResourceStreamFromSimplePath("../Images/webcal.jpg").Stream);

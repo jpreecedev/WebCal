@@ -10,6 +10,9 @@
         public static readonly DependencyProperty LabelProperty =
             DependencyProperty.Register("Label", typeof (string), typeof (InputNumberPicker), new PropertyMetadata(null));
 
+        public static readonly DependencyProperty MaximumProperty =
+            DependencyProperty.Register("Maximum", typeof (int), typeof (InputNumberPicker), new PropertyMetadata(10));
+
         static InputNumberPicker()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof (InputNumberPicker), new FrameworkPropertyMetadata(typeof (InputNumberPicker)));
@@ -23,12 +26,9 @@
 
         public int Maximum
         {
-            get { return (int)GetValue(MaximumProperty); }
+            get { return (int) GetValue(MaximumProperty); }
             set { SetValue(MaximumProperty, value); }
         }
-
-        public static readonly DependencyProperty MaximumProperty =
-            DependencyProperty.Register("Maximum", typeof(int), typeof(InputNumberPicker), new PropertyMetadata(10));
 
         public override void OnClear()
         {

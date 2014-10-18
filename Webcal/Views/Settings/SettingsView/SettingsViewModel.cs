@@ -16,50 +16,55 @@
         public SettingsViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
                 return;
+            }
 
             ShowSettingsView(typeof (GeneralSettingsView));
             BuildTreeView();
         }
 
         public bool IsPromptVisible { get; set; }
-
         public string Prompt { get; set; }
-
         public Action<string> Callback { get; set; }
-
         public ObservableCollection<TreeViewItem> TreeViewItems { get; set; }
         public DelegateCommand<Type> ItemClickedCommand { get; set; }
-        
+
         protected override void InitialiseCommands()
         {
             ItemClickedCommand = new DelegateCommand<Type>(OnItemClicked);
         }
-        
+
         public void SetSelectedTreeViewItem(Type type)
         {
             if (type == null)
+            {
                 return;
+            }
 
             SetSelectedItem(type, TreeViewItems.ToList());
         }
-        
+
         private void OnItemClicked(Type param)
         {
             ShowSettingsView(param);
         }
-        
+
         private static void SetSelectedItem(Type type, IEnumerable<TreeViewItem> items)
         {
             if (type == null || items == null)
+            {
                 return;
+            }
 
             foreach (TreeViewItem item in items)
             {
                 item.IsSelected = Equals(item.DataContext, type);
 
                 if (item.Items != null)
+                {
                     SetSelectedItem(type, item.Items.Cast<TreeViewItem>().ToList());
+                }
             }
         }
 

@@ -6,9 +6,6 @@
 
     public class ListItemDoubleClickedBehaviour
     {
-        public static DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (ListItemDoubleClickedBehaviour), new UIPropertyMetadata(CommandChanged));
-
         public static void SetCommand(DependencyObject target, ICommand value)
         {
             target.SetValue(CommandProperty, value);
@@ -20,9 +17,13 @@
             if (control != null)
             {
                 if ((e.NewValue != null) && (e.OldValue == null))
+                {
                     control.MouseDoubleClick += OnDoubleClick;
+                }
                 else if ((e.NewValue == null) && (e.OldValue != null))
+                {
                     control.MouseDoubleClick -= OnDoubleClick;
+                }
             }
         }
 
@@ -30,10 +31,15 @@
         {
             var control = sender as ListView;
             if (control == null)
+            {
                 return;
+            }
 
             var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(null);
         }
+
+        public static DependencyProperty CommandProperty =
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (ListItemDoubleClickedBehaviour), new UIPropertyMetadata(CommandChanged));
     }
 }

@@ -4,11 +4,12 @@
     using System.Windows;
     using System.Windows.Controls;
     using Core;
+    using DataModel;
     using DataModel.Core;
     using DataModel.Library;
-    using DataModel.Repositories;
     using Library;
     using Properties;
+    using Shared;
 
     public class LogInWindowViewModel : BaseNotification
     {
@@ -23,21 +24,23 @@
         }
 
         public string Username { get; set; }
-        
         public DelegateCommand<Window> LogInCommand { get; set; }
-        
         public DelegateCommand<Window> CancelCommand { get; set; }
 
         private void OnLogIn(Window window)
         {
             if (window == null)
+            {
                 return;
+            }
 
             PasswordBox passwordBox = GetPasswordBox(window);
             if (passwordBox == null)
+            {
                 return;
+            }
 
-            var repository = ContainerBootstrapper.Container.GetInstance<UserRepository>();
+            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
             if (UserManagement.Validate(repository, Username, passwordBox.Password))
             {
                 UserManagement.LoggedInUserName = Username;
@@ -54,7 +57,7 @@
             window.DialogResult = false;
             window.Close();
         }
-        
+
         private PasswordBox GetPasswordBox(DependencyObject window)
         {
             return window.FindVisualChildren<PasswordBox>().FirstOrDefault();

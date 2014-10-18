@@ -7,13 +7,13 @@
         [ConfigurationProperty("name", IsRequired = true, IsKey = true)]
         public string Name
         {
-            get { return (string)this["name"]; }
+            get { return (string) this["name"]; }
         }
 
         [ConfigurationProperty("path", IsRequired = true)]
         public string Path
         {
-            get { return (string)this["path"]; }
+            get { return (string) this["path"]; }
         }
     }
 }

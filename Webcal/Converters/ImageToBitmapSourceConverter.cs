@@ -13,7 +13,9 @@
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is Image))
+            {
                 return null;
+            }
 
             return ((Image) value).ToBitmapSource();
         }

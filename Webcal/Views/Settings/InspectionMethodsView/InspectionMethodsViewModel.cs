@@ -1,6 +1,7 @@
 ﻿namespace Webcal.Views.Settings
 {
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows.Controls;
     using Core;
     using DataModel;
@@ -11,9 +12,7 @@
     public class InspectionMethodsViewModel : BaseSettingsViewModel
     {
         private InspectionMethod _selectedInspectionMethod;
-        
         public ObservableCollection<InspectionMethod> InspectionMethods { get; set; }
-
         public IRepository<InspectionMethod> Repository { get; set; }
 
         public InspectionMethod SelectedInspectionMethod
@@ -28,7 +27,7 @@
 
         public DelegateCommand<UserControl> AddInspectionMethodCommand { get; set; }
         public DelegateCommand<object> RemoveInspectionMethodCommand { get; set; }
-        
+
         protected override void InitialiseCommands()
         {
             AddInspectionMethodCommand = new DelegateCommand<UserControl>(OnAddInspectionMethod);
@@ -42,7 +41,7 @@
 
         protected override void Load()
         {
-            InspectionMethods = new ObservableCollection<InspectionMethod>(Repository.GetAll());
+            InspectionMethods = new ObservableCollection<InspectionMethod>(Repository.GetAll().OrderBy(c => c.Name));
             InspectionMethods.CollectionChanged += (sender, e) => RefreshCommands();
         }
 
@@ -50,7 +49,7 @@
         {
             Repository.Save();
         }
-        
+
         private void OnAddInspectionMethod(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_INSPECTION_METHOD, OnAddInspectionMethod);

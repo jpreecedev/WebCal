@@ -5,11 +5,8 @@
     using System.Runtime.Serialization;
 
     [DataContract, Serializable]
-    public class DetailedException
+    public class DetailedException : BaseModel
     {
-        [DataMember]
-        public int Id { get; set; }
-
         [DataMember]
         [MaxLength]
         public string ExceptionDetails { get; set; }

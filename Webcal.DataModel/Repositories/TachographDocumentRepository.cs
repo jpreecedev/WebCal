@@ -1,16 +1,10 @@
 ﻿namespace Webcal.DataModel.Repositories
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity.Core.EntityClient;
     using System.Linq;
-    using System.Linq.Expressions;
-    using Library;
-    using Shared;
 
-    public class TachographDocumentRepository : BaseRepository, IRepository<TachographDocument>
+    public class TachographDocumentRepository : Repository<TachographDocument>
     {
-        public void AddOrUpdate(TachographDocument entity)
+        public override void AddOrUpdate(TachographDocument entity)
         {
             Safely(() =>
             {
@@ -26,41 +20,6 @@
 
                 CheckVehicleExists(entity);
             });
-        }
-
-        public void Add(TachographDocument entity)
-        {
-            Safely(() => Context.TachographDocuments.Add(entity));
-        }
-
-        public void Remove(TachographDocument entity)
-        {
-            Safely(() => Context.TachographDocuments.Remove(entity));
-        }
-
-        public ICollection<TachographDocument> GetAll()
-        {
-            return Safely(() => Context.TachographDocuments.OrderByDescending(d => d.Created).ToList());
-        }
-
-        public ICollection<TachographDocument> Get(Expression<Func<TachographDocument, bool>> predicate)
-        {
-            return Safely(() => Context.TachographDocuments.Where(predicate.Compile()).ToList());
-        }
-
-        public TachographDocument FirstOrDefault(Expression<Func<TachographDocument, bool>> predicate)
-        {
-            return Safely(() => Context.TachographDocuments.FirstOrDefault(predicate.Compile()));
-        }
-
-        public TachographDocument First(Expression<Func<TachographDocument, bool>> predicate)
-        {
-            return Safely(() => Context.TachographDocuments.First(predicate.Compile()));
-        }
-
-        public IEnumerable<TachographDocument> Where(Expression<Func<TachographDocument, bool>> predicate)
-        {
-            return Safely(() => Context.TachographDocuments.Where(predicate.Compile()));
         }
 
         private void CheckVehicleExists(TachographDocument entity)

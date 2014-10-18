@@ -23,7 +23,7 @@
 
         public T GetParameter<T>(string key)
         {
-            return (T)_parameters[key];
+            return (T) _parameters[key];
         }
 
         public IDictionary<string, object> GetParameters()
@@ -43,7 +43,7 @@
                 return string.Empty;
             }
 
-            var serializer = new XmlSerializer(typeof(List<SerializableKeyValuePair<string, object>>));
+            var serializer = new XmlSerializer(typeof (List<SerializableKeyValuePair<string, object>>));
 
             var settings = new XmlWriterSettings
             {
@@ -69,13 +69,13 @@
                 return;
             }
 
-            var serializer = new XmlSerializer(typeof(List<SerializableKeyValuePair<string, object>>));
+            var serializer = new XmlSerializer(typeof (List<SerializableKeyValuePair<string, object>>));
 
             using (var textReader = new StringReader(parameters))
             {
                 using (XmlReader xmlReader = XmlReader.Create(textReader, new XmlReaderSettings()))
                 {
-                    List<SerializableKeyValuePair<string, object>> deserialized = (List<SerializableKeyValuePair<string, object>>)serializer.Deserialize(xmlReader);
+                    List<SerializableKeyValuePair<string, object>> deserialized = (List<SerializableKeyValuePair<string, object>>) serializer.Deserialize(xmlReader);
                     _parameters = ToDictionary(deserialized);
                 }
             }
@@ -83,7 +83,7 @@
 
         private List<SerializableKeyValuePair<string, object>> ToSerializableKeyValuePair()
         {
-            return _parameters.Select(parameter => new SerializableKeyValuePair<string, object> { Key = parameter.Key, Value = parameter.Value }).ToList();
+            return _parameters.Select(parameter => new SerializableKeyValuePair<string, object> {Key = parameter.Key, Value = parameter.Value}).ToList();
         }
 
         private static IDictionary<string, object> ToDictionary(IEnumerable<SerializableKeyValuePair<string, object>> value)

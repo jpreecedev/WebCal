@@ -1,7 +1,7 @@
-﻿using System.Windows.Controls;
-
-namespace Webcal.Views
+﻿namespace Webcal.Views
 {
+    using System.Windows.Controls;
+
     public partial class CalibrationsView : UserControl
     {
         public CalibrationsView()

@@ -5,11 +5,10 @@
     public class EmailParameters : WorkerParameters
     {
         public EmailParameters(IWorkerParameters parameters)
-            :base(parameters)
+            : base(parameters)
         {
-            
         }
-        
+
         public bool PersonaliseMyEmails
         {
             get { return GetParameter<bool>("PersonaliseMyEmails"); }

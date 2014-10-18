@@ -84,7 +84,7 @@
 
         private static void CreateEmailTask(MailSettings settings, string attachmentPath, string recipient)
         {
-            var workerTask = new WorkerTask { TaskName = WorkerTaskName.Email };
+            var workerTask = new WorkerTask {TaskName = WorkerTaskName.Email};
 
             workerTask.Parameters = new WorkerParameters();
             workerTask.Parameters.SetParameter("PersonaliseMyEmails", settings.PersonaliseMyEmails);

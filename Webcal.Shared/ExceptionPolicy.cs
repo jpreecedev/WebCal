@@ -1,20 +1,22 @@
 ﻿namespace Webcal.Shared
 {
-    using Properties;
-    using StructureMap;
     using System;
     using System.Data.Entity.Validation;
     using System.IO;
     using System.Text;
     using System.Windows.Forms;
     using System.Xml.Serialization;
+    using Properties;
+    using StructureMap;
 
     public static class ExceptionPolicy
     {
         public static string HandleException(Container container, Exception exception)
         {
             if (exception == null)
+            {
                 return string.Empty;
+            }
 
             try
             {
@@ -28,6 +30,8 @@
                     RawImage = ScreenshotHelper.TakeScreenshot()
                 });
 
+                File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "error.txt"), exception.Message);
+
                 repository.Save();
             }
             catch (Exception ex)
@@ -38,7 +42,9 @@
                     Application.Exit();
                 }
                 else
+                {
                     MessageBox.Show(ex.Message, Resources.TXT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
             return GetExceptionMessage(exception);
@@ -58,7 +64,9 @@
         {
             var dbEntityValidationException = exception as DbEntityValidationException;
             if (dbEntityValidationException != null)
+            {
                 return ExtractEntityValidationExceptions(dbEntityValidationException);
+            }
 
             return GetExceptionMessage("", exception);
         }
@@ -66,7 +74,9 @@
         private static string ExtractEntityValidationExceptions(DbEntityValidationException exception)
         {
             if (exception == null)
+            {
                 return string.Empty;
+            }
 
             var builder = new StringBuilder();
 
@@ -88,7 +98,9 @@
             message += string.Format("{0}\n{1}", exception.Message, exception.StackTrace);
 
             if (exception.InnerException != null)
+            {
                 return GetExceptionMessage(message, exception.InnerException);
+            }
 
             return message;
         }

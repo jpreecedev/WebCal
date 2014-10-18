@@ -14,9 +14,9 @@
         {
             Context = new TachographContext();
         }
-        
+
         protected TachographContext Context { get; set; }
-        
+
         protected void Safely(Action action)
         {
             try
@@ -70,7 +70,7 @@
                 MessageBox.Show(string.Format("{0}\n\n{1}", Resources.EXC_UNABLE_SAVE_CHANGES, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
         public void Dispose()
         {
             Context = null;

@@ -6,9 +6,9 @@
 
     public class DelegateCommand<T> : ICommand where T : class
     {
+        protected bool _isEnabled = true;
         private readonly Predicate<T> _canExecute;
         private readonly Action<T> _execute;
-        protected bool _isEnabled = true;
 
         public DelegateCommand(Action<T> execute, Predicate<T> canExecute = null)
         {
@@ -38,7 +38,9 @@
         {
             EventHandler handler = CanExecuteChanged;
             if (handler != null)
+            {
                 handler(this, EventArgs.Empty);
+            }
         }
     }
 }

@@ -19,7 +19,9 @@
             HasValidated = true;
 
             if (!IsMandatory)
+            {
                 return Valid = true;
+            }
 
             return Valid = SelectedDate != null;
         }

@@ -6,12 +6,6 @@
 
     public class TextChangedBehaviour
     {
-        public static DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (TextChangedBehaviour), new UIPropertyMetadata(CommandChanged));
-
-        public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (TextChangedBehaviour));
-
         public static void SetCommand(DependencyObject target, ICommand value)
         {
             target.SetValue(CommandProperty, value);
@@ -33,9 +27,13 @@
             if (control != null)
             {
                 if ((e.NewValue != null) && (e.OldValue == null))
+                {
                     control.TextChanged += OnTextChanged;
+                }
                 else if ((e.NewValue == null) && (e.OldValue != null))
+                {
                     control.TextChanged -= OnTextChanged;
+                }
             }
         }
 
@@ -43,10 +41,18 @@
         {
             var control = sender as FrameworkElement;
             if (control == null)
+            {
                 return;
+            }
 
             var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(control.GetValue(CommandParameterProperty));
         }
+
+        public static DependencyProperty CommandProperty =
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (TextChangedBehaviour), new UIPropertyMetadata(CommandChanged));
+
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (TextChangedBehaviour));
     }
 }

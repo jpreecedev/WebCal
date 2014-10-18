@@ -1,23 +1,16 @@
 ﻿namespace Webcal.DataModel
 {
     using System;
+    using Shared;
 
     public class CustomerContact : BaseModel, IEquatable<CustomerContact>
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
-
         public string Email { get; set; }
-
         public string SecondaryEmail { get; set; }
-
         public string Address { get; set; }
-
         public string PostCode { get; set; }
-
         public string Town { get; set; }
-
         public string PhoneNumber { get; set; }
 
         public bool Equals(CustomerContact other)

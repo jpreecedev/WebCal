@@ -18,25 +18,23 @@
         public BaseFilesViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
                 return;
+            }
 
             StoredFiles = new ObservableCollection<BaseFile>();
             SelectedDate = DateTime.Now;
         }
 
-
         public string FilePath { get; set; }
-
         public DateTime SelectedDate { get; set; }
-
         public ObservableCollection<BaseFile> StoredFiles { get; set; }
-
         public BaseFile SelectedStoredFile { get; set; }
         public DelegateCommand<Grid> EmptyFieldsCommand { get; set; }
         public DelegateCommand<Grid> AddStoredFileCommand { get; set; }
         public DelegateCommand<object> ExportCommand { get; set; }
         public DelegateCommand<object> RemoveCommand { get; set; }
-        
+
         protected override void InitialiseCommands()
         {
             base.InitialiseCommands();
@@ -83,7 +81,6 @@
             OnEmptyFields();
         }
 
-
         private void OnAddStoredFile(Grid grid)
         {
             if (!IsValid(grid))
@@ -95,20 +92,27 @@
             OnAddStoredFile();
             SelectedStoredFile = null;
         }
-        
+
         private void OnExport(object obj)
         {
-            if (SelectedStoredFile == null) return;
+            if (SelectedStoredFile == null)
+            {
+                return;
+            }
 
             DialogHelperResult dialogResult = DialogHelper.SaveFile(DialogFilter.All, SelectedStoredFile.FileName);
             if (dialogResult.Result == true)
+            {
                 File.WriteAllBytes(dialogResult.FileName, SelectedStoredFile.SerializedFile);
+            }
         }
-        
+
         private void OnRemove(object arg)
         {
             if (SelectedStoredFile == null)
+            {
                 return;
+            }
 
             OnStoredFileRemoved();
             StoredFiles.Remove(SelectedStoredFile);

@@ -6,12 +6,6 @@
 
     public class CheckChangedBehaviour
     {
-        public static DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (CheckChangedBehaviour), new UIPropertyMetadata(CommandChanged));
-
-        public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (CheckChangedBehaviour));
-
         public static void SetCommand(DependencyObject target, ICommand value)
         {
             target.SetValue(CommandProperty, value);
@@ -49,10 +43,18 @@
         {
             var control = sender as FrameworkElement;
             if (control == null)
+            {
                 return;
+            }
 
             var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(control.GetValue(CommandParameterProperty));
         }
+
+        public static DependencyProperty CommandProperty =
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (CheckChangedBehaviour), new UIPropertyMetadata(CommandChanged));
+
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (CheckChangedBehaviour));
     }
 }

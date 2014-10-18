@@ -21,11 +21,10 @@
         {
             Valid = true;
         }
-        
-        public bool Valid { get; set; }
 
+        public bool Valid { get; set; }
         protected bool HasValidated { get; set; }
-        
+
         public bool IsMandatory
         {
             get { return (bool) GetValue(IsMandatoryProperty); }
@@ -45,9 +44,7 @@
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         public abstract bool IsValid();
-
         public abstract void Clear();
 
         protected static void ReValidate(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -56,7 +53,9 @@
             if (sender != null)
             {
                 if (sender.HasValidated)
+                {
                     sender.IsValid();
+                }
 
                 sender.ReValidated();
             }
@@ -69,7 +68,10 @@
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

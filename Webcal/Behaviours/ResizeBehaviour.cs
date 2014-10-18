@@ -5,12 +5,6 @@
 
     public class ResizeBehaviour
     {
-        public static DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (ResizeBehaviour), new UIPropertyMetadata(CommandChanged));
-
-        public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (ResizeBehaviour));
-
         public static object GetCommandParameter(DependencyObject obj)
         {
             return obj.GetValue(CommandParameterProperty);
@@ -32,9 +26,13 @@
             if (control != null)
             {
                 if ((e.NewValue != null) && (e.OldValue == null))
+                {
                     control.SizeChanged += OnSizeChanged;
+                }
                 else if ((e.NewValue == null) && (e.OldValue != null))
+                {
                     control.SizeChanged -= OnSizeChanged;
+                }
             }
         }
 
@@ -42,10 +40,18 @@
         {
             var control = sender as FrameworkElement;
             if (control == null)
+            {
                 return;
+            }
 
             var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(control.GetValue(CommandParameterProperty));
         }
+
+        public static DependencyProperty CommandProperty =
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (ResizeBehaviour), new UIPropertyMetadata(CommandChanged));
+
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (ResizeBehaviour));
     }
 }

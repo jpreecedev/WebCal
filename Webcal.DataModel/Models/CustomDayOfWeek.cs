@@ -3,6 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using Properties;
+    using Shared;
 
     public class CustomDayOfWeek : BaseNotification
     {

@@ -20,64 +20,38 @@
         }
 
         public DelegateCommand<object> SettingsCommand { get; set; }
-        
         public DelegateCommand<object> GenerateReportCommand { get; set; }
-        
         public DelegateCommand<object> BackupDatabaseCommand { get; set; }
-        
         public DelegateCommand<object> RestoreDatabaseCommand { get; set; }
-
         public DelegateCommand<object> CopyWorkshopCardCommand { get; set; }
-
         public DelegateCommand<Window> ExitCommand { get; set; }
-
         public DelegateCommand<object> HomeScreenCommand { get; set; }
-        
         public DelegateCommand<object> NewTachographCommand { get; set; }
-        
         public DelegateCommand<object> NewAnalogueTachographCommand { get; set; }
-
         public DelegateCommand<object> NewUndownloadabilityCommand { get; set; }
-
         public DelegateCommand<object> TachographHistoryCommand { get; set; }
-
         public DelegateCommand<object> UndownloadabilityHistoryCommand { get; set; }
-
         public DelegateCommand<object> CalibrationsCommand { get; set; }
-
         public DelegateCommand<object> DriverCardFilesCommand { get; set; }
-
         public DelegateCommand<object> WorkshopCardFilesCommand { get; set; }
-        
         public DelegateCommand<object> ShowWindowCommand { get; set; }
-
         public DelegateCommand<object> ExitTrayCommand { get; set; }
-        
         public DelegateCommand<object> CancelCommand { get; set; }
-
         public DelegateCommand<object> NewSpeedlimiterCommand { get; set; }
-
         public DelegateCommand<object> ViewTechnicalInformationCommand { get; set; }
-
-        public DelegateCommand<object> ViewTaskQueueCommand { get; set; } 
-
+        public DelegateCommand<object> ViewTaskQueueCommand { get; set; }
         public DelegateCommand<object> UpdateCommand { get; set; }
-
         public DelegateCommand<UserControl> SaveModalCommand { get; set; }
-
         public DelegateCommand<object> CancelModalCommand { get; set; }
-
         public DispatcherTimer TimeoutTimer { get; set; }
-
         public bool IsLocked { get; set; }
-
         public bool IsNavigationLocked { get; set; }
-        
+
         private void OnSettings(object param)
         {
             ShowSettingsModalView();
         }
-       
+
         private void OnGenerateReport(object param)
         {
             ShowModalView<GenerateReportView>();
@@ -100,7 +74,9 @@
         private void OnExit(Window window)
         {
             if (window != null)
+            {
                 window.Close();
+            }
         }
 
         private void OnHomeScreenCommand(object param)
@@ -208,14 +184,16 @@
 
             var documentViewModel = View.DataContext as INewDocumentViewModel;
             if (documentViewModel != null)
+            {
                 documentViewModel.OnModalClosed();
+            }
         }
 
         private void OnCancelModal(object obj)
         {
             CloseSettingsModal(false);
         }
-        
+
         public IViewModel ShowView<T>() where T : UserControl, new()
         {
             return ShowView<T>(this);

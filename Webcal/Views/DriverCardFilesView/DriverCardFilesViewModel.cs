@@ -12,12 +12,11 @@
     public class DriverCardFilesViewModel : BaseFilesViewModel
     {
         public IRepository<DriverCardFile> DriverCardFilesRepository { get; set; }
-
         public string Driver { get; set; }
-        
+
         protected override void Load()
         {
-            StoredFiles.AddRange(DriverCardFilesRepository.GetAll());
+            StoredFiles.AddRange(DriverCardFilesRepository.GetAll("Customer"));
         }
 
         protected override void InitialiseRepositories()

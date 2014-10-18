@@ -17,7 +17,6 @@
         private static SmartCardMonitor _instance;
         private SCardMonitor _monitor;
         private List<string> _readers;
-
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
         public static SmartCardMonitor Instance
@@ -38,7 +37,9 @@
         {
             _readers = GetReaders();
             if (_readers.IsNullOrEmpty())
+            {
                 return null;
+            }
 
             if (_monitor == null)
             {
@@ -49,7 +50,9 @@
 
             string content = ReadSmartCard(string.Empty);
             if (string.IsNullOrEmpty(content))
+            {
                 return null;
+            }
 
             XDocument document = XDocument.Parse(content);
 
@@ -62,7 +65,9 @@
             {
                 string xml = ReadSmartCard("/calibrations");
                 if (string.IsNullOrEmpty(xml))
+                {
                     return null;
+                }
 
                 var result = new List<CalibrationRecord>();
                 XDocument document = XDocument.Parse(xml);
@@ -103,11 +108,13 @@
 
             return null;
         }
-        
+
         private void OnInitialised(object sender, CardStatusEventArgs e)
         {
             if (e.State == (SCRState.Present | SCRState.Unpowered))
+            {
                 ReadSmartCard(string.Empty);
+            }
         }
 
         private string ReadSmartCard(string arguments)
@@ -118,7 +125,7 @@
                 {
                     CreateNoWindow = true,
                     UseShellExecute = false,
-                    RedirectStandardOutput = true,
+                    RedirectStandardOutput = true
                 };
 
                 using (Process proc = Process.Start(processInfo))
@@ -129,7 +136,9 @@
                     proc.WaitForExit();
 
                     if (proc.ExitCode == 0)
+                    {
                         return content;
+                    }
                 }
             }
             catch (Exception ex)
@@ -185,7 +194,9 @@
                 CardSerialNumber = element.Element("CardSerialNumber").SafelyGetValue()
             };
             if (cr.OdometerValue == "16777215")
+            {
                 cr.OdometerValue = "";
+            }
             return cr;
         }
 

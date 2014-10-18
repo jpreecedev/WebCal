@@ -8,6 +8,7 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
     using Library;
     using Library.PDF;
     using Shared;
@@ -15,23 +16,21 @@
     public class TachographHistoryViewModel : BaseHistoryViewModel
     {
         public IRepository<TachographDocument> TachographDocumentsRepository { get; set; }
-
         public WorkshopSettings WorkshopSettings { get; set; }
         public MailSettings MailSettings { get; set; }
-
         public DelegateCommand<object> ReprintLabelCommand { get; set; }
         public DelegateCommand<object> ReprintCertificateCommand { get; set; }
 
         protected override void Load()
         {
-            Documents = new ObservableCollection<Document>(TachographDocumentsRepository.GetAll());
+            Documents = new ObservableCollection<Document>(TachographDocumentsRepository.GetAll().OrderByDescending(c => c.InspectionDate));
         }
 
         protected override void InitialiseRepositories()
         {
             TachographDocumentsRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
-            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>().GetSettings();
-            MailSettings = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>().GetSettings();
+            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+            MailSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>().Get();
         }
 
         protected override void InitialiseCommands()
@@ -44,35 +43,26 @@
 
         protected override void OnDocumentSelected(Document document)
         {
-            if (document == null)
-            {
-                return;
-            }
-
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
             {
                 NewTachographViewModel viewModel = tachographDocument.IsDigital
-                    ? (NewTachographViewModel)MainWindow.ShowView<NewTachographView>()
-                    : (NewTachographViewModel)MainWindow.ShowView<NewAnalogueTachographView>();
+                    ? (NewTachographViewModel) MainWindow.ShowView<NewTachographView>()
+                    : (NewTachographViewModel) MainWindow.ShowView<NewAnalogueTachographView>();
 
                 viewModel.Document = tachographDocument;
                 viewModel.SetDocumentTypes(tachographDocument.IsDigital);
                 viewModel.IsReadOnly = true;
+                viewModel.IsHistoryMode = true;
             }
         }
 
         protected override void OnEmailReportSelected(Document document)
         {
-            if (document == null)
-            {
-                return;
-            }
-
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
             {
-                if (PDFHelper.GenerateTachographPlaque(document, true))
+                if (PDFHelper.GenerateTachographPlaque(document, true, true))
                 {
                     EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
                 }

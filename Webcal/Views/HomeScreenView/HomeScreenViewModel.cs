@@ -6,26 +6,20 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
     using Library;
     using Properties;
-    using StructureMap;
+    using Shared;
 
     public class HomeScreenViewModel : BaseViewModel
     {
         public double ButtonHeight { get; set; }
-
         public double ButtonWidth { get; set; }
-
         public string DigitalText { get; set; }
-
         public string AnalogueText { get; set; }
-
         public string CertificateText { get; set; }
-
         public string PlaqueText { get; set; }
-
         public string ColumnWidth { get; set; }
-
         public bool AutoPrintLabels { get; set; }
 
         public string VersionNumber
@@ -42,7 +36,7 @@
         public DelegateCommand<object> ReprintLabelCommand { get; set; }
         public DelegateCommand<object> ReprintCertificateCommand { get; set; }
         public DelegateCommand<UserControl> ResizeCommand { get; set; }
-        
+
         protected override void InitialiseCommands()
         {
             NewDigitalTachographCommand = new DelegateCommand<object>(OnNewDigitalDocument);
@@ -61,26 +55,26 @@
         {
             SaveAutoPrintLabels();
         }
-        
+
         private void OnNewDigitalDocument(object obj)
         {
             var viewModel = (NewTachographViewModel) MainWindow.ShowView<NewTachographView>();
             viewModel.SetDocumentTypes(true);
         }
-        
+
         private void OnNewAnalogueDocument(object param)
         {
             var viewModel = (NewTachographViewModel) MainWindow.ShowView<NewAnalogueTachographView>();
             viewModel.SetDocumentTypes(false);
         }
-        
+
         private void OnReprintLabel(object obj)
         {
             var window = new ReprintWindow();
             window.DataContext = new ReprintWindowViewModel {ReprintMode = ReprintMode.Label};
             window.ShowDialog();
         }
-        
+
         private void OnReprintCertificate(object obj)
         {
             var window = new ReprintWindow();
@@ -91,7 +85,9 @@
         private void OnResize(UserControl userControl)
         {
             if (userControl == null)
+            {
                 return;
+            }
 
             if (userControl.ActualHeight < 595)
             {
@@ -119,8 +115,8 @@
         {
             //This is not nice, but is necessary to prevent data loss
 
-            var repository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
-            WorkshopSettings workshopSettings = repository.GetSettings();
+            var repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            WorkshopSettings workshopSettings = repository.GetWorkshopSettings();
             return workshopSettings.AutoPrintLabels;
         }
 
@@ -128,8 +124,8 @@
         {
             //This is not nice, but is necessary to prevent data loss
 
-            var repository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
-            WorkshopSettings workshopSettings = repository.GetSettings();
+            var repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            WorkshopSettings workshopSettings = repository.GetWorkshopSettings();
             workshopSettings.AutoPrintLabels = AutoPrintLabels;
             repository.Save(workshopSettings);
         }

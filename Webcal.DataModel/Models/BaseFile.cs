@@ -3,11 +3,10 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.IO;
+    using Shared;
 
     public class BaseFile : BaseModel
     {
-        public int Id { get; set; }
-
         public string FileName { get; set; }
 
         [MaxLength]

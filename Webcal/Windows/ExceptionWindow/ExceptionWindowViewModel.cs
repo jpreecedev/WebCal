@@ -20,13 +20,10 @@
             ExportCommand = new DelegateCommand<object>(OnExport);
             CloseCommand = new DelegateCommand<Window>(OnClose);
         }
-        
+
         public IRepository<DetailedException> Repository { get; set; }
-
         public ObservableCollection<DetailedException> Exceptions { get; set; }
-        
         public DelegateCommand<object> ExportCommand { get; set; }
-
         public DelegateCommand<Window> CloseCommand { get; set; }
 
         private void OnExport(object obj)
@@ -48,13 +45,17 @@
                 MessageBoxHelper.ShowMessage(Resources.TXT_EXPORT_COMPLETE);
             }
             else
+            {
                 MessageBoxHelper.ShowMessage(Resources.TXT_NOTHING_TO_EXPORT);
+            }
         }
 
         private static void OnClose(Window window)
         {
             if (window == null)
+            {
                 return;
+            }
 
             window.Close();
         }

@@ -13,7 +13,7 @@
     public class RegistrationSettingsViewModel : BaseSettingsViewModel
     {
         private string _serial;
-        
+
         public RegistrationSettingsViewModel()
         {
             TextField = new InputTextField {Label = Resources.TXT_LICENSE_KEY};
@@ -21,7 +21,7 @@
             var binding = new InputBinding("Serial") {Source = this};
             TextField.SetBinding(TextBox.TextProperty, binding);
         }
-        
+
         public IRepository<RegistrationData> Repository { get; set; }
 
         public RegistrationData Settings
@@ -29,14 +29,15 @@
             get
             {
                 if (Repository == null)
+                {
                     return null;
+                }
 
                 return Repository.GetAll().First();
             }
         }
 
         public InputTextField TextField { get; set; }
-
         public DateTime ExpirationDateTime { get; set; }
 
         public string Serial
@@ -48,7 +49,7 @@
                 SerialChanged();
             }
         }
-        
+
         protected override void InitialiseRepositories()
         {
             Repository = ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>();
@@ -57,14 +58,16 @@
         protected override void Load()
         {
             if (!string.IsNullOrEmpty(Settings.LicenseKey))
+            {
                 Serial = Settings.LicenseKey;
+            }
         }
 
         public override void Save()
         {
             Repository.Save();
         }
-        
+
         private void SerialChanged()
         {
             DateTime expirationDate;

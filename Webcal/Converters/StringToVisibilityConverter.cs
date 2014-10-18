@@ -11,7 +11,9 @@
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is string))
+            {
                 return Visibility.Collapsed;
+            }
 
             var v = (string) value;
             return string.IsNullOrEmpty(v) ? Visibility.Collapsed : Visibility.Visible;

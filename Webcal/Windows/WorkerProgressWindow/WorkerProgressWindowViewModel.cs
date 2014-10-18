@@ -17,7 +17,6 @@
         }
 
         public ObservableCollection<WorkerViewModel> Tasks { get; set; }
-
         public DelegateCommand<Window> CloseCommand { get; set; }
 
         public override void OnClosing()

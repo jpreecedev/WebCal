@@ -15,7 +15,9 @@
         private static void OnShortcut(Shortcut shortcut)
         {
             if (shortcut == null || shortcut.SettingsViewModel == null)
+            {
                 return;
+            }
 
             BaseNavigationViewModel navigationVM = shortcut.SettingsViewModel;
             if (navigationVM != null)

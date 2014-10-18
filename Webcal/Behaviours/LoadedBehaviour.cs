@@ -5,12 +5,6 @@
 
     public class LoadedBehaviour
     {
-        public static DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (LoadedBehaviour), new UIPropertyMetadata(CommandChanged));
-
-        public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (LoadedBehaviour));
-
         public static object GetCommandParameter(DependencyObject obj)
         {
             return obj.GetValue(CommandParameterProperty);
@@ -38,5 +32,11 @@
                 }
             }
         }
+
+        public static DependencyProperty CommandProperty =
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (LoadedBehaviour), new UIPropertyMetadata(CommandChanged));
+
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (LoadedBehaviour));
     }
 }

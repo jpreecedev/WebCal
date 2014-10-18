@@ -2,6 +2,7 @@
 {
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Linq;
     using Core;
     using DataModel;
     using DataModel.Core;
@@ -10,13 +11,9 @@
     public class CustomerSettingsViewModel : BaseSettingsViewModel
     {
         private CustomerContact _selectedCustomerContact;
-
         public IRepository<CustomerContact> Repository { get; set; }
-
         public ObservableCollection<CustomerContact> CustomerContacts { get; set; }
-
         public CustomerContact NewCustomerContact { get; set; }
-
         public bool IsEditing { get; set; }
 
         public CustomerContact SelectedCustomerContact
@@ -56,9 +53,13 @@
         protected override void Load()
         {
             if (DoneCallback == null)
-                CustomerContacts = new ObservableCollection<CustomerContact>(Repository.GetAll());
+            {
+                CustomerContacts = new ObservableCollection<CustomerContact>(Repository.GetAll().OrderBy(c => c.Name));
+            }
             else
+            {
                 CustomerContacts = new ObservableCollection<CustomerContact>();
+            }
 
             InitialiseNewCustomerContact();
         }
@@ -71,11 +72,13 @@
         public override void Dispose()
         {
             if (NewCustomerContact != null)
+            {
                 NewCustomerContact.PropertyChanged -= NewCustomerContact_PropertyChanged;
+            }
 
             NewCustomerContact = null;
         }
-        
+
         private bool CanRemove(object obj)
         {
             return DoneCallback == null && SelectedCustomerContact != null;
@@ -97,9 +100,13 @@
             var customerContact = NewCustomerContact.Clone<CustomerContact>();
 
             if (IsEditing)
+            {
                 CustomerContacts[SelectedIndex] = customerContact;
+            }
             else
+            {
                 CustomerContacts.Add(customerContact);
+            }
 
             Reset();
             Saved(customerContact);
@@ -113,11 +120,13 @@
             Reset();
             Cancelled(null);
         }
-        
+
         private void InitialiseNewCustomerContact()
         {
             if (NewCustomerContact != null)
+            {
                 NewCustomerContact.PropertyChanged -= NewCustomerContact_PropertyChanged;
+            }
 
             NewCustomerContact = SelectedCustomerContact ?? new CustomerContact();
             NewCustomerContact.PropertyChanged += NewCustomerContact_PropertyChanged;

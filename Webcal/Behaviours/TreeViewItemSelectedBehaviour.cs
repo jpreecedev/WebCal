@@ -6,9 +6,6 @@
 
     public class TreeViewItemSelectedBehaviour
     {
-        public static DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (TreeViewItemSelectedBehaviour), new UIPropertyMetadata(CommandChanged));
-
         public static void SetCommand(DependencyObject target, ICommand value)
         {
             target.SetValue(CommandProperty, value);
@@ -20,9 +17,13 @@
             if (control != null)
             {
                 if ((e.NewValue != null) && (e.OldValue == null))
+                {
                     control.Selected += OnButtonClick;
+                }
                 else if ((e.NewValue == null) && (e.OldValue != null))
+                {
                     control.Selected -= OnButtonClick;
+                }
             }
         }
 
@@ -30,10 +31,15 @@
         {
             var control = sender as TreeViewItem;
             if (control == null || !control.IsSelected)
+            {
                 return;
+            }
 
             var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(control.DataContext);
         }
+
+        public static DependencyProperty CommandProperty =
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (TreeViewItemSelectedBehaviour), new UIPropertyMetadata(CommandChanged));
     }
 }

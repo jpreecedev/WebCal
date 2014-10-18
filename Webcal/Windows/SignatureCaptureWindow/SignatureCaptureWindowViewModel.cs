@@ -11,7 +11,6 @@
     using Library;
     using Properties;
     using Shared;
-    using BaseNotification = Core.BaseNotification;
 
     public class SignatureCaptureWindowViewModel : BaseNotification
     {
@@ -23,13 +22,9 @@
         }
 
         public IRepository<User> Repository { get; set; }
-
         public User User { get; private set; }
-        
         public DelegateCommand<Window> CloseCommand { get; set; }
-
         public DelegateCommand<Window> SaveCommand { get; set; }
-        
         public DelegateCommand<object> BrowseCommand { get; set; }
 
         private void Initialise()
@@ -41,7 +36,9 @@
         private static void OnClose(Window window)
         {
             if (window == null)
+            {
                 return;
+            }
 
             window.Close();
         }
@@ -49,7 +46,9 @@
         private void OnSave(Window window)
         {
             if (window == null)
+            {
                 return;
+            }
 
             Repository.AddOrUpdate(User);
             Repository.Save();
@@ -81,7 +80,7 @@
                 }
             }
         }
-        
+
         private void InitialiseCommands()
         {
             BrowseCommand = new DelegateCommand<object>(OnBrowse);

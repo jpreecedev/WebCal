@@ -6,7 +6,6 @@
         Title="Select Date Range"
         Height="180"
         Width="425"
-        Icon="../../Main Icon.ico"
         WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:DateRangePickerWindowViewModel />

@@ -14,13 +14,10 @@
             StartDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             EndDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
         }
-        
+
         public DateTime StartDateTime { get; set; }
-
         public DateTime EndDateTime { get; set; }
-
         public DelegateCommand<Window> SelectCommand { get; set; }
-
         public DelegateCommand<Window> CancelCommand { get; set; }
 
         private void OnSelect(Window window)

@@ -58,7 +58,9 @@ namespace Webcal.EmailWorker
             var interop = new MAPIHelperInterop.MapiRecipDesc();
 
             if (DisplayName == null)
+            {
                 interop.Name = Address;
+            }
             else
             {
                 interop.Name = DisplayName;

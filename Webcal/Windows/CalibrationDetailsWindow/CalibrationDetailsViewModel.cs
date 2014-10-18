@@ -3,6 +3,7 @@
     using System.Windows;
     using Core;
     using DataModel.Library;
+    using Shared;
 
     public class CalibrationDetailsViewModel : BaseNotification
     {
@@ -10,15 +11,16 @@
         {
             OkCommand = new DelegateCommand<Window>(OnOk);
         }
-        
+
         public CalibrationRecord CalibrationRecord { get; set; }
-        
         public DelegateCommand<Window> OkCommand { get; set; }
 
         private void OnOk(Window window)
         {
             if (window == null)
+            {
                 return;
+            }
 
             window.Close();
         }

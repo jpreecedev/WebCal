@@ -34,7 +34,7 @@
 
             var repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
             var customerRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
-            ICollection<TachographDocument> allDocuments = repository.GetAll();
+            ICollection<TachographDocument> allDocuments = repository.GetAll().OrderByDescending(c => c.Created).ToList();
 
             SetDocumentTitle(worksheet, string.Format(Resources.TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE, start.ToString(Constants.DateFormat), end.ToString(Constants.DateFormat), office));
 
@@ -66,7 +66,9 @@
                 }
 
                 if (copy.InspectionDate != null)
+                {
                     SetData(worksheet, row, 6, copy.InspectionDate.Value.ToString(Constants.DateFormat));
+                }
 
                 row++;
             }
@@ -102,7 +104,9 @@
 
             DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PlainText, "");
             if (result.Result == true)
+            {
                 File.WriteAllText(result.FileName, builder.ToString(), Encoding.ASCII);
+            }
         }
 
         public static void GenerateDocumentStatistics(ReportFileFormat format, string office)
@@ -150,7 +154,9 @@
 
             DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PlainText, "");
             if (result.Result == true)
+            {
                 File.WriteAllText(result.FileName, builder.ToString(), Encoding.ASCII);
+            }
         }
 
         private static void GenerateDocumentStatisticsExcelDocument(string office)
@@ -268,7 +274,9 @@
             string value = "";
 
             if (index >= letters.Length)
+            {
                 value += letters[index/letters.Length - 1];
+            }
 
             value += letters[index%letters.Length];
 

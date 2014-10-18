@@ -32,10 +32,8 @@
             private const int LEFT_OFFSET = -225;
             private const int LINE_WIDTH = 200;
             private const int LINE_HEIGHT = 43;
-
             private const int TEXT_HEIGHT = 43;
             private const int TEXT_SECONDARY_LEFT_OFFSET = 5;
-
             private static List<int> _trackedPositions;
             private Font _font;
             private int _horizontalLinesVerticalOffset = -160;

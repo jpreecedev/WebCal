@@ -13,7 +13,6 @@
     {
         private TachographMake _selectedMake;
         private TachographModel _selectedModel;
-
         public ObservableCollection<TachographMake> Makes { get; set; }
 
         public TachographMake SelectedMake
@@ -41,7 +40,7 @@
         public DelegateCommand<object> RemoveMakeCommand { get; set; }
         public DelegateCommand<UserControl> AddModelCommand { get; set; }
         public DelegateCommand<object> RemoveModelCommand { get; set; }
-        
+
         protected override void Load()
         {
             Makes = new ObservableCollection<TachographMake>(Repository.GetAll().RemoveAt(0));
@@ -89,12 +88,14 @@
         private void OnRemoveMake(object obj)
         {
             if (SelectedMake == null)
+            {
                 return;
+            }
 
             Repository.Remove(SelectedMake);
             Makes.Remove(SelectedMake);
         }
-        
+
         private void OnAddModel(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_MODEL_OF_TACHOGRAPH, OnAddModel);
@@ -113,7 +114,6 @@
         {
             return SelectedMake != null;
         }
-
 
         private void OnRemoveModel(object obj)
         {

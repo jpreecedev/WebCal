@@ -8,7 +8,6 @@
         WindowStyle="ToolWindow"
         ShowInTaskbar="False"
         ResizeMode="NoResize"
-        Icon="../../Main Icon.ico"
         Title="{Binding TitleText}"
         FocusManager.FocusedElement="{Binding ElementName=RegistrationNumberTextField}">
     <Grid Margin="10">

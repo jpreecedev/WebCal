@@ -14,11 +14,13 @@
     public class BaseHistoryViewModel : BaseMainViewModel
     {
         private ObservableCollection<Document> _originalDocuments;
-        
+
         public BaseHistoryViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
                 return;
+            }
 
             SearchFilters = new List<string>
             {
@@ -31,15 +33,11 @@
 
             SelectedSearchFilter = SearchFilters.First();
         }
-        
+
         public List<string> SearchFilters { get; set; }
-
         public string SelectedSearchFilter { get; set; }
-
         public string SearchTerm { get; set; }
-
         public ObservableCollection<Document> Documents { get; set; }
-
         public Document SelectedDocument { get; set; }
         public DelegateCommand<object> OpenInReportFormCommand { get; set; }
         public DelegateCommand<object> EmailReportFormCommand { get; set; }
@@ -55,7 +53,7 @@
             PerformSearchCommand = new DelegateCommand<object>(OnPerformSearch);
             CreateVOSADocumentCommand = new DelegateCommand<object>(OnCreateVOSADocument);
         }
-        
+
         protected virtual void OnDocumentSelected(Document document)
         {
         }
@@ -73,22 +71,22 @@
             _originalDocuments = new ObservableCollection<Document>(Documents);
         }
 
-
         private void OnOpenInReportForm(object obj)
         {
             OnDocumentSelected(SelectedDocument);
         }
-
 
         private void OnEmailReportFormCommand(object obj)
         {
             OnEmailReportSelected(SelectedDocument);
         }
 
-
         private void OnPerformSearch(object obj)
         {
-            if (SearchTerm == null) return;
+            if (SearchTerm == null)
+            {
+                return;
+            }
 
             Documents.Clear();
             Documents.AddRange(_originalDocuments);
@@ -116,7 +114,7 @@
                     break;
             }
         }
-        
+
         private void OnCreateVOSADocument(object obj)
         {
             var window = new DateRangePickerWindow();
@@ -125,7 +123,9 @@
             {
                 var viewModel = window.DataContext as DateRangePickerWindowViewModel;
                 if (viewModel == null)
+                {
                     return;
+                }
 
                 DateTime end = DateTime.Parse(string.Format("{0} 23:59:59", viewModel.EndDateTime.ToString(Constants.DateFormat)));
                 OnCreateVOSADocument(viewModel.StartDateTime, end);

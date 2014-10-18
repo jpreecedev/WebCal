@@ -1,7 +1,6 @@
 ﻿namespace Webcal.LabelPrintWorker
 {
     using System;
-    using System.Windows.Resources;
     using Shared.Workers;
 
     public class LabelPrintParameters : WorkerParameters

@@ -9,7 +9,6 @@
                  ResizeMode="CanResizeWithGrip"
                  WindowStartupLocation="CenterScreen"
                  WindowState="Maximized"
-                 Icon="../../Main Icon.ico"
                  MinHeight="560"
                  MinWidth="800">
     <core:BaseWindow.DataContext>

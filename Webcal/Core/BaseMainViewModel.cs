@@ -19,16 +19,16 @@
         public BaseMainViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
                 return;
+            }
 
             CustomerContactRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
-            CustomerContacts = new ObservableCollection<CustomerContact>(CustomerContactRepository.GetAll());
+            CustomerContacts = new ObservableCollection<CustomerContact>(CustomerContactRepository.GetAll().OrderBy(c => c.Name));
         }
 
         public ObservableCollection<CustomerContact> CustomerContacts { get; set; }
-
         public CustomerContact SelectedCustomerContact { get; set; }
-
         public IRepository<CustomerContact> CustomerContactRepository { get; set; }
         public DelegateCommand<object> NewCustomerCommand { get; set; }
         public DelegateCommand<object> CancelCommand { get; set; }
@@ -44,13 +44,17 @@
         protected override void BeforeLoad()
         {
             if (MainWindow != null)
+            {
                 MainWindow.ModalClosedEvent += OnSmallModalClosed;
+            }
         }
 
         public override void Dispose()
         {
             if (MainWindow.ModalClosedEvent != null)
+            {
                 MainWindow.ModalClosedEvent -= OnSmallModalClosed;
+            }
         }
 
         private void OnNewCustomer(object obj)
@@ -74,7 +78,9 @@
                 {
                     CustomerContacts.Add(item);
                     if (item == e.Parameter)
+                    {
                         SelectedCustomerContact = item;
+                    }
                 }
             }
         }
@@ -98,7 +104,9 @@
         {
             DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.All, "");
             if (result.Result == true)
+            {
                 textField.Text = result.FileName;
+            }
         }
     }
 }

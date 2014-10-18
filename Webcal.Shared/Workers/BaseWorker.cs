@@ -4,16 +4,14 @@ namespace Webcal.Shared.Workers
 
     public class BaseWorker : IWorker
     {
-        protected Action<string> SendMessage { get; set; }
-
         public BaseWorker(Action<string> sendMessage)
         {
             SendMessage = sendMessage;
             Id = Guid.NewGuid();
         }
 
+        protected Action<string> SendMessage { get; set; }
         public bool Started { get; protected set; }
-
         public Guid Id { get; private set; }
 
         public virtual void Start(IWorkerParameters parameters)

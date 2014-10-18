@@ -8,7 +8,8 @@
     using Core;
     using DataModel;
     using DataModel.Core;
-    using StructureMap;
+    using DataModel.Library;
+    using Shared;
 
     public class GeneralSettingsViewModel : BaseSettingsViewModel
     {
@@ -26,26 +27,28 @@
             };
         }
 
-
         public WorkshopSettings Settings { get; set; }
-
-        public IGeneralSettingsRepository SettingsRepository { get; set; }
-
+        public ISettingsRepository<WorkshopSettings> SettingsRepository { get; set; }
         public ICollection<CustomDayOfWeek> DaysOfWeek { get; set; }
         public DelegateCommand<object> BrowseCommand { get; set; }
-        
+
         protected override void Load()
         {
-            Settings = SettingsRepository.GetSettings();
+            Settings = SettingsRepository.GetWorkshopSettings();
 
-            if (Settings.BackupDaysOfWeek == null) return;
+            if (Settings.BackupDaysOfWeek == null)
+            {
+                return;
+            }
 
             foreach (CustomDayOfWeek dayOfWeek in Settings.BackupDaysOfWeek)
             {
                 foreach (CustomDayOfWeek customDay in DaysOfWeek)
                 {
                     if (dayOfWeek.DayOfWeek == customDay.DayOfWeek)
+                    {
                         customDay.IsChecked = true;
+                    }
                 }
             }
         }
@@ -57,7 +60,7 @@
 
         protected override void InitialiseRepositories()
         {
-            SettingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
+            SettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
         }
 
         public override void Save()
@@ -65,12 +68,14 @@
             Settings.BackupDaysOfWeek = DaysOfWeek.Where(d => d.IsChecked).ToList();
             SettingsRepository.Save(Settings);
         }
-        
+
         private void OnBrowse(object obj)
         {
             var folderBrowserDialog = new FolderBrowserDialog {SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)};
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
                 Settings.BackupFilePath = folderBrowserDialog.SelectedPath;
+            }
         }
     }
 }

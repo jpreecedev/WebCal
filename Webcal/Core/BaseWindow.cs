@@ -27,7 +27,9 @@
             e.Cancel = MessageBoxHelper.AskQuestion(Properties.Resources.TXT_CONFIRM_EXIT) == false;
 
             if (!e.Cancel && MessageBoxHelper.AskQuestion(Properties.Resources.QTN_WOULD_YOU_LIKE_BACKUP_DATABASE))
+            {
                 BackupRestoreManager.BackUp();
+            }
         }
 
         protected override void OnSourceInitialized(EventArgs e)
@@ -36,7 +38,9 @@
             var source = PresentationSource.FromVisual(this) as HwndSource;
 
             if (source != null)
+            {
                 source.AddHook(WndProc);
+            }
         }
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
@@ -45,7 +49,9 @@
             {
                 var newTachographViewModel = ((MainWindowViewModel) DataContext).View.DataContext as NewTachographViewModel;
                 if (newTachographViewModel != null && newTachographViewModel.ReadFromCardCommand != null)
+                {
                     newTachographViewModel.ReadFromCardCommand.Execute(new object());
+                }
             }
             return IntPtr.Zero;
         }
@@ -56,7 +62,9 @@
             {
                 var context = DataContext as MainWindowViewModel;
                 if (context != null)
+                {
                     return context.IsNavigationLocked;
+                }
             }
 
             return false;

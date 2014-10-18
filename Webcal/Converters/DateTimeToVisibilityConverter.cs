@@ -11,11 +11,15 @@
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is DateTime))
+            {
                 return Visibility.Collapsed;
+            }
 
             var dateTime = (DateTime) value;
             if (dateTime == default(DateTime))
+            {
                 return Visibility.Collapsed;
+            }
 
             return Visibility.Visible;
         }

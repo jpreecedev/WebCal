@@ -6,9 +6,9 @@
 
     public class PipeServer : BasePipeProvider, IPipeServer
     {
+        private StreamReader _reader;
         private readonly Process _pipeClient = new Process();
         private readonly AnonymousPipeServerStream _pipeServer = new AnonymousPipeServerStream(PipeDirection.In, HandleInheritability.Inheritable);
-        private StreamReader _reader;
 
         public PipeServer(string clientPath)
         {

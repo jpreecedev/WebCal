@@ -10,7 +10,7 @@
     public class MapiMailMessage
     {
         private readonly ManualResetEvent _manualResetEvent;
-        
+
         public MapiMailMessage()
         {
             Files = new ArrayList();
@@ -32,13 +32,10 @@
         }
 
         public string Subject { get; set; }
-
         public string Body { get; set; }
-
         public RecipientCollection Recipients { get; private set; }
-
         public ArrayList Files { get; private set; }
-        
+
         public void ShowDialog()
         {
             ShowMail();
@@ -82,13 +79,18 @@
 
                 // Check for error
                 if (error != SUCCESS_SUCCESS)
+                {
                     LogErrorMapi(error);
+                }
             }
         }
 
         private static void DeallocFiles(MAPIHelperInterop.MapiMessage message)
         {
-            if (message.Files == IntPtr.Zero) return;
+            if (message.Files == IntPtr.Zero)
+            {
+                return;
+            }
 
             Type fileDescType = typeof (MapiFileDescriptor);
             int fsize = Marshal.SizeOf(fileDescType);
@@ -109,9 +111,13 @@
         {
             fileCount = 0;
             if (Files == null)
+            {
                 return IntPtr.Zero;
+            }
             if ((Files.Count <= 0) || (Files.Count > 100))
+            {
                 return IntPtr.Zero;
+            }
 
             Type atype = typeof (MapiFileDescriptor);
             int asize = Marshal.SizeOf(atype);

@@ -18,11 +18,8 @@
     public class WorkshopCardFilesViewModel : BaseFilesViewModel
     {
         public IRepository<WorkshopCardFile> WorkshopCardFilesRepository { get; set; }
-
         public string Workshop { get; set; }
-
         public bool IsReadFromCardEnabled { get; set; }
-
         public bool IsFormEnabled { get; set; }
         public DelegateCommand<Grid> ReadFromCardCommand { get; set; }
 
@@ -90,7 +87,9 @@
         private void OnReadFromCard(Grid root)
         {
             if (root == null)
+            {
                 return;
+            }
 
             var progressWindow = new ProgressWindow();
 
@@ -112,7 +111,7 @@
 
             progressWindow.ShowDialog();
         }
-        
+
         private void DisplayWorkshopCardDetails(string xml)
         {
             try

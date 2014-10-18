@@ -2,6 +2,7 @@
 {
     using System.Collections.ObjectModel;
     using System.IO;
+    using System.Linq;
     using Core;
     using DataModel;
     using DataModel.Core;
@@ -13,20 +14,24 @@
     {
         public IRepository<UndownloadabilityDocument> UndownloadabilityDocumentsRepository { get; set; }
         public DelegateCommand<object> ReprintCertificateCommand { get; set; }
-        
+
         protected override void Load()
         {
             SearchFilters.RemoveAt(SearchFilters.Count - 1);
-            Documents = new ObservableCollection<Document>(UndownloadabilityDocumentsRepository.GetAll());
+            Documents = new ObservableCollection<Document>(UndownloadabilityDocumentsRepository.GetAll().OrderByDescending(c => c.Created));
         }
 
         protected override void OnDocumentSelected(Document document)
         {
-            if (document == null) return;
+            if (document == null)
+            {
+                return;
+            }
 
             var undownloadabilityViewModel = (NewUndownloadabilityViewModel) MainWindow.ShowView<NewUndownloadabilityView>();
             undownloadabilityViewModel.Document = (UndownloadabilityDocument) document;
             undownloadabilityViewModel.IsReadOnly = true;
+            undownloadabilityViewModel.IsHistoryMode = true;
         }
 
         protected override void InitialiseRepositories()
@@ -40,14 +45,19 @@
 
             ReprintCertificateCommand = new DelegateCommand<object>(OnReprintCertificate);
         }
-        
+
         private void OnReprintCertificate(object obj)
         {
             var document = SelectedDocument as UndownloadabilityDocument;
-            if (document == null) return;
+            if (document == null)
+            {
+                return;
+            }
 
             if (PDFHelper.GenerateTachographPlaque(document, true))
+            {
                 PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+            }
         }
     }
 }

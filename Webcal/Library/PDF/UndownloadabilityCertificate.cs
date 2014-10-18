@@ -11,15 +11,14 @@
     using iTextSharp.text.pdf;
     using Properties;
     using Shared;
-    using StructureMap;
     using Image = System.Drawing.Image;
 
     public static class UndownloadabilityCertificate
     {
         public static void Create(PDFDocument document, UndownloadabilityDocument undownloadabilityDocument)
         {
-            var settingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
-            WorkshopSettings settings = settingsRepository.GetSettings();
+            var settingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            WorkshopSettings settings = settingsRepository.GetWorkshopSettings();
 
             StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/UndownloadHeader.png");
 
@@ -53,7 +52,9 @@
             document.DrawLine(322, 172, 484, 172);
 
             if (undownloadabilityDocument.InspectionDate != null)
+            {
                 AbsolutePositionText(document, undownloadabilityDocument.InspectionDate.Value.ToString("dd.MM.yyyy"), 125, 195, 200, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
+            }
 
             AbsolutePositionText(document, Resources.TXT_DATE, 125, 175, 200, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
 

@@ -6,11 +6,6 @@
 
     public class CommandReference : Freezable, ICommand
     {
-        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof (ICommand), typeof (CommandReference), new PropertyMetadata(OnCommandChanged));
-
-        public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.Register("CommandParameter", typeof (object), typeof (CommandReference), new PropertyMetadata(null));
-
         public ICommand Command
         {
             get { return (ICommand) GetValue(CommandProperty); }
@@ -23,11 +18,12 @@
             set { SetValue(CommandParameterProperty, value); }
         }
 
-
         public bool CanExecute(object parameter)
         {
             if (Command != null)
+            {
                 return Command.CanExecute(CommandParameter);
+            }
             return false;
         }
 
@@ -37,7 +33,7 @@
         }
 
         public event EventHandler CanExecuteChanged;
-        
+
         private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var commandReference = d as CommandReference;
@@ -47,9 +43,13 @@
                 var newCommand = e.NewValue as ICommand;
 
                 if (oldCommand != null)
+                {
                     oldCommand.CanExecuteChanged -= commandReference.CanExecuteChanged;
+                }
                 if (newCommand != null)
+                {
                     newCommand.CanExecuteChanged += commandReference.CanExecuteChanged;
+                }
             }
         }
 
@@ -57,5 +57,10 @@
         {
             throw new NotImplementedException();
         }
+
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof (ICommand), typeof (CommandReference), new PropertyMetadata(OnCommandChanged));
+
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.Register("CommandParameter", typeof (object), typeof (CommandReference), new PropertyMetadata(null));
     }
 }

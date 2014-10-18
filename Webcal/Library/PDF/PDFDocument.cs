@@ -16,9 +16,7 @@
         }
 
         public PlaqueDocumentType PlaqueDocumentType { get; set; }
-
         public Document Document { get; set; }
-
         public PdfWriter Writer { get; set; }
 
         public float Height

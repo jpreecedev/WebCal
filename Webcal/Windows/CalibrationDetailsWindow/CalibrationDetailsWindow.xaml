@@ -6,7 +6,6 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="ToolWindow"
-        Icon="../../Main Icon.ico"
         Height="550"
         Width="500">
     <Window.DataContext>

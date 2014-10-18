@@ -11,10 +11,7 @@
 
     public class User : BaseModel
     {
-        public int Id { get; set; }
-
         public string Username { get; set; }
-
         public string Password { get; set; }
 
         [MaxLength]
@@ -26,7 +23,9 @@
             get
             {
                 if (RawImage == null)
+                {
                     return null;
+                }
 
                 return ToImage(RawImage);
             }
@@ -41,7 +40,7 @@
                 RawImage = ToByteArray(value);
             }
         }
-        
+
         private static byte[] ToByteArray(Image imageIn)
         {
             try

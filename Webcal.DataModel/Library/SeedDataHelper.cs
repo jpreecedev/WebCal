@@ -3,15 +3,15 @@
     using System;
     using Core;
     using Properties;
-    using Repositories;
+    using Shared;
 
     public static class SeedDataHelper
     {
-        public static IGeneralSettingsRepository SeedDatabase()
+        public static ISettingsRepository<WorkshopSettings> SeedDatabase()
         {
             //This is a bit of a "fudge" to ensure that seed data has been created
-            var generalSettings = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
-            if (generalSettings.GetSettings() == null)
+            var settings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            if (settings.GetWorkshopSettings() == null)
             {
                 using (var context = new TachographContext())
                 {
@@ -21,7 +21,7 @@
             }
 
             //Check that the 'super user account' exists
-            var userRepository = ContainerBootstrapper.Container.GetInstance<UserRepository>();
+            var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
             if (userRepository.FirstOrDefault(user => string.Equals(user.Username, "superuser", StringComparison.CurrentCultureIgnoreCase)) == null)
             {
                 UserManagement.AddSuperUser(userRepository);
@@ -30,13 +30,15 @@
 
             UserManagement.AddDefaultUser();
 
-            return generalSettings;
+            return settings;
         }
 
         private static void Seed(TachographContext context)
         {
             if (context == null)
+            {
                 return;
+            }
 
             context.WorkshopSettings.Add(new WorkshopSettings
             {

@@ -1,6 +1,6 @@
 ﻿namespace Webcal.Shared.Workers
 {
-    public enum WorkerTaskName 
+    public enum WorkerTaskName
     {
         Print,
         Email,

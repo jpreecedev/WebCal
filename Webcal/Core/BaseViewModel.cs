@@ -8,6 +8,7 @@
     using System.Windows.Threading;
     using Windows;
     using Library;
+    using Shared;
     using Views;
 
     public class BaseViewModel : BaseNotification, IViewModel
@@ -23,9 +24,7 @@
         }
 
         public bool HasChanged { get; protected set; }
-
         public MainWindowViewModel MainWindow { get; set; }
-
         public Action<bool, object> DoneCallback { get; set; }
 
         public virtual void OnClosing(bool cancelled)

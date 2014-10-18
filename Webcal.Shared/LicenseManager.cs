@@ -10,10 +10,14 @@
             expirationDate = default(DateTime);
 
             if (string.IsNullOrEmpty(serial))
+            {
                 return false;
+            }
 
             if (serial.ToCharArray().Any(Char.IsLetter))
+            {
                 return false;
+            }
 
             string padded = serial.PadRight(18, Char.Parse("0"));
             long paddedAsLong;
@@ -23,7 +27,9 @@
                 {
                     expirationDate = new DateTime(paddedAsLong);
                     if (expirationDate.Hour == 0 && expirationDate.Minute == 0 && expirationDate.Second == 0 && expirationDate.Millisecond == 0)
+                    {
                         return true;
+                    }
                 }
                 catch
                 {
@@ -37,10 +43,14 @@
         public static DateTime? GetExpirationDate(string serial)
         {
             if (string.IsNullOrEmpty(serial))
+            {
                 return null;
+            }
 
             if (serial.ToCharArray().Any(Char.IsLetter))
+            {
                 return null;
+            }
 
             string padded = serial.PadRight(18, Char.Parse("0"));
             long paddedAsLong;
@@ -50,7 +60,9 @@
                 {
                     var expirationDate = new DateTime(paddedAsLong);
                     if (expirationDate.Hour == 0 && expirationDate.Minute == 0 && expirationDate.Second == 0 && expirationDate.Millisecond == 0)
+                    {
                         return expirationDate;
+                    }
                 }
                 catch
                 {

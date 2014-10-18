@@ -7,8 +7,6 @@ namespace Webcal.DataModel
     [Table("RegistrationData")]
     public class RegistrationData : BaseModel
     {
-        public int Id { get; set; }
-
         public string LicenseKey { get; set; }
 
         public DateTime? ExpirationDate
@@ -17,7 +15,6 @@ namespace Webcal.DataModel
         }
 
         public string CompanyName { get; set; }
-
         public string SealNumber { get; set; }
     }
 }

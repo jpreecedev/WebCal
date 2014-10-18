@@ -10,11 +10,20 @@
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            if (values == null || values.Length != 2) return false;
-            if (values.Any(v => v == DependencyProperty.UnsetValue)) return false;
+            if (values == null || values.Length != 2)
+            {
+                return false;
+            }
+            if (values.Any(v => v == DependencyProperty.UnsetValue))
+            {
+                return false;
+            }
 
             var isReadOnly = (bool) values[0];
-            if (!isReadOnly) return true;
+            if (!isReadOnly)
+            {
+                return true;
+            }
 
             object val = values[1];
             return val == null || string.IsNullOrEmpty(val.ToString());

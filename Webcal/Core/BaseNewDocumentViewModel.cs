@@ -6,6 +6,7 @@
     using System.Windows.Controls;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
     using Library;
     using Library.PDF;
     using Properties;
@@ -22,10 +23,9 @@
         public DelegateCommand<Grid> ExportPDFCommand { get; set; }
         public DelegateCommand<Grid> PrintCommand { get; set; }
         public DelegateCommand<string> RegistrationChangedCommand { get; set; }
-
         public WorkshopSettings WorkshopSettings { get; set; }
-
         public MailSettings MailSettings { get; set; }
+        public bool IsHistoryMode { get; set; }
 
         public virtual void OnModalClosed()
         {
@@ -44,8 +44,8 @@
         {
             base.InitialiseRepositories();
 
-            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>().GetSettings();
-            MailSettings = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>().GetSettings();
+            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+            MailSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>().Get();
         }
 
         protected virtual void Add()
@@ -67,11 +67,14 @@
             try
             {
                 Document document = GetNewDocument(root);
-                if (PDFHelper.GenerateTachographPlaque(document, false))
+                if (PDFHelper.GenerateTachographPlaque(document, false, IsHistoryMode))
                 {
-                    EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, PDFHelper.LastPDFOutputPath);
+                    if (!IsHistoryMode)
+                    {
+                        EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, PDFHelper.LastPDFOutputPath);
+                        Add();
+                    }
 
-                    Add();
                     Close();
                 }
             }
@@ -90,14 +93,16 @@
             }
 
             Document document = GetNewDocument(root);
-            if (PDFHelper.GenerateTachographPlaque(document, true))
+            if (PDFHelper.GenerateTachographPlaque(document, true, IsHistoryMode))
             {
-                Add();
-
                 try
                 {
                     PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
-                    EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                    if (!IsHistoryMode)
+                    {
+                        EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                        Add();
+                    }
                 }
                 finally
                 {
@@ -109,23 +114,31 @@
         private void OnRegistrationChanged(string registrationNumber)
         {
             if (string.IsNullOrEmpty(registrationNumber) || registrationNumber.Length < 3)
+            {
                 return;
+            }
 
             if (SmartCardReader != null)
+            {
                 RegistrationChanged(registrationNumber);
+            }
         }
 
         private static Document GetNewDocument(FrameworkElement root)
         {
             var sender = root.DataContext as BaseNewDocumentViewModel;
             if (sender == null)
+            {
                 return null;
+            }
 
             var viewModel = sender as NewTachographViewModel;
             if (viewModel != null)
+            {
                 return viewModel.Document;
+            }
 
-            return ((NewUndownloadabilityViewModel)sender).Document;
+            return ((NewUndownloadabilityViewModel) sender).Document;
         }
 
         private void Close()

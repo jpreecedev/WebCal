@@ -5,14 +5,14 @@
 
     public class PipeClient : BasePipeProvider, IPipeClient
     {
-        private readonly PipeStream _pipeClient;
         private StreamWriter _writer;
+        private readonly PipeStream _pipeClient;
 
         public PipeClient(string handle)
         {
             _pipeClient = new AnonymousPipeClientStream(PipeDirection.Out, handle);
         }
-        
+
         public void Connect()
         {
             _writer = new StreamWriter(_pipeClient)
@@ -26,7 +26,7 @@
             _writer.Close();
             _pipeClient.Close();
         }
-        
+
         public void SendMessage(string message)
         {
             if (_writer != null)

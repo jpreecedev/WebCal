@@ -3,33 +3,32 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
+    using Shared;
 
     public class MailSettingsViewModel : BaseSettingsViewModel
     {
         public MailSettings MailSettings { get; set; }
-
-        public IMailSettingsRepository Repository { get; set; }
-
-        public IGeneralSettingsRepository GeneralSettingsRepository { get; set; }
-
+        public ISettingsRepository<MailSettings> Repository { get; set; }
+        public ISettingsRepository<WorkshopSettings> SettingsRepository { get; set; }
         public WorkshopSettings WorkshopSettings { get; set; }
 
         protected override void Load()
         {
-            MailSettings = Repository.GetSettings();
+            MailSettings = Repository.Get();
         }
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IMailSettingsRepository>();
-            GeneralSettingsRepository = ContainerBootstrapper.Container.GetInstance<IGeneralSettingsRepository>();
-            WorkshopSettings = GeneralSettingsRepository.GetSettings();
+            Repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>();
+            SettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            WorkshopSettings = SettingsRepository.GetWorkshopSettings();
         }
 
         public override void Save()
         {
             Repository.Save(MailSettings);
-            GeneralSettingsRepository.Save(WorkshopSettings);
+            SettingsRepository.Save(WorkshopSettings);
         }
     }
 }

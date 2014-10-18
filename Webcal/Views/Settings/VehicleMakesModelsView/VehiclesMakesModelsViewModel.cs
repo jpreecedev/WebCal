@@ -13,9 +13,7 @@
     {
         private VehicleMake _selectedMake;
         private VehicleModel _selectedModel;
-        
         public ObservableCollection<VehicleMake> Makes { get; set; }
-
         public IRepository<VehicleMake> Repository { get; set; }
 
         public VehicleMake SelectedMake
@@ -42,7 +40,7 @@
         public DelegateCommand<object> RemoveMakeCommand { get; set; }
         public DelegateCommand<UserControl> AddModelCommand { get; set; }
         public DelegateCommand<object> RemoveModelCommand { get; set; }
-        
+
         protected override void InitialiseCommands()
         {
             AddMakeCommand = new DelegateCommand<UserControl>(OnAddMake);
@@ -66,7 +64,7 @@
         {
             Repository.Save();
         }
-        
+
         private void OnAddMake(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_MAKE_OF_VEHICLE, OnAddMake);
@@ -101,7 +99,9 @@
         private void OnAddModel(string result)
         {
             if (!string.IsNullOrEmpty(result))
+            {
                 SelectedMake.Models.Add(new VehicleModel {Name = result});
+            }
         }
 
         private bool CanAddModel(UserControl window)

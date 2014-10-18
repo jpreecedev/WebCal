@@ -218,7 +218,6 @@
     <Compile Include="Core\BaseModalWindowViewModel.cs" />
     <Compile Include="Core\BaseNavigationViewModel.cs" />
     <Compile Include="Core\BaseNewDocumentViewModel.cs" />
-    <Compile Include="Core\BaseNotification.cs" />
     <Compile Include="Core\BaseSettingsView.cs" />
     <Compile Include="Core\BaseSettingsViewModel.cs" />
     <Compile Include="Core\BaseWindow.cs" />

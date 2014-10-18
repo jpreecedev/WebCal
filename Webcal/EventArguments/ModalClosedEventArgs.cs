@@ -11,7 +11,6 @@
         }
 
         public bool Saved { get; private set; }
-
         public object Parameter { get; set; }
     }
 }

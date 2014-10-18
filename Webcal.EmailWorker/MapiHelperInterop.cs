@@ -18,7 +18,6 @@
         [DllImport("MAPI32.DLL")]
         public static extern int MAPISendMail(IntPtr session, IntPtr hwnd, MapiMessage message, int flg, int rsv);
 
-
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
         public class MapiMessage
         {

@@ -1,13 +1,11 @@
 ﻿namespace Webcal.DataModel
 {
     using System.ComponentModel.DataAnnotations;
+    using Shared;
 
-    public class MailSettings : BaseModel
+    public class MailSettings : BaseSettings
     {
-        public int Id { get; set; }
-
         public bool AutoEmailCertificates { get; set; }
-
         public bool PersonaliseMyEmails { get; set; }
 
         public bool AllowEditingOfEmail

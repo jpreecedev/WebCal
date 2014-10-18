@@ -1,6 +1,7 @@
 ﻿namespace Webcal.Views.Settings
 {
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows.Controls;
     using Core;
     using DataModel;
@@ -11,9 +12,7 @@
     public class InspectionEquipmentsViewModel : BaseSettingsViewModel
     {
         private InspectionEquipment _selectedInspectionEquipment;
-
         public IRepository<InspectionEquipment> Repository { get; set; }
-
         public ObservableCollection<InspectionEquipment> InspectionEquipments { get; set; }
 
         public InspectionEquipment SelectedInspectionEquipment
@@ -28,7 +27,7 @@
 
         public DelegateCommand<UserControl> AddInspectionEquipmentCommand { get; set; }
         public DelegateCommand<object> RemoveInspectionEquipmentCommand { get; set; }
-        
+
         protected override void InitialiseCommands()
         {
             AddInspectionEquipmentCommand = new DelegateCommand<UserControl>(OnAddInspectionEquipment);
@@ -37,7 +36,7 @@
 
         protected override void Load()
         {
-            InspectionEquipments = new ObservableCollection<InspectionEquipment>(Repository.GetAll());
+            InspectionEquipments = new ObservableCollection<InspectionEquipment>(Repository.GetAll().OrderBy(c => c.Name));
             InspectionEquipments.CollectionChanged += (sender, e) => RefreshCommands();
         }
 
@@ -50,7 +49,7 @@
         {
             Repository.Save();
         }
-        
+
         private void OnAddInspectionEquipment(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_INSPECTION_EQUIPMENT, OnAddInspectionEquipment);
@@ -65,7 +64,7 @@
                 Repository.Add(inspectionEquipment);
             }
         }
-        
+
         private bool CanRemoveInspectionEquipment(object obj)
         {
             return SelectedInspectionEquipment != null;

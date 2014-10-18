@@ -20,21 +20,13 @@
         }
 
         public bool IsExpiringDocumentsChecked { get; set; }
-
         public bool IsDocumentStatisticsChecked { get; set; }
-
         public bool IsQuickSelectionChecked { get; set; }
-
         public bool IsSelectTimeFrameChecked { get; set; }
-
         public DateTime? StartDateTime { get; set; }
-
         public DateTime? EndDateTime { get; set; }
-
         public bool IsTextFormatChecked { get; set; }
-
         public bool IsExcelFormatChecked { get; set; }
-
         public string Office { get; set; }
 
         public bool IsDocumentExpireThisMonthChecked
@@ -64,7 +56,6 @@
                 }
             }
         }
-
 
         public DelegateCommand<Grid> GenerateReportCommand { get; set; }
 

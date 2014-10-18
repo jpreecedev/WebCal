@@ -1,6 +1,7 @@
 ﻿namespace Webcal.Views.Settings
 {
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows.Controls;
     using Core;
     using DataModel;
@@ -11,9 +12,7 @@
     public class TyreSizesViewModel : BaseSettingsViewModel
     {
         private TyreSize _selectedTyreSize;
-        
         public ObservableCollection<TyreSize> TyreSizes { get; set; }
-
         public IRepository<TyreSize> Repository { get; set; }
 
         public TyreSize SelectedTyreSize
@@ -37,7 +36,7 @@
 
         protected override void Load()
         {
-            TyreSizes = new ObservableCollection<TyreSize>(Repository.GetAll());
+            TyreSizes = new ObservableCollection<TyreSize>(Repository.GetAll().OrderBy(c => c.Size));
             TyreSizes.CollectionChanged += (sender, e) => RefreshCommands();
         }
 
@@ -50,7 +49,7 @@
         {
             Repository.Save();
         }
-        
+
         private void OnAddTyreSize(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_TYRE_SIZE, OnAddTyreSize);

@@ -4,8 +4,8 @@ namespace Webcal.Tests
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
-    using Webcal.DataModel;
-    using Webcal.Shared;
+    using DataModel;
+    using Shared;
 
     public class MockUserRepository : IRepository<User>
     {
@@ -36,12 +36,12 @@ namespace Webcal.Tests
             throw new NotImplementedException();
         }
 
-        public ICollection<User> GetAll()
+        public ICollection<User> GetAll(params string[] includes)
         {
             return _users;
         }
 
-        public ICollection<User> Get(Expression<Func<User, bool>> predicate)
+        public ICollection<User> Get(Expression<Func<User, bool>> predicate, params string[] includes)
         {
             throw new NotImplementedException();
         }
@@ -62,6 +62,11 @@ namespace Webcal.Tests
         }
 
         public void Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<User> Get(Expression<Func<User, bool>> predicate)
         {
             throw new NotImplementedException();
         }

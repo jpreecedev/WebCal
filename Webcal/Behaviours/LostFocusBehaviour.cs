@@ -5,12 +5,6 @@
 
     public class LostFocusBehaviour
     {
-        public static DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (LostFocusBehaviour), new UIPropertyMetadata(CommandChanged));
-
-        public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (LostFocusBehaviour));
-
         public static void SetCommand(DependencyObject target, ICommand value)
         {
             target.SetValue(CommandProperty, value);
@@ -32,9 +26,13 @@
             if (control != null)
             {
                 if ((e.NewValue != null) && (e.OldValue == null))
+                {
                     control.LostFocus += OnLostFocus;
+                }
                 else if ((e.NewValue == null) && (e.OldValue != null))
+                {
                     control.LostFocus -= OnLostFocus;
+                }
             }
         }
 
@@ -42,10 +40,18 @@
         {
             var control = sender as UIElement;
             if (control == null)
+            {
                 return;
+            }
 
             var command = (ICommand) control.GetValue(CommandProperty);
             command.Execute(control.GetValue(CommandParameterProperty));
         }
+
+        public static DependencyProperty CommandProperty =
+            DependencyProperty.RegisterAttached("Command", typeof (ICommand), typeof (LostFocusBehaviour), new UIPropertyMetadata(CommandChanged));
+
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.RegisterAttached("CommandParameter", typeof (object), typeof (LostFocusBehaviour));
     }
 }

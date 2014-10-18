@@ -11,7 +11,6 @@ namespace Webcal.Library.PDF
     using iTextSharp.text.pdf;
     using Properties;
     using Shared;
-    using StructureMap;
 
     public static class VOSADocument
     {
@@ -19,8 +18,14 @@ namespace Webcal.Library.PDF
 
         public static void Create(string path, List<TachographDocument> documents, DateTime start, DateTime end)
         {
-            if (string.IsNullOrEmpty(path)) return;
-            if (documents.IsNullOrEmpty()) return;
+            if (string.IsNullOrEmpty(path))
+            {
+                return;
+            }
+            if (documents.IsNullOrEmpty())
+            {
+                return;
+            }
 
             const int itemsPerPage = 18;
             int pages = GetPageCount(documents.Count, itemsPerPage);
@@ -94,7 +99,9 @@ namespace Webcal.Library.PDF
         private static string GetCompanyName(RegistrationData registrationData)
         {
             if (!string.IsNullOrEmpty(registrationData.LicenseKey) || registrationData.ExpirationDate < DateTime.Now.Date) //Registered
+            {
                 return registrationData.CompanyName;
+            }
 
             return Resources.TXT_SKILLRAY_UNLICENSED_SOFTWARE;
         }
@@ -124,7 +131,10 @@ namespace Webcal.Library.PDF
                     AddCell(table, tachograph.VehicleType.Substring(0, 1).ToUpper());
 
                     string type = tachograph.IsDigital ? "D" : "A";
-                    if (tachograph.Tampered) type = type + "*";
+                    if (tachograph.Tampered)
+                    {
+                        type = type + "*";
+                    }
                     AddCell(table, type);
 
                     AddCell(table, tachograph.SerialNumber);
@@ -151,7 +161,9 @@ namespace Webcal.Library.PDF
         private static string GetCalibrationTime(DateTime? calibrationTime)
         {
             if (calibrationTime == null)
+            {
                 return DateTime.Now.ToString("yyyy-MM-dd");
+            }
 
             return calibrationTime.Value.ToString("yyyy-MM-dd");
         }
@@ -181,7 +193,9 @@ namespace Webcal.Library.PDF
         private static string GetTechnicianInitials(string technicianName)
         {
             if (string.IsNullOrEmpty(technicianName))
+            {
                 return string.Empty;
+            }
 
             string[] split = technicianName.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
             return split.Aggregate(string.Empty, (current, s) => current + s.Substring(0, 1).ToUpper());
@@ -190,7 +204,9 @@ namespace Webcal.Library.PDF
         private static void AddPage(int iteration)
         {
             if (iteration == 0)
+            {
                 return;
+            }
 
             Document.AddPage();
         }
@@ -198,7 +214,9 @@ namespace Webcal.Library.PDF
         private static int GetPageCount(int documentCount, int itemsPerPage)
         {
             if (documentCount <= itemsPerPage)
+            {
                 return 1;
+            }
 
             return (documentCount/itemsPerPage) + (documentCount%itemsPerPage > 0 ? 1 : 0);
         }

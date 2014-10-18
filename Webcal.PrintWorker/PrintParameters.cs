@@ -5,9 +5,8 @@
     public class PrintParameters : WorkerParameters
     {
         public PrintParameters(IWorkerParameters parameters)
-            :base(parameters)
+            : base(parameters)
         {
-            
         }
 
         public string FilePath
@@ -32,7 +31,7 @@
 
         public int LabelNumberOfCopies
         {
-            get { return GetParameter<int>("LabelNumberOfCopies"); }            
+            get { return GetParameter<int>("LabelNumberOfCopies"); }
         }
     }
 }

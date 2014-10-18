@@ -7,6 +7,7 @@ namespace Webcal.Tests
     using System.Security.Cryptography;
     using System.Text;
     using NUnit.Framework;
+    using Shared;
     using Webcal.DataModel;
     using Webcal.DataModel.Repositories;
 
@@ -41,7 +42,7 @@ namespace Webcal.Tests
 
             UserManager.AddSuperUser(repository);
 
-            Assert.That(repository.GetAll().Count == 1);
+            Assert.That(repository.GetAll().Count() == 1);
             User first = repository.GetAll().First();
             Assert.That(first.Username == "superuser");
             Assert.That(first.Password == "–6¬•Å0³½v‰:•Z;í½z*Ë¼dÌ¢MMðÃ4QY"); //yellowskillweb
@@ -51,7 +52,7 @@ namespace Webcal.Tests
         [ExpectedException(ExpectedException = typeof (InvalidOperationException))]
         public void AddSuperUser_RepositoryIsNull_ThrowsInvalidOperationException()
         {
-            UserRepository repository = null;
+            IRepository<User> repository = null;
 
             UserManager.AddSuperUser(repository);
 
@@ -75,7 +76,7 @@ namespace Webcal.Tests
         [ExpectedException(ExpectedException = typeof (InvalidOperationException))]
         public void AddUser_RepositoryIsNull_ThrowsInvalidOperationException()
         {
-            UserRepository repository = null;
+            IRepository<User> repository = null;
             string username = string.Empty;
             string password = string.Empty;
 
@@ -93,7 +94,7 @@ namespace Webcal.Tests
 
             UserManager.AddUser(repository, username, password);
 
-            Assert.That(repository.GetAll().Count == 1);
+            Assert.That(repository.GetAll().Count() == 1);
         }
 
         [Test]
@@ -337,7 +338,7 @@ namespace Webcal.Tests
         {
             string username = "Jon";
             string password = string.Empty;
-            UserRepository repository = null;
+            IRepository<User> repository = null;
 
             bool valid = UserManager.Validate(repository, username, password);
 
@@ -349,7 +350,7 @@ namespace Webcal.Tests
         {
             string username = "Jon";
             string password = "Password";
-            UserRepository repository = null;
+            IRepository<User> repository = null;
 
             bool valid = UserManager.Validate(repository, username, password);
 
@@ -389,7 +390,7 @@ namespace Webcal.Tests
         {
             string username = string.Empty;
             string password = string.Empty;
-            UserRepository repository = null;
+            IRepository<User> repository = null;
 
             bool valid = UserManager.Validate(repository, username, password);
 

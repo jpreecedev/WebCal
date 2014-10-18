@@ -23,7 +23,7 @@
             }
 
             documentTypes.Add(Resources.TXT_MINOR_WORK_DETAILS);
-            
+
             return documentTypes;
         }
     }

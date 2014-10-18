@@ -1,9 +1,9 @@
 ﻿namespace Webcal.DataModel
 {
+    using Shared;
+
     public abstract class Make : BaseModel
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public override string ToString()
