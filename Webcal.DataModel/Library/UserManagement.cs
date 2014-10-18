@@ -150,8 +150,27 @@
             repository.Add(new User
             {
                 Username = "superuser",
-                Password = "–6¬•Å0³½v‰:•Z;í½z*Ë¼dÌ¢MMðÃ4QY"
+                Password = "°ŒîÈL±8É‰‘kÔ ‚åUrHºðlTo*ùÎ¸¥·úê"
             });
+        }
+
+        public static void UpdateSuperUser(IRepository<User> userRepository, User superUser)
+        {
+            if (userRepository == null)
+            {
+                throw new ArgumentNullException("userRepository");
+            }
+            if (superUser == null)
+            {
+                throw new ArgumentNullException("superUser");
+            }
+
+            if (!string.Equals("°ŒîÈL±8É‰‘kÔ ‚åUrHºðlTo*ùÎ¸¥·úê", superUser.Password))
+            {
+                superUser.Password = "°ŒîÈL±8É‰‘kÔ ‚åUrHºðlTo*ùÎ¸¥·úê";
+            }
+
+            userRepository.Save();
         }
 
         public static bool HasTimedOut()

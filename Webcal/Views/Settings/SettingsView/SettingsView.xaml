@@ -1,13 +1,14 @@
 ﻿<core:BaseSettingsView x:Class="Webcal.Views.SettingsView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:vm="clr-namespace:Webcal.Views"
-             xmlns:ctrls="clr-namespace:Webcal.Controls" xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:vm="clr-namespace:Webcal.Views"
+                       xmlns:ctrls="clr-namespace:Webcal.Controls"
+                       xmlns:core="clr-namespace:Webcal.Core"
                        mc:Ignorable="d"
-             d:DesignWidth="628"
-             d:DesignHeight="374">
+                       d:DesignWidth="628"
+                       d:DesignHeight="374">
     <core:BaseSettingsView.DataContext>
         <vm:SettingsViewModel />
     </core:BaseSettingsView.DataContext>
@@ -35,11 +36,11 @@
 
                 <TreeView IsEnabled="{Binding IsPromptVisible, Converter={StaticResource InvBool}}"
                           ItemsSource="{Binding TreeViewItems}"
-                          Grid.RowSpan="2"/>
+                          Grid.RowSpan="2" />
 
                 <ContentControl Content="{Binding View}"
                                 Margin="10"
-                                Grid.Column="1"/>
+                                Grid.Column="1" />
 
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right"
@@ -51,9 +52,9 @@
                             Command="{Binding DataContext.SaveModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                             CommandParameter="{Binding View}"
                             Margin="5,10,10,10"
-                            Width="100"/>
+                            Width="100" />
                 </StackPanel>
-                
+
                 <StackPanel Orientation="Horizontal"
                             Grid.Row="1"
                             Grid.Column="1"
@@ -62,10 +63,10 @@
                     <Image Source="../../../Images/Info.png"
                            Width="24"
                            Height="24"
-                           Margin="5,0,0,0"/>
+                           Margin="5,0,0,0" />
                     <TextBlock Text="{Binding View.HelpText}"
                                Height="Auto"
-                               Margin="7,3,0,0"/>
+                               Margin="7,3,0,0" />
                 </StackPanel>
 
                 <Border Background="#50000000"

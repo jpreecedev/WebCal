@@ -22,10 +22,16 @@
 
             //Check that the 'super user account' exists
             var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
-            if (userRepository.FirstOrDefault(user => string.Equals(user.Username, "superuser", StringComparison.CurrentCultureIgnoreCase)) == null)
+            var superUser = userRepository.FirstOrDefault(user => string.Equals(user.Username, "superuser", StringComparison.CurrentCultureIgnoreCase));
+
+            if (superUser == null)
             {
                 UserManagement.AddSuperUser(userRepository);
                 userRepository.Save();
+            }
+            else
+            {
+                UserManagement.UpdateSuperUser(userRepository, superUser);
             }
 
             UserManagement.AddDefaultUser();
