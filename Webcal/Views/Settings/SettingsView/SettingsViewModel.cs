@@ -8,6 +8,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using Core;
+    using DataModel.Library;
     using Properties;
     using Settings;
 
@@ -20,7 +21,7 @@
                 return;
             }
 
-            ShowSettingsView(typeof (GeneralSettingsView));
+            ShowSettingsView(typeof(GeneralSettingsView));
             BuildTreeView();
         }
 
@@ -101,9 +102,13 @@
                     }
                 },
                 new TreeViewItem {Header = Resources.TXT_PRINTER_SETTINGS, DataContext = typeof (PrinterSettingsView)},
-                new TreeViewItem {Header = Resources.TXT_USER_MANAGEMENT, DataContext = typeof (UserManagementView)},
                 new TreeViewItem {Header = Resources.TXT_MAIL_SETTINGS, DataContext = typeof (MailSettingsView)}
             };
+
+            if (UserManagement.LoggedInAsSuperUser)
+            {
+                TreeViewItems.Add(new TreeViewItem { Header = Resources.TXT_USER_MANAGEMENT, DataContext = typeof(UserManagementView) });
+            }
         }
     }
 }

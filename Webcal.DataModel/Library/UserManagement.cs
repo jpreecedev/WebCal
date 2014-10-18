@@ -13,6 +13,11 @@
         public static User SelectedUser { get; set; }
         public static DateTime LastCommandExecuted { get; set; }
 
+        public static bool LoggedInAsSuperUser
+        {
+            get { return string.Equals("superuser", LoggedInUserName, StringComparison.CurrentCultureIgnoreCase); }
+        }
+
         public static bool Validate(IRepository<User> repository, string username, string password)
         {
             if (repository == null)

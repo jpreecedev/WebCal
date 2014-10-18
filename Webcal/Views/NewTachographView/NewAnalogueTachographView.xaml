@@ -166,14 +166,14 @@
                 <ctrls:InputTextField Label="W Factor"
                                       Text="{core:InputBinding Document.WFactor}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                                      IsMandatory="True"
+                                      IsMandatory="False"
                                       IsAutoPopulated="True"
                                       Grid.Row="8" />
 
                 <ctrls:InputTextField Label="K Factor"
                                       Text="{core:InputBinding Document.KFactor}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                                      IsMandatory="True"
+                                      IsMandatory="False"
                                       IsAutoPopulated="True"
                                       Grid.Row="8"
                                       Grid.Column="2" />
@@ -296,8 +296,8 @@
 
                     <Button Content="Print Label"
                             Command="{Binding PrintLabelCommand}"
-                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"/>
-                    
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
+
                     <Button Content="Print Certificate"
                             Command="{Binding PrintCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"

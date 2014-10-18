@@ -223,7 +223,7 @@
 
                 <ctrls:InputTextField Label="W Factor"
                                       Text="{Binding Document.WFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      IsMandatory="False"
+                                      IsMandatory="True"
                                       IsAutoPopulated="True"
                                       Grid.Row="8">
                     <ctrls:InputTextField.IsEnabled>
@@ -236,7 +236,7 @@
 
                 <ctrls:InputTextField Label="K Factor"
                                       Text="{Binding Document.KFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      IsMandatory="False"
+                                      IsMandatory="True"
                                       IsAutoPopulated="True"
                                       Grid.Row="8"
                                       Grid.Column="2">

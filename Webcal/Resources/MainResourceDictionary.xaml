@@ -672,6 +672,9 @@
                 <Setter TargetName="MainContent"
                         Property="Style"
                         Value="{StaticResource ContentStyle2}" />
+                <Setter TargetName="MainContent"
+                        Property="Height"
+                        Value="370" />
             </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
