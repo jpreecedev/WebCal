@@ -14,14 +14,12 @@
     <ROW Property="ARPCOMMENTS" Value="[|ProductName] installer" ValueLocId="*"/>
     <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPPRODUCTICON" Value="MainIcon.exe" Type="8"/>
-    <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
-    <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:4"/>
     <ROW Property="Manufacturer" Value="Skillray Transport Services UK"/>
     <ROW Property="ProductCode" Value="2057:{C48D0086-F3E1-4E8C-A43B-46A49A361132} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
     <ROW Property="ProductName" Value="Webcal"/>
     <ROW Property="ProductVersion" Value="2.1.0.0" Type="32"/>
-    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR;UPGRADE_2"/>
     <ROW Property="UpgradeCode" Value="{F9EC440C-AFF5-45B7-905E-77CC783AF1F3}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -414,6 +412,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+    <ROW UpgradeCode="{2CB42CF5-059B-447C-B583-C854FFB376C8}" VersionMax="2.0.0.0" Language="2057" Attributes="517" ActionProperty="UPGRADE_2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
     <ROW PrereqKey="B7F3EF2947194DBBA24570C9D8F78D96" DisplayName="SQL Server Compact 4.0 SP1 x86" VersionMin="4.0" SetupFileUrl="Prerequisites\SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64" Operator="1" Options="mz" TargetName="SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Type="1" Feature="B7F3EF2947194DBBA24570C9D8F78D96"/>
