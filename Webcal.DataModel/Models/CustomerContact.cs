@@ -23,9 +23,7 @@
             {
                 return true;
             }
-
-            return Id == other.Id &&
-                   string.Equals(Name, other.Name) &&
+            return string.Equals(Name, other.Name) &&
                    string.Equals(Email, other.Email) &&
                    string.Equals(SecondaryEmail, other.SecondaryEmail) &&
                    string.Equals(Address, other.Address) &&
@@ -60,8 +58,7 @@
         {
             unchecked
             {
-                int hashCode = Id;
-                hashCode = (hashCode*397) ^ (Name != null ? Name.GetHashCode() : 0);
+                var hashCode = (Name != null ? Name.GetHashCode() : 0);
                 hashCode = (hashCode*397) ^ (Email != null ? Email.GetHashCode() : 0);
                 hashCode = (hashCode*397) ^ (SecondaryEmail != null ? SecondaryEmail.GetHashCode() : 0);
                 hashCode = (hashCode*397) ^ (Address != null ? Address.GetHashCode() : 0);

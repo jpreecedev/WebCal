@@ -153,6 +153,11 @@
                 Document.VIN = match.VIN;
             }
         }
+        
+        protected override bool IncludeDeletedContacts
+        {
+            get { return IsHistoryMode; }
+        }
 
         private void OnReadFromCard(object obj)
         {

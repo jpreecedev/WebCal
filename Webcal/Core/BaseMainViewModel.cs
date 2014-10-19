@@ -24,7 +24,7 @@
             }
 
             CustomerContactRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
-            CustomerContacts = new ObservableCollection<CustomerContact>(CustomerContactRepository.GetAll().OrderBy(c => c.Name));
+            CustomerContacts = new ObservableCollection<CustomerContact>(CustomerContactRepository.GetAll(true).OrderBy(c => c.Name));
         }
 
         public ObservableCollection<CustomerContact> CustomerContacts { get; set; }
@@ -47,6 +47,11 @@
             {
                 MainWindow.ModalClosedEvent += OnSmallModalClosed;
             }
+
+            if (!IncludeDeletedContacts)
+            {
+                CustomerContacts.Remove(c => c.IsDeleted);
+            }
         }
 
         public override void Dispose()
@@ -55,6 +60,11 @@
             {
                 MainWindow.ModalClosedEvent -= OnSmallModalClosed;
             }
+        }
+
+        protected virtual bool IncludeDeletedContacts
+        {
+            get { return false; }
         }
 
         private void OnNewCustomer(object obj)
@@ -71,7 +81,7 @@
         {
             if (e.Saved)
             {
-                CustomerContacts.Add((CustomerContact) e.Parameter);
+                CustomerContacts.Add((CustomerContact)e.Parameter);
                 CustomerContact[] sorted = CustomerContacts.OrderBy(c => c.Name).ToArray();
                 CustomerContacts.Clear();
                 foreach (CustomerContact item in sorted)

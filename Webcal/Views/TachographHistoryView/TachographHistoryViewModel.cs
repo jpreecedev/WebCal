@@ -75,6 +75,11 @@
             PDFHelper.GenerateVOSADocument(applicableDocuments, start, end);
         }
 
+        protected override bool IncludeDeletedContacts
+        {
+            get { return true; }
+        }
+
         private void OnReprintLabel(object obj)
         {
             var document = SelectedDocument as TachographDocument;

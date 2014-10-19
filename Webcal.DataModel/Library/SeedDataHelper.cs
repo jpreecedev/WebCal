@@ -66,6 +66,12 @@
                 CompanyName = "Skillray",
                 SealNumber = ""
             });
+
+            context.MailSettings.Add(new MailSettings
+            {
+                AutoEmailCertificates = false,
+                PersonaliseMyEmails = false
+            });
         }
     }
 }

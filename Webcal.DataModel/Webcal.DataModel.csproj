@@ -157,6 +157,10 @@
     <Compile Include="Migrations\201410080710352_AddedSecondaryCustomerEmailAddress.Designer.cs">
       <DependentUpon>201410080710352_AddedSecondaryCustomerEmailAddress.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410190740354_AddedDeletedFlagToAllModels.cs" />
+    <Compile Include="Migrations\201410190740354_AddedDeletedFlagToAllModels.Designer.cs">
+      <DependentUpon>201410190740354_AddedDeletedFlagToAllModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomDayOfWeek.cs" />
     <Compile Include="Models\CustomerContact.cs" />
@@ -255,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410080710352_AddedSecondaryCustomerEmailAddress.resx">
       <DependentUpon>201410080710352_AddedSecondaryCustomerEmailAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410190740354_AddedDeletedFlagToAllModels.resx">
+      <DependentUpon>201410190740354_AddedDeletedFlagToAllModels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

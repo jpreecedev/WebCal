@@ -17,7 +17,7 @@
                 T existing = Context.Set<T>().Find(entity.Id);
                 if (existing != null)
                 {
-                    Context.Entry(entity).State = EntityState.Modified;
+                    Context.Entry(existing).CurrentValues.SetValues(entity);
                 }
                 else
                 {
@@ -33,17 +33,51 @@
 
         public virtual void Remove(T entity)
         {
-            Safely(() => Context.Set<T>().Remove(entity));
+            Safely(() =>
+            {
+                entity.Deleted = DateTime.Now;
+                Context.Entry(entity).State = EntityState.Modified;
+            });
         }
 
         public virtual ICollection<T> GetAll(params string[] includes)
         {
-            return Safely(() => Context.Set<T>().WithIncludes(Context, includes).ToList());
+            return GetAll(false, includes);
+        }
+
+        public ICollection<T> GetAll(bool includeDeleted, params string[] includes)
+        {
+            return Safely(() =>
+            {
+                var query = Context.Set<T>().WithIncludes(Context, includes);
+
+                if (!includeDeleted)
+                {
+                    query = query.Where(c => c.Deleted == null);
+                }
+
+                return query.ToList();
+            });
         }
 
         public virtual ICollection<T> Get(Expression<Func<T, bool>> predicate, params string[] includes)
         {
-            return Safely(() => Context.Set<T>().WithIncludes(Context, includes).Where(predicate.Compile()).ToList());
+            return Get(predicate, false, includes);
+        }
+
+        public ICollection<T> Get(Expression<Func<T, bool>> predicate, bool includeDeleted, params string[] includes)
+        {
+            return Safely(() =>
+            {
+                var query = Context.Set<T>().WithIncludes(Context, includes).Where(predicate.Compile());
+
+                if (!includeDeleted)
+                {
+                    query = query.Where(c => c.Deleted == null);
+                }
+
+                return query.ToList();
+            });
         }
 
         public virtual T FirstOrDefault(Expression<Func<T, bool>> predicate)
@@ -56,9 +90,24 @@
             return Safely(() => Context.Set<T>().First(predicate.Compile()));
         }
 
-        public virtual IEnumerable<T> Where(Expression<Func<T, bool>> predicate)
+        public virtual ICollection<T> Where(Expression<Func<T, bool>> predicate)
         {
-            return Safely(() => Context.Set<T>().Where(predicate.Compile()));
+            return Where(predicate, false);
+        }
+
+        public ICollection<T> Where(Expression<Func<T, bool>> predicate, bool includeDeleted)
+        {
+            return Safely(() =>
+            {
+                var query = Context.Set<T>().Where(predicate.Compile());
+
+                if (!includeDeleted)
+                {
+                    query = query.Where(c => c.Deleted == null);
+                }
+
+                return query.ToList();
+            });
         }
     }
 }

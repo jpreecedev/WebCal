@@ -41,7 +41,17 @@ namespace Webcal.Tests
             return _users;
         }
 
+        public ICollection<User> GetAll(bool includeDeleted, params string[] includes)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<User> Get(Expression<Func<User, bool>> predicate, params string[] includes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<User> Get(Expression<Func<User, bool>> predicate, bool includeDeleted, params string[] includes)
         {
             throw new NotImplementedException();
         }
@@ -56,12 +66,27 @@ namespace Webcal.Tests
             throw new NotImplementedException();
         }
 
+        ICollection<User> IRepository<User>.Where(Expression<Func<User, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<User> Where(Expression<Func<User, bool>> predicate, bool includeDeleted)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<User> Where(Expression<Func<User, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
         public void Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(User entity)
         {
             throw new NotImplementedException();
         }

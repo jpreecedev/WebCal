@@ -1,5 +1,6 @@
 ﻿namespace Webcal.Views.Settings
 {
+    using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
@@ -109,9 +110,9 @@
             }
 
             Reset();
+            Repository.AddOrUpdate(customerContact);
             Saved(customerContact);
 
-            Repository.Add(customerContact);
             Repository.Save();
         }
 
