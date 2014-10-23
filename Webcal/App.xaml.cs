@@ -1,6 +1,7 @@
 ﻿namespace Webcal
 {
     using System;
+    using System.Data.Entity;
     using System.Diagnostics;
     using System.Linq;
     using System.Windows;
@@ -10,6 +11,7 @@
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
+    using DataModel.Migrations;
     using Library;
     using Shared;
 
@@ -73,6 +75,12 @@
             //Resource dictionaries must be set in code to avoid issues with older operating systems
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative)});
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri(string.Format("pack://application:,,,/Fluent;Component/Themes/Office2010/{0}.xaml", "Silver"))});
+
+            //Prepare database
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TachographContext, Configuration>());
+
+            TachographContext context = new TachographContext();
+            context.Database.CreateIfNotExists();
 
             //Seed database
             ISettingsRepository<WorkshopSettings> generalSettings = SeedDataHelper.SeedDatabase();

@@ -109,58 +109,6 @@
     <Compile Include="Library\CalibrationRecord.cs" />
     <Compile Include="Library\Extensions.cs" />
     <Compile Include="Library\SeedDataHelper.cs" />
-    <Compile Include="Migrations\201308011405189_InitialCreate.cs" />
-    <Compile Include="Migrations\201308011405189_InitialCreate.Designer.cs">
-      <DependentUpon>201308011405189_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308190739365_AddUserManagement.cs" />
-    <Compile Include="Migrations\201308190739365_AddUserManagement.Designer.cs">
-      <DependentUpon>201308190739365_AddUserManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308201454077_AddSignatureCapture.cs" />
-    <Compile Include="Migrations\201308201454077_AddSignatureCapture.Designer.cs">
-      <DependentUpon>201308201454077_AddSignatureCapture.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308220832599_AddEmailCertificates.cs" />
-    <Compile Include="Migrations\201308220832599_AddEmailCertificates.Designer.cs">
-      <DependentUpon>201308220832599_AddEmailCertificates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308270856181_RemoveEmailFromMailSettings.cs" />
-    <Compile Include="Migrations\201308270856181_RemoveEmailFromMailSettings.Designer.cs">
-      <DependentUpon>201308270856181_RemoveEmailFromMailSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308271416352_EmailSettings_AddPersonaliseCheckBox.cs" />
-    <Compile Include="Migrations\201308271416352_EmailSettings_AddPersonaliseCheckBox.Designer.cs">
-      <DependentUpon>201308271416352_EmailSettings_AddPersonaliseCheckBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201309031209347_AddAutoPrintLabels.cs" />
-    <Compile Include="Migrations\201309031209347_AddAutoPrintLabels.Designer.cs">
-      <DependentUpon>201309031209347_AddAutoPrintLabels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408251416291_AddedIndexes.cs" />
-    <Compile Include="Migrations\201408251416291_AddedIndexes.Designer.cs">
-      <DependentUpon>201408251416291_AddedIndexes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409181234044_AddNumberOfCopies.cs" />
-    <Compile Include="Migrations\201409181234044_AddNumberOfCopies.Designer.cs">
-      <DependentUpon>201409181234044_AddNumberOfCopies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410060752479_AddedEmailPreferences.cs" />
-    <Compile Include="Migrations\201410060752479_AddedEmailPreferences.Designer.cs">
-      <DependentUpon>201410060752479_AddedEmailPreferences.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410070746550_AddedWorkshopEmailAddresses.cs" />
-    <Compile Include="Migrations\201410070746550_AddedWorkshopEmailAddresses.Designer.cs">
-      <DependentUpon>201410070746550_AddedWorkshopEmailAddresses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410080710352_AddedSecondaryCustomerEmailAddress.cs" />
-    <Compile Include="Migrations\201410080710352_AddedSecondaryCustomerEmailAddress.Designer.cs">
-      <DependentUpon>201410080710352_AddedSecondaryCustomerEmailAddress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410190740354_AddedDeletedFlagToAllModels.cs" />
-    <Compile Include="Migrations\201410190740354_AddedDeletedFlagToAllModels.Designer.cs">
-      <DependentUpon>201410190740354_AddedDeletedFlagToAllModels.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomDayOfWeek.cs" />
     <Compile Include="Models\CustomerContact.cs" />
@@ -208,7 +156,6 @@
     <Compile Include="Repositories\TachographMakesRepository.cs" />
     <Compile Include="Repositories\VehicleRepository.cs" />
     <Compile Include="TachographContext.cs" />
-    <Compile Include="TachographInitialiser.cs" />
     <Compile Include="Library\UserManagement.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,45 +171,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201308011405189_InitialCreate.resx">
-      <DependentUpon>201308011405189_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308190739365_AddUserManagement.resx">
-      <DependentUpon>201308190739365_AddUserManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308201454077_AddSignatureCapture.resx">
-      <DependentUpon>201308201454077_AddSignatureCapture.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308220832599_AddEmailCertificates.resx">
-      <DependentUpon>201308220832599_AddEmailCertificates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308270856181_RemoveEmailFromMailSettings.resx">
-      <DependentUpon>201308270856181_RemoveEmailFromMailSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308271416352_EmailSettings_AddPersonaliseCheckBox.resx">
-      <DependentUpon>201308271416352_EmailSettings_AddPersonaliseCheckBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201309031209347_AddAutoPrintLabels.resx">
-      <DependentUpon>201309031209347_AddAutoPrintLabels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408251416291_AddedIndexes.resx">
-      <DependentUpon>201408251416291_AddedIndexes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409181234044_AddNumberOfCopies.resx">
-      <DependentUpon>201409181234044_AddNumberOfCopies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410060752479_AddedEmailPreferences.resx">
-      <DependentUpon>201410060752479_AddedEmailPreferences.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410070746550_AddedWorkshopEmailAddresses.resx">
-      <DependentUpon>201410070746550_AddedWorkshopEmailAddresses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410080710352_AddedSecondaryCustomerEmailAddress.resx">
-      <DependentUpon>201410080710352_AddedSecondaryCustomerEmailAddress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410190740354_AddedDeletedFlagToAllModels.resx">
-      <DependentUpon>201410190740354_AddedDeletedFlagToAllModels.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

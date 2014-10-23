@@ -1,8 +1,6 @@
 ﻿namespace Webcal.DataModel.Core
 {
     using System;
-    using System.Data.Entity;
-    using System.IO;
     using System.Windows;
     using Properties;
     using Repositories;
@@ -14,7 +12,6 @@
     public static class ContainerBootstrapper
     {
         private static readonly Container _container;
-        private static readonly string _databasePath = Environment.SpecialFolder.MyDocuments + "\\webcal.sdf";
 
         static ContainerBootstrapper()
         {
@@ -30,11 +27,6 @@
         {
             try
             {
-                if (File.Exists(_databasePath))
-                {
-                    Database.SetInitializer(new TachographInitialiser());
-                }
-
                 x.AddRegistry<ContainerRegistry>();
             }
             catch (Exception ex)
