@@ -56,7 +56,7 @@
 
         protected override void Load()
         {
-            Makes = new ObservableCollection<VehicleMake>(Repository.GetAll().RemoveAt(0));
+            Makes = new ObservableCollection<VehicleMake>(Repository.GetAll("Models").RemoveAt(0));
             Makes.CollectionChanged += (sender, e) => RefreshCommands();
         }
 

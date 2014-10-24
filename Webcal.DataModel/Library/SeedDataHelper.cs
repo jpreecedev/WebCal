@@ -1,6 +1,7 @@
 ﻿namespace Webcal.DataModel.Library
 {
     using System;
+    using System.Collections.ObjectModel;
     using Core;
     using Properties;
     using Shared;
@@ -71,6 +72,146 @@
             {
                 AutoEmailCertificates = false,
                 PersonaliseMyEmails = false
+            });
+
+            context.TachographMakes.AddRange(new[]
+            {
+                new TachographMake
+                {
+                    Id = 1,
+                    Name = "SIEMENS VDO",
+                    Models = new ObservableCollection<TachographModel>
+                    {
+                        new TachographModel { Name="1381" }
+                    }
+                },
+                new TachographMake
+                {
+                    Id = 2,
+                    Name="VDO",
+                    Models = new ObservableCollection<TachographModel>
+                    {
+                        new TachographModel { Name="1318" },
+                        new TachographModel { Name="1324" },
+                        new TachographModel { Name="1314" },
+                        new TachographModel { Name="1319" }
+                    }
+                },
+                new TachographMake
+                {
+                    Id = 3,
+                    Name="STONERIDGE",
+                    Models = new ObservableCollection<TachographModel>
+                    {
+                        new TachographModel { Name="SE5000" },
+                        new TachographModel { Name="8400" },
+                        new TachographModel { Name="2400" }
+                    }
+                }
+            });
+
+            context.VehicleMakes.AddRange(new[]
+            {
+                new VehicleMake
+                {
+                    Id = 1,
+                    Name = "DAF",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "LF"},
+                        new VehicleModel{ Name = "CF"},
+                        new VehicleModel{ Name = "XF"}
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 2,
+                    Name = "SCANIA",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "R SERIES"},
+                        new VehicleModel{ Name = "G SERIES"}
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 3,
+                    Name = "MERCEDES",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "SPRINTER"},
+                        new VehicleModel{ Name = "ATEGO"},
+                        new VehicleModel{ Name = "AXOR"},
+                        new VehicleModel{ Name = "ACTROS"}
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 4,
+                    Name = "RENAULT",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "PREMIUM"},
+                        new VehicleModel{ Name = "MAGNUM"}
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 5,
+                    Name = "VOLVO",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "FL"},
+                        new VehicleModel{ Name = "FH"},
+                        new VehicleModel{ Name = "FM"}
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 6,
+                    Name = "INVECO",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "STRALIS"},
+                        new VehicleModel{ Name = "DAILY"},
+                        new VehicleModel{ Name = "EUROCARGO"}
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 7,
+                    Name = "MAN",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "TGL"},
+                        new VehicleModel{ Name = "TGX"}
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 8,
+                    Name = "ISUZU",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "D MAX"},
+                        new VehicleModel{ Name = "N35"},
+                        new VehicleModel{ Name = "N75"}
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 9,
+                    Name = "DENNIS",
+                    Models = new ObservableCollection<VehicleModel>
+                    {
+                        new VehicleModel{ Name = "EAGLE"},
+                    }
+                },
+                new VehicleMake
+                {
+                    Id = 10,
+                    Name = "HINO",
+                }
             });
         }
     }

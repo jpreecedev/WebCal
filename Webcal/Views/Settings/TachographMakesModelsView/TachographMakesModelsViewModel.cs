@@ -43,7 +43,7 @@
 
         protected override void Load()
         {
-            Makes = new ObservableCollection<TachographMake>(Repository.GetAll().RemoveAt(0));
+            Makes = new ObservableCollection<TachographMake>(Repository.GetAll("Models").RemoveAt(0));
             Makes.CollectionChanged += (sender, e) => RefreshCommands();
         }
 
