@@ -33,6 +33,7 @@
 
         protected override void Load()
         {
+            base.Load();
             Populate();
         }
 

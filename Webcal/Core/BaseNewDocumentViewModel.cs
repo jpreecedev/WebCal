@@ -7,6 +7,7 @@
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
+    using EventArguments;
     using Library;
     using Library.PDF;
     using Properties;
@@ -15,17 +16,13 @@
 
     public class BaseNewDocumentViewModel : BaseMainViewModel, INewDocumentViewModel
     {
-        protected SmartCardMonitor SmartCardReader
-        {
-            get { return SmartCardMonitor.Instance; }
-        }
-
         public DelegateCommand<Grid> ExportPDFCommand { get; set; }
         public DelegateCommand<Grid> PrintCommand { get; set; }
         public DelegateCommand<string> RegistrationChangedCommand { get; set; }
         public WorkshopSettings WorkshopSettings { get; set; }
         public MailSettings MailSettings { get; set; }
         public bool IsHistoryMode { get; set; }
+        public IDriverCardReader DriverCardReader { get; set; }
 
         public virtual void OnModalClosed()
         {
@@ -48,12 +45,48 @@
             MailSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>().Get();
         }
 
+        protected override void Load()
+        {
+            DriverCardReader = new DriverCardReader();
+
+            DriverCardReader.Completed += (sender, args) =>
+            {
+                if (args.Operation == SmartCardReadOperation.Fast)
+                {
+                    OnFastReadCompleted(sender, args);
+                }
+                else
+                {
+                    OnDumpCompleted(sender, args);
+                }
+            };
+
+            DriverCardReader.Progress += OnProgress;
+        }
+
         protected virtual void Add()
         {
         }
 
         protected virtual void RegistrationChanged(string registrationNumber)
         {
+        }
+
+        protected virtual void OnProgress(object sender, DriverCardProgressEventArgs e)
+        {
+        }
+
+        protected virtual void OnDumpCompleted(object sender, DriverCardCompletedEventArgs e)
+        {
+        }
+
+        protected virtual void OnFastReadCompleted(object sender, DriverCardCompletedEventArgs e)
+        {
+        }
+
+        public override void OnClosing(bool cancelled)
+        {
+            DriverCardReader.Dispose();
         }
 
         private void OnExportPDF(Grid root)
@@ -118,7 +151,7 @@
                 return;
             }
 
-            if (SmartCardReader != null)
+            if (DriverCardReader != null)
             {
                 RegistrationChanged(registrationNumber);
             }

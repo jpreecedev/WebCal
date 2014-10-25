@@ -137,4 +137,13 @@
   <data name="EXC_IMAGE_COULD_NOT_BE_LOADED" xml:space="preserve">
     <value>Image could not be loaded</value>
   </data>
+  <data name="TXT_MAX_RETRIES_REACHED" xml:space="preserve">
+    <value>The maximum number of retries has been reached</value>
+  </data>
+  <data name="TXT_ATTEMPT_FAILED" xml:space="preserve">
+    <value>Failed. Trying again in {0} seconds...</value>
+  </data>
+  <data name="TXT_FAILED" xml:space="preserve">
+    <value>Failed.</value>
+  </data>
 </root>

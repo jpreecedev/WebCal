@@ -812,4 +812,10 @@ Invoice number</value>
   <data name="TXT_DATE" xml:space="preserve">
     <value>DATE:</value>
   </data>
+  <data name="EXC_UNABLE_READ_SMART_CARD" xml:space="preserve">
+    <value>Unable to read smartcard.</value>
+  </data>
+  <data name="TXT_PLEASE_WAIT" xml:space="preserve">
+    <value>Please wait...</value>
+  </data>
 </root>

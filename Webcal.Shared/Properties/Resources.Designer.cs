@@ -108,11 +108,38 @@ namespace Webcal.Shared.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed. Trying again in {0} seconds....
+        /// </summary>
+        internal static string TXT_ATTEMPT_FAILED {
+            get {
+                return ResourceManager.GetString("TXT_ATTEMPT_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string TXT_ERROR {
             get {
                 return ResourceManager.GetString("TXT_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed..
+        /// </summary>
+        internal static string TXT_FAILED {
+            get {
+                return ResourceManager.GetString("TXT_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum number of retries has been reached.
+        /// </summary>
+        internal static string TXT_MAX_RETRIES_REACHED {
+            get {
+                return ResourceManager.GetString("TXT_MAX_RETRIES_REACHED", resourceCulture);
             }
         }
     }

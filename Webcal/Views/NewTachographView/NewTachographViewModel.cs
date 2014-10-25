@@ -5,7 +5,6 @@
     using System.Collections.ObjectModel;
     using System.IO;
     using System.Linq;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
     using System.Xml.Linq;
@@ -13,6 +12,7 @@
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
+    using EventArguments;
     using Library;
     using Properties;
     using Shared;
@@ -82,8 +82,9 @@
 
         protected override void Load()
         {
-            SwitchReadButtonState(true);
+            base.Load();
 
+            SwitchReadButtonState(true);
             Populate();
         }
 
@@ -153,7 +154,75 @@
                 Document.VIN = match.VIN;
             }
         }
-        
+
+        protected override void OnFastReadCompleted(object sender, DriverCardCompletedEventArgs e)
+        {
+            if (!e.IsSuccess)
+            {
+                StatusText = Resources.TXT_UNABLE_READ_SMART_CARD;
+                return;
+            }
+
+            if (e.CalibrationRecord == null)
+            {
+                if (IsCardReadUserInitiated)
+                {
+                    SwitchReadButtonState(true);
+                    ShowError(Resources.EXC_NO_SMART_CARD_READERS_FOUND);
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(LastPlateRead))
+                {
+                    LastPlateRead = "";
+                }
+
+                if (LastPlateRead != e.CalibrationRecord.VehicleRegistrationNumber || !e.AutoRead)
+                {
+                    LastPlateRead = e.CalibrationRecord.VehicleRegistrationNumber;
+
+                    if (RegistrationChangedCommand != null)
+                    {
+                        RegistrationChangedCommand.Execute(e.CalibrationRecord.VehicleRegistrationNumber);
+                    }
+
+                    MainWindow.IsNavigationLocked = true;
+
+                    Document.Convert(e.CalibrationRecord);
+
+                    PrintLabel(Document);
+
+                    StatusText = Resources.TXT_GENERATING_WORKSHOP_CARD_FILE;
+                    DriverCardReader.GenerateDump();
+                }
+            }
+        }
+
+        protected override void OnDumpCompleted(object sender, DriverCardCompletedEventArgs e)
+        {
+            string[] cardDetails = DisplayWorkshopCardDetails(e.DumpFilePath);
+            if (cardDetails != null)
+            {
+                WorkshopCardFile workshopCardFile = WorkshopCardFile.GetWorkshopCardFile(DateTime.Now, cardDetails[1], cardDetails[0]);
+                WorkshopCardFilesRepository.Add(workshopCardFile.Clone<WorkshopCardFile>());
+                StatusText = Resources.TXT_WORKSHOP_CARD_FILE_GENERATED;
+            }
+            else
+            {
+                StatusText = Resources.TXT_UNABLE_GENERATE_WORKSHOP_CARD;
+                MessageBoxHelper.ShowMessage(Resources.ERR_UNABLE_READ_SMART_CARD);
+                MainWindow.IsNavigationLocked = false;
+            }
+
+            SwitchReadButtonState(true);
+        }
+
+        protected override void OnProgress(object sender, DriverCardProgressEventArgs e)
+        {
+            StatusText = e.Message;
+        }
+
         protected override bool IncludeDeletedContacts
         {
             get { return IsHistoryMode; }
@@ -167,45 +236,10 @@
 
                 try
                 {
-                    bool autoRead = obj != null;
-
                     IsCardReadUserInitiated = obj == null;
                     SwitchReadButtonState(false);
 
-                    CalibrationRecord calibrationRecord = SmartCardReader.Refresh();
-                    if (calibrationRecord == null)
-                    {
-                        if (IsCardReadUserInitiated)
-                        {
-                            SwitchReadButtonState(true);
-                            ShowError(Resources.EXC_NO_SMART_CARD_READERS_FOUND);
-                        }
-                    }
-                    else
-                    {
-                        if (string.IsNullOrEmpty(LastPlateRead))
-                        {
-                            LastPlateRead = "";
-                        }
-
-                        if (LastPlateRead != calibrationRecord.VehicleRegistrationNumber || !autoRead)
-                        {
-                            LastPlateRead = calibrationRecord.VehicleRegistrationNumber;
-
-                            if (RegistrationChangedCommand != null)
-                            {
-                                RegistrationChangedCommand.Execute(calibrationRecord.VehicleRegistrationNumber);
-                            }
-
-                            MainWindow.IsNavigationLocked = true;
-
-                            Document.Convert(calibrationRecord);
-
-                            PrintLabel(Document);
-
-                            GenerateDump();
-                        }
-                    }
+                    DriverCardReader.FastRead(obj != null);
                 }
                 catch (AggregateException aggregateEx)
                 {
@@ -262,33 +296,6 @@
             {
                 Document.Technician = defaultTechnician.Name;
             }
-        }
-
-        private void GenerateDump()
-        {
-            StatusText = Resources.TXT_GENERATING_WORKSHOP_CARD_FILE;
-
-            var task = new Task<string>(() => SmartCardReader.GetCardDump());
-            task.ContinueWith(p =>
-            {
-                string[] cardDetails = DisplayWorkshopCardDetails(p.Result);
-                if (cardDetails != null)
-                {
-                    WorkshopCardFile workshopCardFile = WorkshopCardFile.GetWorkshopCardFile(DateTime.Now, cardDetails[1], cardDetails[0]);
-                    WorkshopCardFilesRepository.Add(workshopCardFile.Clone<WorkshopCardFile>());
-                    StatusText = Resources.TXT_WORKSHOP_CARD_FILE_GENERATED;
-                }
-                else
-                {
-                    StatusText = Resources.TXT_UNABLE_GENERATE_WORKSHOP_CARD;
-                    MessageBoxHelper.ShowMessage(Resources.ERR_UNABLE_READ_SMART_CARD);
-                    MainWindow.IsNavigationLocked = false;
-                }
-
-                SwitchReadButtonState(true);
-            },
-                TaskScheduler.FromCurrentSynchronizationContext());
-            task.Start();
         }
 
         private static string[] DisplayWorkshopCardDetails(string xml)

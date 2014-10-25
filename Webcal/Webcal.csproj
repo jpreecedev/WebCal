@@ -225,10 +225,15 @@
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\DelegateCommand.cs" />
     <Compile Include="Core\INewDocumentViewModel.cs" />
+    <Compile Include="EventArguments\DriverCardCompletedEventArgs.cs" />
+    <Compile Include="EventArguments\DriverCardProgressEventArgs.cs" />
+    <Compile Include="Library\IDriverCardReader.cs" />
     <Compile Include="Library\BackupRestoreManager.cs" />
+    <Compile Include="Library\CalibrationRecordParser.cs" />
     <Compile Include="Library\DialogHelper.cs" />
     <Compile Include="Library\DialogHelperResult.cs" />
     <Compile Include="Library\DocumentHelper.cs" />
+    <Compile Include="Library\DriverCardReader.cs" />
     <Compile Include="Library\EmailHelper.cs" />
     <Compile Include="Library\ExcelHelper.cs" />
     <Compile Include="Library\Extensions.cs" />
@@ -251,7 +256,6 @@
     <Compile Include="Library\PDF\VOSADocument.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
-    <Compile Include="Library\SmartCardMonitor.cs" />
     <Compile Include="Library\ViewModels\WorkerViewModel.cs" />
     <Compile Include="Library\WorkerHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -382,6 +386,7 @@
     <Compile Include="Windows\ProgressWindow\ProgressWindow.xaml.cs">
       <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ProgressWindow\ProgressWindowViewModel.cs" />
     <Compile Include="Windows\ReprintWindow\ReprintWindow.xaml.cs">
       <DependentUpon>ReprintWindow.xaml</DependentUpon>
     </Compile>

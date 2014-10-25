@@ -357,6 +357,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to read smartcard..
+        /// </summary>
+        internal static string EXC_UNABLE_READ_SMART_CARD {
+            get {
+                return ResourceManager.GetString("EXC_UNABLE_READ_SMART_CARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to create driver card file..
         /// </summary>
         internal static string EXC_UNABLE_TO_CREATE_DRIVER_CARD {
@@ -1248,6 +1257,15 @@ namespace Webcal.Properties {
         internal static string TXT_PLAQUE_TACHOGRAPH_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_PLAQUE_TACHOGRAPH_DOCUMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please wait....
+        /// </summary>
+        internal static string TXT_PLEASE_WAIT {
+            get {
+                return ResourceManager.GetString("TXT_PLEASE_WAIT", resourceCulture);
             }
         }
         

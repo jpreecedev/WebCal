@@ -3,7 +3,6 @@
     using System;
     using System.IO;
     using System.Linq;
-    using System.Threading.Tasks;
     using System.Windows.Controls;
     using System.Xml.Linq;
     using Windows.ProgressWindow;
@@ -11,23 +10,30 @@
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
+    using EventArguments;
     using Library;
     using Properties;
     using Shared;
 
     public class WorkshopCardFilesViewModel : BaseFilesViewModel
     {
+        private ProgressWindow _progressWindow;
         public IRepository<WorkshopCardFile> WorkshopCardFilesRepository { get; set; }
         public string Workshop { get; set; }
         public bool IsReadFromCardEnabled { get; set; }
         public bool IsFormEnabled { get; set; }
         public DelegateCommand<Grid> ReadFromCardCommand { get; set; }
+        public IDriverCardReader DriverCardReader { get; set; }
 
         protected override void Load()
         {
             IsReadFromCardEnabled = true;
             IsFormEnabled = true;
             StoredFiles.AddRange(WorkshopCardFilesRepository.GetAll());
+
+            DriverCardReader = new DriverCardReader();
+            DriverCardReader.Completed += Completed;
+            DriverCardReader.Progress += Progress;
         }
 
         protected override void InitialiseRepositories()
@@ -82,6 +88,7 @@
         public override void OnClosing(bool cancelled)
         {
             WorkshopCardFilesRepository.Save();
+            DriverCardReader.Dispose();
         }
 
         private void OnReadFromCard(Grid root)
@@ -91,25 +98,28 @@
                 return;
             }
 
-            var progressWindow = new ProgressWindow();
+            DriverCardReader.GenerateDump();
 
-            var task = new Task<string>(SmartCardMonitor.Instance.GetCardDump);
-            task.Start();
-            task.ContinueWith(t =>
+            _progressWindow = new ProgressWindow();
+            _progressWindow.ShowDialog();
+        }
+
+        private void Progress(object sender, DriverCardProgressEventArgs e)
+        {
+            ((ProgressWindowViewModel) _progressWindow.DataContext).ProgressText = e.Message;
+        }
+
+        private void Completed(object sender, DriverCardCompletedEventArgs e)
+        {
+            _progressWindow.Close();
+
+            if (!e.IsSuccess)
             {
-                progressWindow.Close();
+                ShowError(Resources.TXT_UNABLE_READ_SMART_CARD);
+                return;
+            }
 
-                if (string.IsNullOrEmpty(t.Result))
-                {
-                    ShowError(Resources.TXT_UNABLE_READ_SMART_CARD);
-                    return;
-                }
-
-                DisplayWorkshopCardDetails(t.Result);
-            },
-                TaskScheduler.FromCurrentSynchronizationContext());
-
-            progressWindow.ShowDialog();
+            DisplayWorkshopCardDetails(e.DumpFilePath);
         }
 
         private void DisplayWorkshopCardDetails(string xml)

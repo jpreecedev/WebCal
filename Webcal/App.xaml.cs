@@ -53,7 +53,6 @@
                 {
                     ShutdownMode = ShutdownMode.OnMainWindowClose;
                     MainWindow = new MainWindow();
-                    SmartCardMonitor.Instance.MainWindowViewModel = (MainWindowViewModel) MainWindow.DataContext;
 
                     MainWindow.ShowDialog();
                 }

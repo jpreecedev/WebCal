@@ -68,6 +68,17 @@
                 return ExtractEntityValidationExceptions(dbEntityValidationException);
             }
 
+            var aggregateException = exception as AggregateException;
+            if (aggregateException != null)
+            {
+                string message = string.Empty;
+                foreach (var innerException in aggregateException.InnerExceptions)
+                {
+                   message += (GetExceptionMessage(message, innerException));
+                }
+                return message;
+            }
+
             return GetExceptionMessage("", exception);
         }
 
