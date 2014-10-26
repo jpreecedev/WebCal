@@ -1,6 +1,5 @@
 ﻿namespace Webcal.Views.Settings
 {
-    using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
@@ -16,6 +15,11 @@
         public ObservableCollection<CustomerContact> CustomerContacts { get; set; }
         public CustomerContact NewCustomerContact { get; set; }
         public bool IsEditing { get; set; }
+
+        public CustomerSettingsViewModel()
+        {
+            SelectedIndex = -1;
+        }
 
         public CustomerContact SelectedCustomerContact
         {
