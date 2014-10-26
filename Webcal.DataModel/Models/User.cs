@@ -41,11 +41,6 @@
             }
         }
 
-        public bool IsSuperUser
-        {
-            get { return string.Equals(Username, "superuser", StringComparison.CurrentCultureIgnoreCase); }
-        }
-
         private static byte[] ToByteArray(Image imageIn)
         {
             try
