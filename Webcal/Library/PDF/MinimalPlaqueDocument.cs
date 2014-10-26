@@ -21,7 +21,7 @@ namespace Webcal.Library.PDF
             //Add images
             ////Workshop
 
-            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "ContactImages");
+            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Webcal", "ContactImages");
 
             string companyLogo = null;
 
@@ -262,8 +262,8 @@ namespace Webcal.Library.PDF
 
         protected override void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument)
         {
-            int startHorizontal = 20;
-            int startVertical = 0;
+            const int startHorizontal = 20;
+            const int startVertical = 0;
 
             document.DrawLine((startHorizontal), (startVertical), (startHorizontal + 555), (startVertical), TotalPageHeight);
 
@@ -286,7 +286,7 @@ namespace Webcal.Library.PDF
                 document.DrawLine((startHorizontal), (startVertical + 630), (startHorizontal + 555), (startVertical + 630), TotalPageHeight);
             }
 
-            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "ContactImages");
+            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Webcal", "ContactImages");
 
             string companyLogo = null;
 
@@ -319,43 +319,9 @@ namespace Webcal.Library.PDF
                 }
             }
 
-            string adDirectoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "AdvertImages");
-
-            string advertImage = null;
-
-            if (!Directory.Exists(adDirectoryInfo))
-            {
-                Directory.CreateDirectory(adDirectoryInfo);
-            }
-
-            foreach (string file in Directory.GetFiles(adDirectoryInfo))
-            {
-                advertImage = file;
-            }
-            if (File.Exists(advertImage))
-            {
-                if (advertImage != null)
-                {
-                    Image finalAdvertImage = Image.FromFile(advertImage);
-
-                    const float profileImageMaxHeight = 145;
-                    const float profileImageMaxWidth = 330;
-
-                    float widthScale = profileImageMaxWidth/finalAdvertImage.Width;
-                    float heightScale = profileImageMaxHeight/finalAdvertImage.Height;
-                    float scale = Math.Min(widthScale, heightScale);
-                    float newWidth = finalAdvertImage.Width*scale;
-                    float newHeight = finalAdvertImage.Height*scale;
-
-                    document.AddImage(ToByteArray(finalAdvertImage), newWidth, newHeight, (startHorizontal + 200), startVertical + 670);
-                }
-            }
-
-
             AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE.ToUpper(), (startHorizontal + 200), (startVertical + 170), 580, 100, document.GetRegularFont(true));
             document.DrawLine((startHorizontal + 200), (startVertical + 188), (startHorizontal + 367), (startVertical + 188), TotalPageHeight);
-
-
+            
             if (CustomerContact != null)
             {
                 AbsolutePositionText(document, Resources.TXT_CUSTOMER_DETAILS.ToUpper(), (startHorizontal + 5), (startVertical + 200), 200, 40, document.GetRegularFont(true));

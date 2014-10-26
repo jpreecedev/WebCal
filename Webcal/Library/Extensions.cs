@@ -159,75 +159,7 @@
                 Int32Rect.Empty,
                 BitmapSizeOptions.FromEmptyOptions());
         }
-
-        public static void Print(this FrameworkElement fe)
-        {
-            if (fe == null)
-            {
-                return;
-            }
-
-            var pd = new PrintDialog();
-            if (pd.ShowDialog() != true)
-            {
-                return;
-            }
-
-            fe.Dispatcher.Invoke(new Action(() =>
-            {
-                fe.Measure(new System.Windows.Size(Double.PositiveInfinity, Double.PositiveInfinity));
-                fe.Arrange(new Rect(fe.DesiredSize));
-                fe.UpdateLayout();
-            }),
-                DispatcherPriority.Render);
-
-            var height = (int) pd.PrintableAreaHeight;
-            var width = (int) pd.PrintableAreaWidth;
-            var pages = (int) Math.Ceiling((fe.ActualHeight/height));
-
-            var document = new FixedDocument();
-
-            for (int i = 0; i < pages; i++)
-            {
-                var page = new FixedPage
-                {
-                    Height = height,
-                    Width = width
-                };
-
-                var content = new PageContent {Child = page};
-
-                document.Pages.Add(content);
-
-                var vb = new VisualBrush(fe)
-                {
-                    AlignmentX = AlignmentX.Left,
-                    AlignmentY = AlignmentY.Top,
-                    Stretch = Stretch.None,
-                    TileMode = TileMode.None,
-                    Viewbox = new Rect(0, i*height, width, (i + 1)*height),
-                    ViewboxUnits = BrushMappingMode.Absolute
-                };
-
-                RenderOptions.SetBitmapScalingMode(vb, BitmapScalingMode.HighQuality);
-
-                var canvas = new Canvas
-                {
-                    Background = vb,
-                    Height = height,
-                    Width = width
-                };
-
-                FixedPage.SetLeft(canvas, 0);
-                FixedPage.SetTop(canvas, 0);
-
-                page.Children.Add(canvas);
-            }
-
-            pd.PrintDocument(document.DocumentPaginator,
-                ((String.IsNullOrWhiteSpace(fe.Name) ? "Temp" : fe.Name) + " PRINT"));
-        }
-
+        
         public static Image Resize(this Image image, Size size)
         {
             return new Bitmap(image, size);

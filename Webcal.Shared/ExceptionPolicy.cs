@@ -29,9 +29,7 @@
                     Occurred = DateTime.Now,
                     RawImage = ScreenshotHelper.TakeScreenshot()
                 });
-
-                File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "error.txt"), exception.Message);
-
+                
                 repository.Save();
             }
             catch (Exception ex)

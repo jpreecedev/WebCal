@@ -69,7 +69,7 @@
 
         private static bool InitialiseApplication()
         {
-            AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+            AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments));
 
             //Resource dictionaries must be set in code to avoid issues with older operating systems
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative)});
@@ -81,8 +81,12 @@
             TachographContext context = new TachographContext();
             context.Database.CreateIfNotExists();
 
+            //Make database accessible to all users
+            MigrationHelper.SetDatabasePermissions();
+
             //Seed database
             ISettingsRepository<WorkshopSettings> generalSettings = SeedDataHelper.SeedDatabase();
+            MigrationHelper.MigrateIfRequired();
 
             //Back up the database, if needed
             BackupRestoreManager.BackupIfRequired(generalSettings.GetWorkshopSettings());

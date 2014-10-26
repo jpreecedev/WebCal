@@ -31,7 +31,7 @@
             document.DrawLine((startHorizontal), (startVertical + 400), (startHorizontal + 545), (startVertical + 400), TotalPageHeight);
             document.DrawLine((startHorizontal), (startVertical + 600), (startHorizontal + 545), (startVertical + 600), TotalPageHeight);
 
-            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "ContactImages");
+            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Webcal", "ContactImages");
 
             string companyLogo = null;
 
@@ -62,41 +62,6 @@
 
                     document.AddImage(ToByteArray(workshopImage), newWidth, newHeight, (startHorizontal + 5),
                         startVertical + 5);
-                }
-            }
-
-
-            string adDirectoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "WebCal", "AdvertImages");
-
-            string advertImage = null;
-
-            if (!Directory.Exists(adDirectoryInfo))
-            {
-                Directory.CreateDirectory(adDirectoryInfo);
-            }
-
-            foreach (string file in Directory.GetFiles(adDirectoryInfo))
-            {
-                advertImage = file;
-            }
-
-            if (File.Exists(advertImage))
-            {
-                if (advertImage != null)
-                {
-                    Image finalAdvertImage = Image.FromFile(advertImage);
-
-                    const float profileImageMaxHeight = 150;
-                    const float profileImageMaxWidth = 295;
-
-                    float widthScale = profileImageMaxWidth/finalAdvertImage.Width;
-                    float heightScale = profileImageMaxHeight/finalAdvertImage.Height;
-                    float scale = Math.Min(widthScale, heightScale);
-                    float newWidth = finalAdvertImage.Width*scale;
-                    float newHeight = finalAdvertImage.Height*scale;
-
-                    document.AddImage(ToByteArray(finalAdvertImage), newWidth, newHeight, (startHorizontal + 5),
-                        startVertical + 285);
                 }
             }
 

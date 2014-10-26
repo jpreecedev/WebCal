@@ -53,18 +53,8 @@
                         Command="{Binding BrowseCommand}"
                         HorizontalAlignment="Left"
                         Width="80" />
-                <Image Source="{Binding CompanyLogo}" 
+                <Image Source="{Binding Settings.Image, Converter={StaticResource ImgToBitmapSource}}" 
                        Width="100"
-                       Height="100"
-                       HorizontalAlignment="Left"
-                       Margin="45,0,0,0"/>
-                <Button Content="Load Advert"
-                        Command="{Binding BrowseAdvertCommand}"
-                        HorizontalAlignment="Left"
-                        Width="70"
-                        Margin="65,0,0,0"/>
-                <Image Source="{Binding AdvertisingImage}" 
-                       Width="200"
                        Height="100"
                        HorizontalAlignment="Left"
                        Margin="45,0,0,0"/>

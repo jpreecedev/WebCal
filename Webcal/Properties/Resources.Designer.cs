@@ -2068,23 +2068,5 @@ namespace Webcal.Properties {
                 return ResourceManager.GetString("TXT_YES", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select a picture.
-        /// </summary>
-        internal static string WorkshopSettingsViewModel_OnBrowse_Select_a_picture {
-            get {
-                return ResourceManager.GetString("WorkshopSettingsViewModel_OnBrowse_Select_a_picture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select a picture.
-        /// </summary>
-        internal static string WorkshopSettingsViewModel_OnBrowse_Select_an_advert {
-            get {
-                return ResourceManager.GetString("WorkshopSettingsViewModel_OnBrowse_Select_an_advert", resourceCulture);
-            }
-        }
     }
 }

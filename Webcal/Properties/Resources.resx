@@ -797,12 +797,6 @@ Invoice number</value>
   <data name="TXT_WEBCAL_POSTCODE" xml:space="preserve">
     <value>WA1 4RF</value>
   </data>
-  <data name="WorkshopSettingsViewModel_OnBrowse_Select_a_picture" xml:space="preserve">
-    <value>Select a picture</value>
-  </data>
-  <data name="WorkshopSettingsViewModel_OnBrowse_Select_an_advert" xml:space="preserve">
-    <value>Select a picture</value>
-  </data>
   <data name="SELECT_BITMAP_IMAGE" xml:space="preserve">
     <value>All supported graphics|*.jpg;*.jpeg;*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|Portable Network Graphic (*.png)|*.png</value>
   </data>
