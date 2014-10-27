@@ -206,14 +206,14 @@
             return null;
         }
 
-        protected void TryAddSignature(PDFDocument document, int x, int y)
+        protected void TryAddSignature(PDFDocument document, int x, int y = 88)
         {
             var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
             User user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {
                 Image image = ImageHelper.Scale(user.Image, 50);
-                document.AddImage(ToByteArray(image), image.Width, image.Height, x, 80);
+                document.AddImage(ToByteArray(image), image.Width, image.Height, x, y);
             }
         }
     }

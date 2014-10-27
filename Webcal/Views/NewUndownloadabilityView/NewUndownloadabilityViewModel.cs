@@ -7,6 +7,7 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
     using Library;
     using Shared;
 
@@ -42,6 +43,8 @@
             UndownloadabilityRepository = ContainerBootstrapper.Container.GetInstance<IRepository<UndownloadabilityDocument>>();
             TachographMakesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
             TechnicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
+            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+            MailSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>().Get();
         }
 
         public override void OnModalClosed()

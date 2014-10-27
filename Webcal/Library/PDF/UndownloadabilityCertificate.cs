@@ -58,7 +58,7 @@
 
             AbsolutePositionText(document, Resources.TXT_DATE, 125, 175, 200, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
 
-            TryAddSignature(document, 310, 170);
+            TryAddSignature(document, 310, 158);
             AbsolutePositionText(document, string.Format(Resources.TXT_UNDOWNLOADABILITY_SIGNATURE, undownloadabilityDocument.Technician), 322, 175, 522, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
         }
 

@@ -138,7 +138,7 @@ namespace Webcal.Library.PDF
             AbsolutePositionText(document, Resources.TXT_TECHNICIAN, (startHorizontal + 50), (startVertical + 270), 150, 20);
             AbsolutePositionText(document, Resources.TXT_DATE, (startHorizontal + 150), (startVertical + 328), 200, 40);
 
-            TryAddSignature(document, (startHorizontal + 330), (startVertical + 50));
+            TryAddSignature(document, (startHorizontal + 330));
             AbsolutePositionText(document, string.Format(Resources.TXT_SIGNATURE_TECHNICIAN_LARGE, tachographDocument.Technician), (startHorizontal + 347), (startVertical + 328), 550, 40);
 
             //Tachograph
@@ -477,7 +477,7 @@ namespace Webcal.Library.PDF
                 AbsolutePositionText(document, Resources.TXT_AUTHORISED_TESTERS_SIGNATURE, (startHorizontal + 300), (startVertical + 620), 700, 72, document.GetRegularFont(true));
                 AbsolutePositionText(document, string.Format(Resources.TXT_SIGNATURE_TECHNICIAN, tachographDocument.Technician), (startHorizontal + 300), (startVertical + 650), 550, 20);
 
-                TryAddSignature(document, (startHorizontal + 300), (startVertical + 670));
+                TryAddSignature(document, (startHorizontal + 300));
 
                 document.DrawLine((startHorizontal + 300), (startVertical + 715), (startHorizontal + 490), (startVertical + 715), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 710), 550, 72, document.GetXSmallFont(false));
@@ -485,18 +485,6 @@ namespace Webcal.Library.PDF
 
                 Image image = Image.FromStream(DocumentHelper.GetResourceStreamFromSimplePath("../Images/webcal.jpg").Stream);
                 document.AddImage(ToByteArray(image), 90, 21, (startHorizontal + 5), (startVertical + 30));
-
-                //Bitmap bitmap = new Bitmap(555, 450);
-                //using (Graphics g = Graphics.FromImage(bitmap))
-                //{
-                //    g.DrawImage(GetWorkshopImage(), 5, 790, 75, 10);
-                //}
-
-                //GetResourceStreamFromSimplePath(@"Images/PDF/skillray-small.png");
-
-                //var imageFilePath = GetResourceStreamFromSimplePath(@"Images/PDF/skillray-small.png");
-                //var logoImage = Image.GetInstance(imageFilePath);
-                //logoImage.SetAbsolutePosition(50, 790);
             }
             else
             {
@@ -551,7 +539,7 @@ namespace Webcal.Library.PDF
                 AbsolutePositionText(document, Resources.TXT_AUTHORISED_TESTERS_SIGNATURE, (startHorizontal + 300), (startVertical + 640), 700, 72, document.GetRegularFont(true));
                 AbsolutePositionText(document, string.Format(Resources.TXT_SIGNATURE_TECHNICIAN, tachographDocument.Technician), (startHorizontal + 300), (startVertical + 670), 550, 20);
 
-                TryAddSignature(document, (startHorizontal + 300), (startVertical + 690));
+                TryAddSignature(document, (startHorizontal + 300));
 
                 document.DrawLine((startHorizontal + 300), (startVertical + 735), (startHorizontal + 490), (startVertical + 735), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 730), 550, 72, document.GetXSmallFont(false));
