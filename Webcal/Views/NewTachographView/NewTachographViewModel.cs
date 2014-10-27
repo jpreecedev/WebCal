@@ -287,7 +287,7 @@
         private void Populate()
         {
             TyreSizes = new ObservableCollection<TyreSize>(TyreSizesRepository.GetAll());
-            VehicleMakes = new ObservableCollection<VehicleMake>(VehicleRepository.GetAll());
+            VehicleMakes = new ObservableCollection<VehicleMake>(VehicleRepository.GetAll("Models"));
             TachographMakes = new ObservableCollection<TachographMake>(TachographMakesRepository.GetAll());
             Technicians = new ObservableCollection<Technician>(TechniciansRepository.GetAll());
 
