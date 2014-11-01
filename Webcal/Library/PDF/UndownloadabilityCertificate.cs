@@ -88,24 +88,6 @@
             document.AddParagraph(text, absoluteColumn, font, alignment);
         }
 
-        private static byte[] ToByteArray(Image imageIn)
-        {
-            try
-            {
-                using (var ms = new MemoryStream())
-                {
-                    imageIn.Save(ms, ImageFormat.Jpeg);
-                    return ms.ToArray();
-                }
-            }
-            catch (Exception)
-            {
-                //Generic GDI+ error ... no point in logging as the error is meaningless
-            }
-
-            return null;
-        }
-
         private static void TryAddSignature(PDFDocument document, int x, int y)
         {
             var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
@@ -113,7 +95,7 @@
             if (user != null && user.Image != null)
             {
                 Image image = ImageHelper.Scale(user.Image, 50);
-                document.AddImage(ToByteArray(image), image.Width, image.Height, x, y);
+                document.AddImage(image.ToByteArray(), image.Width, image.Height, x, y);
             }
         }
     }

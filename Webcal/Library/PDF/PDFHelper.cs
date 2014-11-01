@@ -114,7 +114,7 @@
         {
             if (saveToTempDirectory)
             {
-                string path = Path.Combine(DocumentHelper.GetTemporaryDirectory(), string.Format("document{0}.pdf", DateTime.Now.Ticks.ToString(CultureInfo.InvariantCulture).Substring(0, 5)));
+                string path = Path.Combine(ImageHelper.GetTemporaryDirectory(), string.Format("document{0}.pdf", DateTime.Now.Ticks.ToString(CultureInfo.InvariantCulture).Substring(0, 5)));
                 return new DialogHelperResult {FileName = path, Result = true};
             }
 

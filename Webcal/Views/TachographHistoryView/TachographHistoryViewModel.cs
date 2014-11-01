@@ -64,7 +64,7 @@
             {
                 if (PDFHelper.GenerateTachographPlaque(document, true, true))
                 {
-                    EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                    EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
                 }
             }
         }
@@ -99,7 +99,7 @@
 
             if (PDFHelper.GenerateTachographPlaque(document, true))
             {
-                PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
             }
         }
     }

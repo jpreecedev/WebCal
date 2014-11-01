@@ -2,11 +2,11 @@ namespace Webcal.Library.PDF
 {
     using System;
     using System.Drawing;
-    using System.IO;
     using DataModel;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
     using Properties;
+    using Shared;
     using Image = System.Drawing.Image;
 
     public class MinimalPlaqueDocument : BasePlaqueDocument
@@ -18,45 +18,23 @@ namespace Webcal.Library.PDF
 
         protected override void CreateLargeLabelLogos(PDFDocument document, TachographDocument tachographDocument, int startHorizontal, int startVertical)
         {
-            //Add images
-            ////Workshop
-
-            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Webcal", "ContactImages");
-
-            string companyLogo = null;
-
-            if (!Directory.Exists(directoryInfo))
+            if (WorkshopSettings.Image != null)
             {
-                Directory.CreateDirectory(directoryInfo);
-            }
+                const float profileImageMaxHeight = 150;
+                const float profileImageMaxWidth = 200;
 
-            foreach (string file in Directory.GetFiles(directoryInfo))
-            {
-                companyLogo = file;
-            }
+                float widthScale = profileImageMaxWidth / WorkshopSettings.Image.Width;
+                float heightScale = profileImageMaxHeight / WorkshopSettings.Image.Height;
+                float scale = Math.Min(widthScale, heightScale);
+                float newWidth = WorkshopSettings.Image.Width * scale;
+                float newHeight = WorkshopSettings.Image.Height * scale;
 
-            if (File.Exists(companyLogo))
-            {
-                if (companyLogo != null)
-                {
-                    Image workshopImage = Image.FromFile(companyLogo);
-
-                    const float profileImageMaxHeight = 150;
-                    const float profileImageMaxWidth = 200;
-
-                    float widthScale = profileImageMaxWidth/workshopImage.Width;
-                    float heightScale = profileImageMaxHeight/workshopImage.Height;
-                    float scale = Math.Min(widthScale, heightScale);
-                    float newWidth = workshopImage.Width*scale;
-                    float newHeight = workshopImage.Height*scale;
-
-                    document.AddImage(ToByteArray(workshopImage), newWidth, newHeight, (startHorizontal + 20), (startVertical + 675));
-                }
+                document.AddImage(WorkshopSettings.RawImage, newWidth, newHeight, (startHorizontal + 20), (startVertical + 675));
             }
 
             //Skillray
             Image image = Image.FromStream(DocumentHelper.GetResourceStreamFromSimplePath("../Images/webcal-print-logo.jpg").Stream);
-            document.AddImage(ToByteArray(image), 180, 41, (startHorizontal + 350), (startVertical + 670));
+            document.AddImage(image.ToByteArray(), 180, 41, (startHorizontal + 350), (startVertical + 670));
         }
 
         protected override void CreateLargeLabelAddress(PDFDocument document, TachographDocument tachographDocument, int startHorizontal, int startVertical)
@@ -213,8 +191,8 @@ namespace Webcal.Library.PDF
 
         protected override void CreateMediumLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-            var table = new PdfPTable(4) {TotalWidth = 266};
-            table.SetWidths(new float[] {108, 54, 54, 108});
+            var table = new PdfPTable(4) { TotalWidth = 266 };
+            table.SetWidths(new float[] { 108, 54, 54, 108 });
 
             GetWorkshopImage(document, table);
             document.AddSpannedCell(table, TrimDocumentType(tachographDocument.DocumentType), 2, document.GetSmallerFont(), 29);
@@ -237,8 +215,8 @@ namespace Webcal.Library.PDF
 
         protected override void CreateSmallLabel(PDFDocument document, TachographDocument tachographDocument)
         {
-            var table = new PdfPTable(4) {TotalWidth = 136};
-            table.SetWidths(new float[] {58, 10, 20, 48});
+            var table = new PdfPTable(4) { TotalWidth = 136 };
+            table.SetWidths(new float[] { 58, 10, 20, 48 });
 
             GetSmallImage(document, table);
 
@@ -286,42 +264,15 @@ namespace Webcal.Library.PDF
                 document.DrawLine((startHorizontal), (startVertical + 630), (startHorizontal + 555), (startVertical + 630), TotalPageHeight);
             }
 
-            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Webcal", "ContactImages");
-
-            string companyLogo = null;
-
-            if (!Directory.Exists(directoryInfo))
+            if (WorkshopSettings.Image != null)
             {
-                Directory.CreateDirectory(directoryInfo);
-            }
-
-            foreach (string file in Directory.GetFiles(directoryInfo))
-            {
-                companyLogo = file;
-            }
-
-            if (File.Exists(companyLogo))
-            {
-                if (companyLogo != null)
-                {
-                    Image workshopImage = Image.FromFile(companyLogo);
-
-                    const float profileImageMaxHeight = 150;
-                    const float profileImageMaxWidth = 200;
-
-                    float widthScale = profileImageMaxWidth/workshopImage.Width;
-                    float heightScale = profileImageMaxHeight/workshopImage.Height;
-                    float scale = Math.Min(widthScale, heightScale);
-                    float newWidth = workshopImage.Width*scale;
-                    float newHeight = workshopImage.Height*scale;
-
-                    document.AddImage(ToByteArray(workshopImage), newWidth, newHeight, (startHorizontal + 5), startVertical + 670);
-                }
+                var image = ImageHelper.Scale(WorkshopSettings.Image, 150);
+                document.AddImage(image.ToByteArray(), image.Width, image.Height, (startHorizontal + 5), startVertical + 660);
             }
 
             AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE.ToUpper(), (startHorizontal + 200), (startVertical + 170), 580, 100, document.GetRegularFont(true));
             document.DrawLine((startHorizontal + 200), (startVertical + 188), (startHorizontal + 367), (startVertical + 188), TotalPageHeight);
-            
+
             if (CustomerContact != null)
             {
                 AbsolutePositionText(document, Resources.TXT_CUSTOMER_DETAILS.ToUpper(), (startHorizontal + 5), (startVertical + 200), 200, 40, document.GetRegularFont(true));
@@ -484,7 +435,7 @@ namespace Webcal.Library.PDF
 
 
                 Image image = Image.FromStream(DocumentHelper.GetResourceStreamFromSimplePath("../Images/webcal.jpg").Stream);
-                document.AddImage(ToByteArray(image), 90, 21, (startHorizontal + 5), (startVertical + 30));
+                document.AddImage(image.ToByteArray(), 90, 21, (startHorizontal + 5), (startVertical + 30));
             }
             else
             {
@@ -545,7 +496,7 @@ namespace Webcal.Library.PDF
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 730), 550, 72, document.GetXSmallFont(false));
 
                 Image image = Image.FromStream(DocumentHelper.GetResourceStreamFromSimplePath("../Images/webcal.jpg").Stream);
-                document.AddImage(ToByteArray(image), 90, 21, (startHorizontal + 5), (startVertical + 30));
+                document.AddImage(image.ToByteArray(), 90, 21, (startHorizontal + 5), (startVertical + 30));
             }
         }
     }

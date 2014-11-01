@@ -1,11 +1,9 @@
 ﻿namespace Webcal.Library.PDF
 {
     using System;
-    using System.IO;
     using DataModel;
     using iTextSharp.text;
     using Properties;
-    using Image = System.Drawing.Image;
 
     public class FullCertificate : BasePlaqueDocument
     {
@@ -30,39 +28,19 @@
             document.DrawLine((startHorizontal), (startVertical + 290), (startHorizontal + 545), (startVertical + 290), TotalPageHeight);
             document.DrawLine((startHorizontal), (startVertical + 400), (startHorizontal + 545), (startVertical + 400), TotalPageHeight);
             document.DrawLine((startHorizontal), (startVertical + 600), (startHorizontal + 545), (startVertical + 600), TotalPageHeight);
-
-            string directoryInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Webcal", "ContactImages");
-
-            string companyLogo = null;
-
-            if (!Directory.Exists(directoryInfo))
+            
+            if (WorkshopSettings.Image != null)
             {
-                Directory.CreateDirectory(directoryInfo);
-            }
+                const float profileImageMaxHeight = 150;
+                const float profileImageMaxWidth = 200;
 
-            foreach (string file in Directory.GetFiles(directoryInfo))
-            {
-                companyLogo = file;
-            }
+                float widthScale = profileImageMaxWidth / WorkshopSettings.Image.Width;
+                float heightScale = profileImageMaxHeight / WorkshopSettings.Image.Height;
+                float scale = Math.Min(widthScale, heightScale);
+                float newWidth = WorkshopSettings.Image.Width * scale;
+                float newHeight = WorkshopSettings.Image.Height * scale;
 
-            if (File.Exists(companyLogo))
-            {
-                if (companyLogo != null)
-                {
-                    Image workshopImage = Image.FromFile(companyLogo);
-
-                    const float profileImageMaxHeight = 150;
-                    const float profileImageMaxWidth = 200;
-
-                    float widthScale = profileImageMaxWidth/workshopImage.Width;
-                    float heightScale = profileImageMaxHeight/workshopImage.Height;
-                    float scale = Math.Min(widthScale, heightScale);
-                    float newWidth = workshopImage.Width*scale;
-                    float newHeight = workshopImage.Height*scale;
-
-                    document.AddImage(ToByteArray(workshopImage), newWidth, newHeight, (startHorizontal + 5),
-                        startVertical + 5);
-                }
+                document.AddImage(WorkshopSettings.RawImage, newWidth, newHeight, (startHorizontal + 5), startVertical + 5);
             }
 
             AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE, (startHorizontal + 32), (startVertical + 0), 580, 100, document.GetXLargeFont(false), Element.ALIGN_CENTER);

@@ -32,7 +32,7 @@
             workerTask.Parameters.SetParameter("ExpirationDate", registrationData.ExpirationDate);
             workerTask.Parameters.SetParameter("DefaultLabelPrinter", printerSettings.DefaultLabelPrinter);
             workerTask.Parameters.SetParameter("CompanyName", registrationData.CompanyName);
-            workerTask.Parameters.SetParameter("TemporaryDirectory", DocumentHelper.GetTemporaryDirectory());
+            workerTask.Parameters.SetParameter("TemporaryDirectory", ImageHelper.GetTemporaryDirectory());
 
             workerTask.Parameters.SetParameter("DocumentType", document.DocumentType);
             workerTask.Parameters.SetParameter("KFactor", document.KFactor);

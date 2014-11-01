@@ -130,10 +130,10 @@
             {
                 try
                 {
-                    PDFHelper.Print(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                    PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
                     if (!IsHistoryMode)
                     {
-                        EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(DocumentHelper.GetTemporaryDirectory(), "document.pdf"));
+                        EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
                         Add();
                     }
                 }

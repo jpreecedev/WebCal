@@ -74,15 +74,15 @@
 
         protected void GetWorkshopImage(PDFDocument document, PdfPTable table)
         {
-            DocumentHelper.SaveImageToDisk(GetWorkshopImage(), Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo2.png"));
-            iTextSharp.text.Image itextSharpImage = document.GetImage(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo2.png"), 195, 51);
+            ImageHelper.SaveImageToDisk(GetWorkshopImage(), Path.Combine(ImageHelper.GetTemporaryDirectory(), "logo2.png"));
+            iTextSharp.text.Image itextSharpImage = document.GetImage(Path.Combine(ImageHelper.GetTemporaryDirectory(), "logo2.png"), 195, 51);
             document.AddSpannedCell(table, itextSharpImage, 2, document.GetRegularFont(false), 29);
         }
 
         protected void GetSmallImage(PDFDocument document, PdfPTable table)
         {
-            DocumentHelper.SaveImageToDisk(GetWorkshopImage(), Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo.png"));
-            iTextSharp.text.Image itextSharpImage = document.GetImage(Path.Combine(DocumentHelper.GetTemporaryDirectory(), "logo.png"), 205, 53);
+            ImageHelper.SaveImageToDisk(GetWorkshopImage(), Path.Combine(ImageHelper.GetTemporaryDirectory(), "logo.png"));
+            iTextSharp.text.Image itextSharpImage = document.GetImage(Path.Combine(ImageHelper.GetTemporaryDirectory(), "logo.png"), 205, 53);
             document.AddSpannedCell(table, itextSharpImage, 4, document.GetRegularFont(false), 40);
         }
 
@@ -187,25 +187,7 @@
         {
             return ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().GetAll().First();
         }
-
-        protected static byte[] ToByteArray(Image imageIn)
-        {
-            try
-            {
-                using (var ms = new MemoryStream())
-                {
-                    imageIn.Save(ms, ImageFormat.Jpeg);
-                    return ms.ToArray();
-                }
-            }
-            catch (Exception)
-            {
-                //Generic GDI+ error ... no point in logging as the error is meaningless
-            }
-
-            return null;
-        }
-
+        
         protected void TryAddSignature(PDFDocument document, int x, int y = 88)
         {
             var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
@@ -213,7 +195,7 @@
             if (user != null && user.Image != null)
             {
                 Image image = ImageHelper.Scale(user.Image, 50);
-                document.AddImage(ToByteArray(image), image.Width, image.Height, x, y);
+                document.AddImage(image.ToByteArray(), image.Width, image.Height, x, y);
             }
         }
     }

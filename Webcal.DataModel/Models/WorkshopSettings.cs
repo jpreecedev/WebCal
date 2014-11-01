@@ -1,13 +1,9 @@
 ﻿namespace Webcal.DataModel
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Drawing;
-    using System.Drawing.Imaging;
-    using System.IO;
-    using Core;
     using Shared;
 
     public class WorkshopSettings : BaseSettings
@@ -83,7 +79,7 @@
                     return null;
                 }
 
-                return ToImage(RawImage);
+                return RawImage.ToImage();
             }
             set
             {
@@ -93,43 +89,8 @@
                     return;
                 }
 
-                RawImage = ToByteArray(value);
+                RawImage = value.ToByteArray();
             }
-        }
-
-        private static Image ToImage(byte[] rawData)
-        {
-            try
-            {
-                using (var ms = new MemoryStream(rawData))
-                {
-                    return Image.FromStream(ms);
-                }
-            }
-            catch (Exception ex)
-            {
-                ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex);
-            }
-
-            return null;
-        }
-
-        private static byte[] ToByteArray(Image imageIn)
-        {
-            try
-            {
-                using (var ms = new MemoryStream())
-                {
-                    imageIn.Save(ms, ImageFormat.Jpeg);
-                    return ms.ToArray();
-                }
-            }
-            catch (Exception)
-            {
-                //Generic GDI+ error ... no point in logging as the error is meaningless
-            }
-
-            return null;
         }
     }
 }
