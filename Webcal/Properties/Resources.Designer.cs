@@ -1702,6 +1702,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to initialise the smart card reader.  Please ensure that it is plugged and installed correctly..
+        /// </summary>
+        internal static string TXT_UNABLE_INITIALISE_SMART_CARD_READER {
+            get {
+                return ResourceManager.GetString("TXT_UNABLE_INITIALISE_SMART_CARD_READER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to read smart card..
         /// </summary>
         internal static string TXT_UNABLE_READ_SMART_CARD {

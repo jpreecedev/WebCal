@@ -21,7 +21,16 @@
 
         public void FastRead(bool autoRead)
         {
-            Initialise();
+            var error = Initialise();
+            if (error != null)
+            {
+                OnCompleted(new DriverCardCompletedEventArgs
+                {
+                    Exception = error,
+                    Operation = SmartCardReadOperation.Fast
+                });
+                return;
+            }
 
             SafelyWithRetry(SmartCardReadOperation.Fast, () =>
             {
@@ -51,7 +60,16 @@
 
         public void GetFullHistory()
         {
-            Initialise();
+            var error = Initialise();
+            if (error != null)
+            {
+                OnCompleted(new DriverCardCompletedEventArgs
+                {
+                    Operation = SmartCardReadOperation.History,
+                    Exception = error
+                });
+                return;
+            }
 
             SafelyWithRetry(SmartCardReadOperation.History, () =>
             {
@@ -78,7 +96,16 @@
 
         public void GenerateDump()
         {
-            Initialise();
+            var error = Initialise();
+            if (error != null)
+            {
+                OnCompleted(new DriverCardCompletedEventArgs
+                {
+                    Operation = SmartCardReadOperation.Dump,
+                    Exception = error
+                });
+                return;
+            }
 
             SafelyWithRetry(SmartCardReadOperation.Dump, () =>
             {
@@ -100,24 +127,34 @@
             }
         }
 
-        private void Initialise()
+        private Exception Initialise()
         {
             if (_isInitialised)
             {
-                return;
+                return null;
             }
 
-            _monitor = new SCardMonitor(new SCardContext(), SCardScope.System);
-
-            var cardReaders = DetectSmartCardReaders();
-            if (cardReaders.IsNullOrEmpty())
+            try
             {
-                _isInitialised = false;
-                throw new Exception(Resources.EXC_NO_SMART_CARD_READERS_FOUND);
+                _monitor = new SCardMonitor(new SCardContext(), SCardScope.System);
+
+                var cardReaders = DetectSmartCardReaders();
+                if (cardReaders.IsNullOrEmpty())
+                {
+                    _isInitialised = false;
+                    throw new Exception(Resources.EXC_NO_SMART_CARD_READERS_FOUND);
+                }
+
+                _monitor.Start(cardReaders);
+                _isInitialised = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_INITIALISE_SMART_CARD_READER, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
+                return ex;
             }
 
-            _monitor.Start(cardReaders);
-            _isInitialised = true;
+            return null;
         }
 
         private static string ReadSmartCard(string arguments)
@@ -182,7 +219,7 @@
         {
             try
             {
-                var task = new Task(() =>
+                Task.Factory.StartNew(() =>
                 {
                     var resilient = new Resilient(OnProgress);
                     resilient.ExecuteWithRetry(action);
@@ -195,8 +232,6 @@
                     }
                 },
                 TaskScheduler.FromCurrentSynchronizationContext());
-
-                task.Start();
             }
             catch (Exception ex)
             {

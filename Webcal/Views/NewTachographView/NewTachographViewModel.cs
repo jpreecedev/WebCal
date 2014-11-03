@@ -157,9 +157,12 @@
 
         protected override void OnFastReadCompleted(object sender, DriverCardCompletedEventArgs e)
         {
+            CardBeingRead = false;
+
             if (!e.IsSuccess)
             {
                 StatusText = Resources.TXT_UNABLE_READ_SMART_CARD;
+                SwitchReadButtonState(true);
                 return;
             }
 
@@ -201,6 +204,8 @@
 
         protected override void OnDumpCompleted(object sender, DriverCardCompletedEventArgs e)
         {
+            CardBeingRead = false;
+
             string[] cardDetails = DisplayWorkshopCardDetails(e.DumpFilePath);
             if (cardDetails != null)
             {
@@ -298,7 +303,7 @@
             }
         }
 
-        private static string[] DisplayWorkshopCardDetails(string xml)
+        private string[] DisplayWorkshopCardDetails(string xml)
         {
             try
             {
@@ -327,7 +332,7 @@
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
+                ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
             }
 
             return null;

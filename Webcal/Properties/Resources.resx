@@ -812,4 +812,7 @@ Invoice number</value>
   <data name="TXT_PLEASE_WAIT" xml:space="preserve">
     <value>Please wait...</value>
   </data>
+  <data name="TXT_UNABLE_INITIALISE_SMART_CARD_READER" xml:space="preserve">
+    <value>Unable to initialise the smart card reader.  Please ensure that it is plugged and installed correctly.</value>
+  </data>
 </root>
