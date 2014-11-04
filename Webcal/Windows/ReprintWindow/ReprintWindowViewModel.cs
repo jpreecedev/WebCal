@@ -88,7 +88,7 @@
 
         private T Find<T>(IRepository<T> repository) where T : Document
         {
-            string registrationNumber = RegistrationNumber.ToUpper().Replace(" ", "");
+            string registrationNumber = RegistrationNumber.ToUpper().Replace(" ", string.Empty);
             return repository.Where(item => string.Equals(item.RegistrationNumber, registrationNumber, StringComparison.CurrentCultureIgnoreCase))
                 .OrderByDescending(item => item.InspectionDate)
                 .FirstOrDefault();

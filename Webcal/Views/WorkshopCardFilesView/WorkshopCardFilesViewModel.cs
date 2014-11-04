@@ -145,7 +145,7 @@
                     IsReadFromCardEnabled = true;
                     IsFormEnabled = true;
 
-                    MessageBoxHelper.ShowError("Unable to generate card dump");
+                    MessageBoxHelper.ShowError(Resources.ERR_UNABLE_GENERATE_CARD_DUMP);
                 }
             }
             catch (Exception ex)

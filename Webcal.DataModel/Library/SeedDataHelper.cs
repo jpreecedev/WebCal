@@ -64,8 +64,8 @@
             context.RegistrationData.Add(new RegistrationData
             {
                 LicenseKey = null,
-                CompanyName = "Skillray",
-                SealNumber = ""
+                CompanyName = Resources.TXT_SEED_SKILLRAY,
+                SealNumber = string.Empty
             });
 
             context.MailSettings.Add(new MailSettings
@@ -79,33 +79,33 @@
                 new TachographMake
                 {
                     Id = 1,
-                    Name = "SIEMENS VDO",
+                    Name = Resources.TXT_SEED_SIEMENS_VDO,
                     Models = new ObservableCollection<TachographModel>
                     {
-                        new TachographModel { Name="1381" }
+                        new TachographModel { Name=Resources.TXT_SEED_TACHO_MODEL_NAME }
                     }
                 },
                 new TachographMake
                 {
                     Id = 2,
-                    Name="VDO",
+                    Name=Resources.TXT_SEED_TACHO_MAKE_NAME,
                     Models = new ObservableCollection<TachographModel>
                     {
-                        new TachographModel { Name="1318" },
-                        new TachographModel { Name="1324" },
-                        new TachographModel { Name="1314" },
-                        new TachographModel { Name="1319" }
+                        new TachographModel { Name=Resources.TXT_SEED_TACHO_MAKE_2_MODEL },
+                        new TachographModel { Name=Resources.TXT_SEED_TACHO_MAKE_2_MODEL_2 },
+                        new TachographModel { Name=Resources.TXT_SEED_TACHO_MAKE_2_MODEL_3 },
+                        new TachographModel { Name=Resources.TXT_SEED_TACHO_MAKE_2_MODEL_4 }
                     }
                 },
                 new TachographMake
                 {
                     Id = 3,
-                    Name="STONERIDGE",
+                    Name=Resources.TXT_SEED_TACHO_MAKE_3_NAME,
                     Models = new ObservableCollection<TachographModel>
                     {
-                        new TachographModel { Name="SE5000" },
-                        new TachographModel { Name="8400" },
-                        new TachographModel { Name="2400" }
+                        new TachographModel { Name=Resources.TXT_SEED_TACHO_MAKE_3_MODEL_1_NAME },
+                        new TachographModel { Name=Resources.TXT_SEED_TACHO_MAKE_3_MODEL_2_NAME },
+                        new TachographModel { Name=Resources.TXT_SEED_TACHO_MAKE_3_MODEL_3_NAME }
                     }
                 }
             });
@@ -115,102 +115,102 @@
                 new VehicleMake
                 {
                     Id = 1,
-                    Name = "DAF",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_1_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "LF"},
-                        new VehicleModel{ Name = "CF"},
-                        new VehicleModel{ Name = "XF"}
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_MAKE_MODEL_1_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_MAKE_MODEL_2_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_MAKE_MODEL_3_NAME}
                     }
                 },
                 new VehicleMake
                 {
                     Id = 2,
-                    Name = "SCANIA",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_2_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "R SERIES"},
-                        new VehicleModel{ Name = "G SERIES"}
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_2_MAKE_1_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_2_MAKE_2_NAME}
                     }
                 },
                 new VehicleMake
                 {
                     Id = 3,
-                    Name = "MERCEDES",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_3_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "SPRINTER"},
-                        new VehicleModel{ Name = "ATEGO"},
-                        new VehicleModel{ Name = "AXOR"},
-                        new VehicleModel{ Name = "ACTROS"}
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_3_MAKE_1_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_3_MAKE_2_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_3_MAKE_3_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_3_MAKE_4_NAME}
                     }
                 },
                 new VehicleMake
                 {
                     Id = 4,
-                    Name = "RENAULT",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_4_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "PREMIUM"},
-                        new VehicleModel{ Name = "MAGNUM"}
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_4_MAKE_1_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_4_MAKE_2_NAME}
                     }
                 },
                 new VehicleMake
                 {
                     Id = 5,
-                    Name = "VOLVO",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_5_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "FL"},
-                        new VehicleModel{ Name = "FH"},
-                        new VehicleModel{ Name = "FM"}
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_5_MAKE_1_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_5_MAKE_2_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_5_MAKE_3_NAME}
                     }
                 },
                 new VehicleMake
                 {
                     Id = 6,
-                    Name = "INVECO",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_6_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "STRALIS"},
-                        new VehicleModel{ Name = "DAILY"},
-                        new VehicleModel{ Name = "EUROCARGO"}
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_6_MAKE_1_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_6_MAKE_2_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_6_MAKE_3_NAME}
                     }
                 },
                 new VehicleMake
                 {
                     Id = 7,
-                    Name = "MAN",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_7_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "TGL"},
-                        new VehicleModel{ Name = "TGX"}
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_7_MAKE_1_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_7_MAKE_2_NAME}
                     }
                 },
                 new VehicleMake
                 {
                     Id = 8,
-                    Name = "ISUZU",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_8_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "D MAX"},
-                        new VehicleModel{ Name = "N35"},
-                        new VehicleModel{ Name = "N75"}
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_8_MAKE_1_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_8_MAKE_2_NAME},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_8_MAKE_3_NAME}
                     }
                 },
                 new VehicleMake
                 {
                     Id = 9,
-                    Name = "DENNIS",
+                    Name = Resources.TXT_SEED_VEHICLE_MAKE_9_NAME,
                     Models = new ObservableCollection<VehicleModel>
                     {
-                        new VehicleModel{ Name = "EAGLE"},
+                        new VehicleModel{ Name = Resources.TXT_SEED_VEHICLE_9_MAKE_1_NAME},
                     }
                 },
                 new VehicleMake
                 {
                     Id = 10,
-                    Name = "HINO",
+                    Name = Resources.TXT_SEED_VEHICLE_10_MAKE_1_NAME,
                 }
             });
         }

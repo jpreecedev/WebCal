@@ -27,7 +27,7 @@
             get
             {
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                return assembly.GetName().Version.ToString();
+                return string.Format(Resources.TXT_PRODUCT_VERSION, assembly.GetName().Version);
             }
         }
 

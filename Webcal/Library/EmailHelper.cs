@@ -79,7 +79,7 @@
             {
                 return newRecipient;
             }
-            return existingRecipient + "; " + newRecipient;
+            return string.Format("{0}; {1}", existingRecipient, newRecipient);
         }
 
         private static void CreateEmailTask(MailSettings settings, string attachmentPath, string recipient)

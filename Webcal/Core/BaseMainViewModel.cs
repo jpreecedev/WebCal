@@ -112,7 +112,7 @@
 
         private static void OnBrowse(InputTextField textField)
         {
-            DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.All, "");
+            DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.All, string.Empty);
             if (result.Result == true)
             {
                 textField.Text = result.FileName;

@@ -6,6 +6,7 @@
                        xmlns:vm="clr-namespace:Webcal.Views"
                        xmlns:ctrls="clr-namespace:Webcal.Controls"
                        xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns:Properties="clr-namespace:Webcal.Properties"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
                        d:DesignHeight="374">
@@ -19,7 +20,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Settings"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_SETTINGS_TITLE}"
                    Style="{StaticResource TitleFont}"
                    Margin="10" />
 
@@ -46,9 +47,9 @@
                             HorizontalAlignment="Right"
                             Grid.Row="1"
                             Grid.Column="2">
-                    <Button Content="Cancel"
+                    <Button Content="{x:Static Properties:Resources.TXT_SETTINGS_CANCEL}"
                             Command="{Binding DataContext.CancelModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                    <Button Content="Save All &amp; Close"
+                    <Button Content="{x:Static Properties:Resources.TXT_SETTINGS_SAVE_ALL_AND_CLOSE}"
                             Command="{Binding DataContext.SaveModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                             CommandParameter="{Binding View}"
                             Margin="5,10,10,10"

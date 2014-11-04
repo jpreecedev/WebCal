@@ -7,6 +7,7 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
              xmlns:core="clr-namespace:Webcal.Core"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="500">
@@ -19,7 +20,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Tachograph document history"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_TACHO_HISTORY_TITLE}"
                    Style="{StaticResource TitleFont}" />
 
         <Grid Grid.Row="1"
@@ -36,7 +37,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <xctk:WatermarkTextBox Watermark="Enter search term"
+                <xctk:WatermarkTextBox Watermark="{x:Static Properties:Resources.TXT_TACHO_HISTORY_ENTER_SEARCH_TERM}"
                                        Text="{core:InputBinding SearchTerm}"
                                        behav:TextChangedBehaviour.Command="{Binding PerformSearchCommand}"
                                        Margin="0,0,5,10" />
@@ -56,30 +57,30 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="200"
-                                        Header="Creation date"
+                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_CREATION_DATE}"
                                         DisplayMemberBinding="{Binding Path=Created, StringFormat={}{0:dd-MMM-yyyy HH:mm}}" />
                         <GridViewColumn Width="200"
-                                        Header="Type"
+                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_TYPE}"
                                         DisplayMemberBinding="{Binding DocumentType}" />
                         <GridViewColumn Width="200"
-                                        Header="Vehicle registration number"
+                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_VEHICLE_REGISTRATION_NUMBER}"
                                         DisplayMemberBinding="{Binding RegistrationNumber}" />
                         <GridViewColumn Width="200"
-                                        Header="Technician"
+                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_TECHNICIAN}"
                                         DisplayMemberBinding="{Binding Technician}" />
                         <GridViewColumn Width="200"
-                                        Header="Office"
+                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_OFFICE}"
                                         DisplayMemberBinding="{Binding Office}" />
                         <GridViewColumn Width="200"
-                                        Header="Customer"
+                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_CUSTOMER}"
                                         DisplayMemberBinding="{Binding CustomerContact}" />
                     </GridView>
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Open in report form"
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM}"
                                   Command="{Binding OpenInReportFormCommand}" />
-                        <MenuItem Header="Email Report"
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_EMAIL_REPORT}"
                                   Command="{Binding EmailReportFormCommand}" />
                     </ContextMenu>
                 </ListView.ContextMenu>
@@ -89,16 +90,16 @@
                         Grid.Row="2"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right">
-                <Button Content="Open in report form"
+                <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM}"
                         Command="{Binding OpenInReportFormCommand}"
                         Width="160" />
-                <Button Content="Create VOSA document"
+                <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT}"
                         Command="{Binding CreateVOSADocumentCommand}"
                         Width="160" />
-                <Button Content="Re-Print Label"
+                <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_REPRINT_LABEL}"
                         Command="{Binding ReprintLabelCommand}"
                         Width="160" />
-                <Button Content="Re-Print Certificate"
+                <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_REPRINT_CERTIFICATE}"
                         Command="{Binding ReprintCertificateCommand}"
                         Width="160" />
             </StackPanel>

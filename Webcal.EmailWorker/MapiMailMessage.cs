@@ -1,4 +1,6 @@
-﻿namespace Webcal.EmailWorker
+﻿using Webcal.EmailWorker.Properties;
+
+namespace Webcal.EmailWorker
 {
     using System;
     using System.Collections;
@@ -173,89 +175,89 @@
             switch (errorCode)
             {
                 case MAPI_USER_ABORT:
-                    error = "User Aborted.";
+                    error = Resources.TXT_USER_ABORTED;
                     break;
                 case MAPI_E_FAILURE:
-                    error = "MAPI Failure.";
+                    error = Resources.TXT_MAPI_FAILURE;
                     break;
                 case MAPI_E_LOGIN_FAILURE:
-                    error = "Login Failure.";
+                    error = Resources.TXT_LOGIN_FAILURE;
                     break;
                 case MAPI_E_DISK_FULL:
-                    error = "MAPI Disk full.";
+                    error = Resources.TXT_MAPI_DISK_FULL;
                     break;
                 case MAPI_E_INSUFFICIENT_MEMORY:
-                    error = "MAPI Insufficient memory.";
+                    error = Resources.TXT_MAPI_INSUFFICIENT_MEMORY;
                     break;
                 case MAPI_E_BLK_TOO_SMALL:
-                    error = "MAPI Block too small.";
+                    error = Resources.TXT_MAPI_BLOCK_TOO_SMALL;
                     break;
                 case MAPI_E_TOO_MANY_SESSIONS:
-                    error = "MAPI Too many sessions.";
+                    error = Resources.TXT_MAPI_TOO_MANY_SESSIONS;
                     break;
                 case MAPI_E_TOO_MANY_FILES:
-                    error = "MAPI too many files.";
+                    error = Resources.TXT_MAPI_TOO_MANY_FILES;
                     break;
                 case MAPI_E_TOO_MANY_RECIPIENTS:
-                    error = "MAPI too many recipients.";
+                    error = Resources.TXT_MAPI_TOO_MANY_RECIPIENTS;
                     break;
                 case MAPI_E_ATTACHMENT_NOT_FOUND:
-                    error = "MAPI Attachment not found.";
+                    error = Resources.TXT_MAPI_ATTACHMENT_NOT_FOUND;
                     break;
                 case MAPI_E_ATTACHMENT_OPEN_FAILURE:
-                    error = "MAPI Attachment open failure.";
+                    error = Resources.TXT_MAPI_ATTACHMENT_OPEN_FAILURE;
                     break;
                 case MAPI_E_ATTACHMENT_WRITE_FAILURE:
-                    error = "MAPI Attachment Write Failure.";
+                    error = Resources.TXT_MAPI_ATTACHMENT_WRITE_FAILURE;
                     break;
                 case MAPI_E_UNKNOWN_RECIPIENT:
-                    error = "MAPI Unknown recipient.";
+                    error = Resources.TXT_MAPI_UNKNOWN_RECIPEIENT;
                     break;
                 case MAPI_E_BAD_RECIPTYPE:
-                    error = "MAPI Bad recipient type.";
+                    error = Resources.TXT_MAPI_BAD_RECIPIENT_TYPE;
                     break;
                 case MAPI_E_NO_MESSAGES:
-                    error = "MAPI No messages.";
+                    error = Resources.TXT_MAPI_NO_MESSAGES;
                     break;
                 case MAPI_E_INVALID_MESSAGE:
-                    error = "MAPI Invalid message.";
+                    error = Resources.TXT_MAPI_INVALID_MESSAGE;
                     break;
                 case MAPI_E_TEXT_TOO_LARGE:
-                    error = "MAPI Text too large.";
+                    error = Resources.TXT_MAPI_TEXT_TOO_LARGE;
                     break;
                 case MAPI_E_INVALID_SESSION:
-                    error = "MAPI Invalid session.";
+                    error = Resources.TXT_MAPI_INVALID_SESSION;
                     break;
                 case MAPI_E_TYPE_NOT_SUPPORTED:
-                    error = "MAPI Type not supported.";
+                    error = Resources.TXT_MAPI_TYPE_NOT_SUPPORTED;
                     break;
                 case MAPI_E_AMBIGUOUS_RECIPIENT:
-                    error = "MAPI Ambiguous recipient.";
+                    error = Resources.TXT_MAPI_AMBIGUOUS_RECIPIENT;
                     break;
                 case MAPI_E_MESSAGE_IN_USE:
-                    error = "MAPI Message in use.";
+                    error = Resources.TXT_MAPI_MESSAGE_IN_USE;
                     break;
                 case MAPI_E_NETWORK_FAILURE:
-                    error = "MAPI Network failure.";
+                    error = Resources.TXT_MAPI_NETWORK_FAILURE;
                     break;
                 case MAPI_E_INVALID_EDITFIELDS:
-                    error = "MAPI Invalid edit fields.";
+                    error = Resources.TXT_MAPI_INVALID_EDIT_FIELDS;
                     break;
                 case MAPI_E_INVALID_RECIPS:
-                    error = "MAPI Invalid Recipients.";
+                    error = Resources.TXT_MAPI_INVALID_RECIPIENTS;
                     break;
                 case MAPI_E_NOT_SUPPORTED:
-                    error = "MAPI Not supported.";
+                    error = Resources.TXT_MAPI_NOT_SUPPORTED;
                     break;
                 case MAPI_E_NO_LIBRARY:
-                    error = "MAPI No Library.";
+                    error = Resources.TXT_MAPI_NO_LIBRARY;
                     break;
                 case MAPI_E_INVALID_PARAMETER:
-                    error = "MAPI Invalid parameter.";
+                    error = Resources.TXT_MAPI_INVALID_PARAMETER;
                     break;
             }
 
-            Debug.WriteLine("Error sending MAPI Email. Error: " + error + " (code = " + errorCode + ").");
+            Debug.WriteLine(Resources.ERR_ERROR_SEND_MAPI_EMAIL, error, errorCode);
         }
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]

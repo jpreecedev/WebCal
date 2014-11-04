@@ -1,4 +1,6 @@
-﻿namespace Webcal.Library
+﻿using Webcal.Properties;
+
+namespace Webcal.Library
 {
     using System;
     using Microsoft.Win32;
@@ -37,34 +39,34 @@
             switch (filter)
             {
                 case DialogFilter.SQLServerCEDatabaseFile:
-                    return "SQL Server Compact Edition Database File (*.sdf)|*.sdf";
+                    return Resources.TXT_SQL_SERVER_COMPACT_EDITION;
 
                 case DialogFilter.PDF:
-                    return "Portable Document Format (PDF) (*.pdf)|*.pdf";
+                    return Resources.TXT_PORTABLE_DOCUMENT_FORMAT;
 
                 case DialogFilter.PlainText:
-                    return "Text File (*.txt)|*.txt";
+                    return Resources.TXT_TEXT_FILE;
 
                 case DialogFilter.Codecs:
                     return GetCodecFilter();
 
                 case DialogFilter.Data:
-                    return "Data File (*.dat)|*.dat";
+                    return Resources.TXT_DATA_FILE;
 
                 case DialogFilter.JPG:
-                    return "JPEG File (*.jpg)|*.jpg";
+                    return Resources.TXT_JPEG_FILE;
 
                 case DialogFilter.Empty:
-                    return "";
+                    return string.Empty;
 
                 default:
-                    return "All Files (*.*)|*.*";
+                    return Resources.TXT_ALL_FILES;
             }
         }
 
         private static string GetCodecFilter()
         {
-            return "Portable Network Graphics (*.png)|*.png|All Files (*.*)|*.*";
+            return Resources.TXT_PORTABLE_NETWORK_GRAPHICS;
         }
     }
 

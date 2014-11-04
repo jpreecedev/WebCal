@@ -134,8 +134,8 @@ Any unsaved changes will be lost.</value>
   <data name="TXT_GIVE_MAKE_OF_VEHICLE" xml:space="preserve">
     <value>Give make of vehicle</value>
   </data>
-    <data name="TXT_MINOR_WORK_DETAILS">
-    <value xml:space="preserve">M - Minor Work</value>
+  <data name="TXT_MINOR_WORK_DETAILS" xml:space="preserve">
+    <value>M - Minor Work</value>
   </data>
   <data name="TXT_GIVE_MODEL_OF_VEHICLE" xml:space="preserve">
     <value>Give model of vehicle</value>
@@ -591,11 +591,11 @@ This could be due to either;
   <data name="TXT_SKILLRAY_UNLICENSED_SOFTWARE" xml:space="preserve">
     <value>Skillray Demo Unlicensed Software</value>
   </data>
-  <data name="TXT_DEMO">
-    <value xml:space="preserve">Demo</value>
+  <data name="TXT_DEMO" xml:space="preserve">
+    <value>Demo</value>
   </data>
-  <data name="TXT_SKILLRAY">
-    <value xml:space="preserve">Skillray</value>
+  <data name="TXT_SKILLRAY" xml:space="preserve">
+    <value>Skillray</value>
   </data>
   <data name="TXT_GV_212" xml:space="preserve">
     <value>GV 212</value>
@@ -814,5 +814,1234 @@ Invoice number</value>
   </data>
   <data name="TXT_UNABLE_INITIALISE_SMART_CARD_READER" xml:space="preserve">
     <value>Unable to initialise the smart card reader.  Please ensure that it is plugged and installed correctly.</value>
+  </data>
+  <data name="TXT_EXPIRY" xml:space="preserve">
+    <value>EXP : </value>
+  </data>
+  <data name="TXT_SMALL_LABEL_DATE" xml:space="preserve">
+    <value>
+date
+
+
+</value>
+  </data>
+  <data name="TXT_EXPIRATION_DATE" xml:space="preserve">
+    <value>Expiration Date: </value>
+  </data>
+  <data name="TXT_IMP_KM_VEHICLE" xml:space="preserve">
+    <value>{0} imp/km</value>
+  </data>
+  <data name="TXT_MEDIUM_W_FACTOR" xml:space="preserve">
+    <value>W: {0} imp/km</value>
+  </data>
+  <data name="TXT_MEDIUM_K_FACTOR" xml:space="preserve">
+    <value>K: {0} imp/km</value>
+  </data>
+  <data name="TXT_MEDIUM_L_FACTOR" xml:space="preserve">
+    <value>L: {0}{1}</value>
+  </data>
+  <data name="TXT_MEDIUM_VIN" xml:space="preserve">
+    <value>VIN: {0}</value>
+  </data>
+  <data name="TXT_MEDIUM_TYRE_SIZE" xml:space="preserve">
+    <value>Tyre Size        {0}</value>
+  </data>
+  <data name="TXT_MEDIUM_SERIAL_NUMBER" xml:space="preserve">
+    <value>Serial number    {0}</value>
+  </data>
+  <data name="TXT_MEDIUM_DATE" xml:space="preserve">
+    <value>date:   {0}</value>
+  </data>
+  <data name="TXT_SMALL_W_FACTOR" xml:space="preserve">
+    <value>W: {0} imp/km</value>
+  </data>
+  <data name="TXT_SMALL_K_FACTOR" xml:space="preserve">
+    <value>K: {0} imp/km</value>
+  </data>
+  <data name="TXT_SMALL_L_FACTOR" xml:space="preserve">
+    <value>L:   {0}{1}</value>
+  </data>
+  <data name="TXT_SMALL_TYRE_SIZE" xml:space="preserve">
+    <value>Tyre Size       {0}</value>
+  </data>
+  <data name="TXT_SMALL_VIN" xml:space="preserve">
+    <value>VIN: {0}</value>
+  </data>
+  <data name="TXT_SMALL_SERIAL_NUMBER" xml:space="preserve">
+    <value>Serial number   {0}</value>
+  </data>
+  <data name="TXT_SMALL_DATE" xml:space="preserve">
+    <value>
+date
+
+
+{0}</value>
+  </data>
+  <data name="TXT_LARGE_INSTALLATION" xml:space="preserve">
+    <value>I - Installation / Initial calibration</value>
+  </data>
+  <data name="TXT_LARGE_TWO_YEAR_INSPECTION" xml:space="preserve">
+    <value>2 - 2 year inspection</value>
+  </data>
+  <data name="TXT_LARGE_SIX_YEAR_CALIBRATION" xml:space="preserve">
+    <value>6 - 6 year calibration</value>
+  </data>
+  <data name="TXT_LARGE_RECALIBRATION" xml:space="preserve">
+    <value>R - Recalibration</value>
+  </data>
+  <data name="TXT_LARGE_MINOR_WORK" xml:space="preserve">
+    <value>M - Minor Work</value>
+  </data>
+  <data name="TXT_LARGE_DIGITAL_INITIAL" xml:space="preserve">
+    <value>3 - Digital initial calibration</value>
+  </data>
+  <data name="TXT_LARGE_DIGITAL_TWO_YEAR" xml:space="preserve">
+    <value>4 - Digital 2 year calibration</value>
+  </data>
+  <data name="TXT_DIGITAL" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="TXT_ANALOGUE" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="TXT_STAR" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="TXT_SQL_SERVER_COMPACT_EDITION" xml:space="preserve">
+    <value>SQL Server Compact Edition Database File (*.sdf)|*.sdf</value>
+  </data>
+  <data name="TXT_PORTABLE_DOCUMENT_FORMAT" xml:space="preserve">
+    <value>Portable Document Format (PDF) (*.pdf)|*.pdf</value>
+  </data>
+  <data name="TXT_TEXT_FILE" xml:space="preserve">
+    <value>Text File (*.txt)|*.txt</value>
+  </data>
+  <data name="TXT_DATA_FILE" xml:space="preserve">
+    <value>Data File (*.dat)|*.dat</value>
+  </data>
+  <data name="TXT_JPEG_FILE" xml:space="preserve">
+    <value>JPEG File (*.jpg)|*.jpg</value>
+  </data>
+  <data name="TXT_ALL_FILES" xml:space="preserve">
+    <value>All Files (*.*)|*.*</value>
+  </data>
+  <data name="TXT_PORTABLE_NETWORK_GRAPHICS" xml:space="preserve">
+    <value>Portable Network Graphics (*.png)|*.png|All Files (*.*)|*.*</value>
+  </data>
+  <data name="TXT_ALPHABET" xml:space="preserve">
+    <value>ABCDEFGHIJKLMNOPQRSTUVWXYZ</value>
+  </data>
+  <data name="TXT_EXTENSION_JPG" xml:space="preserve">
+    <value>.jpg</value>
+  </data>
+  <data name="TXT_EXTENSION_JPEG" xml:space="preserve">
+    <value>.jpeg</value>
+  </data>
+  <data name="TXT_EXTENSION_PNG" xml:space="preserve">
+    <value>.png</value>
+  </data>
+  <data name="TXT_EMPTY_FIELDS" xml:space="preserve">
+    <value>Empty fields</value>
+  </data>
+  <data name="TXT_NEW_CUSTOMER" xml:space="preserve">
+    <value>New customer</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_CALIBRATION_BROWSER" xml:space="preserve">
+    <value>Workshop card calibration browser</value>
+  </data>
+  <data name="TXT_VEHICLE_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Vehicle registration number</value>
+  </data>
+  <data name="TXT_CALIBRATION_DATE" xml:space="preserve">
+    <value>Calibration Date</value>
+  </data>
+  <data name="TXT_SHOW_DETAILS" xml:space="preserve">
+    <value>Show Details</value>
+  </data>
+  <data name="TXT_SELECT_ALL" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="TXT_CLEAR_SELECTION" xml:space="preserve">
+    <value>Clear Selection</value>
+  </data>
+  <data name="TXT_CALIBRATIONS_READ_FROM_CARD" xml:space="preserve">
+    <value>Read from card</value>
+  </data>
+  <data name="TXT_CALIBRATIONS_SELECT_ALL" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="TXT_CALIBRATIONS_CLEAR_SELECTION" xml:space="preserve">
+    <value>Clear selection</value>
+  </data>
+  <data name="TXT_CALIBRATIONS_SHOW_DETAILS" xml:space="preserve">
+    <value>Show details</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_DRIVER_CARD_FILESE" xml:space="preserve">
+    <value>Driver card files</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_BROWSE" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_DRIVER" xml:space="preserve">
+    <value>Driver:</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_CUSTOMER" xml:space="preserve">
+    <value>Customer:</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_DATE" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_STORED_FILES" xml:space="preserve">
+    <value>Stored files</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_CREATION_DATE" xml:space="preserve">
+    <value>Creation date</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_DRIVER_2" xml:space="preserve">
+    <value>Driver</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_CUSTOMER_2" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_EXPORT" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING" xml:space="preserve">
+    <value>Generate report of expiring documents or statistics report</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH" xml:space="preserve">
+    <value>Expiring tachograph documents</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_DOCUMENT_STATISTICS" xml:space="preserve">
+    <value>Document statistics</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_FILE_FORMAT" xml:space="preserve">
+    <value>File format</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_TEXT" xml:space="preserve">
+    <value>Text (.txt)</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_EXCEL" xml:space="preserve">
+    <value>Excel 2007 (.xlsx)</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_TIME_SPAN" xml:space="preserve">
+    <value>Time span</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_QUICK_SELECTION" xml:space="preserve">
+    <value>Quick selection</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING" xml:space="preserve">
+    <value>Documents which expire during this month</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH" xml:space="preserve">
+    <value>Documents which expire during next month</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_SELECT_TIME_FRAME" xml:space="preserve">
+    <value>Select time frame</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD" xml:space="preserve">
+    <value>(Documents which expire during this time period)</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_START_DATE" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_END_DATE" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_OFFICE" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_GENERATE" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_PRODUCT_VERSION" xml:space="preserve">
+    <value>Product Version: {0}</value>
+  </data>
+  <data name="TXT_HOME_SCREEN_AUTO_PRINT_LABELS" xml:space="preserve">
+    <value>Automatically print labels</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_ANALOGUE_TACH_DOCUMENT" xml:space="preserve">
+    <value>Analogue Tachograph Document</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_TACHOGRAPH_RECORD_TYPE" xml:space="preserve">
+    <value>Tachograph record type</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_DOCUMENT_TYPE" xml:space="preserve">
+    <value>Document type</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_DETAILS" xml:space="preserve">
+    <value>Details:</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_VEHICLE_DATA" xml:space="preserve">
+    <value>Vehicle data</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration number</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_VIN" xml:space="preserve">
+    <value>VIN</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_VEHICLE_MAKE" xml:space="preserve">
+    <value>Vehicle make</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_TYRE_SIZE" xml:space="preserve">
+    <value>Tyre size</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_VEHICLE_TYPE" xml:space="preserve">
+    <value>Vehicle type</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_CALIBRATION_DATA" xml:space="preserve">
+    <value>Calibration data</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_W_FACTOR" xml:space="preserve">
+    <value>W Factor</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_K_FACTOR" xml:space="preserve">
+    <value>K Factor</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_L_FACTOR" xml:space="preserve">
+    <value>L Factor</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_TACHOGRAPH_DATA" xml:space="preserve">
+    <value>Tachograph data</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_TACHOGRAPH_MAKE" xml:space="preserve">
+    <value>Tachograph Make</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_ODOMETER_READING" xml:space="preserve">
+    <value>Odometer Reading</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_SERIAL_NUMBER" xml:space="preserve">
+    <value>Serial Number</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_TAMPERED" xml:space="preserve">
+    <value>Tampered</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_INSPECTION_INFO" xml:space="preserve">
+    <value>Inspection info</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_INVOICE_NUMBER" xml:space="preserve">
+    <value>Invoice number</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_INSPECTION_DATA" xml:space="preserve">
+    <value>Inspection data</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_CUSTOMER_DATA" xml:space="preserve">
+    <value>Customer data</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_EXPORT_PDF" xml:space="preserve">
+    <value>Export PDF</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_PRINT_LABEL" xml:space="preserve">
+    <value>Print Label</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_PRINT_CERTIFICATE" xml:space="preserve">
+    <value>Print Certificate</value>
+  </data>
+  <data name="TXT_NEW_ANALOGUE_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_DIGITAL_TACHO_DOCUMENT" xml:space="preserve">
+    <value>Digital Tachograph Document</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_TACHOGRAPH_RECORD_TYPE" xml:space="preserve">
+    <value>Tachograph record type</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_DOCUMENT_TYPE" xml:space="preserve">
+    <value>Document type</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_DETAILS" xml:space="preserve">
+    <value>Details:</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_VEHICLE_DATA" xml:space="preserve">
+    <value>Vehicle data</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration number</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_VIN" xml:space="preserve">
+    <value>VIN</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_VEHICLE_MAKE" xml:space="preserve">
+    <value>Vehicle make</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_TYRE_SIZE" xml:space="preserve">
+    <value>Tyre size</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_VEHICLE_TYPE" xml:space="preserve">
+    <value>Vehicle type</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_CALIBRATION_DATA" xml:space="preserve">
+    <value>Calibration data</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_W_FACTOR" xml:space="preserve">
+    <value>W Factor</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_K_FACTOR" xml:space="preserve">
+    <value>K Factor</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_L_FACTOR" xml:space="preserve">
+    <value>L Factor</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_TACHOGRAPH_DATA" xml:space="preserve">
+    <value>Tachograph data</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_TACHOGRAPH_MAKE" xml:space="preserve">
+    <value>Tachograph Make</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_ODOMETER_READING" xml:space="preserve">
+    <value>Odometer Reading</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_SERIAL_NUMBER" xml:space="preserve">
+    <value>Serial Number</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_TAMPERED" xml:space="preserve">
+    <value>Tampered</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_INSPECTION_INFO" xml:space="preserve">
+    <value>Inspection info</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_INVOICE_NUMBER" xml:space="preserve">
+    <value>Invoice number</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_INSPECTION_DATA" xml:space="preserve">
+    <value>Inspection data</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_PPRN_CONSTANT" xml:space="preserve">
+    <value>PPR/N-constant</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_DRIVE_SHAFT" xml:space="preserve">
+    <value>OP Shaft / Drive Shaft PPR</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_CUSTOMER_DATA" xml:space="preserve">
+    <value>Customer data</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_SEND_TO_OFFICE" xml:space="preserve">
+    <value>Send To Office</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_SEND_TO_CUSTOMER" xml:space="preserve">
+    <value>Send To Customer</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_DO_NOT_SEND" xml:space="preserve">
+    <value>Do not send</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_EXPORT_PDF" xml:space="preserve">
+    <value>Export PDF</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_PRINT" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_UNDOWNLOADABILITY_DOCUMENT" xml:space="preserve">
+    <value>Undownloadability document</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_VEHICLE_DATA" xml:space="preserve">
+    <value>Vehicle data</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration number</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_DATA" xml:space="preserve">
+    <value>Tachograph data</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_MAKE" xml:space="preserve">
+    <value>Tachograph make</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_SERIAL_NUMBER" xml:space="preserve">
+    <value>Serial number</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATA" xml:space="preserve">
+    <value>Inspection data</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATE" xml:space="preserve">
+    <value>Inspection date</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_CUSTOMER_DATA" xml:space="preserve">
+    <value>Customer data</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_EXPORT_PDF" xml:space="preserve">
+    <value>Export PDF</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_PRINT" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="TXT_NEW_UNDOWNLOADABILITY_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_CUSTOMER_SETTINGS" xml:space="preserve">
+    <value>Customer Settings</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME" xml:space="preserve">
+    <value>Customer Name:</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_EMAIL" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_SECONDARY_EMAIL" xml:space="preserve">
+    <value>Secondary Email:</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_ADDRESS" xml:space="preserve">
+    <value>Address/P.O. Box:</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_POST_CODE" xml:space="preserve">
+    <value>Post Code:</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_TOWN" xml:space="preserve">
+    <value>Town:</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_PHONE_NUMBER" xml:space="preserve">
+    <value>Phone Number:</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_SAVE" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TXT_CUSTOMER_SETTINGS_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_GENERAL_SETTINGS_GENERAL_SETTINGS" xml:space="preserve">
+    <value>General settings</value>
+  </data>
+  <data name="TXT_GENERAL_SETTINGS_BACKUP_DATABASE_ON_DAYS" xml:space="preserve">
+    <value>Backup database automatically on the specified day(s):</value>
+  </data>
+  <data name="TXT_GENERAL_SETTINGS_BROWSE" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="TXT_MONDAY" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="TXT_TUESDAY" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="TXT_WEDNESDAY" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="TXT_THURSDAY" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="TXT_FRIDAY" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="TXT_SATURDAY" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="TXT_SUNDAY" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="TXT_INSPECTION_EQUIPMENTS_TITLE" xml:space="preserve">
+    <value>Inspection equipments</value>
+  </data>
+  <data name="TXT_INSPECTION_EQUIPMENTS_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_INSPECTION_EQUIPMENTS_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TXT_INSPECTION_METHODS_TITLE" xml:space="preserve">
+    <value>Inspection methods</value>
+  </data>
+  <data name="TXT_INSPECTION_METHODS_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_INSPECTION_METHODS_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_TITLE" xml:space="preserve">
+    <value>Email settings</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_DONT_SEND_EMAILS" xml:space="preserve">
+    <value>Don't send emails</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_AUTO_EMAIL_CERTIFICATES" xml:space="preserve">
+    <value>Automatically email certificates</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_MAKE_EDITS_BEFORE_SENDING" xml:space="preserve">
+    <value>Allow me to make edits before sending</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_SUBJECT" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_BODY" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_DEFAULT_SENDING_PREFERENCES" xml:space="preserve">
+    <value>Default Sending Preferences</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_SEND_TO_OFFICE" xml:space="preserve">
+    <value>Send To Office</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_SEND_TO_CUSTOMER" xml:space="preserve">
+    <value>Send To Customer</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_TITLE_DO_NOT_SEND" xml:space="preserve">
+    <value>Do not send</value>
+  </data>
+  <data name="TXT_EMAIL_SETTINGS_USERS_WONT_SEE_SETTINGS" xml:space="preserve">
+    <value>Users will not see these settings when "Don't send emails" is selected</value>
+  </data>
+  <data name="TXT_PRINTER_SETTINGS_TITLE" xml:space="preserve">
+    <value>Printer settings</value>
+  </data>
+  <data name="TXT_PRINTER_SETTINGS_GENERAL_PURPOSE_PRINTER" xml:space="preserve">
+    <value>General Purpose Printer</value>
+  </data>
+  <data name="TXT_PRINTER_SETTINGS_ALWAYS_ASK" xml:space="preserve">
+    <value>Ask printer always when printing</value>
+  </data>
+  <data name="TXT_PRINTER_SETTINGS_ALWAYS_USE" xml:space="preserve">
+    <value>Use this printer always:</value>
+  </data>
+  <data name="TXT_PRINTER_SETTINGS_DEFAULT_NUMBER" xml:space="preserve">
+    <value>Default number of copies:</value>
+  </data>
+  <data name="TXT_PRINTER_SETTINGS_LABEL_PRINTER" xml:space="preserve">
+    <value>Label Printer</value>
+  </data>
+  <data name="TXT_REGISTRATION_SETTINGS_TITLE" xml:space="preserve">
+    <value>Registration settings</value>
+  </data>
+  <data name="TXT_REGISTRATION_SETTINGS_COMPANY_NAME" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="TXT_REGISTRATION_SETTINGS_SEAL_NUMBER" xml:space="preserve">
+    <value>Seal number</value>
+  </data>
+  <data name="TXT_REGISTRATION_SETTINGS_EXPIRATION_DATE" xml:space="preserve">
+    <value>Expiration Date:</value>
+  </data>
+  <data name="TXT_SETTINGS_TITLE" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TXT_SETTINGS_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_SETTINGS_SAVE_ALL_AND_CLOSE" xml:space="preserve">
+    <value>Save All &amp;amp; Close</value>
+  </data>
+  <data name="TXT_SHORTCUT_SETTINGS_TITLE" xml:space="preserve">
+    <value>Shortcut settings</value>
+  </data>
+  <data name="TXT_SHORTCUT_SETTINGS_TACHO_MAKES_AND_MODELES" xml:space="preserve">
+    <value>Tachograph makes and models</value>
+  </data>
+  <data name="TXT_SHORTCUT_SETTINGS_VEHICLE_MAKES_MODELS" xml:space="preserve">
+    <value>Vehicle makes and models</value>
+  </data>
+  <data name="TXT_SHORTCUT_SETTINGS_TECHNICIANS" xml:space="preserve">
+    <value>Technicians</value>
+  </data>
+  <data name="TXT_SHORTCUT_SETTINGS_INSPECTION_METHODS" xml:space="preserve">
+    <value>Inspection methods</value>
+  </data>
+  <data name="TXT_SHORTCUT_SETTINGS_INSPECTION_EQUIPMENTS" xml:space="preserve">
+    <value>Inspection equipments</value>
+  </data>
+  <data name="TXT_SHORTCUT_SETTINGS_TYRE_SIZES" xml:space="preserve">
+    <value>Tyre sizes</value>
+  </data>
+  <data name="TXT_TACHO_MAKES_MODELS_" xml:space="preserve">
+    <value>Tachograph Makes Models</value>
+  </data>
+  <data name="TXT_TACHO_MAKES_MODELS_TITLE" xml:space="preserve">
+    <value>Tachograph Makes Models</value>
+  </data>
+  <data name="TXT_TACHO_MAKES_MODELS_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_TACHO_MAKES_MODELS_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TXT_TACHO_MAKES_MODELS_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_TECHNICIANS_TITLE" xml:space="preserve">
+    <value>Technicians</value>
+  </data>
+  <data name="TXT_TECHNICIANS_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_TECHNICIANS_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TXT_TECHNICIANS_SET_AS_DEFAULT" xml:space="preserve">
+    <value>Set as default</value>
+  </data>
+  <data name="TXT_TYRE_SIZES_TITLE" xml:space="preserve">
+    <value>Tyre sizes</value>
+  </data>
+  <data name="TXT_TYRE_SIZES_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_TYRE_SIZES_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_TITLE" xml:space="preserve">
+    <value>User Management</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_ADD_NEW_USER" xml:space="preserve">
+    <value>Add new user:</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_NEW_USER_PASSWORD" xml:space="preserve">
+    <value>New user password:</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_CLEAR" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_YOUR" xml:space="preserve">
+    <value>your</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_CHANGE" xml:space="preserve">
+    <value>Change </value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_PASSWORD" xml:space="preserve">
+    <value> password</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_OLD_PASSWORD" xml:space="preserve">
+    <value>Your old password:</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_NEW_PASSWORD" xml:space="preserve">
+    <value>New password:</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_CHANGE_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_EXISTING_USERS" xml:space="preserve">
+    <value>Existing Users:</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_MANAGE_SIGNATURE" xml:space="preserve">
+    <value>Manage Signature</value>
+  </data>
+  <data name="TXT_USER_MANAGEMENT_RESET_PASSWORD" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="TXT_VEHICLE_MAKES_MODELS_TITLE" xml:space="preserve">
+    <value>Vehicle make and model settings</value>
+  </data>
+  <data name="TXT_VEHICLE_MAKES_MODELS_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_VEHICLE_MAKES_MODELS_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TXT_VEHICLE_MAKES_MODELS_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_TITLE" xml:space="preserve">
+    <value>Workshop Settings</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_WORKSHOP_NAME" xml:space="preserve">
+    <value>Workshop name</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_ADDRESS_1" xml:space="preserve">
+    <value>Address 1</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_ADDRESS_2" xml:space="preserve">
+    <value>Address 2</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_TOWN" xml:space="preserve">
+    <value>Town</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_POST_CODE" xml:space="preserve">
+    <value>Post Code</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_PHONE_NUMBER" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS" xml:space="preserve">
+    <value>Main Email Address</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_SECONDARY_EMAIL_ADDRESS" xml:space="preserve">
+    <value>Secondary Email Address</value>
+  </data>
+  <data name="TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO" xml:space="preserve">
+    <value>Choose Logo</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_TITLE" xml:space="preserve">
+    <value>Speedlimiter document</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_VEHICLE_DATA" xml:space="preserve">
+    <value>Vehicle data</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration number</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_VIN" xml:space="preserve">
+    <value>VIN</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_VEHICLE_MAKE" xml:space="preserve">
+    <value>Vehicle make</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_TYRE_SIZE" xml:space="preserve">
+    <value>Tyre size</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_VEHICLE_TYPE" xml:space="preserve">
+    <value>Vehicle type</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_REGULATION_SPEED" xml:space="preserve">
+    <value>Regulation Speed</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_LIMITER_SPEED" xml:space="preserve">
+    <value>Limiter Speed</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_INSPECTION_DATA" xml:space="preserve">
+    <value>Ispection data</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_INSPECTION_EQUIPMENT" xml:space="preserve">
+    <value>Inspection equipment</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_INSPECTION_METHOD" xml:space="preserve">
+    <value>Inspection method</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_INSPECTION_DATE" xml:space="preserve">
+    <value>Inspection date</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_ACCEPTED" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_CUSTOMER_DATA" xml:space="preserve">
+    <value>Customer data</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_EXPORT_PDF" xml:space="preserve">
+    <value>Export PDF</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_PREVIEW" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_PRINT" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="TXT_SPEEDLIMITER_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_TITLE" xml:space="preserve">
+    <value>Tachograph document history</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_ENTER_SEARCH_TERM" xml:space="preserve">
+    <value>Enter search term</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_CREATION_DATE" xml:space="preserve">
+    <value>Creation date</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_TYPE" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_VEHICLE_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Vehicle registration number</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_OFFICE" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM" xml:space="preserve">
+    <value>Open in report form</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_EMAIL_REPORT" xml:space="preserve">
+    <value>Email Report</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT" xml:space="preserve">
+    <value>Create VOSA document</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_REPRINT_LABEL" xml:space="preserve">
+    <value>Re-Print Label</value>
+  </data>
+  <data name="TXT_TACHO_HISTORY_REPRINT_CERTIFICATE" xml:space="preserve">
+    <value>Re-Print Certificate</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_TITLE" xml:space="preserve">
+    <value>Undownloadability document history</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_ENTER_SEARCH_TERM" xml:space="preserve">
+    <value>Enter search term</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_CREATION_DATE" xml:space="preserve">
+    <value>Creation date</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_VEHICLE_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Vehicle registration number</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_OFFICE" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_OPEN_IN_REPORT_FORM" xml:space="preserve">
+    <value>Open in report form</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY_HISTORY_REPRINT_CERTIFICATE" xml:space="preserve">
+    <value>Re-Print Certificate</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_TITLE" xml:space="preserve">
+    <value>Workshop card files</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_ADD_FILE" xml:space="preserve">
+    <value>Add file</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD" xml:space="preserve">
+    <value>Read from card</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_FILE" xml:space="preserve">
+    <value>File:</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_BROWSE" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_WORKSHOP" xml:space="preserve">
+    <value>Workshop:</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_DATE" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_STORED_FILES" xml:space="preserve">
+    <value>Stored files</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_CREATION_DATE" xml:space="preserve">
+    <value>Creation date</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_WORKSHOP_2" xml:space="preserve">
+    <value>Workshop</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_EXPORT" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="ERR_UNABLE_GENERATE_CARD_DUMP" xml:space="preserve">
+    <value>Unable to generate card dump</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_TITLE" xml:space="preserve">
+    <value>Calibration Details</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_PURPOSE" xml:space="preserve">
+    <value>Purpose:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_VIN" xml:space="preserve">
+    <value>Vehicle identification number:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_REGISTRATION_NATION" xml:space="preserve">
+    <value>Vehicle registration nation:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Vehicle registration number:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_W_FACTOR" xml:space="preserve">
+    <value>W factor:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_K_FACTOR" xml:space="preserve">
+    <value>K factor:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_L_FACTOR" xml:space="preserve">
+    <value>L factor of the wheel:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_SIZE_OF_TYRE" xml:space="preserve">
+    <value>Size of tyre:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_MAX_SPEED" xml:space="preserve">
+    <value>Maximum speed:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_ODOMETER_READING" xml:space="preserve">
+    <value>Odometer reading:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_CALIBRATION_TIME" xml:space="preserve">
+    <value>Calibration time:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_NEXT_CALIBRATION_DATE" xml:space="preserve">
+    <value>Next calibration date:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_VEHICLE_UNIT_NUMBER" xml:space="preserve">
+    <value>Vehicle unit number:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_TACHO_SERIAL_NUMBER" xml:space="preserve">
+    <value>Tachograph serial number:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_TACHO_MAKE" xml:space="preserve">
+    <value>Tachograph make:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_SENSOR_SERIAL" xml:space="preserve">
+    <value>Sensor serial number:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE" xml:space="preserve">
+    <value>Select Date Range</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_START" xml:space="preserve">
+    <value>Start:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_END" xml:space="preserve">
+    <value>End:</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_SELECT" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="TXT_CALIBRATION_DETAILS_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_EXCEPTION_WINDOW_TECHNICAL_INFORMATION" xml:space="preserve">
+    <value>Technical Information</value>
+  </data>
+  <data name="TXT_EXCEPTION_WINDOW_DATE_TIME" xml:space="preserve">
+    <value>Date/Time</value>
+  </data>
+  <data name="TXT_EXCEPTION_WINDOW_EXCEPTION_DETAILS" xml:space="preserve">
+    <value>Exception Details</value>
+  </data>
+  <data name="TXT_EXCEPTION_WINDOW_EXPORT" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="TXT_EXCEPTION_WINDOW_CLOSE" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="TXT_LOGIN_WINDOW_TITLE" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="TXT_LOGIN_WINDOW_USER_NAME" xml:space="preserve">
+    <value>User Name:</value>
+  </data>
+  <data name="TXT_LOGIN_WINDOW_PASSWORD" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="TXT_LOGIN_WINDOW_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_TITLE" xml:space="preserve">
+    <value>Webcal - Skillray Transport Services Ltd</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_FILE" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SETTINGS" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_GENERATE_REPORT" xml:space="preserve">
+    <value>Generate Report</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_BACKUP_DATABASE" xml:space="preserve">
+    <value>Backup Database</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_RESTORE_DATABASE" xml:space="preserve">
+    <value>Restore Database</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_VIEW_TASK_QUEUE" xml:space="preserve">
+    <value>View Task Queue</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_CHECK_FOR_UPDATES" xml:space="preserve">
+    <value>Check For Updates</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_ABOUT" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOW_SETTINGS" xml:space="preserve">
+    <value>Shows the settings dialog</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOW_REPORT" xml:space="preserve">
+    <value>Shows the report dialog</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOW_BACKUP" xml:space="preserve">
+    <value>Shows the backup utility</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOW_RESTORE" xml:space="preserve">
+    <value>Shows the restore utility</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOW_TASKS" xml:space="preserve">
+    <value>Displays the list of tasks currently running</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_CHECK_FOR_APPLICATION_UPDATES" xml:space="preserve">
+    <value>Checks for updates to the application</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH" xml:space="preserve">
+    <value>Shows about and technical information</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_COPYRIGHT" xml:space="preserve">
+    <value>Copyright © Skillray Transport Services UK</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_VIEW_TECHNICAL_INFORMATION" xml:space="preserve">
+    <value>View Technical Information</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_EXITS_APPLICATION" xml:space="preserve">
+    <value>Exits the application</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_NEW_DOCUMENTS" xml:space="preserve">
+    <value>New Documents</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_HOME" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_EXIT" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN" xml:space="preserve">
+    <value>Shows the home screen</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_DIGITAL_TACHO" xml:space="preserve">
+    <value>Digital Tachograph</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN" xml:space="preserve">
+    <value>Shows the new tachograh document screen</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT" xml:space="preserve">
+    <value>New Tachograph Document</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_ANALOGUE_TACHO" xml:space="preserve">
+    <value>Analogue Tachograph</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT" xml:space="preserve">
+    <value>New Analogue Tachograph Document</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_UNDOWNLOADABILITY" xml:space="preserve">
+    <value>Undownloadability</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT" xml:space="preserve">
+    <value>New Undownloadability Document</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT" xml:space="preserve">
+    <value>Shows the new undownloadability document screen</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_HISTORY" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_TACHOGRAPH" xml:space="preserve">
+    <value>Tachograph</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY" xml:space="preserve">
+    <value>Tachograph History</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN" xml:space="preserve">
+    <value>Shows the historical tachograph documents screen</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY" xml:space="preserve">
+    <value>Undownloadability History</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN" xml:space="preserve">
+    <value>Shows the historial undownloadability documents screen</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_CARD_BROWSER" xml:space="preserve">
+    <value>Card Browser</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_CALIBRATIONS" xml:space="preserve">
+    <value>Calibrations</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN" xml:space="preserve">
+    <value>Shows the calibrations screen</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_FILES" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_WORKSHOP_CARD" xml:space="preserve">
+    <value>Workshop Card</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_WORKSHOP_CARD_FILES" xml:space="preserve">
+    <value>Workshop Card Files</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN" xml:space="preserve">
+    <value>Shows the workshop card files screen</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_WEBCAL" xml:space="preserve">
+    <value>Webcal</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOW" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="TXT_REPRINT_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration Number:</value>
+  </data>
+  <data name="TXT_REPRINT_REPRINT" xml:space="preserve">
+    <value>Re-Print</value>
+  </data>
+  <data name="TXT_REPRINT_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_CAPTURE_SIGNATURE_TITLE" xml:space="preserve">
+    <value>Capture Signature</value>
+  </data>
+  <data name="TXT_CAPTURE_SIGNATURE_SAVE_AND_CLOSE" xml:space="preserve">
+    <value>Save &amp;amp; Close</value>
+  </data>
+  <data name="TXT_CAPTURE_SIGNATURE_BROWSE" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="TXT_CAPTURE_SIGNATURE_CLOSE" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="TXT_CAPTURE_SIGNATURE_TASK_QUEUE" xml:space="preserve">
+    <value>Task Queue</value>
+  </data>
+  <data name="TXT_WORKER_PROGRESS_TITLE" xml:space="preserve">
+    <value>Task Queue</value>
+  </data>
+  <data name="TXT_WORKER_PROGRESS_NO_PENDING_TASKS" xml:space="preserve">
+    <value>There are no tasks waiting to be processed.</value>
+  </data>
+  <data name="TXT_WORKER_PROGRESS_CLOSE" xml:space="preserve">
+    <value>Close</value>
   </data>
 </root>

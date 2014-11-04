@@ -86,7 +86,7 @@
 
         public static void GenerateVOSADocument(List<TachographDocument> documents, DateTime start, DateTime end)
         {
-            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PDF, "");
+            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);
             if (result.Result == true)
             {
                 VOSADocument.Create(result.FileName, documents, start, end);

@@ -102,7 +102,7 @@
                 builder.AppendLine();
             }
 
-            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PlainText, "");
+            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PlainText, string.Empty);
             if (result.Result == true)
             {
                 File.WriteAllText(result.FileName, builder.ToString(), Encoding.ASCII);
@@ -152,7 +152,7 @@
                 builder.AppendLine(string.Format("{0}: {1}", item.Key, item.Value));
             }
 
-            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PlainText, "");
+            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PlainText, string.Empty);
             if (result.Result == true)
             {
                 File.WriteAllText(result.FileName, builder.ToString(), Encoding.ASCII);
@@ -215,10 +215,10 @@
 
         private static Worksheet CreateWorksheet()
         {
-            var application = new Application {Visible = true};
+            var application = new Application { Visible = true };
 
             Workbook workbook = application.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
-            var worksheet = (Worksheet) workbook.Worksheets.Item[1];
+            var worksheet = (Worksheet)workbook.Worksheets.Item[1];
 
             worksheet.Name = Resources.TXT_GENERATED_REPORT;
             return worksheet;
@@ -263,22 +263,22 @@
         private static IDictionary<T2, int> GetGroupedData<T, T2>(IEnumerable<T> allDocuments, Func<T, T2> groupBy)
         {
             return allDocuments.GroupBy(groupBy)
-                .Select(doc => new {doc.Key, Count = doc.Count()})
+                .Select(doc => new { doc.Key, Count = doc.Count() })
                 .ToDictionary(t => t.Key, t => t.Count);
         }
 
         private static string ToLetter(int index)
         {
-            const string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string alphabet = Resources.TXT_ALPHABET;
 
-            string value = "";
+            string value = string.Empty;
 
-            if (index >= letters.Length)
+            if (index >= alphabet.Length)
             {
-                value += letters[index/letters.Length - 1];
+                value += alphabet[index / alphabet.Length - 1];
             }
 
-            value += letters[index%letters.Length];
+            value += alphabet[index % alphabet.Length];
 
             return value;
         }

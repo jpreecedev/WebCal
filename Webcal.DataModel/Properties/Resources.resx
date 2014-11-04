@@ -117,71 +117,233 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_GOODS_VEHICLE">
-    <value xml:space="preserve">G - goods vehicle</value>
+  <data name="TXT_GOODS_VEHICLE" xml:space="preserve">
+    <value>G - goods vehicle</value>
   </data>
-  <data name="TXT_PASSENGER_VEHICLE">
-    <value xml:space="preserve">P - passenger vehicle</value>
+  <data name="TXT_PASSENGER_VEHICLE" xml:space="preserve">
+    <value>P - passenger vehicle</value>
   </data>
   <data name="TXT_INSTALLATION_CALIBRATION" xml:space="preserve">
     <value>I - Installation / Initial calibration</value>
   </data>
-  <data name="TXT_MINOR_WORK_DETAILS">
-    <value xml:space="preserve">M - Minor Work</value>
+  <data name="TXT_MINOR_WORK_DETAILS" xml:space="preserve">
+    <value>M - Minor Work</value>
   </data>
-  <data name="TXT_RECALIBRATION">
-    <value xml:space="preserve">R - Recalibration</value>
+  <data name="TXT_RECALIBRATION" xml:space="preserve">
+    <value>R - Recalibration</value>
   </data>
-  <data name="TXT_TWO_YEAR_INSPECTION">
-    <value xml:space="preserve">2 - 2 year inspection</value>
+  <data name="TXT_TWO_YEAR_INSPECTION" xml:space="preserve">
+    <value>2 - 2 year inspection</value>
   </data>
-  <data name="TXT_SIX_YEAR_CALIBRATION">
-    <value xml:space="preserve">6 - 6 year calibration</value>
+  <data name="TXT_SIX_YEAR_CALIBRATION" xml:space="preserve">
+    <value>6 - 6 year calibration</value>
   </data>
-  <data name="TXT_DIGITAL_INITIAL_CALIBRATION">
-    <value xml:space="preserve">3 - Digital initial calibration</value>
+  <data name="TXT_DIGITAL_INITIAL_CALIBRATION" xml:space="preserve">
+    <value>3 - Digital initial calibration</value>
   </data>
-  <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION">
-    <value xml:space="preserve">4 - Digital 2 year calibration</value>
+  <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION" xml:space="preserve">
+    <value>4 - Digital 2 year calibration</value>
   </data>
-  <data name="EXC_UNABLE_SAVE_CHANGES">
-    <value xml:space="preserve">Unable to save changes.  Some data may have been lost.</value>
+  <data name="EXC_UNABLE_SAVE_CHANGES" xml:space="preserve">
+    <value>Unable to save changes.  Some data may have been lost.</value>
   </data>
-  <data name="TXT_ERROR">
-    <value xml:space="preserve">Error</value>
+  <data name="TXT_ERROR" xml:space="preserve">
+    <value>Error</value>
   </data>
-  <data name="EXC_UNABLE_TO_FULL_READ_SMART_CARD">
-    <value xml:space="preserve">An error occurred whilst reading the card.  Some data may be missing or erroneous.</value>
+  <data name="EXC_UNABLE_TO_FULL_READ_SMART_CARD" xml:space="preserve">
+    <value>An error occurred whilst reading the card.  Some data may be missing or erroneous.</value>
   </data>
-  <data name="EXC_UNABLE_TO_COMPLETE_REQUEST">
-    <value xml:space="preserve">Unable to complete the request to the database.
+  <data name="EXC_UNABLE_TO_COMPLETE_REQUEST" xml:space="preserve">
+    <value>Unable to complete the request to the database.
 
 {0}</value>
   </data>
-  <data name="ERR_DAY_OF_WEEK_NOT_RECOGNISED">
-    <value xml:space="preserve">Day of week not recognised</value>
+  <data name="ERR_DAY_OF_WEEK_NOT_RECOGNISED" xml:space="preserve">
+    <value>Day of week not recognised</value>
   </data>
-  <data name="TXT_NO_PATH_SPECIFIED">
-    <value xml:space="preserve">(No path specified)</value>
+  <data name="TXT_NO_PATH_SPECIFIED" xml:space="preserve">
+    <value>(No path specified)</value>
   </data>
-  <data name="ERR_UNABLE_DISCARD_CHANGES">
-    <value xml:space="preserve">Unable to discard changes</value>
+  <data name="ERR_UNABLE_DISCARD_CHANGES" xml:space="preserve">
+    <value>Unable to discard changes</value>
   </data>
-  <data name="EXC_DOCUMENT_TYPE_NOT_RECOGNISED">
-    <value xml:space="preserve">The given document type was not recognised</value>
+  <data name="EXC_DOCUMENT_TYPE_NOT_RECOGNISED" xml:space="preserve">
+    <value>The given document type was not recognised</value>
   </data>
-  <data name="ERR_APPLICATION_CANNOT_CONTINUE">
-    <value xml:space="preserve">An error has occurred and the application cannot continue</value>
+  <data name="ERR_APPLICATION_CANNOT_CONTINUE" xml:space="preserve">
+    <value>An error has occurred and the application cannot continue</value>
   </data>
-  <data name="EXC_UNLOGGABLE_EXCEPTION">
-    <value xml:space="preserve">Unable to complete this action.  Error could not be logged to the database.
+  <data name="EXC_UNLOGGABLE_EXCEPTION" xml:space="preserve">
+    <value>Unable to complete this action.  Error could not be logged to the database.
 
 {0}</value>
   </data>
-  <data name="EXC_USER_REPOSITORY_IS_REQUIRED">
-    <value xml:space="preserve">The user repository is required to create the super user account.</value>
+  <data name="EXC_USER_REPOSITORY_IS_REQUIRED" xml:space="preserve">
+    <value>The user repository is required to create the super user account.</value>
   </data>
   <data name="TXT_ACTIVITY_MODE_CHANGE" xml:space="preserve">
     <value>Activity Mode Change</value>
+  </data>
+  <data name="TXT_SEED_SKILLRAY" xml:space="preserve">
+    <value>Skillray</value>
+  </data>
+  <data name="TXT_SEED_SIEMENS_VDO" xml:space="preserve">
+    <value>SIEMENS VDO</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MODEL_NAME" xml:space="preserve">
+    <value>1381</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_NAME" xml:space="preserve">
+    <value>VDO</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_2_MODEL" xml:space="preserve">
+    <value>1318</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_2_MODEL_2" xml:space="preserve">
+    <value>1324</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_2_MODEL_3" xml:space="preserve">
+    <value>1314</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_2_MODEL_4" xml:space="preserve">
+    <value>1319</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_3_NAME" xml:space="preserve">
+    <value>STONERIDGE</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_3_MODEL_1_NAME" xml:space="preserve">
+    <value>SE5000</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_3_MODEL_2_NAME" xml:space="preserve">
+    <value>8400</value>
+  </data>
+  <data name="TXT_SEED_TACHO_MAKE_3_MODEL_3_NAME" xml:space="preserve">
+    <value>2400</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_1_NAME" xml:space="preserve">
+    <value>DAF</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_MODEL_1_NAME" xml:space="preserve">
+    <value>LF</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_MODEL_2_NAME" xml:space="preserve">
+    <value>CF</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_MODEL_3_NAME" xml:space="preserve">
+    <value>XF</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_2_MODEL_1_NAME" xml:space="preserve">
+    <value>SCANIA</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_2_NAME" xml:space="preserve">
+    <value>SCANIA</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_2_MAKE_1_NAME" xml:space="preserve">
+    <value>R SERIES</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_2_MAKE_2_NAME" xml:space="preserve">
+    <value>G SERIES</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_3_MAKE_1_NAME" xml:space="preserve">
+    <value>SPRINTER</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_3_MAKE_2_NAME" xml:space="preserve">
+    <value>ATEGO</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_3_MAKE_3_NAME" xml:space="preserve">
+    <value>AXOR</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_3_MAKE_4_NAME" xml:space="preserve">
+    <value>ACTROS</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_4_MAKE_1_NAME" xml:space="preserve">
+    <value>PREMIUM</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_4_MAKE_2_NAME" xml:space="preserve">
+    <value>MAGNUM</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_5_MAKE_1_NAME" xml:space="preserve">
+    <value>FL</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_5_MAKE_2_NAME" xml:space="preserve">
+    <value>FH</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_5_MAKE_3_NAME" xml:space="preserve">
+    <value>FM</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_6_MAKE_1_NAME" xml:space="preserve">
+    <value>STRALIS</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_6_MAKE_2_NAME" xml:space="preserve">
+    <value>DAILY</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_6_MAKE_3_NAME" xml:space="preserve">
+    <value>EUROCARGO</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_7_MAKE_1_NAME" xml:space="preserve">
+    <value>TGL</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_7_MAKE_2_NAME" xml:space="preserve">
+    <value>TGX</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_8_MAKE_1_NAME" xml:space="preserve">
+    <value>D MAX</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_8_MAKE_2_NAME" xml:space="preserve">
+    <value>N35</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_8_MAKE_3_NAME" xml:space="preserve">
+    <value>N75</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_9_MAKE_1_NAME" xml:space="preserve">
+    <value>EAGLE</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_10_MAKE_1_NAME" xml:space="preserve">
+    <value>HINO</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_3_NAME" xml:space="preserve">
+    <value>MERCEDES</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_4_NAME" xml:space="preserve">
+    <value>RENAULT</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_5_NAME" xml:space="preserve">
+    <value>VOLVO</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_6_NAME" xml:space="preserve">
+    <value>INVECO</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_7_NAME" xml:space="preserve">
+    <value>MAN</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_8_NAME" xml:space="preserve">
+    <value>ISUZU</value>
+  </data>
+  <data name="TXT_SEED_VEHICLE_MAKE_9_NAME" xml:space="preserve">
+    <value>DENNIS</value>
+  </data>
+  <data name="TXT_FRIDAY" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="TXT_MONDAY" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="TXT_SATURDAY" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="TXT_SUNDAY" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="TXT_THURSDAY" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="TXT_TUESDAY" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="TXT_WEDNESDAY" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="TXT_TECHNICIAN_DEFAULT" xml:space="preserve">
+    <value>{0} (Default)</value>
   </data>
 </root>

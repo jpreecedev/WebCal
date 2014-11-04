@@ -5,7 +5,8 @@
                     xmlns:conv="clr-namespace:Webcal.Converters"
                     xmlns:core="clr-namespace:Webcal.Core"
                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-                    xmlns:dow="clr-namespace:Webcal.Controls.DayOfWeekPicker">
+                    xmlns:dow="clr-namespace:Webcal.Controls.DayOfWeekPicker"
+                    xmlns:Properties="clr-namespace:Webcal.Properties">
 
     <LinearGradientBrush x:Key="LightBrush"
                          StartPoint="0,0"
@@ -25,7 +26,7 @@
         <Setter Property="Height"
                 Value="25" />
         <Setter Property="Content"
-                Value="Empty fields" />
+                Value="{x:Static Properties:Resources.TXT_EMPTY_FIELDS}" />
         <Setter Property="Width"
                 Value="130" />
         <Setter Property="Margin"
@@ -39,7 +40,7 @@
         <Setter Property="Height"
                 Value="25" />
         <Setter Property="Content"
-                Value="New customer" />
+                Value="{x:Static Properties:Resources.TXT_NEW_CUSTOMER}" />
         <Setter Property="Width"
                 Value="130" />
         <Setter Property="Margin"

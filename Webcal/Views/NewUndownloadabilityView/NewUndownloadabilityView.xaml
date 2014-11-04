@@ -7,6 +7,7 @@
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:core="clr-namespace:Webcal.Core"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="500">
@@ -19,7 +20,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Undownloadability document"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_UNDOWNLOADABILITY_DOCUMENT}"
                    Style="{StaticResource TitleFont}" />
 
         <Grid Grid.Row="1"
@@ -43,11 +44,11 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Vehicle data"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_VEHICLE_DATA}"
                        Style="{StaticResource SubHeaderFont}"
                        Grid.ColumnSpan="2" />
 
-            <ctrls:InputTextField Label="Registration number"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_REGISTRATION_NUMBER}"
                                   Text="{core:InputBinding Document.RegistrationNumber}"
                                   IsMandatory="True"
                                   behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
@@ -55,7 +56,7 @@
                                   IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                   Grid.Row="1" />
 
-            <TextBlock Text="Tachograph data"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_DATA}"
                        Style="{StaticResource SubHeaderFont}"
                        Grid.Row="2" />
 
@@ -68,7 +69,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <ctrls:InputComboField Label="Tachograph make"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_MAKE}"
                                        ItemsSource="{Binding}"
                                        SelectedText="{core:InputBinding DataContext.Document.TachographMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                        IsSynchronisedWithCurrentItem="True"
@@ -76,7 +77,7 @@
                                        IsMandatory="True"
                                        IsEditable="True" />
 
-                <ctrls:InputComboField Label="Model"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_MODEL}"
                                        ItemsSource="{core:InputBinding Models}"
                                        SelectedText="{core:InputBinding DataContext.Document.TachographModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                        IsSynchronisedWithCurrentItem="True"
@@ -87,23 +88,23 @@
 
             </Grid>
 
-            <ctrls:InputTextField Label="Serial number"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_SERIAL_NUMBER}"
                                   Text="{core:InputBinding Document.SerialNumber}"
                                   IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                   IsMandatory="True"
                                   Grid.Row="4" />
 
-            <TextBlock Text="Inspection data"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATA}"
                        Style="{StaticResource SubHeaderFont}"
                        Grid.Row="5" />
 
-            <ctrls:InputDatePickerField Label="Inspection date"
+            <ctrls:InputDatePickerField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATE}"
                                         SelectedDate="{Binding Document.InspectionDate}"
                                         IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                         IsMandatory="True"
                                         Grid.Row="6" />
 
-            <ctrls:InputComboField Label="Technician"
+            <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_TECHNICIAN}"
                                    SelectedText="{core:InputBinding Document.Technician}"
                                    DisplayMemberPath="Name"
                                    ItemsSource="{Binding Technicians}"
@@ -111,11 +112,11 @@
                                    IsMandatory="True"
                                    Grid.Row="7" />
 
-            <TextBlock Text="Customer data"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_CUSTOMER_DATA}"
                        Style="{StaticResource SubHeaderFont}"
                        Grid.Row="8" />
 
-            <ctrls:InputComboField Label="Customer"
+            <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_CUSTOMER}"
                                    ItemsSource="{core:InputBinding CustomerContacts}"
                                    SelectedText="{core:InputBinding Document.CustomerContact}"
                                    DisplayMemberPath="Name"
@@ -134,13 +135,13 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right">
 
-                <Button Content="Export PDF"
+                <Button Content="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_EXPORT_PDF}"
                         Command="{Binding ExportPDFCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
-                <Button Content="Print"
+                <Button Content="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_PRINT}"
                         Command="{Binding PrintCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
-                <Button Content="Cancel"
+                <Button Content="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_CANCEL}"
                         Command="{Binding CancelCommand}"
                         Margin="5,10,0,10" />
 

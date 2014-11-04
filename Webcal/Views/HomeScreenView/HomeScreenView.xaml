@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vm="clr-namespace:Webcal.Views"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignHeight="800"
              d:DesignWidth="750"
@@ -26,7 +27,7 @@
             <Image Source="..\..\Images\webcal.png"
                    Width="625"
                    Height="250" />
-            <TextBlock Text="{Binding VersionNumber, Mode=OneTime, StringFormat='Product Version: {0}'}"
+            <TextBlock Text="{Binding VersionNumber, Mode=OneTime}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center">
                 <TextBlock.RenderTransform>
@@ -102,7 +103,7 @@
         </StackPanel>
 
         <CheckBox Grid.Row="2"
-                  Content="Automatically print labels"
+                  Content="{x:Static Properties:Resources.TXT_HOME_SCREEN_AUTO_PRINT_LABELS}"
                   IsChecked="{Binding AutoPrintLabels}" 
                   Margin="20,10,0,10"/>
     </Grid>

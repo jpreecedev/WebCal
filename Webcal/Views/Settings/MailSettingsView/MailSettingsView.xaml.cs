@@ -7,7 +7,7 @@ namespace Webcal.Views.Settings
         public MailSettingsView()
         {
             InitializeComponent();
-            HelpText = "Users will not see these settings when \"Don't send emails\" is selected"; 
+            HelpText = Properties.Resources.TXT_EMAIL_SETTINGS_USERS_WONT_SEE_SETTINGS; 
         }
     }
 }

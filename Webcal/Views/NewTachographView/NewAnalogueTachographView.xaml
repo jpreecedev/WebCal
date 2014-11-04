@@ -7,6 +7,7 @@
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:core="clr-namespace:Webcal.Core"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="1000">
@@ -20,7 +21,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Analogue Tachograph Document"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_ANALOGUE_TACH_DOCUMENT}"
                    Style="{StaticResource TitleFont}" />
 
         <ScrollViewer Grid.Row="1"
@@ -57,7 +58,7 @@
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Tachograph record type"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TACHOGRAPH_RECORD_TYPE}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="1" />
 
@@ -67,18 +68,18 @@
                                        IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                        ItemsSource="{core:InputBinding DocumentTypes}"
                                        SelectedItem="{core:InputBinding Document.DocumentType}"
-                                       Label="Document type"
+                                       Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_DOCUMENT_TYPE}"
                                        Grid.Row="2" />
 
                 <ctrls:InputTextField IsMandatory="False"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                                      Label="Details:"
+                                      Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_DETAILS}"
                                       Grid.Row="2"
                                       Grid.Column="2"
                                       Text="{core:InputBinding Document.MinorWorkDetails}"
                                       Visibility="{core:InputBinding SelectedItem, ElementName=DocumentTypeCombo, Converter={StaticResource DocType2Vis}}" />
 
-                <TextBlock Text="Vehicle data"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_VEHICLE_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="3" />
 
@@ -98,7 +99,7 @@
 
                 </Grid>
 
-                <ctrls:InputTextField Label="Registration number"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_REGISTRATION_NUMBER}"
                                       Text="{core:InputBinding Document.RegistrationNumber}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
@@ -106,7 +107,7 @@
                                       IsMandatory="True"
                                       Grid.Row="4" />
 
-                <ctrls:InputTextField Label="VIN"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_VIN}"
                                       Text="{core:InputBinding Document.VIN}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsMandatory="True"
@@ -124,7 +125,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ctrls:InputComboField x:Name="VehicleMakeCombo"
-                                           Label="Vehicle make"
+                                           Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_VEHICLE_MAKE}"
                                            ItemsSource="{Binding}"
                                            SelectedText="{core:InputBinding DataContext.Document.VehicleMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                            IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
@@ -132,7 +133,7 @@
                                            DisplayMemberPath="Name"
                                            IsMandatory="True" />
 
-                    <ctrls:InputComboField Label="Model"
+                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_MODEL}"
                                            ItemsSource="{core:InputBinding Models}"
                                            SelectedText="{core:InputBinding DataContext.Document.VehicleModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                            IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}, UpdateSourceTrigger=PropertyChanged}"
@@ -141,7 +142,7 @@
                                            Grid.Column="2" />
                 </Grid>
 
-                <ctrls:InputComboField Label="Tyre size"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TYRE_SIZE}"
                                        ItemsSource="{core:InputBinding TyreSizes}"
                                        DisplayMemberPath="Size"
                                        SelectedText="{core:InputBinding Document.TyreSize}"
@@ -150,7 +151,7 @@
                                        IsAutoPopulated="True"
                                        Grid.Row="6" />
 
-                <ctrls:InputComboField Label="Vehicle type"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_VEHICLE_TYPE}"
                                        ItemsSource="{core:InputBinding VehicleTypes}"
                                        SelectedItem="{core:InputBinding Document.VehicleType}"
                                        IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
@@ -159,18 +160,18 @@
                                        Grid.Row="6"
                                        Grid.Column="2" />
 
-                <TextBlock Text="Calibration data"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CALIBRATION_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="7" />
 
-                <ctrls:InputTextField Label="W Factor"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_W_FACTOR}"
                                       Text="{core:InputBinding Document.WFactor}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsMandatory="False"
                                       IsAutoPopulated="True"
                                       Grid.Row="8" />
 
-                <ctrls:InputTextField Label="K Factor"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_K_FACTOR}"
                                       Text="{core:InputBinding Document.KFactor}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsMandatory="False"
@@ -178,14 +179,14 @@
                                       Grid.Row="8"
                                       Grid.Column="2" />
 
-                <ctrls:InputTextField Label="L Factor"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_L_FACTOR}"
                                       Text="{core:InputBinding Document.LFactor}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsMandatory="True"
                                       IsAutoPopulated="True"
                                       Grid.Row="9" />
 
-                <TextBlock Text="Tachograph data"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TACHOGRAPH_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="10" />
 
@@ -198,14 +199,14 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <ctrls:InputComboField Label="Tachograph Make"
+                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TACHOGRAPH_MAKE}"
                                            SelectedText="{core:InputBinding DataContext.Document.TachographMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                            IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                            IsSynchronisedWithCurrentItem="True"
                                            ItemsSource="{Binding}"
                                            IsMandatory="True" />
 
-                    <ctrls:InputComboField Label="Model"
+                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_MODEL}"
                                            SelectedText="{core:InputBinding DataContext.Document.TachographModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, UpdateSourceTrigger=PropertyChanged}"
                                            IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                            IsSynchronisedWithCurrentItem="True"
@@ -215,13 +216,13 @@
 
                 </Grid>
 
-                <ctrls:InputTextField Label="Odometer Reading"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_ODOMETER_READING}"
                                       Text="{core:InputBinding Document.OdometerReading}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsMandatory="True"
                                       Grid.Row="12" />
 
-                <ctrls:InputTextField Label="Serial Number"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_SERIAL_NUMBER}"
                                       Text="{core:InputBinding Document.SerialNumber}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsMandatory="True"
@@ -229,17 +230,17 @@
                                       Grid.Row="12"
                                       Grid.Column="2" />
 
-                <CheckBox Content="Tampered"
+                <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TAMPERED}"
                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                           IsChecked="{Binding Document.Tampered}"
                           Grid.Row="13"
                           Margin="145,0,0,0" />
 
-                <TextBlock Text="Inspection info"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_INSPECTION_INFO}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="14" />
 
-                <ctrls:InputComboField Label="Technician"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TECHNICIAN}"
                                        SelectedText="{core:InputBinding Document.Technician}"
                                        ItemsSource="{Binding Technicians}"
                                        DisplayMemberPath="Name"
@@ -247,7 +248,7 @@
                                        IsMandatory="True"
                                        Grid.Row="15" />
 
-                <ctrls:InputTextField Label="Invoice number"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_INVOICE_NUMBER}"
                                       Text="{core:InputBinding Document.InvoiceNumber}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsMandatory="True"
@@ -256,7 +257,7 @@
 
                 <ctrls:InputTextField Text="{core:InputBinding Document.InspectionInfo}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                                      Label="Inspection data"
+                                      Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_INSPECTION_DATA}"
                                       TextWrapping="Wrap"
                                       AcceptsReturn="True"
                                       Height="45"
@@ -265,11 +266,11 @@
                                       Margin="0,10" />
 
 
-                <TextBlock Text="Customer data"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CUSTOMER_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="17" />
 
-                <ctrls:InputComboField Label="Customer"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CUSTOMER}"
                                        IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                        Grid.Row="18"
                                        ItemsSource="{core:InputBinding CustomerContacts}"
@@ -290,20 +291,20 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right">
 
-                    <Button Content="Export PDF"
+                    <Button Content="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_EXPORT_PDF}"
                             Command="{Binding ExportPDFCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
 
-                    <Button Content="Print Label"
+                    <Button Content="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_PRINT_LABEL}"
                             Command="{Binding PrintLabelCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
 
-                    <Button Content="Print Certificate"
+                    <Button Content="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_PRINT_CERTIFICATE}"
                             Command="{Binding PrintCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                             Style="{StaticResource LargeButton}" />
 
-                    <Button Content="Cancel"
+                    <Button Content="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CANCEL}"
                             Command="{Binding CancelCommand}" />
 
                 </StackPanel>

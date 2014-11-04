@@ -6,6 +6,7 @@
                        xmlns:core="clr-namespace:Webcal.Core"
                        xmlns:vm="clr-namespace:Webcal.Views.Settings"
                        xmlns:Library="clr-namespace:Webcal.DataModel.Library;assembly=Webcal.DataModel"
+                       xmlns:Properties="clr-namespace:Webcal.Properties"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
                        d:DesignHeight="374">
@@ -17,7 +18,7 @@
             <RowDefinition Height="25" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="User Management"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_TITLE}"
                    Style="{StaticResource SettingsTitleFont}" />
         <Grid Grid.Row="1">
 
@@ -40,12 +41,12 @@
                     </Grid.RowDefinitions>
 
                     <!-- Username -->
-                    <TextBlock Text="Add new user:" />
+                    <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_ADD_NEW_USER}" />
                     <TextBox Text="{Binding NewUserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              Grid.Row="1" />
 
                     <!-- Password -->
-                    <TextBlock Text="New user password:"
+                    <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_NEW_USER_PASSWORD}"
                                Grid.Row="3" />
                     <PasswordBox x:Name="PasswordTextBox"
                                  Grid.Row="4" />
@@ -55,10 +56,10 @@
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Center"
                                 Grid.Row="5">
-                        <Button Content="Add"
+                        <Button Content="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_ADD}"
                                 Command="{Binding AddCommand}"
                                 CommandParameter="{Binding ElementName=PasswordTextBox}"/>
-                        <Button Content="Clear"
+                        <Button Content="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_CLEAR}"
                                 Command="{Binding ClearCommand}"
                                 CommandParameter="{Binding ElementName=PasswordTextBox}"/>
                     </StackPanel>
@@ -76,18 +77,18 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Change " />
-                            <TextBlock Text="your"
+                            <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_CHANGE}" />
+                            <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_YOUR}"
                                        FontWeight="Bold" />
-                            <TextBlock Text=" password" />
+                            <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_PASSWORD}" />
                         </StackPanel>
 
-                        <TextBlock Text="Your old password:"
+                        <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_OLD_PASSWORD}"
                                    Grid.Row="1" />
                         <PasswordBox x:Name="OldPasswordBox"
                                      Grid.Row="2" />
 
-                        <TextBlock Text="New password:"
+                        <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_NEW_PASSWORD}"
                                    Grid.Row="4" />
                         <PasswordBox x:Name="NewPasswordBox"
                                      Grid.Row="5" />
@@ -96,10 +97,10 @@
                                     VerticalAlignment="Top"
                                     HorizontalAlignment="Center"
                                     Grid.Row="6">
-                            <Button Content="Change"
+                            <Button Content="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_CHANGE_PASSWORD}"
                                     Command="{Binding ChangePasswordCommand}"
                                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
-                            <Button Content="Cancel"
+                            <Button Content="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_CHANGE_CANCEL}"
                                     Command="{Binding ClearPasswordCommand}"
                                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
                         </StackPanel>
@@ -113,7 +114,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Existing Users:" />
+                    <TextBlock Text="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_EXISTING_USERS}" />
 
                     <ListBox ItemsSource="{Binding Users}"
                              IsSynchronizedWithCurrentItem="True"
@@ -121,14 +122,14 @@
                              DisplayMemberPath="Username"
                              Grid.Row="1"/>
 
-                    <Button Content="Manage Signature"
+                    <Button Content="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_MANAGE_SIGNATURE}"
                             Command="{Binding ManageSignaturesCommand}"
                             Style="{StaticResource LargeButton}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left"
                             Margin="10"
                             Grid.Row="2"/>
-                    <Button Content="Reset Password"
+                    <Button Content="{x:Static Properties:Resources.TXT_USER_MANAGEMENT_RESET_PASSWORD}"
                             Command="{Binding ResetPasswordCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                             Style="{StaticResource LargeButton}"

@@ -1,4 +1,6 @@
-﻿namespace Webcal.DataModel
+﻿using Webcal.DataModel.Properties;
+
+namespace Webcal.DataModel
 {
     using Shared;
 
@@ -11,7 +13,7 @@
         {
             if (IsDefault)
             {
-                return string.Format("{0} (Default)", Name);
+                return string.Format(Resources.TXT_TECHNICIAN_DEFAULT, Name);
             }
 
             return Name;

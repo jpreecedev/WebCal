@@ -7,6 +7,7 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:core="clr-namespace:Webcal.Core"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="500">
@@ -19,7 +20,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Undownloadability document history"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_TITLE}"
                    Style="{StaticResource TitleFont}" />
 
         <Grid Grid.Row="1"
@@ -38,7 +39,7 @@
 
                 <xctk:WatermarkTextBox Text="{core:InputBinding SearchTerm}"
                                        behav:TextChangedBehaviour.Command="{Binding PerformSearchCommand}"
-                                       Watermark="Enter search term"
+                                       Watermark="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_ENTER_SEARCH_TERM}"
                                        Margin="0,0,5,10" />
 
                 <ComboBox ItemsSource="{core:InputBinding SearchFilters}"
@@ -56,25 +57,25 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="200"
-                                        Header="Creation date"
+                                        Header="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_CREATION_DATE}"
                                         DisplayMemberBinding="{Binding Path=Created, StringFormat={}{0:dd-MMM-yyyy HH:mm}}" />
                         <GridViewColumn Width="200"
-                                        Header="Vehicle registration number"
+                                        Header="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_VEHICLE_REGISTRATION_NUMBER}"
                                         DisplayMemberBinding="{Binding RegistrationNumber}" />
                         <GridViewColumn Width="200"
-                                        Header="Office"
+                                        Header="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_OFFICE}"
                                         DisplayMemberBinding="{Binding Office}" />
                         <GridViewColumn Width="200"
-                                        Header="Technician"
+                                        Header="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_TECHNICIAN}"
                                         DisplayMemberBinding="{Binding Technician}" />
                         <GridViewColumn Width="200"
-                                        Header="Customer"
+                                        Header="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_CUSTOMER}"
                                         DisplayMemberBinding="{Binding CustomerContact}" />
                     </GridView>
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Open in report form"
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_OPEN_IN_REPORT_FORM}"
                                   Command="{Binding OpenInReportFormCommand}" />
                     </ContextMenu>
                 </ListView.ContextMenu>
@@ -84,10 +85,10 @@
                         Grid.Row="2"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right">
-                <Button Content="Open in report form"
+                <Button Content="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_OPEN_IN_REPORT_FORM}"
                         Command="{Binding OpenInReportFormCommand}"
                         Width="160" />
-                <Button Content="Re-Print Certificate"
+                <Button Content="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_REPRINT_CERTIFICATE}"
                         Command="{Binding ReprintCertificateCommand}"
                         Width="160" />
             </StackPanel>
