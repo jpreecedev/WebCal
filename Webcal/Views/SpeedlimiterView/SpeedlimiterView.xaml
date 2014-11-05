@@ -7,6 +7,7 @@
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:core="clr-namespace:Webcal.Core"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="800">
@@ -20,7 +21,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Speedlimiter document"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_SPEEDLIMITER_TITLE}"
                    Style="{StaticResource TitleFont}" />
 
         <Grid  Style="{StaticResource InnerGrid}"
@@ -49,40 +50,41 @@
 
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Vehicle data"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_SPEEDLIMITER_VEHICLE_DATA}"
                        Style="{StaticResource SubHeaderFont}"
                        Grid.Row="1" />
 
 
 
-            <ctrls:InputTextField Label="Registration number"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_REGISTRATION_NUMBER}"
                                   IsMandatory="True"
                                   Grid.Row="2" />
 
-            <ctrls:InputTextField Label="VIN"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_VIN}"
                                   Grid.Row="2"
                                   Grid.Column="2"
                                   IsMandatory="True" />
 
-            <ctrls:InputComboField Label="Vehicle make"
+            <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_VEHICLE_MAKE}"
                                    Grid.Row="3" />
 
-            <ctrls:InputComboField Label="Model"
+            <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_MODEL}"
                                    Grid.Row="3"
                                    Grid.Column="2" />
 
-            <ctrls:InputComboField Label="Tyre size"
+            <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_TYRE_SIZE}"
                                    Grid.Row="4" />
 
 
 
-            <ctrls:InputComboField Label="Vehicle type"
+            <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_VEHICLE_TYPE}"
                                    Grid.Row="4"
                                    Grid.Column="2" />
             <StackPanel Grid.Row="5"
                         Orientation="Horizontal">
                 <TextBlock Width="145"
-                           VerticalAlignment="Center">Regulation Speed</TextBlock>
+                           VerticalAlignment="Center"
+                           Text="{x:Static Properties:Resources.TXT_SPEEDLIMITER_REGULATION_SPEED}" />
                 <xctk:IntegerUpDown Value="80"
                                     Maximum="120"
                                     Minimum="60" />
@@ -92,41 +94,43 @@
                         Grid.Column="2"
                         Orientation="Horizontal">
                 <TextBlock Width="145"
-                           VerticalAlignment="Center">Limiter Speed</TextBlock>
+                           VerticalAlignment="Center"
+                           Text="{x:Static Properties:Resources.TXT_SPEEDLIMITER_LIMITER_SPEED}" />
                 <xctk:IntegerUpDown Value="80"
                                     Maximum="120"
                                     Minimum="60" />
             </StackPanel>
 
-            <TextBlock Text="Ispection data"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_SPEEDLIMITER_INSPECTION_DATA}"
                        Style="{StaticResource SubHeaderFont}"
                        Grid.Row="6" />
 
-            <ctrls:InputTextField Label="Inspection equipment"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_INSPECTION_EQUIPMENT}"
                                   Grid.Row="7"
                                   IsMandatory="True" />
 
-            <ctrls:InputTextField Label="Inspection method"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_INSPECTION_METHOD}"
                                   Grid.Row="8"
                                   IsMandatory="True" />
 
-            <ctrls:InputTextField Label="Technician"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_TECHNICIAN}"
                                   Grid.Row="9"
                                   IsMandatory="True" />
 
-            <ctrls:InputDatePickerField Label="Inspection date"
+            <ctrls:InputDatePickerField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_INSPECTION_DATE}"
                                         Grid.Row="10" />
             <StackPanel Orientation="Horizontal"
                         Grid.Row="11">
-                <TextBlock Width="135">Accepted</TextBlock>
-                <CheckBox                       Margin="10,5,10,10" />
+                <TextBlock Width="135"
+                           Text="{x:Static Properties:Resources.TXT_SPEEDLIMITER_ACCEPTED}" />
+                <CheckBox Margin="10,5,10,10" />
             </StackPanel>
 
-            <TextBlock Text="Customer data"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_SPEEDLIMITER_CUSTOMER_DATA}"
                        Style="{StaticResource SubHeaderFont}"
                        Grid.Row="12" />
 
-            <ctrls:InputComboField Label="Customer"
+            <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_CUSTOMER}"
                                    ItemsSource="{core:InputBinding CustomerContacts}"
                                    SelectedText="{core:InputBinding SelectedCustomerContact}"
                                    DisplayMemberPath="Name"
@@ -143,19 +147,19 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right">
 
-                <Button Content="Export PDF"
+                <Button Content="{x:Static Properties:Resources.TXT_SPEEDLIMITER_EXPORT_PDF}"
                         Command="{Binding ExportPDFCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
 
-                <Button Content="Preview"
+                <Button Content="{x:Static Properties:Resources.TXT_SPEEDLIMITER_PREVIEW}"
                         Command="{Binding PreviewCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
 
-                <Button Content="Print"
+                <Button Content="{x:Static Properties:Resources.TXT_SPEEDLIMITER_PRINT}"
                         Command="{Binding PrintCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
 
-                <Button Content="Cancel"
+                <Button Content="{x:Static Properties:Resources.TXT_SPEEDLIMITER_CANCEL}"
                         Command="{Binding CancelCommand}"
                         Margin="5,10,0,10" />
 

@@ -5,7 +5,8 @@
                  xmlns:tb="http://www.hardcodet.net/taskbar"
                  xmlns:local="clr-namespace:Webcal.Windows"
                  xmlns:r="clr-namespace:Fluent;assembly=Fluent"
-                 Title="Webcal - Skillray Transport Services Ltd"
+                 xmlns:Properties="clr-namespace:Webcal.Properties"
+                 Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TITLE}"
                  ResizeMode="CanResizeWithGrip"
                  WindowStartupLocation="CenterScreen"
                  WindowState="Maximized"
@@ -29,76 +30,76 @@
                                        IsChecked="True"/>
             </r:Ribbon.QuickAccessItems>
             <r:Ribbon.Menu>
-                <r:ApplicationMenu Header="File"
+                <r:ApplicationMenu Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILE}"
                                    IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:MenuItem x:Name="SettingsMenuItem"
-                                Header="Settings"
+                                Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
                                 Icon="..\..\Images\Settings.png"
                                 Command="{Binding SettingsCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="Settings"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
                                          Image="..\..\Images\Settings.png"
-                                         Text="Shows the settings dialog"/>
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_SETTINGS}"/>
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem x:Name="GenerateReportMenuItem"
-                                Header="Generate Report"
+                                Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
                                 Icon="..\..\Images\Report.png"
                                 Command="{Binding GenerateReportCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="Generate Report"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
                                          Image="..\..\Images\Report.png"
-                                         Text="Shows the report dialog" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_REPORT}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
-                    <r:MenuItem Header="Backup Database"
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
                                 Icon="..\..\Images\Backup.png"
                                 Command="{Binding BackupDatabaseCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="Backup Database"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
                                          Image="..\..\Images\Backup.png"
-                                         Text="Shows the backup utility" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_BACKUP}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
-                    <r:MenuItem Header="Restore Database"
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_RESTORE_DATABASE}"
                                 Icon="..\..\Images\Restore.png"
                                 Command="{Binding RestoreDatabaseCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="Restore Database"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_RESTORE_DATABASE}"
                                          Image="..\..\Images\Restore.png"
-                                         Text="Shows the restore utility" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_RESTORE}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
-                    <r:MenuItem Header="View Task Queue"
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TASK_QUEUE}"
                                 Icon="..\..\Images\queue.png"
                                 Command="{Binding ViewTaskQueueCommand}">
                         <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="View Task Queue"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TASK_QUEUE}"
                                          Image="..\..\Images\queue.png"
-                                         Text="Displays the list of tasks currently running" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_TASKS}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
-                    <r:MenuItem Header="Check For Updates"
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_UPDATES}"
                                 Icon="..\..\Images\Update.png"
                                 Command="{Binding UpdateCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="Check For Updates"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_UPDATES}"
                                          Image="..\..\Images\Update.png"
-                                         Text="Checks for updates to the application" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_APPLICATION_UPDATES}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
-                    <r:MenuItem Header="About"
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ABOUT}"
                                 Icon="..\..\Images\Info.png"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="About"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ABOUT}"
                                          Image="..\..\Images\Info.png"
-                                         Text="Shows about and technical information" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH}" />
                         </r:MenuItem.ToolTip>
                         <StackPanel Orientation="Vertical"
                                     Margin="10"
@@ -108,10 +109,8 @@
                                    Width="116"
                                    Height="30"
                                    Margin="0,0,0,10" />
-                            <TextBlock>
-                                    Copyright © Skillray Transport Services UK
-                            </TextBlock>
-                            <Button Content="View Technical Information"
+                            <TextBlock Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_COPYRIGHT}" />
+                            <Button Content="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TECHNICAL_INFORMATION}"
                                     Command="{Binding ViewTechnicalInformationCommand}"
                                     Margin="10"
                                     Width="150"
@@ -119,165 +118,165 @@
                         </StackPanel>
                     </r:MenuItem>
                     <r:MenuItem x:Name="ExitMenuItem"
-                                Header="Exit"
+                                Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
                                 Icon="..\..\Images\Exit.png"
                                 Command="{Binding ExitCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="Exit"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
                                          Image="..\..\Images\Exit.png"
-                                         Text="Exits the application" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXITS_APPLICATION}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                 </r:ApplicationMenu>
             </r:Ribbon.Menu>
 
-            <r:RibbonTabItem Header="New Documents"
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}"
                              IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                <r:RibbonGroupBox Header="Home"
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                    <r:Button Header="Home"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                               Icon="..\..\Images\home-icon.png"
                               LargeIcon="..\..\Images\home-icon.png"
                               Command="{Binding CancelCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="Home"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                          Image="..\..\Images\home-icon.png"
-                                         Text="Shows the home screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="New Documents"
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                    <r:Button Header="Digital Tachograph"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_DIGITAL_TACHO}"
                               Icon="..\..\Images\NewTachoDocSm.png"
                               LargeIcon="..\..\Images\NewTachoDocSm.png"
                               Command="{Binding NewTachographCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="New Tachograph Document"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT}"
                                          Image="..\..\Images\NewTachoDocSm.png"
-                                         Text="Shows the new tachograh document screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
-                    <r:Button Header="Analogue Tachograph"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ANALOGUE_TACHO}"
                               Icon="..\..\Images\NewAnalogueTachoDoc.png"
                               LargeIcon="..\..\Images\NewAnalogueTachoDoc.png"
                               Command="{Binding NewAnalogueTachographCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="New Analogue Tachograph Document"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT}"
                                          Image="..\..\Images\NewAnalogueTachoDoc.png"
-                                         Text="Shows the new tachograh document screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
-                    <r:Button Header="Undownloadability"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY}"
                               Icon="..\..\Images\NewUndownloadDocSm.png"
                               LargeIcon="..\..\Images\NewUndownloadDocSm.png"
                               Command="{Binding NewUndownloadabilityCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="New Undownloadability Document"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT}"
                                          Image="..\..\Images\NewUndownloadDocSm.png"
-                                         Text="Shows the new undownloadability document screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
 
-            <r:RibbonTabItem Header="History"
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
                              IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                <r:RibbonGroupBox Header="Home"
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                    <r:Button Header="Home"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                               Icon="..\..\Images\home-icon.png"
                               LargeIcon="..\..\Images\home-icon.png"
                               Command="{Binding CancelCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="Home"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                          Image="..\..\Images\home-icon.png"
-                                         Text="Shows the home screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="History"
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                    <r:Button Header="Tachograph"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH}"
                               Icon="..\..\Images\OldTachoDocSm.png"
                               LargeIcon="..\..\Images\OldTachoDocSm.png"
                               Command="{Binding TachographHistoryCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="Tachograph History"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY}"
                                          Image="..\..\Images\OldTachoDocSm.png"
-                                         Text="Shows the historical tachograph documents screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
-                    <r:Button Header="Undownloadability"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY}"
                               Icon="..\..\Images\OldUndownloadDocSm.png"
                               LargeIcon="..\..\Images\OldUndownloadDocSm.png"
                               Command="{Binding UndownloadabilityHistoryCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="Undownloadability History"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY}"
                                          Image="..\..\Images\OldUndownloadDocSm.png"
-                                         Text="Shows the historial undownloadability documents screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
 
-            <r:RibbonTabItem Header="Card Browser"
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}"
                              IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                <r:RibbonGroupBox Header="Home"
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                    <r:Button Header="Home"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                               Icon="..\..\Images\home-icon.png"
                               LargeIcon="..\..\Images\home-icon.png"
                               Command="{Binding CancelCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="Home"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                          Image="..\..\Images\home-icon.png"
-                                         Text="Shows the home screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="Card Browser"
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                    <r:Button Header="Calibrations"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CALIBRATIONS}"
                               Icon="..\..\Images\Calibration.png"
                               LargeIcon="..\..\Images\Calibration.png"
                               Command="{Binding CalibrationsCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="Calibrations"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CALIBRATIONS}"
                                          Image="..\..\Images\Calibration.png"
-                                         Text="Shows the calibrations screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
 
-            <r:RibbonTabItem Header="Files"
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}"
                              IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                <r:RibbonGroupBox Header="Home"
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                    <r:Button Header="Home"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                               Icon="..\..\Images\home-icon.png"
                               LargeIcon="..\..\Images\home-icon.png"
                               Command="{Binding CancelCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="Home"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                          Image="..\..\Images\home-icon.png"
-                                         Text="Shows the home screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="Files"
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                    <r:Button Header="Workshop Card"
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WORKSHOP_CARD}"
                               Icon="..\..\Images\WorkshopBackupSm.png"
                               LargeIcon="..\..\Images\WorkshopBackupSm.png"
                               Command="{Binding WorkshopCardFilesCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="Workshop Card Files"
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WORKSHOP_CARD_FILES}"
                                          Image="..\..\Images\WorkshopBackupSm.png"
-                                         Text="Shows the workshop card files screen" />
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
@@ -299,13 +298,13 @@
         </Border>
 
         <tb:TaskbarIcon IconSource="/Images/Main Icon.ico"
-                        ToolTipText="Webcal">
+                        ToolTipText="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WEBCAL}">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Show"
+                    <MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW}"
                               Command="{Binding ShowWindowCommand}" />
                     <Separator />
-                    <MenuItem Header="Exit"
+                    <MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
                               Command="{Binding ExitTrayCommand}"
                               IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}" />
                 </ContextMenu>

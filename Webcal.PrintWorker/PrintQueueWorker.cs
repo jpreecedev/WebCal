@@ -1,4 +1,6 @@
-﻿namespace Webcal.PrintWorker
+﻿using Webcal.PrintWorker.Properties;
+
+namespace Webcal.PrintWorker
 {
     using System;
     using System.Diagnostics;
@@ -34,13 +36,13 @@
             string pdfExecutablePath = FindExecutable(printParameters.FilePath);
             if (string.IsNullOrEmpty(pdfExecutablePath))
             {
-                SendMessage("Unable to find suitable PDF executable path");
+                SendMessage(Resources.ERR_UNABLE_FIND_SUITABLE_PDF_EXECUTABLE_PATH);
                 return;
             }
 
             try
             {
-                SendMessage("Preparing to print");
+                SendMessage(Resources.TXT_PREPARING_TO_PRINT);
 
                 var proc = new Process
                 {
@@ -64,7 +66,7 @@
                     proc.WaitForExit(180000);
                 }
 
-                SendMessage("Print complete, tidying up.");
+                SendMessage(Resources.TXT_PRINT_COMPLETE);
 
                 proc.Close();
                 KillPDFViewer(Path.GetFileNameWithoutExtension(pdfExecutablePath));

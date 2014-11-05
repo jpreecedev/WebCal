@@ -56,7 +56,7 @@
 
             if (Text.ToCharArray().Any(c => !Char.IsNumber(c)))
             {
-                Text = Regex.Replace(Text, "[^.0-9]", "");
+                Text = Regex.Replace(Text, "[^.0-9]", string.Empty);
             }
 
             int number;

@@ -6,6 +6,7 @@
                        xmlns:vm="clr-namespace:Webcal.Views.Settings"
                        xmlns:core="clr-namespace:Webcal.Core"
                        xmlns:ctrls="clr-namespace:Webcal.Controls"
+                       xmlns:Properties="clr-namespace:Webcal.Properties"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
                        d:DesignHeight="374">
@@ -26,20 +27,20 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Printer settings"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_PRINTER_SETTINGS_TITLE}"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <StackPanel Orientation="Vertical"
                     Grid.Row="1">
 
-            <TextBlock Text="General Purpose Printer" />
+            <TextBlock Text="{x:Static Properties:Resources.TXT_PRINTER_SETTINGS_GENERAL_PURPOSE_PRINTER}" />
 
-            <RadioButton Content="Ask printer always when printing"
+            <RadioButton Content="{x:Static Properties:Resources.TXT_PRINTER_SETTINGS_ALWAYS_ASK}"
                          IsChecked="{Binding Settings.AlwaysAskForPrinter}"
                          GroupName="PrinterSettingsRadioGroup" />
 
             <RadioButton x:Name="Choose"
-                         Content="Use this printer always:"
+                         Content="{x:Static Properties:Resources.TXT_PRINTER_SETTINGS_ALWAYS_USE}"
                          IsChecked="{Binding Settings.UseDefaultPrinter}"
                          GroupName="PrinterSettingsRadioGroup" />
 
@@ -52,7 +53,7 @@
                       SelectedItem="{Binding Settings.DefaultPrinterName}" />
 
             <ctrls:InputNumberPicker IsMandatory="False"
-                                     Label="Default number of copies:"
+                                     Label="{x:Static Properties:Resources.TXT_PRINTER_SETTINGS_DEFAULT_NUMBER}"
                                      Text="{core:InputBinding Settings.DefaultNumberOfCopies}"
                                      Margin="0,10,0,0" />
 
@@ -61,7 +62,7 @@
         <StackPanel Orientation="Vertical"
                     Grid.Row="2">
 
-            <TextBlock Text="Label Printer" />
+            <TextBlock Text="{x:Static Properties:Resources.TXT_PRINTER_SETTINGS_LABEL_PRINTER}" />
 
             <ComboBox Width="300"
                       HorizontalAlignment="Left"
@@ -71,7 +72,7 @@
                       SelectedItem="{Binding Settings.DefaultLabelPrinter}" />
 
             <ctrls:InputNumberPicker IsMandatory="False"
-                                     Label="Default number of copies:"
+                                     Label="{x:Static Properties:Resources.TXT_PRINTER_SETTINGS_DEFAULT_NUMBER}"
                                      Text="{core:InputBinding Settings.LabelNumberOfCopies}"
                                      Margin="0,10,0,0"/>
 

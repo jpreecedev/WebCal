@@ -77,7 +77,7 @@
                 return message;
             }
 
-            return GetExceptionMessage("", exception);
+            return GetExceptionMessage(string.Empty, exception);
         }
 
         private static string ExtractEntityValidationExceptions(DbEntityValidationException exception)

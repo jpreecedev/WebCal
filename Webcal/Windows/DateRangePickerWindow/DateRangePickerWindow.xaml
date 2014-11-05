@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ctrls="clr-namespace:Webcal.Controls"
         xmlns:vm="clr-namespace:Webcal.Windows.DateRangePickerWindow"
-        Title="Select Date Range"
+        xmlns:Properties="clr-namespace:Webcal.Properties"
+        Title="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE}"
         Height="180"
         Width="425"
         WindowStartupLocation="CenterScreen">
@@ -18,10 +19,10 @@
         </Grid.RowDefinitions>
 
         <ctrls:InputDatePickerField SelectedDate="{Binding StartDateTime}"
-                                    Label="Start:"/>
+                                    Label="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_START}"/>
 
         <ctrls:InputDatePickerField SelectedDate="{Binding EndDateTime}"
-                                    Label="End:" 
+                                    Label="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_END}" 
                                     Grid.Row="1"
                                     Margin="0,5,0,0"/>
         
@@ -29,10 +30,10 @@
                     Grid.Row="2"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <Button Content="Select"
+            <Button Content="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_SELECT}"
                     Command="{Binding SelectCommand}" 
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
-            <Button Content="Cancel"
+            <Button Content="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_CANCEL}"
                     Command="{Binding CancelCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
         </StackPanel>

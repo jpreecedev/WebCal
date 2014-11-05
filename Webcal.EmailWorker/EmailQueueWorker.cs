@@ -1,4 +1,6 @@
-﻿namespace Webcal.EmailWorker
+﻿using Webcal.EmailWorker.Properties;
+
+namespace Webcal.EmailWorker
 {
     using System;
     using System.IO;
@@ -34,7 +36,7 @@
                 return;
             }
 
-            SendMessage("Sending via MAPI");
+            SendMessage(Resources.TXT_SENDING_VIA_MAPI);
             var mapiMailMessage = new MapiMailMessage
             {
                 Subject = parameters.Subject,
@@ -58,7 +60,7 @@
                 return;
             }
 
-            SendMessage("Sending via SMTP");
+            SendMessage(Resources.TXT_SENDING_VIA_SMTP);
             using (var mailMessage = new MailMessage())
             {
                 mailMessage.To.Add(parameters.Recipient);

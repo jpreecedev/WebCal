@@ -1,4 +1,6 @@
-﻿namespace Webcal.Views.Settings
+﻿using Webcal.Properties;
+
+namespace Webcal.Views.Settings
 {
     using System;
     using System.Collections.Generic;
@@ -17,13 +19,13 @@
         {
             DaysOfWeek = new ObservableCollection<CustomDayOfWeek>
             {
-                new CustomDayOfWeek {DayOfWeek = "Monday"},
-                new CustomDayOfWeek {DayOfWeek = "Tuesday"},
-                new CustomDayOfWeek {DayOfWeek = "Wednesday"},
-                new CustomDayOfWeek {DayOfWeek = "Thursday"},
-                new CustomDayOfWeek {DayOfWeek = "Friday"},
-                new CustomDayOfWeek {DayOfWeek = "Saturday"},
-                new CustomDayOfWeek {DayOfWeek = "Sunday"}
+                new CustomDayOfWeek {DayOfWeek = Resources.TXT_MONDAY},
+                new CustomDayOfWeek {DayOfWeek = Resources.TXT_TUESDAY},
+                new CustomDayOfWeek {DayOfWeek = Resources.TXT_WEDNESDAY},
+                new CustomDayOfWeek {DayOfWeek = Resources.TXT_THURSDAY},
+                new CustomDayOfWeek {DayOfWeek = Resources.TXT_FRIDAY},
+                new CustomDayOfWeek {DayOfWeek = Resources.TXT_SATURDAY},
+                new CustomDayOfWeek {DayOfWeek = Resources.TXT_SUNDAY}
             };
         }
 

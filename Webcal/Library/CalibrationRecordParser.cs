@@ -71,7 +71,7 @@
 
             if (calibrationRecord.OdometerValue == "16777215")
             {
-                calibrationRecord.OdometerValue = "";
+                calibrationRecord.OdometerValue = string.Empty;
             }
 
             return calibrationRecord;

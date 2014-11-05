@@ -5,6 +5,7 @@
                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                        xmlns:vm="clr-namespace:Webcal.Views.Settings"
                        xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns:Properties="clr-namespace:Webcal.Properties"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
                        d:DesignHeight="374">
@@ -18,7 +19,7 @@
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Email settings"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_TITLE}"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <Grid Grid.Row="1">
@@ -34,22 +35,22 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <RadioButton Content="Don't send emails"
+                <RadioButton Content="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_DONT_SEND_EMAILS}"
                              IsChecked="{Binding MailSettings.DontSendEmails, Mode=OneWay}"/>
 
                 <RadioButton x:Name="EmailCertificatesCheckBox"
-                          Content="Automatically email certificates"
+                          Content="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_AUTO_EMAIL_CERTIFICATES}"
                           IsChecked="{Binding MailSettings.AutoEmailCertificates, UpdateSourceTrigger=PropertyChanged}"
                           Margin="30,0,0,0" />
 
                 <RadioButton x:Name="PersonaliseEmailsCheckBox"
-                          Content="Allow me to make edits before sending"
+                          Content="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_MAKE_EDITS_BEFORE_SENDING}"
                           IsChecked="{Binding MailSettings.PersonaliseMyEmails, UpdateSourceTrigger=PropertyChanged}"
                           Margin="30,0,0,0" />
 
             </StackPanel>
 
-            <TextBlock Text="Subject" 
+            <TextBlock Text="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_SUBJECT}" 
                        IsEnabled="{Binding MailSettings.AllowEditingOfEmail, UpdateSourceTrigger=PropertyChanged}"
                        Grid.Row="2" />
 
@@ -57,7 +58,7 @@
                      IsEnabled="{Binding MailSettings.AllowEditingOfEmail, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Row="3"/>
 
-            <TextBlock Text="Body"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_BODY}"
                        IsEnabled="{Binding MailSettings.AllowEditingOfEmail, UpdateSourceTrigger=PropertyChanged}"
                        Grid.Row="5"/>
 
@@ -78,16 +79,16 @@
         <StackPanel Grid.Row="2"
                     Orientation="Vertical"
                     Margin="0,5,0,0">
-            <TextBlock Text="Default Sending Preferences"/>
+            <TextBlock Text="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_DEFAULT_SENDING_PREFERENCES}"/>
             <StackPanel Orientation="Horizontal"
                         Margin="0,10,0,0">
-                <CheckBox Content="Send To Office"
+                <CheckBox Content="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_SEND_TO_OFFICE}"
                           IsChecked="{Binding WorkshopSettings.SendToOffice}"
                           Margin="0,0,10,0" />
-                <CheckBox Content="Send To Customer"
+                <CheckBox Content="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_SEND_TO_CUSTOMER}"
                           IsChecked="{Binding WorkshopSettings.SendToCustomer}"
                           Margin="0,0,10,0" />
-                <CheckBox Content="Do not send"
+                <CheckBox Content="{x:Static Properties:Resources.TXT_EMAIL_SETTINGS_TITLE_DO_NOT_SEND}"
                           IsChecked="{Binding WorkshopSettings.DoNotSend}" />
             </StackPanel>
         </StackPanel>

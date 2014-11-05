@@ -6,6 +6,7 @@
                        xmlns:vm="clr-namespace:Webcal.Views.Settings"
                        xmlns:ctrls="clr-namespace:Webcal.Controls"
                        xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns:Properties="clr-namespace:Webcal.Properties"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
                        d:DesignHeight="374">
@@ -17,39 +18,39 @@
             <RowDefinition Height="25" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Workshop Settings"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_TITLE}"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <StackPanel Orientation="Vertical"
                     Grid.Row="1">
 
-            <ctrls:InputTextField Label="Workshop name"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_WORKSHOP_NAME}"
                                   Text="{core:InputBinding Settings.WorkshopName}" />
 
-            <ctrls:InputTextField Label="Address 1"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_1}"
                                   Text="{core:InputBinding Settings.Address1}" />
 
-            <ctrls:InputTextField Label="Address 2"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_2}"
                                   Text="{core:InputBinding Settings.Address2}" />
 
-            <ctrls:InputTextField Label="Town"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_TOWN}"
                                   Text="{core:InputBinding Settings.Town}" />
 
-            <ctrls:InputTextField Label="Post Code"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_POST_CODE}"
                                   Text="{core:InputBinding Settings.PostCode}" />
 
-            <ctrls:InputTextField Label="Phone Number"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_PHONE_NUMBER}"
                                   Text="{core:InputBinding Settings.PhoneNumber}" />
 
-            <ctrls:InputTextField Label="Main Email Address"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS}"
                                   Text="{core:InputBinding Settings.MainEmailAddress}" />
 
-            <ctrls:InputTextField Label="Secondary Email Address"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_SECONDARY_EMAIL_ADDRESS}"
                                   Text="{core:InputBinding Settings.SecondaryEmailAddress}" />
             
             <StackPanel Orientation="Horizontal"
                         Margin="0,20,0,0">
-                <Button Content="Choose Logo"
+                <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO}"
                         Command="{Binding BrowseCommand}"
                         HorizontalAlignment="Left"
                         Width="80" />

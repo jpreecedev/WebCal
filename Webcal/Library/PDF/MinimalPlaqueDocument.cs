@@ -43,22 +43,22 @@ namespace Webcal.Library.PDF
             int verticalPos = startVertical;
             if (CustomerContact != null)
             {
-                if (CustomerContact.Name != "")
+                if (CustomerContact.Name != string.Empty)
                 {
                     AbsolutePositionText(document, CustomerContact.Name, (startHorizontal + 350), (verticalPos), 580, 100, document.GetXLargeFont(false));
                     verticalPos += 20;
                 }
-                if (CustomerContact.Address != "")
+                if (CustomerContact.Address != string.Empty)
                 {
                     AbsolutePositionText(document, CustomerContact.Address, (startHorizontal + 350), (verticalPos), 580, 100, document.GetXLargeFont(false));
                     verticalPos += 20;
                 }
-                if (CustomerContact.Town != "")
+                if (CustomerContact.Town != string.Empty)
                 {
                     AbsolutePositionText(document, CustomerContact.Town, (startHorizontal + 350), (verticalPos), 580, 100, document.GetXLargeFont(false));
                     verticalPos += 20;
                 }
-                if (CustomerContact.PostCode != "")
+                if (CustomerContact.PostCode != string.Empty)
                 {
                     AbsolutePositionText(document, CustomerContact.PostCode, (startHorizontal + 350), (verticalPos), 580, 100, document.GetXLargeFont(false));
                 }
@@ -67,24 +67,24 @@ namespace Webcal.Library.PDF
 
             //Add Company Address
             verticalPos = startVertical;
-            if (WorkshopSettings.WorkshopName != "")
+            if (WorkshopSettings.WorkshopName != string.Empty)
             {
                 AbsolutePositionText(document, WorkshopSettings.WorkshopName, (startHorizontal + 32), (verticalPos), 580, 100, document.GetXLargeFont(false));
                 verticalPos += 20;
             }
-            if (WorkshopSettings.Address1 != "")
+            if (WorkshopSettings.Address1 != string.Empty)
             {
                 AbsolutePositionText(document, WorkshopSettings.Address1, (startHorizontal + 32), (verticalPos), 580, 100, document.GetXLargeFont(false));
                 verticalPos += 20;
             }
 
-            if (WorkshopSettings.Town != "")
+            if (WorkshopSettings.Town != string.Empty)
             {
                 AbsolutePositionText(document, WorkshopSettings.Town, (startHorizontal + 32), (verticalPos), 580, 100, document.GetXLargeFont(false));
                 verticalPos += 20;
             }
 
-            if (WorkshopSettings.PostCode != "")
+            if (WorkshopSettings.PostCode != string.Empty)
             {
                 AbsolutePositionText(document, WorkshopSettings.PostCode, (startHorizontal + 32), (verticalPos), 580, 100, document.GetXLargeFont(false));
             }
@@ -94,7 +94,7 @@ namespace Webcal.Library.PDF
         {
             DateTime? calibrationDate = tachographDocument.CalibrationTime ?? DateTime.Today;
 
-            string expiryDate = "Expiration Date: " + (GetCalibrationTime(calibrationDate.Value.AddYears(2).AddDays(-1)));
+            string expiryDate = Resources.TXT_EXPIRATION_DATE + (GetCalibrationTime(calibrationDate.Value.AddYears(2).AddDays(-1)));
 
             AbsolutePositionText(document, expiryDate, (startHorizontal + 30), (startVertical), 580, 100, document.GetXLargeFont(false));
         }
@@ -161,14 +161,14 @@ namespace Webcal.Library.PDF
             AbsolutePositionText(document, Resources.TXT_W_FACTOR, (startHorizontal + 150), (startVertical + 196), 550, 72, document.GetRegularFont(false));
             AbsolutePositionText(document, Resources.TXT_TYRE_L_FACTOR, (startHorizontal + 347), (startVertical + 196), 550, 72, document.GetRegularFont(false));
 
-            AbsolutePositionText(document, string.Format("{0} imp/km", tachographDocument.WFactor), (startHorizontal + 150), (startVertical + 208), 550, 72, document.GetRegularFont(false));
-            AbsolutePositionText(document, tachographDocument.LFactor + " mm", (startHorizontal + 347), (startVertical + 208), 550, 72, document.GetRegularFont(false));
+            AbsolutePositionText(document, string.Format(Resources.TXT_IMP_KM_VEHICLE, tachographDocument.WFactor), (startHorizontal + 150), (startVertical + 208), 550, 72, document.GetRegularFont(false));
+            AbsolutePositionText(document, tachographDocument.LFactor + Resources.TXT_MM, (startHorizontal + 347), (startVertical + 208), 550, 72, document.GetRegularFont(false));
 
             //Technician
 
             AbsolutePositionText(document, RegistrationData.CompanyName, (startHorizontal + 150), (startVertical + 234), 550, 72, document.GetRegularFont(false));
             AbsolutePositionText(document, WorkshopSettings.Address1, (startHorizontal + 150), (startVertical + 258), 550, 72, document.GetRegularFont(false));
-            AbsolutePositionText(document, WorkshopSettings.Town + " " + WorkshopSettings.PostCode, (startHorizontal + 150), (startVertical + 272), 550, 72, document.GetRegularFont(false));
+            AbsolutePositionText(document, string.Format("{0} {1}", WorkshopSettings.Town, WorkshopSettings.PostCode), (startHorizontal + 150), (startVertical + 272), 550, 72, document.GetRegularFont(false));
 
             AbsolutePositionText(document, string.Format(Resources.TXT_MINIMAL_LICENSE_NUMBER, RegistrationData.SealNumber), (startHorizontal + 347), (startVertical + 234), 550, 72, document.GetRegularFont(false));
             AbsolutePositionText(document, GetCalibrationTime(tachographDocument.CalibrationTime), (startHorizontal + 150), (startVertical + 314), 250, 40, document.GetRegularFont(false));
@@ -197,15 +197,15 @@ namespace Webcal.Library.PDF
             GetWorkshopImage(document, table);
             document.AddSpannedCell(table, TrimDocumentType(tachographDocument.DocumentType), 2, document.GetSmallerFont(), 29);
 
-            document.AddSpannedCell(table, "W: " + tachographDocument.WFactor + " imp/km", 1, document.GetXSmallFont(false), 16);
-            document.AddSpannedCell(table, "K: " + tachographDocument.KFactor + " imp/km", 2, document.GetXSmallFont(false), 16);
-            document.AddSpannedCell(table, "L: " + tachographDocument.LFactor + " mm", 1, document.GetXSmallFont(false), 16);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_MEDIUM_W_FACTOR, tachographDocument.WFactor), 1, document.GetXSmallFont(false), 16);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_MEDIUM_K_FACTOR, tachographDocument.KFactor), 2, document.GetXSmallFont(false), 16);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_MEDIUM_L_FACTOR, tachographDocument.LFactor, Resources.TXT_MM), 1, document.GetXSmallFont(false), 16);
 
-            document.AddSpannedCell(table, "VIN: " + tachographDocument.VIN, 2, document.GetSmallFont(false), 16, 68);
-            document.AddSpannedCell(table, "Tyre Size        " + tachographDocument.TyreSize, 2, document.GetSmallFont(false), 17, Element.ALIGN_LEFT);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_MEDIUM_VIN, tachographDocument.VIN), 2, document.GetSmallFont(false), 16, 68);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_MEDIUM_TYRE_SIZE, tachographDocument.TyreSize), 2, document.GetSmallFont(false), 17, Element.ALIGN_LEFT);
 
-            document.AddSpannedCell(table, "Serial number    " + tachographDocument.SerialNumber, 2, document.GetSmallFont(false), 17, Element.ALIGN_LEFT);
-            document.AddSpannedCell(table, "date:   " + GetCalibrationTime(tachographDocument.CalibrationTime), 2, document.GetRegularFont(false));
+            document.AddSpannedCell(table, string.Format(Resources.TXT_MEDIUM_SERIAL_NUMBER, tachographDocument.SerialNumber), 2, document.GetSmallFont(false), 17, Element.ALIGN_LEFT);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_MEDIUM_DATE, GetCalibrationTime(tachographDocument.CalibrationTime)), 2, document.GetRegularFont(false));
 
             GetCompanyDetails(document, table, 45, 4, document.GetRegularFont(false));
             document.AddSpannedCell(table, GetLicenseNumberParagraph(document, true), 4, 12, Element.ALIGN_LEFT);
@@ -222,17 +222,17 @@ namespace Webcal.Library.PDF
 
             document.AddSpannedCell(table, TrimDocumentType(tachographDocument.DocumentType), 4, document.GetSmallerFont(), 21);
 
-            document.AddSpannedCell(table, "W: " + tachographDocument.WFactor + " imp/km", 2, document.GetXSmallFont(false), 20);
-            document.AddSpannedCell(table, "K: " + tachographDocument.KFactor + " imp/km", 2, document.GetXSmallFont(false), 20);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_SMALL_W_FACTOR, tachographDocument.WFactor), 2, document.GetXSmallFont(false), 20);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_SMALL_K_FACTOR, tachographDocument.KFactor), 2, document.GetXSmallFont(false), 20);
 
-            document.AddSpannedCell(table, "L:   " + tachographDocument.LFactor + " mm", 4, document.GetRegularFont(false), 20, 58);
-            document.AddSpannedCell(table, "Tyre Size       " + tachographDocument.TyreSize, 4, document.GetSmallerFont(), 20, Element.ALIGN_LEFT);
-            document.AddSpannedCell(table, "VIN: " + tachographDocument.VIN, 4, document.GetSmallerFont(), 20, 68);
-            document.AddSpannedCell(table, "Serial number   " + tachographDocument.SerialNumber, 4, document.GetSmallerFont(), 20, Element.ALIGN_LEFT);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_SMALL_L_FACTOR, tachographDocument.LFactor, Resources.TXT_MM), 4, document.GetRegularFont(false), 20, 58);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_SMALL_TYRE_SIZE, tachographDocument.TyreSize), 4, document.GetSmallerFont(), 20, Element.ALIGN_LEFT);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_SMALL_VIN, tachographDocument.VIN), 4, document.GetSmallerFont(), 20, 68);
+            document.AddSpannedCell(table, string.Format(Resources.TXT_SMALL_SERIAL_NUMBER, tachographDocument.SerialNumber), 4, document.GetSmallerFont(), 20, Element.ALIGN_LEFT);
 
             GetCompanyDetails(document, table, 85, 3, document.GetRegularFont(false));
 
-            document.AddSpannedCell(table, "\ndate\n\n\n" + GetCalibrationTime(tachographDocument.CalibrationTime), 1, document.GetSmallFont(false));
+            document.AddSpannedCell(table, string.Format(Resources.TXT_SMALL_DATE, GetCalibrationTime(tachographDocument.CalibrationTime)), 1, document.GetSmallFont(false));
             document.AddSpannedCell(table, GetLicenseNumberParagraph(document, false), 4, 20, Element.ALIGN_LEFT);
 
             table.WriteSelectedRows(0, -1, document.Document.LeftMargin + 2, document.Height - 103, document.ContentByte);
@@ -314,28 +314,28 @@ namespace Webcal.Library.PDF
 
             AbsolutePositionText(document, Resources.TXT_CALIBRATION.ToUpper(), (startHorizontal + 15), (startVertical + 310), 590, 40, document.GetRegularFont(false));
             document.DrawCheckBox((startHorizontal + 5), (startVertical + 320), TotalPageHeight);
-            if (tachographDocument.DocumentType == "I - Installation / Initial calibration")
+            if (tachographDocument.DocumentType == Resources.TXT_LARGE_INSTALLATION)
             {
                 document.DrawCheck((startHorizontal + 5), (startVertical + 320), TotalPageHeight);
             }
 
             AbsolutePositionText(document, Resources.TXT_2_YEAR.ToUpper(), (startHorizontal + 15), (startVertical + 320), 590, 40, document.GetRegularFont(false));
             document.DrawCheckBox((startHorizontal + 5), (startVertical + 330), TotalPageHeight);
-            if (tachographDocument.DocumentType == "2 - 2 year inspection")
+            if (tachographDocument.DocumentType == Resources.TXT_LARGE_TWO_YEAR_INSPECTION)
             {
                 document.DrawCheck((startHorizontal + 5), (startVertical + 330), TotalPageHeight);
             }
 
             AbsolutePositionText(document, Resources.TXT_6_YEAR.ToUpper(), (startHorizontal + 15), (startVertical + 330), 590, 40, document.GetRegularFont(false));
             document.DrawCheckBox((startHorizontal + 5), (startVertical + 340), TotalPageHeight);
-            if (tachographDocument.DocumentType == "6 - 6 year calibration")
+            if (tachographDocument.DocumentType == Resources.TXT_LARGE_SIX_YEAR_CALIBRATION)
             {
                 document.DrawCheck((startHorizontal + 5), (startVertical + 340), TotalPageHeight);
             }
 
             AbsolutePositionText(document, Resources.TXT_RECALIBRATION_CERTIFICATE.ToUpper(), (startHorizontal + 15), (startVertical + 340), 590, 40, document.GetRegularFont(false));
             document.DrawCheckBox((startHorizontal + 5), (startVertical + 350), TotalPageHeight);
-            if (tachographDocument.DocumentType == "R - Recalibration")
+            if (tachographDocument.DocumentType == Resources.TXT_LARGE_RECALIBRATION)
             {
                 document.DrawCheck((startHorizontal + 5), (startVertical + 350), TotalPageHeight);
             }
@@ -343,7 +343,7 @@ namespace Webcal.Library.PDF
             AbsolutePositionText(document, Resources.TXT_MINOR_WORK.ToUpper(), (startHorizontal + 15),
                 (startVertical + 350), 590, 40, document.GetRegularFont(false));
             document.DrawCheckBox((startHorizontal + 5), (startVertical + 360), TotalPageHeight);
-            if (tachographDocument.DocumentType == "M - Minor Work" && !tachographDocument.IsDigital)
+            if (tachographDocument.DocumentType == Resources.TXT_LARGE_MINOR_WORK && !tachographDocument.IsDigital)
             {
                 document.DrawCheck((startHorizontal + 5), (startVertical + 360), TotalPageHeight);
             }
@@ -352,7 +352,7 @@ namespace Webcal.Library.PDF
 
             AbsolutePositionText(document, Resources.TXT_CALIBRATION.ToUpper(), (startHorizontal + 255), (startVertical + 310), 590, 40, document.GetRegularFont(false));
             document.DrawCheckBox((startHorizontal + 240), (startVertical + 320), TotalPageHeight);
-            if (tachographDocument.DocumentType == "3 - Digital initial calibration")
+            if (tachographDocument.DocumentType == Resources.TXT_LARGE_DIGITAL_INITIAL)
             {
                 document.DrawCheck((startHorizontal + 240), (startVertical + 320), TotalPageHeight);
             }
@@ -360,14 +360,14 @@ namespace Webcal.Library.PDF
             AbsolutePositionText(document, Resources.TXT_2_YEAR.ToUpper(), (startHorizontal + 255),
                 (startVertical + 320), 590, 40, document.GetRegularFont(false));
             document.DrawCheckBox((startHorizontal + 240), (startVertical + 330), TotalPageHeight);
-            if (tachographDocument.DocumentType == "4 - Digital 2 year calibration")
+            if (tachographDocument.DocumentType == Resources.TXT_LARGE_DIGITAL_TWO_YEAR)
             {
                 document.DrawCheck((startHorizontal + 240), (startVertical + 330), TotalPageHeight);
             }
 
             AbsolutePositionText(document, Resources.TXT_MINOR_WORK.ToUpper(), (startHorizontal + 255), (startVertical + 330), 590, 40, document.GetRegularFont(false));
             document.DrawCheckBox((startHorizontal + 240), (startVertical + 340), TotalPageHeight);
-            if (tachographDocument.DocumentType == "M - Minor Work" && tachographDocument.IsDigital)
+            if (tachographDocument.DocumentType == Resources.TXT_LARGE_MINOR_WORK && tachographDocument.IsDigital)
             {
                 document.DrawCheck((startHorizontal + 240), (startVertical + 340), TotalPageHeight);
             }

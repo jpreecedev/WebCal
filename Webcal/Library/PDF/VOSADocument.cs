@@ -130,10 +130,10 @@ namespace Webcal.Library.PDF
                     AddCell(table, string.Format("{0} / \n{1}", tachograph.RegistrationNumber, tachograph.VIN));
                     AddCell(table, tachograph.VehicleType.Substring(0, 1).ToUpper());
 
-                    string type = tachograph.IsDigital ? "D" : "A";
+                    string type = tachograph.IsDigital ? Resources.TXT_DIGITAL : Resources.TXT_ANALOGUE;
                     if (tachograph.Tampered)
                     {
-                        type = type + "*";
+                        type = type + Resources.TXT_STAR;
                     }
                     AddCell(table, type);
 
@@ -149,7 +149,7 @@ namespace Webcal.Library.PDF
                 {
                     for (int i = 0; i < 11; i++)
                     {
-                        AddCell(table, "");
+                        AddCell(table, String.Empty);
                     }
                 }
             }

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vm="clr-namespace:Webcal.Views"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="500">
@@ -27,7 +28,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Workshop card calibration browser"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_CALIBRATION_BROWSER}"
                    Style="{StaticResource TitleFont}" />
 
         <Grid Grid.Row="1"
@@ -48,21 +49,21 @@
                       behav:ListItemDoubleClickedBehaviour.Command="{Binding ShowDetailsCommand}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Vehicle registration number"
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_VEHICLE_REGISTRATION_NUMBER}"
                                         DisplayMemberBinding="{Binding VehicleRegistrationNumber}"
                                         Width="200" />
-                        <GridViewColumn Header="Calibration Date"
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_CALIBRATION_DATE}"
                                         DisplayMemberBinding="{Binding CalibrationTime, StringFormat={}{0:dd-MMM-yyyy}}"
                                         Width="200" />
                     </GridView>
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Show Details"
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_SHOW_DETAILS}"
                                   Command="{Binding ShowDetailsCommand}" />
-                        <MenuItem Header="Select All"
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_SELECT_ALL}"
                                   Command="{Binding SelectAllCommand}" />
-                        <MenuItem Header="Clear Selection"
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_CLEAR_SELECTION}"
                                   Command="{Binding ClearSelectionCommand}" />
                     </ContextMenu>
                 </ListView.ContextMenu>
@@ -70,19 +71,19 @@
 
             <StackPanel Orientation="Vertical"
                         Grid.Column="1">
-                <Button Content="Read from card"
+                <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_READ_FROM_CARD}"
                         Command="{Binding ReadFromCardCommand}"
                         Height="35" />
-                <Button Content="Select all"
+                <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_SELECT_ALL}"
                         Command="{Binding SelectAllCommand}" />
-                <Button Content="Clear selection"
+                <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_CLEAR_SELECTION}"
                         Command="{Binding ClearSelectionCommand}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Right"
                         Grid.Row="1">
-                <Button Content="Show details"
+                <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_SHOW_DETAILS}"
                         Command="{Binding ShowDetailsCommand}" />
             </StackPanel>
         </Grid>

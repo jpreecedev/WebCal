@@ -16,28 +16,33 @@
 
         public static DayOfWeek Parse(string dayOfWeek)
         {
-            switch (dayOfWeek)
+            if (dayOfWeek == Resources.TXT_MONDAY)
             {
-                case "Monday":
-                    return System.DayOfWeek.Monday;
-
-                case "Tuesday":
-                    return System.DayOfWeek.Tuesday;
-
-                case "Wednesday":
-                    return System.DayOfWeek.Wednesday;
-
-                case "Thursday":
-                    return System.DayOfWeek.Thursday;
-
-                case "Friday":
-                    return System.DayOfWeek.Friday;
-
-                case "Saturday":
-                    return System.DayOfWeek.Saturday;
-
-                case "Sunday":
-                    return System.DayOfWeek.Sunday;
+                return System.DayOfWeek.Monday;
+            }
+            if (dayOfWeek == Resources.TXT_TUESDAY)
+            {
+                return System.DayOfWeek.Tuesday;
+            }
+            if (dayOfWeek == Resources.TXT_WEDNESDAY)
+            {
+                return System.DayOfWeek.Wednesday;
+            }
+            if (dayOfWeek == Resources.TXT_THURSDAY)
+            {
+                return System.DayOfWeek.Thursday;
+            }
+            if (dayOfWeek == Resources.TXT_FRIDAY)
+            {
+                return System.DayOfWeek.Friday;
+            }
+            if (dayOfWeek == Resources.TXT_SATURDAY)
+            {
+                return System.DayOfWeek.Saturday;
+            }
+            if (dayOfWeek == Resources.TXT_SUNDAY)
+            {
+                return System.DayOfWeek.Sunday;
             }
 
             throw new ArgumentException(Resources.ERR_DAY_OF_WEEK_NOT_RECOGNISED);

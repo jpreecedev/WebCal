@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Webcal.Windows.ExceptionWindow"
-        Title="Technical Information"
+        xmlns:Properties="clr-namespace:Webcal.Properties"
+        Title="{x:Static Properties:Resources.TXT_EXCEPTION_WINDOW_TECHNICAL_INFORMATION}"
         WindowStartupLocation="CenterScreen"
         Height="600"
         Width="800">
@@ -18,10 +19,10 @@
         <ListView ItemsSource="{Binding Exceptions}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Date/Time"
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_EXCEPTION_WINDOW_DATE_TIME}"
                                     Width="100"
                                     DisplayMemberBinding="{Binding Occurred, StringFormat={}{0:dd-MMM-yyyy HH:mm}}" />
-                    <GridViewColumn Header="Exception Details"
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_EXCEPTION_WINDOW_EXCEPTION_DETAILS}"
                                     Width="650"
                                     DisplayMemberBinding="{Binding ExceptionDetails}" />
                 </GridView>
@@ -32,9 +33,9 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <Button Content="Export"
+            <Button Content="{x:Static Properties:Resources.TXT_EXCEPTION_WINDOW_EXPORT}"
                     Command="{Binding ExportCommand}"/>
-            <Button Content="Close"
+            <Button Content="{x:Static Properties:Resources.TXT_EXCEPTION_WINDOW_CLOSE}"
                     Command="{Binding CloseCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
         </StackPanel>

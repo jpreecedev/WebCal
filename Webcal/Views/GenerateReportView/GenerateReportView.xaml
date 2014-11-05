@@ -6,6 +6,7 @@
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:vm="clr-namespace:Webcal.Views"
              xmlns:Windows="clr-namespace:Webcal.Windows" xmlns:core="clr-namespace:Webcal.Core"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="628"
              d:DesignHeight="450"
@@ -36,7 +37,7 @@
             <ColumnDefinition Width="10" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Generate report of expiring documents or statistics report"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING}"
                    Style="{StaticResource SettingsTitleFont}"
                    Margin="0,0,0,5"
                    Grid.ColumnSpan="3" />
@@ -45,30 +46,30 @@
                   Grid.Row="1">
             <StackPanel Orientation="Vertical">
                 <RadioButton x:Name="ExpiringTachographDocuments"
-                             Content="Expiring tachograph documents"
+                             Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH}"
                              GroupName="ReportTypeRadioGroup"
                              IsChecked="{Binding IsExpiringDocumentsChecked}" />
 
-                <RadioButton Content="Document statistics"
+                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENT_STATISTICS}"
                              GroupName="ReportTypeRadioGroup"
                              IsChecked="{Binding IsDocumentStatisticsChecked}"/>
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Header="File format"
+        <GroupBox Header="{x:Static Properties:Resources.TXT_GENERATE_REPORT_FILE_FORMAT}"
                   Grid.Row="1"
                   Grid.Column="2">
             <StackPanel Orientation="Vertical">
-                <RadioButton Content="Text (.txt)"
+                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_TEXT}"
                              GroupName="FileFormatRadioGroup"
                              IsChecked="{Binding IsTextFormatChecked}" />
-                <RadioButton Content="Excel 2007 (.xlsx)"
+                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_EXCEL}"
                              GroupName="FileFormatRadioGroup" 
                              IsChecked="{Binding IsExcelFormatChecked}"/>
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Header="Time span"
+        <GroupBox Header="{x:Static Properties:Resources.TXT_GENERATE_REPORT_TIME_SPAN}"
                   Grid.Row="2"
                   Grid.ColumnSpan="3"
                   Grid.RowSpan="2"
@@ -86,16 +87,16 @@
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
 
-                <RadioButton Content="Quick selection"
+                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_QUICK_SELECTION}"
                              GroupName="TimeSpanRadioGroup"
                              IsChecked="{Binding IsQuickSelectionChecked}" />
 
-                <RadioButton Content="Documents which expire during this month"
+                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING}"
                              GroupName="SubTimeSpanRadioGroup"
                              IsChecked="{Binding IsDocumentExpireThisMonthChecked}"
                              Grid.Column="1" />
 
-                <RadioButton Content="Documents which expire during next month"
+                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH}"
                              GroupName="SubTimeSpanRadioGroup"
                              IsChecked="{Binding IsDocumentExpireNextMonthChecked}"
                              Grid.Row="1"
@@ -103,23 +104,23 @@
 
                 <RadioButton x:Name="SelectTimeFrameRadio"
                              IsChecked="{Binding IsSelectTimeFrameChecked}"
-                             Content="Select time frame"
+                             Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_SELECT_TIME_FRAME}"
                              GroupName="TimeSpanRadioGroup"
                              Grid.Row="2" />
 
-                <TextBlock Text="(Documents which expire during this time period)"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD}"
                            VerticalAlignment="Center"
                            Grid.Row="2"
                            Grid.Column="4" />
 
-                <ctrls:InputDatePickerField Label="Start date"
+                <ctrls:InputDatePickerField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_START_DATE}"
                                             IsEnabled="{Binding IsChecked, ElementName=SelectTimeFrameRadio}"
                                             IsMandatory="{Binding IsEnabled, RelativeSource={RelativeSource Self}}"
                                             SelectedDate="{core:InputBinding StartDateTime}"
                                             Grid.Column="2"
                                             Grid.Row="3" />
 
-                <ctrls:InputDatePickerField Label="End date"
+                <ctrls:InputDatePickerField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_END_DATE}"
                                             IsEnabled="{Binding IsChecked, ElementName=SelectTimeFrameRadio}"
                                             IsMandatory="{Binding IsEnabled, RelativeSource={RelativeSource Self}}"
                                             SelectedDate="{core:InputBinding EndDateTime}"
@@ -129,7 +130,7 @@
             </Grid>
         </GroupBox>
 
-        <ctrls:InputTextField Label="Office"
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_OFFICE}"
                               VerticalAlignment="Bottom"
                               Text="{core:InputBinding Office}"
                               Grid.Row="4" />
@@ -138,10 +139,10 @@
                     Grid.Row="5"
                     Grid.Column="2"
                     HorizontalAlignment="Right">
-            <Button Content="Generate"
+            <Button Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_GENERATE}"
                     Command="{Binding GenerateReportCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"/>
-            <Button Content="Cancel"
+            <Button Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_CANCEL}"
                     Command="{Binding DataContext.CancelModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Windows:MainWindow}}}" />
 
         </StackPanel>

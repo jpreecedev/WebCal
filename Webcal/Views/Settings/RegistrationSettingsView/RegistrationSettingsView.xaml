@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:Webcal.Views.Settings"
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:core="clr-namespace:Webcal.Core"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="628"
              d:DesignHeight="374">
@@ -18,14 +19,14 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Registration settings"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_REGISTRATION_SETTINGS_TITLE}"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <StackPanel Orientation="Vertical"
                     Grid.Row="1">
-            <ctrls:InputTextField Label="Company name"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_REGISTRATION_SETTINGS_COMPANY_NAME}"
                                   Text="{core:InputBinding Settings.CompanyName}" />
-            <ctrls:InputTextField Label="Seal number"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_REGISTRATION_SETTINGS_SEAL_NUMBER}"
                                   Text="{core:InputBinding Settings.SealNumber}" />
 
             <ContentPresenter Content="{Binding TextField}"
@@ -38,7 +39,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Expiration Date:"/>
+                <TextBlock Text="{x:Static Properties:Resources.TXT_REGISTRATION_SETTINGS_EXPIRATION_DATE}"/>
 
                 <TextBlock Text="{Binding ExpirationDateTime, StringFormat={}{0:dd-MMM-yyyy}}"
                            Grid.Column="1" />

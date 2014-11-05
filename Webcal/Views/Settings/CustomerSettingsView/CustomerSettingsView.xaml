@@ -6,6 +6,7 @@
                        xmlns:vm="clr-namespace:Webcal.Views.Settings"
                        xmlns:ctrls="clr-namespace:Webcal.Controls"
                        xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns:Properties="clr-namespace:Webcal.Properties"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
                        d:DesignHeight="374">
@@ -17,7 +18,7 @@
             <RowDefinition Height="25" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Customer Settings"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CUSTOMER_SETTINGS}"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <Grid Grid.Row="1">
@@ -38,7 +39,7 @@
                      IsEnabled="{Binding DoneCallback, Converter={StaticResource Null2Bool}}"
                      DisplayMemberPath="Name" />
 
-            <Button Content="Remove"
+            <Button Content="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_REMOVE}"
                     Grid.Row="1"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center"
@@ -47,25 +48,25 @@
             <StackPanel Orientation="Vertical"
                         Grid.Column="2">
 
-                <ctrls:InputTextField Label="Customer Name:"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME}"
                                       Text="{core:InputBinding NewCustomerContact.Name}" />
 
-                <ctrls:InputTextField Label="Email:"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_EMAIL}"
                                       Text="{core:InputBinding NewCustomerContact.Email}" />
 
-                <ctrls:InputTextField Label="Secondary Email:"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_SECONDARY_EMAIL}"
                                       Text="{core:InputBinding NewCustomerContact.SecondaryEmail}" />
 
-                <ctrls:InputTextField Label="Address/P.O. Box:"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_ADDRESS}"
                                       Text="{core:InputBinding NewCustomerContact.Address}" />
 
-                <ctrls:InputTextField Label="Post Code:"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_POST_CODE}"
                                       Text="{core:InputBinding NewCustomerContact.PostCode}" />
 
-                <ctrls:InputTextField Label="Town:"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_TOWN}"
                                       Text="{core:InputBinding NewCustomerContact.Town}" />
 
-                <ctrls:InputTextField Label="Phone Number:"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_PHONE_NUMBER}"
                                       Text="{core:InputBinding NewCustomerContact.PhoneNumber}" />
 
             </StackPanel>
@@ -75,9 +76,9 @@
                         Orientation="Horizontal"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Center">
-                <Button Content="Save"
+                <Button Content="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_SAVE}"
                         Command="{Binding SaveCommand}" />
-                <Button Content="Cancel"
+                <Button Content="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CANCEL}"
                         Command="{Binding CancelCommand}" />
             </StackPanel>
         </Grid>

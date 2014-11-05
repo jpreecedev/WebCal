@@ -19,7 +19,7 @@
                 return false;
             }
 
-            string padded = serial.PadRight(18, Char.Parse("0"));
+            string padded = serial.PadRight(18, '0');
             long paddedAsLong;
             if (long.TryParse(padded, out paddedAsLong))
             {
@@ -52,7 +52,7 @@
                 return null;
             }
 
-            string padded = serial.PadRight(18, Char.Parse("0"));
+            string padded = serial.PadRight(18, '0');
             long paddedAsLong;
             if (long.TryParse(padded, out paddedAsLong))
             {

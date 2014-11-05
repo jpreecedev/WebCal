@@ -1,13 +1,15 @@
 ﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.ShortcutSettingsView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:vm="clr-namespace:Webcal.Views.Settings"
-             xmlns:ctrls="clr-namespace:Webcal.Controls" xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:vm="clr-namespace:Webcal.Views.Settings"
+                       xmlns:ctrls="clr-namespace:Webcal.Controls"
+                       xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns:Properties="clr-namespace:Webcal.Properties"
                        mc:Ignorable="d"
-             d:DesignWidth="628"
-             d:DesignHeight="374">
+                       d:DesignWidth="628"
+                       d:DesignHeight="374">
     <core:BaseSettingsView.DataContext>
         <vm:ShortcutSettingsViewModel />
     </core:BaseSettingsView.DataContext>
@@ -17,43 +19,43 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Shortcut settings"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_TITLE}"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <StackPanel Orientation="Vertical"
                     Grid.Row="1">
 
-            <ctrls:Shortcut Text="Tachograph makes and models"
+            <ctrls:Shortcut Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_TACHO_MAKES_AND_MODELES}"
                             Command="{Binding ShortcutCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                             View="{x:Type vm:TachographMakesModelsView}"
                             SettingsViewModel="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
 
-            <ctrls:Shortcut Text="Vehicle makes and models"
+            <ctrls:Shortcut Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_VEHICLE_MAKES_MODELS}"
                             Command="{Binding ShortcutCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                             View="{x:Type vm:VehicleMakesModelsView}"
                             SettingsViewModel="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
 
-            <ctrls:Shortcut Text="Technicians"
+            <ctrls:Shortcut Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_TECHNICIANS}"
                             Command="{Binding ShortcutCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                             View="{x:Type vm:TechniciansView}"
                             SettingsViewModel="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
 
-            <ctrls:Shortcut Text="Inspection methods"
+            <ctrls:Shortcut Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_INSPECTION_METHODS}"
                             Command="{Binding ShortcutCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                             View="{x:Type vm:InspectionMethodsView}"
                             SettingsViewModel="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
 
-            <ctrls:Shortcut Text="Inspection equipments"
+            <ctrls:Shortcut Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_INSPECTION_EQUIPMENTS}"
                             Command="{Binding ShortcutCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                             View="{x:Type vm:InspectionEquipmentsView}"
                             SettingsViewModel="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
 
-            <ctrls:Shortcut Text="Tyre sizes"
+            <ctrls:Shortcut Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_TYRE_SIZES}"
                             Command="{Binding ShortcutCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                             View="{x:Type vm:TyreSizesView}"

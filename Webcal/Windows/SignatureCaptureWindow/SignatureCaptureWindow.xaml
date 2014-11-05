@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:Webcal.Windows.SignatureCaptureWindow"
-        Title="Capture Signature"
+        xmlns:Properties="clr-namespace:Webcal.Properties"
+        Title="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_TITLE}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Height="300"
@@ -34,13 +35,13 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <Button Content="Save &amp; Close"
+            <Button Content="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_SAVE_AND_CLOSE}"
                     Command="{Binding SaveCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                     Style="{StaticResource LargeButton}"/>
-            <Button Content="Browse"
+            <Button Content="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_BROWSE}"
                     Command="{Binding BrowseCommand}"/>
-            <Button Content="Close"
+            <Button Content="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_CLOSE}"
                     Command="{Binding CloseCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
         </StackPanel>

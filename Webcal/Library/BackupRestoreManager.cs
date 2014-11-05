@@ -28,7 +28,7 @@
             }
 
             //Backup:   /b <dbpath> <backuppath>
-            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.SQLServerCEDatabaseFile, "");
+            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.SQLServerCEDatabaseFile, string.Empty);
             if (result.Result == true)
             {
                 Run(string.Format(@"/b ""{0}"" ""{1}""", databasePath, result.FileName), false);
@@ -46,7 +46,7 @@
             string databasePath = GetDatabasePath();
 
             //Restore:  /r <dbpath> <restorepath> <processname>
-            DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.SQLServerCEDatabaseFile, "");
+            DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.SQLServerCEDatabaseFile, string.Empty);
             if (result.Result == true)
             {
                 Run(string.Format(@"/r ""{0}"" ""{1}"" ""{2}""", result.FileName, databasePath, AppDomain.CurrentDomain.FriendlyName), false);

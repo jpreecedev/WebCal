@@ -1,12 +1,14 @@
 ﻿<core:BaseSettingsView x:Class="Webcal.Views.Settings.InspectionEquipmentsView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:vm="clr-namespace:Webcal.Views.Settings" xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:vm="clr-namespace:Webcal.Views.Settings"
+                       xmlns:core="clr-namespace:Webcal.Core"
+                       xmlns:Properties="clr-namespace:Webcal.Properties"
                        mc:Ignorable="d"
-             d:DesignWidth="628"
-             d:DesignHeight="374">
+                       d:DesignWidth="628"
+                       d:DesignHeight="374">
     <core:BaseSettingsView.DataContext>
         <vm:InspectionEquipmentsViewModel />
     </core:BaseSettingsView.DataContext>
@@ -16,7 +18,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Inspection equipments"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_INSPECTION_EQUIPMENTS_TITLE}"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <Grid Grid.Row="1">
@@ -26,23 +28,23 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Inspection equipments"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_INSPECTION_EQUIPMENTS_TITLE}"
                        Margin="0,0,0,5" />
 
             <ListBox Grid.Row="1"
                      ItemsSource="{Binding InspectionEquipments}"
                      SelectedItem="{Binding SelectedInspectionEquipment}"
-                     DisplayMemberPath="Name"/>
+                     DisplayMemberPath="Name" />
 
             <StackPanel Grid.Row="2"
                         Orientation="Horizontal"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Center">
-                <Button Content="Add"
+                <Button Content="{x:Static Properties:Resources.TXT_INSPECTION_EQUIPMENTS_ADD}"
                         Command="{Binding AddInspectionEquipmentCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}"/>
-                <Button Content="Remove"
-                        Command="{Binding RemoveInspectionEquipmentCommand}"/>
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
+                <Button Content="{x:Static Properties:Resources.TXT_INSPECTION_EQUIPMENTS_REMOVE}"
+                        Command="{Binding RemoveInspectionEquipmentCommand}" />
             </StackPanel>
 
         </Grid>

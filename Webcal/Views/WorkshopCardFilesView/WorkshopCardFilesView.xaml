@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:Webcal.Views"
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:core="clr-namespace:Webcal.Core"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="500">
@@ -18,7 +19,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Workshop card files"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_TITLE}"
                    Style="{StaticResource TitleFont}" />
 
         <Grid Grid.Row="1"
@@ -39,7 +40,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Add file"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_ADD_FILE}"
                        Style="{StaticResource SubHeaderFont}" />
             <StackPanel Grid.Column="2"
                         IsEnabled="{Binding IsReadFromCardEnabled}">
@@ -50,7 +51,7 @@
                              VerticalAlignment="Top"
                              Margin="0,0,0,0"
                              Background="LightGray" />
-                <Button Content="Read from card"
+                <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD}"
                         Command="{Binding ReadFromCardCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                         Width="140"
@@ -63,12 +64,12 @@
 
             <ctrls:InputTextField x:Name="FileTextField"
                                   Text="{core:InputBinding FilePath}"
-                                  Label="File:"
+                                  Label="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_FILE}"
                                   IsEnabled="{Binding IsFormEnabled}"
                                   IsMandatory="{Binding IsFormEnabled}"
                                   Grid.Row="1" />
 
-            <Button Content="Browse"
+            <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_BROWSE}"
                     Command="{Binding BrowseCommand}"
                     CommandParameter="{Binding ElementName=FileTextField}"
                     IsEnabled="{Binding IsFormEnabled}"
@@ -77,13 +78,13 @@
                     HorizontalAlignment="Left"
                     Margin="0,-5,0,0" />
 
-            <ctrls:InputTextField Label="Workshop:"
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_WORKSHOP}"
                                   Text="{core:InputBinding Workshop}"
                                   IsEnabled="{Binding IsFormEnabled}"
                                   IsMandatory="{Binding IsFormEnabled}"
                                   Grid.Row="2" />
 
-            <ctrls:InputDatePickerField Label="Date:"
+            <ctrls:InputDatePickerField Label="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_DATE}"
                                         SelectedDate="{core:InputBinding SelectedDate}"
                                         IsMandatory="{Binding IsFormEnabled}"
                                         IsEnabled="{Binding IsFormEnabled}"
@@ -91,7 +92,7 @@
 
             <StackPanel Orientation="Horizontal"
                         Grid.Row="4">
-                <Button Content="Add"
+                <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_ADD}"
                         Command="{Binding AddStoredFileCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
                 <Button Command="{Binding EmptyFieldsCommand}"
@@ -99,7 +100,7 @@
                         Style="{StaticResource LargeButton}" />
             </StackPanel>
 
-            <TextBlock Text="Stored files"
+            <TextBlock Text="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_STORED_FILES}"
                        Grid.Row="5"
                        Style="{StaticResource SubHeaderFont}" />
 
@@ -109,19 +110,19 @@
                       SelectedItem="{core:InputBinding SelectedStoredFile}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Creation date"
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_CREATION_DATE}"
                                         DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd-MMM-yyyy}}"
                                         Width="200" />
-                        <GridViewColumn Header="Workshop"
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_WORKSHOP_2}"
                                         DisplayMemberBinding="{Binding Workshop}"
                                         Width="200" />
                     </GridView>
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Export"
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_EXPORT}"
                                   Command="{Binding ExportCommand}" />
-                        <MenuItem Header="Remove"
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_REMOVE}"
                                   Command="{Binding RemoveCommand}" />
                     </ContextMenu>
                 </ListView.ContextMenu>
@@ -131,9 +132,9 @@
                         HorizontalAlignment="Right"
                         Grid.Row="7"
                         Grid.ColumnSpan="3">
-                <Button Content="Export"
+                <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_EXPORT}"
                         Command="{Binding ExportCommand}" />
-                <Button Content="Remove"
+                <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_REMOVE}"
                         Command="{Binding RemoveCommand}"
                         Margin="5,10,0,10" />
             </StackPanel>

@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:Webcal.Views.Settings"
              xmlns:core="clr-namespace:Webcal.Core"
              xmlns:dow="clr-namespace:Webcal.Controls.DayOfWeekPicker"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="628"
              d:DesignHeight="374">
@@ -18,13 +19,13 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="General settings"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_GENERAL_SETTINGS_GENERAL_SETTINGS}"
                    Style="{StaticResource SettingsTitleFont}" />
 
         <StackPanel Orientation="Vertical"
                     Grid.Row="1">
 
-            <CheckBox Content="Backup database automatically on the specified day(s):"
+            <CheckBox Content="{x:Static Properties:Resources.TXT_GENERAL_SETTINGS_BACKUP_DATABASE_ON_DAYS}"
                       IsChecked="{core:InputBinding Settings.AutoBackup}" />
 
             <StackPanel Orientation="Horizontal"
@@ -38,7 +39,7 @@
             <StackPanel Orientation="Vertical"
                         Margin="0,20,0,0">
                 <TextBlock Text="{Binding Settings.BackupFilePath}" />
-                <Button Content="Browse"
+                <Button Content="{x:Static Properties:Resources.TXT_GENERAL_SETTINGS_BROWSE}"
                         Command="{Binding BrowseCommand}"
                         HorizontalAlignment="Left" />
             </StackPanel>

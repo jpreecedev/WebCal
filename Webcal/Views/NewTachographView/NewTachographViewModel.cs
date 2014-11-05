@@ -115,7 +115,7 @@
             }
 
             //Remove all spaces from registration number
-            Document.RegistrationNumber = registrationNumber.Replace(" ", "").ToUpper();
+            Document.RegistrationNumber = registrationNumber.Replace(" ", string.Empty).ToUpper();
 
             ICollection<TachographDocument> allDocuments = AllTachographDocuments ?? (AllTachographDocuments = TachographDocumentRepository.GetAll().OrderByDescending(c => c.Created).ToList());
             if (!allDocuments.IsNullOrEmpty())
@@ -178,7 +178,7 @@
             {
                 if (string.IsNullOrEmpty(LastPlateRead))
                 {
-                    LastPlateRead = "";
+                    LastPlateRead = string.Empty;
                 }
 
                 if (LastPlateRead != e.CalibrationRecord.VehicleRegistrationNumber || !e.AutoRead)

@@ -161,7 +161,7 @@ namespace Webcal.Library.PDF
 
             GetCompanyDetails(document, table, 69, 3, document.GetSmallerFont());
 
-            document.AddSpannedCell(table, "\ndate\n\n\n" + GetCalibrationTime(tachographDocument.CalibrationTime), 1, document.GetRegularFont(false));
+            document.AddSpannedCell(table, Resources.TXT_SMALL_LABEL_DATE + GetCalibrationTime(tachographDocument.CalibrationTime), 1, document.GetRegularFont(false));
             document.AddSpannedCell(table, GetLicenseNumberParagraph(document, false), 4, 16, Element.ALIGN_LEFT);
 
             table.WriteSelectedRows(0, -1, document.Document.LeftMargin + 2, document.Height - 103, document.ContentByte);

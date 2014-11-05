@@ -1,4 +1,6 @@
-﻿namespace Webcal.Library
+﻿using Webcal.Properties;
+
+namespace Webcal.Library
 {
     using System;
     using System.Drawing;
@@ -35,7 +37,7 @@
             var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Webcal", "ContactImages");
             if (Directory.Exists(path))
             {
-                var supportedFormats = new[] { ".jpg", ".jpeg", ".png" };
+                var supportedFormats = new[] { Resources.TXT_EXTENSION_JPG, Resources.TXT_EXTENSION_JPEG, Resources.TXT_EXTENSION_PNG };
                 var logo = Directory.GetFiles(path).FirstOrDefault(f => supportedFormats.Any(format => string.Equals(Path.GetExtension(f), format, StringComparison.CurrentCultureIgnoreCase)));
                 if (logo != null)
                 {

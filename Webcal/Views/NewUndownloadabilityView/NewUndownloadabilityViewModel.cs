@@ -67,7 +67,7 @@
         protected override void RegistrationChanged(string registrationNumber)
         {
             //Remove all spaces from registration number
-            Document.RegistrationNumber = registrationNumber.Replace(" ", "").ToUpper();
+            Document.RegistrationNumber = registrationNumber.Replace(" ", string.Empty).ToUpper();
 
             ICollection<UndownloadabilityDocument> allDocuments = AllUndownloadabilityDocuments ?? (AllUndownloadabilityDocuments = UndownloadabilityRepository.GetAll().OrderBy(c => c.Created).ToList());
             if (!allDocuments.IsNullOrEmpty())

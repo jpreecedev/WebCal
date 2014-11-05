@@ -7,6 +7,7 @@
              xmlns:ctrls="clr-namespace:Webcal.Controls"
              xmlns:core="clr-namespace:Webcal.Core"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
+             xmlns:Properties="clr-namespace:Webcal.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="1000">
@@ -20,7 +21,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Digital Tachograph Document"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DIGITAL_TACHO_DOCUMENT}"
                    Style="{StaticResource TitleFont}" />
 
         <ScrollViewer Grid.Row="1"
@@ -60,7 +61,7 @@
                     <RowDefinition Height="45" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Tachograph record type"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TACHOGRAPH_RECORD_TYPE}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="1" />
 
@@ -69,11 +70,11 @@
                                        IsEditable="False"
                                        ItemsSource="{Binding DocumentTypes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        SelectedItem="{Binding Document.DocumentType, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                       Label="Document type"
+                                       Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DOCUMENT_TYPE}"
                                        Grid.Row="2" />
 
                 <ctrls:InputTextField IsMandatory="False"
-                                      Label="Details:"
+                                      Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DETAILS}"
                                       Grid.Row="2"
                                       Grid.Column="3"
                                       Text="{Binding Document.MinorWorkDetails, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
@@ -86,7 +87,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <TextBlock Text="Vehicle data"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_VEHICLE_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="3" />
 
@@ -115,7 +116,7 @@
 
                 </Grid>
 
-                <ctrls:InputTextField Label="Registration number"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_REGISTRATION_NUMBER}"
                                       Text="{Binding Document.RegistrationNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
@@ -129,7 +130,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <ctrls:InputTextField Label="VIN"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_VIN}"
                                       Text="{Binding Document.VIN, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       IsAutoPopulated="True"
@@ -153,7 +154,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ctrls:InputComboField x:Name="VehicleMakeCombo"
-                                           Label="Vehicle make"
+                                           Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_VEHICLE_MAKE}"
                                            ItemsSource="{Binding}"
                                            SelectedText="{Binding DataContext.Document.VehicleMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            IsSynchronisedWithCurrentItem="True"
@@ -170,7 +171,7 @@
                     </ctrls:InputComboField>
 
                     <ctrls:InputComboField x:Name="VehicleModelCombo"
-                                           Label="Model"
+                                           Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_MODEL}"
                                            ItemsSource="{Binding Models, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            SelectedText="{Binding DataContext.Document.VehicleModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            IsSynchronisedWithCurrentItem="True"
@@ -187,7 +188,7 @@
                     </ctrls:InputComboField>
                 </Grid>
 
-                <ctrls:InputComboField Label="Tyre size"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TYRE_SIZE}"
                                        ItemsSource="{Binding TyreSizes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        DisplayMemberPath="Size"
                                        SelectedText="{Binding Document.TyreSize, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
@@ -202,7 +203,7 @@
                     </ctrls:InputComboField.IsEnabled>
                 </ctrls:InputComboField>
 
-                <ctrls:InputComboField Label="Vehicle type"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_VEHICLE_TYPE}"
                                        ItemsSource="{Binding VehicleTypes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        SelectedItem="{Binding Document.VehicleType, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        IsEditable="False"
@@ -217,11 +218,11 @@
                     </ctrls:InputComboField.IsEnabled>
                 </ctrls:InputComboField>
 
-                <TextBlock Text="Calibration data"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CALIBRATION_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="7" />
 
-                <ctrls:InputTextField Label="W Factor"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_W_FACTOR}"
                                       Text="{Binding Document.WFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       IsAutoPopulated="True"
@@ -234,7 +235,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <ctrls:InputTextField Label="K Factor"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_K_FACTOR}"
                                       Text="{Binding Document.KFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       IsAutoPopulated="True"
@@ -248,7 +249,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <ctrls:InputTextField Label="L Factor"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_L_FACTOR}"
                                       Text="{Binding Document.LFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       IsAutoPopulated="True"
@@ -261,7 +262,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <TextBlock Text="Tachograph data"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TACHOGRAPH_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="10" />
 
@@ -274,7 +275,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <ctrls:InputComboField Label="Tachograph Make"
+                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TACHOGRAPH_MAKE}"
                                            SelectedText="{Binding DataContext.Document.TachographMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            IsSynchronisedWithCurrentItem="True"
                                            ItemsSource="{Binding}"
@@ -289,7 +290,7 @@
                         </ctrls:InputComboField.IsEnabled>
                     </ctrls:InputComboField>
 
-                    <ctrls:InputComboField Label="Model"
+                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_MODEL}"
                                            SelectedText="{Binding DataContext.Document.TachographModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            IsSynchronisedWithCurrentItem="True"
                                            ItemsSource="{Binding Models}"
@@ -307,7 +308,7 @@
 
                 </Grid>
 
-                <ctrls:InputTextField Label="Odometer Reading"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_ODOMETER_READING}"
                                       Text="{Binding Document.OdometerReading, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       Grid.Row="12">
@@ -319,7 +320,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <ctrls:InputTextField Label="Serial Number"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_SERIAL_NUMBER}"
                                       Text="{Binding Document.SerialNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       IsAutoPopulated="True"
@@ -333,7 +334,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <CheckBox Content="Tampered"
+                <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TAMPERED}"
                           IsChecked="{Binding Document.Tampered}"
                           Grid.Row="13"
                           Margin="145,0,0,0">
@@ -345,11 +346,11 @@
                     </CheckBox.IsEnabled>
                 </CheckBox>
 
-                <TextBlock Text="Inspection info"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INSPECTION_INFO}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="14" />
 
-                <ctrls:InputComboField Label="Technician"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TECHNICIAN}"
                                        SelectedText="{Binding Document.Technician, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        ItemsSource="{Binding Technicians}"
                                        DisplayMemberPath="Name"
@@ -363,7 +364,7 @@
                     </ctrls:InputComboField.IsEnabled>
                 </ctrls:InputComboField>
 
-                <ctrls:InputTextField Label="Invoice number"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INVOICE_NUMBER}"
                                       Text="{Binding Document.InvoiceNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       Grid.Row="15"
@@ -377,7 +378,7 @@
                 </ctrls:InputTextField>
 
                 <ctrls:InputTextField Text="{Binding Document.InspectionInfo, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      Label="Inspection data"
+                                      Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INSPECTION_DATA}"
                                       TextWrapping="Wrap"
                                       AcceptsReturn="True"
                                       Height="45"
@@ -391,7 +392,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <ctrls:InputTextField Label="PPR/N-constant"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_PPRN_CONSTANT}"
                                       IsMandatory="False"
                                       Text="{core:InputBinding Document.TachographAdapterSerialNumber}"
                                       Grid.Row="17">
@@ -403,7 +404,7 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <ctrls:InputTextField Label="OP Shaft / Drive Shaft PPR"
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DRIVE_SHAFT}"
                                       IsMandatory="False"
                                       Text="{core:InputBinding Document.TachographAdapterLocation}"
                                       Grid.Row="17"
@@ -416,11 +417,11 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <TextBlock Text="Customer data"
+                <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="19" />
 
-                <ctrls:InputComboField Label="Customer"
+                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER}"
                                        Grid.Row="20"
                                        IsMandatory="True"
                                        IsEditable="False"
@@ -437,13 +438,13 @@
                             Grid.Row="21"
                             Margin="0,20,0,0"
                             Visibility="{Binding MailSettings.DontSendEmails, Converter={StaticResource InvBool2Vis}}">
-                    <CheckBox Content="Send To Office"
+                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_SEND_TO_OFFICE}"
                               IsChecked="{Binding WorkshopSettings.SendToOffice}"
                               Margin="0,0,10,0"/>
-                    <CheckBox Content="Send To Customer"
+                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_SEND_TO_CUSTOMER}"
                               IsChecked="{Binding WorkshopSettings.SendToCustomer}"
                               Margin="0,0,10,0" />
-                    <CheckBox Content="Do not send"
+                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DO_NOT_SEND}"
                               IsChecked="{Binding WorkshopSettings.DoNotSend}" />
                 </StackPanel>
 
@@ -454,15 +455,15 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right">
 
-                    <Button Content="Export PDF"
+                    <Button Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_EXPORT_PDF}"
                             Command="{Binding ExportPDFCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
 
-                    <Button Content="Print"
+                    <Button Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_PRINT}"
                             Command="{Binding PrintCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
 
-                    <Button Content="Cancel"
+                    <Button Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CANCEL}"
                             Command="{Binding CancelCommand}"
                             IsEnabled="{Binding DataContext.IsNavigationLocked, RelativeSource={RelativeSource AncestorType={x:Type Window}}, Converter={StaticResource InvBool}}" />
 
