@@ -30,9 +30,9 @@
             AbsolutePositionText(document, settings.Address1, 61, 680, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
             AbsolutePositionText(document, string.Format("{0} {1}", settings.Town, settings.PostCode), 61, 645, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
 
-            AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_MAKE, 61, 585, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
-            AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_MODEL, 61, 548, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
-            AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_NUMBER, 61, 510, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            AbsolutePositionText(document, undownloadabilityDocument.TachographMake, 61, 585, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            AbsolutePositionText(document, undownloadabilityDocument.TachographModel, 61, 548, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            AbsolutePositionText(document, undownloadabilityDocument.SerialNumber, 61, 510, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
 
             string line1 = GetLine1Text(undownloadabilityDocument.TachographMake, undownloadabilityDocument.TachographModel, undownloadabilityDocument.SerialNumber, undownloadabilityDocument.RegistrationNumber);
             AbsolutePositionText(document, line1, 61, 450, 550, 50, document.GetLargerFont(false), Element.ALIGN_LEFT);

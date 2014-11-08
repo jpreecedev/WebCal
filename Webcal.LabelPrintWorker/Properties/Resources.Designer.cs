@@ -286,6 +286,15 @@ namespace Webcal.LabelPrintWorker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preparing to print....
+        /// </summary>
+        internal static string TXT_PREPARING_TO_PRINT {
+            get {
+                return ResourceManager.GetString("TXT_PREPARING_TO_PRINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to R - Recalibration.
         /// </summary>
         internal static string TXT_RECALIBRATION {

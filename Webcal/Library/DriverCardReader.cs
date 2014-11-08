@@ -182,28 +182,25 @@
             return string.Empty;
         }
 
-        private string[] DetectSmartCardReaders()
+        private static string[] DetectSmartCardReaders()
         {
-            return QuietlyWithRetry(SmartCardReadOperation.DetectCardReaders, () =>
+            List<string> readers = null;
+
+            try
             {
-                List<string> readers = null;
-
-                try
+                using (var context = new SCardContext())
                 {
-                    using (var context = new SCardContext())
-                    {
-                        context.Establish(SCardScope.System);
-                        readers = context.GetReaders().ToList();
-                        context.Release();
-                    }
+                    context.Establish(SCardScope.System);
+                    readers = context.GetReaders().ToList();
+                    context.Release();
                 }
-                catch
-                {
-                    //Simply no smart card readers detected
-                }
+            }
+            catch
+            {
+                //Simply no smart card readers detected
+            }
 
-                return readers == null ? null : readers.ToArray();
-            });
+            return readers == null ? null : readers.ToArray();
         }
 
         private void OnProgress(string message)
@@ -236,34 +233,6 @@
             catch (Exception ex)
             {
                 HandleException(operation, ex);
-            }
-        }
-
-        private T QuietlyWithRetry<T>(SmartCardReadOperation operation, Func<T> func)
-        {
-            try
-            {
-                var task = Task<T>.Factory.StartNew(() =>
-                {
-                    var resilient = new Resilient(OnProgress);
-                    return resilient.ExecuteWithRetry(func);
-                })
-                .ContinueWith(t =>
-                {
-                    if (t.IsFaulted)
-                    {
-                        HandleException(operation, t.Exception);
-                    }
-                    return t.Result;
-                },
-                TaskScheduler.FromCurrentSynchronizationContext());
-
-                return task.Result;
-            }
-            catch (Exception ex)
-            {
-                ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex);
-                return default(T);
             }
         }
 

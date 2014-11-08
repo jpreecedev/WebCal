@@ -17,6 +17,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+bin/
 
 # Roslyn cache directories
 *.ide/
@@ -183,3 +184,4 @@ FakesAssemblies/
 *.DotSettings
 /libs/Newtonsoft.Json.6.0.5
 *.7z
+*.exe

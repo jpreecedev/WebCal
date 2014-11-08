@@ -204,4 +204,7 @@
   <data name="EXC_UNABLE_FIND_LABEL_FONT">
     <value xml:space="preserve">Unable to find font 'Lucida Console'.  Printing cannot continue</value>
   </data>
+  <data name="TXT_PREPARING_TO_PRINT" xml:space="preserve">
+    <value>Preparing to print...</value>
+  </data>
 </root>

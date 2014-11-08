@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using System.Windows;
+    using Windows.WorkerProgressWindow;
     using Properties;
     using Shared.Workers;
     using ViewModels;
@@ -14,6 +15,7 @@
     {
         private static readonly ICollection<IPipe> _workers;
         private static ObservableCollection<WorkerViewModel> _workerTasks;
+        private static WorkerProgressWindow _progressWindow;
 
         static WorkerHelper()
         {
@@ -22,6 +24,11 @@
 
         public static void RunTask(IWorkerTask workerTask)
         {
+            if (_progressWindow == null)
+            {
+                _progressWindow = new WorkerProgressWindow();
+            }
+
             var task = new Task(() =>
             {
                 var plugin = Find(workerTask.TaskName);
@@ -39,6 +46,7 @@
             });
 
             task.Start();
+            _progressWindow.ShowDialog();
         }
 
         public static void StopTracking()
@@ -97,6 +105,12 @@
                             _workerTasks.Remove(workerTask);
                         }
                     }
+                }
+
+                if (_progressWindow != null)
+                {
+                    _progressWindow.Close();
+                    _progressWindow = null;
                 }
             }));
         }

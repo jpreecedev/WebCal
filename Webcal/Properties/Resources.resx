@@ -1457,7 +1457,7 @@ date
     <value>Cancel</value>
   </data>
   <data name="TXT_SETTINGS_SAVE_ALL_AND_CLOSE" xml:space="preserve">
-    <value>Save All &amp;amp; Close</value>
+    <value>Save All &amp; Close</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS_TITLE" xml:space="preserve">
     <value>Shortcut settings</value>
@@ -2024,7 +2024,7 @@ date
     <value>Capture Signature</value>
   </data>
   <data name="TXT_CAPTURE_SIGNATURE_SAVE_AND_CLOSE" xml:space="preserve">
-    <value>Save &amp;amp; Close</value>
+    <value>Save &amp; Close</value>
   </data>
   <data name="TXT_CAPTURE_SIGNATURE_BROWSE" xml:space="preserve">
     <value>Browse</value>

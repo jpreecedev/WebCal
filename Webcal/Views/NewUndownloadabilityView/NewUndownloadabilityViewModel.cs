@@ -85,7 +85,7 @@
 
         private void Populate()
         {
-            TachographMakes = new ObservableCollection<TachographMake>(TachographMakesRepository.GetAll());
+            TachographMakes = new ObservableCollection<TachographMake>(TachographMakesRepository.GetAll("Models"));
             Technicians = new ObservableCollection<Technician>(TechnicianRepository.GetAll());
 
             Technician defaultTechnician = Technicians.FirstOrDefault(technician => technician != null && technician.IsDefault);

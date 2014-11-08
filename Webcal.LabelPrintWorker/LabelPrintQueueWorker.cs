@@ -23,6 +23,7 @@
         {
             var labelPrintParameters = new LabelPrintParameters(parameters);
 
+            SendMessage(Resources.TXT_PREPARING_TO_PRINT);
             var labelPrintDocument = new LabelPrintDocument();
             labelPrintDocument.Print(labelPrintParameters);
         }
@@ -146,11 +147,6 @@
             {
                 _trackedPositions.Add(v);
                 return v;
-            }
-
-            private static int GetLast()
-            {
-                return _trackedPositions.Last();
             }
 
             private string GetCalibrationTime(DateTime? calibrationTime)
