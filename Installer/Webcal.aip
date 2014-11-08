@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="11.4.1" version="11.6" Modules="professional" RootPath="." Language="en_GB" Id="{44D9532E-0E25-44B4-A4BA-7A112E3A07F0}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="11.4.1" version="11.6.1" Modules="professional" RootPath="." Language="en_GB" Id="{44D9532E-0E25-44B4-A4BA-7A112E3A07F0}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
     <ROW Name="HiddenItems" Value="ActSyncAppComponent;BackgroundImagesComponent;DictionaryComponent"/>
   </COMPONENT>
@@ -11,7 +11,6 @@
     <ROW Property="AI_FrameBtnsColor" Value="powderblue" MultiBuildValue="DefaultBuild:mediumorchid" MsiKey="AI_FrameBtnsColor"/>
     <ROW Property="AI_FrameColor" Value="powderblue" MultiBuildValue="DefaultBuild:deepskyblue" MsiKey="AI_FrameColor"/>
     <ROW Property="AI_MINDOTNETVERSION" MultiBuildValue="DefaultBuild:4.0" ValueLocId="-"/>
-    <ROW Property="AI_MINJREVERSION" MultiBuildValue="DefaultBuild:1.7" ValueLocId="-"/>
     <ROW Property="AI_MINRAM" MultiBuildValue="DefaultBuild:512" ValueLocId="-"/>
     <ROW Property="AI_PRODUCTNAME_ARP" Value="Webcal"/>
     <ROW Property="AI_ThemeStyle" Value="head" MsiKey="AI_ThemeStyle"/>
@@ -22,8 +21,10 @@
     <ROW Property="ARPNOREPAIR" Value="1"/>
     <ROW Property="ARPPRODUCTICON" Value="MainIcon.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
+    <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="AiSkipExitDlg" Value="1"/>
     <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:6"/>
     <ROW Property="Manufacturer" Value="Skillray Transport Services UK"/>
     <ROW Property="ProductCode" Value="2057:{C48D0086-F3E1-4E8C-A43B-46A49A361132} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
@@ -193,7 +194,7 @@
     <ROW BootstrOptKey="GlobalOptions" GeneralOptions="bh" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" EulaPathLocId="*" IntroTextPathLocId="*"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\..\Users\Jon Preece\Documents\Advanced Installer\Projects\Webcal\Setup Files" PackageFileName="webcal" Languages="en_GB" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="4" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Webcal\Images\Main Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="webcal" UACExecutionLevel="2"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\..\Users\Jon Preece\Documents\Advanced Installer\Projects\Webcal\Setup Files" PackageFileName="webcal" Languages="en_GB" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="0" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Webcal\Images\Main Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="webcal" UACExecutionLevel="2"/>
     <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
@@ -287,7 +288,6 @@
     <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
     <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
-    <ROW Action="AI_DetectJRE" Type="1" Source="aicustact.dll" Target="RequiredJreExists"/>
     <ROW Action="AI_DoRemoveExternalUIStub" Type="3585" Source="ExternalUICleaner.dll" Target="DoRemoveExternalUIStub" WithoutSeq="true"/>
     <ROW Action="AI_DownloadPrereq" Type="1" Source="Prereq.dll" Target="DownloadPrereq"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
@@ -341,7 +341,6 @@
     <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
     <ROW Action="AI_AppSearchEx" Sequence="101"/>
     <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
-    <ROW Action="AI_DetectJRE" Condition="1" Sequence="399" Builds="DefaultBuild"/>
     <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
     <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
     <ROW Action="AI_SETMIXINSTLOCATION" Sequence="747"/>
@@ -358,7 +357,6 @@
     <ROW Action="AI_ExtractPrereq" Sequence="1295"/>
     <ROW Action="AI_InstallPrerequisite" Sequence="1296"/>
     <ROW Action="AI_InstallPostPrerequisite" Sequence="1299"/>
-    <ROW Action="AI_DetectJRE" Condition="1" Sequence="399" Builds="DefaultBuild"/>
     <ROW Action="AI_SETMIXINSTLOCATION" Sequence="747"/>
     <ROW Action="AI_FinishActions" Condition="AI_INSTALL AND AiSkipExitDlg" Sequence="1298"/>
   </COMPONENT>
@@ -366,7 +364,6 @@
     <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &gt;= 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 2))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 3))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 4))) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(AI_DOTNET40_SEARCH = &quot;#1&quot;) OR (AI_DOTNET45_SEARCH &gt;= &quot;4.5&quot;) OR (AI_DOTNET451_SEARCH &gt;= &quot;#378675&quot;)" Description="[ProductName] can not be installed on systems with .NET Framework version lower than [AI_MINDOTNETVERSION]" DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT40Display]" DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
-    <ROW Condition="AI_JREVERFOUND = 1" Description="[ProductName] can not be installed on systems with JRE version lower than [AI_MINJREVERSION]" DescriptionLocId="AI.LaunchCondition.Jre" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="PhysicalMemory &gt;= AI_MINRAM" Description="[ProductName] can not be installed on systems with less physical memory than [AI_MINRAM] MB." DescriptionLocId="AI.LaunchCondition.RAM" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]" DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
@@ -417,9 +414,9 @@
     <ROW UpgradeCode="{2CB42CF5-059B-447C-B583-C854FFB376C8}" VersionMax="2.0.0.0" Language="2057" Attributes="517" ActionProperty="UPGRADE_2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
-    <ROW PrereqKey="B7F3EF2947194DBBA24570C9D8F78D96" DisplayName="SQL Server Compact 4.0 SP1 x86" VersionMin="4.0" SetupFileUrl="Prerequisites\SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64" Operator="1" Options="mz" TargetName="SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Type="1" Feature="B7F3EF2947194DBBA24570C9D8F78D96"/>
-    <ROW PrereqKey="C673FE9433B49AFAC9592AB26B8F8E4" DisplayName=".NET Framework 4.0" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\dotNetFx40_Full_x86_x64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows Server 2003 x86, Windows 8 x86, Windows 8.1 x86" WinNT64Versions="Windows XP x64, Windows Server 2003 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" Operator="1" ComLine="/q" BasicUiComLine="/q" NoUiComLine="/q" Options="xmz" TargetName="dotNetFx40_Full_x86_x64.exe\dotNetFx40_Full_x86_x64.exe"/>
-    <ROW PrereqKey="EE84CE1C98744810AB435A53A3737024" DisplayName="Java SE Runtime Environment 7u55 x86" VersionMin="1.7" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\jre-7u55-windows-i586.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" Operator="0" ComLine="/s" BasicUiComLine="/s" NoUiComLine="/s" Options="mz" TargetName="jre-7u55-windows-i586.exe"/>
+    <ROW PrereqKey="B7F3EF2947194DBBA24570C9D8F78D96" DisplayName="SQL Server Compact 4.0 SP1 x86" VersionMin="4.0" SetupFileUrl="Prerequisites\SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64" Operator="1" Options="m" TargetName="SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Type="1" Feature="B7F3EF2947194DBBA24570C9D8F78D96"/>
+    <ROW PrereqKey="C673FE9433B49AFAC9592AB26B8F8E4" DisplayName=".NET Framework 4.0" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\dotNetFx40_Full_x86_x64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows Server 2003 x86, Windows 8 x86, Windows 8.1 x86" WinNT64Versions="Windows XP x64, Windows Server 2003 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" Operator="1" ComLine="/q" BasicUiComLine="/q" NoUiComLine="/q" Options="xm" TargetName="dotNetFx40_Full_x86_x64.exe\dotNetFx40_Full_x86_x64.exe"/>
+    <ROW PrereqKey="EE84CE1C98744810AB435A53A3737024" DisplayName="Java SE Runtime Environment 7u55 x86" VersionMin="1.7" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\jre-7u55-windows-i586.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" Operator="0" ComLine="/s" BasicUiComLine="/s" NoUiComLine="/s" Options="m" TargetName="jre-7u55-windows-i586.exe"/>
     <ROW PrereqKey="Microsoft.NETFrame" DisplayName="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\NDP40-KB2468871-v2-x86.exe" Location="0" ExactSize="0" Operator="0" ComLine=" /q /norestart /ChainingPackage FullKB2468871X64ClickOnce" Options="m" TargetName="NDP40-KB2468871-v2-x86.exe" Type="1" Feature="Microsoft.NETFrame"/>
     <ATTRIBUTE name="PrereqsOrder" value="C673FE9433B49AFAC9592AB26B8F8E4 EE84CE1C98744810AB435A53A3737024 B7F3EF2947194DBBA24570C9D8F78D96 Microsoft.NETFrame"/>
   </COMPONENT>
