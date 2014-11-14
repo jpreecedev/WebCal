@@ -11,7 +11,8 @@
                  WindowStartupLocation="CenterScreen"
                  WindowState="Maximized"
                  MinHeight="560"
-                 MinWidth="800">
+                 MinWidth="800"
+                 DontUseDwm="False">
     <core:BaseWindow.DataContext>
         <local:MainWindowViewModel />
     </core:BaseWindow.DataContext>

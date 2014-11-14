@@ -73,7 +73,7 @@
 
             //Resource dictionaries must be set in code to avoid issues with older operating systems
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative)});
-            Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri(string.Format("pack://application:,,,/Fluent;Component/Themes/Office2010/{0}.xaml", "Silver"))});
+            Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("pack://application:,,,/Fluent;Component/Themes/Generic.xaml") });
 
             //Prepare database
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<TachographContext, Configuration>());
