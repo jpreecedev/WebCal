@@ -2044,4 +2044,19 @@ date
   <data name="TXT_WORKER_PROGRESS_CLOSE" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="TXT_THEME_SETTINGS_TITLE" xml:space="preserve">
+    <value>Theme Settings</value>
+  </data>
+  <data name="TXT_SILVER_THEME" xml:space="preserve">
+    <value>Silver</value>
+  </data>
+  <data name="TXT_BLUE_THEME" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="TXT_BLACK_THEME" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="TXT_THEME_SETTINGS" xml:space="preserve">
+    <value>Theme Settings</value>
+  </data>
 </root>

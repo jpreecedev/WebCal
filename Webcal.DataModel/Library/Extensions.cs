@@ -111,5 +111,10 @@ namespace Webcal.DataModel.Library
         {
             return repository.Get(w => !string.IsNullOrEmpty(w.DefaultPrinterName));
         }
+
+        public static ThemeSettings GetThemeSettings(this ISettingsRepository<ThemeSettings> repository)
+        {
+            return repository.Get(w => !string.IsNullOrEmpty(w.SelectedTheme));            
+        }
     }
 }

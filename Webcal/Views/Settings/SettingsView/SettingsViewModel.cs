@@ -102,7 +102,8 @@
                 },
                 new TreeViewItem {Header = Resources.TXT_PRINTER_SETTINGS, DataContext = typeof (PrinterSettingsView)},
                 new TreeViewItem {Header = Resources.TXT_MAIL_SETTINGS, DataContext = typeof (MailSettingsView)},
-                new TreeViewItem {Header = Resources.TXT_USER_MANAGEMENT, DataContext = typeof (UserManagementView)}
+                new TreeViewItem {Header = Resources.TXT_USER_MANAGEMENT, DataContext = typeof (UserManagementView)},
+                new TreeViewItem {Header = Resources.TXT_THEME_SETTINGS, DataContext = typeof (ThemeSettingsView)}
             };
         }
     }

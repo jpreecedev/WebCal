@@ -127,6 +127,7 @@
     <Compile Include="Models\TachographFile.cs" />
     <Compile Include="Models\TachographMake.cs" />
     <Compile Include="Models\TachographModel.cs" />
+    <Compile Include="Models\ThemeSettings.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\VehicleMake.cs" />
     <Compile Include="Models\VehicleModel.cs" />

@@ -1,6 +1,7 @@
 ﻿namespace Webcal.DataModel.Library
 {
     using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using Core;
     using Properties;
@@ -36,6 +37,16 @@
             }
 
             UserManagement.AddDefaultUser();
+
+            var themeSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<ThemeSettings>>();
+            if (themeSettingsRepository.GetThemeSettings() == null)
+            {
+                using (var context = new TachographContext())
+                {
+                    context.ThemeSettings.Add(new ThemeSettings { SelectedTheme = "Silver" });
+                    context.SaveChanges();
+                }
+            }
 
             return settings;
         }

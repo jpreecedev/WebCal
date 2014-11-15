@@ -28,5 +28,6 @@
         public DbSet<PrinterSettings> PrinterSettings { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<MailSettings> MailSettings { get; set; }
+        public DbSet<ThemeSettings> ThemeSettings { get; set; }
     }
 }

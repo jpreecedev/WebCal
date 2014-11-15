@@ -14,6 +14,7 @@
     using DataModel.Migrations;
     using Library;
     using Shared;
+    using Xceed.Wpf.AvalonDock.Themes;
 
     public partial class App
     {
@@ -72,7 +73,7 @@
             AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments));
 
             //Resource dictionaries must be set in code to avoid issues with older operating systems
-            Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative)});
+            Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative) });
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("pack://application:,,,/Fluent;Component/Themes/Generic.xaml") });
 
             //Prepare database
@@ -90,6 +91,10 @@
 
             //Back up the database, if needed
             BackupRestoreManager.BackupIfRequired(generalSettings.GetWorkshopSettings());
+
+            //Apply theme
+            ThemeSettings themeSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<ThemeSettings>>().GetThemeSettings();
+            Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = themeSettings.Source });
 
             return true;
         }

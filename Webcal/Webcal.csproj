@@ -299,6 +299,10 @@
       <DependentUpon>MailSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\MailSettingsView\MailSettingsViewModel.cs" />
+    <Compile Include="Views\Settings\ThemeSettingsView\ThemeSettingsView.xaml.cs">
+      <DependentUpon>ThemeSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\ThemeSettingsView\ThemeSettingsViewModel.cs" />
     <Compile Include="Views\Settings\UserManagementView\UserManagementView.xaml.cs">
       <DependentUpon>UserManagementView.xaml</DependentUpon>
     </Compile>
@@ -431,6 +435,10 @@
     <Page Include="Views\Settings\MailSettingsView\MailSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\ThemeSettingsView\ThemeSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Settings\UserManagementView\UserManagementView.xaml">
       <SubType>Designer</SubType>

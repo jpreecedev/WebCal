@@ -62,6 +62,7 @@
                 For<ISettingsRepository<WorkshopSettings>>().Use<SettingsRepository<WorkshopSettings>>();
                 For<ISettingsRepository<PrinterSettings>>().Use<SettingsRepository<PrinterSettings>>();
                 For<ISettingsRepository<MailSettings>>().Use<SettingsRepository<MailSettings>>();
+                For<ISettingsRepository<ThemeSettings>>().Use<SettingsRepository<ThemeSettings>>();
             }
         }
     }
