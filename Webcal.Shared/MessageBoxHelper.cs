@@ -6,29 +6,44 @@
 
     public static class MessageBoxHelper
     {
-        public static bool AskQuestion(string msg)
+        public static bool AskQuestion(string msg, Window owner = null)
         {
-            return MessageBox.Show(msg, Resources.TXT_QUESTION, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+            if (owner == null)
+            {
+                owner = Application.Current.MainWindow;
+            }
+
+            return MessageBox.Show(owner, msg, Resources.TXT_QUESTION, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
         }
 
-        public static void ShowMessage(string msg)
+        public static void ShowMessage(string msg, Window owner = null)
         {
-            MessageBox.Show(msg, Resources.TXT_INFORMATION, MessageBoxButton.OK, MessageBoxImage.Information);
+            Show(owner, msg, Resources.TXT_INFORMATION, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        public static void ShowMessage(string msg, string caption)
+        public static void ShowMessage(string msg, string caption, Window owner = null)
         {
-            MessageBox.Show(msg, caption, MessageBoxButton.OK, MessageBoxImage.Information);
+            Show(owner, msg, caption, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        public static void ShowError(string msg)
+        public static void ShowError(string msg, Window owner = null)
         {
-            MessageBox.Show(msg, Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+            Show(owner, msg, Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        public static void ShowError(string msg, object[] parameters)
+        public static void ShowError(string msg, object[] parameters, Window owner = null)
         {
-            MessageBox.Show(string.Format(msg, parameters), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+            Show(owner, string.Format(msg, parameters), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private static void Show(Window owner, string message, string caption, MessageBoxButton buttons, MessageBoxImage messageBoxImage)
+        {
+            if (owner == null)
+            {
+                owner = Application.Current.MainWindow;
+            }
+
+            MessageBox.Show(owner, message, caption, buttons, messageBoxImage);
         }
     }
 }

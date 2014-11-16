@@ -1,9 +1,9 @@
 ﻿namespace Webcal.Windows.ProgressWindow
 {
+    using Core;
     using Properties;
-    using Shared;
 
-    public class ProgressWindowViewModel : BaseNotification
+    public class ProgressWindowViewModel : BaseModalWindowViewModel
     {
         public ProgressWindowViewModel()
         {

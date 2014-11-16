@@ -12,7 +12,7 @@
     using Properties;
     using Shared;
 
-    public class ReprintWindowViewModel : BaseNotification
+    public class ReprintWindowViewModel : BaseModalWindowViewModel
     {
         public ReprintWindowViewModel()
         {
@@ -57,7 +57,7 @@
             Document document = FindDocument();
             if (document == null)
             {
-                MessageBoxHelper.ShowError(Resources.ERR_UNABLE_FIND_ANY_MATCHES);
+                MessageBoxHelper.ShowError(Resources.ERR_UNABLE_FIND_ANY_MATCHES, Window);
                 return;
             }
 

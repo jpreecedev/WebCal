@@ -11,7 +11,7 @@
     using Properties;
     using Shared;
 
-    public class LogInWindowViewModel : BaseNotification
+    public class LogInWindowViewModel : BaseModalWindowViewModel
     {
         public LogInWindowViewModel()
         {
@@ -49,7 +49,7 @@
                 return;
             }
 
-            MessageBoxHelper.ShowError(Resources.ERR_CANNOT_VERIFY_USERNAME_PASSWORD);
+            MessageBoxHelper.ShowError(Resources.ERR_CANNOT_VERIFY_USERNAME_PASSWORD, Window);
         }
 
         private static void OnCancel(Window window)

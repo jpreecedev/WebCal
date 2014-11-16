@@ -10,7 +10,7 @@
     using Properties;
     using Shared;
 
-    public class ExceptionWindowViewModel : BaseNotification
+    public class ExceptionWindowViewModel : BaseModalWindowViewModel
     {
         public ExceptionWindowViewModel()
         {
@@ -38,15 +38,15 @@
                         ExceptionDetails = t.ExceptionDetails,
                         Occurred = t.Occurred.ToString("dd-MMM-yyyy HH:mm")
                     })
-                        .ToList(),
-                        result.FileName);
+                    .ToList(),
+                    result.FileName);
                 }
 
-                MessageBoxHelper.ShowMessage(Resources.TXT_EXPORT_COMPLETE);
+                MessageBoxHelper.ShowMessage(Resources.TXT_EXPORT_COMPLETE, Window);
             }
             else
             {
-                MessageBoxHelper.ShowMessage(Resources.TXT_NOTHING_TO_EXPORT);
+                MessageBoxHelper.ShowMessage(Resources.TXT_NOTHING_TO_EXPORT, Window);
             }
         }
 

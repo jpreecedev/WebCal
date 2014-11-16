@@ -4,11 +4,11 @@
     using System.Data.Entity.Validation;
     using System.IO;
     using System.Text;
-    using System.Windows.Forms;
     using System.Xml.Serialization;
     using Library;
     using Properties;
     using StructureMap;
+    using Application = System.Windows.Forms.Application;
 
     public static class ExceptionPolicy
     {

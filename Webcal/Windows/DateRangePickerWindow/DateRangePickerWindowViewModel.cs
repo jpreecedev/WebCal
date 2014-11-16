@@ -4,7 +4,7 @@
     using System.Windows;
     using Core;
 
-    public class DateRangePickerWindowViewModel : BaseViewModel
+    public class DateRangePickerWindowViewModel : BaseModalWindowViewModel
     {
         public DateRangePickerWindowViewModel()
         {

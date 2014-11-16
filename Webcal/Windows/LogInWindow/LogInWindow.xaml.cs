@@ -1,8 +1,8 @@
-﻿using System.Windows;
-
-namespace Webcal.Windows.LogInWindow
+﻿namespace Webcal.Windows.LogInWindow
 {
-    public partial class LogInWindow : Window
+    using Core;
+
+    public partial class LogInWindow : BaseModalWindow
     {
         public LogInWindow()
         {

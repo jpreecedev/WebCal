@@ -232,13 +232,13 @@
     <Compile Include="Core\BaseFilesViewModel.cs" />
     <Compile Include="Core\BaseHistoryViewModel.cs" />
     <Compile Include="Core\BaseMainViewModel.cs" />
-    <Compile Include="Core\BaseModalWindow.cs" />
     <Compile Include="Core\BaseModalWindowViewModel.cs" />
     <Compile Include="Core\BaseNavigationViewModel.cs" />
     <Compile Include="Core\BaseNewDocumentViewModel.cs" />
     <Compile Include="Core\BaseSettingsView.cs" />
     <Compile Include="Core\BaseSettingsViewModel.cs" />
     <Compile Include="Core\BaseWindow.cs" />
+    <Compile Include="Core\BaseModalWindow.cs" />
     <Compile Include="Core\CommandReference.cs" />
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\DelegateCommand.cs" />

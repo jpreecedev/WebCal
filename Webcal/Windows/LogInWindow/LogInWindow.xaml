@@ -1,21 +1,22 @@
-﻿<Window x:Class="Webcal.Windows.LogInWindow.LogInWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:vm="clr-namespace:Webcal.Windows.LogInWindow"
-        xmlns:Properties="clr-namespace:Webcal.Properties"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="SingleBorderWindow"
-        ResizeMode="NoResize"
-        mc:Ignorable="d"
-        Height="250"
-        Width="400"
-        Title="{x:Static Properties:Resources.TXT_LOGIN_WINDOW_TITLE}"
-        FocusManager.FocusedElement="{Binding ElementName=UsernameTextBox}">
-    <Window.DataContext>
+﻿<core:BaseModalWindow x:Class="Webcal.Windows.LogInWindow.LogInWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:vm="clr-namespace:Webcal.Windows.LogInWindow"
+                      xmlns:Properties="clr-namespace:Webcal.Properties"
+                      xmlns:core="clr-namespace:Webcal.Core"
+                      WindowStartupLocation="CenterScreen"
+                      WindowStyle="SingleBorderWindow"
+                      ResizeMode="NoResize"
+                      mc:Ignorable="d"
+                      Height="250"
+                      Width="400"
+                      Title="{x:Static Properties:Resources.TXT_LOGIN_WINDOW_TITLE}"
+                      FocusManager.FocusedElement="{Binding ElementName=UsernameTextBox}">
+    <core:BaseModalWindow.DataContext>
         <vm:LogInWindowViewModel />
-    </Window.DataContext>
+    </core:BaseModalWindow.DataContext>
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize"
@@ -95,4 +96,4 @@
 
         </StackPanel>
     </Grid>
-</Window>
+</core:BaseModalWindow>

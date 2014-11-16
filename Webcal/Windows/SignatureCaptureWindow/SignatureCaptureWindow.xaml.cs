@@ -1,8 +1,8 @@
-﻿using System.Windows;
-
-namespace Webcal.Windows.SignatureCaptureWindow
+﻿namespace Webcal.Windows.SignatureCaptureWindow
 {
-    public partial class SignatureCaptureWindow : Window
+    using Core;
+
+    public partial class SignatureCaptureWindow : BaseModalWindow
     {
         public SignatureCaptureWindow()
         {

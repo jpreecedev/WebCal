@@ -1,16 +1,17 @@
-﻿<Window x:Class="Webcal.Windows.DateRangePickerWindow.DateRangePickerWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ctrls="clr-namespace:Webcal.Controls"
-        xmlns:vm="clr-namespace:Webcal.Windows.DateRangePickerWindow"
-        xmlns:Properties="clr-namespace:Webcal.Properties"
-        Title="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE}"
-        Height="180"
-        Width="425"
-        WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
+﻿<core:BaseModalWindow x:Class="Webcal.Windows.DateRangePickerWindow.DateRangePickerWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:ctrls="clr-namespace:Webcal.Controls"
+                      xmlns:vm="clr-namespace:Webcal.Windows.DateRangePickerWindow"
+                      xmlns:Properties="clr-namespace:Webcal.Properties"
+                      xmlns:core="clr-namespace:Webcal.Core"
+                      Title="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE}"
+                      Height="180"
+                      Width="425"
+                      WindowStartupLocation="CenterScreen">
+    <core:BaseModalWindow.DataContext>
         <vm:DateRangePickerWindowViewModel />
-    </Window.DataContext>
+    </core:BaseModalWindow.DataContext>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="35" />
@@ -19,23 +20,23 @@
         </Grid.RowDefinitions>
 
         <ctrls:InputDatePickerField SelectedDate="{Binding StartDateTime}"
-                                    Label="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_START}"/>
+                                    Label="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_START}" />
 
         <ctrls:InputDatePickerField SelectedDate="{Binding EndDateTime}"
-                                    Label="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_END}" 
+                                    Label="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_END}"
                                     Grid.Row="1"
-                                    Margin="0,5,0,0"/>
-        
+                                    Margin="0,5,0,0" />
+
         <StackPanel Orientation="Horizontal"
                     Grid.Row="2"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             <Button Content="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_SELECT}"
-                    Command="{Binding SelectCommand}" 
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                    Command="{Binding SelectCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
             <Button Content="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_CANCEL}"
                     Command="{Binding CancelCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
         </StackPanel>
     </Grid>
-</Window>
+</core:BaseModalWindow>

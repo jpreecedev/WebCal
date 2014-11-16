@@ -1,17 +1,18 @@
-﻿<Window x:Class="Webcal.Windows.SignatureCaptureWindow.SignatureCaptureWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="clr-namespace:Webcal.Windows.SignatureCaptureWindow"
-        xmlns:Properties="clr-namespace:Webcal.Properties"
-        Title="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_TITLE}"
-        WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        Height="300"
-        Width="500"
-        AllowDrop="True">
-    <Window.DataContext>
+﻿<core:BaseModalWindow x:Class="Webcal.Windows.SignatureCaptureWindow.SignatureCaptureWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:vm="clr-namespace:Webcal.Windows.SignatureCaptureWindow"
+                      xmlns:Properties="clr-namespace:Webcal.Properties"
+                      xmlns:core="clr-namespace:Webcal.Core"
+                      Title="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_TITLE}"
+                      WindowStartupLocation="CenterScreen"
+                      ResizeMode="NoResize"
+                      Height="300"
+                      Width="500"
+                      AllowDrop="True">
+    <core:BaseModalWindow.DataContext>
         <vm:SignatureCaptureWindowViewModel />
-    </Window.DataContext>
+    </core:BaseModalWindow.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -38,12 +39,12 @@
             <Button Content="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_SAVE_AND_CLOSE}"
                     Command="{Binding SaveCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                    Style="{StaticResource LargeButton}"/>
+                    Style="{StaticResource LargeButton}" />
             <Button Content="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_BROWSE}"
-                    Command="{Binding BrowseCommand}"/>
+                    Command="{Binding BrowseCommand}" />
             <Button Content="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_CLOSE}"
                     Command="{Binding CloseCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
         </StackPanel>
     </Grid>
-</Window>
+</core:BaseModalWindow>

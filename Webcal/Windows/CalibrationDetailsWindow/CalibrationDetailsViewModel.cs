@@ -3,9 +3,8 @@
     using System.Windows;
     using Core;
     using DataModel.Library;
-    using Shared;
 
-    public class CalibrationDetailsViewModel : BaseNotification
+    public class CalibrationDetailsViewModel : BaseModalWindowViewModel
     {
         public CalibrationDetailsViewModel()
         {

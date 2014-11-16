@@ -12,7 +12,7 @@
     using Properties;
     using Shared;
 
-    public class SignatureCaptureWindowViewModel : BaseNotification
+    public class SignatureCaptureWindowViewModel : BaseModalWindowViewModel
     {
         public SignatureCaptureWindowViewModel()
         {
@@ -71,12 +71,12 @@
                     }
                     catch (Exception ex)
                     {
-                        MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_TO_APPLY_TRANSFORMATIONS, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
+                        MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_TO_APPLY_TRANSFORMATIONS, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)), Window);
                     }
                 }
                 catch
                 {
-                    MessageBoxHelper.ShowError(Resources.ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE);
+                    MessageBoxHelper.ShowError(Resources.ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE, Window);
                 }
             }
         }
