@@ -14,7 +14,6 @@
     using DataModel.Migrations;
     using Library;
     using Shared;
-    using Xceed.Wpf.AvalonDock.Themes;
 
     public partial class App
     {

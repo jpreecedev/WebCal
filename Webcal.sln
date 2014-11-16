@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal", "Webcal\Webcal.csproj", "{D4EE3EA7-9E62-46B1-8183-9139C33C9A20}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -151,7 +151,8 @@ Global
 		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Debug|x86.ActiveCfg = Debug|x86
+		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Debug|x86.Build.0 = Debug|x86
 		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F49DE433-81B0-417B-A621-7C55BDDBDD93}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU

@@ -146,4 +146,10 @@
   <data name="TXT_FAILED" xml:space="preserve">
     <value>Failed.</value>
   </data>
+  <data name="TXT_QUESTION" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="TXT_INFORMATION" xml:space="preserve">
+    <value>Information</value>
+  </data>
 </root>

@@ -6,6 +6,7 @@
     using System.Text;
     using System.Windows.Forms;
     using System.Xml.Serialization;
+    using Library;
     using Properties;
     using StructureMap;
 
@@ -36,12 +37,12 @@
             {
                 if (string.Equals(Resources.ERR_UNABLE_FIND_DATA_PROVIDER, ex.Message))
                 {
-                    MessageBox.Show(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_FIND_SQL_CE, ex.Message), Resources.TXT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_FIND_SQL_CE, ex.Message));
                     Application.Exit();
                 }
                 else
                 {
-                    MessageBox.Show(ex.Message, Resources.TXT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxHelper.ShowError(ex.Message);
                 }
             }
 

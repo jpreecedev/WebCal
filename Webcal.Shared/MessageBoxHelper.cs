@@ -1,7 +1,7 @@
 ﻿namespace Webcal.Library
 {
     using System.Windows;
-    using Properties;
+    using Shared.Properties;
     using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
     public static class MessageBoxHelper

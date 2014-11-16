@@ -7,7 +7,7 @@
     using Shared;
     using StructureMap;
     using StructureMap.Configuration.DSL;
-    using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
+    using Webcal.Library;
 
     public static class ContainerBootstrapper
     {
@@ -15,7 +15,7 @@
 
         static ContainerBootstrapper()
         {
-            _container = new Container(expression => { Configure(expression); });
+            _container = new Container(expression => Configure(expression));
         }
 
         public static Container Container
@@ -31,7 +31,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(Container, ex)), Resources.TXT_ERROR, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(Container, ex)));
                 return false;
             }
 

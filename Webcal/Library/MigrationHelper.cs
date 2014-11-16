@@ -3,12 +3,10 @@
 namespace Webcal.Library
 {
     using System;
-    using System.Drawing;
     using System.IO;
     using System.Linq;
     using System.Security.AccessControl;
     using System.Security.Principal;
-    using System.Windows.Media.Imaging;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
