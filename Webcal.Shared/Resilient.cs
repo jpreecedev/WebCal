@@ -27,6 +27,11 @@
                 TimeSpan? delay;
                 try
                 {
+                    if (_progress != null)
+                    {
+                        _progress(Resources.TXT_STARTING);
+                    }
+
                     operation.Invoke();
                     return;
                 }
@@ -50,6 +55,11 @@
                 TimeSpan? delay;
                 try
                 {
+                    if (_progress != null)
+                    {
+                        _progress(Resources.TXT_STARTING);
+                    }
+
                     T result = operation();
                     return result;
                 }

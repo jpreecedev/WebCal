@@ -160,5 +160,14 @@ namespace Webcal.Shared.Properties {
                 return ResourceManager.GetString("TXT_QUESTION", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting....
+        /// </summary>
+        internal static string TXT_STARTING {
+            get {
+                return ResourceManager.GetString("TXT_STARTING", resourceCulture);
+            }
+        }
     }
 }

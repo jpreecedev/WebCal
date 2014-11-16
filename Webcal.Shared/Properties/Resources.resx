@@ -152,4 +152,7 @@
   <data name="TXT_INFORMATION" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="TXT_STARTING" xml:space="preserve">
+    <value>Starting...</value>
+  </data>
 </root>

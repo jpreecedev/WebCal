@@ -227,8 +227,7 @@
                     {
                         HandleException(operation, t.Exception);
                     }
-                },
-                TaskScheduler.FromCurrentSynchronizationContext());
+                });
             }
             catch (Exception ex)
             {
