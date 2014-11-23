@@ -22,7 +22,7 @@ namespace Webcal.Shared.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Webcal.Shared.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Webcal.Shared.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Webcal.Shared.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to find the requested .Net Framework Data Provider.  It may not be installed..
         /// </summary>
-        internal static string ERR_UNABLE_FIND_DATA_PROVIDER {
+        public static string ERR_UNABLE_FIND_DATA_PROVIDER {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_FIND_DATA_PROVIDER", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred.  SQL CE 4.0 may not be installed..
         /// </summary>
-        internal static string ERR_UNABLE_FIND_SQL_CE {
+        public static string ERR_UNABLE_FIND_SQL_CE {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_FIND_SQL_CE", resourceCulture);
             }
@@ -82,7 +82,7 @@ namespace Webcal.Shared.Properties {
         ///   Looks up a localized string similar to Entity &quot;{0}&quot; has the following errors:
         ///.
         /// </summary>
-        internal static string EXC_ENTITY_VALIDATION_ERRORS {
+        public static string EXC_ENTITY_VALIDATION_ERRORS {
             get {
                 return ResourceManager.GetString("EXC_ENTITY_VALIDATION_ERRORS", resourceCulture);
             }
@@ -91,7 +91,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Image could not be loaded.
         /// </summary>
-        internal static string EXC_IMAGE_COULD_NOT_BE_LOADED {
+        public static string EXC_IMAGE_COULD_NOT_BE_LOADED {
             get {
                 return ResourceManager.GetString("EXC_IMAGE_COULD_NOT_BE_LOADED", resourceCulture);
             }
@@ -101,7 +101,7 @@ namespace Webcal.Shared.Properties {
         ///   Looks up a localized string similar to {1}
         ///.
         /// </summary>
-        internal static string EXC_VALIDATION_ERROR_PROPERTY {
+        public static string EXC_VALIDATION_ERROR_PROPERTY {
             get {
                 return ResourceManager.GetString("EXC_VALIDATION_ERROR_PROPERTY", resourceCulture);
             }
@@ -110,7 +110,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Failed. Trying again in {0} seconds....
         /// </summary>
-        internal static string TXT_ATTEMPT_FAILED {
+        public static string TXT_ATTEMPT_FAILED {
             get {
                 return ResourceManager.GetString("TXT_ATTEMPT_FAILED", resourceCulture);
             }
@@ -119,7 +119,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
-        internal static string TXT_ERROR {
+        public static string TXT_ERROR {
             get {
                 return ResourceManager.GetString("TXT_ERROR", resourceCulture);
             }
@@ -128,7 +128,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Failed..
         /// </summary>
-        internal static string TXT_FAILED {
+        public static string TXT_FAILED {
             get {
                 return ResourceManager.GetString("TXT_FAILED", resourceCulture);
             }
@@ -137,7 +137,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
-        internal static string TXT_INFORMATION {
+        public static string TXT_INFORMATION {
             get {
                 return ResourceManager.GetString("TXT_INFORMATION", resourceCulture);
             }
@@ -146,7 +146,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The maximum number of retries has been reached.
         /// </summary>
-        internal static string TXT_MAX_RETRIES_REACHED {
+        public static string TXT_MAX_RETRIES_REACHED {
             get {
                 return ResourceManager.GetString("TXT_MAX_RETRIES_REACHED", resourceCulture);
             }
@@ -155,7 +155,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Question.
         /// </summary>
-        internal static string TXT_QUESTION {
+        public static string TXT_QUESTION {
             get {
                 return ResourceManager.GetString("TXT_QUESTION", resourceCulture);
             }
@@ -164,7 +164,7 @@ namespace Webcal.Shared.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Starting....
         /// </summary>
-        internal static string TXT_STARTING {
+        public static string TXT_STARTING {
             get {
                 return ResourceManager.GetString("TXT_STARTING", resourceCulture);
             }

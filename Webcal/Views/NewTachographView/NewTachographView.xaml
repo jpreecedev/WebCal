@@ -107,7 +107,7 @@
                     <Button Content="{Binding ReadFromCardContent}"
                             Command="{Binding ReadFromCardCommand}"
                             IsEnabled="{Binding IsReadFromCardEnabled}"
-                            Width="140"
+                            Width="Auto"
                             Height="35"
                             Margin="0,3,0,0"
                             HorizontalAlignment="Right"

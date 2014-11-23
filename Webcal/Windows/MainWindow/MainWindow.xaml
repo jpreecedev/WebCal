@@ -114,7 +114,7 @@
                             <Button Content="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TECHNICAL_INFORMATION}"
                                     Command="{Binding ViewTechnicalInformationCommand}"
                                     Margin="10"
-                                    Width="150"
+                                    Width="Auto"
                                     Height="25" />
                         </StackPanel>
                     </r:MenuItem>

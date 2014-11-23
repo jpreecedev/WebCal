@@ -92,16 +92,16 @@
                         HorizontalAlignment="Right">
                 <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM}"
                         Command="{Binding OpenInReportFormCommand}"
-                        Width="160" />
+                        Width="Auto" />
                 <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT}"
                         Command="{Binding CreateVOSADocumentCommand}"
-                        Width="160" />
+                        Width="Auto" />
                 <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_REPRINT_LABEL}"
                         Command="{Binding ReprintLabelCommand}"
-                        Width="160" />
+                        Width="Auto" />
                 <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_REPRINT_CERTIFICATE}"
                         Command="{Binding ReprintCertificateCommand}"
-                        Width="160" />
+                        Width="Auto" />
             </StackPanel>
         </Grid>
     </Grid>

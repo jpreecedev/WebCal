@@ -33,11 +33,12 @@
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
 
                 <TreeView IsEnabled="{Binding IsPromptVisible, Converter={StaticResource InvBool}}"
                           ItemsSource="{Binding TreeViewItems}"
-                          Grid.RowSpan="2" />
+                          Grid.RowSpan="3" />
 
                 <ContentControl Content="{Binding View}"
                                 Margin="10"
@@ -48,19 +49,34 @@
                             Grid.Row="1"
                             Grid.Column="2">
                     <Button Content="{x:Static Properties:Resources.TXT_SETTINGS_CANCEL}"
-                            Command="{Binding DataContext.CancelModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+                            Command="{Binding DataContext.CancelModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                            Width="Auto" />
                     <Button Content="{x:Static Properties:Resources.TXT_SETTINGS_SAVE_ALL_AND_CLOSE}"
                             Command="{Binding DataContext.SaveModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                             CommandParameter="{Binding View}"
                             Margin="5,10,10,10"
-                            Width="100" />
+                            Width="Auto"/>
                 </StackPanel>
 
+                <Border Background="#50000000"
+                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
+                        Style="{StaticResource FadeTransitionEffect}"
+                        Visibility="{Binding IsPromptVisible, Converter={StaticResource Bool2Vis}}"
+                        Grid.Column="1"
+                        Grid.RowSpan="3">
+
+                    <ctrls:PopupWindow Prompt="{Binding Prompt, StringFormat={}{0}:}"
+                                       ViewModel="{Binding}" />
+                </Border>
+
+
+
                 <StackPanel Orientation="Horizontal"
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Grid.Column="1"
                             VerticalAlignment="Center"
-                            Visibility="{Binding View.HelpText, Converter={StaticResource String2Vis}}">
+                            Visibility="{Binding View.HelpText, Converter={StaticResource String2Vis}}"
+                            Margin="5,0,0,5">
                     <Image Source="../../../Images/Info.png"
                            Width="24"
                            Height="24"
@@ -69,17 +85,6 @@
                                Height="Auto"
                                Margin="7,3,0,0" />
                 </StackPanel>
-
-                <Border Background="#50000000"
-                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
-                        Style="{StaticResource FadeTransitionEffect}"
-                        Visibility="{Binding IsPromptVisible, Converter={StaticResource Bool2Vis}}"
-                        Grid.Column="1"
-                        Grid.RowSpan="2">
-
-                    <ctrls:PopupWindow Prompt="{Binding Prompt, StringFormat={}{0}:}"
-                                       ViewModel="{Binding}" />
-                </Border>
             </Grid>
         </Grid>
     </Grid>

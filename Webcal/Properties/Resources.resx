@@ -2059,4 +2059,7 @@ date
   <data name="TXT_THEME_SETTINGS" xml:space="preserve">
     <value>Theme Settings</value>
   </data>
+  <data name="TXT_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

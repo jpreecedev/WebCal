@@ -593,6 +593,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru-RU.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>

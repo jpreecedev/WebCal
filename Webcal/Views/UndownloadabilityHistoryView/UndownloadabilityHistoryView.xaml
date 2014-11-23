@@ -87,10 +87,10 @@
                         HorizontalAlignment="Right">
                 <Button Content="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_OPEN_IN_REPORT_FORM}"
                         Command="{Binding OpenInReportFormCommand}"
-                        Width="160" />
+                        Width="Auto" />
                 <Button Content="{x:Static Properties:Resources.TXT_UNDOWNLOADABILITY_HISTORY_REPRINT_CERTIFICATE}"
                         Command="{Binding ReprintCertificateCommand}"
-                        Width="160" />
+                        Width="Auto" />
             </StackPanel>
         </Grid>
     </Grid>

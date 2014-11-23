@@ -53,7 +53,7 @@
                 <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO}"
                         Command="{Binding BrowseCommand}"
                         HorizontalAlignment="Left"
-                        Width="80" />
+                        Width="Auto" />
                 <Image Source="{Binding Settings.Image, Converter={StaticResource ImgToBitmapSource}}" 
                        Width="100"
                        Height="100"

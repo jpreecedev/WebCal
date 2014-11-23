@@ -3574,6 +3574,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string TXT_OK {
+            get {
+                return ResourceManager.GetString("TXT_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page {page} of {numpages}.
         /// </summary>
         public static string TXT_PAGE_NUMBER_FORMAT {

@@ -45,7 +45,7 @@
                 <Button Content="{x:Static Properties:Resources.TXT_TECHNICIANS_REMOVE}"
                         Command="{Binding RemoveTechnicianCommand}" />
                 <Button Content="{x:Static Properties:Resources.TXT_TECHNICIANS_SET_AS_DEFAULT}"
-                        Width="100"
+                        Width="Auto"
                         Command="{Binding SetDefaultCommand}" />
             </StackPanel>
 

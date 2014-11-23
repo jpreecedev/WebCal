@@ -6,7 +6,8 @@
                     xmlns:core="clr-namespace:Webcal.Core"
                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
                     xmlns:dow="clr-namespace:Webcal.Controls.DayOfWeekPicker"
-                    xmlns:Properties="clr-namespace:Webcal.Properties">
+                    xmlns:Properties="clr-namespace:Webcal.Properties"
+                    xmlns:dataModel="clr-namespace:Webcal.DataModel.Properties;assembly=Webcal.DataModel">
 
     <LinearGradientBrush x:Key="LightBrush"
                          StartPoint="0,0"
@@ -20,19 +21,21 @@
             </GradientStopCollection>
         </GradientBrush.GradientStops>
     </LinearGradientBrush>
-
+    
     <Style TargetType="{x:Type Button}"
            x:Key="LargeButton">
         <Setter Property="Height"
                 Value="25" />
         <Setter Property="Content"
                 Value="{x:Static Properties:Resources.TXT_EMPTY_FIELDS}" />
-        <Setter Property="Width"
+        <Setter Property="MinWidth"
                 Value="130" />
         <Setter Property="Margin"
                 Value="0,0,0,0" />
         <Setter Property="HorizontalAlignment"
                 Value="Left" />
+        <Setter Property="Padding"
+                Value="10,3,10,3" />
     </Style>
 
     <Style TargetType="{x:Type Button}"
@@ -41,12 +44,14 @@
                 Value="25" />
         <Setter Property="Content"
                 Value="{x:Static Properties:Resources.TXT_NEW_CUSTOMER}" />
-        <Setter Property="Width"
+        <Setter Property="MinWidth"
                 Value="130" />
         <Setter Property="Margin"
                 Value="0,-5,0,0" />
         <Setter Property="HorizontalAlignment"
                 Value="Left" />
+        <Setter Property="Padding"
+                Value="10,3,10,3" />
     </Style>
 
     <Style TargetType="{x:Type Grid}"
@@ -75,12 +80,16 @@
     </LinearGradientBrush>
 
     <Style TargetType="{x:Type Button}">
-        <Setter Property="Width"
+        <Setter Property="MinWidth"
                 Value="75" />
+        <Setter Property="Width"
+                Value="Auto" />
         <Setter Property="Height"
                 Value="25" />
         <Setter Property="Margin"
                 Value="5,10,5,10" />
+        <Setter Property="Padding"
+                Value="10,3,10,3" />
     </Style>
 
     <Style TargetType="{x:Type ListBox}">
@@ -282,9 +291,13 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="{TemplateBinding Label}"
-                                   Focusable="False"
-                                   VerticalAlignment="Center" />
+                        <Border Height="35">
+                            <TextBlock Text="{TemplateBinding Label}"
+                                       Focusable="False"
+                                       VerticalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,5,0" />
+                        </Border>
 
                         <Border x:Name="Border"
                                 Grid.Column="1">
@@ -344,7 +357,7 @@
     <Style x:Key="{x:Type ctrls:InputComboField}"
            TargetType="{x:Type ctrls:InputComboField}">
         <Setter Property="Height"
-                Value="30" />
+                Value="45" />
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Template">
@@ -357,12 +370,18 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="{TemplateBinding Label}"
-                                   Focusable="False"
-                                   VerticalAlignment="Center" />
+                        <Border Height="45">
+                            <TextBlock Text="{TemplateBinding Label}"
+                                       Focusable="False"
+                                       VerticalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,5,0" />
+                        </Border>
 
                         <Border x:Name="Border"
-                                Grid.Column="1">
+                                Grid.Column="1"
+                                Height="25"
+                                VerticalAlignment="Center">
                             <ComboBox x:Name="Combo"
                                       ItemsSource="{TemplateBinding ItemsSource}"
                                       Text="{core:InputBinding SelectedText, RelativeSource={RelativeSource TemplatedParent}}"
@@ -370,7 +389,9 @@
                                       IsSynchronizedWithCurrentItem="{TemplateBinding IsSynchronisedWithCurrentItem}"
                                       DisplayMemberPath="{TemplateBinding DisplayMemberPath}"
                                       IsEditable="{TemplateBinding IsEditable}"
-                                      Background="Transparent"/>
+                                      Background="Transparent"
+                                      VerticalAlignment="Center"
+                                      Height="25" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -419,7 +440,7 @@
     <Style x:Key="{x:Type ctrls:InputTextField}"
            TargetType="{x:Type ctrls:InputTextField}">
         <Setter Property="Height"
-                Value="30" />
+                Value="40" />
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Template">
@@ -433,9 +454,13 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="{TemplateBinding Label}"
-                                   Focusable="False"
-                                   VerticalAlignment="Center" />
+                        <Border Height="35">
+                            <TextBlock Text="{TemplateBinding Label}"
+                                       Focusable="False"
+                                       VerticalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,5,0" />
+                        </Border>
 
                         <Border x:Name="Border"
                                 CornerRadius="2"
@@ -443,11 +468,12 @@
                                 Background="{StaticResource WindowBackgroundBrush}"
                                 BorderBrush="{StaticResource SolidBorderBrush}"
                                 BorderThickness="1"
-                                Grid.Column="1">
+                                Grid.Column="1"
+                                Height="25">
                             <ScrollViewer x:Name="PART_ContentHost"
                                           Margin="0"
                                           MinWidth="120"
-                                          Height="25"/>
+                                          Height="25" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -522,9 +548,13 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <TextBlock Text="{TemplateBinding Label}"
-                                   Focusable="False"
-                                   VerticalAlignment="Center" />
+                        <Border Height="35">
+                            <TextBlock Text="{TemplateBinding Label}"
+                                       Focusable="False"
+                                       VerticalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,5,0" />
+                        </Border>
 
                         <Border x:Name="Border"
                                 CornerRadius="2"
@@ -631,10 +661,12 @@
                             <StackPanel Orientation="Horizontal"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center">
-                                <Button Content="OK"
-                                        Command="{StaticResource OKCommand}" />
-                                <Button Content="Cancel"
-                                        Command="{StaticResource CancelCommand}" />
+                                <Button Content="{x:Static dataModel:Resources.TXT_OK}"
+                                        Command="{StaticResource OKCommand}"
+                                        Width="Auto"/>
+                                <Button Content="{x:Static dataModel:Resources.TXT_CANCEL}"
+                                        Command="{StaticResource CancelCommand}"
+                                        Width="Auto" />
                             </StackPanel>
 
                         </StackPanel>
@@ -648,7 +680,7 @@
 
         <Border x:Name="ModalBorder"
                 Width="900"
-                Height="500">
+                Height="530">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -675,7 +707,7 @@
                         Value="{StaticResource ContentStyle2}" />
                 <Setter TargetName="MainContent"
                         Property="Height"
-                        Value="370" />
+                        Value="400" />
             </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>

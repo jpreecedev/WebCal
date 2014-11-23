@@ -101,7 +101,7 @@
             }
             else
             {
-                ButtonHeight = 275;
+                ButtonHeight = 285;
                 ButtonWidth = 235;
 
                 DigitalText = Resources.TXT_DIGITAL_TACHOGRAPH_DOCUMENT;

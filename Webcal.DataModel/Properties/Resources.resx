@@ -346,4 +346,10 @@
   <data name="TXT_TECHNICIAN_DEFAULT" xml:space="preserve">
     <value>{0} (Default)</value>
   </data>
+  <data name="TXT_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="TXT_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>
