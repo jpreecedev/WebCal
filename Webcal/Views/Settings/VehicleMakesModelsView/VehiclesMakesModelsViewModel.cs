@@ -6,6 +6,7 @@
     using DataModel;
     using DataModel.Core;
     using Library;
+    using Library.ViewModels;
     using Properties;
     using Shared;
 
@@ -70,11 +71,16 @@
             GetInputFromUser(window, Resources.TXT_GIVE_MAKE_OF_VEHICLE, OnAddMake);
         }
 
-        private void OnAddMake(string result)
+        private void OnAddMake(UserPromptViewModel result)
         {
-            if (!string.IsNullOrEmpty(result))
+            if (result == null)
             {
-                var vehicleMake = new VehicleMake {Name = result};
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(result.FirstInput))
+            {
+                var vehicleMake = new VehicleMake {Name = result.FirstInput};
                 Makes.Add(vehicleMake);
                 Repository.Add(vehicleMake);
             }
@@ -96,11 +102,16 @@
             GetInputFromUser(window, Resources.TXT_GIVE_MODEL_OF_VEHICLE, OnAddModel);
         }
 
-        private void OnAddModel(string result)
+        private void OnAddModel(UserPromptViewModel result)
         {
-            if (!string.IsNullOrEmpty(result))
+            if (result == null)
             {
-                SelectedMake.Models.Add(new VehicleModel {Name = result});
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(result.FirstInput))
+            {
+                SelectedMake.Models.Add(new VehicleModel {Name = result.FirstInput});
             }
         }
 

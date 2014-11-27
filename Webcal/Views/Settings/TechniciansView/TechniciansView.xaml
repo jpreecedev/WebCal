@@ -31,9 +31,22 @@
             <TextBlock Text="{x:Static Properties:Resources.TXT_TECHNICIANS_TITLE}"
                        Margin="0,0,0,5" />
 
-            <ListBox Grid.Row="1"
-                     ItemsSource="{Binding Technicians}"
-                     SelectedItem="{Binding SelectedTechnician}" />
+            <ListView Grid.Row="1"
+                      ItemsSource="{Binding Technicians}"
+                      SelectedItem="{Binding SelectedTechnician}"
+                      IsSynchronizedWithCurrentItem="True"
+                      SelectionMode="Single">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_VIEW_NAME}"
+                                        DisplayMemberBinding="{Binding Name, Mode=OneWay}"
+                                        Width="200" />
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_VIEW_NUMBER}"
+                                        DisplayMemberBinding="{Binding Number, Mode=OneWay}"
+                                        Width="200" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
             <StackPanel Grid.Row="2"
                         Orientation="Horizontal"

@@ -6,8 +6,7 @@
                     xmlns:core="clr-namespace:Webcal.Core"
                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
                     xmlns:dow="clr-namespace:Webcal.Controls.DayOfWeekPicker"
-                    xmlns:Properties="clr-namespace:Webcal.Properties"
-                    xmlns:dataModel="clr-namespace:Webcal.DataModel.Properties;assembly=Webcal.DataModel">
+                    xmlns:Properties="clr-namespace:Webcal.Properties">
 
     <LinearGradientBrush x:Key="LightBrush"
                          StartPoint="0,0"
@@ -21,7 +20,7 @@
             </GradientStopCollection>
         </GradientBrush.GradientStops>
     </LinearGradientBrush>
-    
+
     <Style TargetType="{x:Type Button}"
            x:Key="LargeButton">
         <Setter Property="Height"
@@ -97,6 +96,11 @@
                 Value="Single" />
     </Style>
 
+    <Style TargetType="{x:Type ListViewItem}">
+        <Setter Property="Foreground"
+                Value="Black" />
+    </Style>
+
     <Style x:Key="FadeTransitionEffect"
            TargetType="{x:Type Border}">
         <Style.Triggers>
@@ -129,7 +133,7 @@
     <conv:DocTypeToVisibilityConverter x:Key="DocType2Vis" />
     <conv:InverseBooleanToVisibilityConverter x:Key="InvBool2Vis" />
     <conv:BooleanMultiConverter x:Key="BoolMultiConverter" />
-    <conv:ReadOnlyMultiConverter x:Key="ReadOnlyMultiConverter"/>
+    <conv:ReadOnlyMultiConverter x:Key="ReadOnlyMultiConverter" />
 
     <Style x:Key="TitleFont"
            TargetType="{x:Type TextBlock}">
@@ -304,7 +308,7 @@
                             <DatePicker x:Name="Picker"
                                         SelectedDate="{core:InputBinding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
                                         Width="200"
-                                        HorizontalAlignment="Left"/>
+                                        HorizontalAlignment="Left" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -624,27 +628,46 @@
                 <ControlTemplate TargetType="{x:Type ctrls:PopupWindow}">
                     <ControlTemplate.Resources>
                         <core:CommandReference x:Key="OKCommand"
-                                               Command="{Binding OKCommand, RelativeSource={RelativeSource TemplatedParent}}"
-                                               CommandParameter="{Binding Text, ElementName=PART_TextBox}" />
+                                               Command="{Binding OKCommand, RelativeSource={RelativeSource TemplatedParent}}" />
                         <core:CommandReference x:Key="CancelCommand"
-                                               Command="{Binding CancelCommand, RelativeSource={RelativeSource TemplatedParent}}"
-                                               CommandParameter="{Binding Text, ElementName=PART_TextBox}" />
+                                               Command="{Binding CancelCommand, RelativeSource={RelativeSource TemplatedParent}}" />
                     </ControlTemplate.Resources>
 
                     <Border Background="White"
-                            Width="350"
-                            Height="105">
+                            Width="350">
                         <StackPanel Orientation="Vertical">
 
-                            <TextBlock Text="{TemplateBinding Prompt}"
+                            <TextBlock Text="{Binding Prompt.FirstPrompt, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0}:}"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Margin="0,10,0,0" />
 
                             <TextBox x:Name="PART_TextBox"
                                      Margin="20,5,20,0"
-                                     Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
+                                     Text="{Binding Prompt.FirstInput, RelativeSource={RelativeSource TemplatedParent}}"
                                      FocusManager.FocusedElement="{Binding ElementName=PART_TextBox}"
+                                     AcceptsReturn="False"
+                                     AcceptsTab="False"
+                                     AllowDrop="False">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Command="{StaticResource OKCommand}"
+                                                Key="Return" />
+                                    <KeyBinding Command="{StaticResource OKCommand}"
+                                                Key="Enter" />
+                                    <KeyBinding Command="{StaticResource CancelCommand}"
+                                                Key="Escape" />
+                                </TextBox.InputBindings>
+                            </TextBox>
+
+                            <TextBlock Text="{Binding Prompt.SecondPrompt, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0}:}"
+                                       Visibility="{Binding Prompt.HasSecondPrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,10,0,0" />
+
+                            <TextBox Margin="20,5,20,0"
+                                     Text="{Binding Prompt.SecondInput, RelativeSource={RelativeSource TemplatedParent}}"
+                                     Visibility="{Binding Prompt.HasSecondPrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
                                      AcceptsReturn="False"
                                      AcceptsTab="False"
                                      AllowDrop="False">
@@ -661,16 +684,23 @@
                             <StackPanel Orientation="Horizontal"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center">
-                                <Button Content="{x:Static dataModel:Resources.TXT_OK}"
+                                <Button Content="{x:Static Properties:Resources.TXT_OK}"
                                         Command="{StaticResource OKCommand}"
-                                        Width="Auto"/>
-                                <Button Content="{x:Static dataModel:Resources.TXT_CANCEL}"
+                                        Width="Auto" />
+                                <Button Content="{x:Static Properties:Resources.TXT_CANCEL}"
                                         Command="{StaticResource CancelCommand}"
                                         Width="Auto" />
                             </StackPanel>
 
                         </StackPanel>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasSecondPrompt"
+                                 Value="true">
+                            <Setter Property="Height"
+                                    Value="155" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

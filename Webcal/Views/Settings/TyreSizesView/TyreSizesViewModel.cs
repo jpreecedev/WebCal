@@ -6,6 +6,7 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using Library.ViewModels;
     using Properties;
     using Shared;
 
@@ -55,11 +56,16 @@
             GetInputFromUser(window, Resources.TXT_GIVE_TYRE_SIZE, OnAddTyreSize);
         }
 
-        private void OnAddTyreSize(string result)
+        private void OnAddTyreSize(UserPromptViewModel result)
         {
-            if (!string.IsNullOrEmpty(result))
+            if (result == null)
             {
-                var tyreSize = new TyreSize {Size = result};
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(result.FirstInput))
+            {
+                var tyreSize = new TyreSize {Size = result.FirstInput};
                 TyreSizes.Add(tyreSize);
                 Repository.Add(tyreSize);
             }

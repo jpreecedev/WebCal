@@ -8,6 +8,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using Core;
+    using Library.ViewModels;
     using Properties;
     using Settings;
 
@@ -25,8 +26,8 @@
         }
 
         public bool IsPromptVisible { get; set; }
-        public string Prompt { get; set; }
-        public Action<string> Callback { get; set; }
+        public UserPromptViewModel Prompt { get; set; }
+        public Action<UserPromptViewModel> Callback { get; set; }
         public ObservableCollection<TreeViewItem> TreeViewItems { get; set; }
         public DelegateCommand<Type> ItemClickedCommand { get; set; }
 

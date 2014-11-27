@@ -59,18 +59,15 @@
                 </StackPanel>
 
                 <Border Background="#50000000"
-                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                         Style="{StaticResource FadeTransitionEffect}"
                         Visibility="{Binding IsPromptVisible, Converter={StaticResource Bool2Vis}}"
                         Grid.Column="1"
                         Grid.RowSpan="3">
 
-                    <ctrls:PopupWindow Prompt="{Binding Prompt, StringFormat={}{0}:}"
+                    <ctrls:PopupWindow Prompt="{Binding Prompt}"
                                        ViewModel="{Binding}" />
                 </Border>
-
-
-
+                
                 <StackPanel Orientation="Horizontal"
                             Grid.Row="2"
                             Grid.Column="1"

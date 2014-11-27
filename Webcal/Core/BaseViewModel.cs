@@ -8,6 +8,7 @@
     using System.Windows.Threading;
     using Windows;
     using Library;
+    using Library.ViewModels;
     using Shared;
     using Views;
 
@@ -55,9 +56,14 @@
             MessageBoxHelper.ShowError(msg, parameters);
         }
 
-        protected void GetInputFromUser(UserControl window, string prompt, Action<string> callback)
+        protected void GetInputFromUser(UserControl window, string prompt, Action<UserPromptViewModel> callback)
         {
-            if (window == null || string.IsNullOrEmpty(prompt) || callback == null)
+            GetInputFromUser(window, new UserPromptViewModel {FirstPrompt = prompt}, callback);
+        }
+
+        protected void GetInputFromUser(UserControl window, UserPromptViewModel prompt, Action<UserPromptViewModel> callback)
+        {
+            if (window == null || prompt == null || callback == null)
             {
                 return;
             }

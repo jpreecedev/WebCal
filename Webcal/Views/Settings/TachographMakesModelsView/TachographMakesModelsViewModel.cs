@@ -6,6 +6,7 @@
     using DataModel;
     using DataModel.Core;
     using Library;
+    using Library.ViewModels;
     using Properties;
     using Shared;
 
@@ -70,11 +71,16 @@
             GetInputFromUser(window, Resources.TXT_GIVE_MAKE_OF_TACHOGRAPH, OnAddMake);
         }
 
-        private void OnAddMake(string result)
+        private void OnAddMake(UserPromptViewModel result)
         {
-            if (!string.IsNullOrEmpty(result))
+            if (result == null)
             {
-                var make = new TachographMake {Name = result};
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(result.FirstInput))
+            {
+                var make = new TachographMake {Name = result.FirstInput};
                 Makes.Add(make);
                 Repository.Add(make);
             }
@@ -101,11 +107,16 @@
             GetInputFromUser(window, Resources.TXT_GIVE_MODEL_OF_TACHOGRAPH, OnAddModel);
         }
 
-        private void OnAddModel(string result)
+        private void OnAddModel(UserPromptViewModel result)
         {
-            if (!string.IsNullOrEmpty(result))
+            if (result == null)
             {
-                var model = new TachographModel {Name = result};
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(result.FirstInput))
+            {
+                var model = new TachographModel {Name = result.FirstInput};
                 SelectedMake.Models.Add(model);
             }
         }

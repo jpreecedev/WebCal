@@ -8,6 +8,7 @@
     using DataModel;
     using DataModel.Core;
     using Library;
+    using Library.ViewModels;
     using Properties;
     using Shared;
 
@@ -58,14 +59,25 @@
 
         private void OnAddTechnician(UserControl window)
         {
-            GetInputFromUser(window, Resources.TXT_GIVE_NAME_OF_TECHNICIAN, OnAddTechnician);
+            var userPromptViewModel = new UserPromptViewModel()
+            {
+                FirstPrompt = Resources.TXT_GIVE_NAME_OF_TECHNICIAN,
+                SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER
+            };
+
+            GetInputFromUser(window, userPromptViewModel , OnAddTechnician);
         }
 
-        private void OnAddTechnician(string result)
+        private void OnAddTechnician(UserPromptViewModel result)
         {
-            if (!string.IsNullOrEmpty(result))
+            if (result == null)
             {
-                var technician = new Technician {Name = result};
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(result.FirstInput))
+            {
+                var technician = new Technician {Name = result.FirstInput, Number = result.SecondInput};
                 Technicians.Add(technician);
                 Repository.Add(technician);
             }

@@ -7,6 +7,8 @@ namespace Webcal.DataModel
     public class Technician : BaseModel
     {
         public string Name { get; set; }
+        public string Number { get; set; }
+
         public bool IsDefault { get; set; }
 
         public override string ToString()

@@ -827,6 +827,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string TXT_CANCEL {
+            get {
+                return ResourceManager.GetString("TXT_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
         public static string TXT_CAPTURE_SIGNATURE_BROWSE {
@@ -1392,6 +1401,15 @@ namespace Webcal.Properties {
         public static string TXT_EMPTY_FIELDS {
             get {
                 return ResourceManager.GetString("TXT_EMPTY_FIELDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the technician number.
+        /// </summary>
+        public static string TXT_ENTER_TECHNICIAN_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_ENTER_TECHNICIAN_NUMBER", resourceCulture);
             }
         }
         
@@ -4766,6 +4784,24 @@ namespace Webcal.Properties {
         public static string TXT_TECHNICIANS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string TXT_TECHNICIANS_VIEW_NAME {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_VIEW_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string TXT_TECHNICIANS_VIEW_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_VIEW_NUMBER", resourceCulture);
             }
         }
         

@@ -4,20 +4,23 @@
     using System.ComponentModel;
     using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Controls.Primitives;
     using System.Windows.Input;
     using System.Windows.Threading;
     using Core;
+    using DataModel;
+    using Library.ViewModels;
     using Views;
 
     [TemplatePart(Name = "PART_TextBox", Type = typeof (TextBox))]
     public class PopupWindow : UserControl, INotifyPropertyChanged
     {
-        public static readonly DependencyProperty PromptProperty =
-            DependencyProperty.Register("Prompt", typeof (string), typeof (PopupWindow), new PropertyMetadata(null));
-
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register("ViewModel", typeof (SettingsViewModel), typeof (PopupWindow),
                 new PropertyMetadata(null));
+
+        public static readonly DependencyProperty PromptProperty =
+            DependencyProperty.Register("Prompt", typeof (UserPromptViewModel), typeof (PopupWindow), new PropertyMetadata(null, OnPromptChanged) );
 
         private TextBox _textBox;
 
@@ -29,11 +32,24 @@
             IsVisibleChanged += VisibilityChanged;
         }
 
-        public string Prompt
+        public UserPromptViewModel Prompt
         {
-            get { return (string) GetValue(PromptProperty); }
+            get { return (UserPromptViewModel) GetValue(PromptProperty); }
             set { SetValue(PromptProperty, value); }
         }
+
+
+
+        public bool HasSecondPrompt
+        {
+            get { return (bool)GetValue(HasSecondPromptProperty); }
+            set { SetValue(HasSecondPromptProperty, value); }
+        }
+
+        public static readonly DependencyProperty HasSecondPromptProperty =
+            DependencyProperty.Register("HasSecondPrompt", typeof(bool), typeof(PopupWindow));
+
+        
 
         public SettingsViewModel ViewModel
         {
@@ -72,7 +88,7 @@
 
             if (ViewModel.Callback != null)
             {
-                ViewModel.Callback.Invoke((string) obj);
+                ViewModel.Callback.Invoke(Prompt);
             }
         }
 
@@ -95,6 +111,19 @@
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        private static void OnPromptChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var userPromptViewModel = e.NewValue as UserPromptViewModel;
+            if (userPromptViewModel != null)
+            {
+                var popupWindow = d as PopupWindow;
+                if (popupWindow != null)
+                {
+                    popupWindow.HasSecondPrompt = userPromptViewModel.HasSecondPrompt;
+                }
             }
         }
     }

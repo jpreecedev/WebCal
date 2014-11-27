@@ -6,6 +6,7 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using Library.ViewModels;
     using Properties;
     using Shared;
 
@@ -55,11 +56,16 @@
             GetInputFromUser(window, Resources.TXT_GIVE_INSPECTION_EQUIPMENT, OnAddInspectionEquipment);
         }
 
-        private void OnAddInspectionEquipment(string result)
+        private void OnAddInspectionEquipment(UserPromptViewModel result)
         {
-            if (!string.IsNullOrEmpty(result))
+            if (result == null)
             {
-                var inspectionEquipment = new InspectionEquipment {Name = result};
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(result.FirstInput))
+            {
+                var inspectionEquipment = new InspectionEquipment {Name = result.FirstInput};
                 InspectionEquipments.Add(inspectionEquipment);
                 Repository.Add(inspectionEquipment);
             }
