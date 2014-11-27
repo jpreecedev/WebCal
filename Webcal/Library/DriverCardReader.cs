@@ -34,7 +34,7 @@
 
             SafelyWithRetry(SmartCardReadOperation.Fast, () =>
             {
-                string content = ReadSmartCard(string.Empty);
+                string content = ReadSmartCard("/calibrations");
                 if (string.IsNullOrEmpty(content))
                 {
                     OnCompleted(new DriverCardCompletedEventArgs
@@ -47,7 +47,7 @@
                 }
 
                 XDocument document = XDocument.Parse(content);
-                var calibrationRecord = CalibrationRecordParser.Parse(document);
+                var calibrationRecord = CalibrationRecordParser.ParseMany(document).OrderByDescending(c => c.CalibrationTime).FirstOrDefault();
 
                 OnCompleted(new DriverCardCompletedEventArgs
                 {

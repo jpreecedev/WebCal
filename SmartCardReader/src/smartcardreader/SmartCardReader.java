@@ -29,9 +29,7 @@ public class SmartCardReader {
 
                 CardChannel channel = card.getBasicChannel();
 
-                if (args == null || args.length != 1) {
-                    GetLatestCalibrationRecord(channel);
-                } else if (args[0].equals("/calibrations")) {
+                if (args[0].equals("/calibrations")) {
                     ReadAllCalibrationRecords(channel);
                 } else if (args[0].equals("/dump")) {
                     byte[] dump = new CardDump().generateWorkshopCardDump(channel);
@@ -57,7 +55,9 @@ public class SmartCardReader {
     public static void GetLatestCalibrationRecord(CardChannel channel) {
         try {
             if ((Utilities.selectApplication(channel)) && (Utilities.selectFile(1290, channel))) {
-                byte[] arrayOfByte = Utilities.readBlock(3 + 0 * 105, 105, channel);
+                int i = Utilities.toInt(Utilities.readBlock(2, 1, channel));
+
+                byte[] arrayOfByte = Utilities.readBlock(3 + i * 105, 105, channel);
 
                 List<CalibrationRecord> records = new ArrayList();
 
