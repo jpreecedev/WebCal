@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="11.4.1" version="11.5.1" Modules="professional" RootPath="." Language="en_GB" Id="{44D9532E-0E25-44B4-A4BA-7A112E3A07F0}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="11.4.1" version="11.6.2" Modules="professional" RootPath="." Language="en_GB" Id="{44D9532E-0E25-44B4-A4BA-7A112E3A07F0}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
-    <ROW Name="HiddenItems" Value="ActSyncAppComponent;DictionaryComponent"/>
+    <ROW Name="HiddenItems" Value="ActSyncAppComponent;BackgroundImagesComponent;DictionaryComponent"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_BackgroundColor" Value="lightblue" MultiBuildValue="DefaultBuild:powderblue" MsiKey="AI_BackgroundColor"/>
     <ROW Property="AI_EXTERNALUIUNINSTALLERNAME" MultiBuildValue="DefaultBuild:aiui"/>
     <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_FrameBtnsColor" Value="powderblue" MultiBuildValue="DefaultBuild:mediumorchid" MsiKey="AI_FrameBtnsColor"/>
+    <ROW Property="AI_FrameColor" Value="powderblue" MultiBuildValue="DefaultBuild:deepskyblue" MsiKey="AI_FrameColor"/>
     <ROW Property="AI_MINDOTNETVERSION" MultiBuildValue="DefaultBuild:4.0" ValueLocId="-"/>
-    <ROW Property="AI_MINJREVERSION" MultiBuildValue="DefaultBuild:1.7" ValueLocId="-"/>
     <ROW Property="AI_MINRAM" MultiBuildValue="DefaultBuild:512" ValueLocId="-"/>
     <ROW Property="AI_PRODUCTNAME_ARP" Value="Webcal"/>
+    <ROW Property="AI_ThemeStyle" Value="head" MsiKey="AI_ThemeStyle"/>
     <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
-    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ALLUSERS" Value="1" MultiBuildValue="DefaultBuild:2"/>
     <ROW Property="ARPCOMMENTS" Value="[|ProductName] installer" ValueLocId="*"/>
     <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPNOREPAIR" Value="1"/>
     <ROW Property="ARPPRODUCTICON" Value="MainIcon.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
+    <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="AiSkipExitDlg" Value="1"/>
+    <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:6"/>
     <ROW Property="Manufacturer" Value="Skillray Transport Services UK"/>
     <ROW Property="ProductCode" Value="2057:{C48D0086-F3E1-4E8C-A43B-46A49A361132} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
@@ -37,20 +44,15 @@
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
     <ROW Directory="Microsoft.VC90.CRT_1_Dir" Directory_Parent="x86_Dir" DefaultDir="MICROS~1.CRT|Microsoft.VC90.CRT"/>
     <ROW Directory="Microsoft.VC90.CRT_Dir" Directory_Parent="amd64_Dir" DefaultDir="MICROS~1.CRT|Microsoft.VC90.CRT"/>
-    <ROW Directory="ProductCode_Dir" Directory_Parent="TempFolder" DefaultDir="{C48D0~1|[|ProductCode]"/>
     <ROW Directory="Resources_Dir" Directory_Parent="APPDIR" DefaultDir="RESOUR~1|Resources"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
-    <ROW Directory="Spring.742DA8B7_Dir" Directory_Parent="ProductCode_Dir" DefaultDir="SPRING~1.742|Spring.742DA8B7" DefaultDirLocId="-"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
-    <ROW Directory="TempFolder" Directory_Parent="TARGETDIR" DefaultDir="TEMPFO~1|TempFolder" IsPseudoRoot="1"/>
     <ROW Directory="amd64_Dir" Directory_Parent="APPDIR" DefaultDir="amd64"/>
     <ROW Directory="de_Dir" Directory_Parent="APPDIR" DefaultDir="de"/>
     <ROW Directory="es_Dir" Directory_Parent="APPDIR" DefaultDir="es"/>
     <ROW Directory="fr_Dir" Directory_Parent="APPDIR" DefaultDir="fr"/>
     <ROW Directory="hu_Dir" Directory_Parent="APPDIR" DefaultDir="hu"/>
     <ROW Directory="it_Dir" Directory_Parent="APPDIR" DefaultDir="it"/>
-    <ROW Directory="pngfix_Dir" Directory_Parent="Spring.742DA8B7_Dir" DefaultDir="pngfix" DefaultDirLocId="-"/>
-    <ROW Directory="progress_Dir" Directory_Parent="Spring.742DA8B7_Dir" DefaultDir="progress" DefaultDirLocId="-"/>
     <ROW Directory="ptBR_Dir" Directory_Parent="APPDIR" DefaultDir="pt-BR"/>
     <ROW Directory="ro_Dir" Directory_Parent="APPDIR" DefaultDir="ro"/>
     <ROW Directory="ru_Dir" Directory_Parent="APPDIR" DefaultDir="ru"/>
@@ -60,72 +62,74 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="AI_CustomARPName" ComponentId="{22EA15B7-4C51-4A52-96FF-F877553BCA16}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_DisableModify" ComponentId="{A4291B68-FF7B-450B-9A94-9B7BDAF70FE5}" Directory_="APPDIR" Attributes="4" KeyPath="NoModify" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{518142BE-8ECF-4FD3-8987-1584B474F9CB}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
     <ROW Component="B7F3EF2947194DBBA24570C9D8F78D96" ComponentId="{B651EE7A-0903-4A72-AB36-6B099E93DA3F}" Directory_="APPDIR" Attributes="4" KeyPath="B7F3EF2947194DBBA24570C9D8F78D96" Options="2"/>
-    <ROW Component="BackupRestoreUtility.exe" ComponentId="{4F2ADCF6-4CE2-4A41-854A-AE861BE007E1}" Directory_="APPDIR" Attributes="0" KeyPath="BackupRestoreUtility.exe"/>
-    <ROW Component="BackupRestoreUtility.exe.config" ComponentId="{A4BD8146-8723-443A-8ECE-AC7BCD369125}" Directory_="APPDIR" Attributes="0" KeyPath="BackupRestoreUtility.exe.config" Type="0"/>
-    <ROW Component="EntityFramework.SqlServer.dll" ComponentId="{C996F3DA-B4C7-4874-863D-E45AFEACB457}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.SqlServer.dll"/>
-    <ROW Component="EntityFramework.SqlServerCompact.dll" ComponentId="{A06892B6-CE80-460C-8C0F-C1C90A1382F2}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.SqlServerCompact.dll"/>
-    <ROW Component="EntityFramework.dll" ComponentId="{EB82AF3B-F1A0-458B-9021-C76B22BA4298}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.dll"/>
-    <ROW Component="Fluent.dll" ComponentId="{707C030F-5501-4100-B4A2-E7C2D3369259}" Directory_="APPDIR" Attributes="0" KeyPath="Fluent.dll"/>
-    <ROW Component="Hardcodet.Wpf.TaskbarNotification.dll" ComponentId="{8BB6FC26-1900-4678-BF58-9DA4526BADC5}" Directory_="APPDIR" Attributes="0" KeyPath="Hardcodet.Wpf.TaskbarNotification.dll"/>
-    <ROW Component="Launcher.exe" ComponentId="{ECBCF5EC-D9CB-4111-8A9C-3BCA190BCC0D}" Directory_="APPDIR" Attributes="0" KeyPath="Launcher.exe"/>
+    <ROW Component="BackupRestoreUtility.exe" ComponentId="{57253D9C-CF1E-464E-A334-6F173A02424C}" Directory_="APPDIR" Attributes="0" KeyPath="BackupRestoreUtility.exe"/>
+    <ROW Component="BackupRestoreUtility.exe.config" ComponentId="{20CC0CDA-D3A8-4ADE-856B-D04AEDEED402}" Directory_="APPDIR" Attributes="0" KeyPath="BackupRestoreUtility.exe.config" Type="0"/>
+    <ROW Component="EntityFramework.SqlServer.dll" ComponentId="{F88D42FC-1A73-4FBA-A491-3EA12269B8B5}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.SqlServer.dll"/>
+    <ROW Component="EntityFramework.SqlServerCompact.dll" ComponentId="{63A04664-6BAE-4A00-BE57-2E38A9DC7552}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.SqlServerCompact.dll"/>
+    <ROW Component="EntityFramework.dll" ComponentId="{7AF42841-070B-4F7B-B747-1B5D8C69E431}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.dll"/>
+    <ROW Component="Fluent.dll" ComponentId="{8CF18ECB-AE03-4D77-AB95-B657150FD717}" Directory_="APPDIR" Attributes="0" KeyPath="Fluent.dll"/>
+    <ROW Component="Hardcodet.Wpf.TaskbarNotification.dll" ComponentId="{2AC2D99C-F93D-402C-B0CE-280F949D9CDB}" Directory_="APPDIR" Attributes="0" KeyPath="Hardcodet.Wpf.TaskbarNotification.dll"/>
     <ROW Component="Microsoft.NETFrame" ComponentId="{8A48B9A2-E9C0-42B3-934E-4F4D77D3811F}" Directory_="APPDIR" Attributes="4" KeyPath="Microsoft.NETFrame" Options="2"/>
-    <ROW Component="Microsoft.VC90.CRT.manifest" ComponentId="{2BBA0765-DF99-40F9-9E35-FE08B0E4626F}" Directory_="Microsoft.VC90.CRT_Dir" Attributes="0" KeyPath="Microsoft.VC90.CRT.manifest" Type="0"/>
-    <ROW Component="Microsoft.VC90.CRT.manifest_1" ComponentId="{166BDAFD-23E4-424C-90F9-3AA3A97515A9}" Directory_="Microsoft.VC90.CRT_1_Dir" Attributes="0" KeyPath="Microsoft.VC90.CRT.manifest_1" Type="0"/>
-    <ROW Component="Moq.dll" ComponentId="{7650A491-620C-4CC0-8D90-0720877F06B3}" Directory_="APPDIR" Attributes="0" KeyPath="Moq.dll"/>
+    <ROW Component="Microsoft.VC90.CRT.manifest" ComponentId="{5DCCF44A-7823-4255-8E61-4C272D723234}" Directory_="Microsoft.VC90.CRT_Dir" Attributes="0" KeyPath="Microsoft.VC90.CRT.manifest" Type="0"/>
+    <ROW Component="Microsoft.VC90.CRT.manifest_1" ComponentId="{4AB1414B-13BE-4B75-8BF7-24E6460E0FB7}" Directory_="Microsoft.VC90.CRT_1_Dir" Attributes="0" KeyPath="Microsoft.VC90.CRT.manifest_1" Type="0"/>
+    <ROW Component="Microsoft.Windows.Shell.dll" ComponentId="{387B9B4C-C8F8-4297-9685-CEF405EE607A}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Windows.Shell.dll"/>
+    <ROW Component="Moq.dll" ComponentId="{16D4DACD-E284-4821-B1C1-13D76D16BED7}" Directory_="APPDIR" Attributes="0" KeyPath="Moq.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{5BBB2F9D-09B5-49E2-AD33-0420535CC877}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
     <ROW Component="ProductInformation" ComponentId="{E0C2FD5E-72F5-4CF2-B473-5E06A78A1DF0}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{0000ED65-2A6C-4895-A57C-730805934DA3}" Directory_="SHORTCUTDIR" Attributes="0"/>
-    <ROW Component="SmartCardReader.jar" ComponentId="{20920E11-9A4E-47B4-B691-0142BE2E020A}" Directory_="Resources_Dir" Attributes="0" KeyPath="SmartCardReader.jar" Type="0"/>
-    <ROW Component="StructureMap.Net4.dll" ComponentId="{B43133D5-11A0-4DFE-A32F-E08EBBEF31C5}" Directory_="APPDIR" Attributes="0" KeyPath="StructureMap.Net4.dll"/>
-    <ROW Component="StructureMap.dll" ComponentId="{99BB602F-263A-4279-A33D-CB2AEA365412}" Directory_="APPDIR" Attributes="0" KeyPath="StructureMap.dll"/>
-    <ROW Component="System.Data.SqlServerCe.dll" ComponentId="{73A59CDA-7E34-4AE1-A33A-C0ED1B3FD6A4}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SqlServerCe.dll"/>
-    <ROW Component="System.Windows.Interactivity.dll" ComponentId="{8F91F900-4465-45B1-B4D4-D48FF04551D1}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Interactivity.dll"/>
-    <ROW Component="Webcal.DataModel.dll" ComponentId="{A67BDD02-C3D3-451A-A18E-B4AF33C1F462}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.DataModel.dll"/>
-    <ROW Component="Webcal.EmailWorker.exe" ComponentId="{6F4B4DF4-3DE7-42A6-820E-E6CC61024F70}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.EmailWorker.exe"/>
-    <ROW Component="Webcal.Imaging.dll" ComponentId="{2F97BB6E-DDAB-4353-B487-489403EE7375}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.Imaging.dll"/>
-    <ROW Component="Webcal.LabelPrintWorker.exe" ComponentId="{63EB678F-4A20-4592-A364-1BA15EDA2EFA}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.LabelPrintWorker.exe"/>
-    <ROW Component="Webcal.PrintWorker.exe" ComponentId="{709A561B-E70A-4318-93A9-A96D2E5594F4}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.PrintWorker.exe"/>
-    <ROW Component="Webcal.Shared.dll" ComponentId="{B105DAB4-C1F4-45E8-BD58-0E0B593855C2}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.Shared.dll"/>
+    <ROW Component="SmartCardReader.jar" ComponentId="{4E34172A-7850-42BA-914B-1567C7C05331}" Directory_="Resources_Dir" Attributes="0" KeyPath="SmartCardReader.jar" Type="0"/>
+    <ROW Component="StructureMap.Net4.dll" ComponentId="{D695EB5E-FC2A-4659-BDC9-207D0991CD5B}" Directory_="APPDIR" Attributes="0" KeyPath="StructureMap.Net4.dll"/>
+    <ROW Component="StructureMap.dll" ComponentId="{710A27CF-9C7E-42BF-B4A5-9613672BDEE3}" Directory_="APPDIR" Attributes="0" KeyPath="StructureMap.dll"/>
+    <ROW Component="System.Data.SqlServerCe.dll" ComponentId="{CFC4579C-5BDA-4EB4-A2CF-ADE1E98D8041}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SqlServerCe.dll"/>
+    <ROW Component="System.Windows.Interactivity.dll" ComponentId="{E1C9A1EC-A9FC-4405-A59D-7B241880DA69}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Interactivity.dll"/>
+    <ROW Component="Webcal.DataModel.dll" ComponentId="{BF9F418A-13F7-48B6-BBA8-75AF71C5FCB6}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.DataModel.dll"/>
+    <ROW Component="Webcal.EmailWorker.exe" ComponentId="{6A668DF6-8C43-4F35-8FD6-D60E3538DC67}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.EmailWorker.exe"/>
+    <ROW Component="Webcal.Imaging.dll" ComponentId="{477CDAF0-FECB-47A4-99B0-575858D0B717}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.Imaging.dll"/>
+    <ROW Component="Webcal.LabelPrintWorker.exe" ComponentId="{070B005B-6C7A-4290-AABC-094FC6A58C60}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.LabelPrintWorker.exe"/>
+    <ROW Component="Webcal.PrintWorker.exe" ComponentId="{99D327F6-BE60-4E75-A95F-E0C88DF30387}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.PrintWorker.exe"/>
+    <ROW Component="Webcal.Shared.dll" ComponentId="{5C3F735B-8BA6-4B05-94CE-904705EC537B}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.Shared.dll"/>
     <ROW Component="Webcal.exe" ComponentId="{AD34D868-F95B-4D2E-B4CD-51E549C379C9}" Directory_="APPDIR" Attributes="0" KeyPath="Webcal.exe"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.Themes.Aero.dll" ComponentId="{6AA0E3DB-5713-4C1B-B6D0-F0EA61FF2EED}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.Aero.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.Themes.Metro.dll" ComponentId="{F3761948-C952-4239-94BB-7CB8EC194251}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" ComponentId="{7F7612CA-7C00-4117-B1C2-C5DC289B9C1B}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.VS2010.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.dll" ComponentId="{55B99DEB-3D72-4620-A5BB-3652785493B9}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll" ComponentId="{89C6D0BD-FB97-4217-BF90-326CB7283666}" Directory_="de_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_1" ComponentId="{E5ACD02A-109C-47FE-90F4-9E976162B612}" Directory_="es_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_1"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_2" ComponentId="{41D4FD4F-075A-41FD-A29B-3F99F5829C19}" Directory_="fr_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_2"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_3" ComponentId="{8130FDEF-8559-40A5-B7B6-5649DC34B007}" Directory_="hu_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_3"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_4" ComponentId="{E8B8CF0F-05B7-4A96-8BB4-42AFFAFD07B9}" Directory_="it_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_4"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_5" ComponentId="{FE9355FA-2601-4269-9214-16A03F761BB5}" Directory_="ptBR_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_5"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_6" ComponentId="{B8175DFA-8DB9-47BE-91FA-A77E7A8D6254}" Directory_="ro_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_6"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_7" ComponentId="{1CA7B450-84C3-4BA9-9FBA-97A6B08A7C1C}" Directory_="ru_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_7"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_8" ComponentId="{CB97B86A-7A75-463B-B8E4-31434A42C267}" Directory_="sv_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_8"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_9" ComponentId="{7814E3C9-A506-43A7-B5C5-A8BC3BA2FFB1}" Directory_="zhHans_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_9"/>
-    <ROW Component="Xceed.Wpf.DataGrid.dll" ComponentId="{CEFD007B-A3F5-47E4-8CF9-B751B1619F31}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.DataGrid.dll"/>
-    <ROW Component="Xceed.Wpf.Toolkit.dll" ComponentId="{9DDE4E05-2D3C-4DF9-82C0-B547D19A8AEA}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.Toolkit.dll"/>
-    <ROW Component="itextsharp.dll" ComponentId="{02D29F7D-6827-472C-B24A-0BC90668722F}" Directory_="APPDIR" Attributes="0" KeyPath="itextsharp.dll"/>
-    <ROW Component="msvcr90.dll" ComponentId="{27A88B64-A9FF-42BC-8B48-118A85C47772}" Directory_="Microsoft.VC90.CRT_Dir" Attributes="256" KeyPath="msvcr90.dll"/>
-    <ROW Component="msvcr90.dll_1" ComponentId="{170302F0-FCE3-4A30-9690-48523EFCC9EC}" Directory_="Microsoft.VC90.CRT_1_Dir" Attributes="0" KeyPath="msvcr90.dll_1"/>
-    <ROW Component="nunit.framework.dll" ComponentId="{30F5FE53-0DF2-4A7F-9E9B-015F46AC3383}" Directory_="APPDIR" Attributes="0" KeyPath="nunit.framework.dll"/>
-    <ROW Component="pcscsharp.dll" ComponentId="{C867BEAD-3D15-4A40-A383-F1E6AFDA23EC}" Directory_="APPDIR" Attributes="0" KeyPath="pcscsharp.dll"/>
-    <ROW Component="sqlceca40.dll" ComponentId="{76D81A1B-5D2C-4B81-8744-E72510CCADB0}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlceca40.dll"/>
-    <ROW Component="sqlceca40.dll_1" ComponentId="{FFAF7838-9568-4C01-99F5-1289BF2FF835}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlceca40.dll_1"/>
-    <ROW Component="sqlcecompact40.dll" ComponentId="{DB2074CC-4CC9-4EFC-9ED3-AD3AF0605BA0}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlcecompact40.dll"/>
-    <ROW Component="sqlcecompact40.dll_1" ComponentId="{51279BDF-2123-4FC3-8A08-9DACA02B7D27}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlcecompact40.dll_1"/>
-    <ROW Component="sqlceer40EN.dll" ComponentId="{3B5FEB62-EC84-4DCD-A788-7CA59D12F9EA}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlceer40EN.dll"/>
-    <ROW Component="sqlceer40EN.dll_1" ComponentId="{1A7A05E2-AF8A-494F-8C8C-0B3AB66C4BDA}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlceer40EN.dll_1"/>
-    <ROW Component="sqlceme40.dll" ComponentId="{45ED4DC5-860E-4AAF-BE41-B6BABC0BF62E}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlceme40.dll"/>
-    <ROW Component="sqlceme40.dll_1" ComponentId="{B07D3031-6BC0-4083-B43B-21C60A290365}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlceme40.dll_1"/>
-    <ROW Component="sqlceqp40.dll" ComponentId="{832C17D9-6B97-46FB-921D-588A37206BAD}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlceqp40.dll"/>
-    <ROW Component="sqlceqp40.dll_1" ComponentId="{3035274E-08E8-4CDF-B1E5-10D551F71FB6}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlceqp40.dll_1"/>
-    <ROW Component="sqlcese40.dll" ComponentId="{38EC569D-1A30-41E0-898D-3372EDDDFBEC}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlcese40.dll"/>
-    <ROW Component="sqlcese40.dll_1" ComponentId="{CF9DCFA5-EFC9-49FE-838A-127A9FD29FF8}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlcese40.dll_1"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.Themes.Aero.dll" ComponentId="{61DDDDA0-E85B-4F5F-9BF4-241FF6297E7C}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.Aero.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.Themes.Metro.dll" ComponentId="{3F64F5BC-3081-4332-ADAC-681B78CECF12}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" ComponentId="{5F6CAF21-7D70-4ECA-A4C3-66988446FAE9}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.VS2010.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.dll" ComponentId="{5FFFDC50-3A2F-4010-9F9C-72797A241F05}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll" ComponentId="{B863FD78-B723-4120-BB89-3A63042361FF}" Directory_="de_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_1" ComponentId="{768E371E-C498-48D2-8BFE-8B1BBF1A5D5F}" Directory_="es_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_1"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_2" ComponentId="{0E069FB1-A21C-4901-85C1-3FF2C8DE5057}" Directory_="fr_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_2"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_3" ComponentId="{FE7708A6-38B1-4CB2-B4A3-C8643E6F5380}" Directory_="hu_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_3"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_4" ComponentId="{CE72F41B-9A1C-48FD-AA73-9C2C0F14C664}" Directory_="it_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_4"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_5" ComponentId="{AFDAA49E-D3F5-4A70-8B48-FD5E546248FD}" Directory_="ptBR_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_5"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_6" ComponentId="{E6CF0086-C565-433C-91AA-EAE0FCF08403}" Directory_="ro_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_6"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_7" ComponentId="{44BA0B49-589C-47BF-AD36-38EB96ACC132}" Directory_="ru_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_7"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_8" ComponentId="{6B97E2B2-8CDA-4C93-A35D-F98F06C7F1C2}" Directory_="sv_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_8"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.resources.dll_9" ComponentId="{2C48D1F7-4014-40C6-9758-F7FCED75752B}" Directory_="zhHans_Dir" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.resources.dll_9"/>
+    <ROW Component="Xceed.Wpf.DataGrid.dll" ComponentId="{19B60466-0DD2-41FF-B383-2A09112572D7}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.DataGrid.dll"/>
+    <ROW Component="Xceed.Wpf.Toolkit.dll" ComponentId="{3D6BE7FA-27FB-40CF-8366-E4A96D4EB4A9}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.Toolkit.dll"/>
+    <ROW Component="itextsharp.dll" ComponentId="{349EEFC2-2A57-475D-8BE1-B62E4CE751ED}" Directory_="APPDIR" Attributes="0" KeyPath="itextsharp.dll"/>
+    <ROW Component="msvcr90.dll" ComponentId="{823F1E10-0CC0-41E5-9F90-A1B1B2982E1D}" Directory_="Microsoft.VC90.CRT_Dir" Attributes="256" KeyPath="msvcr90.dll"/>
+    <ROW Component="msvcr90.dll_1" ComponentId="{B19B5BB3-16CB-46A7-8B30-53261244A3FA}" Directory_="Microsoft.VC90.CRT_1_Dir" Attributes="0" KeyPath="msvcr90.dll_1"/>
+    <ROW Component="nunit.framework.dll" ComponentId="{B9822420-5674-4514-9843-EA9409A1F4C5}" Directory_="APPDIR" Attributes="0" KeyPath="nunit.framework.dll"/>
+    <ROW Component="pcscsharp.dll" ComponentId="{164BA390-323B-4759-8304-62F991FF1FEB}" Directory_="APPDIR" Attributes="0" KeyPath="pcscsharp.dll"/>
+    <ROW Component="sqlceca40.dll" ComponentId="{B66EE588-7890-4139-B3D8-B621DBA38216}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlceca40.dll"/>
+    <ROW Component="sqlceca40.dll_1" ComponentId="{F3D52AE0-614D-4AC2-8F88-DABF13853436}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlceca40.dll_1"/>
+    <ROW Component="sqlcecompact40.dll" ComponentId="{0EBF6C10-62C3-4DB1-8F73-128623A7F62E}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlcecompact40.dll"/>
+    <ROW Component="sqlcecompact40.dll_1" ComponentId="{1BFC986F-0151-43E8-BC3D-64F0F227CDAF}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlcecompact40.dll_1"/>
+    <ROW Component="sqlceer40EN.dll" ComponentId="{893EFBDF-FB0C-4491-AC52-E7A7E17B5A49}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlceer40EN.dll"/>
+    <ROW Component="sqlceer40EN.dll_1" ComponentId="{A251EF58-074F-45DD-BDAF-C4943D40CB16}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlceer40EN.dll_1"/>
+    <ROW Component="sqlceme40.dll" ComponentId="{73138087-751D-436E-8520-452F79003325}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlceme40.dll"/>
+    <ROW Component="sqlceme40.dll_1" ComponentId="{1E2F953B-B5D9-48DF-A504-D8D1B9FBD230}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlceme40.dll_1"/>
+    <ROW Component="sqlceqp40.dll" ComponentId="{57ACC04F-6959-4F2F-A6A5-17CB1311574D}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlceqp40.dll"/>
+    <ROW Component="sqlceqp40.dll_1" ComponentId="{A5828F58-C984-499F-9D7C-949BE90624D1}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlceqp40.dll_1"/>
+    <ROW Component="sqlcese40.dll" ComponentId="{F0F5784F-02F5-4D78-AD1C-10AB8957213B}" Directory_="amd64_Dir" Attributes="256" KeyPath="sqlcese40.dll"/>
+    <ROW Component="sqlcese40.dll_1" ComponentId="{E01F8329-7E30-45B1-805C-BD84A6CA1AA9}" Directory_="x86_Dir" Attributes="0" KeyPath="sqlcese40.dll_1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
-    <ROW Feature="B7F3EF2947194DBBA24570C9D8F78D96" Title="SQL Server Compact 4.0 SP1 x86" Description="SQL Server Compact 4.0 SP1 x86" Display="3" Level="1" Attributes="16" Components="B7F3EF2947194DBBA24570C9D8F78D96"/>
-    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_ExePath BackupRestoreUtility.exe BackupRestoreUtility.exe.config EntityFramework.SqlServer.dll EntityFramework.SqlServerCompact.dll EntityFramework.dll Fluent.dll Hardcodet.Wpf.TaskbarNotification.dll Launcher.exe Microsoft.VC90.CRT.manifest Microsoft.VC90.CRT.manifest_1 Moq.dll ProductInformation SHORTCUTDIR SmartCardReader.jar StructureMap.Net4.dll StructureMap.dll System.Data.SqlServerCe.dll System.Windows.Interactivity.dll Webcal.DataModel.dll Webcal.EmailWorker.exe Webcal.Imaging.dll Webcal.LabelPrintWorker.exe Webcal.PrintWorker.exe Webcal.Shared.dll Webcal.exe Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.AvalonDock.resources.dll Xceed.Wpf.AvalonDock.resources.dll_1 Xceed.Wpf.AvalonDock.resources.dll_2 Xceed.Wpf.AvalonDock.resources.dll_3 Xceed.Wpf.AvalonDock.resources.dll_4 Xceed.Wpf.AvalonDock.resources.dll_5 Xceed.Wpf.AvalonDock.resources.dll_6 Xceed.Wpf.AvalonDock.resources.dll_7 Xceed.Wpf.AvalonDock.resources.dll_8 Xceed.Wpf.AvalonDock.resources.dll_9 Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll itextsharp.dll msvcr90.dll msvcr90.dll_1 nunit.framework.dll pcscsharp.dll sqlceca40.dll sqlceca40.dll_1 sqlcecompact40.dll sqlcecompact40.dll_1 sqlceer40EN.dll sqlceer40EN.dll_1 sqlceme40.dll sqlceme40.dll_1 sqlceqp40.dll sqlceqp40.dll_1 sqlcese40.dll sqlcese40.dll_1"/>
-    <ROW Feature="Microsoft.NETFrame" Title="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" Description="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" Display="5" Level="1" Attributes="16" Components="Microsoft.NETFrame"/>
+    <ROW Feature="B7F3EF2947194DBBA24570C9D8F78D96" Title="SQL Server Compact 4.0 SP1 x86" Description="SQL Server Compact 4.0 SP1 x86" Display="3" Level="1" Attributes="16" Components="AI_CustomARPName AI_DisableModify AI_ExePath B7F3EF2947194DBBA24570C9D8F78D96"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_DisableModify AI_ExePath BackupRestoreUtility.exe BackupRestoreUtility.exe.config EntityFramework.SqlServer.dll EntityFramework.SqlServerCompact.dll EntityFramework.dll Fluent.dll Hardcodet.Wpf.TaskbarNotification.dll Microsoft.VC90.CRT.manifest Microsoft.VC90.CRT.manifest_1 Microsoft.Windows.Shell.dll Moq.dll Newtonsoft.Json.dll ProductInformation SHORTCUTDIR SmartCardReader.jar StructureMap.Net4.dll StructureMap.dll System.Data.SqlServerCe.dll System.Windows.Interactivity.dll Webcal.DataModel.dll Webcal.EmailWorker.exe Webcal.Imaging.dll Webcal.LabelPrintWorker.exe Webcal.PrintWorker.exe Webcal.Shared.dll Webcal.exe Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.AvalonDock.resources.dll Xceed.Wpf.AvalonDock.resources.dll_1 Xceed.Wpf.AvalonDock.resources.dll_2 Xceed.Wpf.AvalonDock.resources.dll_3 Xceed.Wpf.AvalonDock.resources.dll_4 Xceed.Wpf.AvalonDock.resources.dll_5 Xceed.Wpf.AvalonDock.resources.dll_6 Xceed.Wpf.AvalonDock.resources.dll_7 Xceed.Wpf.AvalonDock.resources.dll_8 Xceed.Wpf.AvalonDock.resources.dll_9 Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll itextsharp.dll msvcr90.dll msvcr90.dll_1 nunit.framework.dll pcscsharp.dll sqlceca40.dll sqlceca40.dll_1 sqlcecompact40.dll sqlcecompact40.dll_1 sqlceer40EN.dll sqlceer40EN.dll_1 sqlceme40.dll sqlceme40.dll_1 sqlceqp40.dll sqlceqp40.dll_1 sqlcese40.dll sqlcese40.dll_1"/>
+    <ROW Feature="Microsoft.NETFrame" Title="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" Description="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" Display="5" Level="1" Attributes="16" Components="AI_CustomARPName AI_DisableModify AI_ExePath Microsoft.NETFrame"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
@@ -136,11 +140,11 @@
     <ROW File="EntityFramework.dll" Component_="EntityFramework.dll" FileName="ENTITY~1.DLL|EntityFramework.dll" Attributes="0" SourcePath="..\bin\EntityFramework.dll" SelfReg="false" NextFile="EntityFramework.SqlServer.dll"/>
     <ROW File="Fluent.dll" Component_="Fluent.dll" FileName="Fluent.dll" Attributes="0" SourcePath="..\bin\Fluent.dll" SelfReg="false" NextFile="Hardcodet.Wpf.TaskbarNotification.dll"/>
     <ROW File="Hardcodet.Wpf.TaskbarNotification.dll" Component_="Hardcodet.Wpf.TaskbarNotification.dll" FileName="HARDCO~1.DLL|Hardcodet.Wpf.TaskbarNotification.dll" Attributes="0" SourcePath="..\bin\Hardcodet.Wpf.TaskbarNotification.dll" SelfReg="false" NextFile="itextsharp.dll"/>
-    <ROW File="Launcher.exe" Component_="Launcher.exe" FileName="Launcher.exe" Attributes="0" SourcePath="..\bin\Launcher.exe" SelfReg="false" NextFile="Launcher.exe.config" DigSign="true"/>
-    <ROW File="Launcher.exe.config" Component_="BackupRestoreUtility.exe.config" FileName="LAUNCH~1.CON|Launcher.exe.config" Attributes="0" SourcePath="..\bin\Launcher.exe.config" SelfReg="false"/>
     <ROW File="Microsoft.VC90.CRT.manifest" Component_="Microsoft.VC90.CRT.manifest" FileName="MICROS~1.MAN|Microsoft.VC90.CRT.manifest" Attributes="0" SourcePath="..\bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" SelfReg="false" NextFile="msvcr90.dll"/>
     <ROW File="Microsoft.VC90.CRT.manifest_1" Component_="Microsoft.VC90.CRT.manifest_1" FileName="MICROS~1.MAN|Microsoft.VC90.CRT.manifest" Attributes="0" SourcePath="..\bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" SelfReg="false" NextFile="msvcr90.dll_1"/>
-    <ROW File="Moq.dll" Component_="Moq.dll" FileName="Moq.dll" Attributes="0" SourcePath="..\bin\Moq.dll" SelfReg="false" NextFile="nunit.framework.dll"/>
+    <ROW File="Microsoft.Windows.Shell.dll" Component_="Microsoft.Windows.Shell.dll" FileName="MICROS~1.DLL|Microsoft.Windows.Shell.dll" Attributes="0" SourcePath="..\bin\Microsoft.Windows.Shell.dll" SelfReg="false" NextFile="Moq.dll"/>
+    <ROW File="Moq.dll" Component_="Moq.dll" FileName="Moq.dll" Attributes="0" SourcePath="..\bin\Moq.dll" SelfReg="false" NextFile="Newtonsoft.Json.dll"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\bin\Newtonsoft.Json.dll" SelfReg="false" NextFile="nunit.framework.dll"/>
     <ROW File="README_ENU.txt" Component_="Microsoft.VC90.CRT.manifest" FileName="README~1.TXT|README_ENU.txt" Attributes="0" SourcePath="..\bin\amd64\Microsoft.VC90.CRT\README_ENU.txt" SelfReg="false" NextFile="sqlceca40.dll"/>
     <ROW File="README_ENU.txt_1" Component_="Microsoft.VC90.CRT.manifest_1" FileName="README~1.TXT|README_ENU.txt" Attributes="0" SourcePath="..\bin\x86\Microsoft.VC90.CRT\README_ENU.txt" SelfReg="false" NextFile="sqlceca40.dll_1"/>
     <ROW File="SmartCardReader.jar" Component_="SmartCardReader.jar" FileName="SMARTC~1.JAR|SmartCardReader.jar" Attributes="0" SourcePath="..\bin\Resources\SmartCardReader.jar" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.resources.dll_6"/>
@@ -151,12 +155,12 @@
     <ROW File="Webcal.DataModel.dll" Component_="Webcal.DataModel.dll" FileName="WEBCAL~1.DLL|Webcal.DataModel.dll" Attributes="0" SourcePath="..\bin\Webcal.DataModel.dll" SelfReg="false" NextFile="Webcal.EmailWorker.exe"/>
     <ROW File="Webcal.EmailWorker.exe" Component_="Webcal.EmailWorker.exe" FileName="WEBCAL~1.EXE|Webcal.EmailWorker.exe" Attributes="0" SourcePath="..\bin\Webcal.EmailWorker.exe" SelfReg="false" NextFile="Webcal.exe.config" DigSign="true"/>
     <ROW File="Webcal.Imaging.dll" Component_="Webcal.Imaging.dll" FileName="WEBCAL~2.DLL|Webcal.Imaging.dll" Attributes="0" SourcePath="..\bin\Webcal.Imaging.dll" SelfReg="false" NextFile="Webcal.LabelPrintWorker.exe"/>
-    <ROW File="Webcal.LabelPrintWorker.exe" Component_="Webcal.LabelPrintWorker.exe" FileName="WEBCAL~2.EXE|Webcal.LabelPrintWorker.exe" Attributes="0" SourcePath="..\bin\Webcal.LabelPrintWorker.exe" SelfReg="false" NextFile="Webcal.PrintWorker.exe" DigSign="true"/>
+    <ROW File="Webcal.LabelPrintWorker.exe" Component_="Webcal.LabelPrintWorker.exe" FileName="WEBCAL~2.EXE|Webcal.LabelPrintWorker.exe" Attributes="0" SourcePath="..\bin\Webcal.LabelPrintWorker.exe" SelfReg="false" NextFile="Webcal.LabelPrintWorker.exe.config" DigSign="true"/>
+    <ROW File="Webcal.LabelPrintWorker.exe.config" Component_="BackupRestoreUtility.exe.config" FileName="WEBCAL~2.CON|Webcal.LabelPrintWorker.exe.config" Attributes="0" SourcePath="..\bin\Webcal.LabelPrintWorker.exe.config" SelfReg="false" NextFile="Webcal.PrintWorker.exe"/>
     <ROW File="Webcal.PrintWorker.exe" Component_="Webcal.PrintWorker.exe" FileName="WEBCAL~3.EXE|Webcal.PrintWorker.exe" Attributes="0" SourcePath="..\bin\Webcal.PrintWorker.exe" SelfReg="false" NextFile="Webcal.Shared.dll" DigSign="true"/>
     <ROW File="Webcal.Shared.dll" Component_="Webcal.Shared.dll" FileName="WEBCAL~3.DLL|Webcal.Shared.dll" Attributes="0" SourcePath="..\bin\Webcal.Shared.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.dll"/>
-    <ROW File="Webcal.exe" Component_="Webcal.exe" FileName="Webcal.exe" Attributes="0" SourcePath="..\bin\Webcal.exe" SelfReg="false" NextFile="Microsoft.VC90.CRT.manifest_1" DigSign="true"/>
-    <ROW File="Webcal.exe.config" Component_="BackupRestoreUtility.exe.config" FileName="WEBCAL~1.CON|Webcal.exe.config" Attributes="0" SourcePath="..\bin\Webcal.exe.config" SelfReg="false" NextFile="Webcal.exe.manifest"/>
-    <ROW File="Webcal.exe.manifest" Component_="BackupRestoreUtility.exe.config" FileName="WEBCAL~1.MAN|Webcal.exe.manifest" Attributes="0" SourcePath="..\bin\Webcal.exe.manifest" SelfReg="false" NextFile="Webcal.Imaging.dll"/>
+    <ROW File="Webcal.exe" Component_="Webcal.exe" FileName="Webcal.exe" Attributes="0" SourcePath="..\bin\Webcal.exe" SelfReg="false" NextFile="BackupRestoreUtility.exe" DigSign="true"/>
+    <ROW File="Webcal.exe.config" Component_="BackupRestoreUtility.exe.config" FileName="WEBCAL~1.CON|Webcal.exe.config" Attributes="0" SourcePath="..\bin\Webcal.exe.config" SelfReg="false" NextFile="Webcal.Imaging.dll"/>
     <ROW File="Xceed.Wpf.AvalonDock.Themes.Aero.dll" Component_="Xceed.Wpf.AvalonDock.Themes.Aero.dll" FileName="XCEEDW~2.DLL|Xceed.Wpf.AvalonDock.Themes.Aero.dll" Attributes="0" SourcePath="..\bin\Xceed.Wpf.AvalonDock.Themes.Aero.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
     <ROW File="Xceed.Wpf.AvalonDock.Themes.Metro.dll" Component_="Xceed.Wpf.AvalonDock.Themes.Metro.dll" FileName="XCEEDW~3.DLL|Xceed.Wpf.AvalonDock.Themes.Metro.dll" Attributes="0" SourcePath="..\bin\Xceed.Wpf.AvalonDock.Themes.Metro.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.Themes.VS2010.dll"/>
     <ROW File="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" Component_="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" FileName="XCEEDW~4.DLL|Xceed.Wpf.AvalonDock.Themes.VS2010.dll" Attributes="0" SourcePath="..\bin\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" SelfReg="false" NextFile="Xceed.Wpf.DataGrid.dll"/>
@@ -169,11 +173,11 @@
     <ROW File="Xceed.Wpf.AvalonDock.resources.dll_5" Component_="Xceed.Wpf.AvalonDock.resources.dll_5" FileName="XCEEDW~1.DLL|Xceed.Wpf.AvalonDock.resources.dll" Attributes="0" SourcePath="..\bin\pt-BR\Xceed.Wpf.AvalonDock.resources.dll" SelfReg="false" NextFile="SmartCardReader.jar"/>
     <ROW File="Xceed.Wpf.AvalonDock.resources.dll_6" Component_="Xceed.Wpf.AvalonDock.resources.dll_6" FileName="XCEEDW~1.DLL|Xceed.Wpf.AvalonDock.resources.dll" Attributes="0" SourcePath="..\bin\ro\Xceed.Wpf.AvalonDock.resources.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.resources.dll_7"/>
     <ROW File="Xceed.Wpf.AvalonDock.resources.dll_7" Component_="Xceed.Wpf.AvalonDock.resources.dll_7" FileName="XCEEDW~1.DLL|Xceed.Wpf.AvalonDock.resources.dll" Attributes="0" SourcePath="..\bin\ru\Xceed.Wpf.AvalonDock.resources.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.resources.dll_8"/>
-    <ROW File="Xceed.Wpf.AvalonDock.resources.dll_8" Component_="Xceed.Wpf.AvalonDock.resources.dll_8" FileName="XCEEDW~1.DLL|Xceed.Wpf.AvalonDock.resources.dll" Attributes="0" SourcePath="..\bin\sv\Xceed.Wpf.AvalonDock.resources.dll" SelfReg="false" NextFile="Webcal.exe"/>
-    <ROW File="Xceed.Wpf.AvalonDock.resources.dll_9" Component_="Xceed.Wpf.AvalonDock.resources.dll_9" FileName="XCEEDW~1.DLL|Xceed.Wpf.AvalonDock.resources.dll" Attributes="0" SourcePath="..\bin\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll" SelfReg="false" NextFile="BackupRestoreUtility.exe"/>
+    <ROW File="Xceed.Wpf.AvalonDock.resources.dll_8" Component_="Xceed.Wpf.AvalonDock.resources.dll_8" FileName="XCEEDW~1.DLL|Xceed.Wpf.AvalonDock.resources.dll" Attributes="0" SourcePath="..\bin\sv\Xceed.Wpf.AvalonDock.resources.dll" SelfReg="false" NextFile="Microsoft.VC90.CRT.manifest_1"/>
+    <ROW File="Xceed.Wpf.AvalonDock.resources.dll_9" Component_="Xceed.Wpf.AvalonDock.resources.dll_9" FileName="XCEEDW~1.DLL|Xceed.Wpf.AvalonDock.resources.dll" Attributes="0" SourcePath="..\bin\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll" SelfReg="false"/>
     <ROW File="Xceed.Wpf.DataGrid.dll" Component_="Xceed.Wpf.DataGrid.dll" FileName="XCEEDW~5.DLL|Xceed.Wpf.DataGrid.dll" Attributes="0" SourcePath="..\bin\Xceed.Wpf.DataGrid.dll" SelfReg="false" NextFile="Xceed.Wpf.Toolkit.dll"/>
-    <ROW File="Xceed.Wpf.Toolkit.dll" Component_="Xceed.Wpf.Toolkit.dll" FileName="XCEEDW~6.DLL|Xceed.Wpf.Toolkit.dll" Attributes="0" SourcePath="..\bin\Xceed.Wpf.Toolkit.dll" SelfReg="false" NextFile="Launcher.exe"/>
-    <ROW File="itextsharp.dll" Component_="itextsharp.dll" FileName="ITEXTS~1.DLL|itextsharp.dll" Attributes="0" SourcePath="..\bin\itextsharp.dll" SelfReg="false" NextFile="Moq.dll"/>
+    <ROW File="Xceed.Wpf.Toolkit.dll" Component_="Xceed.Wpf.Toolkit.dll" FileName="XCEEDW~6.DLL|Xceed.Wpf.Toolkit.dll" Attributes="0" SourcePath="..\bin\Xceed.Wpf.Toolkit.dll" SelfReg="false" NextFile="Microsoft.VC90.CRT.manifest"/>
+    <ROW File="itextsharp.dll" Component_="itextsharp.dll" FileName="ITEXTS~1.DLL|itextsharp.dll" Attributes="0" SourcePath="..\bin\itextsharp.dll" SelfReg="false" NextFile="Microsoft.Windows.Shell.dll"/>
     <ROW File="msvcr90.dll" Component_="msvcr90.dll" FileName="msvcr90.dll" Attributes="0" SourcePath="..\bin\amd64\Microsoft.VC90.CRT\msvcr90.dll" SelfReg="false" NextFile="README_ENU.txt"/>
     <ROW File="msvcr90.dll_1" Component_="msvcr90.dll_1" FileName="msvcr90.dll" Attributes="0" SourcePath="..\bin\x86\Microsoft.VC90.CRT\msvcr90.dll" SelfReg="false" NextFile="README_ENU.txt_1"/>
     <ROW File="nunit.framework.dll" Component_="nunit.framework.dll" FileName="NUNITF~1.DLL|nunit.framework.dll" Attributes="0" SourcePath="..\bin\nunit.framework.dll" SelfReg="false" NextFile="pcscsharp.dll"/>
@@ -195,7 +199,7 @@
     <ROW BootstrOptKey="GlobalOptions" GeneralOptions="bh" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" EulaPathLocId="*" IntroTextPathLocId="*"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\..\Users\Jon Preece\Documents\Advanced Installer\Projects\Webcal\Setup Files" PackageFileName="webcal" Languages="en_GB" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="4" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Webcal\Images\Main Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="webcal" UACExecutionLevel="2"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\..\Users\Jon Preece\Documents\Advanced Installer\Projects\Webcal\Setup Files" PackageFileName="webcal" Languages="en_GB" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="0" PackageType="1" FilesInsideExe="true" ExeIconPath="..\Webcal\Images\Main Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="webcal" UACExecutionLevel="2"/>
     <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
@@ -205,17 +209,16 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
     <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
-    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;spring\fragments\FolderDlg.aip"/>
-    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;spring\fragments\MaintenanceTypeDlg.aip"/>
-    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;spring\fragments\MaintenanceWelcomeDlg.aip"/>
-    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;spring\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;azure\fragments\SequenceDialogs.aip"/>
     <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
     <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
-    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;spring\fragments\UI.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;azure\fragments\UI.aip"/>
     <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
-    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;spring\fragments\VerifyRemoveDlg.aip"/>
-    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;spring\fragments\VerifyRepairDlg.aip"/>
-    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;spring\fragments\WelcomeDlg.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\WelcomeDlg.aip"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
     <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
@@ -241,26 +244,22 @@
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
     <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
-    <ROW Name="tempFiles.dll" SourcePath="&lt;AI_CUSTACTS&gt;tempFiles.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="WelcomeDlg" Control="WelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
-    <ROW Dialog_="FatalError" Control_="Finish" Event="DoAction" Argument="AI_RemoveTempFiles" Condition="1" Ordering="102"/>
-    <ROW Dialog_="UserExit" Control_="Finish" Event="DoAction" Argument="AI_RemoveTempFiles" Condition="1" Ordering="101"/>
-    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
-    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
-    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
-    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
-    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="1"/>
     <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
-    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="102"/>
-    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
     <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
     <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
-    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="701"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
     <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
-    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="701"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
     <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
     <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
     <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
@@ -269,8 +268,17 @@
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
     <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
     <ROW Dialog_="ExitDialog" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="101"/>
-    <ROW Dialog_="FatalError" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="103"/>
-    <ROW Dialog_="UserExit" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="102"/>
+    <ROW Dialog_="FatalError" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="102"/>
+    <ROW Dialog_="UserExit" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="101"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="2" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="3" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="4" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="WelcomeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="WelcomeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="WelcomeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL" Ordering="2" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="WelcomeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL" Ordering="3" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
@@ -278,16 +286,13 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
-    <ROW Action="AI_ChooseTextStyles" Type="1" Source="aicustact.dll" Target="ChooseTextStyles"/>
     <ROW Action="AI_CleanPrereq" Type="65" Source="Prereq.dll" Target="CleanPrereq" WithoutSeq="true"/>
     <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
-    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="AI_RemoveAllTempFiles" Target="[AI_TEMP_FILE_ROLLBACK_INFO]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
     <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
-    <ROW Action="AI_DetectJRE" Type="1" Source="aicustact.dll" Target="RequiredJreExists"/>
     <ROW Action="AI_DoRemoveExternalUIStub" Type="3585" Source="ExternalUICleaner.dll" Target="DoRemoveExternalUIStub" WithoutSeq="true"/>
     <ROW Action="AI_DownloadPrereq" Type="1" Source="Prereq.dll" Target="DownloadPrereq"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
@@ -296,27 +301,26 @@
     <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
     <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
     <ROW Action="AI_ExtractPrereq" Type="65" Source="Prereq.dll" Target="ExtractPrereq"/>
-    <ROW Action="AI_ExtractTempFiles" Type="1" Source="tempFiles.dll" Target="ExtractTempFiles"/>
     <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_FinishActions" Type="1" Source="aicustact.dll" Target="RunAllExitActions"/>
     <ROW Action="AI_GetArpIconPath" Type="1" Source="aicustact.dll" Target="GetArpIconPath"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
     <ROW Action="AI_InstallPostPrerequisite" Type="1" Source="Prereq.dll" Target="InstallPostPrereq"/>
     <ROW Action="AI_InstallPrerequisite" Type="65" Source="Prereq.dll" Target="InstallPrereq"/>
+    <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#Webcal.exe]"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
-    <ROW Action="AI_RemoveAllTempFiles" Type="1281" Source="tempFiles.dll" Target="RemoveAllTempFiles" AdditionalSeq="AI_DATA_SETTER_1"/>
     <ROW Action="AI_RemoveExternalUIStub" Type="1" Source="ExternalUICleaner.dll" Target="RemoveExternalUIStub"/>
-    <ROW Action="AI_RemoveTempFiles" Type="1" Source="tempFiles.dll" Target="RemoveTempFiles" WithoutSeq="true"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_RunFinishActions" Type="1" Source="aicustact.dll" Target="RunFinishActions" WithoutSeq="true"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Type="1" Source="aicustact.dll" Target="MixedAllUsersInstallLocation"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
     <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
-    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_UserProgramFiles][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
-    <ROW Action="Webcal.exe" Type="18" Source="Webcal.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="MainIcon.exe" SourcePath="..\Webcal\Images\Main Icon.ico" Index="0"/>
@@ -324,10 +328,10 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
     <ROW Action="InstallFinalize" Sequence="6596" SeqType="0" MsiKey="InstallFinalize"/>
-    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
-    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1503"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="748"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1502"/>
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
-    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="51"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102" Builds="DefaultBuild"/>
     <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
@@ -342,35 +346,29 @@
     <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
     <ROW Action="AI_AppSearchEx" Sequence="101"/>
     <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
-    <ROW Action="AI_DetectJRE" Condition="1" Sequence="399" Builds="DefaultBuild"/>
-    <ROW Action="Webcal.exe" Sequence="6598"/>
-    <ROW Action="AI_GetArpIconPath" Sequence="51"/>
-    <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1502"/>
-    <ROW Action="AI_ExtractTempFiles" Sequence="1001"/>
-    <ROW Action="AI_RemoveTempFiles" Sequence="6597"/>
-    <ROW Action="AI_RemoveAllTempFiles" Sequence="1501"/>
+    <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
+    <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Sequence="747"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
-    <ROW Action="ExecuteAction" Sequence="1298" SeqType="0" MsiKey="ExecuteAction"/>
-    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="ExecuteAction" Sequence="1297" SeqType="0" MsiKey="ExecuteAction"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="748"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_DpiContentScale" Sequence="51"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
     <ROW Action="AI_AppSearchEx" Sequence="101"/>
-    <ROW Action="AI_ChooseTextStyles" Sequence="74"/>
-    <ROW Action="AI_DownloadPrereq" Sequence="1295"/>
-    <ROW Action="AI_ExtractPrereq" Sequence="1296"/>
-    <ROW Action="AI_InstallPrerequisite" Sequence="1297"/>
+    <ROW Action="AI_DownloadPrereq" Sequence="1294"/>
+    <ROW Action="AI_ExtractPrereq" Sequence="1295"/>
+    <ROW Action="AI_InstallPrerequisite" Sequence="1296"/>
     <ROW Action="AI_InstallPostPrerequisite" Sequence="1299"/>
-    <ROW Action="AI_DetectJRE" Condition="1" Sequence="399" Builds="DefaultBuild"/>
-    <ROW Action="AI_ExtractTempFiles" Sequence="1001"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Sequence="747"/>
+    <ROW Action="AI_FinishActions" Condition="AI_INSTALL AND AiSkipExitDlg" Sequence="1298"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
     <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &gt;= 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 2))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 3))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 4))) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(AI_DOTNET40_SEARCH = &quot;#1&quot;) OR (AI_DOTNET45_SEARCH &gt;= &quot;4.5&quot;) OR (AI_DOTNET451_SEARCH &gt;= &quot;#378675&quot;)" Description="[ProductName] can not be installed on systems with .NET Framework version lower than [AI_MINDOTNETVERSION]" DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT40Display]" DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
-    <ROW Condition="AI_JREVERFOUND = 1" Description="[ProductName] can not be installed on systems with JRE version lower than [AI_MINJREVERSION]" DescriptionLocId="AI.LaunchCondition.Jre" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="PhysicalMemory &gt;= AI_MINRAM" Description="[ProductName] can not be installed on systems with less physical memory than [AI_MINRAM] MB." DescriptionLocId="AI.LaunchCondition.RAM" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]" DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
@@ -396,6 +394,7 @@
     <ROW Registry="InstallLocation" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="InstallLocation" Value="[APPDIR]" Component_="AI_CustomARPName"/>
     <ROW Registry="Microsoft.NETFrame" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="Microsoft.NETFrame" Value="1" Component_="Microsoft.NETFrame"/>
     <ROW Registry="ModifyPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="ModifyPath" Value="[AI_UNINSTALLER] /I [ProductCode]" Component_="AI_CustomARPName"/>
+    <ROW Registry="NoModify" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="NoModify" Value="#1" Component_="AI_DisableModify"/>
     <ROW Registry="NoRepair" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="NoRepair" Value="#1" Component_="AI_CustomARPName"/>
     <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
     <ROW Registry="Publisher" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Publisher" Value="[Manufacturer]" Component_="AI_CustomARPName"/>
@@ -412,7 +411,7 @@
     <ROW Shortcut="Webcal_1" Directory_="DesktopFolder" Name="Webcal" Component_="Webcal.exe" Target="[#Webcal.exe]" Description="Webcal" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
-    <ATTRIBUTE name="UsedTheme" value="spring"/>
+    <ATTRIBUTE name="UsedTheme" value="azure"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
@@ -420,9 +419,9 @@
     <ROW UpgradeCode="{2CB42CF5-059B-447C-B583-C854FFB376C8}" VersionMax="2.0.0.0" Language="2057" Attributes="517" ActionProperty="UPGRADE_2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
-    <ROW PrereqKey="B7F3EF2947194DBBA24570C9D8F78D96" DisplayName="SQL Server Compact 4.0 SP1 x86" VersionMin="4.0" SetupFileUrl="Prerequisites\SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64" Operator="1" Options="mz" TargetName="SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Type="1" Feature="B7F3EF2947194DBBA24570C9D8F78D96"/>
-    <ROW PrereqKey="C673FE9433B49AFAC9592AB26B8F8E4" DisplayName=".NET Framework 4.0" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\dotNetFx40_Full_x86_x64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows Server 2003 x86, Windows 8 x86, Windows 8.1 x86" WinNT64Versions="Windows XP x64, Windows Server 2003 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" Operator="1" ComLine="/q" BasicUiComLine="/q" NoUiComLine="/q" Options="xmz" TargetName="dotNetFx40_Full_x86_x64.exe\dotNetFx40_Full_x86_x64.exe"/>
-    <ROW PrereqKey="EE84CE1C98744810AB435A53A3737024" DisplayName="Java SE Runtime Environment 7u55 x86" VersionMin="1.7" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\jre-7u55-windows-i586.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" Operator="0" ComLine="/s" BasicUiComLine="/s" NoUiComLine="/s" Options="mz" TargetName="jre-7u55-windows-i586.exe"/>
+    <ROW PrereqKey="B7F3EF2947194DBBA24570C9D8F78D96" DisplayName="SQL Server Compact 4.0 SP1 x86" VersionMin="4.0" SetupFileUrl="Prerequisites\SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64" Operator="1" Options="m" TargetName="SQL Server Compact 4.0 SP1\SSCERuntime_x86-ENU.exe" Type="1" Feature="B7F3EF2947194DBBA24570C9D8F78D96"/>
+    <ROW PrereqKey="C673FE9433B49AFAC9592AB26B8F8E4" DisplayName=".NET Framework 4.0" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\dotNetFx40_Full_x86_x64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows Server 2003 x86, Windows 8 x86, Windows 8.1 x86" WinNT64Versions="Windows XP x64, Windows Server 2003 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" Operator="1" ComLine="/q" BasicUiComLine="/q" NoUiComLine="/q" Options="xm" TargetName="dotNetFx40_Full_x86_x64.exe\dotNetFx40_Full_x86_x64.exe"/>
+    <ROW PrereqKey="EE84CE1C98744810AB435A53A3737024" DisplayName="Java SE Runtime Environment 7u55 x86" VersionMin="1.7" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\jre-7u55-windows-i586.exe" Location="0" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" Operator="0" ComLine="/s" BasicUiComLine="/s" NoUiComLine="/s" Options="m" TargetName="jre-7u55-windows-i586.exe"/>
     <ROW PrereqKey="Microsoft.NETFrame" DisplayName="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" SetupFileUrl="..\..\..\Users\Jon Preece\Downloads\NDP40-KB2468871-v2-x86.exe" Location="0" ExactSize="0" Operator="0" ComLine=" /q /norestart /ChainingPackage FullKB2468871X64ClickOnce" Options="m" TargetName="NDP40-KB2468871-v2-x86.exe" Type="1" Feature="Microsoft.NETFrame"/>
     <ATTRIBUTE name="PrereqsOrder" value="C673FE9433B49AFAC9592AB26B8F8E4 EE84CE1C98744810AB435A53A3737024 B7F3EF2947194DBBA24570C9D8F78D96 Microsoft.NETFrame"/>
   </COMPONENT>
