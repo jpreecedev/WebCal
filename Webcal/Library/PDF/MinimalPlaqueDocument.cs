@@ -20,8 +20,8 @@ namespace Webcal.Library.PDF
         {
             if (WorkshopSettings.Image != null)
             {
-                const float profileImageMaxHeight = 150;
-                const float profileImageMaxWidth = 200;
+                const float profileImageMaxHeight = 145;
+                const float profileImageMaxWidth = 545;
 
                 float widthScale = profileImageMaxWidth / WorkshopSettings.Image.Width;
                 float heightScale = profileImageMaxHeight / WorkshopSettings.Image.Height;
