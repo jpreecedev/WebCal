@@ -106,7 +106,7 @@
 
             AbsolutePositionText(document, Resources.TXT_AUTHORISED_TESTERS_SIGNATURE, (startHorizontal + 350), (startVertical + 246), 550, 72, document.GetLargerFont(false));
 
-            TryAddSignature(document, (startHorizontal + 350));
+            TryAddSignature(document, tachographDocument, (startHorizontal + 350));
             AbsolutePositionText(document, string.Format(Resources.TXT_SIGNATURE_TECHNICIAN, tachographDocument.Technician), (startHorizontal + 350), (startVertical + 340), 550, 20);
 
             string imageFilePath = (DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/skillray-small.png")).ToString();

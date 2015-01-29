@@ -1,5 +1,6 @@
 ﻿namespace Webcal.Library.ViewModels
 {
+    using System.Windows.Input;
     using Shared;
 
     public class UserPromptViewModel : BaseNotification
@@ -11,6 +12,8 @@
         public string SecondPrompt { get; set; }
 
         public string SecondInput { get; set; }
+
+        public ICommand AddSignatureCommand { get; set; }
 
         public bool HasSecondPrompt
         {

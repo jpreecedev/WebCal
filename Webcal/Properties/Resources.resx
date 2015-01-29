@@ -2092,4 +2092,10 @@ date
   <data name="TXT_ERR_MUST_SELECT_DOCUMENT_TYPE" xml:space="preserve">
     <value>Cannot print label because you must select a document type first.</value>
   </data>
+  <data name="TXT_ADD_SIGNATURE" xml:space="preserve">
+    <value>Add Signature</value>
+  </data>
+  <data name="TXT_TECHNICIANS_HAS_SIGNATURE" xml:space="preserve">
+    <value>Has Signature?</value>
+  </data>
 </root>

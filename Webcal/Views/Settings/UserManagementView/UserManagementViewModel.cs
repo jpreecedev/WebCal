@@ -21,7 +21,7 @@
 
         public User SelectedUser
         {
-            get { return UserManagement.SelectedUser; }
+            get { return (User) UserManagement.SelectedUser; }
             set { UserManagement.SelectedUser = value; }
         }
 
@@ -165,6 +165,16 @@
         private void OnManageSignatures(object obj)
         {
             var window = new SignatureCaptureWindow();
+            SignatureCaptureWindowViewModel dataContext = (SignatureCaptureWindowViewModel)window.DataContext;
+            dataContext.SignatureImage = SelectedUser.Image;
+
+            dataContext.OnSignatureCaptured = signature =>
+            {
+                SelectedUser.Image = signature;
+                Repository.AddOrUpdate(SelectedUser);
+                Repository.Save();
+            };
+
             window.ShowDialog();
         }
 

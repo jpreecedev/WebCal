@@ -132,6 +132,7 @@
     <conv:IntToVisibilityConverter x:Key="Int2Vis" />
     <conv:DocTypeToVisibilityConverter x:Key="DocType2Vis" />
     <conv:InverseBooleanToVisibilityConverter x:Key="InvBool2Vis" />
+    <conv:NullToVisibilityConverter x:Key="Null2Vis" />
     <conv:BooleanMultiConverter x:Key="BoolMultiConverter" />
     <conv:ReadOnlyMultiConverter x:Key="ReadOnlyMultiConverter" />
 
@@ -686,6 +687,10 @@
                                         HorizontalAlignment="Center">
                                 <Button Content="{x:Static Properties:Resources.TXT_OK}"
                                         Command="{StaticResource OKCommand}"
+                                        Width="Auto" />
+                                <Button Content="{x:Static Properties:Resources.TXT_ADD_SIGNATURE}"
+                                        Command="{Binding Prompt.AddSignatureCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                        Visibility="{Binding Prompt.AddSignatureCommand, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Null2Vis}}"
                                         Width="Auto" />
                                 <Button Content="{x:Static Properties:Resources.TXT_CANCEL}"
                                         Command="{StaticResource CancelCommand}"

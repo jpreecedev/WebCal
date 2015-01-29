@@ -58,7 +58,7 @@
 
             AbsolutePositionText(document, Resources.TXT_DATE, 125, 175, 200, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
 
-            TryAddSignature(document, 310, 158);
+            TryAddSignature(document, undownloadabilityDocument, 310, 158);
             AbsolutePositionText(document, string.Format(Resources.TXT_UNDOWNLOADABILITY_SIGNATURE, undownloadabilityDocument.Technician), 322, 175, 522, 20, document.GetSmallerFont(), Element.ALIGN_LEFT);
         }
 
@@ -88,13 +88,27 @@
             document.AddParagraph(text, absoluteColumn, font, alignment);
         }
 
-        private static void TryAddSignature(PDFDocument document, int x, int y)
+        private static void TryAddSignature(PDFDocument document, UndownloadabilityDocument undownloadabilityDocument, int x, int y)
         {
+            Image signatureImage = null;
+
             var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
-            User user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
+            var user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {
-                Image image = ImageHelper.Scale(user.Image, 50);
+                signatureImage = user.Image;
+            }
+
+            IRepository<Technician> technicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
+            var technicianUser = technicianRepository.FirstOrDefault(c => string.Equals(c.Name, undownloadabilityDocument.Technician));
+            if (technicianUser != null && technicianUser.Image != null)
+            {
+                signatureImage = technicianUser.Image;
+            }
+
+            if (signatureImage != null)
+            {
+                Image image = ImageHelper.Scale(signatureImage, 50);
                 document.AddImage(image.ToByteArray(), image.Width, image.Height, x, y);
             }
         }

@@ -10,7 +10,7 @@
     public static class UserManagement
     {
         public static string LoggedInUserName { get; set; }
-        public static User SelectedUser { get; set; }
+        public static IUserSignatureCapture SelectedUser { get; set; }
         public static DateTime LastCommandExecuted { get; set; }
 
         public static bool LoggedInAsSuperUser
@@ -135,9 +135,9 @@
                 return false;
             }
 
-            if (string.Equals(SelectedUser.Password, oldPassword))
+            if (string.Equals(((User)SelectedUser).Password, oldPassword))
             {
-                SelectedUser.Password = Encrypt(newPassword);
+                ((User)SelectedUser).Password = Encrypt(newPassword);
                 repository.Save();
 
                 return true;

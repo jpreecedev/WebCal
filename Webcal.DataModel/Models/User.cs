@@ -5,7 +5,7 @@
     using System.Drawing;
     using Shared;
 
-    public class User : BaseModel
+    public class User : BaseModel, IUserSignatureCapture
     {
         public string Username { get; set; }
         public string Password { get; set; }

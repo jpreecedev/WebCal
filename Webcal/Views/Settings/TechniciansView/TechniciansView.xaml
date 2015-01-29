@@ -44,6 +44,9 @@
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_VIEW_NUMBER}"
                                         DisplayMemberBinding="{Binding Number, Mode=OneWay}"
                                         Width="200" />
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_HAS_SIGNATURE}"
+                                        DisplayMemberBinding="{Binding HasSignature, Converter={StaticResource Bool2YesNo}}"
+                                        Width="100" />
                     </GridView>
                 </ListView.View>
             </ListView>

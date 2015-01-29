@@ -4,33 +4,40 @@
     using System.Drawing;
     using System.Windows;
     using Core;
-    using DataModel;
     using DataModel.Core;
-    using DataModel.Library;
     using Imaging;
     using Library;
     using Properties;
     using Shared;
 
-    public class SignatureCaptureWindowViewModel : BaseModalWindowViewModel
+    public class SignatureCaptureWindowViewModel : BaseNotification
     {
         public SignatureCaptureWindowViewModel()
         {
             InitialiseCommands();
-            InitialseRepositories();
-            Initialise();
         }
 
-        public IRepository<User> Repository { get; set; }
-        public User User { get; private set; }
         public DelegateCommand<Window> CloseCommand { get; set; }
+
         public DelegateCommand<Window> SaveCommand { get; set; }
+
         public DelegateCommand<object> BrowseCommand { get; set; }
 
-        private void Initialise()
+        public Action<Image> OnSignatureCaptured { get; set; }
+
+        public Image SignatureImage { get; set; }
+
+        private void OnSave(Window window)
         {
-            //Must ensure we always have the most up-to-date instance of the user object
-            User = Repository.First(user => string.Equals(user.Username, UserManagement.SelectedUser.Username, StringComparison.CurrentCultureIgnoreCase));
+            if (window != null)
+            {
+                window.Close();
+            }
+
+            if (OnSignatureCaptured != null)
+            {
+                OnSignatureCaptured(SignatureImage);
+            }
         }
 
         private static void OnClose(Window window)
@@ -43,18 +50,6 @@
             window.Close();
         }
 
-        private void OnSave(Window window)
-        {
-            if (window == null)
-            {
-                return;
-            }
-
-            Repository.AddOrUpdate(User);
-            Repository.Save();
-            window.Close();
-        }
-
         private void OnBrowse(object arg)
         {
             DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.JPG, string.Empty);
@@ -62,21 +57,21 @@
             {
                 try
                 {
-                    User.Image = ImageHelper.LoadImageSafely(result.FileName);
+                    SignatureImage = ImageHelper.LoadImageSafely(result.FileName);
 
                     try
                     {
-                        string path = Signature.Transform(new Bitmap(User.Image));
-                        User.Image = ImageHelper.LoadImageSafely(path);
+                        string path = Signature.Transform(new Bitmap(SignatureImage));
+                        SignatureImage = ImageHelper.LoadImageSafely(path);
                     }
                     catch (Exception ex)
                     {
-                        MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_TO_APPLY_TRANSFORMATIONS, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)), Window);
+                        MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_TO_APPLY_TRANSFORMATIONS, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
                     }
                 }
                 catch
                 {
-                    MessageBoxHelper.ShowError(Resources.ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE, Window);
+                    MessageBoxHelper.ShowError(Resources.ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE);
                 }
             }
         }
@@ -86,11 +81,6 @@
             BrowseCommand = new DelegateCommand<object>(OnBrowse);
             CloseCommand = new DelegateCommand<Window>(OnClose);
             SaveCommand = new DelegateCommand<Window>(OnSave);
-        }
-
-        private void InitialseRepositories()
-        {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
         }
     }
 }

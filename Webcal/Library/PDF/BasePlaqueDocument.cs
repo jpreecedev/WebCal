@@ -187,14 +187,28 @@
         {
             return ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().GetAll().First();
         }
-        
-        protected void TryAddSignature(PDFDocument document, int x, int y = 88)
+
+        protected void TryAddSignature(PDFDocument document, TachographDocument tachographDocument, int x, int y = 88)
         {
+            Image signatureImage = null;
+
             var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
-            User user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
+            var user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {
-                Image image = ImageHelper.Scale(user.Image, 50);
+                signatureImage = user.Image;
+            }
+
+            IRepository<Technician> technicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
+            var technicianUser = technicianRepository.FirstOrDefault(c => string.Equals(c.Name, tachographDocument.Technician));
+            if (technicianUser != null && technicianUser.Image != null)
+            {
+                signatureImage = technicianUser.Image;
+            }
+
+            if (signatureImage != null)
+            {
+                Image image = ImageHelper.Scale(signatureImage, 50);
                 document.AddImage(image.ToByteArray(), image.Width, image.Height, x, y);
             }
         }

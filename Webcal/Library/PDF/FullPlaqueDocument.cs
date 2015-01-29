@@ -32,7 +32,7 @@ namespace Webcal.Library.PDF
             AbsolutePositionText(document, Resources.TXT_TECHNICIAN, (startHorizontal + 50), (startVertical + 270), 150, 20);
             AbsolutePositionText(document, Resources.TXT_DATE, (startHorizontal + 150), (startVertical + 340), 200, 20);
 
-            TryAddSignature(document, (startHorizontal + 330));
+            TryAddSignature(document, tachographDocument, (startHorizontal + 330));
             AbsolutePositionText(document, string.Format(Resources.TXT_SIGNATURE_TECHNICIAN, tachographDocument.Technician), (startHorizontal + 347), (startVertical + 340), 550, 20);
 
             //Tachograph

@@ -476,6 +476,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Signature.
+        /// </summary>
+        public static string TXT_ADD_SIGNATURE {
+            get {
+                return ResourceManager.GetString("TXT_ADD_SIGNATURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Files (*.*)|*.*.
         /// </summary>
         public static string TXT_ALL_FILES {
@@ -4811,6 +4820,15 @@ namespace Webcal.Properties {
         public static string TXT_TECHNICIANS_ADD {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Has Signature?.
+        /// </summary>
+        public static string TXT_TECHNICIANS_HAS_SIGNATURE {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_HAS_SIGNATURE", resourceCulture);
             }
         }
         

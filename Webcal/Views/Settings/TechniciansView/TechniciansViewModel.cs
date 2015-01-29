@@ -4,6 +4,7 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows.Controls;
+    using Windows.SignatureCaptureWindow;
     using Core;
     using DataModel;
     using DataModel.Core;
@@ -15,6 +16,8 @@
     public class TechniciansViewModel : BaseSettingsViewModel
     {
         private Technician _selectedTechnician;
+        private System.Drawing.Image _signatureImage = null;
+
         public IRepository<Technician> Repository { get; set; }
         public ObservableCollection<Technician> Technicians { get; set; }
 
@@ -31,6 +34,7 @@
         public DelegateCommand<UserControl> AddTechnicianCommand { get; set; }
         public DelegateCommand<object> RemoveTechnicianCommand { get; set; }
         public DelegateCommand<object> SetDefaultCommand { get; set; }
+        public DelegateCommand<object> AddSignatureCommand { get; set; }
 
         protected override void Load()
         {
@@ -45,6 +49,7 @@
             AddTechnicianCommand = new DelegateCommand<UserControl>(OnAddTechnician);
             RemoveTechnicianCommand = new DelegateCommand<object>(OnRemoveTechnician, CanRemoveTechnician);
             SetDefaultCommand = new DelegateCommand<object>(OnSetDefault, CanSetDefault);
+            AddSignatureCommand = new DelegateCommand<object>(OnAddSignature);
         }
 
         protected override void InitialiseRepositories()
@@ -62,7 +67,8 @@
             var userPromptViewModel = new UserPromptViewModel()
             {
                 FirstPrompt = Resources.TXT_GIVE_NAME_OF_TECHNICIAN,
-                SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER
+                SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER,
+                AddSignatureCommand = AddSignatureCommand
             };
 
             GetInputFromUser(window, userPromptViewModel , OnAddTechnician);
@@ -77,10 +83,28 @@
 
             if (!string.IsNullOrEmpty(result.FirstInput))
             {
-                var technician = new Technician {Name = result.FirstInput, Number = result.SecondInput};
+                var technician = new Technician
+                {
+                    Name = result.FirstInput,
+                    Number = result.SecondInput,
+                    Image = _signatureImage
+                };
                 Technicians.Add(technician);
                 Repository.Add(technician);
             }
+        }
+
+        private void OnAddSignature(object arg)
+        {
+            SignatureCaptureWindow window = new SignatureCaptureWindow();
+            SignatureCaptureWindowViewModel dataContext = (SignatureCaptureWindowViewModel)window.DataContext;
+
+            dataContext.OnSignatureCaptured = signature =>
+            {
+                _signatureImage = signature;
+            };
+
+            window.ShowDialog();
         }
 
         private bool CanRemoveTechnician(object obj)

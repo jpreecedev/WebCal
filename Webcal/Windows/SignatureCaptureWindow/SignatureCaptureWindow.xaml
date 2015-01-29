@@ -28,7 +28,7 @@
         <Image Grid.Column="1"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
-               Source="{Binding User.Image, Converter={StaticResource ImgToBitmapSource}}"
+               Source="{Binding SignatureImage, Converter={StaticResource ImgToBitmapSource}}"
                AllowDrop="True" />
 
         <StackPanel Grid.Row="2"
