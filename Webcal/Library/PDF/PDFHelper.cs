@@ -14,7 +14,7 @@
     {
         public static string LastPDFOutputPath = string.Empty;
 
-        public static bool GenerateTachographPlaque(Document document, bool saveToTempDirectory, bool isHistoryMode)
+        public static bool GenerateTachographPlaque(Document document, bool saveToTempDirectory, bool isHistoryMode, bool excludeLogos)
         {
             if (document == null)
             {
@@ -35,13 +35,13 @@
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
             {
-                return GenerateTachographPlaque(tachographDocument, saveToTempDirectory);
+                return GenerateTachographPlaque(tachographDocument, saveToTempDirectory, excludeLogos);
             }
 
             return false;
         }
 
-        public static bool GenerateTachographPlaque(TachographDocument document, bool saveToTempDirectory)
+        public static bool GenerateTachographPlaque(TachographDocument document, bool saveToTempDirectory, bool excludeLogos)
         {
             if (document == null)
             {
@@ -54,7 +54,7 @@
                 using (var pdfDocument = new PDFDocument(result.FileName))
                 {
                     IPlaque plaque = document.TachographHasAdapter ? (IPlaque) new FullPlaqueDocument() : new MinimalPlaqueDocument();
-                    plaque.CreateFullCertificate(pdfDocument, document);
+                    plaque.CreateFullCertificate(pdfDocument, document, excludeLogos);
                 }
 
                 return true;

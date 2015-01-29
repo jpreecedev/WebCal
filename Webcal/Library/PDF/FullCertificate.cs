@@ -12,7 +12,7 @@
             return Resources.TXT_TACHOGRAPH_AND_M1N1_INSPECTION_PLATE;
         }
 
-        protected override void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument)
+        protected override void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument, bool excludeLogos)
         {
             const int startHorizontal = 0;
             const int startVertical = 0;
@@ -29,7 +29,7 @@
             document.DrawLine((startHorizontal), (startVertical + 400), (startHorizontal + 545), (startVertical + 400), TotalPageHeight);
             document.DrawLine((startHorizontal), (startVertical + 600), (startHorizontal + 545), (startVertical + 600), TotalPageHeight);
             
-            if (WorkshopSettings.Image != null)
+            if (WorkshopSettings.Image != null && !excludeLogos)
             {
                 const float profileImageMaxHeight = 150;
                 const float profileImageMaxWidth = 200;

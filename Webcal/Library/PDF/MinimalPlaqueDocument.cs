@@ -241,7 +241,7 @@ namespace Webcal.Library.PDF
             table.WriteSelectedRows(0, -1, document.Document.LeftMargin + 2, document.Height - 103, document.ContentByte);
         }
 
-        protected override void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument)
+        protected override void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument, bool excludeLogos)
         {
             const int startHorizontal = 20;
             const int startVertical = 0;
@@ -267,8 +267,7 @@ namespace Webcal.Library.PDF
                 document.DrawLine((startHorizontal), (startVertical + 630), (startHorizontal + 555), (startVertical + 630), TotalPageHeight);
             }
 
-            var miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
-            if (WorkshopSettings.Image != null && !miscellaneousSettings.ExcludeLogosWhenPrinting)
+            if (WorkshopSettings.Image != null && !excludeLogos)
             {
                 var image = ImageHelper.Scale(WorkshopSettings.Image, 150);
                 document.AddImage(image.ToByteArray(), image.Width, image.Height, (startHorizontal + 5), startVertical + 660);

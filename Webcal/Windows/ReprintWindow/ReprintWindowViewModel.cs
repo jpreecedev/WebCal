@@ -7,6 +7,7 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
     using Library;
     using Library.PDF;
     using Properties;
@@ -127,7 +128,9 @@
                 return;
             }
 
-            if (PDFHelper.GenerateTachographPlaque(document, true, true))
+            MiscellaneousSettings miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+
+            if (PDFHelper.GenerateTachographPlaque(document, true, true, miscellaneousSettings.ExcludeLogosWhenPrinting))
             {
                 PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
             }

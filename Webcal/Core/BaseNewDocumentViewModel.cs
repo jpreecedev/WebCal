@@ -100,7 +100,7 @@
             try
             {
                 Document document = GetNewDocument(root);
-                if (PDFHelper.GenerateTachographPlaque(document, false, IsHistoryMode))
+                if (PDFHelper.GenerateTachographPlaque(document, false, IsHistoryMode, true))
                 {
                     if (!IsHistoryMode)
                     {
@@ -130,14 +130,16 @@
                 return;
             }
 
+            MiscellaneousSettings miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
             Document document = GetNewDocument(root);
-            if (PDFHelper.GenerateTachographPlaque(document, true, IsHistoryMode))
+            if (PDFHelper.GenerateTachographPlaque(document, true, IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting))
             {
                 try
                 {
                     PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
                     if (!IsHistoryMode)
                     {
+                        PDFHelper.GenerateTachographPlaque(document, true, IsHistoryMode, false);
                         EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
                         Add();
                     }

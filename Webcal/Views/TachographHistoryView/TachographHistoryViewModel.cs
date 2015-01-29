@@ -62,7 +62,7 @@
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
             {
-                if (PDFHelper.GenerateTachographPlaque(document, true, true))
+                if (PDFHelper.GenerateTachographPlaque(document, true, true, true))
                 {
                     EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
                 }
@@ -97,7 +97,9 @@
                 return;
             }
 
-            if (PDFHelper.GenerateTachographPlaque(document, true))
+            MiscellaneousSettings miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+
+            if (PDFHelper.GenerateTachographPlaque(document, true, miscellaneousSettings.ExcludeLogosWhenPrinting))
             {
                 PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
             }

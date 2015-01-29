@@ -43,10 +43,10 @@
             CreateLargeLabelExpiry(pdfDocument, tachographDocument, 0, 360);
         }
 
-        public void CreateFullCertificate(PDFDocument pdfDocument, TachographDocument tachographDocument)
+        public void CreateFullCertificate(PDFDocument pdfDocument, TachographDocument tachographDocument, bool excludeLogos)
         {
             CustomerContact = _customerContactRepository.FirstOrDefault(c => c.Name == tachographDocument.CustomerContact);
-            CreateLargeCertificate(pdfDocument, tachographDocument);
+            CreateLargeCertificate(pdfDocument, tachographDocument, excludeLogos);
         }
 
         protected virtual string GetTitle()
@@ -147,7 +147,7 @@
             document.AddParagraph(text, absoluteColumn, font, alignment);
         }
 
-        protected virtual void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument)
+        protected virtual void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument, bool excludeLogos)
         {
         }
 
