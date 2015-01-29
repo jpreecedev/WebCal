@@ -12,6 +12,7 @@
 
         public DbSet<TachographDocument> TachographDocuments { get; set; }
         public DbSet<UndownloadabilityDocument> UndownloadabilityDocuments { get; set; }
+        public DbSet<LetterForDecommissioningDocument> LetterForDecommissioningDocuments { get; set; }
         public DbSet<VehicleMake> VehicleMakes { get; set; }
         public DbSet<TachographMake> TachographMakes { get; set; }
         public DbSet<TachographFile> TachographFiles { get; set; }

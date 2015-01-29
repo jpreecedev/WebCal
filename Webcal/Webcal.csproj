@@ -272,6 +272,7 @@
     <Compile Include="Library\PDF\BasePlaqueDocument.cs" />
     <Compile Include="Library\PDF\FullCertificate.cs" />
     <Compile Include="Library\PDF\IPlaque.cs" />
+    <Compile Include="Library\PDF\LetterForDecommissioning.cs" />
     <Compile Include="Library\PDF\PDFHelper.cs" />
     <Compile Include="Library\PDF\FullPlaqueDocument.cs" />
     <Compile Include="Library\PDF\MinimalPlaqueDocument.cs" />
@@ -293,6 +294,14 @@
       <DependentUpon>CalibrationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CalibrationsView\CalibrationsViewModel.cs" />
+    <Compile Include="Views\LetterForDecommissioningHistoryView\LetterForDecommissioningHistoryView.xaml.cs">
+      <DependentUpon>LetterForDecommissioningHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LetterForDecommissioningHistoryView\LetterForDecommissioningHistoryViewModel.cs" />
+    <Compile Include="Views\LetterForDecommissioningView\LetterForDecommissioningView.xaml.cs">
+      <DependentUpon>LetterForDecommissioningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LetterForDecommissioningView\LetterForDecommissioningViewModel.cs" />
     <Compile Include="Views\NewTachographView\NewAnalogueTachographView.xaml.cs">
       <DependentUpon>NewAnalogueTachographView.xaml</DependentUpon>
     </Compile>
@@ -433,6 +442,14 @@
       <DependentUpon>WorkerProgressWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WorkerProgressWindow\WorkerProgressWindowViewModel.cs" />
+    <Page Include="Views\LetterForDecommissioningHistoryView\LetterForDecommissioningHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LetterForDecommissioningView\LetterForDecommissioningView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\NewTachographView\NewAnalogueTachographView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -607,7 +624,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru-RU.resx">
       <SubType>Designer</SubType>
@@ -823,6 +840,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LetterForDecommissioningHistorySmall.png" />
+    <Resource Include="Images\LetterForDecommissioningSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -5910,5 +5910,373 @@ namespace Webcal.Properties {
                 return ResourceManager.GetString("TXT_YES", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_CANCEL
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CANCEL", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_CUSTOMER
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CUSTOMER", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Customer data.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_CUSTOMER_DATA
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CUSTOMER_DATA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Export PDF.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_EXPORT_PDF
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_EXPORT_PDF", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Inspection data.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_INSPECTION_DATA
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_INSPECTION_DATA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Inspection date.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_INSPECTION_DATE
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_INSPECTION_DATE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Print.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_PRINT
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_PRINT", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Registration Number.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_REGISTRATION_NUMBER
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_REGISTRATION_NUMBER", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Serial Number.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_SERIAL_NUMBER
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_SERIAL_NUMBER", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Data.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_DATA
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_DATA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Make.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MAKE
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MAKE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MODEL
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MODEL", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Technician.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_TECHNICIAN
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TECHNICIAN", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle Data.
+        /// </summary>
+        public static string TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Creation date.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CREATION_DATE
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CREATION_DATE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CUSTOMER
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CUSTOMER", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter search term.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_ENTER_SEARCH_TERM
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_ENTER_SEARCH_TERM", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Office.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OFFICE
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OFFICE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Open in report form.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OPEN_IN_REPORT_FORM
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OPEN_IN_REPORT_FORM", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Re-Print Certificate.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_REPRINT_CERTIFICATE
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_REPRINT_CERTIFICATE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Technician.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TECHNICIAN
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TECHNICIAN", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning document history.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TITLE
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TITLE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle registration number.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_VEHICLE_REGISTRATION_NUMBER
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_VEHICLE_REGISTRATION_NUMBER", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The digital tachograph unit [{0} - {1}] [{2}] that was installed into vehicle registration number [{3}] is not functioning in accordance with the requirements of Annex 1B..
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_1
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The unit has been removed from the above vehicle and a download of all data since the last download has been carried out and is now being stored by us at the centre in accordance with Requirement 260 of the Annex 1B and section 10.7 of the VOSA Approved Tachograph Centre Manual (ATCM)..
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_2
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to To obtain the information from the centre named below, please apply in writing to the centre, specifying company card details used in the unit, provide any required passwords to be used to secure the data during delivery and the required method of delivery, i.e. CD or secure email..
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_3
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_3", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The above information will be stored securely by the centre for 365 days from date of this letter, after that date the data will be destroyed in accordance with the DVSA ATCM..
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_4
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_4", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING_TITLE
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_TITLE", resourceCulture);
+            }
+        }
+
+
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning History.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP", resourceCulture);
+            }
+        }
+
+
+
+        /// <summary>
+        ///   Looks up a localized string similar to Regards.
+        /// </summary>
+        public static string TXT_REGARDS
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_REGARDS", resourceCulture);
+            }
+        }
+
+
+
+        /// <summary>
+        ///   Looks up a localized string similar to Signature.
+        /// </summary>
+        public static string TXT_SIGNATURE
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_SIGNATURE", resourceCulture);
+            }
+        }
     }
 }

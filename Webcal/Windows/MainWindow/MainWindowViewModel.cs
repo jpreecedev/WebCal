@@ -43,6 +43,9 @@
         public DelegateCommand<object> UpdateCommand { get; set; }
         public DelegateCommand<UserControl> SaveModalCommand { get; set; }
         public DelegateCommand<object> CancelModalCommand { get; set; }
+        public DelegateCommand<object> LetterForDecommissioningCommand { get; set; }
+        public DelegateCommand<object> LetterForDecommissioningHistoryCommand { get; set; }
+
         public DispatcherTimer TimeoutTimer { get; set; }
         public bool IsLocked { get; set; }
         public bool IsNavigationLocked { get; set; }
@@ -124,6 +127,16 @@
         private void OnWorkshopCardFiles(object param)
         {
             ShowView<WorkshopCardFilesView>();
+        }
+
+        private void OnLetterForDecommissioning(object param)
+        {
+            ShowView<LetterForDecommissioningView>();
+        }
+
+        private void OnLetterForDecommissioningHistory(object param)
+        {
+            ShowView<LetterForDecommissioningHistoryView>();
         }
 
         private static void OnShowWindow(object obj)
@@ -225,6 +238,8 @@
             UpdateCommand = new DelegateCommand<object>(OnUpdate);
             SaveModalCommand = new DelegateCommand<UserControl>(OnSaveModal);
             CancelModalCommand = new DelegateCommand<object>(OnCancelModal);
+            LetterForDecommissioningCommand = new DelegateCommand<object>(OnLetterForDecommissioning);
+            LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
         }
 
         private void CloseSettingsModal(bool save)

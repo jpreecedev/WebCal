@@ -26,6 +26,10 @@
                 document.InspectionDate = DateTime.Now;
             }
 
+            LetterForDecommissioningDocument letterForDecommissioningDocument = document as LetterForDecommissioningDocument;
+            if (letterForDecommissioningDocument != null)
+                return GenerateTachographPlaque(letterForDecommissioningDocument, saveToTempDirectory);
+
             var undownloadabilityDocument = document as UndownloadabilityDocument;
             if (undownloadabilityDocument != null)
             {
@@ -76,6 +80,25 @@
                 using (var pdfDocument = new PDFDocument(result.FileName))
                 {
                     UndownloadabilityCertificate.Create(pdfDocument, document);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool GenerateTachographPlaque(LetterForDecommissioningDocument document, bool saveToTempDirectory)
+        {
+            if (document == null)
+                return false;
+
+            DialogHelperResult result = Save(saveToTempDirectory);
+            if (result.Result == true)
+            {
+                using (PDFDocument pdfDocument = new PDFDocument(result.FileName))
+                {
+                    LetterForDecommissioning.Create(pdfDocument, document);
                 }
 
                 return true;

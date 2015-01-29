@@ -143,6 +143,7 @@
     <Compile Include="Models\GenerateReport.cs" />
     <Compile Include="Models\InspectionEquipment.cs" />
     <Compile Include="Models\InspectionMethod.cs" />
+    <Compile Include="Models\LetterForDecommissioningDocument.cs" />
     <Compile Include="Models\MailSettings.cs" />
     <Compile Include="Models\MiscellaneousSettings.cs" />
     <Compile Include="Models\Technician.cs" />

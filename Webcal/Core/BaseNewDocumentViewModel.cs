@@ -86,7 +86,10 @@
 
         public override void OnClosing(bool cancelled)
         {
-            DriverCardReader.Dispose();
+            if (DriverCardReader != null)
+            {
+                DriverCardReader.Dispose();                
+            }
         }
 
         private void OnExportPDF(Grid root)
@@ -176,6 +179,12 @@
             if (viewModel != null)
             {
                 return viewModel.Document;
+            }
+
+            LetterForDecommissioningViewModel letterForDecommissioningViewModel = sender as LetterForDecommissioningViewModel;
+            if (letterForDecommissioningViewModel != null)
+            {
+                return letterForDecommissioningViewModel.Document;
             }
 
             return ((NewUndownloadabilityViewModel) sender).Document;

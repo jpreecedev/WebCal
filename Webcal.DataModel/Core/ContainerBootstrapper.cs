@@ -1,7 +1,6 @@
 ﻿namespace Webcal.DataModel.Core
 {
     using System;
-    using System.Windows;
     using Properties;
     using Repositories;
     using Shared;
@@ -48,6 +47,7 @@
                 For<IRepository<Technician>>().Use<TechnicianRepository>();
 
                 For<IRepository<UndownloadabilityDocument>>().Use<Repository<UndownloadabilityDocument>>();
+                For<IRepository<LetterForDecommissioningDocument>>().Use<Repository<LetterForDecommissioningDocument>>();
                 For<IRepository<CustomerContact>>().Use<Repository<CustomerContact>>();
                 For<IRepository<TachographFile>>().Use<Repository<TachographFile>>();
                 For<IRepository<DriverCardFile>>().Use<Repository<DriverCardFile>>();

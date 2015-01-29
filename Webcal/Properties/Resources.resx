@@ -2101,4 +2101,103 @@ date
   <data name="TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING" xml:space="preserve">
     <value>Include workshop logo when printing?</value>
   </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_TITLE" xml:space="preserve">
+    <value>Letter For Decommissioning</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING" xml:space="preserve">
+    <value>Letter For Decommissioning</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA" xml:space="preserve">
+    <value>Vehicle Data</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration Number</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_DATA" xml:space="preserve">
+    <value>Tachograph Data</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MAKE" xml:space="preserve">
+    <value>Tachograph Make</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_SERIAL_NUMBER" xml:space="preserve">
+    <value>Serial Number</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_INSPECTION_DATA" xml:space="preserve">
+    <value>Inspection data</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_INSPECTION_DATE" xml:space="preserve">
+    <value>Inspection date</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_CUSTOMER_DATA" xml:space="preserve">
+    <value>Customer data</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_EXPORT_PDF" xml:space="preserve">
+    <value>Export PDF</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_PRINT" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="TXT_LETTER_DECOMMISSIONING_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TITLE" xml:space="preserve">
+    <value>Letter For Decommissioning document history</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_ENTER_SEARCH_TERM" xml:space="preserve">
+    <value>Enter search term</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CREATION_DATE" xml:space="preserve">
+    <value>Creation date</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_VEHICLE_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Vehicle registration number</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OFFICE" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CUSTOMER" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OPEN_IN_REPORT_FORM" xml:space="preserve">
+    <value>Open in report form</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_REPRINT_CERTIFICATE" xml:space="preserve">
+    <value>Re-Print Certificate</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY" xml:space="preserve">
+    <value>Letter For Decommissioning</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP" xml:space="preserve">
+    <value>Letter For Decommissioning History</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_LINE_1" xml:space="preserve">
+    <value>The digital tachograph unit [{0} - {1}] [{2}] that was installed into vehicle registration number [{3}] is not functioning in accordance with the requirements of Annex 1B.</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_LINE_2" xml:space="preserve">
+    <value>The unit has been removed from the above vehicle and a download of all data since the last download has been carried out and is now being stored by us at the centre in accordance with Requirement 260 of the Annex 1B and section 10.7 of the VOSA Approved Tachograph Centre Manual (ATCM).</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_LINE_3" xml:space="preserve">
+    <value>To obtain the information from the centre named below, please apply in writing to the centre, specifying company card details used in the unit, provide any required passwords to be used to secure the data during delivery and the required method of delivery, i.e. CD or secure email.</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING_LINE_4" xml:space="preserve">
+    <value>The above information will be stored securely by the centre for 365 days from date of this letter, after that date the data will be destroyed in accordance with the DVSA ATCM.</value>
+  </data>
+  <data name="TXT_REGARDS" xml:space="preserve">
+    <value>Regards</value>
+  </data>
+  <data name="TXT_SIGNATURE" xml:space="preserve">
+    <value>Signature</value>
+  </data>
 </root>

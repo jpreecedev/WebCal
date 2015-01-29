@@ -180,6 +180,16 @@
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT}" />
                         </r:Button.ToolTip>
                     </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}"
+                              Icon="..\..\Images\LetterForDecommissioningSmall.png"
+                              LargeIcon="..\..\Images\LetterForDecommissioningSmall.png"
+                              Command="{Binding LetterForDecommissioningCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}"
+                                         Image="..\..\Images\LetterForDecommissioningSmall.png"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
 
@@ -218,6 +228,16 @@
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY}"
                                          Image="..\..\Images\OldUndownloadDocSm.png"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY}"
+                              Icon="..\..\Images\LetterForDecommissioningHistorySmall.png"
+                              LargeIcon="..\..\Images\LetterForDecommissioningHistorySmall.png"
+                              Command="{Binding LetterForDecommissioningHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY}"
+                                         Image="..\..\Images\LetterForDecommissioningHistorySmall.png"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
