@@ -43,7 +43,8 @@
                         Command="{Binding AddTyreSizeCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
                 <Button Content="{x:Static Properties:Resources.TXT_TYRE_SIZES_REMOVE}"
-                        Command="{Binding RemoveTyreSizeCommand}" />
+                        Command="{Binding RemoveTyreSizeCommand}"
+                        Visibility="{Binding LoggedInAsSuperUser, Mode=OneWay}" />
             </StackPanel>
 
         </Grid>

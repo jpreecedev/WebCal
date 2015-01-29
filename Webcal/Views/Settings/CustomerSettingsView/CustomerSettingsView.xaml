@@ -43,7 +43,8 @@
                     Grid.Row="1"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center"
-                    Command="{Binding RemoveCommand}" />
+                    Command="{Binding RemoveCommand}"
+                    Visibility="{Binding LoggedInAsSuperUser, Mode=OneWay}" />
 
             <StackPanel Orientation="Vertical"
                         Grid.Column="2">

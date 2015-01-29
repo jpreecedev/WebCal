@@ -49,7 +49,8 @@
                         Command="{Binding AddMakeCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
                 <Button Content="{x:Static Properties:Resources.TXT_TACHO_MAKES_MODELS_REMOVE}"
-                        Command="{Binding RemoveMakeCommand}" />
+                        Command="{Binding RemoveMakeCommand}"
+                        Visibility="{Binding LoggedInAsSuperUser, Mode=OneWay}" />
             </StackPanel>
 
             <TextBlock Text="{x:Static Properties:Resources.TXT_TACHO_MAKES_MODELS_MODEL}"
@@ -71,7 +72,8 @@
                         Command="{Binding AddModelCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
                 <Button Content="{x:Static Properties:Resources.TXT_TACHO_MAKES_MODELS_REMOVE}"
-                        Command="{Binding RemoveModelCommand}" />
+                        Command="{Binding RemoveModelCommand}"
+                        Visibility="{Binding LoggedInAsSuperUser, Mode=OneWay}" />
             </StackPanel>
 
         </Grid>
