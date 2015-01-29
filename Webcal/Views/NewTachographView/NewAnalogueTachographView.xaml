@@ -68,6 +68,7 @@
                                        ItemsSource="{core:InputBinding DocumentTypes}"
                                        SelectedItem="{core:InputBinding Document.DocumentType}"
                                        Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_DOCUMENT_TYPE}"
+                                       ValidateOnLoad="True"
                                        Grid.Row="2" />
 
                 <ctrls:InputTextField IsMandatory="False"

@@ -69,6 +69,11 @@
             base.OnApplyTemplate();
 
             _combo = GetTemplateChild("Combo") as ComboBox;
+
+            if (ValidateOnLoad)
+            {
+                IsValid();
+            }
         }
 
         public override bool IsValid()

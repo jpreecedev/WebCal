@@ -71,6 +71,7 @@
                                        ItemsSource="{Binding DocumentTypes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        SelectedItem="{Binding Document.DocumentType, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DOCUMENT_TYPE}"
+                                       ValidateOnLoad="true"
                                        Grid.Row="2" />
 
                 <ctrls:InputTextField IsMandatory="False"
