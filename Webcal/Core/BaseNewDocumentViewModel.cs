@@ -104,7 +104,12 @@
                 {
                     if (!IsHistoryMode)
                     {
-                        EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, PDFHelper.LastPDFOutputPath);
+                        try
+                        {
+                            EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, PDFHelper.LastPDFOutputPath);
+                        }
+                        catch{}
+
                         Add();
                     }
 
