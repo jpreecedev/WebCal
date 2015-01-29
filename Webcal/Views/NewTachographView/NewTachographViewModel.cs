@@ -218,7 +218,7 @@
                         }
                     }
 
-                    PrintLabel(Document);
+                    PrintLabel(Document, false);
 
                     StatusText = Resources.TXT_GENERATING_WORKSHOP_CARD_FILE;
                     DriverCardReader.GenerateDump();
@@ -311,7 +311,7 @@
                 return;
             }
 
-            PrintLabel(Document);
+            PrintLabel(Document, true);
         }
 
         private void SwitchReadButtonState(bool isEnabled)
@@ -377,8 +377,20 @@
             return null;
         }
 
-        private static void PrintLabel(TachographDocument document)
+        private static void PrintLabel(TachographDocument document, bool userInitiated)
         {
+            if (document == null)
+                throw new ArgumentNullException("document");
+
+            if (string.IsNullOrEmpty(document.DocumentType))
+            {
+                if (userInitiated)
+                {
+                    MessageBoxHelper.ShowError(Resources.TXT_ERR_MUST_SELECT_DOCUMENT_TYPE);
+                }
+                return;
+            }
+
             if (document.CalibrationTime == null)
             {
                 document.CalibrationTime = DateTime.Now;

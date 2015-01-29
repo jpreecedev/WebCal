@@ -1450,6 +1450,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot print label because you must select a document type first..
+        /// </summary>
+        public static string TXT_ERR_MUST_SELECT_DOCUMENT_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_ERR_MUST_SELECT_DOCUMENT_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a user from the right hand menu to remove..
         /// </summary>
         public static string TXT_ERR_SELECT_USER_TO_REMOVE {

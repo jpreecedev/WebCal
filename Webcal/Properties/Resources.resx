@@ -2089,4 +2089,7 @@ date
   <data name="TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING" xml:space="preserve">
     <value>Include workshop logo when printing?</value>
   </data>
+  <data name="TXT_ERR_MUST_SELECT_DOCUMENT_TYPE" xml:space="preserve">
+    <value>Cannot print label because you must select a document type first.</value>
+  </data>
 </root>
