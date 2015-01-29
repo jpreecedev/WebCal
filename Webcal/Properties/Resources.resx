@@ -2098,4 +2098,7 @@ date
   <data name="TXT_TECHNICIANS_HAS_SIGNATURE" xml:space="preserve">
     <value>Has Signature?</value>
   </data>
+  <data name="TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING" xml:space="preserve">
+    <value>Include workshop logo when printing?</value>
+  </data>
 </root>

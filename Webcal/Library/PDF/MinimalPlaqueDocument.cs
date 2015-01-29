@@ -3,8 +3,11 @@ namespace Webcal.Library.PDF
     using System;
     using System.Drawing;
     using DataModel;
+    using DataModel.Core;
+    using DataModel.Library;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
+    using Org.BouncyCastle.Utilities.Collections;
     using Properties;
     using Shared;
     using Image = System.Drawing.Image;
@@ -264,7 +267,8 @@ namespace Webcal.Library.PDF
                 document.DrawLine((startHorizontal), (startVertical + 630), (startHorizontal + 555), (startVertical + 630), TotalPageHeight);
             }
 
-            if (WorkshopSettings.Image != null)
+            var miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+            if (WorkshopSettings.Image != null && !miscellaneousSettings.ExcludeLogosWhenPrinting)
             {
                 var image = ImageHelper.Scale(WorkshopSettings.Image, 150);
                 document.AddImage(image.ToByteArray(), image.Width, image.Height, (startHorizontal + 5), startVertical + 660);

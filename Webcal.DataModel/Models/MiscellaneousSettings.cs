@@ -8,6 +8,6 @@
 
         public string DefaultAnalogueDocumentType { get; set; }
 
-        //public bool ExcludeLogosWhenPrinting { get; set; }
+        public bool ExcludeLogosWhenPrinting { get; set; }
     }
 }
