@@ -124,6 +124,13 @@
                     .OrderByDescending(doc => doc.Created)
                     .FirstOrDefault();
 
+                if (match == null && registrationNumber.Length > 8)
+                {
+                    match = allDocuments.Where(doc => string.Equals(doc.VIN, registrationNumber, StringComparison.CurrentCultureIgnoreCase))
+                                        .OrderByDescending(doc => doc.Created)
+                                        .FirstOrDefault();
+                }
+
                 if (match == null)
                 {
                     return;
@@ -187,12 +194,26 @@
 
                     if (RegistrationChangedCommand != null)
                     {
-                        RegistrationChangedCommand.Execute(e.CalibrationRecord.VehicleRegistrationNumber);
+                        RegistrationChangedCommand.Execute(GetRegistrationToQuery(e.CalibrationRecord));
                     }
 
                     MainWindow.IsNavigationLocked = true;
 
                     Document.Convert(e.CalibrationRecord);
+
+                    if (!Technicians.IsNullOrEmpty() && !string.IsNullOrEmpty(e.CalibrationRecord.CardSerialNumber))
+                    {
+                        foreach (var technician in Technicians)
+                        {
+                            if (technician != null && !string.IsNullOrEmpty(technician.Number))
+                            {
+                                if (string.Equals(technician.Number, e.CalibrationRecord.CardSerialNumber))
+                                {
+                                    Document.Technician = technician.Name;
+                                }
+                            }
+                        }
+                    }
 
                     PrintLabel(Document);
 
@@ -231,6 +252,21 @@
         protected override bool IncludeDeletedContacts
         {
             get { return IsHistoryMode; }
+        }
+
+        private string GetRegistrationToQuery(CalibrationRecord calibrationRecord)
+        {
+            if (calibrationRecord == null)
+            {
+                return string.Empty;
+            }
+
+            if (string.IsNullOrEmpty(calibrationRecord.VehicleRegistrationNumber)) //Fall back to VIN
+            {
+                return calibrationRecord.VehicleIdentificationNumber;
+            }
+
+            return calibrationRecord.VehicleRegistrationNumber;
         }
 
         private void OnReadFromCard(object obj)
