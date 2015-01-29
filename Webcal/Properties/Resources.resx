@@ -2074,4 +2074,19 @@ date
   <data name="TXT_ENTER_TECHNICIAN_NUMBER" xml:space="preserve">
     <value>Enter the technician number</value>
   </data>
+  <data name="TXT_MISCELLANEOUS_SETTINGS_TITLE" xml:space="preserve">
+    <value>Miscellaneous Settings</value>
+  </data>
+  <data name="TXT_DIGITAL_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE" xml:space="preserve">
+    <value>Digital Tachograph Default Document Type:</value>
+  </data>
+  <data name="TXT_ANALOGUE_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE" xml:space="preserve">
+    <value>Analogue Tachograph Default Document Type:</value>
+  </data>
+  <data name="TXT_MISCELLANEOUS_SETTINGS" xml:space="preserve">
+    <value>Miscellaneous settings</value>
+  </data>
+  <data name="TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING" xml:space="preserve">
+    <value>Include workshop logo when printing?</value>
+  </data>
 </root>

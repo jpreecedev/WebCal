@@ -116,5 +116,10 @@ namespace Webcal.DataModel.Library
         {
             return repository.Get(w => !string.IsNullOrEmpty(w.SelectedTheme));            
         }
+
+        public static MiscellaneousSettings GetMiscellaneousSettings(this ISettingsRepository<MiscellaneousSettings> repository)
+        {
+            return repository.Get(w => w.IsDeleted == false);
+        }
     }
 }

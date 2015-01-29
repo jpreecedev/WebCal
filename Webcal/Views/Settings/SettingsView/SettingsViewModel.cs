@@ -21,7 +21,7 @@
                 return;
             }
 
-            ShowSettingsView(typeof (GeneralSettingsView));
+            ShowSettingsView(typeof(GeneralSettingsView));
             BuildTreeView();
         }
 
@@ -82,7 +82,8 @@
                     ItemsSource = new List<TreeViewItem>
                     {
                         new TreeViewItem {Header = Resources.TXT_WORKSHOP_SETTINGS, DataContext = typeof (WorkshopSettingsView)},
-                        new TreeViewItem {Header = Resources.TXT_REGISTRATION_SETTINGS, DataContext = typeof (RegistrationSettingsView)}
+                        new TreeViewItem {Header = Resources.TXT_REGISTRATION_SETTINGS, DataContext = typeof (RegistrationSettingsView)},
+                        new TreeViewItem {Header = Resources.TXT_MISCELLANEOUS_SETTINGS, DataContext = typeof (MiscellaneousSettingsView)}
                     }
                 },
                 new TreeViewItem {Header = Resources.TXT_CUSTOMER_SETTINGS, DataContext = typeof (CustomerSettingsView)},

@@ -512,6 +512,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analogue Tachograph Default Document Type:.
+        /// </summary>
+        public static string TXT_ANALOGUE_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_ANALOGUE_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Analogue Tachograph Document.
         /// </summary>
         public static string TXT_ANALOGUE_TACHOGRAPH_DOCUMENT {
@@ -1140,6 +1149,15 @@ namespace Webcal.Properties {
         public static string TXT_DIGITAL_INSPECTIONS {
             get {
                 return ResourceManager.GetString("TXT_DIGITAL_INSPECTIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Digital Tachograph Default Document Type:.
+        /// </summary>
+        public static string TXT_DIGITAL_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_DIGITAL_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE", resourceCulture);
             }
         }
         
@@ -2787,6 +2805,33 @@ namespace Webcal.Properties {
         public static string TXT_MINOR_WORK_DETAILS_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_MINOR_WORK_DETAILS_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include workshop logo when printing?.
+        /// </summary>
+        public static string TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING {
+            get {
+                return ResourceManager.GetString("TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miscellaneous settings.
+        /// </summary>
+        public static string TXT_MISCELLANEOUS_SETTINGS {
+            get {
+                return ResourceManager.GetString("TXT_MISCELLANEOUS_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miscellaneous Settings.
+        /// </summary>
+        public static string TXT_MISCELLANEOUS_SETTINGS_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_MISCELLANEOUS_SETTINGS_TITLE", resourceCulture);
             }
         }
         

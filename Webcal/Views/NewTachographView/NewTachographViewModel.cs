@@ -16,6 +16,7 @@
     using Library;
     using Properties;
     using Shared;
+    using StructureMap;
 
     public class NewTachographViewModel : BaseNewDocumentViewModel
     {
@@ -56,8 +57,10 @@
         {
             Document.IsDigital = isDigital;
 
+            var settings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+
             DocumentTypes = DocumentType.GetDocumentTypes(isDigital);
-            Document.DocumentType = Document.DocumentType ?? DocumentTypes.First();
+            Document.DocumentType = Document.DocumentType ?? DocumentTypes.FirstOrDefault(c => string.Equals(c, isDigital ? settings.DefaultDigitalDocumentType : settings.DefaultAnalogueDocumentType));
         }
 
         protected override void InitialiseCommands()

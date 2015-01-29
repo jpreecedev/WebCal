@@ -29,5 +29,6 @@
         public DbSet<User> Users { get; set; }
         public DbSet<MailSettings> MailSettings { get; set; }
         public DbSet<ThemeSettings> ThemeSettings { get; set; }
+        public DbSet<MiscellaneousSettings> MiscellaneousSettings { get; set; }
     }
 }

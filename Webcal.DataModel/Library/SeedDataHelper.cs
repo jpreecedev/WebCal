@@ -48,6 +48,16 @@
                 }
             }
 
+            var miscellaneousSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>();
+            if (miscellaneousSettingsRepository.GetMiscellaneousSettings() == null)
+            {
+                using (var context = new TachographContext())
+                {
+                    context.MiscellaneousSettings.Add(new MiscellaneousSettings());
+                    context.SaveChanges();
+                }
+            }
+
             return settings;
         }
 

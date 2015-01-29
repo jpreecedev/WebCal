@@ -7,7 +7,10 @@
     {
         public static ObservableCollection<string> GetDocumentTypes(bool isDigital)
         {
-            var documentTypes = new ObservableCollection<string>();
+            var documentTypes = new ObservableCollection<string>
+            {
+                string.Empty
+            };
 
             if (isDigital)
             {
