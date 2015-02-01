@@ -6,6 +6,7 @@
     using System.Linq;
     using Library;
     using Shared;
+    using Shared.Core;
 
     public class SettingsRepository<T> : BaseRepository, ISettingsRepository<T> where T : BaseSettings
     {

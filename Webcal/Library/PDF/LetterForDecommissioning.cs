@@ -10,6 +10,7 @@
     using iTextSharp.text.pdf;
     using Properties;
     using Shared;
+    using Shared.Helpers;
     using StructureMap;
     using Image = System.Drawing.Image;
 

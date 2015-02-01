@@ -11,6 +11,7 @@ namespace Webcal.Library
     using DataModel.Core;
     using DataModel.Library;
     using Shared;
+    using Shared.Helpers;
 
     public static class MigrationHelper
     {

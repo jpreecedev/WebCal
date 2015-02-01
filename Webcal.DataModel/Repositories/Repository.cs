@@ -7,6 +7,7 @@
     using System.Linq.Expressions;
     using Library;
     using Shared;
+    using Shared.Core;
 
     public class Repository<T> : BaseRepository, IRepository<T> where T : BaseModel
     {

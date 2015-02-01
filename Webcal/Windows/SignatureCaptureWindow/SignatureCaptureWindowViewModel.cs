@@ -9,6 +9,8 @@
     using Library;
     using Properties;
     using Shared;
+    using Shared.Core;
+    using Shared.Helpers;
 
     public class SignatureCaptureWindowViewModel : BaseNotification
     {

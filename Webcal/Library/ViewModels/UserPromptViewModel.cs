@@ -2,6 +2,7 @@
 {
     using System.Windows.Input;
     using Shared;
+    using Shared.Core;
 
     public class UserPromptViewModel : BaseNotification
     {

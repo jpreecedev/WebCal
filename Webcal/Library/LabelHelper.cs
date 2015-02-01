@@ -6,6 +6,7 @@
     using DataModel.Core;
     using DataModel.Library;
     using Shared;
+    using Shared.Helpers;
     using Shared.Workers;
 
     public static class LabelHelper

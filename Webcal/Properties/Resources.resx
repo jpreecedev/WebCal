@@ -2098,9 +2098,6 @@ date
   <data name="TXT_TECHNICIANS_HAS_SIGNATURE" xml:space="preserve">
     <value>Has Signature?</value>
   </data>
-  <data name="TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING" xml:space="preserve">
-    <value>Include workshop logo when printing?</value>
-  </data>
   <data name="TXT_LETTER_FOR_DECOMMISSIONING_TITLE" xml:space="preserve">
     <value>Letter For Decommissioning</value>
   </data>
@@ -2199,5 +2196,8 @@ date
   </data>
   <data name="TXT_SIGNATURE" xml:space="preserve">
     <value>Signature</value>
+  </data>
+  <data name="TXT_WEBCAL_CONNECT_KEY" xml:space="preserve">
+    <value>Webcal Connect Key</value>
   </data>
 </root>

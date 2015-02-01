@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared
+﻿namespace Webcal.Shared.Core
 {
     using System;
     using System.Runtime.Serialization;

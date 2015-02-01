@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations.Schema;
     using Shared;
+    using Shared.Core;
 
     [Table("PrinterSettings")]
     public class PrinterSettings : BaseSettings

@@ -10,6 +10,7 @@ using Webcal.Shared;
 namespace Webcal.Views
 {
     using DataModel.Core;
+    using Shared.Helpers;
 
     public class LetterForDecommissioningHistoryViewModel : BaseHistoryViewModel
     {

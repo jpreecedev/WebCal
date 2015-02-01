@@ -1,6 +1,7 @@
 ﻿namespace Webcal.Shared
 {
     using System;
+    using Core;
 
     public interface ISettingsRepository<T> where T : BaseSettings
     {

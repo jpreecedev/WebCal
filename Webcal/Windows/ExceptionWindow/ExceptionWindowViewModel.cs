@@ -9,6 +9,8 @@
     using Library;
     using Properties;
     using Shared;
+    using Shared.Helpers;
+    using Shared.Models;
 
     public class ExceptionWindowViewModel : BaseModalWindowViewModel
     {

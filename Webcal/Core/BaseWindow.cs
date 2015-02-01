@@ -7,6 +7,7 @@
     using Windows;
     using Fluent;
     using Library;
+    using Shared.Helpers;
     using Views;
 
     public class BaseWindow : RibbonWindow

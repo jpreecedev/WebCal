@@ -13,6 +13,7 @@
     using iTextSharp.text.pdf;
     using Properties;
     using Shared;
+    using Shared.Helpers;
     using Image = System.Drawing.Image;
 
     public class BasePlaqueDocument : IPlaque

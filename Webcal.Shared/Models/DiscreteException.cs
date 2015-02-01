@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared
+﻿namespace Webcal.Shared.Models
 {
     using System;
 

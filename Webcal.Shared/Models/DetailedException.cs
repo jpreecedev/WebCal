@@ -1,8 +1,9 @@
-﻿namespace Webcal.Shared
+﻿namespace Webcal.Shared.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
+    using Core;
 
     [DataContract, Serializable]
     public class DetailedException : BaseModel

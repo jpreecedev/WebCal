@@ -29,8 +29,7 @@
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_REGISTRATION_SETTINGS_SEAL_NUMBER}"
                                   Text="{core:InputBinding Settings.SealNumber}" />
 
-            <ContentPresenter Content="{Binding TextField}"
-                              Grid.Row="2" />
+            <ContentPresenter Content="{Binding TextField}" />
 
             <Grid Margin="0,0,0,5"
                   Visibility="{Binding ExpirationDateTime,  Converter={StaticResource DateTime2Vis}}">
@@ -45,6 +44,9 @@
                            Grid.Column="1" />
 
             </Grid>
+
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WEBCAL_CONNECT_KEY}"
+                                  Text="{core:InputBinding Settings.WebcalConnectKey}" />
 
         </StackPanel>
     </Grid>

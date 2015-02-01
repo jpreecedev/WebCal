@@ -2,6 +2,7 @@
 {
     using System.Windows;
     using Shared;
+    using Shared.Core;
 
     public class BaseModalWindowViewModel : BaseNotification
     {

@@ -4,9 +4,10 @@
     using Properties;
     using Repositories;
     using Shared;
+    using Shared.Helpers;
+    using Shared.Models;
     using StructureMap;
     using StructureMap.Configuration.DSL;
-    using Webcal.Library;
 
     public static class ContainerBootstrapper
     {

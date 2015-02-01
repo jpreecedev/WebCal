@@ -2,6 +2,7 @@
 {
     using System.Data.Entity;
     using Shared;
+    using Shared.Models;
 
     public class TachographContext : DbContext
     {

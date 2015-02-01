@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Reflection;
     using System.Windows;
@@ -174,6 +175,19 @@
             }
 
             return -1;
+        }
+
+        public static void EmptyFolder(this DirectoryInfo directoryInfo)
+        {
+            foreach (FileInfo file in directoryInfo.GetFiles())
+            {
+                file.Delete();
+            }
+
+            foreach (DirectoryInfo subfolder in directoryInfo.GetDirectories())
+            {
+                EmptyFolder(subfolder);
+            }
         }
     }
 }

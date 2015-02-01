@@ -1,6 +1,7 @@
 ﻿namespace Webcal.DataModel
 {
     using Shared;
+    using Shared.Core;
 
     public abstract class Make : BaseModel
     {

@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using Shared;
+    using Shared.Core;
 
     public class MailSettings : BaseSettings
     {

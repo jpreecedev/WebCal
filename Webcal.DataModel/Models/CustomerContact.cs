@@ -2,6 +2,7 @@
 {
     using System;
     using Shared;
+    using Shared.Core;
 
     public class CustomerContact : BaseModel, IEquatable<CustomerContact>
     {

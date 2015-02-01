@@ -7,6 +7,7 @@
     using System.Windows.Resources;
     using Properties;
     using Shared;
+    using Shared.Helpers;
 
     public static class DocumentHelper
     {

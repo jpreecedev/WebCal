@@ -14,6 +14,7 @@
     using DataModel.Migrations;
     using Library;
     using Shared;
+    using Shared.Helpers;
 
     public partial class App
     {

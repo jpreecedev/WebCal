@@ -5,7 +5,7 @@
     using Core;
     using Properties;
     using Shared;
-    using Webcal.Library;
+    using Shared.Helpers;
 
     public class BaseRepository
     {

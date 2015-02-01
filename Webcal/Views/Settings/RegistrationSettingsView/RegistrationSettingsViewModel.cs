@@ -9,6 +9,7 @@
     using DataModel.Core;
     using Properties;
     using Shared;
+    using Shared.Helpers;
 
     public class RegistrationSettingsViewModel : BaseSettingsViewModel
     {

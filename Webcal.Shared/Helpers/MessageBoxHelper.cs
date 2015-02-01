@@ -1,4 +1,4 @@
-﻿namespace Webcal.Library
+﻿namespace Webcal.Shared.Helpers
 {
     using System.Windows;
     using Shared.Properties;

@@ -10,6 +10,7 @@
     using System.Linq;
     using Properties;
     using Shared;
+    using Shared.Helpers;
     using Shared.Workers;
 
     public class LabelPrintQueueWorker : BaseWorker

@@ -1,4 +1,4 @@
-namespace Webcal.Shared
+namespace Webcal.Shared.Helpers
 {
     using System;
     using System.Drawing;

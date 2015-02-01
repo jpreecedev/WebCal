@@ -3,6 +3,7 @@
     using System;
     using System.Globalization;
     using NUnit.Framework;
+    using Shared.Helpers;
     using Webcal.Shared;
 
     [TestFixture]

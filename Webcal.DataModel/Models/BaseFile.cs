@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.IO;
     using Shared;
+    using Shared.Core;
 
     public class BaseFile : BaseModel
     {

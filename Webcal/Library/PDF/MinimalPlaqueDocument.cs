@@ -10,6 +10,7 @@ namespace Webcal.Library.PDF
     using Org.BouncyCastle.Utilities.Collections;
     using Properties;
     using Shared;
+    using Shared.Helpers;
     using Image = System.Drawing.Image;
 
     public class MinimalPlaqueDocument : BasePlaqueDocument

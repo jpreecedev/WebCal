@@ -9,6 +9,7 @@
     using Core;
     using Properties;
     using Shared;
+    using Shared.Core;
 
     public class Technician : BaseModel, IUserSignatureCapture
     {

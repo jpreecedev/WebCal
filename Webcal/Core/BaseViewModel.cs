@@ -10,6 +10,8 @@
     using Library;
     using Library.ViewModels;
     using Shared;
+    using Shared.Core;
+    using Shared.Helpers;
     using Views;
 
     public class BaseViewModel : BaseNotification, IViewModel

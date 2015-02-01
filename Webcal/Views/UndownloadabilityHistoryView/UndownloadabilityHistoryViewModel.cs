@@ -9,6 +9,7 @@
     using Library;
     using Library.PDF;
     using Shared;
+    using Shared.Helpers;
 
     public class UndownloadabilityHistoryViewModel : BaseHistoryViewModel
     {

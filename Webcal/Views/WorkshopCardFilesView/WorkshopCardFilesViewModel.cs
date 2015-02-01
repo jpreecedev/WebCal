@@ -14,6 +14,7 @@
     using Library;
     using Properties;
     using Shared;
+    using Shared.Helpers;
 
     public class WorkshopCardFilesViewModel : BaseFilesViewModel
     {
