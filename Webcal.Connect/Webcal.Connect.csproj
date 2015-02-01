@@ -61,7 +61,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +77,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseConnectClient.cs" />
+    <Compile Include="ConnectClient.cs" />
+    <Compile Include="ConnectClientCredentials.cs" />
+    <Compile Include="ConnectClientCredentialsSecurityTokenManager.cs" />
+    <Compile Include="ConnectKeys.cs" />
+    <Compile Include="ConnectSecurityTokenSerializer.cs" />
+    <Compile Include="ConnectToken.cs" />
+    <Compile Include="ConnectTokenParameters.cs" />
+    <Compile Include="ConnectTokenProvider.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

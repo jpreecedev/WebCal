@@ -6,9 +6,8 @@
     using System.Linq;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Threading;
-    using Windows.WorkerProgressWindow;
     using Properties;
+    using Shared;
     using Shared.Workers;
     using ViewModels;
 
@@ -26,7 +25,7 @@
         {
             var task = new Task(() =>
             {
-                var plugin = Find(workerTask.TaskName);
+                Plugin plugin = Find(workerTask.TaskName);
                 if (plugin == null)
                 {
                     throw new InvalidOperationException(string.Format(Resources.EXEC_UNABLE_TO_FIND_PLUGIN, workerTask.TaskName));
@@ -52,7 +51,7 @@
         {
             _workerTasks = workerTasks;
         }
-        
+
         private static void OnProgressChanged(object sender, WorkerChangedEventArgs e)
         {
             if (_workerTasks == null)
@@ -60,9 +59,9 @@
                 return;
             }
 
-            Application.Current.Dispatcher.Invoke(new Action(() =>
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                var workerTask = _workerTasks.FirstOrDefault(c => c.WorkerId == e.WorkerId);
+                WorkerViewModel workerTask = _workerTasks.FirstOrDefault(c => c.WorkerId == e.WorkerId);
                 if (workerTask != null)
                 {
                     workerTask.Message = e.Message;
@@ -77,14 +76,14 @@
 
                     _workerTasks.Add(workerViewModel);
                 }
-            }));
+            });
         }
 
         private static void OnCompleted(object sender, WorkerChangedEventArgs e)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() =>
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                var worker = _workers.FirstOrDefault(w => w.Id == e.WorkerId);
+                IPipe worker = _workers.FirstOrDefault(w => w.Id == e.WorkerId);
 
                 if (worker != null)
                 {
@@ -93,14 +92,14 @@
 
                     if (_workerTasks != null && _workerTasks.Count > 0)
                     {
-                        var workerTask = _workerTasks.FirstOrDefault(task => task.WorkerId == worker.Id);
+                        WorkerViewModel workerTask = _workerTasks.FirstOrDefault(task => task.WorkerId == worker.Id);
                         if (workerTask != null)
                         {
                             _workerTasks.Remove(workerTask);
                         }
                     }
                 }
-            }));
+            });
         }
 
         private static Plugin Find(WorkerTaskName name)

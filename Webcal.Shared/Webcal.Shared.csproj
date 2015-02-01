@@ -92,6 +92,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.XML" />
@@ -122,6 +123,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connect\ConnectBindingHelper.cs" />
+    <Compile Include="Connect\ConnectElement.cs" />
+    <Compile Include="Connect\FailureOperationResult.cs" />
+    <Compile Include="Connect\IConnectBindingHelper.cs" />
+    <Compile Include="Connect\IConnectClient.cs" />
+    <Compile Include="Connect\IConnectOperationResult.cs" />
+    <Compile Include="Connect\IConnectService.cs" />
+    <Compile Include="Connect\IConnectClientCredentials.cs" />
+    <Compile Include="Connect\IConnectKeys.cs" />
+    <Compile Include="Connect\ConnectElementCollection.cs" />
+    <Compile Include="Connect\SuccessOperationResult.cs" />
     <Compile Include="Core\BaseModel.cs" />
     <Compile Include="Core\BaseNotification.cs" />
     <Compile Include="Core\BaseSettings.cs" />
