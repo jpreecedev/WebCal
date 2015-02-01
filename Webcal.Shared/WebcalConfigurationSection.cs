@@ -16,7 +16,7 @@
         }
 
         [ConfigurationProperty("Connect")]
-        [ConfigurationCollection(typeof(PluginsElementCollection), AddItemName = "Connect")]
+        [ConfigurationCollection(typeof(ConnectElementCollection), AddItemName = "Connect")]
         public ConnectElementCollection ConnectCollection
         {
             get { return (ConnectElementCollection)base["Connect"]; }
@@ -25,6 +25,16 @@
         public static WebcalConfigurationSection Instance
         {
             get { return _instance; }
+        }
+
+        public string GetConnectUrl()
+        {
+            foreach (ConnectElement element in Instance.ConnectCollection)
+            {
+                return element.Address;
+            }
+
+            return string.Empty;
         }
     }
 }

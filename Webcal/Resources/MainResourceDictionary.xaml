@@ -465,6 +465,7 @@
                                        VerticalAlignment="Center"
                                        TextWrapping="Wrap"
                                        Margin="0,0,5,0" />
+
                         </Border>
 
                         <Border x:Name="Border"
@@ -475,10 +476,17 @@
                                 BorderThickness="1"
                                 Grid.Column="1"
                                 Height="25">
-                            <ScrollViewer x:Name="PART_ContentHost"
-                                          Margin="0"
-                                          MinWidth="120"
-                                          Height="25" />
+                            <StackPanel Orientation="Horizontal">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                              Margin="0"
+                                              MinWidth="120"
+                                              Height="25" />
+                                <Button x:Name="CommandButton"
+                                        Content="{TemplateBinding CommandLabel}"
+                                        Command="{TemplateBinding Command}"
+                                        Visibility="Hidden"
+                                        Margin="10,0,0,10"/>
+                            </StackPanel>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -527,6 +535,12 @@
                                     Property="Foreground"
                                     Value="{StaticResource DisabledForegroundBrush}" />
                         </Trigger>
+                        <DataTrigger Binding="{Binding CommandLabel, RelativeSource={RelativeSource Self}, Converter={StaticResource Null2Bool}}"
+                                     Value="false">
+                            <Setter TargetName="CommandButton"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

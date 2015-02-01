@@ -3,12 +3,15 @@
     using System;
     using System.Linq;
     using System.Windows.Controls;
+    using Connect;
+    using Connect.Shared;
     using Controls;
     using Core;
     using DataModel;
     using DataModel.Core;
     using Properties;
     using Shared;
+    using Shared.Connect;
     using Shared.Helpers;
 
     public class RegistrationSettingsViewModel : BaseSettingsViewModel
@@ -24,6 +27,8 @@
         }
 
         public IRepository<RegistrationData> Repository { get; set; }
+
+        public DelegateCommand<object> ConnectCommand { get; set; }
 
         public RegistrationData Settings
         {
@@ -54,6 +59,11 @@
         protected override void InitialiseRepositories()
         {
             Repository = ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>();
+        }
+
+        protected override void InitialiseCommands()
+        {
+            ConnectCommand = new DelegateCommand<object>(OnConnect);
         }
 
         protected override void Load()
@@ -91,6 +101,16 @@
             TextField.Valid = true;
             TextField.IsHighlighted = true;
             Settings.LicenseKey = Serial;
+        }
+
+        private void OnConnect(object obj)
+        {
+            var url = WebcalConfigurationSection.Instance.GetConnectUrl();
+
+            IConnectClient connectClient = new ConnectClient();
+            IConnectOperationResult result = connectClient.Open(new ConnectKeys(url, (int) Settings.ExpirationDate.GetValueOrDefault().Ticks, "Skillray", "JP"));
+            var a = connectClient.Service.Echo();
+            ShowMessage(a, "Webcal Connect");
         }
     }
 }

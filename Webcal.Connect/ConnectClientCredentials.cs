@@ -3,7 +3,7 @@
     using System;
     using System.IdentityModel.Selectors;
     using System.ServiceModel.Description;
-    using Shared.Connect;
+    using Shared;
 
     public class ConnectClientCredentials : ClientCredentials
     {

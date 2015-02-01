@@ -4,6 +4,7 @@
     using System.IdentityModel.Tokens;
     using System.ServiceModel;
     using System.ServiceModel.Security.Tokens;
+    using Shared;
 
     public class ConnectClientCredentialsSecurityTokenManager : ClientCredentialsSecurityTokenManager
     {
@@ -17,7 +18,7 @@
 
         public override SecurityTokenProvider CreateSecurityTokenProvider(SecurityTokenRequirement tokenRequirement)
         {
-            if (tokenRequirement.TokenType == Constants.ConnectTokenType)
+            if (tokenRequirement.TokenType == ConnectConstants.ConnectTokenType)
             {
                 // Handle this token for Custom.
                 return new ConnectTokenProvider(_credentials.ConnectKeys);

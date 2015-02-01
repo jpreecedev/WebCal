@@ -46,7 +46,9 @@
             </Grid>
 
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WEBCAL_CONNECT_KEY}"
-                                  Text="{core:InputBinding Settings.WebcalConnectKey}" />
+                                  Text="{core:InputBinding Settings.WebcalConnectKey}"
+                                  Command="{Binding ConnectCommand}"
+                                  CommandLabel="Verify"/>
 
         </StackPanel>
     </Grid>

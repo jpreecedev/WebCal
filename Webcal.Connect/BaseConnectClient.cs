@@ -2,7 +2,7 @@
 {
     using System;
     using System.ServiceModel;
-    using Shared.Connect;
+    using Webcal.Shared.Connect;
 
     public class BaseConnectClient
     {

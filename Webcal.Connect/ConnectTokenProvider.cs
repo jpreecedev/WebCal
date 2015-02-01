@@ -3,7 +3,8 @@
     using System;
     using System.IdentityModel.Selectors;
     using System.IdentityModel.Tokens;
-    using Shared.Connect;
+    using Shared;
+    using Webcal.Shared.Connect;
 
     public class ConnectTokenProvider : SecurityTokenProvider
     {

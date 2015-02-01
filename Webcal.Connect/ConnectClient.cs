@@ -5,12 +5,12 @@
     using System.ServiceModel;
     using System.ServiceModel.Channels;
     using System.ServiceModel.Description;
-    using Shared.Connect;
+    using Shared;
+    using Webcal.Shared.Connect;
 
     public class ConnectClient : BaseConnectClient, IConnectClient
     {
         private ChannelFactory<IConnectService> _channelFactory;
-        private IConnectService _client;
 
         public IConnectOperationResult Open(IConnectKeys connectKeys)
         {
@@ -27,9 +27,11 @@
                 _channelFactory.Endpoint.Behaviors.Remove(typeof (ClientCredentials));
                 _channelFactory.Endpoint.Behaviors.Add(credentials);
 
-                _client = _channelFactory.CreateChannel();
+                Service = _channelFactory.CreateChannel();
             });
         }
+
+        public IConnectService Service { get; set; }
 
         public override void ForceClose()
         {
@@ -41,9 +43,6 @@
         {
             if (_channelFactory != null)
                 _channelFactory.Close();
-
-            if (_client != null)
-                _client.Close();
         }
 
         public void Dispose()
