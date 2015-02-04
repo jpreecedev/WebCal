@@ -1,13 +1,16 @@
 ﻿namespace Webcal.DataModel.Core
 {
     using System;
+    using Connect;
     using Properties;
     using Repositories;
     using Shared;
+    using Shared.Connect;
     using Shared.Helpers;
     using Shared.Models;
     using StructureMap;
     using StructureMap.Configuration.DSL;
+    using StructureMap.Pipeline;
 
     public static class ContainerBootstrapper
     {
@@ -65,6 +68,8 @@
                 For<ISettingsRepository<MailSettings>>().Use<SettingsRepository<MailSettings>>();
                 For<ISettingsRepository<ThemeSettings>>().Use<SettingsRepository<ThemeSettings>>();
                 For<ISettingsRepository<MiscellaneousSettings>>().Use<SettingsRepository<MiscellaneousSettings>>();
+
+                For<IConnectClient>().Use<ConnectClient>().SetLifecycleTo(new SingletonLifecycle());
             }
         }
     }

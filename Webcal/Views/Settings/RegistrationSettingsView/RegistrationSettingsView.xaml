@@ -29,7 +29,7 @@
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_REGISTRATION_SETTINGS_SEAL_NUMBER}"
                                   Text="{core:InputBinding Settings.SealNumber}" />
 
-            <ContentPresenter Content="{Binding TextField}" />
+            <ContentPresenter Content="{Binding LicenseKeyField}" />
 
             <Grid Margin="0,0,0,5"
                   Visibility="{Binding ExpirationDateTime,  Converter={StaticResource DateTime2Vis}}">
@@ -45,10 +45,7 @@
 
             </Grid>
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WEBCAL_CONNECT_KEY}"
-                                  Text="{core:InputBinding Settings.WebcalConnectKey}"
-                                  Command="{Binding ConnectCommand}"
-                                  CommandLabel="Verify"/>
+            <ContentPresenter Content="{Binding WebcalConnectField}" />
 
         </StackPanel>
     </Grid>

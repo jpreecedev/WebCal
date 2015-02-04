@@ -1,6 +1,9 @@
 ﻿namespace Webcal.Controls
 {
+    using System;
+    using System.Linq.Expressions;
     using System.Windows;
+    using System.Windows.Data;
     using System.Windows.Input;
 
     public class InputTextField : BaseInputTextField
@@ -53,6 +56,27 @@
         {
             Clear();
             Valid = true;
+        }
+
+        public static InputTextField CreateInputTextField<TProperty, TBinding>(string label, Expression<Func<TProperty>> property, object source, ICommand command = null, string commandLabel = null, bool readOnly = false) where TBinding : Binding, new()
+        {
+            var textField = new InputTextField
+            {
+                Label = label,
+                Command = command,
+                CommandLabel = commandLabel,
+                IsReadOnly = readOnly
+            };
+
+            var binding = new TBinding
+            {
+                Source = source,
+                Path = new PropertyPath(((MemberExpression)property.Body).Member.Name)
+            };
+
+            textField.SetBinding(TextProperty, binding);
+
+            return textField;
         }
     }
 }

@@ -6290,5 +6290,24 @@ namespace Webcal.Properties {
                 return ResourceManager.GetString("TXT_WEBCAL_CONNECT_KEY", resourceCulture);
             }
         }
+
+        public static string ERR_SAVING_SETTINGS
+        {
+            get
+            {
+                return ResourceManager.GetString("ERR_SAVING_SETTINGS", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Signature.
+        /// </summary>
+        public static string TXT_VERIFY
+        {
+            get
+            {
+                return ResourceManager.GetString("TXT_VERIFY", resourceCulture);
+            }
+        }
     }
 }

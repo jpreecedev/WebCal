@@ -12,6 +12,11 @@
     {
         private ChannelFactory<IConnectService> _channelFactory;
 
+        public bool IsOpen
+        {
+            get { return Service != null; }
+        }
+
         public IConnectOperationResult Open(IConnectKeys connectKeys)
         {
             return Try(() =>
@@ -28,6 +33,7 @@
                 _channelFactory.Endpoint.Behaviors.Add(credentials);
 
                 Service = _channelFactory.CreateChannel();
+                Service.Echo();
             });
         }
 
@@ -41,7 +47,7 @@
 
         public void Close()
         {
-            if (_channelFactory != null)
+            if(_channelFactory != null)
                 _channelFactory.Close();
         }
 

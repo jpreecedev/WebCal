@@ -457,6 +457,7 @@
                             <ColumnDefinition x:Name="LabelColumn"
                                               Width="145" />
                             <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
                         <Border Height="35">
@@ -474,20 +475,22 @@
                                 Background="{StaticResource WindowBackgroundBrush}"
                                 BorderBrush="{StaticResource SolidBorderBrush}"
                                 BorderThickness="1"
-                                Grid.Column="1"
-                                Height="25">
-                            <StackPanel Orientation="Horizontal">
-                                <ScrollViewer x:Name="PART_ContentHost"
-                                              Margin="0"
-                                              MinWidth="120"
-                                              Height="25" />
-                                <Button x:Name="CommandButton"
-                                        Content="{TemplateBinding CommandLabel}"
-                                        Command="{TemplateBinding Command}"
-                                        Visibility="Hidden"
-                                        Margin="10,0,0,10"/>
-                            </StackPanel>
+                                Height="25"
+                                Grid.Column="1">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Margin="0"
+                                          MinWidth="120"
+                                          Height="25" />
                         </Border>
+
+                        <Button x:Name="CommandButton"
+                                Content="{TemplateBinding CommandLabel}"
+                                Command="{TemplateBinding Command}"
+                                Visibility="Collapsed"
+                                Height="25"
+                                Margin="10,0,0,0"
+                                Grid.Column="2" />
+
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Label"

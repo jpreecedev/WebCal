@@ -1,10 +1,37 @@
 ﻿namespace Webcal.Shared.Helpers
 {
     using System;
+    using System.IO;
     using System.Linq;
+    using System.Management;
 
     public static class LicenseManager
     {
+        private static string _machineKey;
+
+        public static string GetMachineKey()
+        {
+            if (!string.IsNullOrEmpty(_machineKey))
+            {
+                return _machineKey;
+            }
+
+            var cpuInfo = string.Empty;
+            var moc = new ManagementClass("win32_processor").GetInstances();
+
+            foreach (ManagementObject mo in moc)
+            {
+                cpuInfo = mo.Properties["processorID"].Value.ToString();
+                break;
+            }
+
+            var driveLetter = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System)).Substring(0, 1);
+            var disk = new ManagementObject(@"win32_logicaldisk.deviceid=""" + driveLetter + @":""");
+            disk.Get();
+
+            return (_machineKey = GetSubstring(cpuInfo) + GetSubstring(disk["VolumeSerialNumber"].ToString()));
+        }
+
         public static bool IsValid(string serial, out DateTime expirationDate)
         {
             expirationDate = default(DateTime);
@@ -76,6 +103,11 @@
         public static bool HasExpired(DateTime expirationDate)
         {
             return expirationDate.Date < DateTime.Now.Date;
+        }
+
+        private static string GetSubstring(string key)
+        {
+            return key.PadRight(2).Substring(0, 2);
         }
     }
 }

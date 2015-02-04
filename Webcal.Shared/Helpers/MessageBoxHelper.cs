@@ -1,6 +1,8 @@
 ﻿namespace Webcal.Shared.Helpers
 {
+    using System;
     using System.Windows;
+    using System.Windows.Threading;
     using Shared.Properties;
     using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
@@ -38,12 +40,15 @@
 
         private static void Show(Window owner, string message, string caption, MessageBoxButton buttons, MessageBoxImage messageBoxImage)
         {
-            if (owner == null)
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                owner = Application.Current.MainWindow;
-            }
+                if (owner == null)
+                {
+                    owner = Application.Current.MainWindow;
+                }
+                MessageBox.Show(owner, message, caption, buttons, messageBoxImage);
 
-            MessageBox.Show(owner, message, caption, buttons, messageBoxImage);
+            }, DispatcherPriority.Normal);
         }
     }
 }

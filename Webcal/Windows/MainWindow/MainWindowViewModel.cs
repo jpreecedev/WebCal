@@ -4,6 +4,7 @@
     using System.Diagnostics;
     using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Input;
     using System.Windows.Threading;
     using Core;
     using DataModel.Core;
@@ -193,12 +194,25 @@
                 return;
             }
 
-            CloseSettingsModal(true);
-
-            var documentViewModel = View.DataContext as INewDocumentViewModel;
-            if (documentViewModel != null)
+            try
             {
-                documentViewModel.OnModalClosed();
+                Mouse.OverrideCursor = Cursors.Wait;
+
+                CloseSettingsModal(true);
+
+                var documentViewModel = View.DataContext as INewDocumentViewModel;
+                if (documentViewModel != null)
+                {
+                    documentViewModel.OnModalClosed();
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowError(Resources.ERR_SAVING_SETTINGS, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
+            }
+            finally
+            {
+                Mouse.OverrideCursor = null;
             }
         }
 

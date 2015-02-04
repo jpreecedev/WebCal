@@ -210,6 +210,10 @@
     <Content Include="Main Icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Webcal.Connect\Webcal.Connect.csproj">
+      <Project>{041DF1D5-003B-48A3-ABCB-DA18E9355BFE}</Project>
+      <Name>Webcal.Connect</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Webcal.Shared\Webcal.Shared.csproj">
       <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
       <Name>Webcal.Shared</Name>

@@ -258,6 +258,7 @@
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\DelegateCommand.cs" />
     <Compile Include="Core\INewDocumentViewModel.cs" />
+    <Compile Include="Core\OneWayInputBinding.cs" />
     <Compile Include="EventArguments\DriverCardCompletedEventArgs.cs" />
     <Compile Include="EventArguments\DriverCardProgressEventArgs.cs" />
     <Compile Include="Library\IDriverCardReader.cs" />

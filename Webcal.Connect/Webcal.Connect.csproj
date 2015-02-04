@@ -60,6 +60,7 @@
     <ApplicationIcon>Main Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -79,6 +80,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Webcal.Shared.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseConnectClient.cs" />
