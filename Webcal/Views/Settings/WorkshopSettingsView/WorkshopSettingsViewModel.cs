@@ -14,7 +14,7 @@
     {
         public WorkshopSettingsViewModel()
         {
-            GeneralSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            GeneralSettingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
             BrowseCommand = new DelegateCommand<object>(OnBrowse);
         }
 

@@ -53,9 +53,9 @@
 
         protected override void InitialiseRepositories()
         {
-            LetterForDecommissioningRepository = ContainerBootstrapper.Container.GetInstance<IRepository<LetterForDecommissioningDocument>>();
-            TachographMakesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
-            TechnicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
+            LetterForDecommissioningRepository = GetInstance<IRepository<LetterForDecommissioningDocument>>();
+            TachographMakesRepository = GetInstance<IRepository<TachographMake>>();
+            TechnicianRepository = GetInstance<IRepository<Technician>>();
         }
 
         public override void OnModalClosed()

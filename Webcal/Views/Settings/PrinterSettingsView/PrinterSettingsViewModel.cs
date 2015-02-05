@@ -35,7 +35,7 @@
 
         protected override void InitialiseRepositories()
         {
-            SettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<PrinterSettings>>();
+            SettingsRepository = GetInstance<ISettingsRepository<PrinterSettings>>();
         }
 
         public override void Save()

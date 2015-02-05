@@ -18,8 +18,8 @@
     {
         public ReprintWindowViewModel()
         {
-            TachographDocumentRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
-            UndownloadabilityDocumentRepository = ContainerBootstrapper.Container.GetInstance<IRepository<UndownloadabilityDocument>>();
+            TachographDocumentRepository = GetInstance<IRepository<TachographDocument>>();
+            UndownloadabilityDocumentRepository = GetInstance<IRepository<UndownloadabilityDocument>>();
 
             ReprintCommand = new DelegateCommand<Window>(OnReprint);
             CancelCommand = new DelegateCommand<Window>(OnCancel);
@@ -129,7 +129,7 @@
                 return;
             }
 
-            MiscellaneousSettings miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+            MiscellaneousSettings miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
 
             if (PDFHelper.GenerateTachographPlaque(document, true, true, miscellaneousSettings.ExcludeLogosWhenPrinting))
             {

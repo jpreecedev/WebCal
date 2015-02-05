@@ -58,7 +58,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
+            Repository = GetInstance<IRepository<TachographMake>>();
         }
 
         public override void Save()

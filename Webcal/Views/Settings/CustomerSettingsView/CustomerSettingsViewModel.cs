@@ -52,7 +52,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+            Repository = GetInstance<IRepository<CustomerContact>>();
         }
 
         protected override void Load()

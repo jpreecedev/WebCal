@@ -62,7 +62,7 @@ namespace Webcal.Views.Settings
 
         protected override void InitialiseRepositories()
         {
-            SettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            SettingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
         }
 
         public override void Save()

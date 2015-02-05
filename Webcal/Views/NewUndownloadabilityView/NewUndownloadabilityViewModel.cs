@@ -40,11 +40,11 @@
 
         protected override void InitialiseRepositories()
         {
-            UndownloadabilityRepository = ContainerBootstrapper.Container.GetInstance<IRepository<UndownloadabilityDocument>>();
-            TachographMakesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
-            TechnicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
-            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
-            MailSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>().Get();
+            UndownloadabilityRepository = GetInstance<IRepository<UndownloadabilityDocument>>();
+            TachographMakesRepository = GetInstance<IRepository<TachographMake>>();
+            TechnicianRepository = GetInstance<IRepository<Technician>>();
+            WorkshopSettings = GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+            MailSettings = GetInstance<ISettingsRepository<MailSettings>>().Get();
         }
 
         public override void OnModalClosed()

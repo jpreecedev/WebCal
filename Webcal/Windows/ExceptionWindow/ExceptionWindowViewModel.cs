@@ -16,7 +16,7 @@
     {
         public ExceptionWindowViewModel()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<DetailedException>>();
+            Repository = GetInstance<IRepository<DetailedException>>();
             Exceptions = new ObservableCollection<DetailedException>(Repository.GetAll());
 
             ExportCommand = new DelegateCommand<object>(OnExport);

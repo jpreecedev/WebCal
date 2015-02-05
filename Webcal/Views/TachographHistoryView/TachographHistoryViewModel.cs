@@ -29,9 +29,9 @@
 
         protected override void InitialiseRepositories()
         {
-            TachographDocumentsRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
-            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
-            MailSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>().Get();
+            TachographDocumentsRepository = GetInstance<IRepository<TachographDocument>>();
+            WorkshopSettings = GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+            MailSettings = GetInstance<ISettingsRepository<MailSettings>>().Get();
         }
 
         protected override void InitialiseCommands()
@@ -98,7 +98,7 @@
                 return;
             }
 
-            MiscellaneousSettings miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+            MiscellaneousSettings miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
 
             if (PDFHelper.GenerateTachographPlaque(document, true, miscellaneousSettings.ExcludeLogosWhenPrinting))
             {

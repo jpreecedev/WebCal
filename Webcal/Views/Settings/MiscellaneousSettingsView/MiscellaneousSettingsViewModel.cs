@@ -25,7 +25,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>();
+            Repository = GetInstance<ISettingsRepository<MiscellaneousSettings>>();
             Settings = Repository.GetMiscellaneousSettings();
         }
 

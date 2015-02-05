@@ -43,7 +43,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<TyreSize>>();
+            Repository = GetInstance<IRepository<TyreSize>>();
         }
 
         public override void Save()

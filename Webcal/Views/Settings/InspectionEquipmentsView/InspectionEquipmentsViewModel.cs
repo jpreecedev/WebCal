@@ -43,7 +43,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<InspectionEquipment>>();
+            Repository = GetInstance<IRepository<InspectionEquipment>>();
         }
 
         public override void Save()

@@ -55,7 +55,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>();
+            Repository = GetInstance<IRepository<RegistrationData>>();
         }
 
         protected override void InitialiseCommands()
@@ -114,7 +114,7 @@
             var machineKey = webcalConnectKey[1];
             var expiration = int.Parse(webcalConnectKey[2]);
 
-            ContainerBootstrapper.Container.GetInstance<IConnectClient>().CallAsync(client =>
+            GetInstance<IConnectClient>().CallAsync(client =>
             {
                 return client.Open(new ConnectKeys(url, expiration, companyName, machineKey));
             },

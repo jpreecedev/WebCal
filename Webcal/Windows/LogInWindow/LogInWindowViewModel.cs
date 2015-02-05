@@ -41,7 +41,7 @@
                 return;
             }
 
-            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
+            var repository = GetInstance<IRepository<User>>();
             if (UserManagement.Validate(repository, Username, passwordBox.Password))
             {
                 UserManagement.LoggedInUserName = Username;

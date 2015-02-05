@@ -21,7 +21,7 @@
 
         protected override void InitialiseRepositories()
         {
-            DriverCardFilesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<DriverCardFile>>();
+            DriverCardFilesRepository = GetInstance<IRepository<DriverCardFile>>();
         }
 
         protected override void OnAddStoredFile()

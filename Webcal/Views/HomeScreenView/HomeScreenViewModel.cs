@@ -111,11 +111,11 @@
             }
         }
 
-        private static bool GetAutoPrintLabels()
+        private bool GetAutoPrintLabels()
         {
             //This is not nice, but is necessary to prevent data loss
 
-            var repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            var repository = GetInstance<ISettingsRepository<WorkshopSettings>>();
             WorkshopSettings workshopSettings = repository.GetWorkshopSettings();
             return workshopSettings.AutoPrintLabels;
         }
@@ -124,7 +124,7 @@
         {
             //This is not nice, but is necessary to prevent data loss
 
-            var repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            var repository = GetInstance<ISettingsRepository<WorkshopSettings>>();
             WorkshopSettings workshopSettings = repository.GetWorkshopSettings();
             workshopSettings.AutoPrintLabels = AutoPrintLabels;
             repository.Save(workshopSettings);

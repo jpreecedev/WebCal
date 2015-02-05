@@ -39,7 +39,7 @@
 
         protected override void InitialiseRepositories()
         {
-            WorkshopCardFilesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<WorkshopCardFile>>();
+            WorkshopCardFilesRepository = GetInstance<IRepository<WorkshopCardFile>>();
         }
 
         protected override void InitialiseCommands()

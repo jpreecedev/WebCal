@@ -52,7 +52,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<VehicleMake>>();
+            Repository = GetInstance<IRepository<VehicleMake>>();
         }
 
         protected override void Load()

@@ -23,7 +23,7 @@
                 return;
             }
 
-            CustomerContactRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+            CustomerContactRepository = GetInstance<IRepository<CustomerContact>>();
             CustomerContacts = new ObservableCollection<CustomerContact>(CustomerContactRepository.GetAll(true).OrderBy(c => c.Name));
         }
 

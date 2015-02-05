@@ -37,7 +37,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<IRepository<InspectionMethod>>();
+            Repository = GetInstance<IRepository<InspectionMethod>>();
         }
 
         protected override void Load()

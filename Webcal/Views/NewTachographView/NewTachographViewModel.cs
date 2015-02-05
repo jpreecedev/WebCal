@@ -58,7 +58,7 @@
         {
             Document.IsDigital = isDigital;
 
-            var settings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+            var settings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
 
             DocumentTypes = DocumentType.GetDocumentTypes(isDigital);
             Document.DocumentType = Document.DocumentType ?? DocumentTypes.FirstOrDefault(c => string.Equals(c, isDigital ? settings.DefaultDigitalDocumentType : settings.DefaultAnalogueDocumentType));
@@ -76,12 +76,12 @@
         {
             base.InitialiseRepositories();
 
-            VehicleRepository = ContainerBootstrapper.Container.GetInstance<IRepository<VehicleMake>>();
-            TyreSizesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TyreSize>>();
-            TachographMakesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographMake>>();
-            TechniciansRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
-            TachographDocumentRepository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
-            WorkshopCardFilesRepository = ContainerBootstrapper.Container.GetInstance<IRepository<WorkshopCardFile>>();
+            VehicleRepository = GetInstance<IRepository<VehicleMake>>();
+            TyreSizesRepository = GetInstance<IRepository<TyreSize>>();
+            TachographMakesRepository = GetInstance<IRepository<TachographMake>>();
+            TechniciansRepository = GetInstance<IRepository<Technician>>();
+            TachographDocumentRepository = GetInstance<IRepository<TachographDocument>>();
+            WorkshopCardFilesRepository = GetInstance<IRepository<WorkshopCardFile>>();
         }
 
         protected override void Load()

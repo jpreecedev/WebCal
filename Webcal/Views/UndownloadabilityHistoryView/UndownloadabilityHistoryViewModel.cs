@@ -37,7 +37,7 @@
 
         protected override void InitialiseRepositories()
         {
-            UndownloadabilityDocumentsRepository = ContainerBootstrapper.Container.GetInstance<IRepository<UndownloadabilityDocument>>();
+            UndownloadabilityDocumentsRepository = GetInstance<IRepository<UndownloadabilityDocument>>();
         }
 
         protected override void InitialiseCommands()

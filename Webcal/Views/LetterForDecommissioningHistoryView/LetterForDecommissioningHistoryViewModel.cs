@@ -39,7 +39,7 @@ namespace Webcal.Views
 
         protected override void InitialiseRepositories()
         {
-            LetterForDecommissioningRepository = ContainerBootstrapper.Container.GetInstance<IRepository<LetterForDecommissioningDocument>>();
+            LetterForDecommissioningRepository = GetInstance<IRepository<LetterForDecommissioningDocument>>();
         }
 
         protected override void InitialiseCommands()

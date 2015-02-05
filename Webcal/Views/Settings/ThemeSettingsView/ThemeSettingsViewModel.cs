@@ -30,7 +30,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<ThemeSettings>>();
+            Repository = GetInstance<ISettingsRepository<ThemeSettings>>();
             ThemeSettings = Repository.GetThemeSettings();
         }
 

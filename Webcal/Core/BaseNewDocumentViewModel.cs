@@ -42,8 +42,8 @@
         {
             base.InitialiseRepositories();
 
-            WorkshopSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
-            MailSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>().Get();
+            WorkshopSettings = GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+            MailSettings = GetInstance<ISettingsRepository<MailSettings>>().Get();
         }
 
         protected override void Load()
@@ -134,7 +134,7 @@
                 return;
             }
 
-            MiscellaneousSettings miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+            MiscellaneousSettings miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
             Document document = GetNewDocument(root);
             if (PDFHelper.GenerateTachographPlaque(document, true, IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting))
             {

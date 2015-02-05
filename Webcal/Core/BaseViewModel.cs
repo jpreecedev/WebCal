@@ -7,6 +7,7 @@
     using System.Windows.Controls;
     using System.Windows.Threading;
     using Windows;
+    using DataModel.Core;
     using Library;
     using Library.ViewModels;
     using Shared;
@@ -29,6 +30,11 @@
         public bool HasChanged { get; protected set; }
         public MainWindowViewModel MainWindow { get; set; }
         public Action<bool, object> DoneCallback { get; set; }
+
+        public TService GetInstance<TService>()
+        {
+            return ContainerBootstrapper.Container.GetInstance<TService>();
+        }
 
         public virtual void OnClosing(bool cancelled)
         {

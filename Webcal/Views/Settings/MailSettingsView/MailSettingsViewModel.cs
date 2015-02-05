@@ -20,8 +20,8 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MailSettings>>();
-            SettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            Repository = GetInstance<ISettingsRepository<MailSettings>>();
+            SettingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
             WorkshopSettings = SettingsRepository.GetWorkshopSettings();
         }
 
