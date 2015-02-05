@@ -4,6 +4,7 @@
     using System.Linq;
     using Windows.CalibrationDetailsWindow;
     using Windows.ProgressWindow;
+    using Connect.Shared.Models;
     using Core;
     using DataModel.Library;
     using EventArguments;

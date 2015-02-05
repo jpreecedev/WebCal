@@ -2,6 +2,7 @@
 {
     using System;
     using System.Net.Mail;
+    using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
     using Shared;

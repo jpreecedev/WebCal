@@ -3,6 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.IO;
+    using Connect.Shared.Models;
     using Shared;
     using Shared.Core;
 

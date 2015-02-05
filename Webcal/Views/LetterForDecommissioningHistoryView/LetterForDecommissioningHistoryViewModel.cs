@@ -9,6 +9,7 @@ using Webcal.Shared;
 
 namespace Webcal.Views
 {
+    using Connect.Shared.Models;
     using DataModel.Core;
     using Shared.Helpers;
 

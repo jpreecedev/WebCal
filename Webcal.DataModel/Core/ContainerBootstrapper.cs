@@ -2,6 +2,7 @@
 {
     using System;
     using Connect;
+    using Connect.Shared.Models;
     using Properties;
     using Repositories;
     using Shared;

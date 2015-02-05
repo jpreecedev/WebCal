@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Connect.Shared.Models;
     using Properties;
     using Shared;
     using Shared.Core;

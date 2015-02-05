@@ -8,6 +8,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using System.Xml.Linq;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using DataModel.Core;

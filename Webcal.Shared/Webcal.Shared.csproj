@@ -138,8 +138,6 @@
     <Compile Include="Connect\IConnectClientCredentials.cs" />
     <Compile Include="Connect\ConnectElementCollection.cs" />
     <Compile Include="Connect\ConnectOperationResult.cs" />
-    <Compile Include="Core\BaseModel.cs" />
-    <Compile Include="Core\BaseNotification.cs" />
     <Compile Include="Core\BaseSettings.cs" />
     <Compile Include="Models\DetailedException.cs" />
     <Compile Include="Models\DiscreteException.cs" />

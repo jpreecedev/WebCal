@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Text;
+    using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
     using Microsoft.Office.Interop.Excel;

@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
-    using Core;
+    using Webcal.Connect.Shared.Models;
 
     [DataContract, Serializable]
     public class DetailedException : BaseModel

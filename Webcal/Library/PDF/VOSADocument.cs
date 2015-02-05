@@ -4,6 +4,7 @@ namespace Webcal.Library.PDF
     using System.Collections.Generic;
     using System.Linq;
     using System.Windows.Resources;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using DataModel.Core;

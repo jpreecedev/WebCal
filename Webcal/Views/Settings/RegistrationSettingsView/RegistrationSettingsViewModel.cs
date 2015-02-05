@@ -3,10 +3,12 @@
     using System;
     using System.Linq;
     using Connect.Shared;
+    using Connect.Shared.Models;
     using Controls;
     using Core;
     using DataModel;
     using DataModel.Core;
+    using Microsoft.Office.Interop.Excel;
     using Properties;
     using Shared;
     using Shared.Connect;
@@ -115,7 +117,7 @@
             var expiration = int.Parse(webcalConnectKey[2]);
 
             var connectKeys = new ConnectKeys(url, expiration, companyName, machineKey);
-
+            
             GetInstance<IConnectClient>().CallAsync(connectKeys, client =>
             {
                 client.Service.Echo();

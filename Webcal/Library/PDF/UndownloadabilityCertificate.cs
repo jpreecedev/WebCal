@@ -4,6 +4,7 @@
     using System.Drawing.Imaging;
     using System.IO;
     using System.Windows.Resources;
+    using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;

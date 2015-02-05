@@ -7,6 +7,7 @@
     using System.Linq;
     using System.Windows;
     using Windows.DateRangePickerWindow;
+    using Connect.Shared.Models;
     using DataModel;
     using Library;
     using Properties;

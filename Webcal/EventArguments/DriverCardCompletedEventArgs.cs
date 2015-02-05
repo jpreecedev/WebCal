@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Connect.Shared.Models;
     using DataModel.Library;
     using Shared;
 

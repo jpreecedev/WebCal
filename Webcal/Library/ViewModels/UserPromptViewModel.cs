@@ -1,6 +1,7 @@
 ﻿namespace Webcal.Library.ViewModels
 {
     using System.Windows.Input;
+    using Connect.Shared.Models;
     using Shared;
     using Shared.Core;
 

@@ -5,6 +5,7 @@
     using System.Collections.ObjectModel;
     using System.IO;
     using System.Linq;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using DataModel.Core;

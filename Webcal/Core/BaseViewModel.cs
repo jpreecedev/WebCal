@@ -7,6 +7,7 @@
     using System.Windows.Controls;
     using System.Windows.Threading;
     using Windows;
+    using Connect.Shared.Models;
     using DataModel.Core;
     using Library;
     using Library.ViewModels;

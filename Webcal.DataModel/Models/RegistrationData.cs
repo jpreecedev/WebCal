@@ -3,7 +3,7 @@ namespace Webcal.DataModel
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Globalization;
-    using Shared.Core;
+    using Connect.Shared.Models;
     using Shared.Helpers;
 
     [Table("RegistrationData")]

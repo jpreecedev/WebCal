@@ -4,6 +4,7 @@
     using System.IO;
     using System.Linq;
     using System.Windows;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using DataModel.Core;

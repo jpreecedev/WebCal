@@ -1,7 +1,7 @@
 ﻿namespace Webcal.DataModel
 {
     using System.Data.Entity;
-    using Shared;
+    using Connect.Shared.Models;
     using Shared.Models;
 
     public class TachographContext : DbContext

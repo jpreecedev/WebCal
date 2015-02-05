@@ -3,6 +3,7 @@
     using System;
     using System.Drawing.Imaging;
     using System.IO;
+    using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;

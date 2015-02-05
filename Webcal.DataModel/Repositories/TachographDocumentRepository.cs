@@ -1,6 +1,7 @@
 ﻿namespace Webcal.DataModel.Repositories
 {
     using System.Linq;
+    using Connect.Shared.Models;
 
     public class TachographDocumentRepository : Repository<TachographDocument>
     {

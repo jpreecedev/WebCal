@@ -2,6 +2,7 @@ namespace Webcal.Library.PDF
 {
     using System;
     using System.Drawing;
+    using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;

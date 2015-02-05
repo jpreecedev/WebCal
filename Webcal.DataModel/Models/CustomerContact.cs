@@ -1,6 +1,7 @@
 ﻿namespace Webcal.DataModel
 {
     using System;
+    using Connect.Shared.Models;
     using Shared;
     using Shared.Core;
 

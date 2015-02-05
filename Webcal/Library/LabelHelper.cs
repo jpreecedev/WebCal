@@ -1,6 +1,7 @@
 ﻿namespace Webcal.Library
 {
     using System.Linq;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using DataModel.Core;

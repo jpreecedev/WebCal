@@ -1,5 +1,6 @@
 ﻿namespace Webcal.Library.PDF
 {
+    using Connect.Shared.Models;
     using DataModel;
 
     public interface IPlaque

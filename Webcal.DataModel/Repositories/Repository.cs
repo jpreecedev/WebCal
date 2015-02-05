@@ -5,6 +5,7 @@
     using System.Data.Entity;
     using System.Linq;
     using System.Linq.Expressions;
+    using Connect.Shared.Models;
     using Library;
     using Shared;
     using Shared.Core;

@@ -1,6 +1,7 @@
 namespace Webcal.Library.PDF
 {
     using System.Drawing;
+    using Connect.Shared.Models;
     using DataModel;
     using iTextSharp.text;
     using iTextSharp.text.pdf;

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
+    using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;

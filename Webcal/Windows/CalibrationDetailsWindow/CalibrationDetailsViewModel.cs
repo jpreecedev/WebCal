@@ -1,6 +1,7 @@
 ﻿namespace Webcal.Windows.CalibrationDetailsWindow
 {
     using System.Windows;
+    using Connect.Shared.Models;
     using Core;
     using DataModel.Library;
 
