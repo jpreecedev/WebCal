@@ -155,4 +155,21 @@
   <data name="TXT_STARTING" xml:space="preserve">
     <value>Starting...</value>
   </data>
+  <data name="TXT_SERVER_SENT_A_FAULT" xml:space="preserve">
+    <value>The server sent back a fault: {0}</value>
+  </data>
+  <data name="TXT_REQUEST_FAIlED_WITH_EXCEPTION" xml:space="preserve">
+    <value>The request failed with exception: {0}</value>
+  </data>
+  <data name="TXT_REQUEST_TIMED_OUT" xml:space="preserve">
+    <value>The request timed out</value>
+  </data>
+  <data name="TXT_REQUEST_FAILED_WITH_UNEXPECTED_EXCEPTION" xml:space="preserve">
+    <value>The request failed with unexpected exception: {0}</value>
+  </data>
+  <data name="TXT_ONE_OR_MORE_ERRORS" xml:space="preserve">
+    <value>One or more errors occurred whilst performing the operation.  See below for details;
+
+{0}</value>
+  </data>
 </root>

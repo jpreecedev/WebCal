@@ -114,17 +114,19 @@
             var machineKey = webcalConnectKey[1];
             var expiration = int.Parse(webcalConnectKey[2]);
 
-            GetInstance<IConnectClient>().CallAsync(client =>
+            var connectKeys = new ConnectKeys(url, expiration, companyName, machineKey);
+
+            GetInstance<IConnectClient>().CallAsync(connectKeys, client =>
             {
-                return client.Open(new ConnectKeys(url, expiration, companyName, machineKey));
+                client.Service.Echo();
             },
             result =>
             {
-                WebcalConnectField.Valid = WebcalConnectField.IsHighlighted = result.Success;
+                WebcalConnectField.Valid = WebcalConnectField.IsHighlighted = result.IsSuccess;
             },
             exception =>
             {
-                ShowError(exception.Message);
+                ShowError(ExceptionPolicy.HandleException(ContainerBootstrapper.Container, exception));
             });
         }
     }

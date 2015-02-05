@@ -3,11 +3,11 @@
     using System;
     using Webcal.Connect.Shared;
 
-    public interface IConnectClient : IAsyncClient, IDisposable
+    public interface IConnectClient : IDisposable
     {
         bool IsOpen { get; }
 
-        IConnectOperationResult Open(IConnectKeys connectKeys);
+        void Open(IConnectKeys connectKeys);
         IConnectService Service { get; set; }
 
         void ForceClose();

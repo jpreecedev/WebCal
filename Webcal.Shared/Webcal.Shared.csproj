@@ -102,6 +102,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Webcal.DataService\bin\Webcal.Connect.Shared.dll</HintPath>
     </Reference>
+    <Reference Include="Webcal.Shared, Version=2.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Webcal.Shared.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="Xceed.Wpf.AvalonDock, Version=2.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -130,16 +134,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connect\ConnectElement.cs" />
-    <Compile Include="Connect\FailureOperationResult.cs" />
     <Compile Include="Connect\IConnectClient.cs" />
-    <Compile Include="Connect\IConnectOperationResult.cs" />
     <Compile Include="Connect\IConnectClientCredentials.cs" />
     <Compile Include="Connect\ConnectElementCollection.cs" />
-    <Compile Include="Connect\SuccessOperationResult.cs" />
+    <Compile Include="Connect\ConnectOperationResult.cs" />
     <Compile Include="Core\BaseModel.cs" />
     <Compile Include="Core\BaseNotification.cs" />
     <Compile Include="Core\BaseSettings.cs" />
-    <Compile Include="IAsyncClient.cs" />
     <Compile Include="Models\DetailedException.cs" />
     <Compile Include="Models\DiscreteException.cs" />
     <Compile Include="ExceptionPolicy.cs" />

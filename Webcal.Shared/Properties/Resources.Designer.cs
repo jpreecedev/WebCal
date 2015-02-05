@@ -153,11 +153,58 @@ namespace Webcal.Shared.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One or more errors occurred whilst performing the operation.  See below for details;
+        ///
+        ///{0}.
+        /// </summary>
+        public static string TXT_ONE_OR_MORE_ERRORS {
+            get {
+                return ResourceManager.GetString("TXT_ONE_OR_MORE_ERRORS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Question.
         /// </summary>
         public static string TXT_QUESTION {
             get {
                 return ResourceManager.GetString("TXT_QUESTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The request failed with exception: {0}.
+        /// </summary>
+        public static string TXT_REQUEST_FAIlED_WITH_EXCEPTION {
+            get {
+                return ResourceManager.GetString("TXT_REQUEST_FAIlED_WITH_EXCEPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The request failed with unexpected exception: {0}.
+        /// </summary>
+        public static string TXT_REQUEST_FAILED_WITH_UNEXPECTED_EXCEPTION {
+            get {
+                return ResourceManager.GetString("TXT_REQUEST_FAILED_WITH_UNEXPECTED_EXCEPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The request timed out.
+        /// </summary>
+        public static string TXT_REQUEST_TIMED_OUT {
+            get {
+                return ResourceManager.GetString("TXT_REQUEST_TIMED_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The server sent back a fault: {0}.
+        /// </summary>
+        public static string TXT_SERVER_SENT_A_FAULT {
+            get {
+                return ResourceManager.GetString("TXT_SERVER_SENT_A_FAULT", resourceCulture);
             }
         }
         
