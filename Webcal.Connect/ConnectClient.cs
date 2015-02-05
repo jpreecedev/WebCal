@@ -17,6 +17,8 @@
             get { return Service != null; }
         }
 
+        public IConnectService Service { get; set; }
+
         public void Open(IConnectKeys connectKeys)
         {
             Binding binding = new ConnectBindingHelper().CreateBinding(new ConnectTokenParameters());
@@ -29,12 +31,9 @@
 
             _channelFactory.Endpoint.Behaviors.Remove(typeof(ClientCredentials));
             _channelFactory.Endpoint.Behaviors.Add(credentials);
-
+            
             Service = _channelFactory.CreateChannel();
-            Service.Echo();
         }
-
-        public IConnectService Service { get; set; }
 
         public override void ForceClose()
         {

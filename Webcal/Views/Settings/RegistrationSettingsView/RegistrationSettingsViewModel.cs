@@ -126,6 +126,7 @@
             },
             exception =>
             {
+                WebcalConnectField.Valid = WebcalConnectField.IsHighlighted = false;
                 ShowError(ExceptionPolicy.HandleException(ContainerBootstrapper.Container, exception));
             });
         }

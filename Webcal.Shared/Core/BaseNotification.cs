@@ -1,7 +1,9 @@
 ﻿namespace Webcal.Shared.Core
 {
+    using System;
     using System.ComponentModel;
 
+    [Serializable]
     public class BaseNotification : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

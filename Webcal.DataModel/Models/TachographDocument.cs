@@ -1,12 +1,29 @@
 ﻿namespace Webcal.DataModel
 {
     using System;
+    using System.Xml.Serialization;
     using Library;
     using Properties;
 
     [Serializable]
     public class TachographDocument : Document
     {
+        [XmlIgnore]
+        public override bool IsNew
+        {
+            get
+            {
+                return string.IsNullOrEmpty(RegistrationNumber) &&
+                       string.IsNullOrEmpty(VIN) &&
+                       string.IsNullOrEmpty(VehicleMake) &&
+                       string.IsNullOrEmpty(VehicleModel) &&
+                       string.IsNullOrEmpty(TyreSize) &&
+                       string.IsNullOrEmpty(WFactor) &&
+                       string.IsNullOrEmpty(KFactor) &&
+                       string.IsNullOrEmpty(LFactor);
+            }
+        }
+
         public string VIN { get; set; }
         public string VehicleMake { get; set; }
         public string VehicleModel { get; set; }
@@ -28,21 +45,6 @@
         public string CardSerialNumber { get; set; }
         public DateTime? CalibrationTime { get; set; }
         public bool IsDigital { get; set; }
-
-        public override bool IsNew
-        {
-            get
-            {
-                return string.IsNullOrEmpty(RegistrationNumber) &&
-                       string.IsNullOrEmpty(VIN) &&
-                       string.IsNullOrEmpty(VehicleMake) &&
-                       string.IsNullOrEmpty(VehicleModel) &&
-                       string.IsNullOrEmpty(TyreSize) &&
-                       string.IsNullOrEmpty(WFactor) &&
-                       string.IsNullOrEmpty(KFactor) &&
-                       string.IsNullOrEmpty(LFactor);
-            }
-        }
 
         public void Convert(CalibrationRecord calibrationRecord)
         {

@@ -36,6 +36,7 @@
                 })
                 .ContinueWith(mainTask =>
                 {
+                    Mouse.OverrideCursor = null;
                     if (mainTask.IsFaulted)
                     {
                         BuildException(mainTask, exceptionHandler);
@@ -44,7 +45,6 @@
                     {
                         endCall(mainTask.Result);
                     }
-                    Mouse.OverrideCursor = null;
                 }, synchronizationContext)
                 .ContinueWith(exceptionTask =>
                 {
@@ -53,7 +53,7 @@
                         Mouse.OverrideCursor = null;
                         if (exceptionHandler != null)
                         {
-                            BuildException(exceptionTask, exceptionHandler);
+                            BuildException((Task<ConnectOperationResult>)exceptionTask, exceptionHandler);
                         }
                     }, DispatcherPriority.Normal);
 
@@ -84,15 +84,19 @@
                 })
                 .ContinueWith(mainTask =>
                 {
+                    Mouse.OverrideCursor = null;
                     if (mainTask.IsFaulted)
                     {
                         BuildException(mainTask, exceptionHandler);
+                    }
+                    else if (!mainTask.Result.IsSuccess)
+                    {
+                        BuildException(mainTask, exceptionHandler );
                     }
                     else
                     {
                         endCall(mainTask.Result);
                     }
-                    Mouse.OverrideCursor = null;
                 }, synchronizationContext)
                 .ContinueWith(exceptionTask =>
                 {
@@ -101,7 +105,7 @@
                         Mouse.OverrideCursor = null;
                         if (exceptionHandler != null)
                         {
-                            BuildException(exceptionTask, exceptionHandler);
+                            BuildException((Task<ConnectOperationResult>)exceptionTask, exceptionHandler);
                         }
                     }, DispatcherPriority.Normal);
 
@@ -191,18 +195,25 @@
             }
         }
 
-        private static void BuildException(Task task, Action<Exception> exceptionHandler)
+        private static void BuildException(Task<ConnectOperationResult> task, Action<Exception> exceptionHandler)
         {
-            if (task.Exception == null)
-                return;
-
-            AggregateException aggregateException = task.Exception.Flatten();
+            Exception exception = task.Exception ?? task.Result.Exception;
             var builder = new StringBuilder();
 
-            for (int i = 0; i < aggregateException.InnerExceptions.Count; i++)
+            var exceptionAsAggregate = exception as AggregateException;
+            if (exceptionAsAggregate != null)
             {
-                Exception innerException = aggregateException.InnerExceptions[i];
-                builder.AppendLine(String.Format("{0}. {1}", i + 1, innerException.Message));
+                AggregateException aggregateException = exceptionAsAggregate.Flatten();
+
+                for (int i = 0; i < aggregateException.InnerExceptions.Count; i++)
+                {
+                    Exception innerException = aggregateException.InnerExceptions[i];
+                    builder.AppendLine(String.Format("{0}. {1}", i + 1, innerException.Message));
+                }
+            }
+            else
+            {
+                builder.AppendLine(exception.Message);
             }
 
             exceptionHandler(new Exception(string.Format(Resources.TXT_ONE_OR_MORE_ERRORS, builder)));

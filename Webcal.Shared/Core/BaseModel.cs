@@ -2,7 +2,9 @@
 {
     using System;
     using System.Runtime.Serialization;
+    using System.Xml.Serialization;
 
+    [Serializable]
     public class BaseModel : BaseNotification, ICloneable
     {
         [DataMember]
@@ -11,7 +13,7 @@
         [DataMember]
         public DateTime? Deleted { get; set; }
 
-        [DataMember]
+        [XmlIgnore]
         public bool IsDeleted
         {
             get { return Deleted != null; }

@@ -1,9 +1,14 @@
 ﻿namespace Webcal.DataModel
 {
     using System;
-    using Shared;
+    using System.Runtime.Serialization;
+    using System.Xml.Serialization;
     using Shared.Core;
 
+    [Serializable]
+    [KnownType(typeof(TachographDocument))]
+    [KnownType(typeof(UndownloadabilityDocument))]
+    [KnownType(typeof(LetterForDecommissioningDocument))]
     public abstract class Document : BaseModel
     {
         private string _documentType;
@@ -27,6 +32,8 @@
         public DateTime? InspectionDate { get; set; }
         public string Technician { get; set; }
         public string CustomerContact { get; set; }
+       
+        [XmlIgnore]
         public abstract bool IsNew { get; }
 
         protected virtual void OnDocumentTypeChanged(string newValue)
