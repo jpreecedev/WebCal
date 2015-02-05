@@ -139,6 +139,7 @@
     <Compile Include="Core\BaseModel.cs" />
     <Compile Include="Core\BaseNotification.cs" />
     <Compile Include="Core\BaseSettings.cs" />
+    <Compile Include="IAsyncClient.cs" />
     <Compile Include="Models\DetailedException.cs" />
     <Compile Include="Models\DiscreteException.cs" />
     <Compile Include="ExceptionPolicy.cs" />

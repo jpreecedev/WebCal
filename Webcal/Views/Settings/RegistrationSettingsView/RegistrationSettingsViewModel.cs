@@ -1,10 +1,7 @@
 ﻿namespace Webcal.Views.Settings
 {
     using System;
-    using System.Data.Entity.Core.Common.EntitySql;
-    using System.Data.SqlServerCe;
     using System.Linq;
-    using System.Threading.Tasks;
     using Connect.Shared;
     using Controls;
     using Core;

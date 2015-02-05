@@ -40,15 +40,11 @@
 
         private static void Show(Window owner, string message, string caption, MessageBoxButton buttons, MessageBoxImage messageBoxImage)
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            if (owner == null)
             {
-                if (owner == null)
-                {
-                    owner = Application.Current.MainWindow;
-                }
-                MessageBox.Show(owner, message, caption, buttons, messageBoxImage);
-
-            }, DispatcherPriority.Normal);
+                owner = Application.Current.MainWindow;
+            }
+            MessageBox.Show(owner, message, caption, buttons, messageBoxImage);
         }
     }
 }
