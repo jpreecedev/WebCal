@@ -47,6 +47,10 @@
 
             <ContentPresenter Content="{Binding WebcalConnectField}" />
 
+            <CheckBox Content="Enable syncing data to Webcal Connect?"
+                      IsChecked="{Binding Settings.IsConnectEnabled}"
+                      Margin="0,10,0,10" />
+
         </StackPanel>
     </Grid>
 

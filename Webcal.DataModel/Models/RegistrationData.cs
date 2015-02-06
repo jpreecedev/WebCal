@@ -27,6 +27,8 @@ namespace Webcal.DataModel
             get { return string.Format("{0}-{1}-{2}", CompanyName, LicenseManager.GetMachineKey(), ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0')); }
         }
 
+        public bool IsConnectEnabled { get; set; }
+
         protected override void OnPropertyChanged(string propertyName)
         {
             base.OnPropertyChanged(propertyName);

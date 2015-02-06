@@ -1,7 +1,6 @@
 ﻿namespace Webcal.DataModel.Library
 {
     using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using Core;
     using Properties;
@@ -86,7 +85,8 @@
             {
                 LicenseKey = null,
                 CompanyName = Resources.TXT_SEED_SKILLRAY,
-                SealNumber = string.Empty
+                SealNumber = string.Empty,
+                IsConnectEnabled = true
             });
 
             context.MailSettings.Add(new MailSettings

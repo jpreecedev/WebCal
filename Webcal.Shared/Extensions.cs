@@ -75,11 +75,7 @@
 
                 Task.Factory.StartNew(() =>
                 {
-                    if (!client.IsOpen)
-                    {
-                        client.Open(connectKeys);
-                    }
-
+                    client.Open(connectKeys);
                     return Try(() => beginCall(client));
                 })
                 .ContinueWith(mainTask =>
