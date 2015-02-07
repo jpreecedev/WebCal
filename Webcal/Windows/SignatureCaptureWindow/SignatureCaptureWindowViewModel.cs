@@ -6,11 +6,9 @@
     using Connect.Shared.Models;
     using Core;
     using DataModel.Core;
-    using Imaging;
     using Library;
     using Properties;
     using Shared;
-    using Shared.Core;
     using Shared.Helpers;
 
     public class SignatureCaptureWindowViewModel : BaseNotification
@@ -64,7 +62,7 @@
 
                     try
                     {
-                        string path = Signature.Transform(new Bitmap(SignatureImage));
+                        string path = Imaging.Signature.Transform(new Bitmap(SignatureImage));
                         SignatureImage = ImageHelper.LoadImageSafely(path);
                     }
                     catch (Exception ex)

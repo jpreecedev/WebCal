@@ -92,12 +92,6 @@
     <Content Include="Main Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Webcal.Shared\Webcal.Shared.csproj">
-      <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
-      <Name>Webcal.Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -106,6 +100,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Webcal.Shared\Webcal.Shared.csproj">
+      <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
+      <Name>Webcal.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

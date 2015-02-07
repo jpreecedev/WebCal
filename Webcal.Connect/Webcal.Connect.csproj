@@ -72,13 +72,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Webcal.Connect.Shared, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Webcal.Connect.Shared.dll</HintPath>
+    <Reference Include="Webcal.Connect.Shared">
+      <HintPath>..\..\Webcal.DataService\bin\Webcal.Connect.Shared.dll</HintPath>
     </Reference>
     <Reference Include="Webcal.Shared, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Webcal.Shared.dll</HintPath>
+      <HintPath>..\Webcal.Shared\obj\x86\Debug\Webcal.Shared.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>

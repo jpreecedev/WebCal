@@ -22,7 +22,7 @@ namespace Webcal.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Webcal.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Webcal.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Webcal.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to verify the given username and/or password.
         /// </summary>
-        public static string ERR_CANNOT_VERIFY_USERNAME_PASSWORD {
+        internal static string ERR_CANNOT_VERIFY_USERNAME_PASSWORD {
             get {
                 return ResourceManager.GetString("ERR_CANNOT_VERIFY_USERNAME_PASSWORD", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to PDF conversion error number: .
         /// </summary>
-        public static string ERR_CONVERSION_ERROR_NUMBER {
+        internal static string ERR_CONVERSION_ERROR_NUMBER {
             get {
                 return ResourceManager.GetString("ERR_CONVERSION_ERROR_NUMBER", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to change your password, please make sure your old password is correct..
         /// </summary>
-        public static string ERR_COULD_NOT_CHANGE_PASSWORD {
+        internal static string ERR_COULD_NOT_CHANGE_PASSWORD {
             get {
                 return ResourceManager.GetString("ERR_COULD_NOT_CHANGE_PASSWORD", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Could not establish the temp directory.
         /// </summary>
-        public static string ERR_COULD_NOT_FIND_TEMP_DIR {
+        internal static string ERR_COULD_NOT_FIND_TEMP_DIR {
             get {
                 return ResourceManager.GetString("ERR_COULD_NOT_FIND_TEMP_DIR", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Day of week not recognised.
         /// </summary>
-        public static string ERR_DAY_OF_WEEK_NOT_RECOGNISED {
+        internal static string ERR_DAY_OF_WEEK_NOT_RECOGNISED {
             get {
                 return ResourceManager.GetString("ERR_DAY_OF_WEEK_NOT_RECOGNISED", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please don&apos;t reset your own password..
         /// </summary>
-        public static string ERR_DO_NOT_RESET_OWN_PASSWORD {
+        internal static string ERR_DO_NOT_RESET_OWN_PASSWORD {
             get {
                 return ResourceManager.GetString("ERR_DO_NOT_RESET_OWN_PASSWORD", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The given serial is invalid..
         /// </summary>
-        public static string ERR_GIVEN_SERIAL_IS_INVALID {
+        internal static string ERR_GIVEN_SERIAL_IS_INVALID {
             get {
                 return ResourceManager.GetString("ERR_GIVEN_SERIAL_IS_INVALID", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The given license key has expired.
         /// </summary>
-        public static string ERR_LICENSE_KEY_HAS_EXPIRED {
+        internal static string ERR_LICENSE_KEY_HAS_EXPIRED {
             get {
                 return ResourceManager.GetString("ERR_LICENSE_KEY_HAS_EXPIRED", resourceCulture);
             }
@@ -135,16 +135,25 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please log in as superuser to reset your password..
         /// </summary>
-        public static string ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER {
+        internal static string ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER {
             get {
                 return ResourceManager.GetString("ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error occurred whilst saving settings.  Some settings may have been lost..
+        /// </summary>
+        internal static string ERR_SAVING_SETTINGS {
+            get {
+                return ResourceManager.GetString("ERR_SAVING_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find any matches.
         /// </summary>
-        public static string ERR_UNABLE_FIND_ANY_MATCHES {
+        internal static string ERR_UNABLE_FIND_ANY_MATCHES {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_FIND_ANY_MATCHES", resourceCulture);
             }
@@ -153,7 +162,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to generate card dump.
         /// </summary>
-        public static string ERR_UNABLE_GENERATE_CARD_DUMP {
+        internal static string ERR_UNABLE_GENERATE_CARD_DUMP {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_GENERATE_CARD_DUMP", resourceCulture);
             }
@@ -164,7 +173,7 @@ namespace Webcal.Properties {
         ///    
         ///{0}.
         /// </summary>
-        public static string ERR_UNABLE_GENERATE_PDF {
+        internal static string ERR_UNABLE_GENERATE_PDF {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_GENERATE_PDF", resourceCulture);
             }
@@ -177,7 +186,7 @@ namespace Webcal.Properties {
         ///  An error reading the card
         ///  There is no calibration history present on the card..
         /// </summary>
-        public static string ERR_UNABLE_GET_CALIBRATION_HISTORY {
+        internal static string ERR_UNABLE_GET_CALIBRATION_HISTORY {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_GET_CALIBRATION_HISTORY", resourceCulture);
             }
@@ -186,7 +195,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to load the file specified..
         /// </summary>
-        public static string ERR_UNABLE_LOAD_GIVEN_FILE {
+        internal static string ERR_UNABLE_LOAD_GIVEN_FILE {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_LOAD_GIVEN_FILE", resourceCulture);
             }
@@ -195,7 +204,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to retrieve calibration history data..
         /// </summary>
-        public static string ERR_UNABLE_READ_CALIBRATION_HISTORY_DATA {
+        internal static string ERR_UNABLE_READ_CALIBRATION_HISTORY_DATA {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_READ_CALIBRATION_HISTORY_DATA", resourceCulture);
             }
@@ -204,7 +213,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to read the smart card.  Please try again..
         /// </summary>
-        public static string ERR_UNABLE_READ_SMART_CARD {
+        internal static string ERR_UNABLE_READ_SMART_CARD {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_READ_SMART_CARD", resourceCulture);
             }
@@ -213,7 +222,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to apply transformations to the image..
         /// </summary>
-        public static string ERR_UNABLE_TO_APPLY_TRANSFORMATIONS {
+        internal static string ERR_UNABLE_TO_APPLY_TRANSFORMATIONS {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_TO_APPLY_TRANSFORMATIONS", resourceCulture);
             }
@@ -222,7 +231,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to load the given file..
         /// </summary>
-        public static string ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE {
+        internal static string ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE {
             get {
                 return ResourceManager.GetString("ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE", resourceCulture);
             }
@@ -231,7 +240,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to perform a backup.  Backups can only be created when working with SQL Server CE databases..
         /// </summary>
-        public static string EXC_CANNOT_BACKUP_DATABASE {
+        internal static string EXC_CANNOT_BACKUP_DATABASE {
             get {
                 return ResourceManager.GetString("EXC_CANNOT_BACKUP_DATABASE", resourceCulture);
             }
@@ -240,7 +249,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Could not find a program capable of opening PDF files..
         /// </summary>
-        public static string EXC_CANNOT_PRINT_PDF {
+        internal static string EXC_CANNOT_PRINT_PDF {
             get {
                 return ResourceManager.GetString("EXC_CANNOT_PRINT_PDF", resourceCulture);
             }
@@ -249,7 +258,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Could not locate resource &apos;{0}&apos;.
         /// </summary>
-        public static string EXC_COULD_NOT_LOCATE_RESOURCE {
+        internal static string EXC_COULD_NOT_LOCATE_RESOURCE {
             get {
                 return ResourceManager.GetString("EXC_COULD_NOT_LOCATE_RESOURCE", resourceCulture);
             }
@@ -258,7 +267,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred whilst trying to read the smart card..
         /// </summary>
-        public static string EXC_ERROR_WHILST_READING_SMART_CARD {
+        internal static string EXC_ERROR_WHILST_READING_SMART_CARD {
             get {
                 return ResourceManager.GetString("EXC_ERROR_WHILST_READING_SMART_CARD", resourceCulture);
             }
@@ -267,7 +276,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please ensure that all fields are completed before adding.
         /// </summary>
-        public static string EXC_INCOMPLETE_FIELDS {
+        internal static string EXC_INCOMPLETE_FIELDS {
             get {
                 return ResourceManager.GetString("EXC_INCOMPLETE_FIELDS", resourceCulture);
             }
@@ -276,7 +285,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please ensure that all required files are completed with a valid value.
         /// </summary>
-        public static string EXC_MISSING_FIELDS {
+        internal static string EXC_MISSING_FIELDS {
             get {
                 return ResourceManager.GetString("EXC_MISSING_FIELDS", resourceCulture);
             }
@@ -285,7 +294,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to No smart card/reader was found..
         /// </summary>
-        public static string EXC_NO_SMART_CARD_READERS_FOUND {
+        internal static string EXC_NO_SMART_CARD_READERS_FOUND {
             get {
                 return ResourceManager.GetString("EXC_NO_SMART_CARD_READERS_FOUND", resourceCulture);
             }
@@ -295,7 +304,7 @@ namespace Webcal.Properties {
         ///   Looks up a localized string similar to Unable to add workshop card file.
         ///.
         /// </summary>
-        public static string EXC_UNABLE_ADD_WORKSHOP_CARD_FILE {
+        internal static string EXC_UNABLE_ADD_WORKSHOP_CARD_FILE {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_ADD_WORKSHOP_CARD_FILE", resourceCulture);
             }
@@ -305,7 +314,7 @@ namespace Webcal.Properties {
         ///   Looks up a localized string similar to Unable to create the settings view.
         ///    .
         /// </summary>
-        public static string EXC_UNABLE_CREATE_SETTINGS_VIEW {
+        internal static string EXC_UNABLE_CREATE_SETTINGS_VIEW {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_CREATE_SETTINGS_VIEW", resourceCulture);
             }
@@ -314,7 +323,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to export PDF file.
         /// </summary>
-        public static string EXC_UNABLE_EXPORT_PDF {
+        internal static string EXC_UNABLE_EXPORT_PDF {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_EXPORT_PDF", resourceCulture);
             }
@@ -323,7 +332,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to generate card dump.
         /// </summary>
-        public static string EXC_UNABLE_GENERATE_CARD_DUMP {
+        internal static string EXC_UNABLE_GENERATE_CARD_DUMP {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_GENERATE_CARD_DUMP", resourceCulture);
             }
@@ -332,7 +341,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to generate Microsoft Excel spreadsheet..
         /// </summary>
-        public static string EXC_UNABLE_GENERATE_EXCEL_SPREADSHEET {
+        internal static string EXC_UNABLE_GENERATE_EXCEL_SPREADSHEET {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_GENERATE_EXCEL_SPREADSHEET", resourceCulture);
             }
@@ -341,7 +350,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to generate print preview.
         /// </summary>
-        public static string EXC_UNABLE_GENERATE_PRINT_PREVIEW {
+        internal static string EXC_UNABLE_GENERATE_PRINT_PREVIEW {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_GENERATE_PRINT_PREVIEW", resourceCulture);
             }
@@ -350,7 +359,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to preview the document.
         /// </summary>
-        public static string EXC_UNABLE_PREVIEW_DOCUMENT {
+        internal static string EXC_UNABLE_PREVIEW_DOCUMENT {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_PREVIEW_DOCUMENT", resourceCulture);
             }
@@ -359,7 +368,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to print PDF.
         /// </summary>
-        public static string EXC_UNABLE_PRINT_PDF {
+        internal static string EXC_UNABLE_PRINT_PDF {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_PRINT_PDF", resourceCulture);
             }
@@ -368,7 +377,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to read smartcard..
         /// </summary>
-        public static string EXC_UNABLE_READ_SMART_CARD {
+        internal static string EXC_UNABLE_READ_SMART_CARD {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_READ_SMART_CARD", resourceCulture);
             }
@@ -377,7 +386,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to create driver card file..
         /// </summary>
-        public static string EXC_UNABLE_TO_CREATE_DRIVER_CARD {
+        internal static string EXC_UNABLE_TO_CREATE_DRIVER_CARD {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_TO_CREATE_DRIVER_CARD", resourceCulture);
             }
@@ -386,7 +395,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to create tachograph file.
         /// </summary>
-        public static string EXC_UNABLE_TO_CREATE_TACHOGRAPH_FILE {
+        internal static string EXC_UNABLE_TO_CREATE_TACHOGRAPH_FILE {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_TO_CREATE_TACHOGRAPH_FILE", resourceCulture);
             }
@@ -395,7 +404,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to verify the database path.
         /// </summary>
-        public static string EXC_UNABLE_VERIFY_DATABASE_PATH {
+        internal static string EXC_UNABLE_VERIFY_DATABASE_PATH {
             get {
                 return ResourceManager.GetString("EXC_UNABLE_VERIFY_DATABASE_PATH", resourceCulture);
             }
@@ -404,7 +413,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to An unhandled error occurred..
         /// </summary>
-        public static string EXC_UNHANDLED_EXCEPTION {
+        internal static string EXC_UNHANDLED_EXCEPTION {
             get {
                 return ResourceManager.GetString("EXC_UNHANDLED_EXCEPTION", resourceCulture);
             }
@@ -413,7 +422,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to find plugin for given task ({0}).
         /// </summary>
-        public static string EXEC_UNABLE_TO_FIND_PLUGIN {
+        internal static string EXEC_UNABLE_TO_FIND_PLUGIN {
             get {
                 return ResourceManager.GetString("EXEC_UNABLE_TO_FIND_PLUGIN", resourceCulture);
             }
@@ -422,7 +431,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The file specified does not exist or you don&apos;t have permission to access it..
         /// </summary>
-        public static string MSG_EXC_CANNOT_ACCESS_FILE {
+        internal static string MSG_EXC_CANNOT_ACCESS_FILE {
             get {
                 return ResourceManager.GetString("MSG_EXC_CANNOT_ACCESS_FILE", resourceCulture);
             }
@@ -433,7 +442,7 @@ namespace Webcal.Properties {
         ///
         ///Expiration date: {0}.
         /// </summary>
-        public static string MSG_INF_SOFTWARE_HAS_BEEN_REGISTERED {
+        internal static string MSG_INF_SOFTWARE_HAS_BEEN_REGISTERED {
             get {
                 return ResourceManager.GetString("MSG_INF_SOFTWARE_HAS_BEEN_REGISTERED", resourceCulture);
             }
@@ -442,7 +451,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Would you like to back-up the database?.
         /// </summary>
-        public static string QTN_WOULD_YOU_LIKE_BACKUP_DATABASE {
+        internal static string QTN_WOULD_YOU_LIKE_BACKUP_DATABASE {
             get {
                 return ResourceManager.GetString("QTN_WOULD_YOU_LIKE_BACKUP_DATABASE", resourceCulture);
             }
@@ -451,7 +460,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to All supported graphics|*.jpg;*.jpeg;*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|Portable Network Graphic (*.png)|*.png.
         /// </summary>
-        public static string SELECT_BITMAP_IMAGE {
+        internal static string SELECT_BITMAP_IMAGE {
             get {
                 return ResourceManager.GetString("SELECT_BITMAP_IMAGE", resourceCulture);
             }
@@ -460,7 +469,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 2 Year.
         /// </summary>
-        public static string TXT_2_YEAR {
+        internal static string TXT_2_YEAR {
             get {
                 return ResourceManager.GetString("TXT_2_YEAR", resourceCulture);
             }
@@ -469,7 +478,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 6 Year.
         /// </summary>
-        public static string TXT_6_YEAR {
+        internal static string TXT_6_YEAR {
             get {
                 return ResourceManager.GetString("TXT_6_YEAR", resourceCulture);
             }
@@ -478,7 +487,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add Signature.
         /// </summary>
-        public static string TXT_ADD_SIGNATURE {
+        internal static string TXT_ADD_SIGNATURE {
             get {
                 return ResourceManager.GetString("TXT_ADD_SIGNATURE", resourceCulture);
             }
@@ -487,7 +496,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to All Files (*.*)|*.*.
         /// </summary>
-        public static string TXT_ALL_FILES {
+        internal static string TXT_ALL_FILES {
             get {
                 return ResourceManager.GetString("TXT_ALL_FILES", resourceCulture);
             }
@@ -496,7 +505,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ABCDEFGHIJKLMNOPQRSTUVWXYZ.
         /// </summary>
-        public static string TXT_ALPHABET {
+        internal static string TXT_ALPHABET {
             get {
                 return ResourceManager.GetString("TXT_ALPHABET", resourceCulture);
             }
@@ -505,7 +514,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to A.
         /// </summary>
-        public static string TXT_ANALOGUE {
+        internal static string TXT_ANALOGUE {
             get {
                 return ResourceManager.GetString("TXT_ANALOGUE", resourceCulture);
             }
@@ -514,7 +523,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ANALOGUE INSPECTIONS:.
         /// </summary>
-        public static string TXT_ANALOGUE_INSPECTIONS {
+        internal static string TXT_ANALOGUE_INSPECTIONS {
             get {
                 return ResourceManager.GetString("TXT_ANALOGUE_INSPECTIONS", resourceCulture);
             }
@@ -523,7 +532,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Analogue Tachograph Default Document Type:.
         /// </summary>
-        public static string TXT_ANALOGUE_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE {
+        internal static string TXT_ANALOGUE_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE {
             get {
                 return ResourceManager.GetString("TXT_ANALOGUE_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE", resourceCulture);
             }
@@ -532,7 +541,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New Analogue Tachograph Document.
         /// </summary>
-        public static string TXT_ANALOGUE_TACHOGRAPH_DOCUMENT {
+        internal static string TXT_ANALOGUE_TACHOGRAPH_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_ANALOGUE_TACHOGRAPH_DOCUMENT", resourceCulture);
             }
@@ -541,7 +550,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to and.
         /// </summary>
-        public static string TXT_AND {
+        internal static string TXT_AND {
             get {
                 return ResourceManager.GetString("TXT_AND", resourceCulture);
             }
@@ -550,7 +559,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Authorised Tachograph Center:.
         /// </summary>
-        public static string TXT_AUTHORISED_TACHOGRAPH_CENTER {
+        internal static string TXT_AUTHORISED_TACHOGRAPH_CENTER {
             get {
                 return ResourceManager.GetString("TXT_AUTHORISED_TACHOGRAPH_CENTER", resourceCulture);
             }
@@ -559,7 +568,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Authorised Testers Signature:.
         /// </summary>
-        public static string TXT_AUTHORISED_TESTERS_SIGNATURE {
+        internal static string TXT_AUTHORISED_TESTERS_SIGNATURE {
             get {
                 return ResourceManager.GetString("TXT_AUTHORISED_TESTERS_SIGNATURE", resourceCulture);
             }
@@ -568,7 +577,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Black.
         /// </summary>
-        public static string TXT_BLACK_THEME {
+        internal static string TXT_BLACK_THEME {
             get {
                 return ResourceManager.GetString("TXT_BLACK_THEME", resourceCulture);
             }
@@ -577,7 +586,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Blue.
         /// </summary>
-        public static string TXT_BLUE_THEME {
+        internal static string TXT_BLUE_THEME {
             get {
                 return ResourceManager.GetString("TXT_BLUE_THEME", resourceCulture);
             }
@@ -586,7 +595,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibration.
         /// </summary>
-        public static string TXT_CALIBRATION {
+        internal static string TXT_CALIBRATION {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION", resourceCulture);
             }
@@ -595,7 +604,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibration Date.
         /// </summary>
-        public static string TXT_CALIBRATION_DATE {
+        internal static string TXT_CALIBRATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DATE", resourceCulture);
             }
@@ -604,7 +613,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibration time:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_CALIBRATION_TIME {
+        internal static string TXT_CALIBRATION_DETAILS_CALIBRATION_TIME {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_CALIBRATION_TIME", resourceCulture);
             }
@@ -613,7 +622,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_CANCEL {
+        internal static string TXT_CALIBRATION_DETAILS_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_CANCEL", resourceCulture);
             }
@@ -622,7 +631,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to End:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_END {
+        internal static string TXT_CALIBRATION_DETAILS_END {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_END", resourceCulture);
             }
@@ -631,7 +640,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to K factor:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_K_FACTOR {
+        internal static string TXT_CALIBRATION_DETAILS_K_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_K_FACTOR", resourceCulture);
             }
@@ -640,7 +649,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to L factor of the wheel:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_L_FACTOR {
+        internal static string TXT_CALIBRATION_DETAILS_L_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_L_FACTOR", resourceCulture);
             }
@@ -649,7 +658,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Maximum speed:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_MAX_SPEED {
+        internal static string TXT_CALIBRATION_DETAILS_MAX_SPEED {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_MAX_SPEED", resourceCulture);
             }
@@ -658,7 +667,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Next calibration date:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_NEXT_CALIBRATION_DATE {
+        internal static string TXT_CALIBRATION_DETAILS_NEXT_CALIBRATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_NEXT_CALIBRATION_DATE", resourceCulture);
             }
@@ -667,7 +676,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Odometer reading:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_ODOMETER_READING {
+        internal static string TXT_CALIBRATION_DETAILS_ODOMETER_READING {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_ODOMETER_READING", resourceCulture);
             }
@@ -676,7 +685,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_OK {
+        internal static string TXT_CALIBRATION_DETAILS_OK {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_OK", resourceCulture);
             }
@@ -685,7 +694,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Purpose:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_PURPOSE {
+        internal static string TXT_CALIBRATION_DETAILS_PURPOSE {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_PURPOSE", resourceCulture);
             }
@@ -694,7 +703,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle registration nation:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_REGISTRATION_NATION {
+        internal static string TXT_CALIBRATION_DETAILS_REGISTRATION_NATION {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_REGISTRATION_NATION", resourceCulture);
             }
@@ -703,7 +712,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle registration number:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_REGISTRATION_NUMBER {
+        internal static string TXT_CALIBRATION_DETAILS_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -712,7 +721,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Select.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_SELECT {
+        internal static string TXT_CALIBRATION_DETAILS_SELECT {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_SELECT", resourceCulture);
             }
@@ -721,7 +730,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Select Date Range.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE {
+        internal static string TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE", resourceCulture);
             }
@@ -730,7 +739,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Sensor serial number:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_SENSOR_SERIAL {
+        internal static string TXT_CALIBRATION_DETAILS_SENSOR_SERIAL {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_SENSOR_SERIAL", resourceCulture);
             }
@@ -739,7 +748,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Size of tyre:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_SIZE_OF_TYRE {
+        internal static string TXT_CALIBRATION_DETAILS_SIZE_OF_TYRE {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_SIZE_OF_TYRE", resourceCulture);
             }
@@ -748,7 +757,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Start:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_START {
+        internal static string TXT_CALIBRATION_DETAILS_START {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_START", resourceCulture);
             }
@@ -757,7 +766,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph make:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_TACHO_MAKE {
+        internal static string TXT_CALIBRATION_DETAILS_TACHO_MAKE {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_TACHO_MAKE", resourceCulture);
             }
@@ -766,7 +775,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph serial number:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_TACHO_SERIAL_NUMBER {
+        internal static string TXT_CALIBRATION_DETAILS_TACHO_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_TACHO_SERIAL_NUMBER", resourceCulture);
             }
@@ -775,7 +784,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibration Details.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_TITLE {
+        internal static string TXT_CALIBRATION_DETAILS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_TITLE", resourceCulture);
             }
@@ -784,7 +793,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle unit number:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_VEHICLE_UNIT_NUMBER {
+        internal static string TXT_CALIBRATION_DETAILS_VEHICLE_UNIT_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_VEHICLE_UNIT_NUMBER", resourceCulture);
             }
@@ -793,7 +802,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle identification number:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_VIN {
+        internal static string TXT_CALIBRATION_DETAILS_VIN {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_VIN", resourceCulture);
             }
@@ -802,7 +811,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to W factor:.
         /// </summary>
-        public static string TXT_CALIBRATION_DETAILS_W_FACTOR {
+        internal static string TXT_CALIBRATION_DETAILS_W_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATION_DETAILS_W_FACTOR", resourceCulture);
             }
@@ -811,7 +820,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Clear selection.
         /// </summary>
-        public static string TXT_CALIBRATIONS_CLEAR_SELECTION {
+        internal static string TXT_CALIBRATIONS_CLEAR_SELECTION {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATIONS_CLEAR_SELECTION", resourceCulture);
             }
@@ -820,7 +829,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Read from card.
         /// </summary>
-        public static string TXT_CALIBRATIONS_READ_FROM_CARD {
+        internal static string TXT_CALIBRATIONS_READ_FROM_CARD {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATIONS_READ_FROM_CARD", resourceCulture);
             }
@@ -829,7 +838,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Select all.
         /// </summary>
-        public static string TXT_CALIBRATIONS_SELECT_ALL {
+        internal static string TXT_CALIBRATIONS_SELECT_ALL {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATIONS_SELECT_ALL", resourceCulture);
             }
@@ -838,7 +847,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Show details.
         /// </summary>
-        public static string TXT_CALIBRATIONS_SHOW_DETAILS {
+        internal static string TXT_CALIBRATIONS_SHOW_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATIONS_SHOW_DETAILS", resourceCulture);
             }
@@ -847,7 +856,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_CANCEL {
+        internal static string TXT_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_CANCEL", resourceCulture);
             }
@@ -856,7 +865,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
-        public static string TXT_CAPTURE_SIGNATURE_BROWSE {
+        internal static string TXT_CAPTURE_SIGNATURE_BROWSE {
             get {
                 return ResourceManager.GetString("TXT_CAPTURE_SIGNATURE_BROWSE", resourceCulture);
             }
@@ -865,7 +874,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
-        public static string TXT_CAPTURE_SIGNATURE_CLOSE {
+        internal static string TXT_CAPTURE_SIGNATURE_CLOSE {
             get {
                 return ResourceManager.GetString("TXT_CAPTURE_SIGNATURE_CLOSE", resourceCulture);
             }
@@ -874,7 +883,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Save &amp; Close.
         /// </summary>
-        public static string TXT_CAPTURE_SIGNATURE_SAVE_AND_CLOSE {
+        internal static string TXT_CAPTURE_SIGNATURE_SAVE_AND_CLOSE {
             get {
                 return ResourceManager.GetString("TXT_CAPTURE_SIGNATURE_SAVE_AND_CLOSE", resourceCulture);
             }
@@ -883,7 +892,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Task Queue.
         /// </summary>
-        public static string TXT_CAPTURE_SIGNATURE_TASK_QUEUE {
+        internal static string TXT_CAPTURE_SIGNATURE_TASK_QUEUE {
             get {
                 return ResourceManager.GetString("TXT_CAPTURE_SIGNATURE_TASK_QUEUE", resourceCulture);
             }
@@ -892,7 +901,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Capture Signature.
         /// </summary>
-        public static string TXT_CAPTURE_SIGNATURE_TITLE {
+        internal static string TXT_CAPTURE_SIGNATURE_TITLE {
             get {
                 return ResourceManager.GetString("TXT_CAPTURE_SIGNATURE_TITLE", resourceCulture);
             }
@@ -901,7 +910,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-Print Certificate.
         /// </summary>
-        public static string TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT {
+        internal static string TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT", resourceCulture);
             }
@@ -910,7 +919,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Certification of the inspection and sealing of tachograph and M1N1 adapter.
         /// </summary>
-        public static string TXT_CERTIFICATION_INSPECTION_SEALING_TACHOGRAPH_M1N1 {
+        internal static string TXT_CERTIFICATION_INSPECTION_SEALING_TACHOGRAPH_M1N1 {
             get {
                 return ResourceManager.GetString("TXT_CERTIFICATION_INSPECTION_SEALING_TACHOGRAPH_M1N1", resourceCulture);
             }
@@ -919,7 +928,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Clear Selection.
         /// </summary>
-        public static string TXT_CLEAR_SELECTION {
+        internal static string TXT_CLEAR_SELECTION {
             get {
                 return ResourceManager.GetString("TXT_CLEAR_SELECTION", resourceCulture);
             }
@@ -928,7 +937,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Colour.
         /// </summary>
-        public static string TXT_COLOR {
+        internal static string TXT_COLOR {
             get {
                 return ResourceManager.GetString("TXT_COLOR", resourceCulture);
             }
@@ -937,7 +946,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Colour          {0}.
         /// </summary>
-        public static string TXT_COLOR_SMALL_LABEL {
+        internal static string TXT_COLOR_SMALL_LABEL {
             get {
                 return ResourceManager.GetString("TXT_COLOR_SMALL_LABEL", resourceCulture);
             }
@@ -946,7 +955,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Colour           {0}.
         /// </summary>
-        public static string TXT_COLOUR_MEDIUM_LABEL {
+        internal static string TXT_COLOUR_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_COLOUR_MEDIUM_LABEL", resourceCulture);
             }
@@ -957,7 +966,7 @@ namespace Webcal.Properties {
         ///
         ///Any unsaved changes will be lost..
         /// </summary>
-        public static string TXT_CONFIRM_EXIT {
+        internal static string TXT_CONFIRM_EXIT {
             get {
                 return ResourceManager.GetString("TXT_CONFIRM_EXIT", resourceCulture);
             }
@@ -966,7 +975,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Created reports per year and per customer - office: {0}.
         /// </summary>
-        public static string TXT_CREATED_REPORTS_PER_YEAR_PER_CUSTOMER {
+        internal static string TXT_CREATED_REPORTS_PER_YEAR_PER_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_CREATED_REPORTS_PER_YEAR_PER_CUSTOMER", resourceCulture);
             }
@@ -975,7 +984,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
-        public static string TXT_CUSTOMER {
+        internal static string TXT_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER", resourceCulture);
             }
@@ -984,7 +993,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to CUSTOMER DETAILS:.
         /// </summary>
-        public static string TXT_CUSTOMER_DETAILS {
+        internal static string TXT_CUSTOMER_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_DETAILS", resourceCulture);
             }
@@ -993,7 +1002,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer settings.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS {
+        internal static string TXT_CUSTOMER_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS", resourceCulture);
             }
@@ -1002,7 +1011,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Address/P.O. Box:.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_ADDRESS {
+        internal static string TXT_CUSTOMER_SETTINGS_ADDRESS {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_ADDRESS", resourceCulture);
             }
@@ -1011,7 +1020,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_CANCEL {
+        internal static string TXT_CUSTOMER_SETTINGS_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_CANCEL", resourceCulture);
             }
@@ -1020,7 +1029,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer Name:.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME {
+        internal static string TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME", resourceCulture);
             }
@@ -1029,7 +1038,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer Settings.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_CUSTOMER_SETTINGS {
+        internal static string TXT_CUSTOMER_SETTINGS_CUSTOMER_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_CUSTOMER_SETTINGS", resourceCulture);
             }
@@ -1038,7 +1047,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Email:.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_EMAIL {
+        internal static string TXT_CUSTOMER_SETTINGS_EMAIL {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_EMAIL", resourceCulture);
             }
@@ -1047,7 +1056,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Phone Number:.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_PHONE_NUMBER {
+        internal static string TXT_CUSTOMER_SETTINGS_PHONE_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_PHONE_NUMBER", resourceCulture);
             }
@@ -1056,7 +1065,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Post Code:.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_POST_CODE {
+        internal static string TXT_CUSTOMER_SETTINGS_POST_CODE {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_POST_CODE", resourceCulture);
             }
@@ -1065,7 +1074,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_REMOVE {
+        internal static string TXT_CUSTOMER_SETTINGS_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_REMOVE", resourceCulture);
             }
@@ -1074,7 +1083,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_SAVE {
+        internal static string TXT_CUSTOMER_SETTINGS_SAVE {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_SAVE", resourceCulture);
             }
@@ -1083,7 +1092,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Secondary Email:.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_SECONDARY_EMAIL {
+        internal static string TXT_CUSTOMER_SETTINGS_SECONDARY_EMAIL {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_SECONDARY_EMAIL", resourceCulture);
             }
@@ -1092,7 +1101,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Town:.
         /// </summary>
-        public static string TXT_CUSTOMER_SETTINGS_TOWN {
+        internal static string TXT_CUSTOMER_SETTINGS_TOWN {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_TOWN", resourceCulture);
             }
@@ -1101,7 +1110,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to DataDirectory.
         /// </summary>
-        public static string TXT_DATA_DIRECTORY {
+        internal static string TXT_DATA_DIRECTORY {
             get {
                 return ResourceManager.GetString("TXT_DATA_DIRECTORY", resourceCulture);
             }
@@ -1110,7 +1119,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Data File (*.dat)|*.dat.
         /// </summary>
-        public static string TXT_DATA_FILE {
+        internal static string TXT_DATA_FILE {
             get {
                 return ResourceManager.GetString("TXT_DATA_FILE", resourceCulture);
             }
@@ -1119,7 +1128,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to DATE:.
         /// </summary>
-        public static string TXT_DATE {
+        internal static string TXT_DATE {
             get {
                 return ResourceManager.GetString("TXT_DATE", resourceCulture);
             }
@@ -1128,7 +1137,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Date of inspection.
         /// </summary>
-        public static string TXT_DATE_OF_INSPECTION {
+        internal static string TXT_DATE_OF_INSPECTION {
             get {
                 return ResourceManager.GetString("TXT_DATE_OF_INSPECTION", resourceCulture);
             }
@@ -1137,7 +1146,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Demo.
         /// </summary>
-        public static string TXT_DEMO {
+        internal static string TXT_DEMO {
             get {
                 return ResourceManager.GetString("TXT_DEMO", resourceCulture);
             }
@@ -1146,7 +1155,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to D.
         /// </summary>
-        public static string TXT_DIGITAL {
+        internal static string TXT_DIGITAL {
             get {
                 return ResourceManager.GetString("TXT_DIGITAL", resourceCulture);
             }
@@ -1155,7 +1164,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to DIGITAL CALIBRATIONS:.
         /// </summary>
-        public static string TXT_DIGITAL_INSPECTIONS {
+        internal static string TXT_DIGITAL_INSPECTIONS {
             get {
                 return ResourceManager.GetString("TXT_DIGITAL_INSPECTIONS", resourceCulture);
             }
@@ -1164,7 +1173,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Digital Tachograph Default Document Type:.
         /// </summary>
-        public static string TXT_DIGITAL_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE {
+        internal static string TXT_DIGITAL_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE {
             get {
                 return ResourceManager.GetString("TXT_DIGITAL_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE", resourceCulture);
             }
@@ -1173,7 +1182,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New Digital Tachograph Document.
         /// </summary>
-        public static string TXT_DIGITAL_TACHOGRAPH_DOCUMENT {
+        internal static string TXT_DIGITAL_TACHOGRAPH_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_DIGITAL_TACHOGRAPH_DOCUMENT", resourceCulture);
             }
@@ -1182,7 +1191,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Distributor Seal:  {0}.
         /// </summary>
-        public static string TXT_DISTRIBUTOR_SEAL {
+        internal static string TXT_DISTRIBUTOR_SEAL {
             get {
                 return ResourceManager.GetString("TXT_DISTRIBUTOR_SEAL", resourceCulture);
             }
@@ -1191,7 +1200,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The document has been sent to your default printer.
         /// </summary>
-        public static string TXT_DOCUMENT_PRINTED {
+        internal static string TXT_DOCUMENT_PRINTED {
             get {
                 return ResourceManager.GetString("TXT_DOCUMENT_PRINTED", resourceCulture);
             }
@@ -1200,7 +1209,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Document Type.
         /// </summary>
-        public static string TXT_DOCUMENT_TYPE {
+        internal static string TXT_DOCUMENT_TYPE {
             get {
                 return ResourceManager.GetString("TXT_DOCUMENT_TYPE", resourceCulture);
             }
@@ -1209,7 +1218,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_ADD {
+        internal static string TXT_DRIVER_CARD_FILES_ADD {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_ADD", resourceCulture);
             }
@@ -1218,7 +1227,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_BROWSE {
+        internal static string TXT_DRIVER_CARD_FILES_BROWSE {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_BROWSE", resourceCulture);
             }
@@ -1227,7 +1236,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Creation date.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_CREATION_DATE {
+        internal static string TXT_DRIVER_CARD_FILES_CREATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_CREATION_DATE", resourceCulture);
             }
@@ -1236,7 +1245,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer:.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_CUSTOMER {
+        internal static string TXT_DRIVER_CARD_FILES_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_CUSTOMER", resourceCulture);
             }
@@ -1245,7 +1254,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_CUSTOMER_2 {
+        internal static string TXT_DRIVER_CARD_FILES_CUSTOMER_2 {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_CUSTOMER_2", resourceCulture);
             }
@@ -1254,7 +1263,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Date:.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_DATE {
+        internal static string TXT_DRIVER_CARD_FILES_DATE {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_DATE", resourceCulture);
             }
@@ -1263,7 +1272,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Driver:.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_DRIVER {
+        internal static string TXT_DRIVER_CARD_FILES_DRIVER {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_DRIVER", resourceCulture);
             }
@@ -1272,7 +1281,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Driver.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_DRIVER_2 {
+        internal static string TXT_DRIVER_CARD_FILES_DRIVER_2 {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_DRIVER_2", resourceCulture);
             }
@@ -1281,7 +1290,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Driver card files.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_DRIVER_CARD_FILESE {
+        internal static string TXT_DRIVER_CARD_FILES_DRIVER_CARD_FILESE {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_DRIVER_CARD_FILESE", resourceCulture);
             }
@@ -1290,7 +1299,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_EXPORT {
+        internal static string TXT_DRIVER_CARD_FILES_EXPORT {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_EXPORT", resourceCulture);
             }
@@ -1299,7 +1308,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_REMOVE {
+        internal static string TXT_DRIVER_CARD_FILES_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_REMOVE", resourceCulture);
             }
@@ -1308,7 +1317,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Stored files.
         /// </summary>
-        public static string TXT_DRIVER_CARD_FILES_STORED_FILES {
+        internal static string TXT_DRIVER_CARD_FILES_STORED_FILES {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_STORED_FILES", resourceCulture);
             }
@@ -1317,7 +1326,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
-        public static string TXT_EMAIL {
+        internal static string TXT_EMAIL {
             get {
                 return ResourceManager.GetString("TXT_EMAIL", resourceCulture);
             }
@@ -1326,7 +1335,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Automatically email certificates.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_AUTO_EMAIL_CERTIFICATES {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_AUTO_EMAIL_CERTIFICATES {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_AUTO_EMAIL_CERTIFICATES", resourceCulture);
             }
@@ -1335,7 +1344,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Body.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_BODY {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_BODY {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_BODY", resourceCulture);
             }
@@ -1344,7 +1353,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Default Sending Preferences.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_DEFAULT_SENDING_PREFERENCES {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_DEFAULT_SENDING_PREFERENCES {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_DEFAULT_SENDING_PREFERENCES", resourceCulture);
             }
@@ -1353,7 +1362,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Do not send.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_DO_NOT_SEND {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_DO_NOT_SEND {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_DO_NOT_SEND", resourceCulture);
             }
@@ -1362,7 +1371,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Don&apos;t send emails.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_DONT_SEND_EMAILS {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_DONT_SEND_EMAILS {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_DONT_SEND_EMAILS", resourceCulture);
             }
@@ -1371,7 +1380,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Allow me to make edits before sending.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_MAKE_EDITS_BEFORE_SENDING {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_MAKE_EDITS_BEFORE_SENDING {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_MAKE_EDITS_BEFORE_SENDING", resourceCulture);
             }
@@ -1380,7 +1389,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Send To Customer.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_SEND_TO_CUSTOMER {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_SEND_TO_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_SEND_TO_CUSTOMER", resourceCulture);
             }
@@ -1389,7 +1398,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Send To Office.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_SEND_TO_OFFICE {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_SEND_TO_OFFICE {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_SEND_TO_OFFICE", resourceCulture);
             }
@@ -1398,7 +1407,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Subject.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_SUBJECT {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_SUBJECT {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_SUBJECT", resourceCulture);
             }
@@ -1407,7 +1416,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Email settings.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_TITLE_TITLE {
+        internal static string TXT_EMAIL_SETTINGS_TITLE_TITLE {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_TITLE_TITLE", resourceCulture);
             }
@@ -1416,7 +1425,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Users will not see these settings when &quot;Don&apos;t send emails&quot; is selected.
         /// </summary>
-        public static string TXT_EMAIL_SETTINGS_USERS_WONT_SEE_SETTINGS {
+        internal static string TXT_EMAIL_SETTINGS_USERS_WONT_SEE_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_EMAIL_SETTINGS_USERS_WONT_SEE_SETTINGS", resourceCulture);
             }
@@ -1425,7 +1434,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Empty fields.
         /// </summary>
-        public static string TXT_EMPTY_FIELDS {
+        internal static string TXT_EMPTY_FIELDS {
             get {
                 return ResourceManager.GetString("TXT_EMPTY_FIELDS", resourceCulture);
             }
@@ -1434,7 +1443,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Enter the technician number.
         /// </summary>
-        public static string TXT_ENTER_TECHNICIAN_NUMBER {
+        internal static string TXT_ENTER_TECHNICIAN_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_ENTER_TECHNICIAN_NUMBER", resourceCulture);
             }
@@ -1443,7 +1452,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Enter a valid license key and the field will turn green.
         /// </summary>
-        public static string TXT_ENTER_VALID_LICENSE_KEY {
+        internal static string TXT_ENTER_VALID_LICENSE_KEY {
             get {
                 return ResourceManager.GetString("TXT_ENTER_VALID_LICENSE_KEY", resourceCulture);
             }
@@ -1452,7 +1461,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a valid unique username, and a password..
         /// </summary>
-        public static string TXT_ERR_ENTER_UNIQUE_USERNAME {
+        internal static string TXT_ERR_ENTER_UNIQUE_USERNAME {
             get {
                 return ResourceManager.GetString("TXT_ERR_ENTER_UNIQUE_USERNAME", resourceCulture);
             }
@@ -1461,7 +1470,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cannot print label because you must select a document type first..
         /// </summary>
-        public static string TXT_ERR_MUST_SELECT_DOCUMENT_TYPE {
+        internal static string TXT_ERR_MUST_SELECT_DOCUMENT_TYPE {
             get {
                 return ResourceManager.GetString("TXT_ERR_MUST_SELECT_DOCUMENT_TYPE", resourceCulture);
             }
@@ -1470,7 +1479,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please select a user from the right hand menu to remove..
         /// </summary>
-        public static string TXT_ERR_SELECT_USER_TO_REMOVE {
+        internal static string TXT_ERR_SELECT_USER_TO_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_ERR_SELECT_USER_TO_REMOVE", resourceCulture);
             }
@@ -1479,7 +1488,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
-        public static string TXT_ERROR {
+        internal static string TXT_ERROR {
             get {
                 return ResourceManager.GetString("TXT_ERROR", resourceCulture);
             }
@@ -1488,7 +1497,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
-        public static string TXT_EXCEPTION_WINDOW_CLOSE {
+        internal static string TXT_EXCEPTION_WINDOW_CLOSE {
             get {
                 return ResourceManager.GetString("TXT_EXCEPTION_WINDOW_CLOSE", resourceCulture);
             }
@@ -1497,7 +1506,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Date/Time.
         /// </summary>
-        public static string TXT_EXCEPTION_WINDOW_DATE_TIME {
+        internal static string TXT_EXCEPTION_WINDOW_DATE_TIME {
             get {
                 return ResourceManager.GetString("TXT_EXCEPTION_WINDOW_DATE_TIME", resourceCulture);
             }
@@ -1506,7 +1515,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Exception Details.
         /// </summary>
-        public static string TXT_EXCEPTION_WINDOW_EXCEPTION_DETAILS {
+        internal static string TXT_EXCEPTION_WINDOW_EXCEPTION_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_EXCEPTION_WINDOW_EXCEPTION_DETAILS", resourceCulture);
             }
@@ -1515,7 +1524,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
-        public static string TXT_EXCEPTION_WINDOW_EXPORT {
+        internal static string TXT_EXCEPTION_WINDOW_EXPORT {
             get {
                 return ResourceManager.GetString("TXT_EXCEPTION_WINDOW_EXPORT", resourceCulture);
             }
@@ -1524,7 +1533,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technical Information.
         /// </summary>
-        public static string TXT_EXCEPTION_WINDOW_TECHNICAL_INFORMATION {
+        internal static string TXT_EXCEPTION_WINDOW_TECHNICAL_INFORMATION {
             get {
                 return ResourceManager.GetString("TXT_EXCEPTION_WINDOW_TECHNICAL_INFORMATION", resourceCulture);
             }
@@ -1533,7 +1542,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to NEXT CALIBRATION DUE: .
         /// </summary>
-        public static string TXT_EXP {
+        internal static string TXT_EXP {
             get {
                 return ResourceManager.GetString("TXT_EXP", resourceCulture);
             }
@@ -1542,7 +1551,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Expiration Date: .
         /// </summary>
-        public static string TXT_EXPIRATION_DATE {
+        internal static string TXT_EXPIRATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_EXPIRATION_DATE", resourceCulture);
             }
@@ -1551,7 +1560,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to EXP : .
         /// </summary>
-        public static string TXT_EXPIRY {
+        internal static string TXT_EXPIRY {
             get {
                 return ResourceManager.GetString("TXT_EXPIRY", resourceCulture);
             }
@@ -1560,7 +1569,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Export complete.
         /// </summary>
-        public static string TXT_EXPORT_COMPLETE {
+        internal static string TXT_EXPORT_COMPLETE {
             get {
                 return ResourceManager.GetString("TXT_EXPORT_COMPLETE", resourceCulture);
             }
@@ -1569,7 +1578,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .jpeg.
         /// </summary>
-        public static string TXT_EXTENSION_JPEG {
+        internal static string TXT_EXTENSION_JPEG {
             get {
                 return ResourceManager.GetString("TXT_EXTENSION_JPEG", resourceCulture);
             }
@@ -1578,7 +1587,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .jpg.
         /// </summary>
-        public static string TXT_EXTENSION_JPG {
+        internal static string TXT_EXTENSION_JPG {
             get {
                 return ResourceManager.GetString("TXT_EXTENSION_JPG", resourceCulture);
             }
@@ -1587,7 +1596,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .png.
         /// </summary>
-        public static string TXT_EXTENSION_PNG {
+        internal static string TXT_EXTENSION_PNG {
             get {
                 return ResourceManager.GetString("TXT_EXTENSION_PNG", resourceCulture);
             }
@@ -1596,7 +1605,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Friday.
         /// </summary>
-        public static string TXT_FRIDAY {
+        internal static string TXT_FRIDAY {
             get {
                 return ResourceManager.GetString("TXT_FRIDAY", resourceCulture);
             }
@@ -1605,7 +1614,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to General settings.
         /// </summary>
-        public static string TXT_GENERAL_SETTINGS {
+        internal static string TXT_GENERAL_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_GENERAL_SETTINGS", resourceCulture);
             }
@@ -1614,7 +1623,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Backup database automatically on the specified day(s):.
         /// </summary>
-        public static string TXT_GENERAL_SETTINGS_BACKUP_DATABASE_ON_DAYS {
+        internal static string TXT_GENERAL_SETTINGS_BACKUP_DATABASE_ON_DAYS {
             get {
                 return ResourceManager.GetString("TXT_GENERAL_SETTINGS_BACKUP_DATABASE_ON_DAYS", resourceCulture);
             }
@@ -1623,7 +1632,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
-        public static string TXT_GENERAL_SETTINGS_BROWSE {
+        internal static string TXT_GENERAL_SETTINGS_BROWSE {
             get {
                 return ResourceManager.GetString("TXT_GENERAL_SETTINGS_BROWSE", resourceCulture);
             }
@@ -1632,7 +1641,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to General settings.
         /// </summary>
-        public static string TXT_GENERAL_SETTINGS_GENERAL_SETTINGS {
+        internal static string TXT_GENERAL_SETTINGS_GENERAL_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_GENERAL_SETTINGS_GENERAL_SETTINGS", resourceCulture);
             }
@@ -1641,7 +1650,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_CANCEL {
+        internal static string TXT_GENERATE_REPORT_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_CANCEL", resourceCulture);
             }
@@ -1650,7 +1659,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Document statistics.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_DOCUMENT_STATISTICS {
+        internal static string TXT_GENERATE_REPORT_DOCUMENT_STATISTICS {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENT_STATISTICS", resourceCulture);
             }
@@ -1659,7 +1668,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to (Documents which expire during this time period).
         /// </summary>
-        public static string TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD {
+        internal static string TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD", resourceCulture);
             }
@@ -1668,7 +1677,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Documents which expire during this month.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING {
+        internal static string TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING", resourceCulture);
             }
@@ -1677,7 +1686,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Documents which expire during next month.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH {
+        internal static string TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH", resourceCulture);
             }
@@ -1686,7 +1695,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to End date.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_END_DATE {
+        internal static string TXT_GENERATE_REPORT_END_DATE {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_END_DATE", resourceCulture);
             }
@@ -1695,7 +1704,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Excel 2007 (.xlsx).
         /// </summary>
-        public static string TXT_GENERATE_REPORT_EXCEL {
+        internal static string TXT_GENERATE_REPORT_EXCEL {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_EXCEL", resourceCulture);
             }
@@ -1704,7 +1713,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Expiring tachograph documents.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH {
+        internal static string TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH", resourceCulture);
             }
@@ -1713,7 +1722,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to File format.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_FILE_FORMAT {
+        internal static string TXT_GENERATE_REPORT_FILE_FORMAT {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_FILE_FORMAT", resourceCulture);
             }
@@ -1722,7 +1731,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Generate.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_GENERATE {
+        internal static string TXT_GENERATE_REPORT_GENERATE {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_GENERATE", resourceCulture);
             }
@@ -1731,7 +1740,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Generate report of expiring documents or statistics report.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING {
+        internal static string TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING", resourceCulture);
             }
@@ -1740,7 +1749,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Office.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_OFFICE {
+        internal static string TXT_GENERATE_REPORT_OFFICE {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_OFFICE", resourceCulture);
             }
@@ -1749,7 +1758,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Quick selection.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_QUICK_SELECTION {
+        internal static string TXT_GENERATE_REPORT_QUICK_SELECTION {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_QUICK_SELECTION", resourceCulture);
             }
@@ -1758,7 +1767,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Select time frame.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_SELECT_TIME_FRAME {
+        internal static string TXT_GENERATE_REPORT_SELECT_TIME_FRAME {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_SELECT_TIME_FRAME", resourceCulture);
             }
@@ -1767,7 +1776,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Start date.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_START_DATE {
+        internal static string TXT_GENERATE_REPORT_START_DATE {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_START_DATE", resourceCulture);
             }
@@ -1776,7 +1785,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Text (.txt).
         /// </summary>
-        public static string TXT_GENERATE_REPORT_TEXT {
+        internal static string TXT_GENERATE_REPORT_TEXT {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_TEXT", resourceCulture);
             }
@@ -1785,7 +1794,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Time span.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_TIME_SPAN {
+        internal static string TXT_GENERATE_REPORT_TIME_SPAN {
             get {
                 return ResourceManager.GetString("TXT_GENERATE_REPORT_TIME_SPAN", resourceCulture);
             }
@@ -1794,7 +1803,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Generated Report.
         /// </summary>
-        public static string TXT_GENERATED_REPORT {
+        internal static string TXT_GENERATED_REPORT {
             get {
                 return ResourceManager.GetString("TXT_GENERATED_REPORT", resourceCulture);
             }
@@ -1803,7 +1812,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Generating workshop card file....
         /// </summary>
-        public static string TXT_GENERATING_WORKSHOP_CARD_FILE {
+        internal static string TXT_GENERATING_WORKSHOP_CARD_FILE {
             get {
                 return ResourceManager.GetString("TXT_GENERATING_WORKSHOP_CARD_FILE", resourceCulture);
             }
@@ -1812,7 +1821,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Give inspection equipment.
         /// </summary>
-        public static string TXT_GIVE_INSPECTION_EQUIPMENT {
+        internal static string TXT_GIVE_INSPECTION_EQUIPMENT {
             get {
                 return ResourceManager.GetString("TXT_GIVE_INSPECTION_EQUIPMENT", resourceCulture);
             }
@@ -1821,7 +1830,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Give inspection method.
         /// </summary>
-        public static string TXT_GIVE_INSPECTION_METHOD {
+        internal static string TXT_GIVE_INSPECTION_METHOD {
             get {
                 return ResourceManager.GetString("TXT_GIVE_INSPECTION_METHOD", resourceCulture);
             }
@@ -1830,7 +1839,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Give make of tachograph.
         /// </summary>
-        public static string TXT_GIVE_MAKE_OF_TACHOGRAPH {
+        internal static string TXT_GIVE_MAKE_OF_TACHOGRAPH {
             get {
                 return ResourceManager.GetString("TXT_GIVE_MAKE_OF_TACHOGRAPH", resourceCulture);
             }
@@ -1839,7 +1848,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Give make of vehicle.
         /// </summary>
-        public static string TXT_GIVE_MAKE_OF_VEHICLE {
+        internal static string TXT_GIVE_MAKE_OF_VEHICLE {
             get {
                 return ResourceManager.GetString("TXT_GIVE_MAKE_OF_VEHICLE", resourceCulture);
             }
@@ -1848,7 +1857,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Give model of tachograph.
         /// </summary>
-        public static string TXT_GIVE_MODEL_OF_TACHOGRAPH {
+        internal static string TXT_GIVE_MODEL_OF_TACHOGRAPH {
             get {
                 return ResourceManager.GetString("TXT_GIVE_MODEL_OF_TACHOGRAPH", resourceCulture);
             }
@@ -1857,7 +1866,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Give model of vehicle.
         /// </summary>
-        public static string TXT_GIVE_MODEL_OF_VEHICLE {
+        internal static string TXT_GIVE_MODEL_OF_VEHICLE {
             get {
                 return ResourceManager.GetString("TXT_GIVE_MODEL_OF_VEHICLE", resourceCulture);
             }
@@ -1866,7 +1875,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Give the name of the technician.
         /// </summary>
-        public static string TXT_GIVE_NAME_OF_TECHNICIAN {
+        internal static string TXT_GIVE_NAME_OF_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_GIVE_NAME_OF_TECHNICIAN", resourceCulture);
             }
@@ -1875,7 +1884,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Give tyre size.
         /// </summary>
-        public static string TXT_GIVE_TYRE_SIZE {
+        internal static string TXT_GIVE_TYRE_SIZE {
             get {
                 return ResourceManager.GetString("TXT_GIVE_TYRE_SIZE", resourceCulture);
             }
@@ -1884,7 +1893,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to GV 212.
         /// </summary>
-        public static string TXT_GV_212 {
+        internal static string TXT_GV_212 {
             get {
                 return ResourceManager.GetString("TXT_GV_212", resourceCulture);
             }
@@ -1893,7 +1902,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Automatically print labels.
         /// </summary>
-        public static string TXT_HOME_SCREEN_AUTO_PRINT_LABELS {
+        internal static string TXT_HOME_SCREEN_AUTO_PRINT_LABELS {
             get {
                 return ResourceManager.GetString("TXT_HOME_SCREEN_AUTO_PRINT_LABELS", resourceCulture);
             }
@@ -1902,7 +1911,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {0} imp/km.
         /// </summary>
-        public static string TXT_IMP_KM {
+        internal static string TXT_IMP_KM {
             get {
                 return ResourceManager.GetString("TXT_IMP_KM", resourceCulture);
             }
@@ -1911,7 +1920,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {0} imp/km.
         /// </summary>
-        public static string TXT_IMP_KM_VEHICLE {
+        internal static string TXT_IMP_KM_VEHICLE {
             get {
                 return ResourceManager.GetString("TXT_IMP_KM_VEHICLE", resourceCulture);
             }
@@ -1920,7 +1929,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
-        public static string TXT_INFORMATION {
+        internal static string TXT_INFORMATION {
             get {
                 return ResourceManager.GetString("TXT_INFORMATION", resourceCulture);
             }
@@ -1929,7 +1938,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection equipments.
         /// </summary>
-        public static string TXT_INSPECTION_EQUIPMENTS {
+        internal static string TXT_INSPECTION_EQUIPMENTS {
             get {
                 return ResourceManager.GetString("TXT_INSPECTION_EQUIPMENTS", resourceCulture);
             }
@@ -1938,7 +1947,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_INSPECTION_EQUIPMENTS_ADD {
+        internal static string TXT_INSPECTION_EQUIPMENTS_ADD {
             get {
                 return ResourceManager.GetString("TXT_INSPECTION_EQUIPMENTS_ADD", resourceCulture);
             }
@@ -1947,7 +1956,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_INSPECTION_EQUIPMENTS_REMOVE {
+        internal static string TXT_INSPECTION_EQUIPMENTS_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_INSPECTION_EQUIPMENTS_REMOVE", resourceCulture);
             }
@@ -1956,7 +1965,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection equipments.
         /// </summary>
-        public static string TXT_INSPECTION_EQUIPMENTS_TITLE {
+        internal static string TXT_INSPECTION_EQUIPMENTS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_INSPECTION_EQUIPMENTS_TITLE", resourceCulture);
             }
@@ -1965,7 +1974,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection methods.
         /// </summary>
-        public static string TXT_INSPECTION_METHODS {
+        internal static string TXT_INSPECTION_METHODS {
             get {
                 return ResourceManager.GetString("TXT_INSPECTION_METHODS", resourceCulture);
             }
@@ -1974,7 +1983,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_INSPECTION_METHODS_ADD {
+        internal static string TXT_INSPECTION_METHODS_ADD {
             get {
                 return ResourceManager.GetString("TXT_INSPECTION_METHODS_ADD", resourceCulture);
             }
@@ -1983,7 +1992,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_INSPECTION_METHODS_REMOVE {
+        internal static string TXT_INSPECTION_METHODS_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_INSPECTION_METHODS_REMOVE", resourceCulture);
             }
@@ -1992,7 +2001,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection methods.
         /// </summary>
-        public static string TXT_INSPECTION_METHODS_TITLE {
+        internal static string TXT_INSPECTION_METHODS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_INSPECTION_METHODS_TITLE", resourceCulture);
             }
@@ -2001,7 +2010,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to JPEG File (*.jpg)|*.jpg.
         /// </summary>
-        public static string TXT_JPEG_FILE {
+        internal static string TXT_JPEG_FILE {
             get {
                 return ResourceManager.GetString("TXT_JPEG_FILE", resourceCulture);
             }
@@ -2010,7 +2019,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to K: {0} imp/km.
         /// </summary>
-        public static string TXT_K_FACTOR_IMP_KM {
+        internal static string TXT_K_FACTOR_IMP_KM {
             get {
                 return ResourceManager.GetString("TXT_K_FACTOR_IMP_KM", resourceCulture);
             }
@@ -2019,7 +2028,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to K: {0} imp/km.
         /// </summary>
-        public static string TXT_K_FACTOR_MEDIUM_LABEL {
+        internal static string TXT_K_FACTOR_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_K_FACTOR_MEDIUM_LABEL", resourceCulture);
             }
@@ -2028,7 +2037,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to L: {0} mm.
         /// </summary>
-        public static string TXT_L_FACTOR_MEDIUM_LABEL {
+        internal static string TXT_L_FACTOR_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_L_FACTOR_MEDIUM_LABEL", resourceCulture);
             }
@@ -2037,7 +2046,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to L: {0} mm.
         /// </summary>
-        public static string TXT_L_FACTOR_MM {
+        internal static string TXT_L_FACTOR_MM {
             get {
                 return ResourceManager.GetString("TXT_L_FACTOR_MM", resourceCulture);
             }
@@ -2046,7 +2055,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Address:{0}.
         /// </summary>
-        public static string TXT_LABEL_ADDRESS__ {
+        internal static string TXT_LABEL_ADDRESS__ {
             get {
                 return ResourceManager.GetString("TXT_LABEL_ADDRESS_!", resourceCulture);
             }
@@ -2055,7 +2064,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibration Date:{0}.
         /// </summary>
-        public static string TXT_LABEL_CALIBRATION_DATE {
+        internal static string TXT_LABEL_CALIBRATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_LABEL_CALIBRATION_DATE", resourceCulture);
             }
@@ -2064,7 +2073,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {0}.
         /// </summary>
-        public static string TXT_LABEL_COMPANY_NAME {
+        internal static string TXT_LABEL_COMPANY_NAME {
             get {
                 return ResourceManager.GetString("TXT_LABEL_COMPANY_NAME", resourceCulture);
             }
@@ -2073,7 +2082,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technician ID:{0}.
         /// </summary>
-        public static string TXT_LABEL_TECHNICIAN_NAME {
+        internal static string TXT_LABEL_TECHNICIAN_NAME {
             get {
                 return ResourceManager.GetString("TXT_LABEL_TECHNICIAN_NAME", resourceCulture);
             }
@@ -2082,7 +2091,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VU Serial No:{0}.
         /// </summary>
-        public static string TXT_LABEL_VU_SERIAL_NUMBER {
+        internal static string TXT_LABEL_VU_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_LABEL_VU_SERIAL_NUMBER", resourceCulture);
             }
@@ -2091,7 +2100,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop:{0}.
         /// </summary>
-        public static string TXT_LABEL_WORKSHOP_NAME {
+        internal static string TXT_LABEL_WORKSHOP_NAME {
             get {
                 return ResourceManager.GetString("TXT_LABEL_WORKSHOP_NAME", resourceCulture);
             }
@@ -2100,7 +2109,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 3 - Digital initial calibration.
         /// </summary>
-        public static string TXT_LARGE_DIGITAL_INITIAL {
+        internal static string TXT_LARGE_DIGITAL_INITIAL {
             get {
                 return ResourceManager.GetString("TXT_LARGE_DIGITAL_INITIAL", resourceCulture);
             }
@@ -2109,7 +2118,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 4 - Digital 2 year calibration.
         /// </summary>
-        public static string TXT_LARGE_DIGITAL_TWO_YEAR {
+        internal static string TXT_LARGE_DIGITAL_TWO_YEAR {
             get {
                 return ResourceManager.GetString("TXT_LARGE_DIGITAL_TWO_YEAR", resourceCulture);
             }
@@ -2118,7 +2127,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to I - Installation / Initial calibration.
         /// </summary>
-        public static string TXT_LARGE_INSTALLATION {
+        internal static string TXT_LARGE_INSTALLATION {
             get {
                 return ResourceManager.GetString("TXT_LARGE_INSTALLATION", resourceCulture);
             }
@@ -2127,7 +2136,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to M - Minor Work.
         /// </summary>
-        public static string TXT_LARGE_MINOR_WORK {
+        internal static string TXT_LARGE_MINOR_WORK {
             get {
                 return ResourceManager.GetString("TXT_LARGE_MINOR_WORK", resourceCulture);
             }
@@ -2136,7 +2145,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to R - Recalibration.
         /// </summary>
-        public static string TXT_LARGE_RECALIBRATION {
+        internal static string TXT_LARGE_RECALIBRATION {
             get {
                 return ResourceManager.GetString("TXT_LARGE_RECALIBRATION", resourceCulture);
             }
@@ -2145,7 +2154,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 6 - 6 year calibration.
         /// </summary>
-        public static string TXT_LARGE_SIX_YEAR_CALIBRATION {
+        internal static string TXT_LARGE_SIX_YEAR_CALIBRATION {
             get {
                 return ResourceManager.GetString("TXT_LARGE_SIX_YEAR_CALIBRATION", resourceCulture);
             }
@@ -2154,16 +2163,268 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 2 - 2 year inspection.
         /// </summary>
-        public static string TXT_LARGE_TWO_YEAR_INSPECTION {
+        internal static string TXT_LARGE_TWO_YEAR_INSPECTION {
             get {
                 return ResourceManager.GetString("TXT_LARGE_TWO_YEAR_INSPECTION", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_CANCEL {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_CUSTOMER {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CUSTOMER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer data.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_CUSTOMER_DATA {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CUSTOMER_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export PDF.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_EXPORT_PDF {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_EXPORT_PDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inspection data.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_INSPECTION_DATA {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_INSPECTION_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inspection date.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_INSPECTION_DATE {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_INSPECTION_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_PRINT {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_PRINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration Number.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_REGISTRATION_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_REGISTRATION_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Serial Number.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_SERIAL_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_SERIAL_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Data.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_DATA {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Make.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MAKE {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MAKE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MODEL {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MODEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_TECHNICIAN {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TECHNICIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle Data.
+        /// </summary>
+        internal static string TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creation date.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CREATION_DATE {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CREATION_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CUSTOMER {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CUSTOMER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter search term.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_ENTER_SEARCH_TERM {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_ENTER_SEARCH_TERM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Office.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OFFICE {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OFFICE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in report form.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OPEN_IN_REPORT_FORM {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OPEN_IN_REPORT_FORM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-Print Certificate.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_REPRINT_CERTIFICATE {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_REPRINT_CERTIFICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TECHNICIAN {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TECHNICIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning document history.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle registration number.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_VEHICLE_REGISTRATION_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_VEHICLE_REGISTRATION_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The digital tachograph unit [{0} - {1}] [{2}] that was installed into vehicle registration number [{3}] is not functioning in accordance with the requirements of Annex 1B..
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_1 {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The unit has been removed from the above vehicle and a download of all data since the last download has been carried out and is now being stored by us at the centre in accordance with Requirement 260 of the Annex 1B and section 10.7 of the VOSA Approved Tachograph Centre Manual (ATCM)..
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_2 {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To obtain the information from the centre named below, please apply in writing to the centre, specifying company card details used in the unit, provide any required passwords to be used to secure the data during delivery and the required method of delivery, i.e. CD or secure email..
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_3 {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The above information will be stored securely by the centre for 365 days from date of this letter, after that date the data will be destroyed in accordance with the DVSA ATCM..
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_4 {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning.
+        /// </summary>
+        internal static string TXT_LETTER_FOR_DECOMMISSIONING_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to License Key.
         /// </summary>
-        public static string TXT_LICENSE_KEY {
+        internal static string TXT_LICENSE_KEY {
             get {
                 return ResourceManager.GetString("TXT_LICENSE_KEY", resourceCulture);
             }
@@ -2172,7 +2433,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Seal No:   .
         /// </summary>
-        public static string TXT_LICENSE_NO_MINIMAL {
+        internal static string TXT_LICENSE_NO_MINIMAL {
             get {
                 return ResourceManager.GetString("TXT_LICENSE_NO_MINIMAL", resourceCulture);
             }
@@ -2181,7 +2442,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Seal No:   .
         /// </summary>
-        public static string TXT_LICENSE_NUMBER_LABEL {
+        internal static string TXT_LICENSE_NUMBER_LABEL {
             get {
                 return ResourceManager.GetString("TXT_LICENSE_NUMBER_LABEL", resourceCulture);
             }
@@ -2190,7 +2451,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Location.
         /// </summary>
-        public static string TXT_LOCATION {
+        internal static string TXT_LOCATION {
             get {
                 return ResourceManager.GetString("TXT_LOCATION", resourceCulture);
             }
@@ -2199,7 +2460,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Location         {0}.
         /// </summary>
-        public static string TXT_LOCATION_MEDIUM_LABEL {
+        internal static string TXT_LOCATION_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_LOCATION_MEDIUM_LABEL", resourceCulture);
             }
@@ -2208,7 +2469,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Location        {0}.
         /// </summary>
-        public static string TXT_LOCATION_SMALL_LABEL {
+        internal static string TXT_LOCATION_SMALL_LABEL {
             get {
                 return ResourceManager.GetString("TXT_LOCATION_SMALL_LABEL", resourceCulture);
             }
@@ -2217,7 +2478,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_LOGIN_WINDOW_CANCEL {
+        internal static string TXT_LOGIN_WINDOW_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_LOGIN_WINDOW_CANCEL", resourceCulture);
             }
@@ -2226,7 +2487,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Password:.
         /// </summary>
-        public static string TXT_LOGIN_WINDOW_PASSWORD {
+        internal static string TXT_LOGIN_WINDOW_PASSWORD {
             get {
                 return ResourceManager.GetString("TXT_LOGIN_WINDOW_PASSWORD", resourceCulture);
             }
@@ -2235,7 +2496,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Log In.
         /// </summary>
-        public static string TXT_LOGIN_WINDOW_TITLE {
+        internal static string TXT_LOGIN_WINDOW_TITLE {
             get {
                 return ResourceManager.GetString("TXT_LOGIN_WINDOW_TITLE", resourceCulture);
             }
@@ -2244,7 +2505,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to User Name:.
         /// </summary>
-        public static string TXT_LOGIN_WINDOW_USER_NAME {
+        internal static string TXT_LOGIN_WINDOW_USER_NAME {
             get {
                 return ResourceManager.GetString("TXT_LOGIN_WINDOW_USER_NAME", resourceCulture);
             }
@@ -2253,7 +2514,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to M1N1 Adapter.
         /// </summary>
-        public static string TXT_M1N1_ADAPTER {
+        internal static string TXT_M1N1_ADAPTER {
             get {
                 return ResourceManager.GetString("TXT_M1N1_ADAPTER", resourceCulture);
             }
@@ -2262,7 +2523,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to M1N1 S/N.
         /// </summary>
-        public static string TXT_M1N1_SERIAL_NUMBER {
+        internal static string TXT_M1N1_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_M1N1_SERIAL_NUMBER", resourceCulture);
             }
@@ -2271,7 +2532,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to M1N1 S/N:        {0}.
         /// </summary>
-        public static string TXT_M1N1_SERIAL_NUMBER_MEDIUM_LABEL {
+        internal static string TXT_M1N1_SERIAL_NUMBER_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_M1N1_SERIAL_NUMBER_MEDIUM_LABEL", resourceCulture);
             }
@@ -2280,7 +2541,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to M1N1 S/N:       {0}.
         /// </summary>
-        public static string TXT_M1N1_SERIAL_SMALL_LABEL {
+        internal static string TXT_M1N1_SERIAL_SMALL_LABEL {
             get {
                 return ResourceManager.GetString("TXT_M1N1_SERIAL_SMALL_LABEL", resourceCulture);
             }
@@ -2289,7 +2550,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Email Settings.
         /// </summary>
-        public static string TXT_MAIL_SETTINGS {
+        internal static string TXT_MAIL_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_MAIL_SETTINGS", resourceCulture);
             }
@@ -2298,7 +2559,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_ABOUT {
+        internal static string TXT_MAIN_WINDOW_ABOUT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_ABOUT", resourceCulture);
             }
@@ -2307,7 +2568,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Analogue Tachograph.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_ANALOGUE_TACHO {
+        internal static string TXT_MAIN_WINDOW_ANALOGUE_TACHO {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_ANALOGUE_TACHO", resourceCulture);
             }
@@ -2316,7 +2577,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Backup Database.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_BACKUP_DATABASE {
+        internal static string TXT_MAIN_WINDOW_BACKUP_DATABASE {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_BACKUP_DATABASE", resourceCulture);
             }
@@ -2325,7 +2586,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibrations.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_CALIBRATIONS {
+        internal static string TXT_MAIN_WINDOW_CALIBRATIONS {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_CALIBRATIONS", resourceCulture);
             }
@@ -2334,7 +2595,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Card Browser.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_CARD_BROWSER {
+        internal static string TXT_MAIN_WINDOW_CARD_BROWSER {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_CARD_BROWSER", resourceCulture);
             }
@@ -2343,7 +2604,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Checks for updates to the application.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_CHECK_FOR_APPLICATION_UPDATES {
+        internal static string TXT_MAIN_WINDOW_CHECK_FOR_APPLICATION_UPDATES {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_CHECK_FOR_APPLICATION_UPDATES", resourceCulture);
             }
@@ -2352,7 +2613,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Check For Updates.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_CHECK_FOR_UPDATES {
+        internal static string TXT_MAIN_WINDOW_CHECK_FOR_UPDATES {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_CHECK_FOR_UPDATES", resourceCulture);
             }
@@ -2361,7 +2622,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Copyright © Skillray Transport Services UK.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_COPYRIGHT {
+        internal static string TXT_MAIN_WINDOW_COPYRIGHT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_COPYRIGHT", resourceCulture);
             }
@@ -2370,7 +2631,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Digital Tachograph.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_DIGITAL_TACHO {
+        internal static string TXT_MAIN_WINDOW_DIGITAL_TACHO {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_DIGITAL_TACHO", resourceCulture);
             }
@@ -2379,7 +2640,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_EXIT {
+        internal static string TXT_MAIN_WINDOW_EXIT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_EXIT", resourceCulture);
             }
@@ -2388,7 +2649,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Exits the application.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_EXITS_APPLICATION {
+        internal static string TXT_MAIN_WINDOW_EXITS_APPLICATION {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_EXITS_APPLICATION", resourceCulture);
             }
@@ -2397,7 +2658,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to File.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_FILE {
+        internal static string TXT_MAIN_WINDOW_FILE {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_FILE", resourceCulture);
             }
@@ -2406,7 +2667,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Files.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_FILES {
+        internal static string TXT_MAIN_WINDOW_FILES {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_FILES", resourceCulture);
             }
@@ -2415,7 +2676,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Generate Report.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_GENERATE_REPORT {
+        internal static string TXT_MAIN_WINDOW_GENERATE_REPORT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_GENERATE_REPORT", resourceCulture);
             }
@@ -2424,7 +2685,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to History.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_HISTORY {
+        internal static string TXT_MAIN_WINDOW_HISTORY {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_HISTORY", resourceCulture);
             }
@@ -2433,16 +2694,43 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_HOME {
+        internal static string TXT_MAIN_WINDOW_HOME {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_HOME", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning.
+        /// </summary>
+        internal static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning.
+        /// </summary>
+        internal static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning History.
+        /// </summary>
+        internal static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Analogue Tachograph Document.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT {
+        internal static string TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT", resourceCulture);
             }
@@ -2451,7 +2739,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New Documents.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_NEW_DOCUMENTS {
+        internal static string TXT_MAIN_WINDOW_NEW_DOCUMENTS {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_NEW_DOCUMENTS", resourceCulture);
             }
@@ -2460,7 +2748,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New Tachograph Document.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT {
+        internal static string TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT", resourceCulture);
             }
@@ -2469,7 +2757,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New Undownloadability Document.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT {
+        internal static string TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT", resourceCulture);
             }
@@ -2478,7 +2766,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Restore Database.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_RESTORE_DATABASE {
+        internal static string TXT_MAIN_WINDOW_RESTORE_DATABASE {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_RESTORE_DATABASE", resourceCulture);
             }
@@ -2487,7 +2775,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SETTINGS {
+        internal static string TXT_MAIN_WINDOW_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SETTINGS", resourceCulture);
             }
@@ -2496,7 +2784,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Show.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOW {
+        internal static string TXT_MAIN_WINDOW_SHOW {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOW", resourceCulture);
             }
@@ -2505,7 +2793,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the backup utility.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOW_BACKUP {
+        internal static string TXT_MAIN_WINDOW_SHOW_BACKUP {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOW_BACKUP", resourceCulture);
             }
@@ -2514,7 +2802,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the report dialog.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOW_REPORT {
+        internal static string TXT_MAIN_WINDOW_SHOW_REPORT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOW_REPORT", resourceCulture);
             }
@@ -2523,7 +2811,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the restore utility.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOW_RESTORE {
+        internal static string TXT_MAIN_WINDOW_SHOW_RESTORE {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOW_RESTORE", resourceCulture);
             }
@@ -2532,7 +2820,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the settings dialog.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOW_SETTINGS {
+        internal static string TXT_MAIN_WINDOW_SHOW_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOW_SETTINGS", resourceCulture);
             }
@@ -2541,7 +2829,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Displays the list of tasks currently running.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOW_TASKS {
+        internal static string TXT_MAIN_WINDOW_SHOW_TASKS {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOW_TASKS", resourceCulture);
             }
@@ -2550,7 +2838,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows about and technical information.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH {
+        internal static string TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH", resourceCulture);
             }
@@ -2559,7 +2847,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the calibrations screen.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN {
+        internal static string TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN", resourceCulture);
             }
@@ -2568,7 +2856,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the home screen.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN {
+        internal static string TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN", resourceCulture);
             }
@@ -2577,7 +2865,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the new tachograh document screen.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN {
+        internal static string TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN", resourceCulture);
             }
@@ -2586,7 +2874,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the historical tachograph documents screen.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN {
+        internal static string TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN", resourceCulture);
             }
@@ -2595,7 +2883,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the historial undownloadability documents screen.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN {
+        internal static string TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN", resourceCulture);
             }
@@ -2604,7 +2892,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the new undownloadability document screen.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT {
+        internal static string TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT", resourceCulture);
             }
@@ -2613,7 +2901,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shows the workshop card files screen.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN {
+        internal static string TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN", resourceCulture);
             }
@@ -2622,7 +2910,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_TACHOGRAPH {
+        internal static string TXT_MAIN_WINDOW_TACHOGRAPH {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_TACHOGRAPH", resourceCulture);
             }
@@ -2631,7 +2919,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph History.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY {
+        internal static string TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY", resourceCulture);
             }
@@ -2640,7 +2928,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Webcal - Skillray Transport Services Ltd.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_TITLE {
+        internal static string TXT_MAIN_WINDOW_TITLE {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_TITLE", resourceCulture);
             }
@@ -2649,7 +2937,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Undownloadability.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_UNDOWNLOADABILITY {
+        internal static string TXT_MAIN_WINDOW_UNDOWNLOADABILITY {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_UNDOWNLOADABILITY", resourceCulture);
             }
@@ -2658,7 +2946,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Undownloadability History.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY {
+        internal static string TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY", resourceCulture);
             }
@@ -2667,7 +2955,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to View Task Queue.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_VIEW_TASK_QUEUE {
+        internal static string TXT_MAIN_WINDOW_VIEW_TASK_QUEUE {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_VIEW_TASK_QUEUE", resourceCulture);
             }
@@ -2676,7 +2964,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to View Technical Information.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_VIEW_TECHNICAL_INFORMATION {
+        internal static string TXT_MAIN_WINDOW_VIEW_TECHNICAL_INFORMATION {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_VIEW_TECHNICAL_INFORMATION", resourceCulture);
             }
@@ -2685,7 +2973,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Webcal.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_WEBCAL {
+        internal static string TXT_MAIN_WINDOW_WEBCAL {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_WEBCAL", resourceCulture);
             }
@@ -2694,7 +2982,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop Card.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_WORKSHOP_CARD {
+        internal static string TXT_MAIN_WINDOW_WORKSHOP_CARD {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_WORKSHOP_CARD", resourceCulture);
             }
@@ -2703,7 +2991,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop Card Files.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_WORKSHOP_CARD_FILES {
+        internal static string TXT_MAIN_WINDOW_WORKSHOP_CARD_FILES {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_WORKSHOP_CARD_FILES", resourceCulture);
             }
@@ -2712,7 +3000,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Make:.
         /// </summary>
-        public static string TXT_MAKE {
+        internal static string TXT_MAKE {
             get {
                 return ResourceManager.GetString("TXT_MAKE", resourceCulture);
             }
@@ -2721,7 +3009,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Make and Model.
         /// </summary>
-        public static string TXT_MAKE_AND_MODEL {
+        internal static string TXT_MAKE_AND_MODEL {
             get {
                 return ResourceManager.GetString("TXT_MAKE_AND_MODEL", resourceCulture);
             }
@@ -2730,7 +3018,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to date:   {0}.
         /// </summary>
-        public static string TXT_MEDIUM_DATE {
+        internal static string TXT_MEDIUM_DATE {
             get {
                 return ResourceManager.GetString("TXT_MEDIUM_DATE", resourceCulture);
             }
@@ -2739,7 +3027,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to K: {0} imp/km.
         /// </summary>
-        public static string TXT_MEDIUM_K_FACTOR {
+        internal static string TXT_MEDIUM_K_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_MEDIUM_K_FACTOR", resourceCulture);
             }
@@ -2748,7 +3036,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to L: {0}{1}.
         /// </summary>
-        public static string TXT_MEDIUM_L_FACTOR {
+        internal static string TXT_MEDIUM_L_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_MEDIUM_L_FACTOR", resourceCulture);
             }
@@ -2757,7 +3045,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Serial number    {0}.
         /// </summary>
-        public static string TXT_MEDIUM_SERIAL_NUMBER {
+        internal static string TXT_MEDIUM_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_MEDIUM_SERIAL_NUMBER", resourceCulture);
             }
@@ -2766,7 +3054,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre Size        {0}.
         /// </summary>
-        public static string TXT_MEDIUM_TYRE_SIZE {
+        internal static string TXT_MEDIUM_TYRE_SIZE {
             get {
                 return ResourceManager.GetString("TXT_MEDIUM_TYRE_SIZE", resourceCulture);
             }
@@ -2775,7 +3063,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VIN: {0}.
         /// </summary>
-        public static string TXT_MEDIUM_VIN {
+        internal static string TXT_MEDIUM_VIN {
             get {
                 return ResourceManager.GetString("TXT_MEDIUM_VIN", resourceCulture);
             }
@@ -2784,7 +3072,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to W: {0} imp/km.
         /// </summary>
-        public static string TXT_MEDIUM_W_FACTOR {
+        internal static string TXT_MEDIUM_W_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_MEDIUM_W_FACTOR", resourceCulture);
             }
@@ -2793,7 +3081,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Seal number   {0}.
         /// </summary>
-        public static string TXT_MINIMAL_LICENSE_NUMBER {
+        internal static string TXT_MINIMAL_LICENSE_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_MINIMAL_LICENSE_NUMBER", resourceCulture);
             }
@@ -2802,7 +3090,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Minor Work.
         /// </summary>
-        public static string TXT_MINOR_WORK {
+        internal static string TXT_MINOR_WORK {
             get {
                 return ResourceManager.GetString("TXT_MINOR_WORK", resourceCulture);
             }
@@ -2811,7 +3099,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to M - Minor Work.
         /// </summary>
-        public static string TXT_MINOR_WORK_DETAILS {
+        internal static string TXT_MINOR_WORK_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_MINOR_WORK_DETAILS", resourceCulture);
             }
@@ -2820,7 +3108,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Minor Work Details:.
         /// </summary>
-        public static string TXT_MINOR_WORK_DETAILS_DETAILS {
+        internal static string TXT_MINOR_WORK_DETAILS_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_MINOR_WORK_DETAILS_DETAILS", resourceCulture);
             }
@@ -2829,7 +3117,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Include workshop logo when printing?.
         /// </summary>
-        public static string TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING {
+        internal static string TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING {
             get {
                 return ResourceManager.GetString("TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING", resourceCulture);
             }
@@ -2838,7 +3126,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Miscellaneous settings.
         /// </summary>
-        public static string TXT_MISCELLANEOUS_SETTINGS {
+        internal static string TXT_MISCELLANEOUS_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_MISCELLANEOUS_SETTINGS", resourceCulture);
             }
@@ -2847,7 +3135,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Miscellaneous Settings.
         /// </summary>
-        public static string TXT_MISCELLANEOUS_SETTINGS_TITLE {
+        internal static string TXT_MISCELLANEOUS_SETTINGS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_MISCELLANEOUS_SETTINGS_TITLE", resourceCulture);
             }
@@ -2856,7 +3144,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {0} mm.
         /// </summary>
-        public static string TXT_MM {
+        internal static string TXT_MM {
             get {
                 return ResourceManager.GetString("TXT_MM", resourceCulture);
             }
@@ -2865,7 +3153,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Monday.
         /// </summary>
-        public static string TXT_MONDAY {
+        internal static string TXT_MONDAY {
             get {
                 return ResourceManager.GetString("TXT_MONDAY", resourceCulture);
             }
@@ -2874,7 +3162,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Name of Tachograph Centre.
         /// </summary>
-        public static string TXT_NAME_OF_TACHOGRAPH_CENTER {
+        internal static string TXT_NAME_OF_TACHOGRAPH_CENTER {
             get {
                 return ResourceManager.GetString("TXT_NAME_OF_TACHOGRAPH_CENTER", resourceCulture);
             }
@@ -2883,7 +3171,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Analogue Tachograph Document.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_ANALOGUE_TACH_DOCUMENT {
+        internal static string TXT_NEW_ANALOGUE_ANALOGUE_TACH_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_ANALOGUE_TACH_DOCUMENT", resourceCulture);
             }
@@ -2892,7 +3180,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibration data.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_CALIBRATION_DATA {
+        internal static string TXT_NEW_ANALOGUE_CALIBRATION_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_CALIBRATION_DATA", resourceCulture);
             }
@@ -2901,7 +3189,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_CANCEL {
+        internal static string TXT_NEW_ANALOGUE_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_CANCEL", resourceCulture);
             }
@@ -2910,7 +3198,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_CUSTOMER {
+        internal static string TXT_NEW_ANALOGUE_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_CUSTOMER", resourceCulture);
             }
@@ -2919,7 +3207,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer data.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_CUSTOMER_DATA {
+        internal static string TXT_NEW_ANALOGUE_CUSTOMER_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_CUSTOMER_DATA", resourceCulture);
             }
@@ -2928,7 +3216,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Details:.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_DETAILS {
+        internal static string TXT_NEW_ANALOGUE_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_DETAILS", resourceCulture);
             }
@@ -2937,7 +3225,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Document type.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_DOCUMENT_TYPE {
+        internal static string TXT_NEW_ANALOGUE_DOCUMENT_TYPE {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_DOCUMENT_TYPE", resourceCulture);
             }
@@ -2946,7 +3234,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Export PDF.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_EXPORT_PDF {
+        internal static string TXT_NEW_ANALOGUE_EXPORT_PDF {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_EXPORT_PDF", resourceCulture);
             }
@@ -2955,7 +3243,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection data.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_INSPECTION_DATA {
+        internal static string TXT_NEW_ANALOGUE_INSPECTION_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_INSPECTION_DATA", resourceCulture);
             }
@@ -2964,7 +3252,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection info.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_INSPECTION_INFO {
+        internal static string TXT_NEW_ANALOGUE_INSPECTION_INFO {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_INSPECTION_INFO", resourceCulture);
             }
@@ -2973,7 +3261,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Invoice number.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_INVOICE_NUMBER {
+        internal static string TXT_NEW_ANALOGUE_INVOICE_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_INVOICE_NUMBER", resourceCulture);
             }
@@ -2982,7 +3270,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to K Factor.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_K_FACTOR {
+        internal static string TXT_NEW_ANALOGUE_K_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_K_FACTOR", resourceCulture);
             }
@@ -2991,7 +3279,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to L Factor.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_L_FACTOR {
+        internal static string TXT_NEW_ANALOGUE_L_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_L_FACTOR", resourceCulture);
             }
@@ -3000,7 +3288,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Model.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_MODEL {
+        internal static string TXT_NEW_ANALOGUE_MODEL {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_MODEL", resourceCulture);
             }
@@ -3009,7 +3297,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Odometer Reading.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_ODOMETER_READING {
+        internal static string TXT_NEW_ANALOGUE_ODOMETER_READING {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_ODOMETER_READING", resourceCulture);
             }
@@ -3018,7 +3306,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Print Certificate.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_PRINT_CERTIFICATE {
+        internal static string TXT_NEW_ANALOGUE_PRINT_CERTIFICATE {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_PRINT_CERTIFICATE", resourceCulture);
             }
@@ -3027,7 +3315,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Print Label.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_PRINT_LABEL {
+        internal static string TXT_NEW_ANALOGUE_PRINT_LABEL {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_PRINT_LABEL", resourceCulture);
             }
@@ -3036,7 +3324,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Registration number.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_REGISTRATION_NUMBER {
+        internal static string TXT_NEW_ANALOGUE_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -3045,7 +3333,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Serial Number.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_SERIAL_NUMBER {
+        internal static string TXT_NEW_ANALOGUE_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_SERIAL_NUMBER", resourceCulture);
             }
@@ -3054,7 +3342,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph data.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_TACHOGRAPH_DATA {
+        internal static string TXT_NEW_ANALOGUE_TACHOGRAPH_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_TACHOGRAPH_DATA", resourceCulture);
             }
@@ -3063,7 +3351,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph Make.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_TACHOGRAPH_MAKE {
+        internal static string TXT_NEW_ANALOGUE_TACHOGRAPH_MAKE {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_TACHOGRAPH_MAKE", resourceCulture);
             }
@@ -3072,7 +3360,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph record type.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_TACHOGRAPH_RECORD_TYPE {
+        internal static string TXT_NEW_ANALOGUE_TACHOGRAPH_RECORD_TYPE {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_TACHOGRAPH_RECORD_TYPE", resourceCulture);
             }
@@ -3081,7 +3369,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tampered.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_TAMPERED {
+        internal static string TXT_NEW_ANALOGUE_TAMPERED {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_TAMPERED", resourceCulture);
             }
@@ -3090,7 +3378,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_TECHNICIAN {
+        internal static string TXT_NEW_ANALOGUE_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_TECHNICIAN", resourceCulture);
             }
@@ -3099,7 +3387,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre size.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_TYRE_SIZE {
+        internal static string TXT_NEW_ANALOGUE_TYRE_SIZE {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_TYRE_SIZE", resourceCulture);
             }
@@ -3108,7 +3396,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle data.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_VEHICLE_DATA {
+        internal static string TXT_NEW_ANALOGUE_VEHICLE_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_VEHICLE_DATA", resourceCulture);
             }
@@ -3117,7 +3405,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle make.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_VEHICLE_MAKE {
+        internal static string TXT_NEW_ANALOGUE_VEHICLE_MAKE {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_VEHICLE_MAKE", resourceCulture);
             }
@@ -3126,7 +3414,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle type.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_VEHICLE_TYPE {
+        internal static string TXT_NEW_ANALOGUE_VEHICLE_TYPE {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_VEHICLE_TYPE", resourceCulture);
             }
@@ -3135,7 +3423,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VIN.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_VIN {
+        internal static string TXT_NEW_ANALOGUE_VIN {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_VIN", resourceCulture);
             }
@@ -3144,7 +3432,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to W Factor.
         /// </summary>
-        public static string TXT_NEW_ANALOGUE_W_FACTOR {
+        internal static string TXT_NEW_ANALOGUE_W_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_NEW_ANALOGUE_W_FACTOR", resourceCulture);
             }
@@ -3153,7 +3441,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New customer.
         /// </summary>
-        public static string TXT_NEW_CUSTOMER {
+        internal static string TXT_NEW_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_NEW_CUSTOMER", resourceCulture);
             }
@@ -3162,7 +3450,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibration data.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_CALIBRATION_DATA {
+        internal static string TXT_NEW_TACHOGRAPH_CALIBRATION_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_CALIBRATION_DATA", resourceCulture);
             }
@@ -3171,7 +3459,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_CANCEL {
+        internal static string TXT_NEW_TACHOGRAPH_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_CANCEL", resourceCulture);
             }
@@ -3180,7 +3468,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_CUSTOMER {
+        internal static string TXT_NEW_TACHOGRAPH_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_CUSTOMER", resourceCulture);
             }
@@ -3189,7 +3477,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer data.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_CUSTOMER_DATA {
+        internal static string TXT_NEW_TACHOGRAPH_CUSTOMER_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_CUSTOMER_DATA", resourceCulture);
             }
@@ -3198,7 +3486,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Details:.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_DETAILS {
+        internal static string TXT_NEW_TACHOGRAPH_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_DETAILS", resourceCulture);
             }
@@ -3207,7 +3495,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Digital Tachograph Document.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_DIGITAL_TACHO_DOCUMENT {
+        internal static string TXT_NEW_TACHOGRAPH_DIGITAL_TACHO_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_DIGITAL_TACHO_DOCUMENT", resourceCulture);
             }
@@ -3216,7 +3504,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Do not send.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_DO_NOT_SEND {
+        internal static string TXT_NEW_TACHOGRAPH_DO_NOT_SEND {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_DO_NOT_SEND", resourceCulture);
             }
@@ -3225,7 +3513,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Document type.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_DOCUMENT_TYPE {
+        internal static string TXT_NEW_TACHOGRAPH_DOCUMENT_TYPE {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_DOCUMENT_TYPE", resourceCulture);
             }
@@ -3234,7 +3522,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to OP Shaft / Drive Shaft PPR.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_DRIVE_SHAFT {
+        internal static string TXT_NEW_TACHOGRAPH_DRIVE_SHAFT {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_DRIVE_SHAFT", resourceCulture);
             }
@@ -3243,7 +3531,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Export PDF.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_EXPORT_PDF {
+        internal static string TXT_NEW_TACHOGRAPH_EXPORT_PDF {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_EXPORT_PDF", resourceCulture);
             }
@@ -3252,7 +3540,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection data.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_INSPECTION_DATA {
+        internal static string TXT_NEW_TACHOGRAPH_INSPECTION_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_INSPECTION_DATA", resourceCulture);
             }
@@ -3261,7 +3549,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection info.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_INSPECTION_INFO {
+        internal static string TXT_NEW_TACHOGRAPH_INSPECTION_INFO {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_INSPECTION_INFO", resourceCulture);
             }
@@ -3270,7 +3558,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Invoice number.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_INVOICE_NUMBER {
+        internal static string TXT_NEW_TACHOGRAPH_INVOICE_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_INVOICE_NUMBER", resourceCulture);
             }
@@ -3279,7 +3567,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to K Factor.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_K_FACTOR {
+        internal static string TXT_NEW_TACHOGRAPH_K_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_K_FACTOR", resourceCulture);
             }
@@ -3288,7 +3576,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to L Factor.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_L_FACTOR {
+        internal static string TXT_NEW_TACHOGRAPH_L_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_L_FACTOR", resourceCulture);
             }
@@ -3297,7 +3585,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Model.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_MODEL {
+        internal static string TXT_NEW_TACHOGRAPH_MODEL {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_MODEL", resourceCulture);
             }
@@ -3306,7 +3594,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Odometer Reading.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_ODOMETER_READING {
+        internal static string TXT_NEW_TACHOGRAPH_ODOMETER_READING {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_ODOMETER_READING", resourceCulture);
             }
@@ -3315,7 +3603,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to PPR/N-constant.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_PPRN_CONSTANT {
+        internal static string TXT_NEW_TACHOGRAPH_PPRN_CONSTANT {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_PPRN_CONSTANT", resourceCulture);
             }
@@ -3324,7 +3612,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Print.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_PRINT {
+        internal static string TXT_NEW_TACHOGRAPH_PRINT {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_PRINT", resourceCulture);
             }
@@ -3333,7 +3621,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Registration number.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_REGISTRATION_NUMBER {
+        internal static string TXT_NEW_TACHOGRAPH_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -3342,7 +3630,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Send To Customer.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_SEND_TO_CUSTOMER {
+        internal static string TXT_NEW_TACHOGRAPH_SEND_TO_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_SEND_TO_CUSTOMER", resourceCulture);
             }
@@ -3351,7 +3639,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Send To Office.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_SEND_TO_OFFICE {
+        internal static string TXT_NEW_TACHOGRAPH_SEND_TO_OFFICE {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_SEND_TO_OFFICE", resourceCulture);
             }
@@ -3360,7 +3648,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Serial Number.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_SERIAL_NUMBER {
+        internal static string TXT_NEW_TACHOGRAPH_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_SERIAL_NUMBER", resourceCulture);
             }
@@ -3369,7 +3657,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph data.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_TACHOGRAPH_DATA {
+        internal static string TXT_NEW_TACHOGRAPH_TACHOGRAPH_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_TACHOGRAPH_DATA", resourceCulture);
             }
@@ -3378,7 +3666,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph Make.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_TACHOGRAPH_MAKE {
+        internal static string TXT_NEW_TACHOGRAPH_TACHOGRAPH_MAKE {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_TACHOGRAPH_MAKE", resourceCulture);
             }
@@ -3387,7 +3675,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph record type.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_TACHOGRAPH_RECORD_TYPE {
+        internal static string TXT_NEW_TACHOGRAPH_TACHOGRAPH_RECORD_TYPE {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_TACHOGRAPH_RECORD_TYPE", resourceCulture);
             }
@@ -3396,7 +3684,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tampered.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_TAMPERED {
+        internal static string TXT_NEW_TACHOGRAPH_TAMPERED {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_TAMPERED", resourceCulture);
             }
@@ -3405,7 +3693,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_TECHNICIAN {
+        internal static string TXT_NEW_TACHOGRAPH_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_TECHNICIAN", resourceCulture);
             }
@@ -3414,7 +3702,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre size.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_TYRE_SIZE {
+        internal static string TXT_NEW_TACHOGRAPH_TYRE_SIZE {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_TYRE_SIZE", resourceCulture);
             }
@@ -3423,7 +3711,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle data.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_VEHICLE_DATA {
+        internal static string TXT_NEW_TACHOGRAPH_VEHICLE_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_VEHICLE_DATA", resourceCulture);
             }
@@ -3432,7 +3720,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle make.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_VEHICLE_MAKE {
+        internal static string TXT_NEW_TACHOGRAPH_VEHICLE_MAKE {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_VEHICLE_MAKE", resourceCulture);
             }
@@ -3441,7 +3729,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle type.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_VEHICLE_TYPE {
+        internal static string TXT_NEW_TACHOGRAPH_VEHICLE_TYPE {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_VEHICLE_TYPE", resourceCulture);
             }
@@ -3450,7 +3738,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VIN.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_VIN {
+        internal static string TXT_NEW_TACHOGRAPH_VIN {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_VIN", resourceCulture);
             }
@@ -3459,7 +3747,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to W Factor.
         /// </summary>
-        public static string TXT_NEW_TACHOGRAPH_W_FACTOR {
+        internal static string TXT_NEW_TACHOGRAPH_W_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_W_FACTOR", resourceCulture);
             }
@@ -3468,7 +3756,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_CANCEL {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_CANCEL", resourceCulture);
             }
@@ -3477,7 +3765,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_CUSTOMER {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_CUSTOMER", resourceCulture);
             }
@@ -3486,7 +3774,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer data.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_CUSTOMER_DATA {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_CUSTOMER_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_CUSTOMER_DATA", resourceCulture);
             }
@@ -3495,7 +3783,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Export PDF.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_EXPORT_PDF {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_EXPORT_PDF {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_EXPORT_PDF", resourceCulture);
             }
@@ -3504,7 +3792,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection data.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATA {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATA", resourceCulture);
             }
@@ -3513,7 +3801,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection date.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATE {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATE {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATE", resourceCulture);
             }
@@ -3522,7 +3810,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Model.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_MODEL {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_MODEL {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_MODEL", resourceCulture);
             }
@@ -3531,7 +3819,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Print.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_PRINT {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_PRINT {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_PRINT", resourceCulture);
             }
@@ -3540,7 +3828,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Registration number.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_REGISTRATION_NUMBER {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -3549,7 +3837,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Serial number.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_SERIAL_NUMBER {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_SERIAL_NUMBER", resourceCulture);
             }
@@ -3558,7 +3846,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph data.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_DATA {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_DATA", resourceCulture);
             }
@@ -3567,7 +3855,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph make.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_MAKE {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_MAKE {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_MAKE", resourceCulture);
             }
@@ -3576,7 +3864,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_TECHNICIAN {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_TECHNICIAN", resourceCulture);
             }
@@ -3585,7 +3873,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Undownloadability document.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_UNDOWNLOADABILITY_DOCUMENT {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_UNDOWNLOADABILITY_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_UNDOWNLOADABILITY_DOCUMENT", resourceCulture);
             }
@@ -3594,7 +3882,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle data.
         /// </summary>
-        public static string TXT_NEW_UNDOWNLOADABILITY_VEHICLE_DATA {
+        internal static string TXT_NEW_UNDOWNLOADABILITY_VEHICLE_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_VEHICLE_DATA", resourceCulture);
             }
@@ -3603,7 +3891,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
-        public static string TXT_NO {
+        internal static string TXT_NO {
             get {
                 return ResourceManager.GetString("TXT_NO", resourceCulture);
             }
@@ -3612,7 +3900,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to (No path specified).
         /// </summary>
-        public static string TXT_NO_PATH_SPECIFIED {
+        internal static string TXT_NO_PATH_SPECIFIED {
             get {
                 return ResourceManager.GetString("TXT_NO_PATH_SPECIFIED", resourceCulture);
             }
@@ -3621,7 +3909,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Nothing to export.
         /// </summary>
-        public static string TXT_NOTHING_TO_EXPORT {
+        internal static string TXT_NOTHING_TO_EXPORT {
             get {
                 return ResourceManager.GetString("TXT_NOTHING_TO_EXPORT", resourceCulture);
             }
@@ -3630,7 +3918,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Number of documents.
         /// </summary>
-        public static string TXT_NUMBER_OF_DOCUMENTS {
+        internal static string TXT_NUMBER_OF_DOCUMENTS {
             get {
                 return ResourceManager.GetString("TXT_NUMBER_OF_DOCUMENTS", resourceCulture);
             }
@@ -3639,7 +3927,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Odometer reading:.
         /// </summary>
-        public static string TXT_ODOMETER_READING {
+        internal static string TXT_ODOMETER_READING {
             get {
                 return ResourceManager.GetString("TXT_ODOMETER_READING", resourceCulture);
             }
@@ -3648,7 +3936,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Office.
         /// </summary>
-        public static string TXT_OFFICE {
+        internal static string TXT_OFFICE {
             get {
                 return ResourceManager.GetString("TXT_OFFICE", resourceCulture);
             }
@@ -3657,7 +3945,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
-        public static string TXT_OK {
+        internal static string TXT_OK {
             get {
                 return ResourceManager.GetString("TXT_OK", resourceCulture);
             }
@@ -3666,7 +3954,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Page {page} of {numpages}.
         /// </summary>
-        public static string TXT_PAGE_NUMBER_FORMAT {
+        internal static string TXT_PAGE_NUMBER_FORMAT {
             get {
                 return ResourceManager.GetString("TXT_PAGE_NUMBER_FORMAT", resourceCulture);
             }
@@ -3675,7 +3963,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Your password has been changed..
         /// </summary>
-        public static string TXT_PASSWORD_HAS_BEEN_CHANGED {
+        internal static string TXT_PASSWORD_HAS_BEEN_CHANGED {
             get {
                 return ResourceManager.GetString("TXT_PASSWORD_HAS_BEEN_CHANGED", resourceCulture);
             }
@@ -3684,7 +3972,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Your password has been reset to &quot;password&quot; (without quotation marks)..
         /// </summary>
-        public static string TXT_PASSWORD_HAS_BEEN_RESET {
+        internal static string TXT_PASSWORD_HAS_BEEN_RESET {
             get {
                 return ResourceManager.GetString("TXT_PASSWORD_HAS_BEEN_RESET", resourceCulture);
             }
@@ -3693,7 +3981,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Phone Number.
         /// </summary>
-        public static string TXT_PHONE_NUMBER {
+        internal static string TXT_PHONE_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_PHONE_NUMBER", resourceCulture);
             }
@@ -3702,7 +3990,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-Print Plaque.
         /// </summary>
-        public static string TXT_PLAQUE_TACHOGRAPH_DOCUMENT {
+        internal static string TXT_PLAQUE_TACHOGRAPH_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_PLAQUE_TACHOGRAPH_DOCUMENT", resourceCulture);
             }
@@ -3711,7 +3999,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please wait....
         /// </summary>
-        public static string TXT_PLEASE_WAIT {
+        internal static string TXT_PLEASE_WAIT {
             get {
                 return ResourceManager.GetString("TXT_PLEASE_WAIT", resourceCulture);
             }
@@ -3720,7 +4008,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Portable Document Format (PDF) (*.pdf)|*.pdf.
         /// </summary>
-        public static string TXT_PORTABLE_DOCUMENT_FORMAT {
+        internal static string TXT_PORTABLE_DOCUMENT_FORMAT {
             get {
                 return ResourceManager.GetString("TXT_PORTABLE_DOCUMENT_FORMAT", resourceCulture);
             }
@@ -3729,7 +4017,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Portable Network Graphics (*.png)|*.png|All Files (*.*)|*.*.
         /// </summary>
-        public static string TXT_PORTABLE_NETWORK_GRAPHICS {
+        internal static string TXT_PORTABLE_NETWORK_GRAPHICS {
             get {
                 return ResourceManager.GetString("TXT_PORTABLE_NETWORK_GRAPHICS", resourceCulture);
             }
@@ -3738,7 +4026,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Printer settings.
         /// </summary>
-        public static string TXT_PRINTER_SETTINGS {
+        internal static string TXT_PRINTER_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_PRINTER_SETTINGS", resourceCulture);
             }
@@ -3747,7 +4035,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Ask printer always when printing.
         /// </summary>
-        public static string TXT_PRINTER_SETTINGS_ALWAYS_ASK {
+        internal static string TXT_PRINTER_SETTINGS_ALWAYS_ASK {
             get {
                 return ResourceManager.GetString("TXT_PRINTER_SETTINGS_ALWAYS_ASK", resourceCulture);
             }
@@ -3756,7 +4044,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Use this printer always:.
         /// </summary>
-        public static string TXT_PRINTER_SETTINGS_ALWAYS_USE {
+        internal static string TXT_PRINTER_SETTINGS_ALWAYS_USE {
             get {
                 return ResourceManager.GetString("TXT_PRINTER_SETTINGS_ALWAYS_USE", resourceCulture);
             }
@@ -3765,7 +4053,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Default number of copies:.
         /// </summary>
-        public static string TXT_PRINTER_SETTINGS_DEFAULT_NUMBER {
+        internal static string TXT_PRINTER_SETTINGS_DEFAULT_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_PRINTER_SETTINGS_DEFAULT_NUMBER", resourceCulture);
             }
@@ -3774,7 +4062,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to General Purpose Printer.
         /// </summary>
-        public static string TXT_PRINTER_SETTINGS_GENERAL_PURPOSE_PRINTER {
+        internal static string TXT_PRINTER_SETTINGS_GENERAL_PURPOSE_PRINTER {
             get {
                 return ResourceManager.GetString("TXT_PRINTER_SETTINGS_GENERAL_PURPOSE_PRINTER", resourceCulture);
             }
@@ -3783,7 +4071,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Label Printer.
         /// </summary>
-        public static string TXT_PRINTER_SETTINGS_LABEL_PRINTER {
+        internal static string TXT_PRINTER_SETTINGS_LABEL_PRINTER {
             get {
                 return ResourceManager.GetString("TXT_PRINTER_SETTINGS_LABEL_PRINTER", resourceCulture);
             }
@@ -3792,7 +4080,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Printer settings.
         /// </summary>
-        public static string TXT_PRINTER_SETTINGS_TITLE {
+        internal static string TXT_PRINTER_SETTINGS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_PRINTER_SETTINGS_TITLE", resourceCulture);
             }
@@ -3801,7 +4089,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Product Version: {0}.
         /// </summary>
-        public static string TXT_PRODUCT_VERSION {
+        internal static string TXT_PRODUCT_VERSION {
             get {
                 return ResourceManager.GetString("TXT_PRODUCT_VERSION", resourceCulture);
             }
@@ -3810,7 +4098,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Question.
         /// </summary>
-        public static string TXT_QUESTION {
+        internal static string TXT_QUESTION {
             get {
                 return ResourceManager.GetString("TXT_QUESTION", resourceCulture);
             }
@@ -3819,7 +4107,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Read from card.
         /// </summary>
-        public static string TXT_READ_FROM_CARD {
+        internal static string TXT_READ_FROM_CARD {
             get {
                 return ResourceManager.GetString("TXT_READ_FROM_CARD", resourceCulture);
             }
@@ -3828,7 +4116,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Reading....
         /// </summary>
-        public static string TXT_READING {
+        internal static string TXT_READING {
             get {
                 return ResourceManager.GetString("TXT_READING", resourceCulture);
             }
@@ -3837,16 +4125,25 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Recalibration.
         /// </summary>
-        public static string TXT_RECALIBRATION_CERTIFICATE {
+        internal static string TXT_RECALIBRATION_CERTIFICATE {
             get {
                 return ResourceManager.GetString("TXT_RECALIBRATION_CERTIFICATE", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Regards.
+        /// </summary>
+        internal static string TXT_REGARDS {
+            get {
+                return ResourceManager.GetString("TXT_REGARDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register between.
         /// </summary>
-        public static string TXT_REGISTER_BETWEEN {
+        internal static string TXT_REGISTER_BETWEEN {
             get {
                 return ResourceManager.GetString("TXT_REGISTER_BETWEEN", resourceCulture);
             }
@@ -3855,7 +4152,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to REGISTER OF TACHOGRAPH PLAQUES ISSUED.
         /// </summary>
-        public static string TXT_REGISTER_OF_TACHOGRAPH_PLAQUES_ISSUES {
+        internal static string TXT_REGISTER_OF_TACHOGRAPH_PLAQUES_ISSUES {
             get {
                 return ResourceManager.GetString("TXT_REGISTER_OF_TACHOGRAPH_PLAQUES_ISSUES", resourceCulture);
             }
@@ -3864,7 +4161,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Registration number.
         /// </summary>
-        public static string TXT_REGISTRATION_NUMBER {
+        internal static string TXT_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -3873,7 +4170,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Registration settings.
         /// </summary>
-        public static string TXT_REGISTRATION_SETTINGS {
+        internal static string TXT_REGISTRATION_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_REGISTRATION_SETTINGS", resourceCulture);
             }
@@ -3882,7 +4179,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Company name.
         /// </summary>
-        public static string TXT_REGISTRATION_SETTINGS_COMPANY_NAME {
+        internal static string TXT_REGISTRATION_SETTINGS_COMPANY_NAME {
             get {
                 return ResourceManager.GetString("TXT_REGISTRATION_SETTINGS_COMPANY_NAME", resourceCulture);
             }
@@ -3891,7 +4188,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Expiration Date:.
         /// </summary>
-        public static string TXT_REGISTRATION_SETTINGS_EXPIRATION_DATE {
+        internal static string TXT_REGISTRATION_SETTINGS_EXPIRATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_REGISTRATION_SETTINGS_EXPIRATION_DATE", resourceCulture);
             }
@@ -3900,7 +4197,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Seal number.
         /// </summary>
-        public static string TXT_REGISTRATION_SETTINGS_SEAL_NUMBER {
+        internal static string TXT_REGISTRATION_SETTINGS_SEAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_REGISTRATION_SETTINGS_SEAL_NUMBER", resourceCulture);
             }
@@ -3909,7 +4206,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Registration settings.
         /// </summary>
-        public static string TXT_REGISTRATION_SETTINGS_TITLE {
+        internal static string TXT_REGISTRATION_SETTINGS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_REGISTRATION_SETTINGS_TITLE", resourceCulture);
             }
@@ -3918,7 +4215,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_REPRINT_CANCEL {
+        internal static string TXT_REPRINT_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_REPRINT_CANCEL", resourceCulture);
             }
@@ -3927,7 +4224,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-Print Certificate.
         /// </summary>
-        public static string TXT_REPRINT_CERTIFICATE {
+        internal static string TXT_REPRINT_CERTIFICATE {
             get {
                 return ResourceManager.GetString("TXT_REPRINT_CERTIFICATE", resourceCulture);
             }
@@ -3936,7 +4233,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-print completed..
         /// </summary>
-        public static string TXT_REPRINT_COMPLETED {
+        internal static string TXT_REPRINT_COMPLETED {
             get {
                 return ResourceManager.GetString("TXT_REPRINT_COMPLETED", resourceCulture);
             }
@@ -3945,7 +4242,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-Print Plaque.
         /// </summary>
-        public static string TXT_REPRINT_LABEL {
+        internal static string TXT_REPRINT_LABEL {
             get {
                 return ResourceManager.GetString("TXT_REPRINT_LABEL", resourceCulture);
             }
@@ -3954,7 +4251,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Registration Number:.
         /// </summary>
-        public static string TXT_REPRINT_REGISTRATION_NUMBER {
+        internal static string TXT_REPRINT_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_REPRINT_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -3963,7 +4260,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-Print.
         /// </summary>
-        public static string TXT_REPRINT_REPRINT {
+        internal static string TXT_REPRINT_REPRINT {
             get {
                 return ResourceManager.GetString("TXT_REPRINT_REPRINT", resourceCulture);
             }
@@ -3972,7 +4269,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Saturday.
         /// </summary>
-        public static string TXT_SATURDAY {
+        internal static string TXT_SATURDAY {
             get {
                 return ResourceManager.GetString("TXT_SATURDAY", resourceCulture);
             }
@@ -3981,7 +4278,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Seal Number of Tachograph Centre.
         /// </summary>
-        public static string TXT_SEAL_OF_TACHOGRAPH_CENTER {
+        internal static string TXT_SEAL_OF_TACHOGRAPH_CENTER {
             get {
                 return ResourceManager.GetString("TXT_SEAL_OF_TACHOGRAPH_CENTER", resourceCulture);
             }
@@ -3990,7 +4287,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Select All.
         /// </summary>
-        public static string TXT_SELECT_ALL {
+        internal static string TXT_SELECT_ALL {
             get {
                 return ResourceManager.GetString("TXT_SELECT_ALL", resourceCulture);
             }
@@ -3999,7 +4296,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Enter customer details on the right, or select a customer on the right to edit..
         /// </summary>
-        public static string TXT_SELECT_CUSTOMER_ON_LEFT {
+        internal static string TXT_SELECT_CUSTOMER_ON_LEFT {
             get {
                 return ResourceManager.GetString("TXT_SELECT_CUSTOMER_ON_LEFT", resourceCulture);
             }
@@ -4008,7 +4305,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Select the days of the week to perform an automatic backup..
         /// </summary>
-        public static string TXT_SELECT_DAYS_FOR_BACKUP {
+        internal static string TXT_SELECT_DAYS_FOR_BACKUP {
             get {
                 return ResourceManager.GetString("TXT_SELECT_DAYS_FOR_BACKUP", resourceCulture);
             }
@@ -4017,7 +4314,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Serial number:.
         /// </summary>
-        public static string TXT_SERIAL_NUMBER {
+        internal static string TXT_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_SERIAL_NUMBER", resourceCulture);
             }
@@ -4026,7 +4323,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Serial number    {0}.
         /// </summary>
-        public static string TXT_SERIAL_NUMBER_MEDIUM_LABEL {
+        internal static string TXT_SERIAL_NUMBER_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_SERIAL_NUMBER_MEDIUM_LABEL", resourceCulture);
             }
@@ -4035,7 +4332,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Serial number   {0}.
         /// </summary>
-        public static string TXT_SERIAL_NUMBER_SMALL_LABEL {
+        internal static string TXT_SERIAL_NUMBER_SMALL_LABEL {
             get {
                 return ResourceManager.GetString("TXT_SERIAL_NUMBER_SMALL_LABEL", resourceCulture);
             }
@@ -4044,7 +4341,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Set k factor:.
         /// </summary>
-        public static string TXT_SET_K_FACTOR {
+        internal static string TXT_SET_K_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_SET_K_FACTOR", resourceCulture);
             }
@@ -4053,7 +4350,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_SETTINGS_CANCEL {
+        internal static string TXT_SETTINGS_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_SETTINGS_CANCEL", resourceCulture);
             }
@@ -4062,7 +4359,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Save All &amp; Close.
         /// </summary>
-        public static string TXT_SETTINGS_SAVE_ALL_AND_CLOSE {
+        internal static string TXT_SETTINGS_SAVE_ALL_AND_CLOSE {
             get {
                 return ResourceManager.GetString("TXT_SETTINGS_SAVE_ALL_AND_CLOSE", resourceCulture);
             }
@@ -4071,7 +4368,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string TXT_SETTINGS_TITLE {
+        internal static string TXT_SETTINGS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_SETTINGS_TITLE", resourceCulture);
             }
@@ -4080,7 +4377,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shortcut settings.
         /// </summary>
-        public static string TXT_SHORTCUT_SETTINGS {
+        internal static string TXT_SHORTCUT_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_SHORTCUT_SETTINGS", resourceCulture);
             }
@@ -4089,7 +4386,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection equipments.
         /// </summary>
-        public static string TXT_SHORTCUT_SETTINGS_INSPECTION_EQUIPMENTS {
+        internal static string TXT_SHORTCUT_SETTINGS_INSPECTION_EQUIPMENTS {
             get {
                 return ResourceManager.GetString("TXT_SHORTCUT_SETTINGS_INSPECTION_EQUIPMENTS", resourceCulture);
             }
@@ -4098,7 +4395,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection methods.
         /// </summary>
-        public static string TXT_SHORTCUT_SETTINGS_INSPECTION_METHODS {
+        internal static string TXT_SHORTCUT_SETTINGS_INSPECTION_METHODS {
             get {
                 return ResourceManager.GetString("TXT_SHORTCUT_SETTINGS_INSPECTION_METHODS", resourceCulture);
             }
@@ -4107,7 +4404,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph makes and models.
         /// </summary>
-        public static string TXT_SHORTCUT_SETTINGS_TACHO_MAKES_AND_MODELES {
+        internal static string TXT_SHORTCUT_SETTINGS_TACHO_MAKES_AND_MODELES {
             get {
                 return ResourceManager.GetString("TXT_SHORTCUT_SETTINGS_TACHO_MAKES_AND_MODELES", resourceCulture);
             }
@@ -4116,7 +4413,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technicians.
         /// </summary>
-        public static string TXT_SHORTCUT_SETTINGS_TECHNICIANS {
+        internal static string TXT_SHORTCUT_SETTINGS_TECHNICIANS {
             get {
                 return ResourceManager.GetString("TXT_SHORTCUT_SETTINGS_TECHNICIANS", resourceCulture);
             }
@@ -4125,7 +4422,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shortcut settings.
         /// </summary>
-        public static string TXT_SHORTCUT_SETTINGS_TITLE {
+        internal static string TXT_SHORTCUT_SETTINGS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_SHORTCUT_SETTINGS_TITLE", resourceCulture);
             }
@@ -4134,7 +4431,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre sizes.
         /// </summary>
-        public static string TXT_SHORTCUT_SETTINGS_TYRE_SIZES {
+        internal static string TXT_SHORTCUT_SETTINGS_TYRE_SIZES {
             get {
                 return ResourceManager.GetString("TXT_SHORTCUT_SETTINGS_TYRE_SIZES", resourceCulture);
             }
@@ -4143,7 +4440,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle makes and models.
         /// </summary>
-        public static string TXT_SHORTCUT_SETTINGS_VEHICLE_MAKES_MODELS {
+        internal static string TXT_SHORTCUT_SETTINGS_VEHICLE_MAKES_MODELS {
             get {
                 return ResourceManager.GetString("TXT_SHORTCUT_SETTINGS_VEHICLE_MAKES_MODELS", resourceCulture);
             }
@@ -4152,16 +4449,25 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Show Details.
         /// </summary>
-        public static string TXT_SHOW_DETAILS {
+        internal static string TXT_SHOW_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_SHOW_DETAILS", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Signature.
+        /// </summary>
+        internal static string TXT_SIGNATURE {
+            get {
+                return ResourceManager.GetString("TXT_SIGNATURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}.
         /// </summary>
-        public static string TXT_SIGNATURE_TECHNICIAN {
+        internal static string TXT_SIGNATURE_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_SIGNATURE_TECHNICIAN", resourceCulture);
             }
@@ -4170,7 +4476,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Signature/{0}.
         /// </summary>
-        public static string TXT_SIGNATURE_TECHNICIAN_LARGE {
+        internal static string TXT_SIGNATURE_TECHNICIAN_LARGE {
             get {
                 return ResourceManager.GetString("TXT_SIGNATURE_TECHNICIAN_LARGE", resourceCulture);
             }
@@ -4179,7 +4485,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Silver.
         /// </summary>
-        public static string TXT_SILVER_THEME {
+        internal static string TXT_SILVER_THEME {
             get {
                 return ResourceManager.GetString("TXT_SILVER_THEME", resourceCulture);
             }
@@ -4188,7 +4494,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Skillray.
         /// </summary>
-        public static string TXT_SKILLRAY {
+        internal static string TXT_SKILLRAY {
             get {
                 return ResourceManager.GetString("TXT_SKILLRAY", resourceCulture);
             }
@@ -4197,7 +4503,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Skillray Demo Unlicensed Software.
         /// </summary>
-        public static string TXT_SKILLRAY_UNLICENSED_SOFTWARE {
+        internal static string TXT_SKILLRAY_UNLICENSED_SOFTWARE {
             get {
                 return ResourceManager.GetString("TXT_SKILLRAY_UNLICENSED_SOFTWARE", resourceCulture);
             }
@@ -4210,7 +4516,7 @@ namespace Webcal.Properties {
         ///
         ///{0}.
         /// </summary>
-        public static string TXT_SMALL_DATE {
+        internal static string TXT_SMALL_DATE {
             get {
                 return ResourceManager.GetString("TXT_SMALL_DATE", resourceCulture);
             }
@@ -4219,7 +4525,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to K: {0} imp/km.
         /// </summary>
-        public static string TXT_SMALL_K_FACTOR {
+        internal static string TXT_SMALL_K_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_SMALL_K_FACTOR", resourceCulture);
             }
@@ -4228,7 +4534,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to L:   {0}{1}.
         /// </summary>
-        public static string TXT_SMALL_L_FACTOR {
+        internal static string TXT_SMALL_L_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_SMALL_L_FACTOR", resourceCulture);
             }
@@ -4241,7 +4547,7 @@ namespace Webcal.Properties {
         ///
         ///.
         /// </summary>
-        public static string TXT_SMALL_LABEL_DATE {
+        internal static string TXT_SMALL_LABEL_DATE {
             get {
                 return ResourceManager.GetString("TXT_SMALL_LABEL_DATE", resourceCulture);
             }
@@ -4250,7 +4556,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Serial number   {0}.
         /// </summary>
-        public static string TXT_SMALL_SERIAL_NUMBER {
+        internal static string TXT_SMALL_SERIAL_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_SMALL_SERIAL_NUMBER", resourceCulture);
             }
@@ -4259,7 +4565,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre Size       {0}.
         /// </summary>
-        public static string TXT_SMALL_TYRE_SIZE {
+        internal static string TXT_SMALL_TYRE_SIZE {
             get {
                 return ResourceManager.GetString("TXT_SMALL_TYRE_SIZE", resourceCulture);
             }
@@ -4268,7 +4574,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VIN: {0}.
         /// </summary>
-        public static string TXT_SMALL_VIN {
+        internal static string TXT_SMALL_VIN {
             get {
                 return ResourceManager.GetString("TXT_SMALL_VIN", resourceCulture);
             }
@@ -4277,7 +4583,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to W: {0} imp/km.
         /// </summary>
-        public static string TXT_SMALL_W_FACTOR {
+        internal static string TXT_SMALL_W_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_SMALL_W_FACTOR", resourceCulture);
             }
@@ -4286,7 +4592,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Software.
         /// </summary>
-        public static string TXT_SOFTWARE {
+        internal static string TXT_SOFTWARE {
             get {
                 return ResourceManager.GetString("TXT_SOFTWARE", resourceCulture);
             }
@@ -4295,7 +4601,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Accepted.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_ACCEPTED {
+        internal static string TXT_SPEEDLIMITER_ACCEPTED {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_ACCEPTED", resourceCulture);
             }
@@ -4304,7 +4610,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_CANCEL {
+        internal static string TXT_SPEEDLIMITER_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_CANCEL", resourceCulture);
             }
@@ -4313,7 +4619,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_CUSTOMER {
+        internal static string TXT_SPEEDLIMITER_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_CUSTOMER", resourceCulture);
             }
@@ -4322,7 +4628,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer data.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_CUSTOMER_DATA {
+        internal static string TXT_SPEEDLIMITER_CUSTOMER_DATA {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_CUSTOMER_DATA", resourceCulture);
             }
@@ -4331,7 +4637,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Export PDF.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_EXPORT_PDF {
+        internal static string TXT_SPEEDLIMITER_EXPORT_PDF {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_EXPORT_PDF", resourceCulture);
             }
@@ -4340,7 +4646,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Ispection data.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_INSPECTION_DATA {
+        internal static string TXT_SPEEDLIMITER_INSPECTION_DATA {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_INSPECTION_DATA", resourceCulture);
             }
@@ -4349,7 +4655,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection date.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_INSPECTION_DATE {
+        internal static string TXT_SPEEDLIMITER_INSPECTION_DATE {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_INSPECTION_DATE", resourceCulture);
             }
@@ -4358,7 +4664,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection equipment.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_INSPECTION_EQUIPMENT {
+        internal static string TXT_SPEEDLIMITER_INSPECTION_EQUIPMENT {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_INSPECTION_EQUIPMENT", resourceCulture);
             }
@@ -4367,7 +4673,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Inspection method.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_INSPECTION_METHOD {
+        internal static string TXT_SPEEDLIMITER_INSPECTION_METHOD {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_INSPECTION_METHOD", resourceCulture);
             }
@@ -4376,7 +4682,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Limiter Speed.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_LIMITER_SPEED {
+        internal static string TXT_SPEEDLIMITER_LIMITER_SPEED {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_LIMITER_SPEED", resourceCulture);
             }
@@ -4385,7 +4691,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Model.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_MODEL {
+        internal static string TXT_SPEEDLIMITER_MODEL {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_MODEL", resourceCulture);
             }
@@ -4394,7 +4700,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Preview.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_PREVIEW {
+        internal static string TXT_SPEEDLIMITER_PREVIEW {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_PREVIEW", resourceCulture);
             }
@@ -4403,7 +4709,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Print.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_PRINT {
+        internal static string TXT_SPEEDLIMITER_PRINT {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_PRINT", resourceCulture);
             }
@@ -4412,7 +4718,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Registration number.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_REGISTRATION_NUMBER {
+        internal static string TXT_SPEEDLIMITER_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -4421,7 +4727,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Regulation Speed.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_REGULATION_SPEED {
+        internal static string TXT_SPEEDLIMITER_REGULATION_SPEED {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_REGULATION_SPEED", resourceCulture);
             }
@@ -4430,7 +4736,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_TECHNICIAN {
+        internal static string TXT_SPEEDLIMITER_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_TECHNICIAN", resourceCulture);
             }
@@ -4439,7 +4745,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Speedlimiter document.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_TITLE {
+        internal static string TXT_SPEEDLIMITER_TITLE {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_TITLE", resourceCulture);
             }
@@ -4448,7 +4754,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre size.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_TYRE_SIZE {
+        internal static string TXT_SPEEDLIMITER_TYRE_SIZE {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_TYRE_SIZE", resourceCulture);
             }
@@ -4457,7 +4763,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle data.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_VEHICLE_DATA {
+        internal static string TXT_SPEEDLIMITER_VEHICLE_DATA {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_VEHICLE_DATA", resourceCulture);
             }
@@ -4466,7 +4772,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle make.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_VEHICLE_MAKE {
+        internal static string TXT_SPEEDLIMITER_VEHICLE_MAKE {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_VEHICLE_MAKE", resourceCulture);
             }
@@ -4475,7 +4781,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle type.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_VEHICLE_TYPE {
+        internal static string TXT_SPEEDLIMITER_VEHICLE_TYPE {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_VEHICLE_TYPE", resourceCulture);
             }
@@ -4484,7 +4790,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VIN.
         /// </summary>
-        public static string TXT_SPEEDLIMITER_VIN {
+        internal static string TXT_SPEEDLIMITER_VIN {
             get {
                 return ResourceManager.GetString("TXT_SPEEDLIMITER_VIN", resourceCulture);
             }
@@ -4493,7 +4799,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to SQL Server Compact Edition Database File (*.sdf)|*.sdf.
         /// </summary>
-        public static string TXT_SQL_SERVER_COMPACT_EDITION {
+        internal static string TXT_SQL_SERVER_COMPACT_EDITION {
             get {
                 return ResourceManager.GetString("TXT_SQL_SERVER_COMPACT_EDITION", resourceCulture);
             }
@@ -4502,7 +4808,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to *.
         /// </summary>
-        public static string TXT_STAR {
+        internal static string TXT_STAR {
             get {
                 return ResourceManager.GetString("TXT_STAR", resourceCulture);
             }
@@ -4511,7 +4817,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Sunday.
         /// </summary>
-        public static string TXT_SUNDAY {
+        internal static string TXT_SUNDAY {
             get {
                 return ResourceManager.GetString("TXT_SUNDAY", resourceCulture);
             }
@@ -4520,7 +4826,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Create VOSA document.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT {
+        internal static string TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT", resourceCulture);
             }
@@ -4529,7 +4835,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Creation date.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_CREATION_DATE {
+        internal static string TXT_TACHO_HISTORY_CREATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_CREATION_DATE", resourceCulture);
             }
@@ -4538,7 +4844,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_CUSTOMER {
+        internal static string TXT_TACHO_HISTORY_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_CUSTOMER", resourceCulture);
             }
@@ -4547,7 +4853,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Email Report.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_EMAIL_REPORT {
+        internal static string TXT_TACHO_HISTORY_EMAIL_REPORT {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_EMAIL_REPORT", resourceCulture);
             }
@@ -4556,7 +4862,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Enter search term.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_ENTER_SEARCH_TERM {
+        internal static string TXT_TACHO_HISTORY_ENTER_SEARCH_TERM {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_ENTER_SEARCH_TERM", resourceCulture);
             }
@@ -4565,7 +4871,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Office.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_OFFICE {
+        internal static string TXT_TACHO_HISTORY_OFFICE {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_OFFICE", resourceCulture);
             }
@@ -4574,7 +4880,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Open in report form.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM {
+        internal static string TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM", resourceCulture);
             }
@@ -4583,7 +4889,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-Print Certificate.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_REPRINT_CERTIFICATE {
+        internal static string TXT_TACHO_HISTORY_REPRINT_CERTIFICATE {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_REPRINT_CERTIFICATE", resourceCulture);
             }
@@ -4592,7 +4898,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-Print Label.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_REPRINT_LABEL {
+        internal static string TXT_TACHO_HISTORY_REPRINT_LABEL {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_REPRINT_LABEL", resourceCulture);
             }
@@ -4601,7 +4907,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_TECHNICIAN {
+        internal static string TXT_TACHO_HISTORY_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_TECHNICIAN", resourceCulture);
             }
@@ -4610,7 +4916,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph document history.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_TITLE {
+        internal static string TXT_TACHO_HISTORY_TITLE {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_TITLE", resourceCulture);
             }
@@ -4619,7 +4925,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_TYPE {
+        internal static string TXT_TACHO_HISTORY_TYPE {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_TYPE", resourceCulture);
             }
@@ -4628,7 +4934,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle registration number.
         /// </summary>
-        public static string TXT_TACHO_HISTORY_VEHICLE_REGISTRATION_NUMBER {
+        internal static string TXT_TACHO_HISTORY_VEHICLE_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_VEHICLE_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -4637,7 +4943,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph Makes Models.
         /// </summary>
-        public static string TXT_TACHO_MAKES_MODELS_ {
+        internal static string TXT_TACHO_MAKES_MODELS_ {
             get {
                 return ResourceManager.GetString("TXT_TACHO_MAKES_MODELS_", resourceCulture);
             }
@@ -4646,7 +4952,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_TACHO_MAKES_MODELS_ADD {
+        internal static string TXT_TACHO_MAKES_MODELS_ADD {
             get {
                 return ResourceManager.GetString("TXT_TACHO_MAKES_MODELS_ADD", resourceCulture);
             }
@@ -4655,7 +4961,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Model.
         /// </summary>
-        public static string TXT_TACHO_MAKES_MODELS_MODEL {
+        internal static string TXT_TACHO_MAKES_MODELS_MODEL {
             get {
                 return ResourceManager.GetString("TXT_TACHO_MAKES_MODELS_MODEL", resourceCulture);
             }
@@ -4664,7 +4970,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_TACHO_MAKES_MODELS_REMOVE {
+        internal static string TXT_TACHO_MAKES_MODELS_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_TACHO_MAKES_MODELS_REMOVE", resourceCulture);
             }
@@ -4673,7 +4979,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph Makes Models.
         /// </summary>
-        public static string TXT_TACHO_MAKES_MODELS_TITLE {
+        internal static string TXT_TACHO_MAKES_MODELS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_TACHO_MAKES_MODELS_TITLE", resourceCulture);
             }
@@ -4682,7 +4988,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to TACHOGRAPH:.
         /// </summary>
-        public static string TXT_TACHOGRAPH {
+        internal static string TXT_TACHOGRAPH {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH", resourceCulture);
             }
@@ -4691,7 +4997,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph and M1N1 inspection plate.
         /// </summary>
-        public static string TXT_TACHOGRAPH_AND_M1N1_INSPECTION_PLATE {
+        internal static string TXT_TACHOGRAPH_AND_M1N1_INSPECTION_PLATE {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_AND_M1N1_INSPECTION_PLATE", resourceCulture);
             }
@@ -4700,7 +5006,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to TACHOGRAPH CALIBRATION CERTIFICATE.
         /// </summary>
-        public static string TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE {
+        internal static string TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE", resourceCulture);
             }
@@ -4709,7 +5015,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph documents created by customer.
         /// </summary>
-        public static string TXT_TACHOGRAPH_DOCUMENTS_BY_CUSTOMER {
+        internal static string TXT_TACHOGRAPH_DOCUMENTS_BY_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_DOCUMENTS_BY_CUSTOMER", resourceCulture);
             }
@@ -4718,7 +5024,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph documents created per year.
         /// </summary>
-        public static string TXT_TACHOGRAPH_DOCUMENTS_PER_YEAR {
+        internal static string TXT_TACHOGRAPH_DOCUMENTS_PER_YEAR {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_DOCUMENTS_PER_YEAR", resourceCulture);
             }
@@ -4727,7 +5033,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph documents that will expire between {0} and {1} - office: {2}.
         /// </summary>
-        public static string TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE {
+        internal static string TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE", resourceCulture);
             }
@@ -4736,7 +5042,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph Installation Plaque.
         /// </summary>
-        public static string TXT_TACHOGRAPH_INSTALLATION_PLAQUE {
+        internal static string TXT_TACHOGRAPH_INSTALLATION_PLAQUE {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_INSTALLATION_PLAQUE", resourceCulture);
             }
@@ -4745,7 +5051,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph make.
         /// </summary>
-        public static string TXT_TACHOGRAPH_MAKE {
+        internal static string TXT_TACHOGRAPH_MAKE {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_MAKE", resourceCulture);
             }
@@ -4754,7 +5060,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph makes and models.
         /// </summary>
-        public static string TXT_TACHOGRAPH_MAKES_MODELS {
+        internal static string TXT_TACHOGRAPH_MAKES_MODELS {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_MAKES_MODELS", resourceCulture);
             }
@@ -4763,7 +5069,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph model.
         /// </summary>
-        public static string TXT_TACHOGRAPH_MODEL {
+        internal static string TXT_TACHOGRAPH_MODEL {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_MODEL", resourceCulture);
             }
@@ -4772,7 +5078,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph number.
         /// </summary>
-        public static string TXT_TACHOGRAPH_NUMBER {
+        internal static string TXT_TACHOGRAPH_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_NUMBER", resourceCulture);
             }
@@ -4781,7 +5087,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph plaque.
         /// </summary>
-        public static string TXT_TACHOGRAPH_PLAQUE {
+        internal static string TXT_TACHOGRAPH_PLAQUE {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_PLAQUE", resourceCulture);
             }
@@ -4790,7 +5096,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tachograph Record Sheet.
         /// </summary>
-        public static string TXT_TACHOGRAPH_RECORD_SHEET {
+        internal static string TXT_TACHOGRAPH_RECORD_SHEET {
             get {
                 return ResourceManager.GetString("TXT_TACHOGRAPH_RECORD_SHEET", resourceCulture);
             }
@@ -4799,7 +5105,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
-        public static string TXT_TECHNICIAN {
+        internal static string TXT_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIAN", resourceCulture);
             }
@@ -4808,7 +5114,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technicians.
         /// </summary>
-        public static string TXT_TECHNICIANS {
+        internal static string TXT_TECHNICIANS {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS", resourceCulture);
             }
@@ -4817,7 +5123,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_TECHNICIANS_ADD {
+        internal static string TXT_TECHNICIANS_ADD {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_ADD", resourceCulture);
             }
@@ -4826,7 +5132,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Has Signature?.
         /// </summary>
-        public static string TXT_TECHNICIANS_HAS_SIGNATURE {
+        internal static string TXT_TECHNICIANS_HAS_SIGNATURE {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_HAS_SIGNATURE", resourceCulture);
             }
@@ -4835,7 +5141,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_TECHNICIANS_REMOVE {
+        internal static string TXT_TECHNICIANS_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_REMOVE", resourceCulture);
             }
@@ -4844,7 +5150,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Set as default.
         /// </summary>
-        public static string TXT_TECHNICIANS_SET_AS_DEFAULT {
+        internal static string TXT_TECHNICIANS_SET_AS_DEFAULT {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_SET_AS_DEFAULT", resourceCulture);
             }
@@ -4853,7 +5159,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technicians.
         /// </summary>
-        public static string TXT_TECHNICIANS_TITLE {
+        internal static string TXT_TECHNICIANS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_TITLE", resourceCulture);
             }
@@ -4862,7 +5168,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        public static string TXT_TECHNICIANS_VIEW_NAME {
+        internal static string TXT_TECHNICIANS_VIEW_NAME {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_VIEW_NAME", resourceCulture);
             }
@@ -4871,7 +5177,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Number.
         /// </summary>
-        public static string TXT_TECHNICIANS_VIEW_NUMBER {
+        internal static string TXT_TECHNICIANS_VIEW_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_VIEW_NUMBER", resourceCulture);
             }
@@ -4880,7 +5186,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Text File (*.txt)|*.txt.
         /// </summary>
-        public static string TXT_TEXT_FILE {
+        internal static string TXT_TEXT_FILE {
             get {
                 return ResourceManager.GetString("TXT_TEXT_FILE", resourceCulture);
             }
@@ -4889,7 +5195,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Theme Settings.
         /// </summary>
-        public static string TXT_THEME_SETTINGS {
+        internal static string TXT_THEME_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_THEME_SETTINGS", resourceCulture);
             }
@@ -4898,7 +5204,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Theme Settings.
         /// </summary>
-        public static string TXT_THEME_SETTINGS_TITLE {
+        internal static string TXT_THEME_SETTINGS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_THEME_SETTINGS_TITLE", resourceCulture);
             }
@@ -4907,7 +5213,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Thursday.
         /// </summary>
-        public static string TXT_THURSDAY {
+        internal static string TXT_THURSDAY {
             get {
                 return ResourceManager.GetString("TXT_THURSDAY", resourceCulture);
             }
@@ -4916,7 +5222,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tuesday.
         /// </summary>
-        public static string TXT_TUESDAY {
+        internal static string TXT_TUESDAY {
             get {
                 return ResourceManager.GetString("TXT_TUESDAY", resourceCulture);
             }
@@ -4925,7 +5231,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Type:.
         /// </summary>
-        public static string TXT_TYPE {
+        internal static string TXT_TYPE {
             get {
                 return ResourceManager.GetString("TXT_TYPE", resourceCulture);
             }
@@ -4934,7 +5240,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre L factor:.
         /// </summary>
-        public static string TXT_TYRE_L_FACTOR {
+        internal static string TXT_TYRE_L_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_TYRE_L_FACTOR", resourceCulture);
             }
@@ -4943,7 +5249,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre Size:.
         /// </summary>
-        public static string TXT_TYRE_SIZE {
+        internal static string TXT_TYRE_SIZE {
             get {
                 return ResourceManager.GetString("TXT_TYRE_SIZE", resourceCulture);
             }
@@ -4952,7 +5258,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre Size        {0}.
         /// </summary>
-        public static string TXT_TYRE_SIZE_MEDIUM_LABEL {
+        internal static string TXT_TYRE_SIZE_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_TYRE_SIZE_MEDIUM_LABEL", resourceCulture);
             }
@@ -4961,7 +5267,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre Size       {0}.
         /// </summary>
-        public static string TXT_TYRE_SIZE_SMALL_LABEL {
+        internal static string TXT_TYRE_SIZE_SMALL_LABEL {
             get {
                 return ResourceManager.GetString("TXT_TYRE_SIZE_SMALL_LABEL", resourceCulture);
             }
@@ -4970,7 +5276,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre sizes.
         /// </summary>
-        public static string TXT_TYRE_SIZES {
+        internal static string TXT_TYRE_SIZES {
             get {
                 return ResourceManager.GetString("TXT_TYRE_SIZES", resourceCulture);
             }
@@ -4979,7 +5285,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_TYRE_SIZES_ADD {
+        internal static string TXT_TYRE_SIZES_ADD {
             get {
                 return ResourceManager.GetString("TXT_TYRE_SIZES_ADD", resourceCulture);
             }
@@ -4988,7 +5294,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_TYRE_SIZES_REMOVE {
+        internal static string TXT_TYRE_SIZES_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_TYRE_SIZES_REMOVE", resourceCulture);
             }
@@ -4997,7 +5303,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tyre sizes.
         /// </summary>
-        public static string TXT_TYRE_SIZES_TITLE {
+        internal static string TXT_TYRE_SIZES_TITLE {
             get {
                 return ResourceManager.GetString("TXT_TYRE_SIZES_TITLE", resourceCulture);
             }
@@ -5006,7 +5312,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to complete the restore operation..
         /// </summary>
-        public static string TXT_UNABLE_COMPLETE_RESTORE {
+        internal static string TXT_UNABLE_COMPLETE_RESTORE {
             get {
                 return ResourceManager.GetString("TXT_UNABLE_COMPLETE_RESTORE", resourceCulture);
             }
@@ -5015,7 +5321,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to generate workshop card file..
         /// </summary>
-        public static string TXT_UNABLE_GENERATE_WORKSHOP_CARD {
+        internal static string TXT_UNABLE_GENERATE_WORKSHOP_CARD {
             get {
                 return ResourceManager.GetString("TXT_UNABLE_GENERATE_WORKSHOP_CARD", resourceCulture);
             }
@@ -5024,7 +5330,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to initialise the smart card reader.  Please ensure that it is plugged and installed correctly..
         /// </summary>
-        public static string TXT_UNABLE_INITIALISE_SMART_CARD_READER {
+        internal static string TXT_UNABLE_INITIALISE_SMART_CARD_READER {
             get {
                 return ResourceManager.GetString("TXT_UNABLE_INITIALISE_SMART_CARD_READER", resourceCulture);
             }
@@ -5033,7 +5339,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to read smart card..
         /// </summary>
-        public static string TXT_UNABLE_READ_SMART_CARD {
+        internal static string TXT_UNABLE_READ_SMART_CARD {
             get {
                 return ResourceManager.GetString("TXT_UNABLE_READ_SMART_CARD", resourceCulture);
             }
@@ -5042,7 +5348,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Creation date.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_CREATION_DATE {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_CREATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_CREATION_DATE", resourceCulture);
             }
@@ -5051,7 +5357,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_CUSTOMER {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_CUSTOMER", resourceCulture);
             }
@@ -5060,7 +5366,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Enter search term.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_ENTER_SEARCH_TERM {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_ENTER_SEARCH_TERM {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_ENTER_SEARCH_TERM", resourceCulture);
             }
@@ -5069,7 +5375,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Office.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_OFFICE {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_OFFICE {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_OFFICE", resourceCulture);
             }
@@ -5078,7 +5384,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Open in report form.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_OPEN_IN_REPORT_FORM {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_OPEN_IN_REPORT_FORM {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_OPEN_IN_REPORT_FORM", resourceCulture);
             }
@@ -5087,7 +5393,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Re-Print Certificate.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_REPRINT_CERTIFICATE {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_REPRINT_CERTIFICATE {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_REPRINT_CERTIFICATE", resourceCulture);
             }
@@ -5096,7 +5402,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_TECHNICIAN {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_TECHNICIAN {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_TECHNICIAN", resourceCulture);
             }
@@ -5105,7 +5411,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Undownloadability document history.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_TITLE {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_TITLE {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_TITLE", resourceCulture);
             }
@@ -5114,7 +5420,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle registration number.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_HISTORY_VEHICLE_REGISTRATION_NUMBER {
+        internal static string TXT_UNDOWNLOADABILITY_HISTORY_VEHICLE_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_HISTORY_VEHICLE_REGISTRATION_NUMBER", resourceCulture);
             }
@@ -5123,7 +5429,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Due to the malfunction of the tachograph [{0} - {1}, {2}] installed into vehicle [{3}] the data recorded in the VU&apos;s memory was unable to be downloaded..
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_LINE_1 {
+        internal static string TXT_UNDOWNLOADABILITY_LINE_1 {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_LINE_1", resourceCulture);
             }
@@ -5132,7 +5438,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Therefore no downloaded data can be provided to the user of the VU..
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_LINE_2 {
+        internal static string TXT_UNDOWNLOADABILITY_LINE_2 {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_LINE_2", resourceCulture);
             }
@@ -5141,7 +5447,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to This certificate provides the control authorities with confirmation that the data recorded in the unit is not available and was not downloadable from the VU when the vehicle was presented to the named Approved Tachograph Centre..
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_LINE_3 {
+        internal static string TXT_UNDOWNLOADABILITY_LINE_3 {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_LINE_3", resourceCulture);
             }
@@ -5150,7 +5456,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to This document is to be retained by the vehicle operator for the required time period, and presented when requested as required in ECC Regulation 3821/85, Annex 1B..
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_LINE_4 {
+        internal static string TXT_UNDOWNLOADABILITY_LINE_4 {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_LINE_4", resourceCulture);
             }
@@ -5159,7 +5465,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Signature/{0}.
         /// </summary>
-        public static string TXT_UNDOWNLOADABILITY_SIGNATURE {
+        internal static string TXT_UNDOWNLOADABILITY_SIGNATURE {
             get {
                 return ResourceManager.GetString("TXT_UNDOWNLOADABILITY_SIGNATURE", resourceCulture);
             }
@@ -5168,7 +5474,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unlicensed.
         /// </summary>
-        public static string TXT_UNLICENSED {
+        internal static string TXT_UNLICENSED {
             get {
                 return ResourceManager.GetString("TXT_UNLICENSED", resourceCulture);
             }
@@ -5177,7 +5483,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Any unsaved changes will be lost...are you sure?.
         /// </summary>
-        public static string TXT_UNSAVED_CHANGES_WILL_BE_LOST {
+        internal static string TXT_UNSAVED_CHANGES_WILL_BE_LOST {
             get {
                 return ResourceManager.GetString("TXT_UNSAVED_CHANGES_WILL_BE_LOST", resourceCulture);
             }
@@ -5186,7 +5492,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to User Management.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT {
+        internal static string TXT_USER_MANAGEMENT {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT", resourceCulture);
             }
@@ -5195,7 +5501,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_ADD {
+        internal static string TXT_USER_MANAGEMENT_ADD {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_ADD", resourceCulture);
             }
@@ -5204,7 +5510,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add new user:.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_ADD_NEW_USER {
+        internal static string TXT_USER_MANAGEMENT_ADD_NEW_USER {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_ADD_NEW_USER", resourceCulture);
             }
@@ -5213,7 +5519,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Change .
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_CHANGE {
+        internal static string TXT_USER_MANAGEMENT_CHANGE {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_CHANGE", resourceCulture);
             }
@@ -5222,7 +5528,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_CHANGE_CANCEL {
+        internal static string TXT_USER_MANAGEMENT_CHANGE_CANCEL {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_CHANGE_CANCEL", resourceCulture);
             }
@@ -5231,7 +5537,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Change.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_CHANGE_PASSWORD {
+        internal static string TXT_USER_MANAGEMENT_CHANGE_PASSWORD {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_CHANGE_PASSWORD", resourceCulture);
             }
@@ -5240,7 +5546,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_CLEAR {
+        internal static string TXT_USER_MANAGEMENT_CLEAR {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_CLEAR", resourceCulture);
             }
@@ -5249,7 +5555,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Existing Users:.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_EXISTING_USERS {
+        internal static string TXT_USER_MANAGEMENT_EXISTING_USERS {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_EXISTING_USERS", resourceCulture);
             }
@@ -5258,7 +5564,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Manage Signature.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_MANAGE_SIGNATURE {
+        internal static string TXT_USER_MANAGEMENT_MANAGE_SIGNATURE {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_MANAGE_SIGNATURE", resourceCulture);
             }
@@ -5267,7 +5573,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New password:.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_NEW_PASSWORD {
+        internal static string TXT_USER_MANAGEMENT_NEW_PASSWORD {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_NEW_PASSWORD", resourceCulture);
             }
@@ -5276,7 +5582,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New user password:.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_NEW_USER_PASSWORD {
+        internal static string TXT_USER_MANAGEMENT_NEW_USER_PASSWORD {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_NEW_USER_PASSWORD", resourceCulture);
             }
@@ -5285,7 +5591,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Your old password:.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_OLD_PASSWORD {
+        internal static string TXT_USER_MANAGEMENT_OLD_PASSWORD {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_OLD_PASSWORD", resourceCulture);
             }
@@ -5294,7 +5600,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to  password.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_PASSWORD {
+        internal static string TXT_USER_MANAGEMENT_PASSWORD {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_PASSWORD", resourceCulture);
             }
@@ -5303,7 +5609,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Reset Password.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_RESET_PASSWORD {
+        internal static string TXT_USER_MANAGEMENT_RESET_PASSWORD {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_RESET_PASSWORD", resourceCulture);
             }
@@ -5312,7 +5618,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to User Management.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_TITLE {
+        internal static string TXT_USER_MANAGEMENT_TITLE {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_TITLE", resourceCulture);
             }
@@ -5321,7 +5627,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to your.
         /// </summary>
-        public static string TXT_USER_MANAGEMENT_YOUR {
+        internal static string TXT_USER_MANAGEMENT_YOUR {
             get {
                 return ResourceManager.GetString("TXT_USER_MANAGEMENT_YOUR", resourceCulture);
             }
@@ -5330,7 +5636,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VEHICLE:.
         /// </summary>
-        public static string TXT_VEHICLE {
+        internal static string TXT_VEHICLE {
             get {
                 return ResourceManager.GetString("TXT_VEHICLE", resourceCulture);
             }
@@ -5339,7 +5645,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle makes and models.
         /// </summary>
-        public static string TXT_VEHICLE_MAKES_MODELS {
+        internal static string TXT_VEHICLE_MAKES_MODELS {
             get {
                 return ResourceManager.GetString("TXT_VEHICLE_MAKES_MODELS", resourceCulture);
             }
@@ -5348,7 +5654,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_VEHICLE_MAKES_MODELS_ADD {
+        internal static string TXT_VEHICLE_MAKES_MODELS_ADD {
             get {
                 return ResourceManager.GetString("TXT_VEHICLE_MAKES_MODELS_ADD", resourceCulture);
             }
@@ -5357,7 +5663,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Model.
         /// </summary>
-        public static string TXT_VEHICLE_MAKES_MODELS_MODEL {
+        internal static string TXT_VEHICLE_MAKES_MODELS_MODEL {
             get {
                 return ResourceManager.GetString("TXT_VEHICLE_MAKES_MODELS_MODEL", resourceCulture);
             }
@@ -5366,7 +5672,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_VEHICLE_MAKES_MODELS_REMOVE {
+        internal static string TXT_VEHICLE_MAKES_MODELS_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_VEHICLE_MAKES_MODELS_REMOVE", resourceCulture);
             }
@@ -5375,7 +5681,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle make and model settings.
         /// </summary>
-        public static string TXT_VEHICLE_MAKES_MODELS_TITLE {
+        internal static string TXT_VEHICLE_MAKES_MODELS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_VEHICLE_MAKES_MODELS_TITLE", resourceCulture);
             }
@@ -5384,16 +5690,25 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vehicle registration number.
         /// </summary>
-        public static string TXT_VEHICLE_REGISTRATION_NUMBER {
+        internal static string TXT_VEHICLE_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_VEHICLE_REGISTRATION_NUMBER", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Verify.
+        /// </summary>
+        internal static string TXT_VERIFY {
+            get {
+                return ResourceManager.GetString("TXT_VERIFY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to VIN:.
         /// </summary>
-        public static string TXT_VIN {
+        internal static string TXT_VIN {
             get {
                 return ResourceManager.GetString("TXT_VIN", resourceCulture);
             }
@@ -5402,7 +5717,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VIN: {0}.
         /// </summary>
-        public static string TXT_VIN_MEDIUM_LABEL {
+        internal static string TXT_VIN_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_VIN_MEDIUM_LABEL", resourceCulture);
             }
@@ -5411,7 +5726,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VIN: {0}.
         /// </summary>
-        public static string TXT_VIN_SMALL_LABEL {
+        internal static string TXT_VIN_SMALL_LABEL {
             get {
                 return ResourceManager.GetString("TXT_VIN_SMALL_LABEL", resourceCulture);
             }
@@ -5421,7 +5736,7 @@ namespace Webcal.Properties {
         ///   Looks up a localized string similar to 7
         ///Date.
         /// </summary>
-        public static string TXT_VOSA_DATE_HEADER {
+        internal static string TXT_VOSA_DATE_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_DATE_HEADER", resourceCulture);
             }
@@ -5431,7 +5746,7 @@ namespace Webcal.Properties {
         ///   Looks up a localized string similar to 9
         ///Invoice number.
         /// </summary>
-        public static string TXT_VOSA_INVOICE_NUMBER_HEADER {
+        internal static string TXT_VOSA_INVOICE_NUMBER_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_INVOICE_NUMBER_HEADER", resourceCulture);
             }
@@ -5442,7 +5757,7 @@ namespace Webcal.Properties {
         ///L
         ///mm.
         /// </summary>
-        public static string TXT_VOSA_L_HEADER {
+        internal static string TXT_VOSA_L_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_L_HEADER", resourceCulture);
             }
@@ -5453,7 +5768,7 @@ namespace Webcal.Properties {
         ///Registration/
         ///Chassis No.
         /// </summary>
-        public static string TXT_VOSA_REGISTRATION_HEADER {
+        internal static string TXT_VOSA_REGISTRATION_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_REGISTRATION_HEADER", resourceCulture);
             }
@@ -5465,7 +5780,7 @@ namespace Webcal.Properties {
         ///
         ///Type (+)      Head Serial No.
         /// </summary>
-        public static string TXT_VOSA_TACHOGRAPH_DETAILS_HEADER {
+        internal static string TXT_VOSA_TACHOGRAPH_DETAILS_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_TACHOGRAPH_DETAILS_HEADER", resourceCulture);
             }
@@ -5480,7 +5795,7 @@ namespace Webcal.Properties {
         ///smartcard
         ///number.
         /// </summary>
-        public static string TXT_VOSA_TECH_INITIALS_HEADER {
+        internal static string TXT_VOSA_TECH_INITIALS_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_TECH_INITIALS_HEADER", resourceCulture);
             }
@@ -5493,7 +5808,7 @@ namespace Webcal.Properties {
         ///or
         ///Imp/Km.
         /// </summary>
-        public static string TXT_VOSA_TURNS_HEADER {
+        internal static string TXT_VOSA_TURNS_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_TURNS_HEADER", resourceCulture);
             }
@@ -5506,7 +5821,7 @@ namespace Webcal.Properties {
         ///Insp
         ///(#).
         /// </summary>
-        public static string TXT_VOSA_TYPE_INSPECTION_HEADER {
+        internal static string TXT_VOSA_TYPE_INSPECTION_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_TYPE_INSPECTION_HEADER", resourceCulture);
             }
@@ -5518,7 +5833,7 @@ namespace Webcal.Properties {
         ///Type
         ///(~).
         /// </summary>
-        public static string TXT_VOSA_VEHICLE_TYPE_HEADER {
+        internal static string TXT_VOSA_VEHICLE_TYPE_HEADER {
             get {
                 return ResourceManager.GetString("TXT_VOSA_VEHICLE_TYPE_HEADER", resourceCulture);
             }
@@ -5527,7 +5842,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VRN:.
         /// </summary>
-        public static string TXT_VRN {
+        internal static string TXT_VRN {
             get {
                 return ResourceManager.GetString("TXT_VRN", resourceCulture);
             }
@@ -5536,7 +5851,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to W factor:.
         /// </summary>
-        public static string TXT_W_FACTOR {
+        internal static string TXT_W_FACTOR {
             get {
                 return ResourceManager.GetString("TXT_W_FACTOR", resourceCulture);
             }
@@ -5545,7 +5860,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to W: {0} imp/km.
         /// </summary>
-        public static string TXT_W_FACTOR_IMP_KM {
+        internal static string TXT_W_FACTOR_IMP_KM {
             get {
                 return ResourceManager.GetString("TXT_W_FACTOR_IMP_KM", resourceCulture);
             }
@@ -5554,7 +5869,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to W: {0} imp/km.
         /// </summary>
-        public static string TXT_W_FACTOR_MEDIUM_LABEL {
+        internal static string TXT_W_FACTOR_MEDIUM_LABEL {
             get {
                 return ResourceManager.GetString("TXT_W_FACTOR_MEDIUM_LABEL", resourceCulture);
             }
@@ -5563,16 +5878,25 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Hardwick Grange.
         /// </summary>
-        public static string TXT_WEBCAL_CITY {
+        internal static string TXT_WEBCAL_CITY {
             get {
                 return ResourceManager.GetString("TXT_WEBCAL_CITY", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Webcal Connect Key.
+        /// </summary>
+        internal static string TXT_WEBCAL_CONNECT_KEY {
+            get {
+                return ResourceManager.GetString("TXT_WEBCAL_CONNECT_KEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WA1 4RF.
         /// </summary>
-        public static string TXT_WEBCAL_POSTCODE {
+        internal static string TXT_WEBCAL_POSTCODE {
             get {
                 return ResourceManager.GetString("TXT_WEBCAL_POSTCODE", resourceCulture);
             }
@@ -5581,7 +5905,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unit 10.
         /// </summary>
-        public static string TXT_WEBCAL_STREET {
+        internal static string TXT_WEBCAL_STREET {
             get {
                 return ResourceManager.GetString("TXT_WEBCAL_STREET", resourceCulture);
             }
@@ -5590,7 +5914,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Rufford Court.
         /// </summary>
-        public static string TXT_WEBCAL_TOWN {
+        internal static string TXT_WEBCAL_TOWN {
             get {
                 return ResourceManager.GetString("TXT_WEBCAL_TOWN", resourceCulture);
             }
@@ -5599,7 +5923,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Webcal.
         /// </summary>
-        public static string TXT_WEBCAL_WEBCALNAME {
+        internal static string TXT_WEBCAL_WEBCALNAME {
             get {
                 return ResourceManager.GetString("TXT_WEBCAL_WEBCALNAME", resourceCulture);
             }
@@ -5608,7 +5932,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Wednesday.
         /// </summary>
-        public static string TXT_WEDNESDAY {
+        internal static string TXT_WEDNESDAY {
             get {
                 return ResourceManager.GetString("TXT_WEDNESDAY", resourceCulture);
             }
@@ -5617,7 +5941,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Work Carried Out:.
         /// </summary>
-        public static string TXT_WORK_CARRIED_OUT {
+        internal static string TXT_WORK_CARRIED_OUT {
             get {
                 return ResourceManager.GetString("TXT_WORK_CARRIED_OUT", resourceCulture);
             }
@@ -5626,7 +5950,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
-        public static string TXT_WORKER_PROGRESS_CLOSE {
+        internal static string TXT_WORKER_PROGRESS_CLOSE {
             get {
                 return ResourceManager.GetString("TXT_WORKER_PROGRESS_CLOSE", resourceCulture);
             }
@@ -5635,7 +5959,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to There are no tasks waiting to be processed..
         /// </summary>
-        public static string TXT_WORKER_PROGRESS_NO_PENDING_TASKS {
+        internal static string TXT_WORKER_PROGRESS_NO_PENDING_TASKS {
             get {
                 return ResourceManager.GetString("TXT_WORKER_PROGRESS_NO_PENDING_TASKS", resourceCulture);
             }
@@ -5644,7 +5968,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Task Queue.
         /// </summary>
-        public static string TXT_WORKER_PROGRESS_TITLE {
+        internal static string TXT_WORKER_PROGRESS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_WORKER_PROGRESS_TITLE", resourceCulture);
             }
@@ -5653,7 +5977,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop card calibration browser.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_CALIBRATION_BROWSER {
+        internal static string TXT_WORKSHOP_CARD_CALIBRATION_BROWSER {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_CALIBRATION_BROWSER", resourceCulture);
             }
@@ -5662,7 +5986,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop card file was generated..
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILE_GENERATED {
+        internal static string TXT_WORKSHOP_CARD_FILE_GENERATED {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILE_GENERATED", resourceCulture);
             }
@@ -5671,7 +5995,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_ADD {
+        internal static string TXT_WORKSHOP_CARD_FILES_ADD {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_ADD", resourceCulture);
             }
@@ -5680,7 +6004,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add file.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_ADD_FILE {
+        internal static string TXT_WORKSHOP_CARD_FILES_ADD_FILE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_ADD_FILE", resourceCulture);
             }
@@ -5689,7 +6013,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_BROWSE {
+        internal static string TXT_WORKSHOP_CARD_FILES_BROWSE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_BROWSE", resourceCulture);
             }
@@ -5698,7 +6022,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Creation date.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_CREATION_DATE {
+        internal static string TXT_WORKSHOP_CARD_FILES_CREATION_DATE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_CREATION_DATE", resourceCulture);
             }
@@ -5707,7 +6031,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Date:.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_DATE {
+        internal static string TXT_WORKSHOP_CARD_FILES_DATE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_DATE", resourceCulture);
             }
@@ -5716,7 +6040,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_EXPORT {
+        internal static string TXT_WORKSHOP_CARD_FILES_EXPORT {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_EXPORT", resourceCulture);
             }
@@ -5725,7 +6049,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to File:.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_FILE {
+        internal static string TXT_WORKSHOP_CARD_FILES_FILE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_FILE", resourceCulture);
             }
@@ -5734,7 +6058,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Read from card.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD {
+        internal static string TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD", resourceCulture);
             }
@@ -5743,7 +6067,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_REMOVE {
+        internal static string TXT_WORKSHOP_CARD_FILES_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_REMOVE", resourceCulture);
             }
@@ -5752,7 +6076,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Stored files.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_STORED_FILES {
+        internal static string TXT_WORKSHOP_CARD_FILES_STORED_FILES {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_STORED_FILES", resourceCulture);
             }
@@ -5761,7 +6085,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop card files.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_TITLE {
+        internal static string TXT_WORKSHOP_CARD_FILES_TITLE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_TITLE", resourceCulture);
             }
@@ -5770,7 +6094,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop:.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_WORKSHOP {
+        internal static string TXT_WORKSHOP_CARD_FILES_WORKSHOP {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_WORKSHOP", resourceCulture);
             }
@@ -5779,7 +6103,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop.
         /// </summary>
-        public static string TXT_WORKSHOP_CARD_FILES_WORKSHOP_2 {
+        internal static string TXT_WORKSHOP_CARD_FILES_WORKSHOP_2 {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_WORKSHOP_2", resourceCulture);
             }
@@ -5788,7 +6112,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop number:{0}.
         /// </summary>
-        public static string TXT_WORKSHOP_NUMBER {
+        internal static string TXT_WORKSHOP_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_NUMBER", resourceCulture);
             }
@@ -5797,7 +6121,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Address 1.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_ADDRESS_1 {
+        internal static string TXT_WORKSHOP_SETITNGS_ADDRESS_1 {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_ADDRESS_1", resourceCulture);
             }
@@ -5806,7 +6130,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Address 2.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_ADDRESS_2 {
+        internal static string TXT_WORKSHOP_SETITNGS_ADDRESS_2 {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_ADDRESS_2", resourceCulture);
             }
@@ -5815,7 +6139,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Choose Logo.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO {
+        internal static string TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO", resourceCulture);
             }
@@ -5824,7 +6148,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Main Email Address.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS {
+        internal static string TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS", resourceCulture);
             }
@@ -5833,7 +6157,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Phone Number.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_PHONE_NUMBER {
+        internal static string TXT_WORKSHOP_SETITNGS_PHONE_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_PHONE_NUMBER", resourceCulture);
             }
@@ -5842,7 +6166,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Post Code.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_POST_CODE {
+        internal static string TXT_WORKSHOP_SETITNGS_POST_CODE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_POST_CODE", resourceCulture);
             }
@@ -5851,7 +6175,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Secondary Email Address.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_SECONDARY_EMAIL_ADDRESS {
+        internal static string TXT_WORKSHOP_SETITNGS_SECONDARY_EMAIL_ADDRESS {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_SECONDARY_EMAIL_ADDRESS", resourceCulture);
             }
@@ -5860,7 +6184,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop Settings.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_TITLE {
+        internal static string TXT_WORKSHOP_SETITNGS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_TITLE", resourceCulture);
             }
@@ -5869,7 +6193,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Town.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_TOWN {
+        internal static string TXT_WORKSHOP_SETITNGS_TOWN {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_TOWN", resourceCulture);
             }
@@ -5878,7 +6202,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop name.
         /// </summary>
-        public static string TXT_WORKSHOP_SETITNGS_WORKSHOP_NAME {
+        internal static string TXT_WORKSHOP_SETITNGS_WORKSHOP_NAME {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_WORKSHOP_NAME", resourceCulture);
             }
@@ -5887,7 +6211,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Workshop settings.
         /// </summary>
-        public static string TXT_WORKSHOP_SETTINGS {
+        internal static string TXT_WORKSHOP_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETTINGS", resourceCulture);
             }
@@ -5896,7 +6220,7 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Year.
         /// </summary>
-        public static string TXT_YEAR {
+        internal static string TXT_YEAR {
             get {
                 return ResourceManager.GetString("TXT_YEAR", resourceCulture);
             }
@@ -5905,408 +6229,9 @@ namespace Webcal.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Yes.
         /// </summary>
-        public static string TXT_YES {
+        internal static string TXT_YES {
             get {
                 return ResourceManager.GetString("TXT_YES", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Cancel.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_CANCEL
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CANCEL", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Customer.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_CUSTOMER
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CUSTOMER", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Customer data.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_CUSTOMER_DATA
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_CUSTOMER_DATA", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Export PDF.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_EXPORT_PDF
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_EXPORT_PDF", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Inspection data.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_INSPECTION_DATA
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_INSPECTION_DATA", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Inspection date.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_INSPECTION_DATE
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_INSPECTION_DATE", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Print.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_PRINT
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_PRINT", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Registration Number.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_REGISTRATION_NUMBER
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_REGISTRATION_NUMBER", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Serial Number.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_SERIAL_NUMBER
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_SERIAL_NUMBER", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Tachograph Data.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_DATA
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_DATA", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Tachograph Make.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MAKE
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MAKE", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Model.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MODEL
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MODEL", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Technician.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_TECHNICIAN
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_TECHNICIAN", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Vehicle Data.
-        /// </summary>
-        public static string TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Creation date.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CREATION_DATE
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CREATION_DATE", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Customer.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CUSTOMER
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CUSTOMER", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Enter search term.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_ENTER_SEARCH_TERM
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_ENTER_SEARCH_TERM", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Office.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OFFICE
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OFFICE", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Open in report form.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OPEN_IN_REPORT_FORM
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OPEN_IN_REPORT_FORM", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Re-Print Certificate.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_REPRINT_CERTIFICATE
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_REPRINT_CERTIFICATE", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Technician.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TECHNICIAN
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TECHNICIAN", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Letter For Decommissioning document history.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TITLE
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TITLE", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Vehicle registration number.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_VEHICLE_REGISTRATION_NUMBER
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_VEHICLE_REGISTRATION_NUMBER", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to The digital tachograph unit [{0} - {1}] [{2}] that was installed into vehicle registration number [{3}] is not functioning in accordance with the requirements of Annex 1B..
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_1
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_1", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to The unit has been removed from the above vehicle and a download of all data since the last download has been carried out and is now being stored by us at the centre in accordance with Requirement 260 of the Annex 1B and section 10.7 of the VOSA Approved Tachograph Centre Manual (ATCM)..
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_2
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_2", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to To obtain the information from the centre named below, please apply in writing to the centre, specifying company card details used in the unit, provide any required passwords to be used to secure the data during delivery and the required method of delivery, i.e. CD or secure email..
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_3
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_3", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to The above information will be stored securely by the centre for 365 days from date of this letter, after that date the data will be destroyed in accordance with the DVSA ATCM..
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_LINE_4
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_LINE_4", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Letter For Decommissioning.
-        /// </summary>
-        public static string TXT_LETTER_FOR_DECOMMISSIONING_TITLE
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING_TITLE", resourceCulture);
-            }
-        }
-
-
-        /// <summary>
-        ///   Looks up a localized string similar to Letter For Decommissioning.
-        /// </summary>
-        public static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Letter For Decommissioning.
-        /// </summary>
-        public static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Letter For Decommissioning History.
-        /// </summary>
-        public static string TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP", resourceCulture);
-            }
-        }
-
-
-
-        /// <summary>
-        ///   Looks up a localized string similar to Regards.
-        /// </summary>
-        public static string TXT_REGARDS
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_REGARDS", resourceCulture);
-            }
-        }
-
-
-
-        /// <summary>
-        ///   Looks up a localized string similar to Signature.
-        /// </summary>
-        public static string TXT_SIGNATURE
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_SIGNATURE", resourceCulture);
-            }
-        }
-
-
-        /// <summary>
-        ///   Looks up a localized string similar to Signature.
-        /// </summary>
-        public static string TXT_WEBCAL_CONNECT_KEY
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_WEBCAL_CONNECT_KEY", resourceCulture);
-            }
-        }
-
-        public static string ERR_SAVING_SETTINGS
-        {
-            get
-            {
-                return ResourceManager.GetString("ERR_SAVING_SETTINGS", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Signature.
-        /// </summary>
-        public static string TXT_VERIFY
-        {
-            get
-            {
-                return ResourceManager.GetString("TXT_VERIFY", resourceCulture);
             }
         }
     }

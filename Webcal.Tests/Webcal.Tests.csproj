@@ -81,9 +81,8 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Webcal.Connect.Shared, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Webcal.Connect.Shared.dll</HintPath>
+    <Reference Include="Webcal.Connect.Shared">
+      <HintPath>..\..\Webcal.DataService\bin\Webcal.Connect.Shared.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>

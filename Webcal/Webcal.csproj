@@ -169,13 +169,8 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Webcal.Connect, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Webcal.Connect.dll</HintPath>
-    </Reference>
-    <Reference Include="Webcal.Connect.Shared, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Webcal.Connect.Shared.dll</HintPath>
+    <Reference Include="Webcal.Connect.Shared">
+      <HintPath>..\..\Webcal.DataService\bin\Webcal.Connect.Shared.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -633,9 +628,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru-RU.resx">
       <SubType>Designer</SubType>
@@ -833,6 +828,16 @@
     <Resource Include="Images\webcal.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\queue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LetterForDecommissioningHistorySmall.png" />
+    <Resource Include="Images\LetterForDecommissioningSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Webcal.DataModel\Webcal.DataModel.csproj">
       <Project>{2E23907B-6B71-46F8-8CBD-7C82A1327C07}</Project>
       <Name>Webcal.DataModel</Name>
@@ -845,16 +850,6 @@
       <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
       <Name>Webcal.Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\queue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\email.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\LetterForDecommissioningHistorySmall.png" />
-    <Resource Include="Images\LetterForDecommissioningSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
