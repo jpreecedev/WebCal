@@ -1,7 +1,6 @@
 ﻿namespace Webcal.DataModel
 {
     using System.ComponentModel.DataAnnotations.Schema;
-    using Shared;
     using Shared.Core;
 
     [Table("PrinterSettings")]
@@ -15,5 +14,6 @@
         public bool IsPortrait { get; set; }
         public bool IsLandscape { get; set; }
         public int LabelNumberOfCopies { get; set; }
+        public bool AutoPrintLabels { get; set; }
     }
 }

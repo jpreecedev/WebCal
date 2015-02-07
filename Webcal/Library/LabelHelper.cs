@@ -21,7 +21,7 @@
             var printerSettings = GetPrinterSettings();
 
             workerTask.Parameters = new WorkerParameters();
-            workerTask.Parameters.SetParameter("AutoPrintLabels", workshopSettings.AutoPrintLabels);
+            workerTask.Parameters.SetParameter("AutoPrintLabels", printerSettings.AutoPrintLabels);
             workerTask.Parameters.SetParameter("LabelNumberOfCopies", printerSettings.LabelNumberOfCopies);
 
             workerTask.Parameters.SetParameter("Address1", workshopSettings.Address1);

@@ -4,12 +4,8 @@
     using System.Windows.Controls;
     using Windows.ReprintWindow;
     using Core;
-    using DataModel;
-    using DataModel.Core;
-    using DataModel.Library;
     using Library;
     using Properties;
-    using Shared;
 
     public class HomeScreenViewModel : BaseViewModel
     {
@@ -20,7 +16,6 @@
         public string CertificateText { get; set; }
         public string PlaqueText { get; set; }
         public string ColumnWidth { get; set; }
-        public bool AutoPrintLabels { get; set; }
 
         public string VersionNumber
         {
@@ -46,16 +41,6 @@
             ResizeCommand = new DelegateCommand<UserControl>(OnResize);
         }
 
-        protected override void InitialiseRepositories()
-        {
-            AutoPrintLabels = GetAutoPrintLabels();
-        }
-
-        public override void OnClosing(bool cancelled)
-        {
-            SaveAutoPrintLabels();
-        }
-
         private void OnNewDigitalDocument(object obj)
         {
             var viewModel = (NewTachographViewModel) MainWindow.ShowView<NewTachographView>();
@@ -70,15 +55,25 @@
 
         private void OnReprintLabel(object obj)
         {
-            var window = new ReprintWindow();
-            window.DataContext = new ReprintWindowViewModel {ReprintMode = ReprintMode.Label};
+            var window = new ReprintWindow
+            {
+                DataContext = new ReprintWindowViewModel
+                {
+                    ReprintMode = ReprintMode.Label
+                }
+            };
             window.ShowDialog();
         }
 
         private void OnReprintCertificate(object obj)
         {
-            var window = new ReprintWindow();
-            window.DataContext = new ReprintWindowViewModel {ReprintMode = ReprintMode.Certificate};
+            var window = new ReprintWindow
+            {
+                DataContext = new ReprintWindowViewModel
+                {
+                    ReprintMode = ReprintMode.Certificate
+                }
+            };
             window.ShowDialog();
         }
 
@@ -109,25 +104,6 @@
                 CertificateText = Resources.TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT;
                 PlaqueText = Resources.TXT_PLAQUE_TACHOGRAPH_DOCUMENT;
             }
-        }
-
-        private bool GetAutoPrintLabels()
-        {
-            //This is not nice, but is necessary to prevent data loss
-
-            var repository = GetInstance<ISettingsRepository<WorkshopSettings>>();
-            WorkshopSettings workshopSettings = repository.GetWorkshopSettings();
-            return workshopSettings.AutoPrintLabels;
-        }
-
-        private void SaveAutoPrintLabels()
-        {
-            //This is not nice, but is necessary to prevent data loss
-
-            var repository = GetInstance<ISettingsRepository<WorkshopSettings>>();
-            WorkshopSettings workshopSettings = repository.GetWorkshopSettings();
-            workshopSettings.AutoPrintLabels = AutoPrintLabels;
-            repository.Save(workshopSettings);
         }
     }
 }

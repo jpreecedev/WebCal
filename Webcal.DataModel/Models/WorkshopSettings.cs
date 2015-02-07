@@ -4,7 +4,6 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Drawing;
-    using Shared;
     using Shared.Core;
     using Shared.Helpers;
 

@@ -15,6 +15,26 @@ namespace Webcal.Library
 
     public static class MigrationHelper
     {
+        public static void ApplyDataHacks()
+        {
+            var miscellaneousSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>();
+            var miscellaneousSettings = miscellaneousSettingsRepository.GetMiscellaneousSettings();
+            var lastMigrationHackId = miscellaneousSettings.LastMigrationHackId;
+
+            if (lastMigrationHackId == 0)
+            {
+                var workshopSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+                var printerSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<PrinterSettings>>();
+
+                var printerSettings = printerSettingsRepository.GetPrinterSettings();
+                printerSettings.AutoPrintLabels = workshopSettings.AutoPrintLabels;
+
+                printerSettingsRepository.Save(printerSettings);
+                miscellaneousSettings.LastMigrationHackId = 1;
+                miscellaneousSettingsRepository.Save(miscellaneousSettings);
+            }
+        }
+
         public static void MigrateIfRequired()
         {
             MigrateOldPath((string)AppDomain.CurrentDomain.GetData("DataDirectory"));

@@ -70,7 +70,6 @@
             context.WorkshopSettings.Add(new WorkshopSettings
             {
                 BackupFilePath = Resources.TXT_NO_PATH_SPECIFIED,
-                AutoPrintLabels = true
             });
 
             context.PrinterSettings.Add(new PrinterSettings
@@ -78,7 +77,8 @@
                 AlwaysAskForPrinter = true,
                 IsPortrait = true,
                 DefaultNumberOfCopies = 1,
-                LabelNumberOfCopies = 1
+                LabelNumberOfCopies = 1,
+                AutoPrintLabels = true
             });
 
             context.RegistrationData.Add(new RegistrationData

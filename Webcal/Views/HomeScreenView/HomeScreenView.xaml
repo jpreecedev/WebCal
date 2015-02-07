@@ -113,10 +113,5 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-
-        <CheckBox Grid.Row="2"
-                  Content="{x:Static Properties:Resources.TXT_HOME_SCREEN_AUTO_PRINT_LABELS}"
-                  IsChecked="{Binding AutoPrintLabels}"
-                  Margin="20,10,0,10" />
     </Grid>
 </UserControl>
