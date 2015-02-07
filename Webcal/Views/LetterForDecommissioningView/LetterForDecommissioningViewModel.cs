@@ -71,6 +71,7 @@
             Document.Created = DateTime.Now;
             LetterForDecommissioningRepository.Add(Document);
             LetterForDecommissioningRepository.Save();
+            ConnectHelper.Upload(Document);
         }
 
         protected override void RegistrationChanged(string registrationNumber)

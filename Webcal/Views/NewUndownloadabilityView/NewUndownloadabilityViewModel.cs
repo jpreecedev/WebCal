@@ -63,6 +63,7 @@
             Document.Created = DateTime.Now;
             UndownloadabilityRepository.Add(Document);
             UndownloadabilityRepository.Save();
+            ConnectHelper.Upload(Document);
         }
 
         protected override void RegistrationChanged(string registrationNumber)

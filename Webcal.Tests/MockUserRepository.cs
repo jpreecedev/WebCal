@@ -61,6 +61,11 @@ namespace Webcal.Tests
             return _users.FirstOrDefault(predicate.Compile());
         }
 
+        public User First()
+        {
+            throw new NotImplementedException();
+        }
+
         public User First(Expression<Func<User, bool>> predicate)
         {
             throw new NotImplementedException();

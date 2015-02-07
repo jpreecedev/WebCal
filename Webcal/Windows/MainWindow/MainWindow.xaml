@@ -12,23 +12,24 @@
                  WindowState="Maximized"
                  MinHeight="560"
                  MinWidth="800"
-                 DontUseDwm="False">
+                 DontUseDwm="True">
     <core:BaseWindow.DataContext>
         <local:MainWindowViewModel />
     </core:BaseWindow.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <r:Ribbon>
             <r:Ribbon.QuickAccessItems>
                 <r:QuickAccessMenuItem Target="{Binding ElementName=SettingsMenuItem}"
-                                       IsChecked="True"/>
+                                       IsChecked="True" />
                 <r:QuickAccessMenuItem Target="{Binding ElementName=GenerateReportMenuItem}"
                                        IsChecked="True" />
                 <r:QuickAccessMenuItem Target="{Binding ElementName=ExitMenuItem}"
-                                       IsChecked="True"/>
+                                       IsChecked="True" />
             </r:Ribbon.QuickAccessItems>
             <r:Ribbon.Menu>
                 <r:ApplicationMenu Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILE}"
@@ -41,7 +42,7 @@
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
                                          Image="..\..\Images\Settings.png"
-                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_SETTINGS}"/>
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_SETTINGS}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem x:Name="GenerateReportMenuItem"
@@ -331,6 +332,24 @@
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
+
+        <r:StatusBar HorizontalAlignment="Stretch"
+                     VerticalAlignment="Bottom"
+                     Grid.Row="2">
+            <r:StatusBarItem HorizontalAlignment="Left">
+                
+            </r:StatusBarItem>
+            <r:StatusBarItem HorizontalAlignment="Right"
+                             Visibility="{Binding ShowConnectProgress, Converter={StaticResource Bool2Vis}}">
+                <Grid>
+                    <ProgressBar IsIndeterminate="True"
+                                 Width="100" />
+                    <TextBlock Text="Uploading..."
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Grid>
+            </r:StatusBarItem>
+        </r:StatusBar>
 
     </Grid>
 </core:BaseWindow>

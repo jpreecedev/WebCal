@@ -3,12 +3,11 @@
     using System;
     using System.Linq;
     using Connect.Shared;
-    using Connect.Shared.Models;
     using Controls;
     using Core;
     using DataModel;
     using DataModel.Core;
-    using Microsoft.Office.Interop.Excel;
+    using Library;
     using Properties;
     using Shared;
     using Shared.Connect;
@@ -81,6 +80,7 @@
         public override void Save()
         {
             Repository.Save();
+            ConnectHelper.ConnectKeysChanged();
         }
 
         private void SerialChanged()

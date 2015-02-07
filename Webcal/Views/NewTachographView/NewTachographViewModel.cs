@@ -18,7 +18,6 @@
     using Properties;
     using Shared;
     using Shared.Helpers;
-    using StructureMap;
 
     public class NewTachographViewModel : BaseNewDocumentViewModel
     {
@@ -110,6 +109,8 @@
             TachographDocumentRepository.AddOrUpdate(Document);
             TachographDocumentRepository.Save();
             WorkshopCardFilesRepository.Save();
+
+            ConnectHelper.Upload(Document);
         }
 
         protected override void RegistrationChanged(string registrationNumber)

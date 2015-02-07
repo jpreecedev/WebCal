@@ -3,7 +3,9 @@ namespace Webcal.DataModel
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Globalization;
+    using Connect.Shared;
     using Connect.Shared.Models;
+    using Shared;
     using Shared.Helpers;
 
     [Table("RegistrationData")]
@@ -28,6 +30,18 @@ namespace Webcal.DataModel
         }
 
         public bool IsConnectEnabled { get; set; }
+
+        [NotMapped]
+        public IConnectKeys ConnectKeys
+        {
+            get
+            {
+                string url = WebcalConfigurationSection.Instance.GetConnectUrl();
+                var licenseKey = int.Parse(ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0'));
+
+                return new ConnectKeys(url, licenseKey, CompanyName, LicenseManager.GetMachineKey());
+            }
+        }
 
         protected override void OnPropertyChanged(string propertyName)
         {

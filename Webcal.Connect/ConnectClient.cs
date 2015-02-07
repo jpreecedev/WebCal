@@ -31,7 +31,7 @@
 
             _channelFactory.Endpoint.Behaviors.Remove(typeof(ClientCredentials));
             _channelFactory.Endpoint.Behaviors.Add(credentials);
-            
+
             Service = _channelFactory.CreateChannel();
         }
 

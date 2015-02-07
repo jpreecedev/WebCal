@@ -87,6 +87,11 @@
             return Safely(() => Context.Set<T>().FirstOrDefault(predicate.Compile()));
         }
 
+        public T First()
+        {
+            return Safely(() => Context.Set<T>().First());
+        }
+
         public virtual T First(Expression<Func<T, bool>> predicate)
         {
             return Safely(() => Context.Set<T>().First(predicate.Compile()));

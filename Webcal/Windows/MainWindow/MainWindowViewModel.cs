@@ -50,6 +50,7 @@
         public DispatcherTimer TimeoutTimer { get; set; }
         public bool IsLocked { get; set; }
         public bool IsNavigationLocked { get; set; }
+        public bool ShowConnectProgress { get; set; }
 
         private void OnSettings(object param)
         {

@@ -17,57 +17,14 @@
         {
             return input.Replace("\"", "'");
         }
-        
-        public static void CallAsync<TResult>(this IConnectClient client, IConnectKeys connectKeys, Func<IConnectClient, TResult> beginCall, Action<ConnectOperationResult> endCall, Action<Exception> exceptionHandler)
+
+        public static void CallAsync<TResult>(this IConnectClient client, IConnectKeys connectKeys, Func<IConnectClient, TResult> beginCall, Action<ConnectOperationResult> endCall = null, Action<Exception> exceptionHandler = null, Action alwaysCall = null)
         {
-            try
+            if (connectKeys == null)
             {
-                Mouse.OverrideCursor = Cursors.Wait;
-                TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
-
-                Task.Factory.StartNew(() =>
-                {
-                    if (!client.IsOpen)
-                    {
-                        client.Open(connectKeys);
-                    }
-
-                    return Try(() => beginCall(client));
-                })
-                .ContinueWith(mainTask =>
-                {
-                    Mouse.OverrideCursor = null;
-                    if (mainTask.IsFaulted)
-                    {
-                        BuildException(mainTask, exceptionHandler);
-                    }
-                    else
-                    {
-                        endCall(mainTask.Result);
-                    }
-                }, synchronizationContext)
-                .ContinueWith(exceptionTask =>
-                {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        Mouse.OverrideCursor = null;
-                        if (exceptionHandler != null)
-                        {
-                            BuildException((Task<ConnectOperationResult>)exceptionTask, exceptionHandler);
-                        }
-                    }, DispatcherPriority.Normal);
-
-                }, TaskContinuationOptions.OnlyOnFaulted);
+                return;
             }
-            catch (Exception ex)
-            {
-                Mouse.OverrideCursor = null;
-                exceptionHandler(ex);
-            }
-        }
 
-        public static void CallAsync(this IConnectClient client, IConnectKeys connectKeys, Action<IConnectClient> beginCall, Action<ConnectOperationResult> endCall, Action<Exception> exceptionHandler)
-        {
             try
             {
                 Mouse.OverrideCursor = Cursors.Wait;
@@ -80,37 +37,103 @@
                 })
                 .ContinueWith(mainTask =>
                 {
+                    if (mainTask.IsFaulted)
+                    {
+                        BuildException(mainTask, exceptionHandler);
+                    }
+                    else
+                    {
+                        if (endCall != null)
+                        {
+                            endCall(mainTask.Result);
+                        }
+                    }
+                }, synchronizationContext)
+                .ContinueWith(exceptionTask => Application.Current.Dispatcher.Invoke(() =>
+                {
+                    BuildException((Task<ConnectOperationResult>)exceptionTask, exceptionHandler);
+
+                }, DispatcherPriority.Normal), TaskContinuationOptions.OnlyOnFaulted)
+                .ContinueWith(alwaysTask =>
+                {
                     Mouse.OverrideCursor = null;
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        Mouse.OverrideCursor = null;
+                        if (alwaysCall != null)
+                        {
+                            alwaysCall();
+                        }
+                    }, DispatcherPriority.Normal);
+                });
+            }
+            catch (Exception ex)
+            {
+                Mouse.OverrideCursor = null;
+                if (exceptionHandler != null)
+                {
+                    exceptionHandler(ex);
+                }
+            }
+        }
+
+        public static void CallAsync(this IConnectClient client, IConnectKeys connectKeys, Action<IConnectClient> beginCall, Action<ConnectOperationResult> endCall = null, Action<Exception> exceptionHandler = null, Action alwaysCall = null)
+        {
+            if (connectKeys == null)
+            {
+                return;
+            }
+
+            try
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
+
+                Task.Factory.StartNew(() =>
+                {
+                    client.Open(connectKeys);
+                    return Try(() => beginCall(client));
+                })
+                .ContinueWith(mainTask =>
+                {
                     if (mainTask.IsFaulted)
                     {
                         BuildException(mainTask, exceptionHandler);
                     }
                     else if (!mainTask.Result.IsSuccess)
                     {
-                        BuildException(mainTask, exceptionHandler );
+                        BuildException(mainTask, exceptionHandler);
                     }
                     else
                     {
-                        endCall(mainTask.Result);
+                        if (endCall != null)
+                        {
+                            endCall(mainTask.Result);
+                        }
                     }
                 }, synchronizationContext)
-                .ContinueWith(exceptionTask =>
+                .ContinueWith(exceptionTask => Application.Current.Dispatcher.Invoke(() =>
                 {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        Mouse.OverrideCursor = null;
-                        if (exceptionHandler != null)
-                        {
-                            BuildException((Task<ConnectOperationResult>)exceptionTask, exceptionHandler);
-                        }
-                    }, DispatcherPriority.Normal);
+                    BuildException((Task<ConnectOperationResult>)exceptionTask, exceptionHandler);
 
-                }, TaskContinuationOptions.OnlyOnFaulted);
+                }, DispatcherPriority.Normal), TaskContinuationOptions.OnlyOnFaulted)
+                .ContinueWith(alwaysTask => Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Mouse.OverrideCursor = null;
+                    if (alwaysCall != null)
+                    {
+                        alwaysCall();
+                    }
+                }, DispatcherPriority.Normal));
             }
             catch (Exception ex)
             {
                 Mouse.OverrideCursor = null;
-                exceptionHandler(ex);
+
+                if (exceptionHandler != null)
+                {
+                    exceptionHandler(ex);
+                }
             }
         }
 
@@ -152,7 +175,7 @@
                 return new ConnectOperationResult(ex, string.Format(Resources.TXT_REQUEST_FAILED_WITH_UNEXPECTED_EXCEPTION, ex));
             }
         }
-        
+
         private static ConnectOperationResult Try<TResult>(Func<TResult> func)
         {
             try
@@ -193,6 +216,11 @@
 
         private static void BuildException(Task<ConnectOperationResult> task, Action<Exception> exceptionHandler)
         {
+            if (exceptionHandler == null)
+            {
+                return;
+            }
+
             Exception exception = task.Exception ?? task.Result.Exception;
             var builder = new StringBuilder();
 
