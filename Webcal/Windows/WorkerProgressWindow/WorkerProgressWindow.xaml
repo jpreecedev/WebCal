@@ -5,6 +5,7 @@
                       xmlns:core="clr-namespace:Webcal.Core"
                       xmlns:Properties="clr-namespace:Webcal.Properties"
                       Title="{x:Static Properties:Resources.TXT_WORKER_PROGRESS_TITLE}"
+                      Icon="../../Main Icon.ico"
                       WindowStartupLocation="CenterScreen"
                       ResizeMode="NoResize"
                       Height="300"

@@ -5,6 +5,7 @@
                       xmlns:Properties="clr-namespace:Webcal.Properties"
                       xmlns:core="clr-namespace:Webcal.Core"
                       Title="{x:Static Properties:Resources.TXT_CAPTURE_SIGNATURE_TITLE}"
+                      Icon="../../Main Icon.ico"
                       WindowStartupLocation="CenterScreen"
                       ResizeMode="NoResize"
                       Height="300"

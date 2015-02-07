@@ -5,6 +5,7 @@
                       xmlns:Properties="clr-namespace:Webcal.Properties"
                       xmlns:core="clr-namespace:Webcal.Core"
                       Title="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_TITLE}"
+                      Icon="../../Main Icon.ico"
                       WindowStartupLocation="CenterScreen"
                       ResizeMode="NoResize"
                       WindowStyle="ToolWindow"

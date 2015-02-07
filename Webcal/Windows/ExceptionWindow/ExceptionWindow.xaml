@@ -5,6 +5,7 @@
                       xmlns:Properties="clr-namespace:Webcal.Properties"
                       xmlns:core="clr-namespace:Webcal.Core"
                       Title="{x:Static Properties:Resources.TXT_EXCEPTION_WINDOW_TECHNICAL_INFORMATION}"
+                      Icon="../../Main Icon.ico"
                       WindowStartupLocation="CenterScreen"
                       Height="600"
                       Width="800">

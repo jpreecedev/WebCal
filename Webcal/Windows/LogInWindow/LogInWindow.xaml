@@ -13,6 +13,7 @@
                       Height="250"
                       Width="400"
                       Title="{x:Static Properties:Resources.TXT_LOGIN_WINDOW_TITLE}"
+                      Icon="../../Main Icon.ico"
                       FocusManager.FocusedElement="{Binding ElementName=UsernameTextBox}">
     <core:BaseModalWindow.DataContext>
         <vm:LogInWindowViewModel />

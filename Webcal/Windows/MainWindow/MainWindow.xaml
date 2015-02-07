@@ -7,6 +7,7 @@
                  xmlns:r="clr-namespace:Fluent;assembly=Fluent"
                  xmlns:Properties="clr-namespace:Webcal.Properties"
                  Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TITLE}"
+                 Icon="../../Main Icon.ico"
                  ResizeMode="CanResizeWithGrip"
                  WindowStartupLocation="CenterScreen"
                  WindowState="Maximized"

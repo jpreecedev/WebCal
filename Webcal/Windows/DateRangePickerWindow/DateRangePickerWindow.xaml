@@ -6,6 +6,7 @@
                       xmlns:Properties="clr-namespace:Webcal.Properties"
                       xmlns:core="clr-namespace:Webcal.Core"
                       Title="{x:Static Properties:Resources.TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE}"
+                      Icon="../../Main Icon.ico"
                       Height="180"
                       Width="425"
                       WindowStartupLocation="CenterScreen">
