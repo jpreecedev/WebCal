@@ -5,7 +5,6 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using DataModel.Library;
     using Library;
     using Properties;
@@ -50,6 +49,7 @@
                 return;
             }
 
+            passwordBox.Clear();
             MessageBoxHelper.ShowError(Resources.ERR_CANNOT_VERIFY_USERNAME_PASSWORD, Window);
         }
 

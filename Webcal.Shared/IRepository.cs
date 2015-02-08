@@ -7,6 +7,7 @@
 
     public interface IRepository<T> : IDisposable where T : BaseModel
     {
+        bool Any();
         void AddOrUpdate(T entity);
         void Add(T entity);
         void Remove(T entity);

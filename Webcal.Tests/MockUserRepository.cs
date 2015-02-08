@@ -21,6 +21,11 @@ namespace Webcal.Tests
             throw new NotImplementedException();
         }
 
+        public bool Any()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddOrUpdate(User entity)
         {
             throw new NotImplementedException();

@@ -8,10 +8,14 @@
     using Connect.Shared.Models;
     using Library;
     using Shared;
-    using Shared.Core;
 
     public class Repository<T> : BaseRepository, IRepository<T> where T : BaseModel
     {
+        public bool Any()
+        {
+            return Safely(() => Context.Set<T>().Any());
+        }
+
         public virtual void AddOrUpdate(T entity)
         {
             Safely(() =>

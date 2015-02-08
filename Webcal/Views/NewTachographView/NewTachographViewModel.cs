@@ -44,7 +44,6 @@
         public ObservableCollection<TyreSize> TyreSizes { get; set; }
         public ObservableCollection<TachographMake> TachographMakes { get; set; }
         public ObservableCollection<Technician> Technicians { get; set; }
-        public ICollection<TachographDocument> AllTachographDocuments { get; set; }
         public bool IsReadFromCardEnabled { get; set; }
         public string ReadFromCardContent { get; set; }
         public string StatusText { get; set; }
@@ -122,50 +121,49 @@
 
             //Remove all spaces from registration number
             Document.RegistrationNumber = registrationNumber.Replace(" ", string.Empty).ToUpper();
+            
+            if (!TachographDocumentRepository.Any()) 
+                return;
 
-            ICollection<TachographDocument> allDocuments = AllTachographDocuments ?? (AllTachographDocuments = TachographDocumentRepository.GetAll().OrderByDescending(c => c.Created).ToList());
-            if (!allDocuments.IsNullOrEmpty())
+            TachographDocument match = TachographDocumentRepository.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
+                .OrderByDescending(doc => doc.Created)
+                .FirstOrDefault();
+
+            if (match == null && registrationNumber.Length > 8)
             {
-                TachographDocument match = allDocuments.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
+                match = TachographDocumentRepository.Where(doc => string.Equals(doc.VIN, registrationNumber, StringComparison.CurrentCultureIgnoreCase))
                     .OrderByDescending(doc => doc.Created)
                     .FirstOrDefault();
-
-                if (match == null && registrationNumber.Length > 8)
-                {
-                    match = allDocuments.Where(doc => string.Equals(doc.VIN, registrationNumber, StringComparison.CurrentCultureIgnoreCase))
-                                        .OrderByDescending(doc => doc.Created)
-                                        .FirstOrDefault();
-                }
-
-                if (match == null)
-                {
-                    return;
-                }
-                Document.CalibrationTime = DateTime.Now;
-                Document.CardSerialNumber = match.CardSerialNumber;
-                Document.Created = DateTime.Now;
-                Document.CustomerContact = match.CustomerContact;
-                Document.InspectionDate = DateTime.Now;
-                Document.InspectionInfo = match.InspectionInfo;
-                Document.IsDigital = match.IsDigital;
-                Document.MinorWorkDetails = match.MinorWorkDetails;
-                Document.Office = match.Office;
-                Document.RegistrationNumber = match.RegistrationNumber;
-                Document.SerialNumber = match.SerialNumber;
-                Document.TachographAdapterLocation = match.TachographAdapterLocation;
-                Document.TachographAdapterSerialNumber = match.TachographAdapterSerialNumber;
-                Document.TachographCableColor = match.TachographCableColor;
-                Document.TachographHasAdapter = match.TachographHasAdapter;
-                Document.TachographMake = match.TachographMake;
-                Document.TachographModel = match.TachographModel;
-                Document.TachographType = match.TachographType;
-                Document.Tampered = match.Tampered;
-                Document.TyreSize = match.TyreSize;
-                Document.VehicleMake = match.VehicleMake;
-                Document.VehicleModel = match.VehicleModel;
-                Document.VehicleType = match.VehicleType;
-                Document.VIN = match.VIN;
             }
+
+            if (match == null)
+            {
+                return;
+            }
+            Document.CalibrationTime = DateTime.Now;
+            Document.CardSerialNumber = match.CardSerialNumber;
+            Document.Created = DateTime.Now;
+            Document.CustomerContact = match.CustomerContact;
+            Document.InspectionDate = DateTime.Now;
+            Document.InspectionInfo = match.InspectionInfo;
+            Document.IsDigital = match.IsDigital;
+            Document.MinorWorkDetails = match.MinorWorkDetails;
+            Document.Office = match.Office;
+            Document.RegistrationNumber = match.RegistrationNumber;
+            Document.SerialNumber = match.SerialNumber;
+            Document.TachographAdapterLocation = match.TachographAdapterLocation;
+            Document.TachographAdapterSerialNumber = match.TachographAdapterSerialNumber;
+            Document.TachographCableColor = match.TachographCableColor;
+            Document.TachographHasAdapter = match.TachographHasAdapter;
+            Document.TachographMake = match.TachographMake;
+            Document.TachographModel = match.TachographModel;
+            Document.TachographType = match.TachographType;
+            Document.Tampered = match.Tampered;
+            Document.TyreSize = match.TyreSize;
+            Document.VehicleMake = match.VehicleMake;
+            Document.VehicleModel = match.VehicleModel;
+            Document.VehicleType = match.VehicleType;
+            Document.VIN = match.VIN;
         }
 
         protected override void OnFastReadCompleted(object sender, DriverCardCompletedEventArgs e)
