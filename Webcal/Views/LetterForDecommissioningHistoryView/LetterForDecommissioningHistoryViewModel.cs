@@ -1,27 +1,17 @@
-﻿using System.Collections.ObjectModel;
-using System.IO;
-using StructureMap;
-using Webcal.Core;
-using Webcal.DataModel;
-using Webcal.Library;
-using Webcal.Library.PDF;
-using Webcal.Shared;
-
-namespace Webcal.Views
+﻿namespace Webcal.Views
 {
+    using System.Collections.ObjectModel;
+    using System.IO;
     using Connect.Shared.Models;
-    using DataModel.Core;
+    using Core;
+    using Library.PDF;
+    using Shared;
     using Shared.Helpers;
 
     public class LetterForDecommissioningHistoryViewModel : BaseHistoryViewModel
     {
-        #region Public Properties
-
         public IRepository<LetterForDecommissioningDocument> LetterForDecommissioningRepository { get; set; }
-
-        #endregion
-
-        #region Overrides
+        public DelegateCommand<object> ReprintCertificateCommand { get; set; }
 
         protected override void Load()
         {
@@ -33,8 +23,8 @@ namespace Webcal.Views
         {
             if (document == null) return;
 
-            LetterForDecommissioningViewModel letterForDecommissioningViewModel = (LetterForDecommissioningViewModel)MainWindow.ShowView<LetterForDecommissioningView>();
-            letterForDecommissioningViewModel.Document = (LetterForDecommissioningDocument)document;
+            var letterForDecommissioningViewModel = (LetterForDecommissioningViewModel) MainWindow.ShowView<LetterForDecommissioningView>();
+            letterForDecommissioningViewModel.Document = (LetterForDecommissioningDocument) document;
             letterForDecommissioningViewModel.IsHistoryMode = true;
         }
 
@@ -50,27 +40,12 @@ namespace Webcal.Views
             ReprintCertificateCommand = new DelegateCommand<object>(OnReprintCertificate);
         }
 
-        #endregion
-
-        #region Commands
-
-        #region Command : Reprint Certificate
-
-        public DelegateCommand<object> ReprintCertificateCommand { get; set; }
-
         private void OnReprintCertificate(object obj)
         {
-            LetterForDecommissioningDocument document = SelectedDocument as LetterForDecommissioningDocument;
+            var document = SelectedDocument as LetterForDecommissioningDocument;
             if (document == null) return;
 
-            if (PDFHelper.GenerateTachographPlaque(document, true))
-            {
-                PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
-            }
+            document.ToPDF().Print();
         }
-
-        #endregion
-
-        #endregion
     }
 }

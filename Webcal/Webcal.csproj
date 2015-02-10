@@ -279,7 +279,8 @@
     <Compile Include="Library\PDF\FullCertificate.cs" />
     <Compile Include="Library\PDF\IPlaque.cs" />
     <Compile Include="Library\PDF\LetterForDecommissioning.cs" />
-    <Compile Include="Library\PDF\PDFHelper.cs" />
+    <Compile Include="Library\PDF\PDFDocumentResult.cs" />
+    <Compile Include="Library\PDF\PDFExtensions.cs" />
     <Compile Include="Library\PDF\FullPlaqueDocument.cs" />
     <Compile Include="Library\PDF\MinimalPlaqueDocument.cs" />
     <Compile Include="Library\PDF\PDFDocument.cs" />

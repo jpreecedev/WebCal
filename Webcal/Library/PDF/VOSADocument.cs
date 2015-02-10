@@ -17,7 +17,7 @@ namespace Webcal.Library.PDF
     {
         public static PDFDocument Document { get; set; }
 
-        public static void Create(string path, List<TachographDocument> documents, DateTime start, DateTime end)
+        public static void Create(string path, ICollection<TachographDocument> documents, DateTime start, DateTime end)
         {
             if (string.IsNullOrEmpty(path))
             {

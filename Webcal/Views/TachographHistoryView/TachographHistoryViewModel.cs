@@ -3,17 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.IO;
     using System.Linq;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using DataModel.Library;
     using Library;
     using Library.PDF;
     using Shared;
-    using Shared.Helpers;
 
     public class TachographHistoryViewModel : BaseHistoryViewModel
     {
@@ -64,17 +61,14 @@
             var tachographDocument = document as TachographDocument;
             if (tachographDocument != null)
             {
-                if (PDFHelper.GenerateTachographPlaque(document, true, true, true))
-                {
-                    EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
-                }
+                tachographDocument.ToPDF().Print();
             }
         }
 
         protected override void OnCreateVOSADocument(DateTime start, DateTime end)
         {
             List<TachographDocument> applicableDocuments = Documents.Where(doc => doc.InspectionDate.Value >= start && doc.InspectionDate.Value <= end).Cast<TachographDocument>().ToList();
-            PDFHelper.GenerateVOSADocument(applicableDocuments, start, end);
+            applicableDocuments.GenerateVOSADocument(start, end);
         }
 
         protected override bool IncludeDeletedContacts
@@ -100,11 +94,7 @@
             }
 
             MiscellaneousSettings miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
-
-            if (PDFHelper.GenerateTachographPlaque(document, true, miscellaneousSettings.ExcludeLogosWhenPrinting))
-            {
-                PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
-            }
+            document.ToPDF(excludeLogos: miscellaneousSettings.ExcludeLogosWhenPrinting).Print();
         }
     }
 }

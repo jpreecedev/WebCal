@@ -48,8 +48,7 @@
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_SECONDARY_EMAIL_ADDRESS}"
                                   Text="{core:InputBinding Settings.SecondaryEmailAddress}" />
             
-            <StackPanel Orientation="Horizontal"
-                        Margin="0,20,0,0">
+            <StackPanel Orientation="Horizontal">
                 <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO}"
                         Command="{Binding BrowseCommand}"
                         HorizontalAlignment="Left"

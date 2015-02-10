@@ -56,10 +56,7 @@
                 return;
             }
 
-            if (PDFHelper.GenerateTachographPlaque(document, true))
-            {
-                PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
-            }
+            document.ToPDF().Print();
         }
     }
 }

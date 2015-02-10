@@ -732,7 +732,7 @@
 
         <Border x:Name="ModalBorder"
                 Width="900"
-                Height="530">
+                Height="600">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

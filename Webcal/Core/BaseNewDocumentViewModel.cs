@@ -90,7 +90,7 @@
         {
             if (DriverCardReader != null)
             {
-                DriverCardReader.Dispose();                
+                DriverCardReader.Dispose();
             }
         }
 
@@ -105,15 +105,22 @@
             try
             {
                 Document document = GetNewDocument(root);
-                if (PDFHelper.GenerateTachographPlaque(document, false, IsHistoryMode, true))
+
+                var pdfDocumentResult = document.ToPDF(IsHistoryMode, false, true);
+
+                if (pdfDocumentResult.Success)
                 {
                     if (!IsHistoryMode)
                     {
                         try
                         {
-                            EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, PDFHelper.LastPDFOutputPath);
+                            var miscellaneousSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+                            document.ToPDF(IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting).Email(WorkshopSettings, MailSettings);
                         }
-                        catch{}
+                        catch
+                        {
+
+                        }
 
                         Add();
                     }
@@ -137,23 +144,22 @@
 
             MiscellaneousSettings miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
             Document document = GetNewDocument(root);
-            if (PDFHelper.GenerateTachographPlaque(document, true, IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting))
+
+            document.ToPDF(IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting).Print();
+
+            if (!IsHistoryMode)
             {
                 try
                 {
-                    PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
-                    if (!IsHistoryMode)
-                    {
-                        PDFHelper.GenerateTachographPlaque(document, true, IsHistoryMode, false);
-                        EmailHelper.SendEmail(WorkshopSettings, MailSettings, document, Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
-                        Add();
-                    }
+                    document.ToPDF(IsHistoryMode).Email(WorkshopSettings, MailSettings);
                 }
                 finally
                 {
-                    Close();
+                    Add();
                 }
             }
+
+            Close();
         }
 
         private void OnRegistrationChanged(string registrationNumber)
@@ -189,7 +195,7 @@
                 return letterForDecommissioningViewModel.Document;
             }
 
-            return ((NewUndownloadabilityViewModel) sender).Document;
+            return ((NewUndownloadabilityViewModel)sender).Document;
         }
 
         private void Close()

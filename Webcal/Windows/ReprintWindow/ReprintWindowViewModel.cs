@@ -131,11 +131,7 @@
             }
 
             MiscellaneousSettings miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
-
-            if (PDFHelper.GenerateTachographPlaque(document, true, true, miscellaneousSettings.ExcludeLogosWhenPrinting))
-            {
-                PDFHelper.Print(Path.Combine(ImageHelper.GetTemporaryDirectory(), "document.pdf"));
-            }
+            document.ToPDF(excludeLogos: miscellaneousSettings.ExcludeLogosWhenPrinting).Print();
         }
     }
 }
