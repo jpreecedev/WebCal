@@ -18,6 +18,48 @@
             return input.Replace("\"", "'");
         }
 
+        public static void CallSync<TResult>(this IConnectClient client, IConnectKeys connectKeys, Func<IConnectClient, TResult> beginCall, Action<ConnectOperationResult> endCall = null, Action<Exception> exceptionHandler = null, Action alwaysCall = null)
+        {
+            if (connectKeys == null)
+            {
+                return;
+            }
+
+            try
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+
+                client.Open(connectKeys);
+                var result = Try(() => beginCall(client));
+
+                Mouse.OverrideCursor = null;
+                if (result.IsSuccess)
+                {
+                    if (endCall != null)
+                    {
+                        endCall(result);
+                    }
+                }
+                else
+                {
+                    BuildException(result.Exception, exceptionHandler);
+                }
+
+                if (alwaysCall != null)
+                {
+                    alwaysCall();
+                }
+            }
+            catch (Exception ex)
+            {
+                Mouse.OverrideCursor = null;
+                if (exceptionHandler != null)
+                {
+                    exceptionHandler(ex);
+                }
+            }
+        }
+
         public static void CallAsync<TResult>(this IConnectClient client, IConnectKeys connectKeys, Func<IConnectClient, TResult> beginCall, Action<ConnectOperationResult> endCall = null, Action<Exception> exceptionHandler = null, Action alwaysCall = null)
         {
             if (connectKeys == null)
@@ -56,7 +98,6 @@
                 }, DispatcherPriority.Normal), TaskContinuationOptions.OnlyOnFaulted)
                 .ContinueWith(alwaysTask =>
                 {
-                    Mouse.OverrideCursor = null;
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         Mouse.OverrideCursor = null;
@@ -216,12 +257,17 @@
 
         private static void BuildException(Task<ConnectOperationResult> task, Action<Exception> exceptionHandler)
         {
+            Exception exception = task.Exception ?? task.Result.Exception;
+            BuildException(exception, exceptionHandler);
+        }
+
+        private static void BuildException(Exception exception, Action<Exception> exceptionHandler)
+        {
             if (exceptionHandler == null)
             {
                 return;
             }
 
-            Exception exception = task.Exception ?? task.Result.Exception;
             var builder = new StringBuilder();
 
             var exceptionAsAggregate = exception as AggregateException;

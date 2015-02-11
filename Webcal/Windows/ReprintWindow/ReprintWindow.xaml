@@ -28,7 +28,9 @@
         <ctrls:InputTextField x:Name="RegistrationNumberTextField"
                               Label="{x:Static Properties:Resources.TXT_REPRINT_REGISTRATION_NUMBER}"
                               Text="{Binding RegistrationNumber, UpdateSourceTrigger=PropertyChanged}"
-                              Grid.Row="1" />
+                              Grid.Row="1"
+                              IsLoading="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged}"
+                              IsEnabled="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource InvBool}}"/>
 
         <StackPanel Orientation="Horizontal"
                     Grid.Row="2"
@@ -37,7 +39,8 @@
             <Button Content="{x:Static Properties:Resources.TXT_REPRINT_REPRINT}"
                     IsDefault="True"
                     Command="{Binding ReprintCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                    IsEnabled="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource InvBool}}"/>
             <Button Content="{x:Static Properties:Resources.TXT_REPRINT_CANCEL}"
                     IsCancel="True"
                     Command="{Binding CancelCommand}"

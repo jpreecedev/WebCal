@@ -17,6 +17,9 @@
         public static readonly DependencyProperty IsHighlightedProperty =
             DependencyProperty.Register("IsHighlighted", typeof (bool), typeof (BaseInputTextField), new PropertyMetadata(false));
 
+        public static readonly DependencyProperty IsLoadingProperty =
+            DependencyProperty.Register("IsLoading", typeof (bool), typeof (BaseInputTextField));
+
         protected BaseInputTextField()
         {
             Valid = true;
@@ -42,6 +45,12 @@
         {
             get { return (bool) GetValue(IsHighlightedProperty); }
             set { SetValue(IsHighlightedProperty, value); }
+        }
+        
+        public bool IsLoading
+        {
+            get { return (bool) GetValue(IsLoadingProperty); }
+            set { SetValue(IsLoadingProperty, value); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

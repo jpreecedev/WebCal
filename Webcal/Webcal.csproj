@@ -217,7 +217,9 @@
     <Compile Include="Controls\BaseInputDatePickerField.cs" />
     <Compile Include="Controls\BaseInputField.cs" />
     <Compile Include="Controls\BaseInputTextField.cs" />
+    <Compile Include="Controls\BusyIndicator.cs" />
     <Compile Include="Controls\DayOfWeekPicker\DayOfWeekPicker.cs" />
+    <Compile Include="Controls\ImageStrip.cs" />
     <Compile Include="Controls\InputComboField.cs" />
     <Compile Include="Controls\InputDatePickerField.cs" />
     <Compile Include="Controls\InputNumberPicker.cs" />
@@ -851,6 +853,9 @@
       <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
       <Name>Webcal.Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BusyIndicator.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

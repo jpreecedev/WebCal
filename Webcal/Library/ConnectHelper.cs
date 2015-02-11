@@ -29,6 +29,22 @@
             _cache.Remove(ConnectCacheKey);
         }
 
+        public static IConnectKeys GetConnectKeys()
+        {
+            var cachedKeys = (IConnectKeys)_cache.Get(ConnectCacheKey);
+            if (cachedKeys == null)
+            {
+                var registrationData = ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().First();
+                if (registrationData.IsConnectEnabled)
+                {
+                    cachedKeys = registrationData.ConnectKeys;
+
+                    _cache.Add(new CacheItem(ConnectCacheKey, cachedKeys), new CacheItemPolicy { SlidingExpiration = new TimeSpan(0, 30, 0) });
+                }
+            }
+            return cachedKeys;
+        }
+
         public static void Upload(TachographDocument document)
         {
             CallAsync(() => _connectClient.Service.UploadTachographDocument(document));
@@ -73,22 +89,6 @@
                     mainWindowViewModel.ShowConnectProgress = show;
                 }
             }
-        }
-
-        private static IConnectKeys GetConnectKeys()
-        {
-            var cachedKeys = (IConnectKeys)_cache.Get(ConnectCacheKey);
-            if (cachedKeys == null)
-            {
-                var registrationData = ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().First();
-                if (registrationData.IsConnectEnabled)
-                {
-                    cachedKeys = registrationData.ConnectKeys;
-
-                    _cache.Add(new CacheItem(ConnectCacheKey, cachedKeys), new CacheItemPolicy {SlidingExpiration = new TimeSpan(0, 30, 0)});
-                }
-            }
-            return cachedKeys;
         }
     }
 }
