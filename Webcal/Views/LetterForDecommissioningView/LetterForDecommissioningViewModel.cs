@@ -1,15 +1,14 @@
 ﻿namespace Webcal.Views
 {
     using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using Library;
     using Shared;
+    using DocumentType = Connect.Shared.DocumentType;
 
     public class LetterForDecommissioningViewModel : BaseNewDocumentViewModel
     {
@@ -41,8 +40,6 @@
 
         public ObservableCollection<Technician> Technicians { get; set; }
 
-        public ICollection<LetterForDecommissioningDocument> AlLetterForDecommissioningDocuments { get; set; }
-
         #endregion
 
         #region Overrides
@@ -54,6 +51,8 @@
 
         protected override void InitialiseRepositories()
         {
+            base.InitialiseRepositories();
+
             LetterForDecommissioningRepository = GetInstance<IRepository<LetterForDecommissioningDocument>>();
             TachographMakesRepository = GetInstance<IRepository<TachographMake>>();
             TechnicianRepository = GetInstance<IRepository<Technician>>();
@@ -74,21 +73,46 @@
             ConnectHelper.Upload(Document);
         }
 
-        protected override void RegistrationChanged(string registrationNumber)
+        protected override void OnFoundDocumentOnConnect(Document document)
         {
+            var letterForDecommissioningDocument = document as LetterForDecommissioningDocument;
+            if (letterForDecommissioningDocument != null)
+            {
+                Document = letterForDecommissioningDocument;
+            }
+        }
+
+        protected override DocumentType GetDocumentType()
+        {
+            return DocumentType.LetterForDecommissioning;
+        }
+
+        protected override bool RegistrationChanged(string registrationNumber)
+        {
+            if (string.IsNullOrEmpty(registrationNumber))
+            {
+                return false;
+            }
+
+            if (!LetterForDecommissioningRepository.Any())
+            {
+                return false;
+            }
+
             //Remove all spaces from registration number
             Document.RegistrationNumber = registrationNumber.Replace(" ", "").ToUpper();
 
-            ICollection<LetterForDecommissioningDocument> allDocuments = AlLetterForDecommissioningDocuments ?? (AlLetterForDecommissioningDocuments = LetterForDecommissioningRepository.GetAll());
-            if (!allDocuments.IsNullOrEmpty())
-            {
-                LetterForDecommissioningDocument match = allDocuments.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
-                    .OrderByDescending(doc => doc.Created)
-                    .FirstOrDefault();
+            var match = LetterForDecommissioningRepository.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
+                .OrderByDescending(doc => doc.Created)
+                .FirstOrDefault();
 
-                if (match != null)
-                    Document = match;
+            if (match != null)
+            {
+                Document = match;
+                return true;
             }
+
+            return false;
         }
 
         #endregion

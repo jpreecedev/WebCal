@@ -122,6 +122,7 @@
                                       IsMandatory="True"
                                       behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
                                       behav:LostFocusBehaviour.CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
+                                      IsLoading="{Binding IsSearchingConnect}"
                                       Grid.Row="4">
                     <ctrls:InputTextField.IsEnabled>
                         <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">

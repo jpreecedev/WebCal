@@ -1,16 +1,14 @@
 ﻿namespace Webcal.Views
 {
     using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
-    using DataModel.Core;
-    using DataModel.Library;
     using Library;
     using Shared;
+    using DocumentType = Connect.Shared.DocumentType;
 
     public class NewUndownloadabilityViewModel : BaseNewDocumentViewModel
     {
@@ -30,7 +28,6 @@
         public ObservableCollection<TachographMake> TachographMakes { get; set; }
         public IRepository<Technician> TechnicianRepository { get; set; }
         public ObservableCollection<Technician> Technicians { get; set; }
-        public ICollection<UndownloadabilityDocument> AllUndownloadabilityDocuments { get; set; }
         public bool IsReadOnly { get; set; }
 
         protected override void Load()
@@ -41,11 +38,11 @@
 
         protected override void InitialiseRepositories()
         {
+            base.InitialiseRepositories();
+
             UndownloadabilityRepository = GetInstance<IRepository<UndownloadabilityDocument>>();
             TachographMakesRepository = GetInstance<IRepository<TachographMake>>();
             TechnicianRepository = GetInstance<IRepository<Technician>>();
-            WorkshopSettings = GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
-            MailSettings = GetInstance<ISettingsRepository<MailSettings>>().Get();
         }
 
         public override void OnModalClosed()
@@ -66,23 +63,46 @@
             ConnectHelper.Upload(Document);
         }
 
-        protected override void RegistrationChanged(string registrationNumber)
+        protected override void OnFoundDocumentOnConnect(Document document)
         {
-            //Remove all spaces from registration number
-            Document.RegistrationNumber = registrationNumber.Replace(" ", string.Empty).ToUpper();
-
-            ICollection<UndownloadabilityDocument> allDocuments = AllUndownloadabilityDocuments ?? (AllUndownloadabilityDocuments = UndownloadabilityRepository.GetAll().OrderBy(c => c.Created).ToList());
-            if (!allDocuments.IsNullOrEmpty())
+            var undownloadabilityDocument = document as UndownloadabilityDocument;
+            if (undownloadabilityDocument != null)
             {
-                UndownloadabilityDocument match = allDocuments.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
-                    .OrderByDescending(doc => doc.Created)
-                    .FirstOrDefault();
-
-                if (match != null)
-                {
-                    Document = match;
-                }
+                Document = undownloadabilityDocument;
             }
+        }
+
+        protected override DocumentType GetDocumentType()
+        {
+            return DocumentType.Undownloadability;
+        }
+
+        protected override bool RegistrationChanged(string registrationNumber)
+        {
+            if (string.IsNullOrEmpty(registrationNumber))
+            {
+                return false;
+            }
+            
+            if (!UndownloadabilityRepository.Any())
+            {
+                return false;
+            }
+
+            //Remove all spaces from registration number
+            Document.RegistrationNumber = registrationNumber.Replace(" ", "").ToUpper();
+
+            var match = UndownloadabilityRepository.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
+                .OrderByDescending(doc => doc.Created)
+                .FirstOrDefault();
+
+            if (match != null)
+            {
+                Document = match;
+                return true;
+            }
+
+            return false;
         }
 
         private void Populate()

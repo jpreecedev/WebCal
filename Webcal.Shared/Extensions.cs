@@ -17,49 +17,7 @@
         {
             return input.Replace("\"", "'");
         }
-
-        public static void CallSync<TResult>(this IConnectClient client, IConnectKeys connectKeys, Func<IConnectClient, TResult> beginCall, Action<ConnectOperationResult> endCall = null, Action<Exception> exceptionHandler = null, Action alwaysCall = null)
-        {
-            if (connectKeys == null)
-            {
-                return;
-            }
-
-            try
-            {
-                Mouse.OverrideCursor = Cursors.Wait;
-
-                client.Open(connectKeys);
-                var result = Try(() => beginCall(client));
-
-                Mouse.OverrideCursor = null;
-                if (result.IsSuccess)
-                {
-                    if (endCall != null)
-                    {
-                        endCall(result);
-                    }
-                }
-                else
-                {
-                    BuildException(result.Exception, exceptionHandler);
-                }
-
-                if (alwaysCall != null)
-                {
-                    alwaysCall();
-                }
-            }
-            catch (Exception ex)
-            {
-                Mouse.OverrideCursor = null;
-                if (exceptionHandler != null)
-                {
-                    exceptionHandler(ex);
-                }
-            }
-        }
-
+        
         public static void CallAsync<TResult>(this IConnectClient client, IConnectKeys connectKeys, Func<IConnectClient, TResult> beginCall, Action<ConnectOperationResult> endCall = null, Action<Exception> exceptionHandler = null, Action alwaysCall = null)
         {
             if (connectKeys == null)

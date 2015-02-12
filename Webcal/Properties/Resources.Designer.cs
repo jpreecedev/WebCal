@@ -3952,6 +3952,17 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One or more errors occurred whilst performing the operation.  See below for details;
+        ///
+        ///{0}.
+        /// </summary>
+        public static string TXT_ONE_OR_MORE_ERRORS {
+            get {
+                return ResourceManager.GetString("TXT_ONE_OR_MORE_ERRORS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page {page} of {numpages}.
         /// </summary>
         public static string TXT_PAGE_NUMBER_FORMAT {

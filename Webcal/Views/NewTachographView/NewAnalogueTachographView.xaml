@@ -101,6 +101,7 @@
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_REGISTRATION_NUMBER}"
                                       Text="{core:InputBinding Document.RegistrationNumber}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                      IsLoading="{Binding IsSearchingConnect}"
                                       behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
                                       behav:LostFocusBehaviour.CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
                                       IsMandatory="True"

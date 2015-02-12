@@ -2206,4 +2206,9 @@ date
   <data name="TXT_VERIFY" xml:space="preserve">
     <value>Verify</value>
   </data>
+  <data name="TXT_ONE_OR_MORE_ERRORS" xml:space="preserve">
+    <value>One or more errors occurred whilst performing the operation.  See below for details;
+
+{0}</value>
+  </data>
 </root>

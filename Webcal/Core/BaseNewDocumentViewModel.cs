@@ -1,7 +1,6 @@
 ﻿namespace Webcal.Core
 {
     using System;
-    using System.IO;
     using System.Windows;
     using System.Windows.Controls;
     using Connect.Shared.Models;
@@ -13,8 +12,9 @@
     using Library.PDF;
     using Properties;
     using Shared;
-    using Shared.Helpers;
+    using Shared.Connect;
     using Views;
+    using DocumentType = Connect.Shared.DocumentType;
 
     public class BaseNewDocumentViewModel : BaseMainViewModel, INewDocumentViewModel
     {
@@ -23,8 +23,11 @@
         public DelegateCommand<string> RegistrationChangedCommand { get; set; }
         public WorkshopSettings WorkshopSettings { get; set; }
         public MailSettings MailSettings { get; set; }
+        public RegistrationData RegistrationData { get; set; }
         public bool IsHistoryMode { get; set; }
         public IDriverCardReader DriverCardReader { get; set; }
+
+        public bool IsSearchingConnect { get; set; }
 
         public virtual void OnModalClosed()
         {
@@ -45,6 +48,7 @@
 
             WorkshopSettings = GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
             MailSettings = GetInstance<ISettingsRepository<MailSettings>>().Get();
+            RegistrationData = GetInstance<IRepository<RegistrationData>>().First();
         }
 
         protected override void Load()
@@ -70,8 +74,9 @@
         {
         }
 
-        protected virtual void RegistrationChanged(string registrationNumber)
+        protected virtual bool RegistrationChanged(string registrationNumber)
         {
+            return false;
         }
 
         protected virtual void OnProgress(object sender, DriverCardProgressEventArgs e)
@@ -84,6 +89,16 @@
 
         protected virtual void OnFastReadCompleted(object sender, DriverCardCompletedEventArgs e)
         {
+        }
+
+        protected virtual void OnFoundDocumentOnConnect(Document document)
+        {
+            
+        }
+
+        protected virtual DocumentType GetDocumentType()
+        {
+            return DocumentType.Tachograph | DocumentType.Undownloadability | DocumentType.LetterForDecommissioning;
         }
 
         public override void OnClosing(bool cancelled)
@@ -171,7 +186,29 @@
 
             if (DriverCardReader != null)
             {
-                RegistrationChanged(registrationNumber);
+                bool foundDocument = RegistrationChanged(registrationNumber);
+                if (!foundDocument && RegistrationData.IsConnectEnabled)
+                {
+                    IsSearchingConnect = true;
+
+                    GetInstance<IConnectClient>().CallAsync(ConnectHelper.GetConnectKeys(), client =>
+                    {
+                        return client.Service.Find(registrationNumber, GetDocumentType());
+                    },
+                    result =>
+                    {
+                        if (result.IsSuccess && result.Data != null)
+                        {
+                            var documentFound = (Document) result.Data;
+                            documentFound.Id = 0;
+                            OnFoundDocumentOnConnect(documentFound);
+                        }
+                    },
+                    alwaysCall: () =>
+                    {
+                        IsSearchingConnect = false;
+                    });
+                }
             }
         }
 

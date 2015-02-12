@@ -6,6 +6,7 @@
     using Connect.Shared.Models;
     using Core;
     using DataModel;
+    using DataModel.Core;
     using DataModel.Library;
     using Library;
     using Library.PDF;
@@ -13,6 +14,7 @@
     using Shared;
     using Shared.Connect;
     using Shared.Helpers;
+    using DocumentType = Connect.Shared.DocumentType;
 
     public class ReprintWindowViewModel : BaseModalWindowViewModel
     {
@@ -62,15 +64,38 @@
                 return;
             }
 
-            Document document = FindDocument();
-            if (document == null)
+            IsLoading = true;
+
+            Document document = FindDocumentLocally();
+            if (document != null)
             {
-                MessageBoxHelper.ShowError(Resources.ERR_UNABLE_FIND_ANY_MATCHES, Window);
+                Print(document);
+                window.Close();
                 return;
             }
 
-            Print(document);
-            window.Close();
+            GetInstance<IConnectClient>().CallAsync(ConnectHelper.GetConnectKeys(), client =>
+            {
+                return client.Service.Find(RegistrationNumber.ToUpper().Replace(" ", string.Empty), DocumentType.Tachograph | DocumentType.Undownloadability | DocumentType.LetterForDecommissioning);
+            },
+            result =>
+            {
+                if (result.Data == null)
+                {
+                    MessageBoxHelper.ShowError(Resources.ERR_UNABLE_FIND_ANY_MATCHES, Window);
+                    return;
+                }
+
+                Print((Document)result.Data);
+            },
+            exception =>
+            {
+                MessageBoxHelper.ShowError(Resources.TXT_ONE_OR_MORE_ERRORS, new object[] { ExceptionPolicy.HandleException(ContainerBootstrapper.Container, exception) }, window);
+            },
+            () =>
+            {
+                window.Close();
+            });
         }
 
         private static void OnCancel(Window window)
@@ -83,50 +108,27 @@
             window.Close();
         }
 
-        private Document FindDocument()
+        private Document FindDocumentLocally()
         {
-            Document result = null;
-
-            try
+            TachographDocument tachographDocument = Find(TachographDocumentRepository);
+            if (tachographDocument != null)
             {
-                IsLoading = true;
-
-                TachographDocument tachographDocument = Find(TachographDocumentRepository);
-                if (tachographDocument != null)
-                {
-                    result = tachographDocument;
-                }
-
-                UndownloadabilityDocument undownloadabilityDocument = Find(UndownloadabilityDocumentRepository);
-                if (undownloadabilityDocument != null)
-                {
-                    result = undownloadabilityDocument;
-                }
-
-                LetterForDecommissioningDocument letterForDecommissioningDocument = Find(LetterForDecommissioningRepository);
-                if (letterForDecommissioningDocument != null)
-                {
-                    result = letterForDecommissioningDocument;
-                }
-
-                if (result == null && RegistrationData.IsConnectEnabled)
-                {
-                    GetInstance<IConnectClient>().CallSync(ConnectHelper.GetConnectKeys(), client =>
-                    {
-                        return client.Service.Find(RegistrationNumber.ToUpper().Replace(" ", string.Empty));
-                    },
-                    connectResult =>
-                    {
-                        result = (Document) connectResult.Data;
-                    });
-                }
-            }
-            finally
-            {
-                IsLoading = false;
+                return tachographDocument;
             }
 
-            return result;
+            UndownloadabilityDocument undownloadabilityDocument = Find(UndownloadabilityDocumentRepository);
+            if (undownloadabilityDocument != null)
+            {
+                return undownloadabilityDocument;
+            }
+
+            LetterForDecommissioningDocument letterForDecommissioningDocument = Find(LetterForDecommissioningRepository);
+            if (letterForDecommissioningDocument != null)
+            {
+                return letterForDecommissioningDocument;
+            }
+
+            return null;
         }
 
         private T Find<T>(IRepository<T> repository) where T : Document

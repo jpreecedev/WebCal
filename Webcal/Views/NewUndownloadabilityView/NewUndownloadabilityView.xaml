@@ -54,6 +54,7 @@
                                   behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
                                   behav:LostFocusBehaviour.CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
                                   IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                  IsLoading="{Binding IsSearchingConnect}"
                                   Grid.Row="1" />
 
             <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_DATA}"

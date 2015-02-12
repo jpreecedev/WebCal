@@ -112,18 +112,34 @@
             ConnectHelper.Upload(Document);
         }
 
-        protected override void RegistrationChanged(string registrationNumber)
+        protected override void OnFoundDocumentOnConnect(Document document)
+        {
+            var tachographDocument = document as TachographDocument;
+            if (tachographDocument != null)
+            {
+                Document = tachographDocument;
+            }
+        }
+
+        protected override Connect.Shared.DocumentType GetDocumentType()
+        {
+            return Connect.Shared.DocumentType.Tachograph;
+        }
+
+        protected override bool RegistrationChanged(string registrationNumber)
         {
             if (string.IsNullOrEmpty(registrationNumber))
             {
-                return;
+                return false;
             }
 
             //Remove all spaces from registration number
             Document.RegistrationNumber = registrationNumber.Replace(" ", string.Empty).ToUpper();
-            
-            if (!TachographDocumentRepository.Any()) 
-                return;
+
+            if (!TachographDocumentRepository.Any())
+            {
+                return false;
+            }
 
             TachographDocument match = TachographDocumentRepository.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
                 .OrderByDescending(doc => doc.Created)
@@ -138,8 +154,9 @@
 
             if (match == null)
             {
-                return;
+                return false;
             }
+
             Document.CalibrationTime = DateTime.Now;
             Document.CardSerialNumber = match.CardSerialNumber;
             Document.Created = DateTime.Now;
@@ -164,6 +181,8 @@
             Document.VehicleModel = match.VehicleModel;
             Document.VehicleType = match.VehicleType;
             Document.VIN = match.VIN;
+
+            return true;
         }
 
         protected override void OnFastReadCompleted(object sender, DriverCardCompletedEventArgs e)
