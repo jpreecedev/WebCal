@@ -7,6 +7,7 @@ namespace Webcal.DataModel
     using Connect.Shared.Models;
     using Shared;
     using Shared.Helpers;
+    using StructureMap;
 
     [Table("RegistrationData")]
     public class RegistrationData : BaseModel
@@ -37,7 +38,12 @@ namespace Webcal.DataModel
             get
             {
                 string url = WebcalConfigurationSection.Instance.GetConnectUrl();
-                var licenseKey = int.Parse(ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0'));
+                var licenseKey = 0;
+
+                if (ExpirationDate != null)
+                {
+                    licenseKey = int.Parse(ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0'));
+                }
 
                 return new ConnectKeys(url, licenseKey, CompanyName, LicenseManager.GetMachineKey());
             }

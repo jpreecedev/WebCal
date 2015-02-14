@@ -18,8 +18,6 @@
 
     public partial class App
     {
-        private bool _isBuild;
-
         public App()
         {
             Dispatcher.CurrentDispatcher.UnhandledException += CurrentDispatcher_UnhandledException;
@@ -30,11 +28,6 @@
 
         private void Current_Startup(object sender, StartupEventArgs e)
         {
-            if (e.Args.Any(a => a.Contains("build")))
-            {
-                _isBuild = true;
-            }
-
             var splashScreen = new SplashScreen("Images/splash.png");
             splashScreen.Show(false);
 
@@ -45,22 +38,15 @@
 
             splashScreen.Close(new TimeSpan(0, 0, 0));
 
-            if (!_isBuild)
+            CheckForUpdates();
+
+            var window = new LogInWindow();
+            if (window.ShowDialog() == true)
             {
-                CheckForUpdates();
+                ShutdownMode = ShutdownMode.OnMainWindowClose;
+                MainWindow = new MainWindow();
 
-                var window = new LogInWindow();
-                if (window.ShowDialog() == true)
-                {
-                    ShutdownMode = ShutdownMode.OnMainWindowClose;
-                    MainWindow = new MainWindow();
-
-                    MainWindow.ShowDialog();
-                }
-                else
-                {
-                    Current.Shutdown();
-                }
+                MainWindow.ShowDialog();
             }
             else
             {
@@ -75,7 +61,7 @@
             //Resource dictionaries must be set in code to avoid issues with older operating systems
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative) });
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("pack://application:,,,/Fluent;Component/Themes/Generic.xaml") });
-            
+
             //Prepare database
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<TachographContext, Configuration>());
 
