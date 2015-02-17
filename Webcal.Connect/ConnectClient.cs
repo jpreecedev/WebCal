@@ -1,12 +1,12 @@
-﻿namespace Webcal.Connect
+﻿namespace Webcal.ConnectClient
 {
     using System;
     using System.Security.Cryptography.X509Certificates;
     using System.ServiceModel;
     using System.ServiceModel.Channels;
     using System.ServiceModel.Description;
-    using Shared;
-    using Webcal.Shared.Connect;
+    using Connect.Shared;
+    using Shared.Connect;
 
     public class ConnectClient : BaseConnectClient, IConnectClient
     {

@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translation", "Translation\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connect", "Connect", "{507B5673-E669-47A8-AC90-9AC562ADA6BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal.Connect", "Webcal.Connect\Webcal.Connect.csproj", "{041DF1D5-003B-48A3-ABCB-DA18E9355BFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webcal.ConnectClient", "Webcal.Connect\Webcal.ConnectClient.csproj", "{041DF1D5-003B-48A3-ABCB-DA18E9355BFE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{13EBA933-528C-458C-9B71-8295B199F591} = {13EBA933-528C-458C-9B71-8295B199F591}
 	EndProjectSection

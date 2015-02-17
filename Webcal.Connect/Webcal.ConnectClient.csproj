@@ -7,8 +7,8 @@
     <ProjectGuid>{041DF1D5-003B-48A3-ABCB-DA18E9355BFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Webcal.Connect</RootNamespace>
-    <AssemblyName>Webcal.Connect</AssemblyName>
+    <RootNamespace>Webcal.ConnectClient</RootNamespace>
+    <AssemblyName>Webcal.ConnectClient</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

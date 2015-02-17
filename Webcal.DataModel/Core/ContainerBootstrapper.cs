@@ -1,8 +1,8 @@
 ﻿namespace Webcal.DataModel.Core
 {
     using System;
-    using Connect;
     using Connect.Shared.Models;
+    using ConnectClient;
     using Properties;
     using Repositories;
     using Shared;

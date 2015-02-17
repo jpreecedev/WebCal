@@ -1,10 +1,10 @@
-﻿namespace Webcal.Connect
+﻿namespace Webcal.ConnectClient
 {
     using System.IdentityModel.Selectors;
     using System.IdentityModel.Tokens;
     using System.ServiceModel;
     using System.ServiceModel.Security.Tokens;
-    using Shared;
+    using Connect.Shared;
 
     public class ConnectClientCredentialsSecurityTokenManager : ClientCredentialsSecurityTokenManager
     {

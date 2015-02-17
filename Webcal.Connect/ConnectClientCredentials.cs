@@ -1,9 +1,9 @@
-﻿namespace Webcal.Connect
+﻿namespace Webcal.ConnectClient
 {
     using System;
     using System.IdentityModel.Selectors;
     using System.ServiceModel.Description;
-    using Shared;
+    using Connect.Shared;
 
     public class ConnectClientCredentials : ClientCredentials
     {

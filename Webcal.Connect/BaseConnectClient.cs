@@ -1,4 +1,4 @@
-﻿namespace Webcal.Connect
+﻿namespace Webcal.ConnectClient
 {
     public class BaseConnectClient
     {

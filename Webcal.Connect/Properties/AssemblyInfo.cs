@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Webcal.Connect")]
+[assembly: AssemblyTitle("Webcal.ConnectClient")]
 [assembly: AssemblyDescription("Interface with Webcal.Connect service")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Skillray Transport Services UK")]
-[assembly: AssemblyProduct("Webcal.Connect")]
+[assembly: AssemblyProduct("Webcal.ConnectClient")]
 [assembly: AssemblyCopyright("Copyright © Skillray 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
