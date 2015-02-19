@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.IO.Compression;
     using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
@@ -43,6 +44,7 @@
                     }
                 }
 
+                document.SerializedData = File.ReadAllBytes(result.FileName);
                 return new PDFDocumentResult { FilePath = result.FileName, Document = document };
             }
 
