@@ -2211,4 +2211,16 @@ date
 
 {0}</value>
   </data>
+  <data name="TXT_NEW_BATTERY" xml:space="preserve">
+    <value>New Battery</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_NEW_BATTERY" xml:space="preserve">
+    <value>New Battery?</value>
+  </data>
+  <data name="TXT_SIEMENS_VDO" xml:space="preserve">
+    <value>SIEMENS VDO</value>
+  </data>
+  <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION" xml:space="preserve">
+    <value>4 - Digital 2 year calibration</value>
+  </data>
 </root>

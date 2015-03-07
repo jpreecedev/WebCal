@@ -278,7 +278,8 @@
                     </Grid.ColumnDefinitions>
 
                     <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TACHOGRAPH_MAKE}"
-                                           SelectedText="{Binding DataContext.Document.TachographMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           SelectedText="{core:InputBinding DataContext.Document.TachographMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
+                                           SelectedTextChanged="{Binding DataContext.TachographMakeChangedCommand, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                            IsSynchronisedWithCurrentItem="True"
                                            ItemsSource="{Binding}"
                                            IsMandatory="True">
@@ -336,17 +337,29 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TAMPERED}"
-                          IsChecked="{Binding Document.Tampered}"
-                          Grid.Row="13"
-                          Margin="145,0,0,0">
-                    <CheckBox.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.Tampered" />
-                        </MultiBinding>
-                    </CheckBox.IsEnabled>
-                </CheckBox>
+                <StackPanel Grid.Row="13"
+                            Orientation="Horizontal">
+                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TAMPERED}"
+                              IsChecked="{Binding Document.Tampered}"
+                              Margin="145,0,0,0">
+                        <CheckBox.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
+                                <Binding Path="IsReadOnly" />
+                                <Binding Path="Document.Tampered" />
+                            </MultiBinding>
+                        </CheckBox.IsEnabled>
+                    </CheckBox>
+                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_NEW_BATTERY}"
+                              IsChecked="{Binding Document.NewBattery}"
+                              Margin="30,0,0,0">
+                        <CheckBox.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
+                                <Binding Path="IsReadOnly" />
+                                <Binding Path="Document.NewBattery" />
+                            </MultiBinding>
+                        </CheckBox.IsEnabled>
+                    </CheckBox>
+                </StackPanel>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INSPECTION_INFO}"
                            Style="{StaticResource SubHeaderFont}"

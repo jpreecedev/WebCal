@@ -42,7 +42,7 @@ namespace Webcal.DataModel
 
                 if (ExpirationDate != null)
                 {
-                    licenseKey = int.Parse(ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0'));
+                    int.TryParse(ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0'), out licenseKey);
                 }
 
                 return new ConnectKeys(url, licenseKey, CompanyName, LicenseManager.GetMachineKey());

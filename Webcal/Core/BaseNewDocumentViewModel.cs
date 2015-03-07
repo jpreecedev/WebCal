@@ -21,6 +21,8 @@
         public DelegateCommand<Grid> ExportPDFCommand { get; set; }
         public DelegateCommand<Grid> PrintCommand { get; set; }
         public DelegateCommand<string> RegistrationChangedCommand { get; set; }
+        public DelegateCommand<string> TachographMakeChangedCommand { get; set; }
+
         public WorkshopSettings WorkshopSettings { get; set; }
         public MailSettings MailSettings { get; set; }
         public RegistrationData RegistrationData { get; set; }
@@ -28,6 +30,7 @@
         public IDriverCardReader DriverCardReader { get; set; }
 
         public bool IsSearchingConnect { get; set; }
+        public bool IsRegistrationChanging { get; set; }
 
         public virtual void OnModalClosed()
         {
@@ -40,6 +43,7 @@
             ExportPDFCommand = new DelegateCommand<Grid>(OnExportPDF);
             PrintCommand = new DelegateCommand<Grid>(OnPrint);
             RegistrationChangedCommand = new DelegateCommand<string>(OnRegistrationChanged);
+            TachographMakeChangedCommand = new DelegateCommand<string>(TachographMakeChanged);
         }
 
         protected override void InitialiseRepositories()
@@ -94,6 +98,11 @@
         protected virtual void OnFoundDocumentOnConnect(Document document)
         {
             
+        }
+
+        protected virtual void TachographMakeChanged(string make)
+        {
+
         }
 
         protected virtual DocumentType GetDocumentType()
@@ -186,6 +195,8 @@
 
             if (DriverCardReader != null)
             {
+                IsRegistrationChanging = true;
+
                 bool foundDocument = RegistrationChanged(registrationNumber);
                 if (!foundDocument && RegistrationData.IsConnectEnabled)
                 {
@@ -207,7 +218,13 @@
                     alwaysCall: () =>
                     {
                         IsSearchingConnect = false;
+                        IsRegistrationChanging = false;
                     });
+                }
+
+                if (!RegistrationData.IsConnectEnabled)
+                {
+                    IsRegistrationChanging = false;
                 }
             }
         }

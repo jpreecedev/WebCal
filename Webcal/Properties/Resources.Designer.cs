@@ -1189,6 +1189,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 4 - Digital 2 year calibration.
+        /// </summary>
+        public static string TXT_DIGITAL_TWO_YEAR_CALIBRATION {
+            get {
+                return ResourceManager.GetString("TXT_DIGITAL_TWO_YEAR_CALIBRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Distributor Seal:  {0}.
         /// </summary>
         public static string TXT_DISTRIBUTOR_SEAL {
@@ -3439,6 +3448,15 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Battery.
+        /// </summary>
+        public static string TXT_NEW_BATTERY {
+            get {
+                return ResourceManager.GetString("TXT_NEW_BATTERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New customer.
         /// </summary>
         public static string TXT_NEW_CUSTOMER {
@@ -3588,6 +3606,15 @@ namespace Webcal.Properties {
         public static string TXT_NEW_TACHOGRAPH_MODEL {
             get {
                 return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_MODEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Battery?.
+        /// </summary>
+        public static string TXT_NEW_TACHOGRAPH_NEW_BATTERY {
+            get {
+                return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_NEW_BATTERY", resourceCulture);
             }
         }
         
@@ -4463,6 +4490,15 @@ namespace Webcal.Properties {
         public static string TXT_SHOW_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_SHOW_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SIEMENS VDO.
+        /// </summary>
+        public static string TXT_SIEMENS_VDO {
+            get {
+                return ResourceManager.GetString("TXT_SIEMENS_VDO", resourceCulture);
             }
         }
         

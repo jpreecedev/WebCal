@@ -42,6 +42,10 @@
                     _cache.Add(new CacheItem(ConnectCacheKey, cachedKeys), new CacheItemPolicy { SlidingExpiration = new TimeSpan(0, 30, 0) });
                 }
             }
+            if (cachedKeys == null || cachedKeys.LicenseKey == 0)
+            {
+                return null;
+            }
             return cachedKeys;
         }
 

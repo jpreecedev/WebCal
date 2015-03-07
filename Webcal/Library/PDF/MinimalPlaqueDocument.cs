@@ -377,6 +377,13 @@ namespace Webcal.Library.PDF
                 document.DrawCheck((startHorizontal + 240), (startVertical + 340), TotalPageHeight);
             }
 
+            AbsolutePositionText(document, Resources.TXT_NEW_BATTERY.ToUpper(), (startHorizontal + 255), (startVertical + 350), 590, 40, document.GetRegularFont(false));
+            document.DrawCheckBox((startHorizontal + 240), (startVertical + 360), TotalPageHeight);
+            if (tachographDocument.NewBattery)
+            {
+                document.DrawCheck((startHorizontal + 240), (startVertical + 360), TotalPageHeight);
+            }
+
             if (tachographDocument.MinorWorkDetails != null)
             {
                 AbsolutePositionText(document, Resources.TXT_MINOR_WORK_DETAILS_DETAILS.ToUpper(), (startHorizontal + 5), (startVertical + 370), 550, 72, document.GetRegularFont(true));

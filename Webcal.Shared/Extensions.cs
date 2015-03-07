@@ -22,6 +22,10 @@
         {
             if (connectKeys == null)
             {
+                if (alwaysCall != null)
+                {
+                    alwaysCall();
+                }
                 return;
             }
 
@@ -80,6 +84,10 @@
         {
             if (connectKeys == null)
             {
+                if (alwaysCall != null)
+                {
+                    alwaysCall();
+                }
                 return;
             }
 

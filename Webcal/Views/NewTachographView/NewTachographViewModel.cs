@@ -181,6 +181,7 @@
             Document.VehicleModel = match.VehicleModel;
             Document.VehicleType = match.VehicleType;
             Document.VIN = match.VIN;
+            Document.NewBattery = match.NewBattery;
 
             return true;
         }
@@ -275,6 +276,19 @@
         protected override bool IncludeDeletedContacts
         {
             get { return IsHistoryMode; }
+        }
+
+        protected override void TachographMakeChanged(string make)
+        {
+            if (IsRegistrationChanging)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(Document.DocumentType) && string.Equals(Document.DocumentType, Resources.TXT_DIGITAL_TWO_YEAR_CALIBRATION))
+            {
+                Document.NewBattery = !string.IsNullOrEmpty(make) && string.Equals(make.ToUpper(), Resources.TXT_SIEMENS_VDO);
+            }
         }
 
         private string GetRegistrationToQuery(CalibrationRecord calibrationRecord)
