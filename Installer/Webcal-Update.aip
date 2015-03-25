@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="11.8" version="11.8" Modules="update" RootPath="." Language="en_GB" Id="{5A0E4438-E43F-49FE-A44E-794FBEE135E8}">
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;aiu-ue.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;aiu-ue_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.UpdaterEditorComponent">
+    <ROW Section="Update" Key="Name" Value="Webcal"/>
+    <ROW Section="Update" Key="ProductVersion" Value="2.2.0.0"/>
+    <ROW Section="Update" Key="URL" Value="https://www.webcalconnect.com/download/webcal.exe"/>
+    <ROW Section="Update" Key="Size" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
+    <ROW Section="Update" Key="MD5" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
+    <ROW Section="Update" Key="ServerFileName" Value="webcal.exe"/>
+    <ROW Section="Update" Key="RegistryKey" Value="HKUD\Software\Skillray Transport Services UK\Webcal\Version"/>
+    <ROW Section="Update" Key="Version" Value="2.2.0.0"/>
+    <ROW Section="Update" Key="AutoCloseApplication" Value="[APPDIR]Webcal.exe"/>
+    <ATTRIBUTE name="OutputFileName" value="postinstall-update.txt"/>
+    <ATTRIBUTE name="OutputFolder" value="..\..\..\Users\Jon\Desktop"/>
+  </COMPONENT>
+</DOCUMENT>

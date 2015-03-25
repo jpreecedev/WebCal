@@ -637,6 +637,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru-RU.resx">
       <SubType>Designer</SubType>
+      <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
