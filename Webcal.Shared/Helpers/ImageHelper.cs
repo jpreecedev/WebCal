@@ -3,13 +3,35 @@ namespace Webcal.Shared.Helpers
     using System;
     using System.Drawing;
     using System.Drawing.Imaging;
+    using System.Globalization;
     using System.IO;
+    using System.Reflection;
+    using System.Resources;
+    using System.Windows;
+    using System.Windows.Interop;
+    using System.Windows.Media.Imaging;
     using Properties;
+    using Size = System.Drawing.Size;
 
     public static class ImageHelper
     {
         private static readonly string TempByEnvironmentVariable = Environment.GetEnvironmentVariable("TEMP");
         private static readonly string TempByPath = Path.GetTempPath();
+
+        public static BitmapSource LoadFromResources(string key, Assembly assembly = null)
+        {
+            var resourceManager = new ResourceManager("Webcal.Properties.Resources", assembly ?? Assembly.GetCallingAssembly());
+            var image = resourceManager.GetObject(key, CultureInfo.CurrentUICulture);
+
+            if (image == null)
+            {
+                return null;
+            }
+
+            var bitmap = (Bitmap) image;
+
+            return Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+        }
 
         public static Image LoadImageSafely(string imagePath)
         {
@@ -35,8 +57,8 @@ namespace Webcal.Shared.Helpers
                 return image;
             }
 
-            double aspectRatio = Math.Round((double)image.Width / image.Height, 2);
-            var newWidth = (int)Math.Round(aspectRatio * 50);
+            var aspectRatio = Math.Round((double) image.Width/image.Height, 2);
+            var newWidth = (int) Math.Round(aspectRatio*50);
 
             return Resize(image, new Size(newWidth, maxHeight));
         }
@@ -52,7 +74,7 @@ namespace Webcal.Shared.Helpers
                 throw new ArgumentNullException("maxHeight");
             }
 
-            Image image = LoadImageSafely(path);
+            var image = LoadImageSafely(path);
             if (image == null)
             {
                 throw new InvalidOperationException(Resources.EXC_IMAGE_COULD_NOT_BE_LOADED);
@@ -63,8 +85,8 @@ namespace Webcal.Shared.Helpers
                 return image;
             }
 
-            double aspectRatio = Math.Round((double)image.Width / image.Height, 2);
-            var newWidth = (int)Math.Round(aspectRatio * 50);
+            var aspectRatio = Math.Round((double) image.Width/image.Height, 2);
+            var newWidth = (int) Math.Round(aspectRatio*50);
 
             return Resize(image, new Size(newWidth, maxHeight));
         }
@@ -107,7 +129,7 @@ namespace Webcal.Shared.Helpers
         {
             try
             {
-                return (Bitmap)((new ImageConverter()).ConvertFrom(rawData));
+                return (Bitmap) ((new ImageConverter()).ConvertFrom(rawData));
             }
             catch (Exception)
             {

@@ -38,7 +38,7 @@ namespace Webcal.Library.PDF
             }
 
             //Skillray
-            Image image = Image.FromStream(DocumentHelper.GetResourceStreamFromSimplePath("../Images/webcal-print-logo.jpg").Stream);
+            Image image = ImageHelper.LoadFromResources("webcal-print-logo").ToBitmap();
             document.AddImage(image.ToByteArray(), 180, 41, (startHorizontal + 350), (startVertical + 670));
         }
 
@@ -446,7 +446,7 @@ namespace Webcal.Library.PDF
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 710), 550, 72, document.GetXSmallFont(false));
 
 
-                Image image = Image.FromStream(DocumentHelper.GetResourceStreamFromSimplePath("../Images/webcal.jpg").Stream);
+                Image image = ImageHelper.LoadFromResources("webcal").ToBitmap();
                 document.AddImage(image.ToByteArray(), 90, 21, (startHorizontal + 5), (startVertical + 30));
             }
             else
@@ -507,7 +507,7 @@ namespace Webcal.Library.PDF
                 document.DrawLine((startHorizontal + 300), (startVertical + 735), (startHorizontal + 490), (startVertical + 735), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 730), 550, 72, document.GetXSmallFont(false));
 
-                Image image = Image.FromStream(DocumentHelper.GetResourceStreamFromSimplePath("../Images/webcal.jpg").Stream);
+                Image image = ImageHelper.LoadFromResources("webcal").ToBitmap();
                 document.AddImage(image.ToByteArray(), 90, 21, (startHorizontal + 5), (startVertical + 30));
             }
         }

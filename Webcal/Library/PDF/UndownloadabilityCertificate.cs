@@ -1,8 +1,5 @@
 ﻿namespace Webcal.Library.PDF
 {
-    using System;
-    using System.Drawing.Imaging;
-    using System.IO;
     using System.Windows.Resources;
     using Connect.Shared.Models;
     using DataModel;

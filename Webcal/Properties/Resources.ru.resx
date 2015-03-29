@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,675 +118,559 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TXT_CONFIRM_EXIT" xml:space="preserve">
-    <value>Are you sure you want to exit?
-
-Any unsaved changes will be lost.</value>
+    <value>что хотите выйти? Все несохраненные изменения будут потеряны."</value>
   </data>
   <data name="TXT_QUESTION" xml:space="preserve">
-    <value>Question</value>
+    <value>Вопрос</value>
   </data>
   <data name="TXT_UNSAVED_CHANGES_WILL_BE_LOST" xml:space="preserve">
-    <value>Any unsaved changes will be lost...are you sure?</value>
+    <value>Все несохраненные изменения будут потеряны ... Вы уверены?</value>
   </data>
   <data name="TXT_ERROR" xml:space="preserve">
-    <value>Error</value>
+    <value>Ошибка</value>
   </data>
   <data name="TXT_GIVE_MAKE_OF_VEHICLE" xml:space="preserve">
-    <value>Give make of vehicle</value>
+    <value>Укажите марку автомобиля</value>
   </data>
   <data name="TXT_MINOR_WORK_DETAILS" xml:space="preserve">
-    <value>M - Minor Work</value>
+    <value>М - Маленькая Работа</value>
   </data>
   <data name="TXT_GIVE_MODEL_OF_VEHICLE" xml:space="preserve">
-    <value>Give model of vehicle</value>
+    <value>Укажите модель автомобиля</value>
   </data>
   <data name="TXT_GENERAL_SETTINGS" xml:space="preserve">
-    <value>General settings</value>
+    <value>Общие настройки</value>
   </data>
   <data name="TXT_WORKSHOP_SETTINGS" xml:space="preserve">
-    <value>Workshop settings</value>
+    <value>Настройки мастерской</value>
   </data>
   <data name="TXT_REGISTRATION_SETTINGS" xml:space="preserve">
-    <value>Registration settings</value>
+    <value>Настройки регистрации</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS" xml:space="preserve">
-    <value>Customer settings</value>
+    <value>Настройки клиента</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS" xml:space="preserve">
-    <value>Shortcut settings</value>
+    <value>Настройки краткого пути</value>
   </data>
   <data name="TXT_TACHOGRAPH_MAKES_MODELS" xml:space="preserve">
-    <value>Tachograph makes and models</value>
+    <value>Модель и марка тахографа</value>
   </data>
   <data name="TXT_VEHICLE_MAKES_MODELS" xml:space="preserve">
-    <value>Vehicle makes and models</value>
+    <value>Модель и марка автомобиля</value>
   </data>
   <data name="TXT_TECHNICIANS" xml:space="preserve">
-    <value>Technicians</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_INSPECTION_METHODS" xml:space="preserve">
-    <value>Inspection methods</value>
+    <value>Методы проверки</value>
   </data>
   <data name="TXT_INSPECTION_EQUIPMENTS" xml:space="preserve">
-    <value>Inspection equipments</value>
+    <value>Инспекционное оборудование</value>
   </data>
   <data name="TXT_TYRE_SIZES" xml:space="preserve">
-    <value>Tyre sizes</value>
+    <value>Размеры шин</value>
   </data>
   <data name="TXT_PRINTER_SETTINGS" xml:space="preserve">
-    <value>Printer settings</value>
+    <value>Настройки принтера</value>
   </data>
   <data name="TXT_GIVE_MAKE_OF_TACHOGRAPH" xml:space="preserve">
-    <value>Give make of tachograph</value>
+    <value>Укажите марку тахографа</value>
   </data>
   <data name="TXT_GIVE_MODEL_OF_TACHOGRAPH" xml:space="preserve">
-    <value>Give model of tachograph</value>
+    <value>Укажите модель тахографа</value>
   </data>
   <data name="TXT_GIVE_TYRE_SIZE" xml:space="preserve">
-    <value>Give tyre size</value>
+    <value>Укажите размер шин</value>
   </data>
   <data name="TXT_GIVE_NAME_OF_TECHNICIAN" xml:space="preserve">
-    <value>Give the name of the technician</value>
+    <value>Укажите имя специалиста</value>
   </data>
   <data name="TXT_GIVE_INSPECTION_METHOD" xml:space="preserve">
-    <value>Give inspection method</value>
+    <value>Укажите метод контроля</value>
   </data>
   <data name="TXT_GIVE_INSPECTION_EQUIPMENT" xml:space="preserve">
-    <value>Give inspection equipment</value>
-  </data>
-  <data name="EXC_INCOMPLETE_FIELDS" xml:space="preserve">
-    <value>Please ensure that all fields are completed before adding</value>
-  </data>
-  <data name="EXC_MISSING_FIELDS" xml:space="preserve">
-    <value>Please ensure that all required files are completed with a valid value</value>
+    <value>Укажите инспекционное оборудование</value>
   </data>
   <data name="TXT_YES" xml:space="preserve">
-    <value>Yes</value>
+    <value>Да</value>
   </data>
   <data name="TXT_NO" xml:space="preserve">
-    <value>No</value>
+    <value>Нет</value>
   </data>
   <data name="MSG_EXC_CANNOT_ACCESS_FILE" xml:space="preserve">
-    <value>The file specified does not exist or you don't have permission to access it.</value>
+    <value>Указанный файл не существует или у вас нет разрешения на доступ к файлу.</value>
   </data>
   <data name="ERR_UNABLE_LOAD_GIVEN_FILE" xml:space="preserve">
-    <value>Unable to load the file specified.</value>
+    <value>Не удалось загрузить указанный файл.</value>
   </data>
   <data name="TXT_READ_FROM_CARD" xml:space="preserve">
-    <value>Read from card</value>
+    <value>Считывание с карты</value>
   </data>
   <data name="TXT_READING" xml:space="preserve">
-    <value>Reading...</value>
+    <value>Считывание...</value>
   </data>
   <data name="EXC_NO_SMART_CARD_READERS_FOUND" xml:space="preserve">
-    <value>No smart card/reader was found.</value>
+    <value>Нет смарт-карты / считыватель был найден.</value>
   </data>
   <data name="EXC_UNABLE_TO_CREATE_DRIVER_CARD" xml:space="preserve">
-    <value>Unable to create driver card file.</value>
+    <value>Невозможно создать файл карты водителя.</value>
   </data>
   <data name="EXC_UNABLE_TO_CREATE_TACHOGRAPH_FILE" xml:space="preserve">
-    <value>Unable to create tachograph file</value>
+    <value>Невозможно создать файл тахографа</value>
   </data>
   <data name="EXC_UNABLE_CREATE_SETTINGS_VIEW" xml:space="preserve">
-    <value>Unable to create the settings view.
-    </value>
+    <value>Невозможно создать вид настроек.</value>
   </data>
   <data name="TXT_PAGE_NUMBER_FORMAT" xml:space="preserve">
-    <value>Page {page} of {numpages}</value>
+    <value>Страница {page} или {numpages}</value>
   </data>
   <data name="TXT_GENERATED_REPORT" xml:space="preserve">
-    <value>Generated Report</value>
+    <value>Созданный Отчет</value>
   </data>
   <data name="EXC_UNABLE_GENERATE_EXCEL_SPREADSHEET" xml:space="preserve">
-    <value>Unable to generate Microsoft Excel spreadsheet.</value>
+    <value>Невозможно создать Microsoft Excel таблицу.</value>
   </data>
   <data name="EXC_ERROR_WHILST_READING_SMART_CARD" xml:space="preserve">
-    <value>An error occurred whilst trying to read the smart card.</value>
+    <value>Произошла ошибка при попытке чтения смарт-карты.</value>
   </data>
   <data name="TXT_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Registration number</value>
+    <value>Регистрационный номер</value>
   </data>
   <data name="TXT_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
+    <value>Клиент</value>
   </data>
   <data name="TXT_OFFICE" xml:space="preserve">
-    <value>Office</value>
+    <value>Офис</value>
   </data>
   <data name="TXT_DOCUMENT_TYPE" xml:space="preserve">
-    <value>Document Type</value>
+    <value>Тип Документа</value>
   </data>
   <data name="EXC_UNABLE_ADD_WORKSHOP_CARD_FILE" xml:space="preserve">
-    <value>Unable to add workshop card file.
-</value>
+    <value>Невозможно добавить файл карты мастерской.</value>
   </data>
   <data name="EXC_COULD_NOT_LOCATE_RESOURCE" xml:space="preserve">
-    <value>Could not locate resource '{0}'</value>
+    <value>Не удалось обнаружить ресурс '{0}'</value>
   </data>
   <data name="ERR_COULD_NOT_FIND_TEMP_DIR" xml:space="preserve">
-    <value>Could not establish the temp directory</value>
+    <value>Не удалось установить временный каталог</value>
   </data>
   <data name="EXC_UNABLE_PREVIEW_DOCUMENT" xml:space="preserve">
-    <value>Unable to preview the document</value>
+    <value>Невозможно просмотреть документ</value>
   </data>
   <data name="EXC_UNABLE_GENERATE_PRINT_PREVIEW" xml:space="preserve">
-    <value>Unable to generate print preview</value>
-  </data>
-  <data name="EXC_CANNOT_PRINT_PDF" xml:space="preserve">
-    <value>Could not find a program capable of opening PDF files.</value>
+    <value>Невозможно создать предварительный просмотр</value>
   </data>
   <data name="EXC_UNABLE_PRINT_PDF" xml:space="preserve">
-    <value>Unable to print PDF</value>
+    <value>Невозможно печатать PDF</value>
   </data>
   <data name="EXC_UNABLE_EXPORT_PDF" xml:space="preserve">
-    <value>Unable to export PDF file</value>
+    <value>Невозможно экспортировать PDF-файл</value>
   </data>
   <data name="TXT_INFORMATION" xml:space="preserve">
-    <value>Information</value>
+    <value>Информация</value>
   </data>
   <data name="TXT_EXPORT_COMPLETE" xml:space="preserve">
-    <value>Export complete</value>
+    <value>Экспорт завершён</value>
   </data>
   <data name="TXT_DOCUMENT_PRINTED" xml:space="preserve">
-    <value>The document has been sent to your default printer</value>
+    <value>Документ был отправлен на принтер по умолчанию</value>
   </data>
   <data name="ERR_GIVEN_SERIAL_IS_INVALID" xml:space="preserve">
-    <value>The given serial is invalid.</value>
+    <value>Данный серийный номер является недействительным.</value>
   </data>
   <data name="ERR_LICENSE_KEY_HAS_EXPIRED" xml:space="preserve">
-    <value>The given license key has expired</value>
-  </data>
-  <data name="MSG_INF_SOFTWARE_HAS_BEEN_REGISTERED" xml:space="preserve">
-    <value>This software has been registered
-
-Expiration date: {0}</value>
+    <value>Данный лицензионный ключ истек</value>
   </data>
   <data name="TXT_LICENSE_KEY" xml:space="preserve">
-    <value>License Key</value>
-  </data>
-  <data name="ERR_UNABLE_GENERATE_PDF" xml:space="preserve">
-    <value>Unable to generate PDF.
-    
-{0}</value>
+    <value>Лицензионный ключ</value>
   </data>
   <data name="ERR_CONVERSION_ERROR_NUMBER" xml:space="preserve">
-    <value>PDF conversion error number: </value>
+    <value>PDF конвертация номер ошибки:</value>
   </data>
   <data name="TXT_UNABLE_COMPLETE_RESTORE" xml:space="preserve">
-    <value>Unable to complete the restore operation.</value>
+    <value>Не удалось завершить операцию восстановления.</value>
   </data>
   <data name="EXC_CANNOT_BACKUP_DATABASE" xml:space="preserve">
-    <value>Unable to perform a backup.  Backups can only be created when working with SQL Server CE databases.</value>
+    <value>Невозможно выполнить резервное копирование. Резервные копии могут быть созданы только при работе с базами данных SQL Server CE.</value>
   </data>
   <data name="EXC_UNABLE_VERIFY_DATABASE_PATH" xml:space="preserve">
-    <value>Unable to verify the database path</value>
+    <value>Невозможно проверить путь к базе данных</value>
   </data>
   <data name="ERR_DAY_OF_WEEK_NOT_RECOGNISED" xml:space="preserve">
-    <value>Day of week not recognised</value>
+    <value>День недели не общепризнанный</value>
   </data>
   <data name="TXT_NO_PATH_SPECIFIED" xml:space="preserve">
-    <value>(No path specified)</value>
+    <value>(Не указан путь)</value>
   </data>
   <data name="TXT_CREATED_REPORTS_PER_YEAR_PER_CUSTOMER" xml:space="preserve">
-    <value>Created reports per year and per customer - office: {0}</value>
+    <value>Созданные ежегодные отчеты и клиентские - офис: {0}</value>
   </data>
   <data name="TXT_TACHOGRAPH_DOCUMENTS_PER_YEAR" xml:space="preserve">
-    <value>Tachograph documents created per year</value>
+    <value>Документы тахографа созданные за год</value>
   </data>
   <data name="TXT_YEAR" xml:space="preserve">
-    <value>Year</value>
+    <value>Год</value>
   </data>
   <data name="TXT_NUMBER_OF_DOCUMENTS" xml:space="preserve">
-    <value>Number of documents</value>
-  </data>
-  <data name="TXT_TACHOGRAPH_DOCUMENTS_BY_CUSTOMER" xml:space="preserve">
-    <value>Tachograph documents created by customer</value>
-  </data>
-  <data name="TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE" xml:space="preserve">
-    <value>Tachograph documents that will expire between {0} and {1} - office: {2}</value>
+    <value>Количество документов</value>
   </data>
   <data name="TXT_EMAIL" xml:space="preserve">
-    <value>Email</value>
+    <value>Электронная почта</value>
   </data>
   <data name="TXT_PHONE_NUMBER" xml:space="preserve">
-    <value>Phone Number</value>
+    <value>Номер телефона</value>
   </data>
   <data name="TXT_DATE_OF_INSPECTION" xml:space="preserve">
-    <value>Date of inspection</value>
+    <value>Дата проверки</value>
   </data>
   <data name="TXT_DATA_DIRECTORY" xml:space="preserve">
-    <value>DataDirectory</value>
+    <value>Каталог данных</value>
   </data>
   <data name="ERR_UNABLE_READ_CALIBRATION_HISTORY_DATA" xml:space="preserve">
-    <value>Unable to retrieve calibration history data.</value>
-  </data>
-  <data name="ERR_UNABLE_GET_CALIBRATION_HISTORY" xml:space="preserve">
-    <value>Unable to retrieve calibration history from the smart card.
-
-This could be due to either;
-  An error reading the card
-  There is no calibration history present on the card.</value>
+    <value>Не удалось получить данные истории калибровки.</value>
   </data>
   <data name="TXT_UNABLE_READ_SMART_CARD" xml:space="preserve">
-    <value>Unable to read smart card.</value>
+    <value>Не удаётся прочитать смарт-карту.</value>
   </data>
   <data name="TXT_GENERATING_WORKSHOP_CARD_FILE" xml:space="preserve">
-    <value>Generating workshop card file...</value>
+    <value>Создание файла карты мастерской ...</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILE_GENERATED" xml:space="preserve">
-    <value>Workshop card file was generated.</value>
+    <value>Файл карты мастерской был сгенерирован.</value>
   </data>
   <data name="TXT_UNABLE_GENERATE_WORKSHOP_CARD" xml:space="preserve">
-    <value>Unable to generate workshop card file.</value>
-  </data>
-  <data name="TXT_SELECT_CUSTOMER_ON_LEFT" xml:space="preserve">
-    <value>Enter customer details on the right, or select a customer on the right to edit.</value>
+    <value>Невозможно создать файл карты мастерской.</value>
   </data>
   <data name="TXT_ENTER_VALID_LICENSE_KEY" xml:space="preserve">
-    <value>Enter a valid license key and the field will turn green</value>
+    <value>Введите действительный лицензионный ключ и поле станет зеленым</value>
   </data>
   <data name="TXT_SELECT_DAYS_FOR_BACKUP" xml:space="preserve">
-    <value>Select the days of the week to perform an automatic backup.</value>
+    <value>Выберите дни недели для выполнения автоматического резервного копирования.</value>
   </data>
   <data name="TXT_NOTHING_TO_EXPORT" xml:space="preserve">
-    <value>Nothing to export</value>
+    <value>Ничего нет для экспорта</value>
   </data>
   <data name="TXT_TACHOGRAPH_AND_M1N1_INSPECTION_PLATE" xml:space="preserve">
-    <value>Tachograph and M1N1 inspection plate</value>
+    <value>Тахограф и M1N1 осмотр номера автомобиля</value>
   </data>
   <data name="TXT_CERTIFICATION_INSPECTION_SEALING_TACHOGRAPH_M1N1" xml:space="preserve">
-    <value>Certification of the inspection and sealing of tachograph and M1N1 adapter</value>
+    <value>Сертификация проверки и герметизации тахографа и M1N1 адаптера</value>
   </data>
   <data name="TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE" xml:space="preserve">
-    <value>TACHOGRAPH CALIBRATION CERTIFICATE</value>
+    <value>СЕРТИФИКАТ КАЛИБРОВКИ ТАХОГРАФА</value>
   </data>
   <data name="TXT_TACHOGRAPH" xml:space="preserve">
-    <value>TACHOGRAPH:</value>
+    <value>ТАХОГРАФ:</value>
   </data>
   <data name="TXT_VEHICLE" xml:space="preserve">
-    <value>VEHICLE:</value>
+    <value>АВТОМОБИЛЬ:</value>
   </data>
   <data name="TXT_M1N1_ADAPTER" xml:space="preserve">
-    <value>M1N1 Adapter</value>
+    <value>M1N1 Адаптер</value>
   </data>
   <data name="TXT_EXP" xml:space="preserve">
-    <value>NEXT CALIBRATION DUE: </value>
+    <value>СЛЕДУЩАЯ ДАТА КАЛИБРОВКИ</value>
   </data>
   <data name="TXT_SIGNATURE_TECHNICIAN" xml:space="preserve">
     <value>{0}</value>
   </data>
   <data name="TXT_MAKE" xml:space="preserve">
-    <value>Make:</value>
+    <value>Марка:</value>
   </data>
   <data name="TXT_TYPE" xml:space="preserve">
-    <value>Type:</value>
+    <value>Тип:</value>
   </data>
   <data name="TXT_ODOMETER_READING" xml:space="preserve">
-    <value>Odometer reading:</value>
+    <value>Показания одометра:</value>
   </data>
   <data name="TXT_SERIAL_NUMBER" xml:space="preserve">
-    <value>Serial number:</value>
+    <value>Серийный номер:</value>
   </data>
   <data name="TXT_SET_K_FACTOR" xml:space="preserve">
-    <value>Set k factor:</value>
+    <value>Установить коэффициент к:</value>
   </data>
   <data name="TXT_MAKE_AND_MODEL" xml:space="preserve">
-    <value>Make and Model</value>
+    <value>Марка и модель</value>
   </data>
   <data name="TXT_AUTHORISED_TACHOGRAPH_CENTER" xml:space="preserve">
-    <value>Authorised Tachograph Center:</value>
+    <value>Авторизованный Тахограф Центр:</value>
   </data>
   <data name="TXT_AUTHORISED_TESTERS_SIGNATURE" xml:space="preserve">
-    <value>Authorised Testers Signature:</value>
+    <value>Авторизованная Тестер Подпись:</value>
   </data>
   <data name="TXT_ANALOGUE_INSPECTIONS" xml:space="preserve">
-    <value>ANALOGUE INSPECTIONS:</value>
+    <value>АНАЛОГОВЫЕ ПРОВЕРКИ:</value>
   </data>
   <data name="TXT_CUSTOMER_DETAILS" xml:space="preserve">
-    <value>CUSTOMER DETAILS:</value>
+    <value>СВЕДЕНИЯ О ЗАКАЗЧИКЕ:</value>
   </data>
   <data name="TXT_DIGITAL_INSPECTIONS" xml:space="preserve">
-    <value>DIGITAL CALIBRATIONS:</value>
+    <value>ЦИФРОВАЯ КАЛИБРОВКА</value>
   </data>
   <data name="TXT_VRN" xml:space="preserve">
-    <value>VRN:</value>
+    <value>Номера транспортного средства VRN:</value>
   </data>
   <data name="TXT_VIN" xml:space="preserve">
-    <value>VIN:</value>
+    <value>ВИН - Код</value>
   </data>
   <data name="TXT_TYRE_SIZE" xml:space="preserve">
-    <value>Tyre Size:</value>
+    <value>Размер шины:</value>
   </data>
   <data name="TXT_W_FACTOR" xml:space="preserve">
-    <value>W factor:</value>
+    <value>W Фактор</value>
   </data>
   <data name="TXT_IMP_KM" xml:space="preserve">
-    <value>{0} imp/km</value>
+    <value>{0} имп./км</value>
   </data>
   <data name="TXT_TYRE_L_FACTOR" xml:space="preserve">
-    <value>Tyre L factor:</value>
+    <value>Шины L фактор:</value>
   </data>
   <data name="TXT_MM" xml:space="preserve">
-    <value>{0} mm</value>
+    <value>{0} мм</value>
   </data>
   <data name="TXT_M1N1_SERIAL_NUMBER" xml:space="preserve">
-    <value>M1N1 S/N</value>
+    <value>M1N1 С/Н</value>
   </data>
   <data name="TXT_COLOR" xml:space="preserve">
-    <value>Colour</value>
+    <value>Цвет</value>
   </data>
   <data name="TXT_LOCATION" xml:space="preserve">
-    <value>Location</value>
+    <value>Расположение</value>
   </data>
   <data name="TXT_DISTRIBUTOR_SEAL" xml:space="preserve">
-    <value>Distributor Seal:  {0}</value>
+    <value>Печать дистрибьютора: {0}</value>
   </data>
   <data name="TXT_W_FACTOR_IMP_KM" xml:space="preserve">
-    <value>W: {0} imp/km</value>
+    <value>W: {0} имп./км</value>
   </data>
   <data name="TXT_K_FACTOR_IMP_KM" xml:space="preserve">
-    <value>K: {0} imp/km</value>
+    <value>K: {0} имп./км</value>
   </data>
   <data name="TXT_L_FACTOR_MM" xml:space="preserve">
-    <value>L: {0} mm</value>
+    <value>L: {0} мм</value>
   </data>
   <data name="TXT_VIN_SMALL_LABEL" xml:space="preserve">
-    <value>VIN: {0}</value>
+    <value>ВИН-Код: {0}</value>
   </data>
   <data name="TXT_TYRE_SIZE_SMALL_LABEL" xml:space="preserve">
-    <value>Tyre Size       {0}</value>
+    <value>Размер шин {0}</value>
   </data>
   <data name="TXT_SERIAL_NUMBER_SMALL_LABEL" xml:space="preserve">
-    <value>Serial number   {0}</value>
+    <value>Серийный номер {0}</value>
   </data>
   <data name="TXT_M1N1_SERIAL_SMALL_LABEL" xml:space="preserve">
-    <value>M1N1 S/N:       {0}</value>
+    <value>M1N1 С/Н:       {0}</value>
   </data>
   <data name="TXT_LOCATION_SMALL_LABEL" xml:space="preserve">
-    <value>Location        {0}</value>
+    <value>Расположение {0}</value>
   </data>
   <data name="TXT_COLOR_SMALL_LABEL" xml:space="preserve">
-    <value>Colour          {0}</value>
+    <value>Цвет          {0}</value>
   </data>
   <data name="TXT_W_FACTOR_MEDIUM_LABEL" xml:space="preserve">
-    <value>W: {0} imp/km</value>
+    <value>W: {0} имп./км</value>
   </data>
   <data name="TXT_K_FACTOR_MEDIUM_LABEL" xml:space="preserve">
-    <value>K: {0} imp/km</value>
+    <value>K: {0} имп./км</value>
   </data>
   <data name="TXT_L_FACTOR_MEDIUM_LABEL" xml:space="preserve">
-    <value>L: {0} mm</value>
+    <value>L: {0} мм</value>
   </data>
   <data name="TXT_VIN_MEDIUM_LABEL" xml:space="preserve">
-    <value>VIN: {0}</value>
+    <value>ВИН-Код: {0}</value>
   </data>
   <data name="TXT_TYRE_SIZE_MEDIUM_LABEL" xml:space="preserve">
-    <value>Tyre Size        {0}</value>
+    <value>Размер шин {0}</value>
   </data>
   <data name="TXT_SERIAL_NUMBER_MEDIUM_LABEL" xml:space="preserve">
-    <value>Serial number    {0}</value>
+    <value>Серийный номер {0}</value>
   </data>
   <data name="TXT_M1N1_SERIAL_NUMBER_MEDIUM_LABEL" xml:space="preserve">
-    <value>M1N1 S/N:        {0}</value>
+    <value>M1N1 С/Н:       {0}</value>
   </data>
   <data name="TXT_LOCATION_MEDIUM_LABEL" xml:space="preserve">
-    <value>Location         {0}</value>
+    <value>Расположение {0}</value>
   </data>
   <data name="TXT_COLOUR_MEDIUM_LABEL" xml:space="preserve">
-    <value>Colour           {0}</value>
+    <value>Цвет   {0}</value>
   </data>
   <data name="TXT_LICENSE_NUMBER_LABEL" xml:space="preserve">
-    <value>Seal No:   </value>
+    <value>Номер печати:</value>
   </data>
   <data name="TXT_TACHOGRAPH_PLAQUE" xml:space="preserve">
-    <value>Tachograph plaque</value>
+    <value>Номер тахографа</value>
   </data>
   <data name="TXT_LICENSE_NO_MINIMAL" xml:space="preserve">
-    <value>Seal No:   </value>
+    <value>Номер печати:</value>
   </data>
   <data name="TXT_TACHOGRAPH_RECORD_SHEET" xml:space="preserve">
-    <value>Tachograph Record Sheet</value>
+    <value>Страница записи тахографа</value>
   </data>
   <data name="TXT_SIGNATURE_TECHNICIAN_LARGE" xml:space="preserve">
-    <value>Signature/{0}</value>
+    <value>Подпись / {0}</value>
   </data>
   <data name="TXT_MINOR_WORK_DETAILS_DETAILS" xml:space="preserve">
-    <value>Minor Work Details:</value>
+    <value>Подробности Незначительные Работы:</value>
   </data>
   <data name="TXT_WORK_CARRIED_OUT" xml:space="preserve">
-    <value>Work Carried Out:</value>
-  </data>
-  <data name="TXT_UNDOWNLOADABILITY_LINE_4" xml:space="preserve">
-    <value>This document is to be retained by the vehicle operator for the required time period, and presented when requested as required in ECC Regulation 3821/85, Annex 1B.</value>
+    <value>Проделанная работа:</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_LINE_3" xml:space="preserve">
-    <value>This certificate provides the control authorities with confirmation that the data recorded in the unit is not available and was not downloadable from the VU when the vehicle was presented to the named Approved Tachograph Centre.</value>
+    <value>"</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_LINE_2" xml:space="preserve">
-    <value>Therefore no downloaded data can be provided to the user of the VU.</value>
-  </data>
-  <data name="TXT_UNDOWNLOADABILITY_LINE_1" xml:space="preserve">
-    <value>Due to the malfunction of the tachograph [{0} - {1}, {2}] installed into vehicle [{3}] the data recorded in the VU's memory was unable to be downloaded.</value>
+    <value>Поэтому пользователю ТС не могут быть предоставлены загруженные данные</value>
   </data>
   <data name="TXT_TACHOGRAPH_MAKE" xml:space="preserve">
-    <value>Tachograph make</value>
+    <value>Производитель тахографа</value>
   </data>
   <data name="TXT_TACHOGRAPH_MODEL" xml:space="preserve">
-    <value>Tachograph model</value>
+    <value>Модель тахографа</value>
   </data>
   <data name="TXT_TACHOGRAPH_NUMBER" xml:space="preserve">
-    <value>Tachograph number</value>
+    <value>Номер тахографа</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_SIGNATURE" xml:space="preserve">
-    <value>Signature/{0}</value>
+    <value>Подпись/{0}</value>
   </data>
   <data name="TXT_UNLICENSED" xml:space="preserve">
-    <value>Unlicensed</value>
+    <value>Нелицензированный</value>
   </data>
   <data name="TXT_SOFTWARE" xml:space="preserve">
-    <value>Software</value>
+    <value>Программное обеспечение</value>
   </data>
   <data name="EXC_UNABLE_GENERATE_CARD_DUMP" xml:space="preserve">
-    <value>Unable to generate card dump</value>
+    <value>Невозможно создать дамп карты</value>
   </data>
   <data name="TXT_SKILLRAY_UNLICENSED_SOFTWARE" xml:space="preserve">
-    <value>Skillray Demo Unlicensed Software</value>
+    <value>RoadSoft Демо Нелицензионное Программное Обеспечение</value>
   </data>
   <data name="TXT_DEMO" xml:space="preserve">
-    <value>Demo</value>
+    <value>Демо</value>
   </data>
   <data name="TXT_SKILLRAY" xml:space="preserve">
-    <value>Skillray</value>
+    <value>RoadSoft</value>
   </data>
   <data name="TXT_GV_212" xml:space="preserve">
     <value>GV 212</value>
   </data>
   <data name="TXT_REGISTER_OF_TACHOGRAPH_PLAQUES_ISSUES" xml:space="preserve">
-    <value>REGISTER OF TACHOGRAPH PLAQUES ISSUED</value>
+    <value>РЕГИСТРАЦИЯ ВЫДАННОГО НОМЕРА ТАХОГРАФВ</value>
   </data>
   <data name="TXT_NAME_OF_TACHOGRAPH_CENTER" xml:space="preserve">
-    <value>Name of Tachograph Centre</value>
+    <value>Название Тахографа Центра</value>
   </data>
   <data name="TXT_SEAL_OF_TACHOGRAPH_CENTER" xml:space="preserve">
-    <value>Seal Number of Tachograph Centre</value>
+    <value>Серийный Номер Тахографа Центра</value>
   </data>
   <data name="TXT_REGISTER_BETWEEN" xml:space="preserve">
-    <value>Register between</value>
+    <value>Регистрация между</value>
   </data>
   <data name="TXT_AND" xml:space="preserve">
-    <value>and</value>
+    <value>и</value>
   </data>
   <data name="TXT_MINIMAL_LICENSE_NUMBER" xml:space="preserve">
-    <value>Seal number   {0}</value>
+    <value>Номер печати  {0}</value>
   </data>
   <data name="QTN_WOULD_YOU_LIKE_BACKUP_DATABASE" xml:space="preserve">
-    <value>Would you like to back-up the database?</value>
-  </data>
-  <data name="ERR_UNABLE_READ_SMART_CARD" xml:space="preserve">
-    <value>Unable to read the smart card.  Please try again.</value>
+    <value>Хотите создавать резервные копии базы данных?</value>
   </data>
   <data name="EXC_UNHANDLED_EXCEPTION" xml:space="preserve">
-    <value>An unhandled error occurred.</value>
+    <value>Произошла необработанная ошибка.</value>
   </data>
   <data name="TXT_DIGITAL_TACHOGRAPH_DOCUMENT" xml:space="preserve">
-    <value>New Digital Tachograph Document</value>
+    <value>Новый Документ Цифрового Тахографа</value>
   </data>
   <data name="TXT_ANALOGUE_TACHOGRAPH_DOCUMENT" xml:space="preserve">
-    <value>New Analogue Tachograph Document</value>
+    <value>Новый Документ Аналоговог Тахографа</value>
   </data>
   <data name="TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT" xml:space="preserve">
-    <value>Re-Print Certificate</value>
+    <value>Перепечатать Сертификат</value>
   </data>
   <data name="TXT_PLAQUE_TACHOGRAPH_DOCUMENT" xml:space="preserve">
-    <value>Re-Print Plaque</value>
+    <value>Перепечатать Номер</value>
   </data>
   <data name="TXT_TACHOGRAPH_INSTALLATION_PLAQUE" xml:space="preserve">
-    <value>Tachograph Installation Plaque</value>
+    <value>Установка Номера Тахографа</value>
   </data>
   <data name="TXT_LABEL_VU_SERIAL_NUMBER" xml:space="preserve">
-    <value>VU Serial No:{0}</value>
+    <value>Серийный номер транспортного средства: {0}</value>
   </data>
   <data name="TXT_LABEL_WORKSHOP_NAME" xml:space="preserve">
-    <value>Workshop:{0}</value>
+    <value>Мастерская: {0}</value>
   </data>
   <data name="TXT_WORKSHOP_NUMBER" xml:space="preserve">
-    <value>Workshop number:{0}</value>
+    <value>Номер мастерской: {0}</value>
   </data>
   <data name="TXT_LABEL_ADDRESS_1" xml:space="preserve">
-    <value>Address:{0}</value>
+    <value>Адрес: {0}</value>
   </data>
   <data name="TXT_LABEL_TECHNICIAN_NAME" xml:space="preserve">
-    <value>Technician ID:{0}</value>
+    <value>Технический ИД: {0}</value>
   </data>
   <data name="TXT_LABEL_CALIBRATION_DATE" xml:space="preserve">
-    <value>Calibration Date:{0}</value>
+    <value>Дата калибровки: {0}</value>
   </data>
   <data name="TXT_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_LABEL_COMPANY_NAME" xml:space="preserve">
     <value>{0}</value>
   </data>
-  <data name="TXT_VOSA_REGISTRATION_HEADER" xml:space="preserve">
-    <value>1
-Registration/
-Chassis No</value>
-  </data>
-  <data name="TXT_VOSA_VEHICLE_TYPE_HEADER" xml:space="preserve">
-    <value>2
-Veh
-Type
-(~)</value>
-  </data>
-  <data name="TXT_VOSA_TACHOGRAPH_DETAILS_HEADER" xml:space="preserve">
-    <value>3
-Tachograph Details
-
-Type (+)      Head Serial No</value>
-  </data>
-  <data name="TXT_VOSA_TYPE_INSPECTION_HEADER" xml:space="preserve">
-    <value>4
-Type
-of
-Insp
-(#)</value>
-  </data>
-  <data name="TXT_VOSA_TURNS_HEADER" xml:space="preserve">
-    <value>5
-W
-Turns/Km
-or
-Imp/Km</value>
-  </data>
-  <data name="TXT_VOSA_L_HEADER" xml:space="preserve">
-    <value>6
-L
-mm</value>
-  </data>
-  <data name="TXT_VOSA_DATE_HEADER" xml:space="preserve">
-    <value>7
-Date</value>
-  </data>
-  <data name="TXT_VOSA_TECH_INITIALS_HEADER" xml:space="preserve">
-    <value>8
-Nom.
-Tech.
-Initials,
-login or
-smartcard
-number</value>
-  </data>
-  <data name="TXT_VOSA_INVOICE_NUMBER_HEADER" xml:space="preserve">
-    <value>9
-Invoice number</value>
-  </data>
   <data name="ERR_CANNOT_VERIFY_USERNAME_PASSWORD" xml:space="preserve">
-    <value>Unable to verify the given username and/or password</value>
+    <value>Невозможно проверить данное имя пользователя и / или пароль</value>
   </data>
   <data name="TXT_USER_MANAGEMENT" xml:space="preserve">
-    <value>User Management</value>
-  </data>
-  <data name="TXT_ERR_ENTER_UNIQUE_USERNAME" xml:space="preserve">
-    <value>Please enter a valid unique username, and a password.</value>
-  </data>
-  <data name="TXT_ERR_SELECT_USER_TO_REMOVE" xml:space="preserve">
-    <value>Please select a user from the right hand menu to remove.</value>
+    <value>Управление пользователями</value>
   </data>
   <data name="TXT_PASSWORD_HAS_BEEN_CHANGED" xml:space="preserve">
-    <value>Your password has been changed.</value>
+    <value>Ваш пароль был изменен.</value>
   </data>
   <data name="TXT_PASSWORD_HAS_BEEN_RESET" xml:space="preserve">
-    <value>Your password has been reset to "password" (without quotation marks).</value>
-  </data>
-  <data name="ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER" xml:space="preserve">
-    <value>Please log in as superuser to reset your password.</value>
-  </data>
-  <data name="ERR_DO_NOT_RESET_OWN_PASSWORD" xml:space="preserve">
-    <value>Please don't reset your own password.</value>
-  </data>
-  <data name="ERR_COULD_NOT_CHANGE_PASSWORD" xml:space="preserve">
-    <value>Unable to change your password, please make sure your old password is correct.</value>
+    <value>"Ваш пароль был сброшен на ""password"" (без кавычек)."</value>
   </data>
   <data name="ERR_UNABLE_TO_LOAD_THE_SPECIFIED_FILE" xml:space="preserve">
-    <value>Unable to load the given file.</value>
+    <value>Не удалось загрузить указанный файл.</value>
   </data>
   <data name="ERR_UNABLE_TO_APPLY_TRANSFORMATIONS" xml:space="preserve">
-    <value>Unable to apply transformations to the image.</value>
+    <value>Невозможно применить преобразования к изображению.</value>
   </data>
   <data name="TXT_MAIL_SETTINGS" xml:space="preserve">
-    <value>Email Settings</value>
+    <value>Настройки электронной почты</value>
   </data>
   <data name="ERR_UNABLE_FIND_ANY_MATCHES" xml:space="preserve">
-    <value>Unable to find any matches</value>
+    <value>Не удалось найти совподение</value>
   </data>
   <data name="TXT_REPRINT_LABEL" xml:space="preserve">
-    <value>Re-Print Plaque</value>
+    <value>Перепечатать Номер</value>
   </data>
   <data name="TXT_REPRINT_CERTIFICATE" xml:space="preserve">
-    <value>Re-Print Certificate</value>
+    <value>Перепичатать Сертификат</value>
   </data>
   <data name="TXT_REPRINT_COMPLETED" xml:space="preserve">
-    <value>Re-print completed.</value>
+    <value>Перепечатка завершена.</value>
   </data>
   <data name="TXT_RECALIBRATION_CERTIFICATE" xml:space="preserve">
-    <value>Recalibration</value>
+    <value>Перекалибровка</value>
   </data>
   <data name="TXT_2_YEAR" xml:space="preserve">
-    <value>2 Year</value>
+    <value>2 Года</value>
   </data>
   <data name="TXT_6_YEAR" xml:space="preserve">
-    <value>6 Year</value>
+    <value>6 Лет</value>
   </data>
   <data name="TXT_CALIBRATION" xml:space="preserve">
-    <value>Calibration</value>
+    <value>Калибровка</value>
   </data>
   <data name="TXT_MINOR_WORK" xml:space="preserve">
-    <value>Minor Work</value>
+    <value>Маленькая работа</value>
   </data>
   <data name="TXT_WEBCAL_WEBCALNAME" xml:space="preserve">
     <value>Webcal</value>
   </data>
   <data name="TXT_WEBCAL_STREET" xml:space="preserve">
-    <value>Unit 10</value>
+    <value>Блок 10</value>
   </data>
   <data name="TXT_WEBCAL_TOWN" xml:space="preserve">
     <value>Rufford Court</value>
@@ -798,105 +682,88 @@ Invoice number</value>
     <value>WA1 4RF</value>
   </data>
   <data name="SELECT_BITMAP_IMAGE" xml:space="preserve">
-    <value>All supported graphics|*.jpg;*.jpeg;*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|Portable Network Graphic (*.png)|*.png</value>
+    <value>Все поддерживаемые форматы графики | * .jpg;.. * JPEG; * PNG | JPEG (* .jpg; *. JPEG) | * .jpg; *. JPEG | Portable Network Graphic (* .png) | * .png</value>
   </data>
   <data name="EXEC_UNABLE_TO_FIND_PLUGIN" xml:space="preserve">
-    <value>Unable to find plugin for given task ({0})</value>
+    <value>Невозможно найти плагин для данной задачи ({0})</value>
   </data>
   <data name="TXT_DATE" xml:space="preserve">
-    <value>DATE:</value>
+    <value>ДАТА:</value>
   </data>
   <data name="EXC_UNABLE_READ_SMART_CARD" xml:space="preserve">
-    <value>Unable to read smartcard.</value>
-  </data>
-  <data name="TXT_PLEASE_WAIT" xml:space="preserve">
-    <value>Please wait...</value>
-  </data>
-  <data name="TXT_UNABLE_INITIALISE_SMART_CARD_READER" xml:space="preserve">
-    <value>Unable to initialise the smart card reader.  Please ensure that it is plugged and installed correctly.</value>
+    <value>Не удается прочитать смарт-карту.</value>
   </data>
   <data name="TXT_EXPIRY" xml:space="preserve">
-    <value>EXP : </value>
+    <value>Срок Действия:</value>
   </data>
   <data name="TXT_SMALL_LABEL_DATE" xml:space="preserve">
-    <value>
-date
-
-
-</value>
+    <value>дата</value>
   </data>
   <data name="TXT_EXPIRATION_DATE" xml:space="preserve">
-    <value>Expiration Date: </value>
+    <value>Срок действия:</value>
   </data>
   <data name="TXT_IMP_KM_VEHICLE" xml:space="preserve">
-    <value>{0} imp/km</value>
+    <value>{0} имп./км</value>
   </data>
   <data name="TXT_MEDIUM_W_FACTOR" xml:space="preserve">
-    <value>W: {0} imp/km</value>
+    <value>W: {0} имп./км</value>
   </data>
   <data name="TXT_MEDIUM_K_FACTOR" xml:space="preserve">
-    <value>K: {0} imp/km</value>
+    <value>K: {0} имп./км</value>
   </data>
   <data name="TXT_MEDIUM_L_FACTOR" xml:space="preserve">
     <value>L: {0}{1}</value>
   </data>
   <data name="TXT_MEDIUM_VIN" xml:space="preserve">
-    <value>VIN: {0}</value>
+    <value>ВИН-Код: {0}</value>
   </data>
   <data name="TXT_MEDIUM_TYRE_SIZE" xml:space="preserve">
-    <value>Tyre Size        {0}</value>
+    <value>Размер шин {0}</value>
   </data>
   <data name="TXT_MEDIUM_SERIAL_NUMBER" xml:space="preserve">
-    <value>Serial number    {0}</value>
+    <value>Серийный номер {0}</value>
   </data>
   <data name="TXT_MEDIUM_DATE" xml:space="preserve">
-    <value>date:   {0}</value>
+    <value>дата:   {0}</value>
   </data>
   <data name="TXT_SMALL_W_FACTOR" xml:space="preserve">
-    <value>W: {0} imp/km</value>
+    <value>W: {0} имп./км</value>
   </data>
   <data name="TXT_SMALL_K_FACTOR" xml:space="preserve">
-    <value>K: {0} imp/km</value>
+    <value>K: {0} имп./км</value>
   </data>
   <data name="TXT_SMALL_L_FACTOR" xml:space="preserve">
     <value>L:   {0}{1}</value>
   </data>
   <data name="TXT_SMALL_TYRE_SIZE" xml:space="preserve">
-    <value>Tyre Size       {0}</value>
+    <value>Размер шин {0}</value>
   </data>
   <data name="TXT_SMALL_VIN" xml:space="preserve">
-    <value>VIN: {0}</value>
+    <value>ВИН-Код: {0}</value>
   </data>
   <data name="TXT_SMALL_SERIAL_NUMBER" xml:space="preserve">
-    <value>Serial number   {0}</value>
-  </data>
-  <data name="TXT_SMALL_DATE" xml:space="preserve">
-    <value>
-date
-
-
-{0}</value>
+    <value>Серийный номер {0}</value>
   </data>
   <data name="TXT_LARGE_INSTALLATION" xml:space="preserve">
-    <value>I - Installation / Initial calibration</value>
+    <value>У - Установка / Начальная калибровка</value>
   </data>
   <data name="TXT_LARGE_TWO_YEAR_INSPECTION" xml:space="preserve">
-    <value>2 - 2 year inspection</value>
+    <value>2 - 2 года инспекция</value>
   </data>
   <data name="TXT_LARGE_SIX_YEAR_CALIBRATION" xml:space="preserve">
-    <value>6 - 6 year calibration</value>
+    <value>6 - 6 лет калибровка</value>
   </data>
   <data name="TXT_LARGE_RECALIBRATION" xml:space="preserve">
-    <value>R - Recalibration</value>
+    <value>П - Перекалибровка</value>
   </data>
   <data name="TXT_LARGE_MINOR_WORK" xml:space="preserve">
-    <value>M - Minor Work</value>
+    <value>М - Маленькая Работа</value>
   </data>
   <data name="TXT_LARGE_DIGITAL_INITIAL" xml:space="preserve">
-    <value>3 - Digital initial calibration</value>
+    <value>3 - Цифровая начальная калибровка</value>
   </data>
   <data name="TXT_LARGE_DIGITAL_TWO_YEAR" xml:space="preserve">
-    <value>4 - Digital 2 year calibration</value>
+    <value>4 - Цифровая 2 годовая калибровка</value>
   </data>
   <data name="TXT_DIGITAL" xml:space="preserve">
     <value>D</value>
@@ -914,22 +781,22 @@ date
     <value>Portable Document Format (PDF) (*.pdf)|*.pdf</value>
   </data>
   <data name="TXT_TEXT_FILE" xml:space="preserve">
-    <value>Text File (*.txt)|*.txt</value>
+    <value>Текстовый Файл (*.txt)|*.txt</value>
   </data>
   <data name="TXT_DATA_FILE" xml:space="preserve">
-    <value>Data File (*.dat)|*.dat</value>
+    <value>Дата Файл (*.dat)|*.dat</value>
   </data>
   <data name="TXT_JPEG_FILE" xml:space="preserve">
-    <value>JPEG File (*.jpg)|*.jpg</value>
+    <value>JPEG Файл (*.jpg)|*.jpg</value>
   </data>
   <data name="TXT_ALL_FILES" xml:space="preserve">
-    <value>All Files (*.*)|*.*</value>
+    <value>Все файлы (*.*)|*.*</value>
   </data>
   <data name="TXT_PORTABLE_NETWORK_GRAPHICS" xml:space="preserve">
-    <value>Portable Network Graphics (*.png)|*.png|All Files (*.*)|*.*</value>
+    <value>Portable Network Graphics (*.png)|*.png|Все Файлы (*.*)|*.*</value>
   </data>
   <data name="TXT_ALPHABET" xml:space="preserve">
-    <value>ABCDEFGHIJKLMNOPQRSTUVWXYZ</value>
+    <value>АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЮЭЮЯ</value>
   </data>
   <data name="TXT_EXTENSION_JPG" xml:space="preserve">
     <value>.jpg</value>
@@ -941,1446 +808,1102 @@ date
     <value>.png</value>
   </data>
   <data name="TXT_EMPTY_FIELDS" xml:space="preserve">
-    <value>Empty fields</value>
+    <value>Пустые поля</value>
   </data>
   <data name="TXT_NEW_CUSTOMER" xml:space="preserve">
-    <value>New customer</value>
+    <value>Новый клиент</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_CALIBRATION_BROWSER" xml:space="preserve">
-    <value>Workshop card calibration browser</value>
+    <value>Показать калибровку карты мастерской </value>
   </data>
   <data name="TXT_VEHICLE_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Vehicle registration number</value>
+    <value>Регистрационный номер транспортного средства</value>
   </data>
   <data name="TXT_CALIBRATION_DATE" xml:space="preserve">
-    <value>Calibration Date</value>
+    <value>Дата калибровки</value>
   </data>
   <data name="TXT_SHOW_DETAILS" xml:space="preserve">
-    <value>Show Details</value>
+    <value>Показать подробности</value>
   </data>
   <data name="TXT_SELECT_ALL" xml:space="preserve">
-    <value>Select All</value>
+    <value>Выбрать всё</value>
   </data>
   <data name="TXT_CLEAR_SELECTION" xml:space="preserve">
-    <value>Clear Selection</value>
+    <value>Очистить выбор</value>
   </data>
   <data name="TXT_CALIBRATIONS_READ_FROM_CARD" xml:space="preserve">
-    <value>Read from card</value>
+    <value>Читать с карты</value>
   </data>
   <data name="TXT_CALIBRATIONS_SELECT_ALL" xml:space="preserve">
-    <value>Select all</value>
+    <value>Выбрать всё</value>
   </data>
   <data name="TXT_CALIBRATIONS_CLEAR_SELECTION" xml:space="preserve">
-    <value>Clear selection</value>
+    <value>Очистить выбранное</value>
   </data>
   <data name="TXT_CALIBRATIONS_SHOW_DETAILS" xml:space="preserve">
-    <value>Show details</value>
+    <value>Показать детали</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_DRIVER_CARD_FILESE" xml:space="preserve">
-    <value>Driver card files</value>
+    <value>Файл карты водителя</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_BROWSE" xml:space="preserve">
-    <value>Browse</value>
+    <value>Просмотр</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_DRIVER" xml:space="preserve">
-    <value>Driver:</value>
+    <value>Водитель:</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_CUSTOMER" xml:space="preserve">
-    <value>Customer:</value>
+    <value>Клиент:</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_DATE" xml:space="preserve">
-    <value>Date:</value>
+    <value>Дата:</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_STORED_FILES" xml:space="preserve">
-    <value>Stored files</value>
+    <value>Сохраненные файлы</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_CREATION_DATE" xml:space="preserve">
-    <value>Creation date</value>
+    <value>Дата создания</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_DRIVER_2" xml:space="preserve">
-    <value>Driver</value>
+    <value>Водитель</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_CUSTOMER_2" xml:space="preserve">
-    <value>Customer</value>
+    <value>Клиент</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_EXPORT" xml:space="preserve">
-    <value>Export</value>
+    <value>Экспорт</value>
   </data>
   <data name="TXT_DRIVER_CARD_FILES_REMOVE" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING" xml:space="preserve">
-    <value>Generate report of expiring documents or statistics report</value>
+    <value>Удаление</value>
   </data>
   <data name="TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH" xml:space="preserve">
-    <value>Expiring tachograph documents</value>
+    <value>Истекающий срок действия документа тахографа</value>
   </data>
   <data name="TXT_GENERATE_REPORT_DOCUMENT_STATISTICS" xml:space="preserve">
-    <value>Document statistics</value>
+    <value>Статистика документа</value>
   </data>
   <data name="TXT_GENERATE_REPORT_FILE_FORMAT" xml:space="preserve">
-    <value>File format</value>
+    <value>Формат файла</value>
   </data>
   <data name="TXT_GENERATE_REPORT_TEXT" xml:space="preserve">
-    <value>Text (.txt)</value>
+    <value>Текст (.txt)</value>
   </data>
   <data name="TXT_GENERATE_REPORT_EXCEL" xml:space="preserve">
     <value>Excel 2007 (.xlsx)</value>
   </data>
   <data name="TXT_GENERATE_REPORT_TIME_SPAN" xml:space="preserve">
-    <value>Time span</value>
+    <value>Промежуток времени</value>
   </data>
   <data name="TXT_GENERATE_REPORT_QUICK_SELECTION" xml:space="preserve">
-    <value>Quick selection</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING" xml:space="preserve">
-    <value>Documents which expire during this month</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH" xml:space="preserve">
-    <value>Documents which expire during next month</value>
+    <value>Быстрый выбор</value>
   </data>
   <data name="TXT_GENERATE_REPORT_SELECT_TIME_FRAME" xml:space="preserve">
-    <value>Select time frame</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD" xml:space="preserve">
-    <value>(Documents which expire during this time period)</value>
+    <value>Выберите временные рамки</value>
   </data>
   <data name="TXT_GENERATE_REPORT_START_DATE" xml:space="preserve">
-    <value>Start date</value>
+    <value>Начало даты</value>
   </data>
   <data name="TXT_GENERATE_REPORT_END_DATE" xml:space="preserve">
-    <value>End date</value>
+    <value>Конец даты</value>
   </data>
   <data name="TXT_GENERATE_REPORT_OFFICE" xml:space="preserve">
-    <value>Office</value>
+    <value>Офис</value>
   </data>
   <data name="TXT_GENERATE_REPORT_GENERATE" xml:space="preserve">
-    <value>Generate</value>
+    <value>Генерировать</value>
   </data>
   <data name="TXT_GENERATE_REPORT_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_PRODUCT_VERSION" xml:space="preserve">
-    <value>Product Version: {0}</value>
+    <value>Версия продукта: {0}</value>
   </data>
   <data name="TXT_HOME_SCREEN_AUTO_PRINT_LABELS" xml:space="preserve">
-    <value>Automatically print labels</value>
+    <value>Автоматически печатать этикетки</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_ANALOGUE_TACH_DOCUMENT" xml:space="preserve">
-    <value>Analogue Tachograph Document</value>
+    <value>Аналоговый документ тахорафа</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_TACHOGRAPH_RECORD_TYPE" xml:space="preserve">
-    <value>Tachograph record type</value>
+    <value>Тип записи тахографа</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_DOCUMENT_TYPE" xml:space="preserve">
-    <value>Document type</value>
+    <value>Тип документа</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_DETAILS" xml:space="preserve">
-    <value>Details:</value>
+    <value>Подробности:</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_VEHICLE_DATA" xml:space="preserve">
-    <value>Vehicle data</value>
+    <value>Данные транспортного средства</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Registration number</value>
+    <value>Регистрационный номер</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_VIN" xml:space="preserve">
-    <value>VIN</value>
+    <value>ВИН-Код</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_VEHICLE_MAKE" xml:space="preserve">
-    <value>Vehicle make</value>
+    <value>Марка автомобиля</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_MODEL" xml:space="preserve">
-    <value>Model</value>
+    <value>Модель</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_TYRE_SIZE" xml:space="preserve">
-    <value>Tyre size</value>
+    <value>Размер шин</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_VEHICLE_TYPE" xml:space="preserve">
-    <value>Vehicle type</value>
+    <value>Тип транспортного средства</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_CALIBRATION_DATA" xml:space="preserve">
-    <value>Calibration data</value>
+    <value>Данные калибровки</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_W_FACTOR" xml:space="preserve">
-    <value>W Factor</value>
+    <value>W Фактор</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_K_FACTOR" xml:space="preserve">
-    <value>K Factor</value>
+    <value>K Фактор</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_L_FACTOR" xml:space="preserve">
-    <value>L Factor</value>
+    <value>L Фактор</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_TACHOGRAPH_DATA" xml:space="preserve">
-    <value>Tachograph data</value>
+    <value>Данные Тахографа</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_TACHOGRAPH_MAKE" xml:space="preserve">
-    <value>Tachograph Make</value>
+    <value>Производитель Тахографа</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_ODOMETER_READING" xml:space="preserve">
-    <value>Odometer Reading</value>
+    <value>Показания Одометра</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_SERIAL_NUMBER" xml:space="preserve">
-    <value>Serial Number</value>
+    <value>Серийный Номер</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_TAMPERED" xml:space="preserve">
-    <value>Tampered</value>
+    <value>Несанкционированное вмешательство</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_INSPECTION_INFO" xml:space="preserve">
-    <value>Inspection info</value>
+    <value>Информация инспекции</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_INVOICE_NUMBER" xml:space="preserve">
-    <value>Invoice number</value>
+    <value>Номер счета-фактуры</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_INSPECTION_DATA" xml:space="preserve">
-    <value>Inspection data</value>
+    <value>Данные инспекции</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_CUSTOMER_DATA" xml:space="preserve">
-    <value>Customer data</value>
+    <value>Данные клиента</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
+    <value>Клиент</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_EXPORT_PDF" xml:space="preserve">
-    <value>Export PDF</value>
+    <value>Экспорт PDF</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_PRINT_LABEL" xml:space="preserve">
-    <value>Print Label</value>
+    <value>Печать этикетки</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_PRINT_CERTIFICATE" xml:space="preserve">
-    <value>Print Certificate</value>
+    <value>Распечатать Сертификат</value>
   </data>
   <data name="TXT_NEW_ANALOGUE_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_DIGITAL_TACHO_DOCUMENT" xml:space="preserve">
-    <value>Digital Tachograph Document</value>
+    <value>Цифровой Документ Тахографа</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_TACHOGRAPH_RECORD_TYPE" xml:space="preserve">
-    <value>Tachograph record type</value>
+    <value>Тип записи тахографа</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_DOCUMENT_TYPE" xml:space="preserve">
-    <value>Document type</value>
+    <value>Тип документа</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_DETAILS" xml:space="preserve">
-    <value>Details:</value>
+    <value>Подробности:</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_VEHICLE_DATA" xml:space="preserve">
-    <value>Vehicle data</value>
+    <value>Данные транспортного средства</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Registration number</value>
+    <value>Регистрационный номер</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_VIN" xml:space="preserve">
-    <value>VIN</value>
+    <value>ВИН-код</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_VEHICLE_MAKE" xml:space="preserve">
-    <value>Vehicle make</value>
+    <value>Марка автомобиля</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_MODEL" xml:space="preserve">
-    <value>Model</value>
+    <value>Модель</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_TYRE_SIZE" xml:space="preserve">
-    <value>Tyre size</value>
+    <value>Размер шин</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_VEHICLE_TYPE" xml:space="preserve">
-    <value>Vehicle type</value>
+    <value>Тип транспортного средства</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_CALIBRATION_DATA" xml:space="preserve">
-    <value>Calibration data</value>
+    <value>Данные калибровки</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_W_FACTOR" xml:space="preserve">
-    <value>W Factor</value>
+    <value>W Фактор</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_K_FACTOR" xml:space="preserve">
-    <value>K Factor</value>
+    <value>K Фактор</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_L_FACTOR" xml:space="preserve">
-    <value>L Factor</value>
+    <value>L Фактор</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_TACHOGRAPH_DATA" xml:space="preserve">
-    <value>Tachograph data</value>
+    <value>Данные тахографа</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_TACHOGRAPH_MAKE" xml:space="preserve">
-    <value>Tachograph Make</value>
+    <value>Производитель тахографа</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_ODOMETER_READING" xml:space="preserve">
-    <value>Odometer Reading</value>
+    <value>Показания одометра</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_SERIAL_NUMBER" xml:space="preserve">
-    <value>Serial Number</value>
+    <value>Серийный номер</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_TAMPERED" xml:space="preserve">
-    <value>Tampered</value>
+    <value>Несанкционированное вмешательство</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_INSPECTION_INFO" xml:space="preserve">
-    <value>Inspection info</value>
+    <value>Информация инспекции</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_INVOICE_NUMBER" xml:space="preserve">
-    <value>Invoice number</value>
+    <value>Номер счета-фактуры</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_INSPECTION_DATA" xml:space="preserve">
-    <value>Inspection data</value>
+    <value>Данные инспекции</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_PPRN_CONSTANT" xml:space="preserve">
-    <value>PPR/N-constant</value>
+    <value>PPR / N-постоянная</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_DRIVE_SHAFT" xml:space="preserve">
-    <value>OP Shaft / Drive Shaft PPR</value>
+    <value>OP Bал / Приводной Вал ППР</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_CUSTOMER_DATA" xml:space="preserve">
-    <value>Customer data</value>
+    <value>Данные клиента</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
+    <value>Клиент</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_SEND_TO_OFFICE" xml:space="preserve">
-    <value>Send To Office</value>
+    <value>Отправить в офис</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_SEND_TO_CUSTOMER" xml:space="preserve">
-    <value>Send To Customer</value>
+    <value>Отправить клиенту</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_DO_NOT_SEND" xml:space="preserve">
-    <value>Do not send</value>
+    <value>Не отправлять</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_EXPORT_PDF" xml:space="preserve">
-    <value>Export PDF</value>
+    <value>Экспорт PDF</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_PRINT" xml:space="preserve">
-    <value>Print</value>
+    <value>Печать</value>
   </data>
   <data name="TXT_NEW_TACHOGRAPH_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_UNDOWNLOADABILITY_DOCUMENT" xml:space="preserve">
-    <value>Undownloadability document</value>
+    <value>Документ невозможности загрузки</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_VEHICLE_DATA" xml:space="preserve">
-    <value>Vehicle data</value>
+    <value>Данные транспортного средства</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Registration number</value>
+    <value>Регистрационный номер</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_DATA" xml:space="preserve">
-    <value>Tachograph data</value>
+    <value>Данные тахографа</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_TACHOGRAPH_MAKE" xml:space="preserve">
-    <value>Tachograph make</value>
+    <value>Марка тахографа</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_MODEL" xml:space="preserve">
-    <value>Model</value>
+    <value>Модель</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_SERIAL_NUMBER" xml:space="preserve">
-    <value>Serial number</value>
+    <value>Серийный номер</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATA" xml:space="preserve">
-    <value>Inspection data</value>
+    <value>Данные инспекции</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATE" xml:space="preserve">
-    <value>Inspection date</value>
+    <value>Дата инспекции</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_CUSTOMER_DATA" xml:space="preserve">
-    <value>Customer data</value>
+    <value>Данные клиента</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
+    <value>Клиент</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_EXPORT_PDF" xml:space="preserve">
-    <value>Export PDF</value>
+    <value>Экспорт PDF</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_PRINT" xml:space="preserve">
-    <value>Print</value>
+    <value>Печать</value>
   </data>
   <data name="TXT_NEW_UNDOWNLOADABILITY_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_CUSTOMER_SETTINGS" xml:space="preserve">
-    <value>Customer Settings</value>
+    <value>Настройки клиента</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_REMOVE" xml:space="preserve">
-    <value>Remove</value>
+    <value>Удаление</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME" xml:space="preserve">
-    <value>Customer Name:</value>
+    <value>Имя клиента:</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_EMAIL" xml:space="preserve">
-    <value>Email:</value>
+    <value>Электронная почта:</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_SECONDARY_EMAIL" xml:space="preserve">
-    <value>Secondary Email:</value>
+    <value>Дополнительный адрес электронной почты:</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_ADDRESS" xml:space="preserve">
-    <value>Address/P.O. Box:</value>
+    <value>Адрес почтового ящика:</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_POST_CODE" xml:space="preserve">
-    <value>Post Code:</value>
+    <value>Индекс:</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_TOWN" xml:space="preserve">
-    <value>Town:</value>
+    <value>Город:</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_PHONE_NUMBER" xml:space="preserve">
-    <value>Phone Number:</value>
+    <value>Номер телефона:</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_SAVE" xml:space="preserve">
-    <value>Save</value>
+    <value>Сохранить</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_GENERAL_SETTINGS_GENERAL_SETTINGS" xml:space="preserve">
-    <value>General settings</value>
+    <value>Общие настройки</value>
   </data>
   <data name="TXT_GENERAL_SETTINGS_BACKUP_DATABASE_ON_DAYS" xml:space="preserve">
-    <value>Backup database automatically on the specified day(s):</value>
+    <value>Автоматическое резервное копирование базы данных за указанные дни:</value>
   </data>
   <data name="TXT_GENERAL_SETTINGS_BROWSE" xml:space="preserve">
-    <value>Browse</value>
+    <value>Просмотр</value>
   </data>
   <data name="TXT_MONDAY" xml:space="preserve">
-    <value>Monday</value>
+    <value>Понедельник</value>
   </data>
   <data name="TXT_TUESDAY" xml:space="preserve">
-    <value>Tuesday</value>
+    <value>Вторник</value>
   </data>
   <data name="TXT_WEDNESDAY" xml:space="preserve">
-    <value>Wednesday</value>
+    <value>Среда</value>
   </data>
   <data name="TXT_THURSDAY" xml:space="preserve">
-    <value>Thursday</value>
+    <value>Четверг</value>
   </data>
   <data name="TXT_FRIDAY" xml:space="preserve">
-    <value>Friday</value>
+    <value>Пятница</value>
   </data>
   <data name="TXT_SATURDAY" xml:space="preserve">
-    <value>Saturday</value>
+    <value>Суббота</value>
   </data>
   <data name="TXT_SUNDAY" xml:space="preserve">
-    <value>Sunday</value>
+    <value>Воскресенье</value>
   </data>
   <data name="TXT_INSPECTION_EQUIPMENTS_TITLE" xml:space="preserve">
-    <value>Inspection equipments</value>
+    <value>Инспекционное оборудование</value>
   </data>
   <data name="TXT_INSPECTION_EQUIPMENTS_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_INSPECTION_EQUIPMENTS_REMOVE" xml:space="preserve">
-    <value>Remove</value>
+    <value>Удалить</value>
   </data>
   <data name="TXT_INSPECTION_METHODS_TITLE" xml:space="preserve">
-    <value>Inspection methods</value>
+    <value>Методы проверки</value>
   </data>
   <data name="TXT_INSPECTION_METHODS_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_INSPECTION_METHODS_REMOVE" xml:space="preserve">
-    <value>Remove</value>
+    <value>Удалить</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_TITLE" xml:space="preserve">
-    <value>Email settings</value>
+    <value>Настройки электронной почты</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_DONT_SEND_EMAILS" xml:space="preserve">
-    <value>Don't send emails</value>
+    <value>Не отправлять электронную почту</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_AUTO_EMAIL_CERTIFICATES" xml:space="preserve">
-    <value>Automatically email certificates</value>
+    <value>Автоматические сертификаты электронной почты</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_MAKE_EDITS_BEFORE_SENDING" xml:space="preserve">
-    <value>Allow me to make edits before sending</value>
+    <value>Разрешить внести изменения до отправки</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_SUBJECT" xml:space="preserve">
-    <value>Subject</value>
+    <value>Объект</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_BODY" xml:space="preserve">
-    <value>Body</value>
+    <value>Корпус</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_DEFAULT_SENDING_PREFERENCES" xml:space="preserve">
-    <value>Default Sending Preferences</value>
+    <value>Отправка предпочтения по умолчанию</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_SEND_TO_OFFICE" xml:space="preserve">
-    <value>Send To Office</value>
+    <value>Отправить в офис</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_SEND_TO_CUSTOMER" xml:space="preserve">
-    <value>Send To Customer</value>
+    <value>Отправить клиенту</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_TITLE_DO_NOT_SEND" xml:space="preserve">
-    <value>Do not send</value>
+    <value>Не отправлять</value>
   </data>
   <data name="TXT_EMAIL_SETTINGS_USERS_WONT_SEE_SETTINGS" xml:space="preserve">
-    <value>Users will not see these settings when "Don't send emails" is selected</value>
+    <value>"Пользователи не будут видеть эти параметры при выборе ""Не отправлять электронную почту"""</value>
   </data>
   <data name="TXT_PRINTER_SETTINGS_TITLE" xml:space="preserve">
-    <value>Printer settings</value>
+    <value>Настройки принтера</value>
   </data>
   <data name="TXT_PRINTER_SETTINGS_GENERAL_PURPOSE_PRINTER" xml:space="preserve">
-    <value>General Purpose Printer</value>
+    <value>Общее Назначение Принтера</value>
   </data>
   <data name="TXT_PRINTER_SETTINGS_ALWAYS_ASK" xml:space="preserve">
-    <value>Ask printer always when printing</value>
+    <value>Запрашивать притнер всегда при печати</value>
   </data>
   <data name="TXT_PRINTER_SETTINGS_ALWAYS_USE" xml:space="preserve">
-    <value>Use this printer always:</value>
+    <value>Всегда использовать этот принтер:</value>
   </data>
   <data name="TXT_PRINTER_SETTINGS_DEFAULT_NUMBER" xml:space="preserve">
-    <value>Default number of copies:</value>
+    <value>Количество копий по умолчанию:</value>
   </data>
   <data name="TXT_PRINTER_SETTINGS_LABEL_PRINTER" xml:space="preserve">
-    <value>Label Printer</value>
+    <value>Печать этикетки</value>
   </data>
   <data name="TXT_REGISTRATION_SETTINGS_TITLE" xml:space="preserve">
-    <value>Registration settings</value>
+    <value>Настройки регистрации</value>
   </data>
   <data name="TXT_REGISTRATION_SETTINGS_COMPANY_NAME" xml:space="preserve">
-    <value>Company name</value>
+    <value>Название компании</value>
   </data>
   <data name="TXT_REGISTRATION_SETTINGS_SEAL_NUMBER" xml:space="preserve">
-    <value>Seal number</value>
+    <value>Номер печати</value>
   </data>
   <data name="TXT_REGISTRATION_SETTINGS_EXPIRATION_DATE" xml:space="preserve">
-    <value>Expiration Date:</value>
+    <value>Срок годности:</value>
   </data>
   <data name="TXT_SETTINGS_TITLE" xml:space="preserve">
-    <value>Settings</value>
+    <value>Настройки</value>
   </data>
   <data name="TXT_SETTINGS_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_SETTINGS_SAVE_ALL_AND_CLOSE" xml:space="preserve">
-    <value>Save All &amp; Close</value>
+    <value>Сохраните все &amp; Закрыть</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS_TITLE" xml:space="preserve">
-    <value>Shortcut settings</value>
+    <value>Настройки краткого пути</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS_TACHO_MAKES_AND_MODELES" xml:space="preserve">
-    <value>Tachograph makes and models</value>
+    <value>Марка и модель тахографа</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS_VEHICLE_MAKES_MODELS" xml:space="preserve">
-    <value>Vehicle makes and models</value>
+    <value>Марка и модель автомобиля</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS_TECHNICIANS" xml:space="preserve">
-    <value>Technicians</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS_INSPECTION_METHODS" xml:space="preserve">
-    <value>Inspection methods</value>
+    <value>Методы проверки</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS_INSPECTION_EQUIPMENTS" xml:space="preserve">
-    <value>Inspection equipments</value>
+    <value>Инспекционное оборудование</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS_TYRE_SIZES" xml:space="preserve">
-    <value>Tyre sizes</value>
+    <value>Размеры шин</value>
   </data>
   <data name="TXT_TACHO_MAKES_MODELS_" xml:space="preserve">
-    <value>Tachograph Makes Models</value>
+    <value>Модель Производителя Тахографа</value>
   </data>
   <data name="TXT_TACHO_MAKES_MODELS_TITLE" xml:space="preserve">
-    <value>Tachograph Makes Models</value>
+    <value>Модель Производителя Тахографа</value>
   </data>
   <data name="TXT_TACHO_MAKES_MODELS_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_TACHO_MAKES_MODELS_REMOVE" xml:space="preserve">
-    <value>Remove</value>
+    <value>Удалить</value>
   </data>
   <data name="TXT_TACHO_MAKES_MODELS_MODEL" xml:space="preserve">
-    <value>Model</value>
+    <value>Модель</value>
   </data>
   <data name="TXT_TECHNICIANS_TITLE" xml:space="preserve">
-    <value>Technicians</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_TECHNICIANS_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_TECHNICIANS_REMOVE" xml:space="preserve">
-    <value>Remove</value>
+    <value>Удалить</value>
   </data>
   <data name="TXT_TECHNICIANS_SET_AS_DEFAULT" xml:space="preserve">
-    <value>Set as default</value>
+    <value>Установить по умолчанию</value>
   </data>
   <data name="TXT_TYRE_SIZES_TITLE" xml:space="preserve">
-    <value>Tyre sizes</value>
+    <value>Размеры шин</value>
   </data>
   <data name="TXT_TYRE_SIZES_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_TYRE_SIZES_REMOVE" xml:space="preserve">
-    <value>Remove</value>
+    <value>Удалить</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_TITLE" xml:space="preserve">
-    <value>User Management</value>
+    <value>Управление пользователями</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_ADD_NEW_USER" xml:space="preserve">
-    <value>Add new user:</value>
+    <value>Добавить нового пользователя:</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_NEW_USER_PASSWORD" xml:space="preserve">
-    <value>New user password:</value>
+    <value>Новый пароль пользователя:</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_CLEAR" xml:space="preserve">
-    <value>Clear</value>
+    <value>Очистить</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_YOUR" xml:space="preserve">
-    <value>your</value>
+    <value>ваш</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_CHANGE" xml:space="preserve">
-    <value>Change </value>
+    <value>Изменить</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_PASSWORD" xml:space="preserve">
-    <value> password</value>
+    <value>Пароль</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_OLD_PASSWORD" xml:space="preserve">
-    <value>Your old password:</value>
+    <value>Ваш старый пароль:</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_NEW_PASSWORD" xml:space="preserve">
-    <value>New password:</value>
+    <value>Новый пароль:</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_CHANGE_PASSWORD" xml:space="preserve">
-    <value>Change</value>
+    <value>Изменить</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_CHANGE_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_EXISTING_USERS" xml:space="preserve">
-    <value>Existing Users:</value>
+    <value>Существующие пользователи:</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_MANAGE_SIGNATURE" xml:space="preserve">
-    <value>Manage Signature</value>
+    <value>Управление Подписями</value>
   </data>
   <data name="TXT_USER_MANAGEMENT_RESET_PASSWORD" xml:space="preserve">
-    <value>Reset Password</value>
+    <value>Изменить пароль</value>
   </data>
   <data name="TXT_VEHICLE_MAKES_MODELS_TITLE" xml:space="preserve">
-    <value>Vehicle make and model settings</value>
+    <value>Марка автомобиля и настройки модели</value>
   </data>
   <data name="TXT_VEHICLE_MAKES_MODELS_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_VEHICLE_MAKES_MODELS_REMOVE" xml:space="preserve">
-    <value>Remove</value>
+    <value>Удалить</value>
   </data>
   <data name="TXT_VEHICLE_MAKES_MODELS_MODEL" xml:space="preserve">
-    <value>Model</value>
+    <value>Модель</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_TITLE" xml:space="preserve">
-    <value>Workshop Settings</value>
+    <value>Настройки мастерской</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_WORKSHOP_NAME" xml:space="preserve">
-    <value>Workshop name</value>
+    <value>Название мастерской</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_ADDRESS_1" xml:space="preserve">
-    <value>Address 1</value>
+    <value>Адрес 1</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_ADDRESS_2" xml:space="preserve">
-    <value>Address 2</value>
+    <value>Адрес 2</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_TOWN" xml:space="preserve">
-    <value>Town</value>
+    <value>Город</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_POST_CODE" xml:space="preserve">
-    <value>Post Code</value>
+    <value>Индекс</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_PHONE_NUMBER" xml:space="preserve">
-    <value>Phone Number</value>
+    <value>Номер телефона</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS" xml:space="preserve">
-    <value>Main Email Address</value>
+    <value>Основная электронная почта</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_SECONDARY_EMAIL_ADDRESS" xml:space="preserve">
-    <value>Secondary Email Address</value>
+    <value>Дополнительная электронная почта</value>
   </data>
   <data name="TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO" xml:space="preserve">
-    <value>Choose Logo</value>
+    <value>Выбрать логотип</value>
   </data>
   <data name="TXT_SPEEDLIMITER_TITLE" xml:space="preserve">
-    <value>Speedlimiter document</value>
+    <value>Документ ограничения скорости</value>
   </data>
   <data name="TXT_SPEEDLIMITER_VEHICLE_DATA" xml:space="preserve">
-    <value>Vehicle data</value>
+    <value>Данные транспортного средства</value>
   </data>
   <data name="TXT_SPEEDLIMITER_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Registration number</value>
+    <value>Регистрационный номер</value>
   </data>
   <data name="TXT_SPEEDLIMITER_VIN" xml:space="preserve">
-    <value>VIN</value>
+    <value>ВИН-код</value>
   </data>
   <data name="TXT_SPEEDLIMITER_VEHICLE_MAKE" xml:space="preserve">
-    <value>Vehicle make</value>
+    <value>Марка автомобиля</value>
   </data>
   <data name="TXT_SPEEDLIMITER_MODEL" xml:space="preserve">
-    <value>Model</value>
+    <value>Модель</value>
   </data>
   <data name="TXT_SPEEDLIMITER_TYRE_SIZE" xml:space="preserve">
-    <value>Tyre size</value>
+    <value>Размер шин</value>
   </data>
   <data name="TXT_SPEEDLIMITER_VEHICLE_TYPE" xml:space="preserve">
-    <value>Vehicle type</value>
+    <value>Тип транспортного средства</value>
   </data>
   <data name="TXT_SPEEDLIMITER_REGULATION_SPEED" xml:space="preserve">
-    <value>Regulation Speed</value>
+    <value>Регулировка скорости </value>
   </data>
   <data name="TXT_SPEEDLIMITER_LIMITER_SPEED" xml:space="preserve">
-    <value>Limiter Speed</value>
+    <value>Ограничение скорости</value>
   </data>
   <data name="TXT_SPEEDLIMITER_INSPECTION_DATA" xml:space="preserve">
-    <value>Ispection data</value>
+    <value>Данные инспекции</value>
   </data>
   <data name="TXT_SPEEDLIMITER_INSPECTION_EQUIPMENT" xml:space="preserve">
-    <value>Inspection equipment</value>
+    <value>Осмотр оборудования</value>
   </data>
   <data name="TXT_SPEEDLIMITER_INSPECTION_METHOD" xml:space="preserve">
-    <value>Inspection method</value>
+    <value>Метод контроля</value>
   </data>
   <data name="TXT_SPEEDLIMITER_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_SPEEDLIMITER_INSPECTION_DATE" xml:space="preserve">
-    <value>Inspection date</value>
+    <value>Дата инспекции</value>
   </data>
   <data name="TXT_SPEEDLIMITER_ACCEPTED" xml:space="preserve">
-    <value>Accepted</value>
+    <value>Принято</value>
   </data>
   <data name="TXT_SPEEDLIMITER_CUSTOMER_DATA" xml:space="preserve">
-    <value>Customer data</value>
+    <value>Данные клиента</value>
   </data>
   <data name="TXT_SPEEDLIMITER_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
+    <value>Клиент</value>
   </data>
   <data name="TXT_SPEEDLIMITER_EXPORT_PDF" xml:space="preserve">
-    <value>Export PDF</value>
+    <value>Экспорт PDF</value>
   </data>
   <data name="TXT_SPEEDLIMITER_PREVIEW" xml:space="preserve">
-    <value>Preview</value>
+    <value>Предварительный просмотр</value>
   </data>
   <data name="TXT_SPEEDLIMITER_PRINT" xml:space="preserve">
-    <value>Print</value>
+    <value>Печать</value>
   </data>
   <data name="TXT_SPEEDLIMITER_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_TACHO_HISTORY_TITLE" xml:space="preserve">
-    <value>Tachograph document history</value>
+    <value>Документ истории тахографа</value>
   </data>
   <data name="TXT_TACHO_HISTORY_ENTER_SEARCH_TERM" xml:space="preserve">
-    <value>Enter search term</value>
+    <value>Введите условия поиска</value>
   </data>
   <data name="TXT_TACHO_HISTORY_CREATION_DATE" xml:space="preserve">
-    <value>Creation date</value>
+    <value>Дата создания</value>
   </data>
   <data name="TXT_TACHO_HISTORY_TYPE" xml:space="preserve">
-    <value>Type</value>
+    <value>Тип</value>
   </data>
   <data name="TXT_TACHO_HISTORY_VEHICLE_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Vehicle registration number</value>
+    <value>Регистрационный номер транспортного средства</value>
   </data>
   <data name="TXT_TACHO_HISTORY_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_TACHO_HISTORY_OFFICE" xml:space="preserve">
-    <value>Office</value>
+    <value>Офис</value>
   </data>
   <data name="TXT_TACHO_HISTORY_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
+    <value>Клиент</value>
   </data>
   <data name="TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM" xml:space="preserve">
-    <value>Open in report form</value>
+    <value>Открыть в форме отчета</value>
   </data>
   <data name="TXT_TACHO_HISTORY_EMAIL_REPORT" xml:space="preserve">
-    <value>Email Report</value>
+    <value>Отчёт электронной почты</value>
   </data>
   <data name="TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT" xml:space="preserve">
-    <value>Create VOSA document</value>
+    <value>Создание документа Роструда</value>
   </data>
   <data name="TXT_TACHO_HISTORY_REPRINT_LABEL" xml:space="preserve">
-    <value>Re-Print Label</value>
+    <value>Перепечатать этикетку</value>
   </data>
   <data name="TXT_TACHO_HISTORY_REPRINT_CERTIFICATE" xml:space="preserve">
-    <value>Re-Print Certificate</value>
+    <value>Перепечатать сертификат</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_TITLE" xml:space="preserve">
-    <value>Undownloadability document history</value>
+    <value>История документа невозможности загрузки</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_ENTER_SEARCH_TERM" xml:space="preserve">
-    <value>Enter search term</value>
+    <value>Введите поисковый запрос</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_CREATION_DATE" xml:space="preserve">
-    <value>Creation date</value>
+    <value>Дата создания</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_VEHICLE_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Vehicle registration number</value>
+    <value>Регистрационный номер транспортного средства</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_OFFICE" xml:space="preserve">
-    <value>Office</value>
+    <value>Офис</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
+    <value>Техник</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
+    <value>Клиент</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_OPEN_IN_REPORT_FORM" xml:space="preserve">
-    <value>Open in report form</value>
+    <value>Открыть в форме отчета</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_REPRINT_CERTIFICATE" xml:space="preserve">
-    <value>Re-Print Certificate</value>
+    <value>Перепечатать сертификат</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_TITLE" xml:space="preserve">
-    <value>Workshop card files</value>
+    <value>Файл карты мастерской</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_ADD_FILE" xml:space="preserve">
-    <value>Add file</value>
+    <value>Добавить файл</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD" xml:space="preserve">
-    <value>Read from card</value>
+    <value>Считать с карты</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_FILE" xml:space="preserve">
-    <value>File:</value>
+    <value>Файл:</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_BROWSE" xml:space="preserve">
-    <value>Browse</value>
+    <value>Просмотр</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_WORKSHOP" xml:space="preserve">
-    <value>Workshop:</value>
+    <value>Мастерская:</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_DATE" xml:space="preserve">
-    <value>Date:</value>
+    <value>Дата:</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_STORED_FILES" xml:space="preserve">
-    <value>Stored files</value>
+    <value>Сохраненные файлы</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_CREATION_DATE" xml:space="preserve">
-    <value>Creation date</value>
+    <value>Дата создания</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_WORKSHOP_2" xml:space="preserve">
-    <value>Workshop</value>
+    <value>Мастерская</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_EXPORT" xml:space="preserve">
-    <value>Export</value>
+    <value>Экспорт</value>
   </data>
   <data name="TXT_WORKSHOP_CARD_FILES_REMOVE" xml:space="preserve">
-    <value>Remove</value>
+    <value>Удалить</value>
   </data>
   <data name="ERR_UNABLE_GENERATE_CARD_DUMP" xml:space="preserve">
-    <value>Unable to generate card dump</value>
+    <value>Невозможно создать дамп карты</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_TITLE" xml:space="preserve">
-    <value>Calibration Details</value>
+    <value>Калибровка подробности</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_PURPOSE" xml:space="preserve">
-    <value>Purpose:</value>
+    <value>Назначение:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_VIN" xml:space="preserve">
-    <value>Vehicle identification number:</value>
+    <value>Идентификационный номер транспортного средства:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_REGISTRATION_NATION" xml:space="preserve">
-    <value>Vehicle registration nation:</value>
+    <value>Страна регистрации автомобиля</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Vehicle registration number:</value>
+    <value>Регистрационный номер транспортного средства:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_W_FACTOR" xml:space="preserve">
-    <value>W factor:</value>
+    <value>W Фактор</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_K_FACTOR" xml:space="preserve">
-    <value>K factor:</value>
+    <value>K Фактор</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_L_FACTOR" xml:space="preserve">
-    <value>L factor of the wheel:</value>
+    <value>L Фактор колеса</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_SIZE_OF_TYRE" xml:space="preserve">
-    <value>Size of tyre:</value>
+    <value>Размер шин:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_MAX_SPEED" xml:space="preserve">
-    <value>Maximum speed:</value>
+    <value>Максимальная скорость:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_ODOMETER_READING" xml:space="preserve">
-    <value>Odometer reading:</value>
+    <value>Показания одометра:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_CALIBRATION_TIME" xml:space="preserve">
-    <value>Calibration time:</value>
+    <value>Время калибровки:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_NEXT_CALIBRATION_DATE" xml:space="preserve">
-    <value>Next calibration date:</value>
+    <value>Следующая дата калибровки:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_VEHICLE_UNIT_NUMBER" xml:space="preserve">
-    <value>Vehicle unit number:</value>
+    <value>Номер блока автомобиля</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_TACHO_SERIAL_NUMBER" xml:space="preserve">
-    <value>Tachograph serial number:</value>
+    <value>Серийный номер тахографа:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_TACHO_MAKE" xml:space="preserve">
-    <value>Tachograph make:</value>
+    <value>Производитель тахографа</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_SENSOR_SERIAL" xml:space="preserve">
-    <value>Sensor serial number:</value>
+    <value>Серийный номер датчика:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_SELECT_DATE_RANGE" xml:space="preserve">
-    <value>Select Date Range</value>
+    <value>Выберите диапазон даты</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_START" xml:space="preserve">
-    <value>Start:</value>
+    <value>Начало:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_END" xml:space="preserve">
-    <value>End:</value>
+    <value>Конец:</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_SELECT" xml:space="preserve">
-    <value>Select</value>
+    <value>Выбрать</value>
   </data>
   <data name="TXT_CALIBRATION_DETAILS_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_EXCEPTION_WINDOW_TECHNICAL_INFORMATION" xml:space="preserve">
-    <value>Technical Information</value>
+    <value>Техническая информация</value>
   </data>
   <data name="TXT_EXCEPTION_WINDOW_DATE_TIME" xml:space="preserve">
-    <value>Date/Time</value>
+    <value>Дата / Время</value>
   </data>
   <data name="TXT_EXCEPTION_WINDOW_EXCEPTION_DETAILS" xml:space="preserve">
-    <value>Exception Details</value>
+    <value>Подробности исключения</value>
   </data>
   <data name="TXT_EXCEPTION_WINDOW_EXPORT" xml:space="preserve">
-    <value>Export</value>
+    <value>Экспорт</value>
   </data>
   <data name="TXT_EXCEPTION_WINDOW_CLOSE" xml:space="preserve">
-    <value>Close</value>
+    <value>Закрыть</value>
   </data>
   <data name="TXT_LOGIN_WINDOW_TITLE" xml:space="preserve">
-    <value>Log In</value>
+    <value>Вход</value>
   </data>
   <data name="TXT_LOGIN_WINDOW_USER_NAME" xml:space="preserve">
-    <value>User Name:</value>
+    <value>Имя пользователя:</value>
   </data>
   <data name="TXT_LOGIN_WINDOW_PASSWORD" xml:space="preserve">
-    <value>Password:</value>
+    <value>Пароль:</value>
   </data>
   <data name="TXT_LOGIN_WINDOW_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_MAIN_WINDOW_TITLE" xml:space="preserve">
-    <value>Webcal - Skillray Transport Services Ltd</value>
+    <value>Webcal - RoadSoft Transport Services Ltd</value>
   </data>
   <data name="TXT_MAIN_WINDOW_FILE" xml:space="preserve">
-    <value>File</value>
+    <value>Файл</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SETTINGS" xml:space="preserve">
-    <value>Settings</value>
+    <value>Настройки</value>
   </data>
   <data name="TXT_MAIN_WINDOW_GENERATE_REPORT" xml:space="preserve">
-    <value>Generate Report</value>
+    <value>Создать отчет</value>
   </data>
   <data name="TXT_MAIN_WINDOW_BACKUP_DATABASE" xml:space="preserve">
-    <value>Backup Database</value>
+    <value>Резервное копирование базы данных</value>
   </data>
   <data name="TXT_MAIN_WINDOW_RESTORE_DATABASE" xml:space="preserve">
-    <value>Restore Database</value>
+    <value>Восстановление базы данных</value>
   </data>
   <data name="TXT_MAIN_WINDOW_VIEW_TASK_QUEUE" xml:space="preserve">
-    <value>View Task Queue</value>
+    <value>Посмотреть Задачу в Очереди</value>
   </data>
   <data name="TXT_MAIN_WINDOW_CHECK_FOR_UPDATES" xml:space="preserve">
-    <value>Check For Updates</value>
+    <value>Проверить на наличие обновлений</value>
   </data>
   <data name="TXT_MAIN_WINDOW_ABOUT" xml:space="preserve">
-    <value>About</value>
+    <value>Относительно</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOW_SETTINGS" xml:space="preserve">
-    <value>Shows the settings dialog</value>
+    <value>Показать настройки диалога</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOW_REPORT" xml:space="preserve">
-    <value>Shows the report dialog</value>
+    <value>Показать отчёт диалога</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOW_BACKUP" xml:space="preserve">
-    <value>Shows the backup utility</value>
+    <value>Показать утилиты резервного копирования</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOW_RESTORE" xml:space="preserve">
-    <value>Shows the restore utility</value>
+    <value>Показать утилиты восстановления</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOW_TASKS" xml:space="preserve">
-    <value>Displays the list of tasks currently running</value>
+    <value>Отображать список задач работающих в настоящие время</value>
   </data>
   <data name="TXT_MAIN_WINDOW_CHECK_FOR_APPLICATION_UPDATES" xml:space="preserve">
-    <value>Checks for updates to the application</value>
+    <value>Проверить на наличие обновления приложения</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH" xml:space="preserve">
-    <value>Shows about and technical information</value>
+    <value>Показать техническую информацию</value>
   </data>
   <data name="TXT_MAIN_WINDOW_COPYRIGHT" xml:space="preserve">
-    <value>Copyright © Skillray Transport Services UK</value>
+    <value>Все права защищены © RoadSoft International</value>
   </data>
   <data name="TXT_MAIN_WINDOW_VIEW_TECHNICAL_INFORMATION" xml:space="preserve">
-    <value>View Technical Information</value>
+    <value>Посмотреть Техническую Информацию</value>
   </data>
   <data name="TXT_MAIN_WINDOW_EXITS_APPLICATION" xml:space="preserve">
-    <value>Exits the application</value>
+    <value>Выйти из приложения</value>
   </data>
   <data name="TXT_MAIN_WINDOW_NEW_DOCUMENTS" xml:space="preserve">
-    <value>New Documents</value>
+    <value>Новый Документ</value>
   </data>
   <data name="TXT_MAIN_WINDOW_HOME" xml:space="preserve">
-    <value>Home</value>
+    <value>Главная</value>
   </data>
   <data name="TXT_MAIN_WINDOW_EXIT" xml:space="preserve">
-    <value>Exit</value>
+    <value>Выход</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN" xml:space="preserve">
-    <value>Shows the home screen</value>
+    <value>Показать главный экран</value>
   </data>
   <data name="TXT_MAIN_WINDOW_DIGITAL_TACHO" xml:space="preserve">
-    <value>Digital Tachograph</value>
+    <value>Цифровой Тахограф</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN" xml:space="preserve">
-    <value>Shows the new tachograh document screen</value>
+    <value>Показать новый экран документа тахографа</value>
   </data>
   <data name="TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT" xml:space="preserve">
-    <value>New Tachograph Document</value>
+    <value>Новый Документ Тахографа</value>
   </data>
   <data name="TXT_MAIN_WINDOW_ANALOGUE_TACHO" xml:space="preserve">
-    <value>Analogue Tachograph</value>
+    <value>Аналоговый Тахограф</value>
   </data>
   <data name="TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT" xml:space="preserve">
-    <value>New Analogue Tachograph Document</value>
+    <value>Новый Документ Аналогового Тахографа</value>
   </data>
   <data name="TXT_MAIN_WINDOW_UNDOWNLOADABILITY" xml:space="preserve">
-    <value>Undownloadability</value>
+    <value>Невозможность загрузки</value>
   </data>
   <data name="TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT" xml:space="preserve">
-    <value>New Undownloadability Document</value>
+    <value>Новый Документ Невозможности загрузки</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT" xml:space="preserve">
-    <value>Shows the new undownloadability document screen</value>
+    <value>Показывает экран нового документа невозможности загрузки</value>
   </data>
   <data name="TXT_MAIN_WINDOW_HISTORY" xml:space="preserve">
-    <value>History</value>
+    <value>История</value>
   </data>
   <data name="TXT_MAIN_WINDOW_TACHOGRAPH" xml:space="preserve">
-    <value>Tachograph</value>
+    <value>Тахограф</value>
   </data>
   <data name="TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY" xml:space="preserve">
-    <value>Tachograph History</value>
+    <value>История Тахографа</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN" xml:space="preserve">
-    <value>Shows the historical tachograph documents screen</value>
+    <value>Показать экран истории документа тахографа</value>
   </data>
   <data name="TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY" xml:space="preserve">
-    <value>Undownloadability History</value>
+    <value>История невозможности загрузки</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN" xml:space="preserve">
-    <value>Shows the historial undownloadability documents screen</value>
+    <value>Показывает экран истории не загруженных документов</value>
   </data>
   <data name="TXT_MAIN_WINDOW_CARD_BROWSER" xml:space="preserve">
-    <value>Card Browser</value>
+    <value>Просмотр карты</value>
   </data>
   <data name="TXT_MAIN_WINDOW_CALIBRATIONS" xml:space="preserve">
-    <value>Calibrations</value>
+    <value>Калибровка</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN" xml:space="preserve">
-    <value>Shows the calibrations screen</value>
+    <value>Показать экран калибровки</value>
   </data>
   <data name="TXT_MAIN_WINDOW_FILES" xml:space="preserve">
-    <value>Files</value>
+    <value>Файлы</value>
   </data>
   <data name="TXT_MAIN_WINDOW_WORKSHOP_CARD" xml:space="preserve">
-    <value>Workshop Card</value>
+    <value>Карта мастерской</value>
   </data>
   <data name="TXT_MAIN_WINDOW_WORKSHOP_CARD_FILES" xml:space="preserve">
-    <value>Workshop Card Files</value>
+    <value>Файлы карты мастерской</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN" xml:space="preserve">
-    <value>Shows the workshop card files screen</value>
+    <value>Показать экран файлов карт мастерской</value>
   </data>
   <data name="TXT_MAIN_WINDOW_WEBCAL" xml:space="preserve">
     <value>Webcal</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOW" xml:space="preserve">
-    <value>Show</value>
+    <value>Показать</value>
   </data>
   <data name="TXT_REPRINT_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Registration Number:</value>
+    <value>Регистрационный номер:</value>
   </data>
   <data name="TXT_REPRINT_REPRINT" xml:space="preserve">
-    <value>Re-Print</value>
+    <value>Перепечатать</value>
   </data>
   <data name="TXT_REPRINT_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
   </data>
   <data name="TXT_CAPTURE_SIGNATURE_TITLE" xml:space="preserve">
-    <value>Capture Signature</value>
+    <value>Процесс подписывания</value>
   </data>
   <data name="TXT_CAPTURE_SIGNATURE_SAVE_AND_CLOSE" xml:space="preserve">
-    <value>Save &amp; Close</value>
+    <value>Сохранить &amp; Закрыть</value>
   </data>
   <data name="TXT_CAPTURE_SIGNATURE_BROWSE" xml:space="preserve">
-    <value>Browse</value>
+    <value>Просмотр</value>
   </data>
   <data name="TXT_CAPTURE_SIGNATURE_CLOSE" xml:space="preserve">
-    <value>Close</value>
+    <value>Закрыть</value>
   </data>
   <data name="TXT_CAPTURE_SIGNATURE_TASK_QUEUE" xml:space="preserve">
-    <value>Task Queue</value>
+    <value>Задача в очереди</value>
   </data>
   <data name="TXT_WORKER_PROGRESS_TITLE" xml:space="preserve">
-    <value>Task Queue</value>
-  </data>
-  <data name="TXT_WORKER_PROGRESS_NO_PENDING_TASKS" xml:space="preserve">
-    <value>There are no tasks waiting to be processed.</value>
+    <value>Задача в очереди</value>
   </data>
   <data name="TXT_WORKER_PROGRESS_CLOSE" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="TXT_THEME_SETTINGS_TITLE" xml:space="preserve">
-    <value>Theme Settings</value>
-  </data>
-  <data name="TXT_SILVER_THEME" xml:space="preserve">
-    <value>Silver</value>
-  </data>
-  <data name="TXT_BLUE_THEME" xml:space="preserve">
-    <value>Blue</value>
-  </data>
-  <data name="TXT_BLACK_THEME" xml:space="preserve">
-    <value>Black</value>
-  </data>
-  <data name="TXT_THEME_SETTINGS" xml:space="preserve">
-    <value>Theme Settings</value>
+    <value>Закрыть</value>
   </data>
   <data name="TXT_OK" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="TXT_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="TXT_TECHNICIANS_VIEW_NAME" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="TXT_TECHNICIANS_VIEW_NUMBER" xml:space="preserve">
-    <value>Number</value>
-  </data>
-  <data name="TXT_ENTER_TECHNICIAN_NUMBER" xml:space="preserve">
-    <value>Enter the technician number</value>
-  </data>
-  <data name="TXT_MISCELLANEOUS_SETTINGS_TITLE" xml:space="preserve">
-    <value>Miscellaneous Settings</value>
-  </data>
-  <data name="TXT_DIGITAL_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE" xml:space="preserve">
-    <value>Digital Tachograph Default Document Type:</value>
-  </data>
-  <data name="TXT_ANALOGUE_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE" xml:space="preserve">
-    <value>Analogue Tachograph Default Document Type:</value>
-  </data>
-  <data name="TXT_MISCELLANEOUS_SETTINGS" xml:space="preserve">
-    <value>Miscellaneous settings</value>
-  </data>
-  <data name="TXT_MISCELLANEOUS_INCLUDE_LOGO_WHEN_PRINTING" xml:space="preserve">
-    <value>Include workshop logo when printing?</value>
-  </data>
-  <data name="TXT_ERR_MUST_SELECT_DOCUMENT_TYPE" xml:space="preserve">
-    <value>Cannot print label because you must select a document type first.</value>
-  </data>
-  <data name="TXT_ADD_SIGNATURE" xml:space="preserve">
-    <value>Add Signature</value>
-  </data>
-  <data name="TXT_TECHNICIANS_HAS_SIGNATURE" xml:space="preserve">
-    <value>Has Signature?</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_TITLE" xml:space="preserve">
-    <value>Letter For Decommissioning</value>
-  </data>
-  <data name="TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING" xml:space="preserve">
-    <value>Letter For Decommissioning</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA" xml:space="preserve">
-    <value>Vehicle Data</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Registration Number</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_DATA" xml:space="preserve">
-    <value>Tachograph Data</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MAKE" xml:space="preserve">
-    <value>Tachograph Make</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_TACHOGRAPH_MODEL" xml:space="preserve">
-    <value>Model</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_SERIAL_NUMBER" xml:space="preserve">
-    <value>Serial Number</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_INSPECTION_DATA" xml:space="preserve">
-    <value>Inspection data</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_INSPECTION_DATE" xml:space="preserve">
-    <value>Inspection date</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_CUSTOMER_DATA" xml:space="preserve">
-    <value>Customer data</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_EXPORT_PDF" xml:space="preserve">
-    <value>Export PDF</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_PRINT" xml:space="preserve">
-    <value>Print</value>
-  </data>
-  <data name="TXT_LETTER_DECOMMISSIONING_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TITLE" xml:space="preserve">
-    <value>Letter For Decommissioning document history</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_ENTER_SEARCH_TERM" xml:space="preserve">
-    <value>Enter search term</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CREATION_DATE" xml:space="preserve">
-    <value>Creation date</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_VEHICLE_REGISTRATION_NUMBER" xml:space="preserve">
-    <value>Vehicle registration number</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OFFICE" xml:space="preserve">
-    <value>Office</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_TECHNICIAN" xml:space="preserve">
-    <value>Technician</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_CUSTOMER" xml:space="preserve">
-    <value>Customer</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_OPEN_IN_REPORT_FORM" xml:space="preserve">
-    <value>Open in report form</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_HISTORY_REPRINT_CERTIFICATE" xml:space="preserve">
-    <value>Re-Print Certificate</value>
-  </data>
-  <data name="TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY" xml:space="preserve">
-    <value>Letter For Decommissioning</value>
-  </data>
-  <data name="TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP" xml:space="preserve">
-    <value>Letter For Decommissioning History</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_LINE_1" xml:space="preserve">
-    <value>The digital tachograph unit [{0} - {1}] [{2}] that was installed into vehicle registration number [{3}] is not functioning in accordance with the requirements of Annex 1B.</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_LINE_2" xml:space="preserve">
-    <value>The unit has been removed from the above vehicle and a download of all data since the last download has been carried out and is now being stored by us at the centre in accordance with Requirement 260 of the Annex 1B and section 10.7 of the VOSA Approved Tachograph Centre Manual (ATCM).</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_LINE_3" xml:space="preserve">
-    <value>To obtain the information from the centre named below, please apply in writing to the centre, specifying company card details used in the unit, provide any required passwords to be used to secure the data during delivery and the required method of delivery, i.e. CD or secure email.</value>
-  </data>
-  <data name="TXT_LETTER_FOR_DECOMMISSIONING_LINE_4" xml:space="preserve">
-    <value>The above information will be stored securely by the centre for 365 days from date of this letter, after that date the data will be destroyed in accordance with the DVSA ATCM.</value>
-  </data>
-  <data name="TXT_REGARDS" xml:space="preserve">
-    <value>Regards</value>
-  </data>
-  <data name="TXT_SIGNATURE" xml:space="preserve">
-    <value>Signature</value>
-  </data>
-  <data name="TXT_WEBCAL_CONNECT_KEY" xml:space="preserve">
-    <value>Webcal Connect Key</value>
-  </data>
-  <data name="ERR_SAVING_SETTINGS" xml:space="preserve">
-    <value>An error occurred whilst saving settings.  Some settings may have been lost.</value>
-  </data>
-  <data name="TXT_VERIFY" xml:space="preserve">
-    <value>Verify</value>
-  </data>
-  <data name="TXT_ONE_OR_MORE_ERRORS" xml:space="preserve">
-    <value>One or more errors occurred whilst performing the operation.  See below for details;
-
-{0}</value>
-  </data>
-  <data name="TXT_NEW_BATTERY" xml:space="preserve">
-    <value>New Battery</value>
-  </data>
-  <data name="TXT_NEW_TACHOGRAPH_NEW_BATTERY" xml:space="preserve">
-    <value>New Battery?</value>
-  </data>
-  <data name="TXT_SIEMENS_VDO" xml:space="preserve">
-    <value>SIEMENS VDO</value>
-  </data>
-  <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION" xml:space="preserve">
-    <value>4 - Digital 2 year calibration</value>
+    <value>хорошо</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Backup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Backup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BusyIndicator" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BusyIndicator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Calibration" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Calibration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CompanyLogoHoldingImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CompanyLogoHoldingImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="email" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Footer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Footer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="landscape" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\landscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LetterForDecommissioningHistorySmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LetterForDecommissioningHistorySmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LetterForDecommissioningSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LetterForDecommissioningSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewAnalogueTachoDoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewAnalogueTachoDoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewBlueDocLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewBlueDocLarge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewCertificateDoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewCertificateDoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewGreenDocLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewGreenDocLarge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewPlaqueDoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewPlaqueDoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewSpeedDoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewSpeedDoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewSpeedDocSm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewSpeedDocSm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewTachoDoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewTachoDoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewTachoDocSm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewTachoDocSm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewUndownloadDoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewUndownloadDoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewUndownloadDocSm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewUndownloadDocSm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OldTachoDocSm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OldTachoDocSm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OldUndownloadDocSm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OldUndownloadDocSm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Print" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PrintPreview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PrintPreview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Report" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Restore" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Restore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SettingsSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SettingsSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="skillray_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\skillray-small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="skillray_small_bw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\skillray-small-bw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="skillray_tacho_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\skillray-tacho-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Table" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TachoBackupSm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TachoBackupSm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UndownloadHeader" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UndownloadHeader.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Vosa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Vosa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="webcal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\webcal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="webcal1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\webcal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="webcal_medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\webcal-medium.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="webcal_print_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\webcal-print-logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WorkshopBackupSm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WorkshopBackupSm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ZoomIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ZoomIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ZoomOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ZoomOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\splash-ru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TXT_SPLASH_SCREEN_PATH" xml:space="preserve">
-    <value>Resources/splash.png</value>
+    <value>Resources/splash-ru.png</value>
   </data>
 </root>

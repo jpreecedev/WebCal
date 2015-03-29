@@ -37,78 +37,78 @@
                                    IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:MenuItem x:Name="SettingsMenuItem"
                                 Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
-                                Icon="..\..\Images\Settings.png"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Settings}"
                                 Command="{Binding SettingsCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
-                                         Image="..\..\Images\Settings.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Settings}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_SETTINGS}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem x:Name="GenerateReportMenuItem"
                                 Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
-                                Icon="..\..\Images\Report.png"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Report}"
                                 Command="{Binding GenerateReportCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
-                                         Image="..\..\Images\Report.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Report}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_REPORT}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
-                                Icon="..\..\Images\Backup.png"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Backup}"
                                 Command="{Binding BackupDatabaseCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
-                                         Image="..\..\Images\Backup.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Backup}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_BACKUP}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_RESTORE_DATABASE}"
-                                Icon="..\..\Images\Restore.png"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Restore}"
                                 Command="{Binding RestoreDatabaseCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_RESTORE_DATABASE}"
-                                         Image="..\..\Images\Restore.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Restore}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_RESTORE}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TASK_QUEUE}"
-                                Icon="..\..\Images\queue.png"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}queue}"
                                 Command="{Binding ViewTaskQueueCommand}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TASK_QUEUE}"
-                                         Image="..\..\Images\queue.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}queue}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_TASKS}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_UPDATES}"
-                                Icon="..\..\Images\Update.png"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}update}"
                                 Command="{Binding UpdateCommand}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_UPDATES}"
-                                         Image="..\..\Images\Update.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}update}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_APPLICATION_UPDATES}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ABOUT}"
-                                Icon="..\..\Images\Info.png"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Info}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ABOUT}"
-                                         Image="..\..\Images\Info.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Info}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH}" />
                         </r:MenuItem.ToolTip>
                         <StackPanel Orientation="Vertical"
                                     Margin="10"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center">
-                            <Image Source="..\..\Images\skillray-small.png"
+                            <Image Source="{core:LocalizedImageBinding ConverterParameter={}skillray-small}"
                                    Width="116"
                                    Height="30"
                                    Margin="0,0,0,10" />
@@ -122,13 +122,13 @@
                     </r:MenuItem>
                     <r:MenuItem x:Name="ExitMenuItem"
                                 Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
-                                Icon="..\..\Images\Exit.png"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Exit}"
                                 Command="{Binding ExitCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
-                                         Image="..\..\Images\Exit.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Exit}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXITS_APPLICATION}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
@@ -140,12 +140,12 @@
                 <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                              Icon="..\..\Images\home-icon.png"
-                              LargeIcon="..\..\Images\home-icon.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                               Command="{Binding CancelCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                                         Image="..\..\Images\home-icon.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
@@ -153,42 +153,42 @@
                 <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_DIGITAL_TACHO}"
-                              Icon="..\..\Images\NewTachoDocSm.png"
-                              LargeIcon="..\..\Images\NewTachoDocSm.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}NewTachoDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewTachoDocSm}"
                               Command="{Binding NewTachographCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT}"
-                                         Image="..\..\Images\NewTachoDocSm.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}NewTachoDocSm}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ANALOGUE_TACHO}"
-                              Icon="..\..\Images\NewAnalogueTachoDoc.png"
-                              LargeIcon="..\..\Images\NewAnalogueTachoDoc.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}NewAnalogueTachoDoc}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewAnalogueTachoDoc}"
                               Command="{Binding NewAnalogueTachographCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT}"
-                                         Image="..\..\Images\NewAnalogueTachoDoc.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}NewAnalogueTachoDoc}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY}"
-                              Icon="..\..\Images\NewUndownloadDocSm.png"
-                              LargeIcon="..\..\Images\NewUndownloadDocSm.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
                               Command="{Binding NewUndownloadabilityCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT}"
-                                         Image="..\..\Images\NewUndownloadDocSm.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT}" />
                         </r:Button.ToolTip>
                     </r:Button>
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}"
-                              Icon="..\..\Images\LetterForDecommissioningSmall.png"
-                              LargeIcon="..\..\Images\LetterForDecommissioningSmall.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningSmall}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningSmall}"
                               Command="{Binding LetterForDecommissioningCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}"
-                                         Image="..\..\Images\LetterForDecommissioningSmall.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningSmall}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}" />
                         </r:Button.ToolTip>
                     </r:Button>
@@ -200,12 +200,12 @@
                 <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                              Icon="..\..\Images\home-icon.png"
-                              LargeIcon="..\..\Images\home-icon.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                               Command="{Binding CancelCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                                         Image="..\..\Images\home-icon.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
@@ -213,32 +213,32 @@
                 <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH}"
-                              Icon="..\..\Images\OldTachoDocSm.png"
-                              LargeIcon="..\..\Images\OldTachoDocSm.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
                               Command="{Binding TachographHistoryCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY}"
-                                         Image="..\..\Images\OldTachoDocSm.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY}"
-                              Icon="..\..\Images\OldUndownloadDocSm.png"
-                              LargeIcon="..\..\Images\OldUndownloadDocSm.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
                               Command="{Binding UndownloadabilityHistoryCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY}"
-                                         Image="..\..\Images\OldUndownloadDocSm.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY}"
-                              Icon="..\..\Images\LetterForDecommissioningHistorySmall.png"
-                              LargeIcon="..\..\Images\LetterForDecommissioningHistorySmall.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
                               Command="{Binding LetterForDecommissioningHistoryCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY}"
-                                         Image="..\..\Images\LetterForDecommissioningHistorySmall.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP}" />
                         </r:Button.ToolTip>
                     </r:Button>
@@ -250,12 +250,12 @@
                 <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                              Icon="..\..\Images\home-icon.png"
-                              LargeIcon="..\..\Images\home-icon.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                               Command="{Binding CancelCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                                         Image="..\..\Images\home-icon.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
@@ -263,12 +263,12 @@
                 <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CALIBRATIONS}"
-                              Icon="..\..\Images\Calibration.png"
-                              LargeIcon="..\..\Images\Calibration.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}Calibration}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}Calibration}"
                               Command="{Binding CalibrationsCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CALIBRATIONS}"
-                                         Image="..\..\Images\Calibration.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Calibration}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
@@ -280,12 +280,12 @@
                 <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                              Icon="..\..\Images\home-icon.png"
-                              LargeIcon="..\..\Images\home-icon.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                               Command="{Binding CancelCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                                         Image="..\..\Images\home-icon.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
@@ -293,12 +293,12 @@
                 <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}"
                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WORKSHOP_CARD}"
-                              Icon="..\..\Images\WorkshopBackupSm.png"
-                              LargeIcon="..\..\Images\WorkshopBackupSm.png"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}WorkshopBackupSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}WorkshopBackupSm}"
                               Command="{Binding WorkshopCardFilesCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WORKSHOP_CARD_FILES}"
-                                         Image="..\..\Images\WorkshopBackupSm.png"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}WorkshopBackupSm}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
@@ -320,7 +320,7 @@
 
         </Border>
 
-        <tb:TaskbarIcon IconSource="/Images/Main Icon.ico"
+        <tb:TaskbarIcon IconSource="{core:LocalizedImageBinding ConverterParameter={}Main_Icon}"
                         ToolTipText="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WEBCAL}">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>

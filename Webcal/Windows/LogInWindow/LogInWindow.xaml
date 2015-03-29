@@ -57,7 +57,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Image Source="../../Images/webcal-medium.png"
+        <Image Source="{core:LocalizedImageBinding ConverterParameter={}webcal-medium}"
                Width="225"
                Height="52"
                Grid.ColumnSpan="3"

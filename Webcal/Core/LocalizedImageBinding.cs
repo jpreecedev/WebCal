@@ -1,16 +1,17 @@
-namespace Webcal.Core
+﻿namespace Webcal.Core
 {
     using System.Globalization;
     using System.Windows.Data;
+    using Converters;
 
-    public class OneWayInputBinding : Binding
+    public class LocalizedImageBinding : Binding
     {
-        public OneWayInputBinding()
+        public LocalizedImageBinding()
         {
             Configure();
         }
 
-        public OneWayInputBinding(string path)
+        public LocalizedImageBinding(string path)
             : base(path)
         {
             Configure();
@@ -18,9 +19,8 @@ namespace Webcal.Core
 
         private void Configure()
         {
-            Mode = BindingMode.OneWay;
-            UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
             ConverterCulture = CultureInfo.CurrentUICulture;
+            Converter = new LocalizedImageConverter();
         }
     }
 }

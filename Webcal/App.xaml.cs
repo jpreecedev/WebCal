@@ -3,7 +3,10 @@
     using System;
     using System.Data.Entity;
     using System.Diagnostics;
-    using System.Linq;
+    using System.Globalization;
+    using System.Reflection;
+    using System.Resources;
+    using System.Threading;
     using System.Windows;
     using System.Windows.Threading;
     using Windows;
@@ -20,6 +23,7 @@
     {
         public App()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
             Dispatcher.CurrentDispatcher.UnhandledException += CurrentDispatcher_UnhandledException;
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
@@ -28,7 +32,7 @@
 
         private void Current_Startup(object sender, StartupEventArgs e)
         {
-            var splashScreen = new SplashScreen("Images/splash.png");
+            var splashScreen = new SplashScreen(LocalizationHelper.GetResourceManager().GetString("TXT_SPLASH_SCREEN_PATH"));
             splashScreen.Show(false);
 
             if (!InitialiseApplication())

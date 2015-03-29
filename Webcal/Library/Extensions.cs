@@ -8,12 +8,9 @@
     using System.Linq;
     using System.Reflection;
     using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Documents;
     using System.Windows.Interop;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
-    using System.Windows.Threading;
     using Core;
     using Image = System.Drawing.Image;
     using Size = System.Drawing.Size;
@@ -143,6 +140,19 @@
                     yield return childOfChild;
                 }
             }
+        }
+
+        public static Bitmap ToBitmap(this BitmapSource bitmapsource)
+        {
+            Bitmap bitmap;
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                BitmapEncoder enc = new BmpBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(bitmapsource));
+                enc.Save(outStream);
+                bitmap = new Bitmap(outStream);
+            }
+            return bitmap;
         }
 
         public static BitmapSource ToBitmapSource(this Image image)

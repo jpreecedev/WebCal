@@ -74,7 +74,7 @@
                             VerticalAlignment="Center"
                             Visibility="{Binding View.HelpText, Converter={StaticResource String2Vis}}"
                             Margin="5,0,0,5">
-                    <Image Source="../../../Images/Info.png"
+                    <Image Source="{core:LocalizedImageBinding ConverterParameter={}Info}"
                            Width="24"
                            Height="24"
                            Margin="5,0,0,0" />

@@ -72,6 +72,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>..\bin\</OutputPath>
@@ -235,6 +236,7 @@
     <Compile Include="Converters\IntToVisibilityConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\InverseBooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\LocalizedImageConverter.cs" />
     <Compile Include="Converters\NullToBooleanConverter.cs" />
     <Compile Include="Converters\InverseNullToVisibilityConverter.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
@@ -256,6 +258,7 @@
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\DelegateCommand.cs" />
     <Compile Include="Core\INewDocumentViewModel.cs" />
+    <Compile Include="Core\LocalizedImageBinding.cs" />
     <Compile Include="Core\OneWayInputBinding.cs" />
     <Compile Include="EventArguments\DriverCardCompletedEventArgs.cs" />
     <Compile Include="EventArguments\DriverCardProgressEventArgs.cs" />
@@ -276,6 +279,7 @@
     <Compile Include="EventArguments\ModalClosedEventArgs.cs" />
     <Compile Include="Library\IServiceProvider.cs" />
     <Compile Include="Library\LabelHelper.cs" />
+    <Compile Include="Library\LocalizationHelper.cs" />
     <Compile Include="Library\MigrationHelper.cs" />
     <Compile Include="Library\PDF\BasePlaqueDocument.cs" />
     <Compile Include="Library\PDF\FullCertificate.cs" />
@@ -635,9 +639,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.ru-RU.resx">
+    <EmbeddedResource Include="Properties\Resources.ru.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -650,35 +653,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Table.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Report.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backup.png" />
-    <Resource Include="Images\Restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Copy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Minimize.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Close.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\NewSpeedDoc.png" />
-    <Resource Include="Images\NewTachoDoc.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -708,9 +682,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\home-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\SmartCardReader.jar">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -737,109 +708,15 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\NewUndownloadDoc.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\NewUndownloadDocSm.png" />
-    <Resource Include="Images\NewTachoDocSm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\OldTachoDocSm.png" />
-    <Resource Include="Images\OldUndownloadDocSm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Calibration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\TachoBackupSm.png" />
-    <Resource Include="Images\WorkshopBackupSm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Print.png" />
-    <Resource Include="Images\PrintPreview.png" />
-    <Resource Include="Images\ZoomIn.png" />
-    <Resource Include="Images\ZoomOut.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\SettingsSmall.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Info.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Main Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Main Icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Update.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\PDF\Footer.png" />
-    <Resource Include="Images\PDF\Vosa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\PDF\UndownloadHeader.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\NewAnalogueTachoDoc.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\landscape.png" />
-    <Resource Include="Images\portrait.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\splash.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\webcal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\PDF\skillray-small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\skillray-small.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="FodyWeavers.xml">
       <SubType>Designer</SubType>
     </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\webcal-medium.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\PDF\skillray-tacho-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\NewBlueDocLarge.png" />
-    <Resource Include="Images\NewCertificateDoc.png" />
-    <Resource Include="Images\NewGreenDocLarge.png" />
-    <Resource Include="Images\NewPlaqueDoc.png" />
-    <Resource Include="Images\NewSpeedDocSm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\webcal-print-logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\CompanyLogoHoldingImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\webcal.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\queue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\email.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\LetterForDecommissioningHistorySmall.png" />
-    <Resource Include="Images\LetterForDecommissioningSmall.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Webcal.DataModel\Webcal.DataModel.csproj">
@@ -856,7 +733,163 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\BusyIndicator.png" />
+    <EmbeddedResource Include="Resources\Backup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BusyIndicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Calibration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CompanyLogoHoldingImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\home-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\landscape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LetterForDecommissioningHistorySmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LetterForDecommissioningSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewAnalogueTachoDoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewBlueDocLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewCertificateDoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewGreenDocLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewPlaqueDoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewSpeedDoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewSpeedDocSm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewTachoDoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewTachoDocSm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewUndownloadDoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewUndownloadDocSm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\OldTachoDocSm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\OldUndownloadDocSm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\PrintPreview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\queue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Restore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\SettingsSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\skillray-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TachoBackupSm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\webcal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\webcal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\webcal-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\webcal-print-logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WorkshopBackupSm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ZoomIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ZoomOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Footer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\skillray-tacho-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UndownloadHeader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Vosa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\skillray-small-bw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\splash-ru.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

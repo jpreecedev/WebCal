@@ -1,10 +1,8 @@
 ﻿namespace Webcal.Library.PDF
 {
     using System;
-    using System.Drawing.Imaging;
     using System.IO;
     using System.Linq;
-    using System.Windows.Resources;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
@@ -90,8 +88,7 @@
 
         protected Image GetWorkshopImage()
         {
-            StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/skillray-small1.png");
-            return Image.FromStream(resourceStream.Stream);
+            return ImageHelper.LoadFromResources("skillray-small1").ToBitmap();
         }
 
         protected string TrimDocumentType(string type)

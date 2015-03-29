@@ -218,7 +218,7 @@
                                 <Viewbox Height="24"
                                          Width="24"
                                          Margin="2">
-                                    <ctrls:ImageStrip Image="../Images/BusyIndicator.png"
+                                    <ctrls:ImageStrip Image="{core:LocalizedImageBinding ConverterParameter={}BusyIndicator}"
                                                       FrameSize="20"
                                                       Width="20"
                                                       Height="20"

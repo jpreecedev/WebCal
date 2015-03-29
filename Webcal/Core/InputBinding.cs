@@ -1,5 +1,6 @@
 ﻿namespace Webcal.Core
 {
+    using System.Globalization;
     using System.Windows.Data;
 
     public class InputBinding : Binding
@@ -19,6 +20,7 @@
         {
             Mode = BindingMode.TwoWay;
             UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            ConverterCulture = CultureInfo.CurrentUICulture;
         }
     }
 }

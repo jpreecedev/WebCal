@@ -2,7 +2,6 @@
 {
     using System;
     using Connect.Shared.Models;
-    using DataModel;
     using iTextSharp.text;
     using Properties;
 
@@ -111,7 +110,7 @@
             AbsolutePositionText(document, string.Format(Resources.TXT_SIGNATURE_TECHNICIAN, tachographDocument.Technician), (startHorizontal + 350), (startVertical + 340), 550, 20);
 
             string imageFilePath = (DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/skillray-small.png")).ToString();
-            iTextSharp.text.Image logoImage = iTextSharp.text.Image.GetInstance(imageFilePath);
+            Image logoImage = Image.GetInstance(imageFilePath);
             logoImage.SetAbsolutePosition(50, 790);
         }
     }

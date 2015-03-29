@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:Webcal.Views"
              xmlns:behav="clr-namespace:Webcal.Behaviours"
              xmlns:Properties="clr-namespace:Webcal.Properties"
+             xmlns:core="clr-namespace:Webcal.Core"
              mc:Ignorable="d"
              d:DesignHeight="800"
              d:DesignWidth="750"
@@ -24,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Vertical">
-            <Image Source="..\..\Images\webcal.png"
+            <Image Source="{core:LocalizedImageBinding ConverterParameter={}webcal}"
                    Width="625"
                    Height="250" />
             <TextBlock Text="{Binding VersionNumber, Mode=OneTime}"
@@ -49,7 +50,7 @@
                      VerticalAlignment="Top"
                      Margin="0,10,0,0">
                 <StackPanel>
-                    <Image Source="..\..\Images\NewTachoDoc.png"
+                    <Image Source="{core:LocalizedImageBinding ConverterParameter={}NewTachoDoc}"
                            Margin="10,10,10,10" />
                     <TextBlock TextAlignment="Center"
                                Text="{Binding DigitalText}"
@@ -67,7 +68,7 @@
                     VerticalAlignment="Top"
                     Margin="23,10,0,0">
                 <StackPanel>
-                    <Image Source="..\..\Images\NewUndownloadDoc.png"
+                    <Image Source="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDoc}"
                            Margin="10,10,10,10" />
                     <TextBlock TextAlignment="Center"
                                Text="{Binding AnalogueText}"
@@ -85,7 +86,7 @@
                     VerticalAlignment="Top"
                     Margin="23,10,0,0">
                 <StackPanel>
-                    <Image Source="..\..\Images\NewCertificateDoc.png"
+                    <Image Source="{core:LocalizedImageBinding ConverterParameter={}NewCertificateDoc}"
                            Margin="10,10,10,10" />
                     <TextBlock TextAlignment="Center"
                                Text="{Binding CertificateText}"
@@ -103,7 +104,7 @@
                     VerticalAlignment="Top"
                     Margin="23,10,0,0">
                 <StackPanel>
-                    <Image Source="..\..\Images\NewPlaqueDoc.png"
+                    <Image Source="{core:LocalizedImageBinding ConverterParameter={}NewPlaqueDoc}"
                            Margin="10,10,10,10" />
                     <TextBlock TextAlignment="Center"
                                Text="{Binding PlaqueText}"
