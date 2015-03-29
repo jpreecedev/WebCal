@@ -1,0 +1,355 @@
+﻿<core:BaseWindow x:Class="TachographReader.Windows.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:core="clr-namespace:TachographReader.Core"
+                 xmlns:tb="http://www.hardcodet.net/taskbar"
+                 xmlns:local="clr-namespace:TachographReader.Windows"
+                 xmlns:r="clr-namespace:Fluent;assembly=Fluent"
+                 xmlns:Properties="clr-namespace:TachographReader.Properties"
+                 Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TITLE}"
+                 ResizeMode="CanResizeWithGrip"
+                 WindowStartupLocation="CenterScreen"
+                 WindowState="Maximized"
+                 MinHeight="560"
+                 MinWidth="800"
+                 DontUseDwm="False">
+    <core:BaseWindow.DataContext>
+        <local:MainWindowViewModel />
+    </core:BaseWindow.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <r:Ribbon>
+            <r:Ribbon.QuickAccessItems>
+                <r:QuickAccessMenuItem Target="{Binding ElementName=SettingsMenuItem}"
+                                       IsChecked="True" />
+                <r:QuickAccessMenuItem Target="{Binding ElementName=GenerateReportMenuItem}"
+                                       IsChecked="True" />
+                <r:QuickAccessMenuItem Target="{Binding ElementName=ExitMenuItem}"
+                                       IsChecked="True" />
+            </r:Ribbon.QuickAccessItems>
+            <r:Ribbon.Menu>
+                <r:ApplicationMenu Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILE}"
+                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:MenuItem x:Name="SettingsMenuItem"
+                                Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Settings}"
+                                Command="{Binding SettingsCommand}"
+                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Settings}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_SETTINGS}" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
+                    <r:MenuItem x:Name="GenerateReportMenuItem"
+                                Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Report}"
+                                Command="{Binding GenerateReportCommand}"
+                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Report}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_REPORT}" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Backup}"
+                                Command="{Binding BackupDatabaseCommand}"
+                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Backup}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_BACKUP}" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_RESTORE_DATABASE}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Restore}"
+                                Command="{Binding RestoreDatabaseCommand}"
+                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_RESTORE_DATABASE}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Restore}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_RESTORE}" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TASK_QUEUE}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}queue}"
+                                Command="{Binding ViewTaskQueueCommand}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TASK_QUEUE}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}queue}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_TASKS}" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_UPDATES}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}update}"
+                                Command="{Binding UpdateCommand}"
+                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_UPDATES}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}update}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_APPLICATION_UPDATES}" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
+                    <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ABOUT}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Info}"
+                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ABOUT}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Info}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH}" />
+                        </r:MenuItem.ToolTip>
+                        <StackPanel Orientation="Vertical"
+                                    Margin="10"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center">
+                            <Image Source="{core:LocalizedImageBinding ConverterParameter={}skillray-small}"
+                                   Width="116"
+                                   Height="30"
+                                   Margin="0,0,0,10" />
+                            <TextBlock Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_COPYRIGHT}" />
+                            <Button Content="{x:Static Properties:Resources.TXT_MAIN_WINDOW_VIEW_TECHNICAL_INFORMATION}"
+                                    Command="{Binding ViewTechnicalInformationCommand}"
+                                    Margin="10"
+                                    Width="Auto"
+                                    Height="25" />
+                        </StackPanel>
+                    </r:MenuItem>
+                    <r:MenuItem x:Name="ExitMenuItem"
+                                Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Exit}"
+                                Command="{Binding ExitCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Exit}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXITS_APPLICATION}" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
+                </r:ApplicationMenu>
+            </r:Ribbon.Menu>
+
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}"
+                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              Command="{Binding CancelCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_DIGITAL_TACHO}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}NewTachoDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewTachoDocSm}"
+                              Command="{Binding NewTachographCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}NewTachoDocSm}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ANALOGUE_TACHO}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}NewAnalogueTachoDoc}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewAnalogueTachoDoc}"
+                              Command="{Binding NewAnalogueTachographCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}NewAnalogueTachoDoc}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
+                              Command="{Binding NewUndownloadabilityCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningSmall}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningSmall}"
+                              Command="{Binding LetterForDecommissioningCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningSmall}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+            </r:RibbonTabItem>
+
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
+                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              Command="{Binding CancelCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              Command="{Binding TachographHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              Command="{Binding UndownloadabilityHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
+                              Command="{Binding LetterForDecommissioningHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+            </r:RibbonTabItem>
+
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}"
+                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              Command="{Binding CancelCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CALIBRATIONS}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}Calibration}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}Calibration}"
+                              Command="{Binding CalibrationsCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CALIBRATIONS}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Calibration}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+            </r:RibbonTabItem>
+
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}"
+                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              Command="{Binding CancelCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WORKSHOP_CARD}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}WorkshopBackupSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}WorkshopBackupSm}"
+                              Command="{Binding WorkshopCardFilesCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WORKSHOP_CARD_FILES}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}WorkshopBackupSm}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+            </r:RibbonTabItem>
+
+        </r:Ribbon>
+
+        <ContentControl Content="{Binding View}"
+                        Grid.Row="1" />
+
+        <Border Background="#50000000"
+                Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                Style="{StaticResource FadeTransitionEffect}"
+                Visibility="{Binding IsModalWindowVisible, Converter={StaticResource Bool2Vis}}">
+
+            <ContentPresenter Content="{Binding}"
+                              ContentTemplate="{StaticResource ModalWindow}" />
+
+        </Border>
+
+        <tb:TaskbarIcon IconSource="{core:LocalizedImageBinding ConverterParameter={}Main_Icon}"
+                        ToolTipText="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WEBCAL}">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW}"
+                              Command="{Binding ShowWindowCommand}" />
+                    <Separator />
+                    <MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
+                              Command="{Binding ExitTrayCommand}"
+                              IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+
+        <r:StatusBar HorizontalAlignment="Stretch"
+                     VerticalAlignment="Bottom"
+                     Grid.Row="2">
+            <r:StatusBarItem HorizontalAlignment="Left">
+                
+            </r:StatusBarItem>
+            <r:StatusBarItem HorizontalAlignment="Right"
+                             Visibility="{Binding ShowConnectProgress, Converter={StaticResource Bool2Vis}}">
+                <Grid>
+                    <ProgressBar IsIndeterminate="True"
+                                 Width="100" />
+                    <TextBlock Text="Uploading..."
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Grid>
+            </r:StatusBarItem>
+        </r:StatusBar>
+
+    </Grid>
+</core:BaseWindow>

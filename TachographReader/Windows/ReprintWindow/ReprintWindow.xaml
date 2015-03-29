@@ -1,0 +1,50 @@
+﻿<core:BaseModalWindow x:Class="TachographReader.Windows.ReprintWindow.ReprintWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:ctrls="clr-namespace:TachographReader.Controls"
+                      xmlns:Properties="clr-namespace:TachographReader.Properties"
+                      xmlns:core="clr-namespace:TachographReader.Core"
+                      Height="200"
+                      Width="400"
+                      WindowStartupLocation="CenterScreen"
+                      WindowStyle="ToolWindow"
+                      ShowInTaskbar="False"
+                      ResizeMode="NoResize"
+                      Title="{Binding TitleText}"
+                      FocusManager.FocusedElement="{Binding ElementName=RegistrationNumberTextField}">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="35" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding TitleText, FallbackValue=Re-Print}"
+                   FontSize="14"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" />
+
+        <ctrls:InputTextField x:Name="RegistrationNumberTextField"
+                              Label="{x:Static Properties:Resources.TXT_REPRINT_REGISTRATION_NUMBER}"
+                              Text="{Binding RegistrationNumber, UpdateSourceTrigger=PropertyChanged}"
+                              Grid.Row="1"
+                              IsLoading="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged}"
+                              IsEnabled="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource InvBool}}"/>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="2"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <Button Content="{x:Static Properties:Resources.TXT_REPRINT_REPRINT}"
+                    IsDefault="True"
+                    Command="{Binding ReprintCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                    IsEnabled="{Binding IsLoading, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource InvBool}}"/>
+            <Button Content="{x:Static Properties:Resources.TXT_REPRINT_CANCEL}"
+                    IsCancel="True"
+                    Command="{Binding CancelCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        </StackPanel>
+
+    </Grid>
+</core:BaseModalWindow>
