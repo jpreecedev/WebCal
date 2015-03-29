@@ -1,9 +1,9 @@
-﻿namespace Webcal.Shared
+﻿namespace TachographReader.Shared
 {
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
-    using Webcal.Connect.Shared.Models;
+    using global::Connect.Shared.Models;
 
     public interface IRepository<T> : IDisposable where T : BaseModel
     {

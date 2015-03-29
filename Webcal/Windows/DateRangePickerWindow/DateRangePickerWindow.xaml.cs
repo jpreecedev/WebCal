@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.DateRangePickerWindow
+﻿namespace TachographReader.Windows.DateRangePickerWindow
 {
     using Core;
 

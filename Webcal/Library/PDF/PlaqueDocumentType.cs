@@ -1,4 +1,4 @@
-namespace Webcal.Library.PDF
+namespace TachographReader.Library.PDF
 {
     public enum PlaqueDocumentType
     {

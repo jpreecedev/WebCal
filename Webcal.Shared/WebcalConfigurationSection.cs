@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared
+﻿namespace TachographReader.Shared
 {
     using System.Configuration;
     using Connect;
@@ -6,7 +6,7 @@
 
     public class WebcalConfigurationSection : ConfigurationSection
     {
-        private static readonly WebcalConfigurationSection _instance = (WebcalConfigurationSection) ConfigurationManager.GetSection("Webcal");
+        private static readonly WebcalConfigurationSection _instance = (WebcalConfigurationSection)ConfigurationManager.GetSection("TachographReader");
 
         [ConfigurationProperty("Plugins")]
         [ConfigurationCollection(typeof (PluginsElementCollection), AddItemName = "Plugin")]

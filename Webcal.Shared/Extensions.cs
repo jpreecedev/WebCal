@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared
+﻿namespace TachographReader.Shared
 {
     using System;
     using System.ServiceModel;
@@ -8,8 +8,8 @@
     using System.Windows.Input;
     using System.Windows.Threading;
     using Connect;
+    using global::Connect.Shared;
     using Properties;
-    using Webcal.Connect.Shared;
 
     public static class Extensions
     {

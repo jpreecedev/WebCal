@@ -1,4 +1,4 @@
-﻿namespace Webcal.Controls
+﻿namespace TachographReader.Controls
 {
     using System;
     using System.ComponentModel;

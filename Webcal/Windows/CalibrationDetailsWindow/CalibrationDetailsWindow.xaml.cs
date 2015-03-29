@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.CalibrationDetailsWindow
+﻿namespace TachographReader.Windows.CalibrationDetailsWindow
 {
     using Core;
 

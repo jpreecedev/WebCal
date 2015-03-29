@@ -1,4 +1,4 @@
-﻿namespace Webcal.EmailWorker
+﻿namespace TachographReader.EmailWorker
 {
     using Shared.Workers;
 

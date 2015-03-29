@@ -1,4 +1,4 @@
-﻿namespace Webcal.DataModel
+﻿namespace TachographReader.DataModel
 {
     using System.Data.Entity;
     using Connect.Shared.Models;

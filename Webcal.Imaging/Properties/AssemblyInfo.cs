@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Webcal.Imaging")]
+[assembly: AssemblyTitle("TachographReader.Imaging")]
 [assembly: AssemblyDescription("Tachograph workshop card reader")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Skillray Transport Services UK")]
-[assembly: AssemblyProduct("Webcal")]
-[assembly: AssemblyCopyright("Copyright © Skillray  2014")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("TachographReader")]
+[assembly: AssemblyCopyright("Copyright © 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

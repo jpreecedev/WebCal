@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared
+﻿namespace TachographReader.Shared
 {
     using System;
     using System.Data.Entity.Validation;

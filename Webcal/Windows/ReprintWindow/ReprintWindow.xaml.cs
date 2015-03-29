@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.ReprintWindow
+﻿namespace TachographReader.Windows.ReprintWindow
 {
     using Core;
 

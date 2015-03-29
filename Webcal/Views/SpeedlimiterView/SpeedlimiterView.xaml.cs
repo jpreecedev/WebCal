@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
-using Webcal.Core;
+using TachographReader.Core;
 
-namespace Webcal.Views
+namespace TachographReader.Views
 {
    public partial class SpeedlimiterView : UserControl
     {

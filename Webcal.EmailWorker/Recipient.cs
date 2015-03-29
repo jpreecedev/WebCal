@@ -1,4 +1,4 @@
-namespace Webcal.EmailWorker
+namespace TachographReader.EmailWorker
 {
     public class Recipient
     {

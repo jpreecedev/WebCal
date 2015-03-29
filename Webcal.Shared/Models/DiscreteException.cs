@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared.Models
+﻿namespace TachographReader.Shared.Models
 {
     using System;
 

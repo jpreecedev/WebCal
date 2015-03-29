@@ -1,4 +1,4 @@
-﻿namespace Webcal.ConnectClient
+﻿namespace TachographReader.ConnectClient
 {
     using System.IdentityModel.Selectors;
     using System.IdentityModel.Tokens;

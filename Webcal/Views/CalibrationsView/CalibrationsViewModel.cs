@@ -1,4 +1,4 @@
-﻿namespace Webcal.Views
+﻿namespace TachographReader.Views
 {
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -6,7 +6,6 @@
     using Windows.ProgressWindow;
     using Connect.Shared.Models;
     using Core;
-    using DataModel.Library;
     using EventArguments;
     using Library;
     using Properties;

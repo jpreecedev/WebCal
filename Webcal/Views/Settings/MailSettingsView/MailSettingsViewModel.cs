@@ -1,4 +1,4 @@
-﻿namespace Webcal.Views.Settings
+﻿namespace TachographReader.Views.Settings
 {
     using Core;
     using DataModel;

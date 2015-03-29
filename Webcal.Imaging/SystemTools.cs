@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Webcal.Imaging
+namespace TachographReader.Imaging
 {
     /// <summary>
     /// Set of systems tools.

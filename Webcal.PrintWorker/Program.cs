@@ -1,4 +1,4 @@
-﻿namespace Webcal.PrintWorker
+﻿namespace TachographReader.PrintWorker
 {
     using Shared.Workers;
 

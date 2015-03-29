@@ -1,4 +1,4 @@
-﻿namespace Webcal.DataModel
+﻿namespace TachographReader.DataModel
 {
     public class TachographFile : BaseFile
     {

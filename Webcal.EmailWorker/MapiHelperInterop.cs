@@ -1,4 +1,4 @@
-﻿namespace Webcal.EmailWorker
+﻿namespace TachographReader.EmailWorker
 {
     using System;
     using System.Runtime.InteropServices;

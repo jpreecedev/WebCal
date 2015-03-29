@@ -7,8 +7,8 @@
     <ProjectGuid>{D4EE3EA7-9E62-46B1-8183-9139C33C9A20}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Webcal</RootNamespace>
-    <AssemblyName>Webcal</AssemblyName>
+    <RootNamespace>TachographReader</RootNamespace>
+    <AssemblyName>TachographReader</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -87,7 +87,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Webcal.App</StartupObject>
+    <StartupObject>TachographReader.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Main Icon.ico</ApplicationIcon>
@@ -112,6 +112,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Connect.Shared, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Webcal.DataService\bin\Connect.Shared.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libs\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -170,9 +174,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Webcal.Connect.Shared">
-      <HintPath>..\..\Webcal.DataService\bin\Webcal.Connect.Shared.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -719,17 +720,17 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Webcal.DataModel\Webcal.DataModel.csproj">
+    <ProjectReference Include="..\Webcal.DataModel\TachographReader.DataModel.csproj">
       <Project>{2E23907B-6B71-46F8-8CBD-7C82A1327C07}</Project>
-      <Name>Webcal.DataModel</Name>
+      <Name>TachographReader.DataModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Webcal.Imaging\Webcal.Imaging.csproj">
+    <ProjectReference Include="..\Webcal.Imaging\TachographReader.Imaging.csproj">
       <Project>{59469480-b14d-4469-810a-08a7052d15b5}</Project>
-      <Name>Webcal.Imaging</Name>
+      <Name>TachographReader.Imaging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Webcal.Shared\Webcal.Shared.csproj">
+    <ProjectReference Include="..\Webcal.Shared\TachographReader.Shared.csproj">
       <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
-      <Name>Webcal.Shared</Name>
+      <Name>TachographReader.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

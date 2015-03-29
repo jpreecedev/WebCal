@@ -1,4 +1,4 @@
-﻿namespace Webcal.Core
+﻿namespace TachographReader.Core
 {
     public class BaseCardBrowserViewModel : BaseMainViewModel
     {

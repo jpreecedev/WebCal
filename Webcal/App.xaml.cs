@@ -1,11 +1,9 @@
-﻿namespace Webcal
+﻿namespace TachographReader
 {
     using System;
     using System.Data.Entity;
     using System.Diagnostics;
     using System.Globalization;
-    using System.Reflection;
-    using System.Resources;
     using System.Threading;
     using System.Windows;
     using System.Windows.Threading;
@@ -103,7 +101,7 @@
 
         private static void CurrentDispatcher_UnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Webcal.Properties.Resources.EXC_UNHANDLED_EXCEPTION, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, e.Exception)));
+            MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", TachographReader.Properties.Resources.EXC_UNHANDLED_EXCEPTION, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, e.Exception)));
             e.Handled = true;
         }
     }

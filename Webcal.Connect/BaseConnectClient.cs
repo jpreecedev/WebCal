@@ -1,4 +1,4 @@
-﻿namespace Webcal.ConnectClient
+﻿namespace TachographReader.ConnectClient
 {
     public class BaseConnectClient
     {

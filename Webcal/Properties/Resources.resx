@@ -2198,7 +2198,7 @@ date
     <value>Signature</value>
   </data>
   <data name="TXT_WEBCAL_CONNECT_KEY" xml:space="preserve">
-    <value>Webcal Connect Key</value>
+    <value>Connect Key</value>
   </data>
   <data name="ERR_SAVING_SETTINGS" xml:space="preserve">
     <value>An error occurred whilst saving settings.  Some settings may have been lost.</value>

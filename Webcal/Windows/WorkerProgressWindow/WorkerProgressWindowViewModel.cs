@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.WorkerProgressWindow
+﻿namespace TachographReader.Windows.WorkerProgressWindow
 {
     using System.Collections.ObjectModel;
     using System.Windows;

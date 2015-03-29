@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared.Connect
+﻿namespace TachographReader.Shared.Connect
 {
     using System;
 

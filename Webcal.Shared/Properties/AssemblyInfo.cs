@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Webcal.Shared")]
 [assembly: AssemblyDescription("Tachograph workshop card reader")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Skillray Transport Services UK")]
-[assembly: AssemblyProduct("Webcal")]
-[assembly: AssemblyCopyright("Copyright © Skillray 2014")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("TachographReader")]
+[assembly: AssemblyCopyright("Copyright © 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

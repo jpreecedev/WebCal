@@ -1,6 +1,6 @@
-﻿using Webcal.Properties;
+﻿using TachographReader.Properties;
 
-namespace Webcal.Views.Settings
+namespace TachographReader.Views.Settings
 {
     using System;
     using System.Collections.Generic;

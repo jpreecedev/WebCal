@@ -1,4 +1,4 @@
-﻿namespace Webcal.Views
+﻿namespace TachographReader.Views
 {
     using Core;
 

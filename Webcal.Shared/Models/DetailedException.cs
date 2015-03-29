@@ -1,9 +1,9 @@
-﻿namespace Webcal.Shared.Models
+﻿namespace TachographReader.Shared.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
-    using Webcal.Connect.Shared.Models;
+    using global::Connect.Shared.Models;
 
     [DataContract, Serializable]
     public class DetailedException : BaseModel

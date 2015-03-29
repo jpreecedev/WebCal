@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Webcal.Imaging
+namespace TachographReader.Imaging
 {
     /// <summary>
     /// Structure for representing a pair of coordinates of double type.

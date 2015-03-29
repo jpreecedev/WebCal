@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.SignatureCaptureWindow
+﻿namespace TachographReader.Windows.SignatureCaptureWindow
 {
     using System;
     using System.Drawing;

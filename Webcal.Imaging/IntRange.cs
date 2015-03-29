@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Webcal.Imaging
+namespace TachographReader.Imaging
 {
     /// <summary>
     /// Represents an integer range with minimum and maximum values.

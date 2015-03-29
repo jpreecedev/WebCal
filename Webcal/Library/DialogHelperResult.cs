@@ -1,4 +1,4 @@
-namespace Webcal.Library
+namespace TachographReader.Library
 {
     public class DialogHelperResult
     {

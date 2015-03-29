@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Webcal.Imaging
+namespace TachographReader.Imaging
 {
     /// <summary>
     /// Unsupported image format exception.

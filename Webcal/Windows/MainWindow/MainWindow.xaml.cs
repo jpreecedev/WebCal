@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows
+﻿namespace TachographReader.Windows
 {
     using Core;
 

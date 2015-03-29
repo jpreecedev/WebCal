@@ -1,4 +1,4 @@
-﻿namespace Webcal.Imaging
+﻿namespace TachographReader.Imaging
 {
     public class RGB
     {

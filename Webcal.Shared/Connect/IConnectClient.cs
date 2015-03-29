@@ -1,7 +1,7 @@
-﻿namespace Webcal.Shared.Connect
+﻿namespace TachographReader.Shared.Connect
 {
     using System;
-    using Webcal.Connect.Shared;
+    using global::Connect.Shared;
 
     public interface IConnectClient : IDisposable
     {

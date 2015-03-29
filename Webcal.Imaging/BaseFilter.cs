@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace Webcal.Imaging
+namespace TachographReader.Imaging
 {
     /// <summary>
     /// Base class for filters, which produce new image of the same size as a

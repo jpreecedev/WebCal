@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.CalibrationDetailsWindow
+﻿namespace TachographReader.Windows.CalibrationDetailsWindow
 {
     using System.Windows;
     using Connect.Shared.Models;

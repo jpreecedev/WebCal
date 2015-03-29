@@ -1,6 +1,6 @@
-﻿using Webcal.PrintWorker.Properties;
+﻿using TachographReader.PrintWorker.Properties;
 
-namespace Webcal.PrintWorker
+namespace TachographReader.PrintWorker
 {
     using System;
     using System.Diagnostics;

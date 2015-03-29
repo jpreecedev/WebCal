@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webcal.Imaging
+namespace TachographReader.Imaging
 {
     public class InvalidImagePropertiesException : ArgumentException
     {

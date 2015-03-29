@@ -1,4 +1,4 @@
-﻿namespace Webcal.EventArguments
+﻿namespace TachographReader.EventArguments
 {
     using System;
 

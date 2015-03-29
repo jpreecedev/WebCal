@@ -1,4 +1,4 @@
-﻿namespace Webcal.DataModel.Repositories
+﻿namespace TachographReader.DataModel.Repositories
 {
     using System.Linq;
     using Connect.Shared.Models;

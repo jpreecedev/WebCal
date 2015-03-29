@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.ProgressWindow
+﻿namespace TachographReader.Windows.ProgressWindow
 {
     public partial class ProgressWindow
     {

@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared.Workers
+﻿namespace TachographReader.Shared.Workers
 {
     using System;
     using System.Configuration;

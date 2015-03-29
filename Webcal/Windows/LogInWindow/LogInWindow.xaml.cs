@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.LogInWindow
+﻿namespace TachographReader.Windows.LogInWindow
 {
     using Core;
 

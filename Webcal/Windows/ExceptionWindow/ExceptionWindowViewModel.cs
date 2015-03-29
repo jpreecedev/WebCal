@@ -1,4 +1,4 @@
-﻿namespace Webcal.Windows.ExceptionWindow
+﻿namespace TachographReader.Windows.ExceptionWindow
 {
     using System;
     using System.Collections.ObjectModel;

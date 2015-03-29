@@ -1,4 +1,4 @@
-namespace Webcal.Core
+namespace TachographReader.Core
 {
     using System.Globalization;
     using System.Windows.Data;

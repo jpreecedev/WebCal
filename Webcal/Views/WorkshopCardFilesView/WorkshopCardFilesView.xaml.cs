@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Webcal.Views
+namespace TachographReader.Views
 {
     public partial class WorkshopCardFilesView : UserControl
     {

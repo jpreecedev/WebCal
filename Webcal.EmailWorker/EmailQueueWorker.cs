@@ -1,6 +1,6 @@
-﻿using Webcal.EmailWorker.Properties;
+﻿using TachographReader.EmailWorker.Properties;
 
-namespace Webcal.EmailWorker
+namespace TachographReader.EmailWorker
 {
     using System;
     using System.IO;

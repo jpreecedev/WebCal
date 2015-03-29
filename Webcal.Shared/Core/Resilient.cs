@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared.Core
+﻿namespace TachographReader.Shared.Core
 {
     using System;
     using System.Threading;

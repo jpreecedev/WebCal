@@ -1,4 +1,4 @@
-﻿namespace Webcal.Library
+﻿namespace TachographReader.Library
 {
     using System.Reflection;
     using System.Resources;
@@ -9,7 +9,7 @@
 
         static LocalizationHelper()
         {
-            _resourceManager = new ResourceManager("Webcal.Properties.Resources", Assembly.GetEntryAssembly());
+            _resourceManager = new ResourceManager("TachographReader.Properties.Resources", Assembly.GetEntryAssembly());
         }
 
         public static ResourceManager GetResourceManager()

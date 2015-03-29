@@ -1,12 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:behav="clr-namespace:Webcal.Behaviours"
-                    xmlns:ctrls="clr-namespace:Webcal.Controls"
-                    xmlns:conv="clr-namespace:Webcal.Converters"
-                    xmlns:core="clr-namespace:Webcal.Core"
+                    xmlns:behav="clr-namespace:TachographReader.Behaviours"
+                    xmlns:ctrls="clr-namespace:TachographReader.Controls"
+                    xmlns:conv="clr-namespace:TachographReader.Converters"
+                    xmlns:core="clr-namespace:TachographReader.Core"
                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-                    xmlns:dow="clr-namespace:Webcal.Controls.DayOfWeekPicker"
-                    xmlns:Properties="clr-namespace:Webcal.Properties">
+                    xmlns:dow="clr-namespace:TachographReader.Controls.DayOfWeekPicker"
+                    xmlns:Properties="clr-namespace:TachographReader.Properties">
 
     <LinearGradientBrush x:Key="LightBrush"
                          StartPoint="0,0"

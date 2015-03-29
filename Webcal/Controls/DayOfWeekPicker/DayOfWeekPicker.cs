@@ -1,4 +1,4 @@
-﻿namespace Webcal.Controls.DayOfWeekPicker
+﻿namespace TachographReader.Controls.DayOfWeekPicker
 {
     using System.Collections.Generic;
     using System.ComponentModel;

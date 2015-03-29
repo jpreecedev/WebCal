@@ -1,4 +1,4 @@
-﻿namespace Webcal.Library.ViewModels
+﻿namespace TachographReader.Library.ViewModels
 {
     using System.Windows.Input;
     using Connect.Shared.Models;

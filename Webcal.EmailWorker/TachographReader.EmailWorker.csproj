@@ -7,8 +7,8 @@
     <ProjectGuid>{C7B6E1FE-2159-4C23-805A-EE2BF876DE88}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Webcal.EmailWorker</RootNamespace>
-    <AssemblyName>Webcal.EmailWorker</AssemblyName>
+    <RootNamespace>TachographReader.EmailWorker</RootNamespace>
+    <AssemblyName>TachographReader.EmailWorker</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -61,7 +61,7 @@
     <ApplicationIcon>Main Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>TachographReader.EmailWorker.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -104,9 +104,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Webcal.Shared\Webcal.Shared.csproj">
+    <ProjectReference Include="..\Webcal.Shared\TachographReader.Shared.csproj">
       <Project>{13EBA933-528C-458C-9B71-8295B199F591}</Project>
-      <Name>Webcal.Shared</Name>
+      <Name>TachographReader.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

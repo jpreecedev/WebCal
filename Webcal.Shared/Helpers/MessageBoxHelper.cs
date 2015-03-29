@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared.Helpers
+﻿namespace TachographReader.Shared.Helpers
 {
     using System;
     using System.Windows;

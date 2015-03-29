@@ -1,6 +1,6 @@
-﻿namespace Webcal.Shared.Connect
+﻿namespace TachographReader.Shared.Connect
 {
-    using Webcal.Connect.Shared;
+    using global::Connect.Shared;
 
     public interface IConnectClientCredentials
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Webcal.Properties {
+namespace TachographReader.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Webcal.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Webcal.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TachographReader.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -6361,7 +6361,7 @@ namespace Webcal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Webcal Connect Key.
+        ///   Looks up a localized string similar to Connect Key.
         /// </summary>
         public static string TXT_WEBCAL_CONNECT_KEY {
             get {

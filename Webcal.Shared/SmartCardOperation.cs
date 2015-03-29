@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared
+﻿namespace TachographReader.Shared
 {
     public enum SmartCardReadOperation
     {

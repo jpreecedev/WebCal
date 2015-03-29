@@ -1,7 +1,7 @@
-﻿using Webcal.Core;
-
-namespace Webcal.Views.Settings
+﻿namespace TachographReader.Views.Settings
 {
+    using Core;
+
     public partial class ThemeSettingsView : BaseSettingsView
     {
         public ThemeSettingsView()

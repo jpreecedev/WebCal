@@ -1,6 +1,6 @@
-﻿using Webcal.Core;
+﻿using TachographReader.Core;
 
-namespace Webcal.Views.Settings
+namespace TachographReader.Views.Settings
 {
     public partial class MailSettingsView
     {

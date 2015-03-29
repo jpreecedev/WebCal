@@ -1,4 +1,4 @@
-﻿namespace Webcal.Shared
+﻿namespace TachographReader.Shared
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;

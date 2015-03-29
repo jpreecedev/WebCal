@@ -1,4 +1,4 @@
-﻿namespace Webcal.Core
+﻿namespace TachographReader.Core
 {
     using System.Collections.ObjectModel;
     using System.ComponentModel;

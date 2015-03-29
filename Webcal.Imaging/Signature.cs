@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
-namespace Webcal.Imaging
+namespace TachographReader.Imaging
 {
     public static class Signature
     {

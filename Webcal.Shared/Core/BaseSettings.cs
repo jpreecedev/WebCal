@@ -1,6 +1,6 @@
-﻿namespace Webcal.Shared.Core
+﻿namespace TachographReader.Shared.Core
 {
-    using Webcal.Connect.Shared.Models;
+    using global::Connect.Shared.Models;
 
     public class BaseSettings : BaseModel
     {

@@ -1,6 +1,6 @@
-﻿using Webcal.Properties;
+﻿using TachographReader.Properties;
 
-namespace Webcal.Library
+namespace TachographReader.Library
 {
     using System;
     using System.IO;

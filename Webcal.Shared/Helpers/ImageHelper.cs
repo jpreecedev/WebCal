@@ -1,4 +1,4 @@
-namespace Webcal.Shared.Helpers
+namespace TachographReader.Shared.Helpers
 {
     using System;
     using System.Drawing;
@@ -20,7 +20,7 @@ namespace Webcal.Shared.Helpers
 
         public static BitmapSource LoadFromResources(string key, Assembly assembly = null)
         {
-            var resourceManager = new ResourceManager("Webcal.Properties.Resources", assembly ?? Assembly.GetCallingAssembly());
+            var resourceManager = new ResourceManager("TachographReader.Properties.Resources", assembly ?? Assembly.GetCallingAssembly());
             var image = resourceManager.GetObject(key, CultureInfo.CurrentUICulture);
 
             if (image == null)

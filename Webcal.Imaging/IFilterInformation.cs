@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing.Imaging;
 
-namespace Webcal.Imaging
+namespace TachographReader.Imaging
 {
     /// <summary>
     /// Interface which provides information about image processing filter.
