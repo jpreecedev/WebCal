@@ -27,7 +27,7 @@
             _channelFactory = new ChannelFactory<IConnectService>(binding, serviceAddress);
 
             var credentials = new ConnectClientCredentials(connectKeys);
-            var certificate = new X509Certificate2(Resources.webcalconnect_com);
+            var certificate = new X509Certificate2(Resources.webcal_connect);
             credentials.ServiceCertificate.DefaultCertificate = certificate;
 
             _channelFactory.Endpoint.Behaviors.Remove(typeof(ClientCredentials));

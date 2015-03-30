@@ -63,6 +63,16 @@ namespace TachographReader.ConnectClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] webcal_connect {
+            get {
+                object obj = ResourceManager.GetObject("webcal_connect", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] webcalconnect_com {
             get {
                 object obj = ResourceManager.GetObject("webcalconnect_com", resourceCulture);
