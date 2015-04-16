@@ -3,7 +3,6 @@
     using System.Windows;
     using Connect.Shared.Models;
     using DataModel.Core;
-    using Shared.Core;
 
     public class BaseModalWindowViewModel : BaseNotification
     {
@@ -11,7 +10,7 @@
 
         public TService GetInstance<TService>()
         {
-            return ContainerBootstrapper.Container.GetInstance<TService>();
+            return ContainerBootstrapper.Resolve<TService>();
         }
 
         public virtual void OnClosing()

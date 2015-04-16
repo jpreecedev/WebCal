@@ -53,17 +53,17 @@
 
         private static RegistrationData GetRegistrationData()
         {
-            return ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().GetAll().First();
+            return ContainerBootstrapper.Resolve<IRepository<RegistrationData>>().GetAll().First();
         }
 
         private static WorkshopSettings GetWorkshopSettings()
         {
-            return ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+            return ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
         }
 
         private static PrinterSettings GetPrinterSettings()
         {
-            return ContainerBootstrapper.Container.GetInstance<ISettingsRepository<PrinterSettings>>().GetPrinterSettings();
+            return ContainerBootstrapper.Resolve<ISettingsRepository<PrinterSettings>>().GetPrinterSettings();
         }
     }
 }

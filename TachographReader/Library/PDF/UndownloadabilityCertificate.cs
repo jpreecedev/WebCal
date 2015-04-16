@@ -16,7 +16,7 @@
     {
         public static void Create(PDFDocument document, UndownloadabilityDocument undownloadabilityDocument)
         {
-            var settingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            var settingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
             WorkshopSettings settings = settingsRepository.GetWorkshopSettings();
 
             StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/UndownloadHeader.png");
@@ -91,14 +91,14 @@
         {
             Image signatureImage = null;
 
-            var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
+            var userRepository = ContainerBootstrapper.Resolve<IRepository<User>>();
             var user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {
                 signatureImage = user.Image;
             }
 
-            IRepository<Technician> technicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
+            IRepository<Technician> technicianRepository = ContainerBootstrapper.Resolve<IRepository<Technician>>();
             var technicianUser = technicianRepository.FirstOrDefault(c => string.Equals(c.Name, undownloadabilityDocument.Technician));
             if (technicianUser != null && technicianUser.Image != null)
             {

@@ -2,7 +2,6 @@
 {
     using System;
     using System.Runtime.Caching;
-    using System.Threading;
     using System.Windows;
     using Windows;
     using Connect.Shared;
@@ -21,7 +20,7 @@
 
         static ConnectHelper()
         {
-            _connectClient = ContainerBootstrapper.Container.GetInstance<IConnectClient>();
+            _connectClient = ContainerBootstrapper.Resolve<IConnectClient>();
         }
 
         public static void ConnectKeysChanged()
@@ -34,7 +33,7 @@
             var cachedKeys = (IConnectKeys)_cache.Get(ConnectCacheKey);
             if (cachedKeys == null)
             {
-                var registrationData = ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().First();
+                var registrationData = ContainerBootstrapper.Resolve<IRepository<RegistrationData>>().First();
                 if (registrationData.IsConnectEnabled)
                 {
                     cachedKeys = registrationData.ConnectKeys;

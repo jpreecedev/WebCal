@@ -19,14 +19,13 @@
     {
         protected const int TotalPageHeight = 820;
         private readonly IRepository<CustomerContact> _customerContactRepository;
-        private readonly ISettingsRepository<WorkshopSettings> _generalSettingsRepository;
 
         public BasePlaqueDocument()
         {
-            _generalSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
-            _customerContactRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+            ISettingsRepository<WorkshopSettings> generalSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
+            _customerContactRepository = ContainerBootstrapper.Resolve<IRepository<CustomerContact>>();
 
-            WorkshopSettings = _generalSettingsRepository.GetWorkshopSettings();
+            WorkshopSettings = generalSettingsRepository.GetWorkshopSettings();
             RegistrationData = GetRegistrationData();
         }
 
@@ -184,21 +183,21 @@
 
         private static RegistrationData GetRegistrationData()
         {
-            return ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().GetAll().First();
+            return ContainerBootstrapper.Resolve<IRepository<RegistrationData>>().GetAll().First();
         }
 
         protected void TryAddSignature(PDFDocument document, TachographDocument tachographDocument, int x, int y = 88)
         {
             Image signatureImage = null;
 
-            var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
+            var userRepository = ContainerBootstrapper.Resolve<IRepository<User>>();
             var user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {
                 signatureImage = user.Image;
             }
 
-            IRepository<Technician> technicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
+            IRepository<Technician> technicianRepository = ContainerBootstrapper.Resolve<IRepository<Technician>>();
             var technicianUser = technicianRepository.FirstOrDefault(c => string.Equals(c.Name, tachographDocument.Technician));
             if (technicianUser != null && technicianUser.Image != null)
             {

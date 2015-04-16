@@ -11,7 +11,7 @@
         public static ISettingsRepository<WorkshopSettings> SeedDatabase()
         {
             //This is a bit of a "fudge" to ensure that seed data has been created
-            var settings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            var settings = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
             if (settings.GetWorkshopSettings() == null)
             {
                 using (var context = new TachographContext())
@@ -22,7 +22,7 @@
             }
 
             //Check that the 'super user account' exists
-            var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
+            var userRepository = ContainerBootstrapper.Resolve<IRepository<User>>();
             var superUser = userRepository.FirstOrDefault(user => string.Equals(user.Username, "superuser", StringComparison.CurrentCultureIgnoreCase));
 
             if (superUser == null)
@@ -37,7 +37,7 @@
 
             UserManagement.AddDefaultUser();
 
-            var themeSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<ThemeSettings>>();
+            var themeSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<ThemeSettings>>();
             if (themeSettingsRepository.GetThemeSettings() == null)
             {
                 using (var context = new TachographContext())
@@ -47,7 +47,7 @@
                 }
             }
 
-            var miscellaneousSettingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<MiscellaneousSettings>>();
+            var miscellaneousSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<MiscellaneousSettings>>();
             if (miscellaneousSettingsRepository.GetMiscellaneousSettings() == null)
             {
                 using (var context = new TachographContext())

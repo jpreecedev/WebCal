@@ -28,9 +28,24 @@ namespace TachographReader.Shared.Helpers
                 return null;
             }
 
-            var bitmap = (Bitmap) image;
+            var bitmap = (Bitmap)image;
 
             return Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+        }
+        
+        public static byte[] LoadFromResourcesAsByteArray(string key, Assembly assembly = null)
+        {
+            var resourceManager = new ResourceManager("TachographReader.Properties.Resources", assembly ?? Assembly.GetCallingAssembly());
+            var image = resourceManager.GetObject(key, CultureInfo.CurrentUICulture);
+
+            if (image == null)
+            {
+                return null;
+            }
+
+            var bitmap = (Bitmap)image;
+            var asByteArray = bitmap.ToByteArray();
+            return asByteArray;
         }
 
         public static Image LoadImageSafely(string imagePath)
@@ -57,8 +72,8 @@ namespace TachographReader.Shared.Helpers
                 return image;
             }
 
-            var aspectRatio = Math.Round((double) image.Width/image.Height, 2);
-            var newWidth = (int) Math.Round(aspectRatio*50);
+            var aspectRatio = Math.Round((double)image.Width / image.Height, 2);
+            var newWidth = (int)Math.Round(aspectRatio * 50);
 
             return Resize(image, new Size(newWidth, maxHeight));
         }
@@ -85,8 +100,8 @@ namespace TachographReader.Shared.Helpers
                 return image;
             }
 
-            var aspectRatio = Math.Round((double) image.Width/image.Height, 2);
-            var newWidth = (int) Math.Round(aspectRatio*50);
+            var aspectRatio = Math.Round((double)image.Width / image.Height, 2);
+            var newWidth = (int)Math.Round(aspectRatio * 50);
 
             return Resize(image, new Size(newWidth, maxHeight));
         }
@@ -129,7 +144,7 @@ namespace TachographReader.Shared.Helpers
         {
             try
             {
-                return (Bitmap) ((new ImageConverter()).ConvertFrom(rawData));
+                return (Bitmap)((new ImageConverter()).ConvertFrom(rawData));
             }
             catch (Exception)
             {
@@ -137,6 +152,24 @@ namespace TachographReader.Shared.Helpers
             }
 
             return null;
+        }
+
+        public static byte[] ToByteArray(this BitmapSource bitmapSource)
+        {
+            PngBitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+
+            byte[] result;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+                encoder.Save(stream);
+
+                result = stream.ToArray();
+                stream.Flush();
+                stream.Close();
+            }
+            return result;
         }
 
         public static byte[] ToByteArray(this Image imageIn)

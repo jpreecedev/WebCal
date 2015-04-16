@@ -2,7 +2,6 @@
 {
     using System.Security.Cryptography.X509Certificates;
     using System.ServiceModel;
-    using System.ServiceModel.Channels;
     using System.ServiceModel.Description;
     using Connect.Shared;
     using Properties;
@@ -21,13 +20,12 @@
 
         public void Open(IConnectKeys connectKeys)
         {
-            Binding binding = new ConnectBindingHelper().CreateBinding(new ConnectTokenParameters());
             var serviceAddress = new EndpointAddress(connectKeys.Url);
 
-            _channelFactory = new ChannelFactory<IConnectService>(binding, serviceAddress);
+            _channelFactory = new ChannelFactory<IConnectService>(new ConnectBindingHelper().CreateHttpsBinding(), serviceAddress);
 
             var credentials = new ConnectClientCredentials(connectKeys);
-            var certificate = new X509Certificate2(Resources.webcal_connect);
+            var certificate = new X509Certificate2(Resources.webcalconnect_com);
             credentials.ServiceCertificate.DefaultCertificate = certificate;
 
             _channelFactory.Endpoint.Behaviors.Remove(typeof(ClientCredentials));
@@ -35,7 +33,7 @@
 
             Service = _channelFactory.CreateChannel();
         }
-        
+
         public override void ForceClose()
         {
             if (_channelFactory != null)

@@ -11,8 +11,6 @@
     using DataModel.Core;
     using Library;
     using Library.ViewModels;
-    using Shared;
-    using Shared.Core;
     using Shared.Helpers;
     using Views;
 
@@ -34,7 +32,7 @@
 
         public TService GetInstance<TService>()
         {
-            return ContainerBootstrapper.Container.GetInstance<TService>();
+            return ContainerBootstrapper.Resolve<TService>();
         }
 
         public virtual void OnClosing(bool cancelled)

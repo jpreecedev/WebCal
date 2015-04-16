@@ -3,74 +3,67 @@
     using System;
     using Connect.Shared.Models;
     using ConnectClient;
+    using Microsoft.Practices.Unity;
     using Properties;
     using Repositories;
     using Shared;
     using Shared.Connect;
     using Shared.Helpers;
     using Shared.Models;
-    using StructureMap;
-    using StructureMap.Configuration.DSL;
-    using StructureMap.Pipeline;
 
     public static class ContainerBootstrapper
     {
-        private static readonly Container _container;
+        private static readonly IUnityContainer _container;
 
         static ContainerBootstrapper()
         {
-            _container = new Container(expression => Configure(expression));
+            _container = new UnityContainer();
+            Configure(_container);
         }
 
-        public static Container Container
+        public static IUnityContainer Container
         {
             get { return _container; }
         }
 
-        public static bool Configure(ConfigurationExpression x)
+        public static T Resolve<T>()
+        {
+            return _container.Resolve<T>();
+        }
+
+        private static void Configure(IUnityContainer container)
         {
             try
             {
-                x.AddRegistry<ContainerRegistry>();
+                container.RegisterType<IRepository<VehicleMake>, VehicleRepository>();
+                container.RegisterType<IRepository<TachographDocument>,TachographDocumentRepository>();
+                container.RegisterType<IRepository<TachographMake>,TachographMakesRepository>();
+                container.RegisterType<IRepository<Technician>,TechnicianRepository>();
+
+                container.RegisterType<IRepository<UndownloadabilityDocument>,Repository<UndownloadabilityDocument>>();
+                container.RegisterType<IRepository<LetterForDecommissioningDocument>,Repository<LetterForDecommissioningDocument>>();
+                container.RegisterType<IRepository<CustomerContact>,Repository<CustomerContact>>();
+                container.RegisterType<IRepository<TachographFile>,Repository<TachographFile>>();
+                container.RegisterType<IRepository<DriverCardFile>,Repository<DriverCardFile>>();
+                container.RegisterType<IRepository<WorkshopCardFile>,Repository<WorkshopCardFile>>();
+                container.RegisterType<IRepository<TyreSize>,Repository<TyreSize>>();
+                container.RegisterType<IRepository<InspectionMethod>,Repository<InspectionMethod>>();
+                container.RegisterType<IRepository<InspectionEquipment>,Repository<InspectionEquipment>>();
+                container.RegisterType<IRepository<DetailedException>,Repository<DetailedException>>();
+                container.RegisterType<IRepository<RegistrationData>,Repository<RegistrationData>>();
+                container.RegisterType<IRepository<User>,Repository<User>>();
+
+                container.RegisterType<ISettingsRepository<WorkshopSettings>,SettingsRepository<WorkshopSettings>>();
+                container.RegisterType<ISettingsRepository<PrinterSettings>,SettingsRepository<PrinterSettings>>();
+                container.RegisterType<ISettingsRepository<MailSettings>,SettingsRepository<MailSettings>>();
+                container.RegisterType<ISettingsRepository<ThemeSettings>,SettingsRepository<ThemeSettings>>();
+                container.RegisterType<ISettingsRepository<MiscellaneousSettings>,SettingsRepository<MiscellaneousSettings>>();
+
+                container.RegisterType<IConnectClient,ConnectClient>(new ContainerControlledLifetimeManager());
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(Container, ex)));
-                return false;
-            }
-
-            return true;
-        }
-
-        private class ContainerRegistry : Registry
-        {
-            public ContainerRegistry()
-            {
-                For<IRepository<VehicleMake>>().Use<VehicleRepository>();
-                For<IRepository<TachographDocument>>().Use<TachographDocumentRepository>();
-                For<IRepository<TachographMake>>().Use<TachographMakesRepository>();
-                For<IRepository<Technician>>().Use<TechnicianRepository>();
-
-                For<IRepository<UndownloadabilityDocument>>().Use<Repository<UndownloadabilityDocument>>();
-                For<IRepository<LetterForDecommissioningDocument>>().Use<Repository<LetterForDecommissioningDocument>>();
-                For<IRepository<CustomerContact>>().Use<Repository<CustomerContact>>();
-                For<IRepository<TachographFile>>().Use<Repository<TachographFile>>();
-                For<IRepository<DriverCardFile>>().Use<Repository<DriverCardFile>>();
-                For<IRepository<WorkshopCardFile>>().Use<Repository<WorkshopCardFile>>();
-                For<IRepository<TyreSize>>().Use<Repository<TyreSize>>();
-                For<IRepository<InspectionMethod>>().Use<Repository<InspectionMethod>>();
-                For<IRepository<InspectionEquipment>>().Use<Repository<InspectionEquipment>>();
-                For<IRepository<DetailedException>>().Use<Repository<DetailedException>>();
-                For<IRepository<RegistrationData>>().Use<Repository<RegistrationData>>();
-                For<IRepository<User>>().Use<Repository<User>>();
-
-                For<ISettingsRepository<WorkshopSettings>>().Use<SettingsRepository<WorkshopSettings>>();
-                For<ISettingsRepository<PrinterSettings>>().Use<SettingsRepository<PrinterSettings>>();
-                For<ISettingsRepository<MailSettings>>().Use<SettingsRepository<MailSettings>>();
-                For<ISettingsRepository<ThemeSettings>>().Use<SettingsRepository<ThemeSettings>>();
-                For<ISettingsRepository<MiscellaneousSettings>>().Use<SettingsRepository<MiscellaneousSettings>>();
-
-                For<IConnectClient>().Use<ConnectClient>().SetLifecycleTo(new SingletonLifecycle());
+                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(container, ex)));
             }
         }
     }

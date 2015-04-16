@@ -1,11 +1,10 @@
 ﻿namespace TachographReader.DataModel
 {
     using System;
+    using Connect.Shared;
     using Connect.Shared.Models;
-    using Shared;
-    using Shared.Core;
 
-    public class CustomerContact : BaseModel, IEquatable<CustomerContact>
+    public class CustomerContact : BaseModel, IEquatable<CustomerContact>, ICustomerContact
     {
         public string Name { get; set; }
         public string Email { get; set; }

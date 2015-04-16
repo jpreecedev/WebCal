@@ -12,17 +12,16 @@
     using Properties;
     using Shared;
     using Shared.Helpers;
-    using StructureMap;
     using Image = System.Drawing.Image;
 
     public static class LetterForDecommissioning
     {
         public static void Create(PDFDocument document, LetterForDecommissioningDocument letterForDecommissioningDocument)
         {
-            var settingsRepository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<WorkshopSettings>>();
+            var settingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
             WorkshopSettings settings = settingsRepository.GetWorkshopSettings();
 
-            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+            var repository = ContainerBootstrapper.Resolve<IRepository<CustomerContact>>();
             var customerContact = repository.FirstOrDefault(contact => string.Equals(letterForDecommissioningDocument.CustomerContact, contact.Name, StringComparison.CurrentCultureIgnoreCase));
             if (customerContact != null)
             {
@@ -97,14 +96,14 @@
         {
             Image signatureImage = null;
 
-            var userRepository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
+            var userRepository = ContainerBootstrapper.Resolve<IRepository<User>>();
             User user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
             if (user != null && user.Image != null)
             {
                 signatureImage = user.Image;
             }
 
-            var technicianRepository = ContainerBootstrapper.Container.GetInstance<IRepository<Technician>>();
+            var technicianRepository = ContainerBootstrapper.Resolve<IRepository<Technician>>();
             Technician technicianUser = technicianRepository.FirstOrDefault(c => string.Equals(c.Name, undownloadabilityDocument.Technician));
             if (technicianUser != null && technicianUser.Image != null)
             {

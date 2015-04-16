@@ -188,7 +188,7 @@ namespace TachographReader.Library.PDF
 
         private static RegistrationData GetRegistrationData()
         {
-            return ContainerBootstrapper.Container.GetInstance<IRepository<RegistrationData>>().GetAll().First();
+            return ContainerBootstrapper.Resolve<IRepository<RegistrationData>>().GetAll().First();
         }
 
         private static string GetTechnicianInitials(string technicianName)

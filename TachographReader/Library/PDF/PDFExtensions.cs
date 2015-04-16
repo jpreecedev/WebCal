@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.IO.Compression;
     using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
@@ -87,7 +86,7 @@
                 return false;
             }
 
-            var repository = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<PrinterSettings>>();
+            var repository = ContainerBootstrapper.Resolve<ISettingsRepository<PrinterSettings>>();
             var settings = repository.GetPrinterSettings();
 
             var workerTask = new WorkerTask { TaskName = WorkerTaskName.Print };

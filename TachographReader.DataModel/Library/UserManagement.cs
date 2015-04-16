@@ -212,7 +212,7 @@
 
         public static void AddDefaultUser()
         {
-            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<User>>();
+            var repository = ContainerBootstrapper.Resolve<IRepository<User>>();
 
             if (repository != null)
             {

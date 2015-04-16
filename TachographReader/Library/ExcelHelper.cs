@@ -33,8 +33,8 @@
         {
             Worksheet worksheet = CreateWorksheet();
 
-            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
-            var customerRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+            var repository = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>();
+            var customerRepository = ContainerBootstrapper.Resolve<IRepository<CustomerContact>>();
             ICollection<TachographDocument> allDocuments = repository.GetAll().OrderByDescending(c => c.Created).ToList();
 
             SetDocumentTitle(worksheet, string.Format(Resources.TXT_TACHOGRAPH_DOCUMENTS_THAT_WILL_EXPIRE, start.ToString(Constants.DateFormat), end.ToString(Constants.DateFormat), office));
@@ -80,8 +80,8 @@
         private static void GenerateExpiringTachographDocumentsTextDocument(DateTime start, DateTime end, string office)
         {
             var builder = new StringBuilder();
-            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
-            var customerRepository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+            var repository = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>();
+            var customerRepository = ContainerBootstrapper.Resolve<IRepository<CustomerContact>>();
 
             ICollection<TachographDocument> allDocuments = repository.GetAll();
             ICollection<CustomerContact> customers = customerRepository.Get(c => allDocuments.Any(d => string.Equals(d.CustomerContact, c.Name)));
@@ -286,7 +286,7 @@
 
         private static ICollection<TachographDocument> GetAllDocuments()
         {
-            var repository = ContainerBootstrapper.Container.GetInstance<IRepository<TachographDocument>>();
+            var repository = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>();
             return repository.GetAll();
         }
     }

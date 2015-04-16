@@ -50,7 +50,7 @@
             }
             if (workshopSettings.SendToCustomer && !string.IsNullOrEmpty(customerContact))
             {
-                var repository = ContainerBootstrapper.Container.GetInstance<IRepository<CustomerContact>>();
+                var repository = ContainerBootstrapper.Resolve<IRepository<CustomerContact>>();
                 CustomerContact customer = repository.FirstOrDefault(contact => string.Equals(customerContact, contact.Name, StringComparison.CurrentCultureIgnoreCase));
 
                 if (customer != null)

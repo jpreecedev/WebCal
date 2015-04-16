@@ -444,10 +444,8 @@ namespace TachographReader.Library.PDF
 
                 document.DrawLine((startHorizontal + 300), (startVertical + 715), (startHorizontal + 490), (startVertical + 715), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 710), 550, 72, document.GetXSmallFont(false));
-
-
-                Image image = ImageHelper.LoadFromResources("webcal").ToBitmap();
-                document.AddImage(image.ToByteArray(), 90, 21, (startHorizontal + 5), (startVertical + 30));
+                
+                document.AddImage(ImageHelper.LoadFromResourcesAsByteArray("webcal"), 90, 21, (startHorizontal + 5), (startVertical + 30));
             }
             else
             {

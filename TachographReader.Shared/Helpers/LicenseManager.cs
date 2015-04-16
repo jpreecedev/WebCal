@@ -107,7 +107,7 @@
 
         private static string GetSubstring(string key)
         {
-            return key.PadRight(2).Substring(0, 2);
+            return key.PadRight(4).Substring(0, 4);
         }
     }
 }

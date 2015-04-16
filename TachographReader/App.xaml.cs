@@ -3,8 +3,6 @@
     using System;
     using System.Data.Entity;
     using System.Diagnostics;
-    using System.Globalization;
-    using System.Threading;
     using System.Windows;
     using System.Windows.Threading;
     using Windows;
@@ -83,7 +81,7 @@
             BackupRestoreManager.BackupIfRequired(generalSettings.GetWorkshopSettings());
 
             //Apply theme
-            ThemeSettings themeSettings = ContainerBootstrapper.Container.GetInstance<ISettingsRepository<ThemeSettings>>().GetThemeSettings();
+            ThemeSettings themeSettings = ContainerBootstrapper.Resolve<ISettingsRepository<ThemeSettings>>().GetThemeSettings();
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = themeSettings.Source });
 
             return true;

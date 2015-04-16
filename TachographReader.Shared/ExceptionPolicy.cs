@@ -6,14 +6,14 @@
     using System.Text;
     using System.Xml.Serialization;
     using Helpers;
+    using Microsoft.Practices.Unity;
     using Models;
     using Properties;
-    using StructureMap;
     using Application = System.Windows.Forms.Application;
 
     public static class ExceptionPolicy
     {
-        public static string HandleException(Container container, Exception exception)
+        public static string HandleException(IUnityContainer container, Exception exception)
         {
             if (exception == null)
             {
@@ -22,7 +22,7 @@
 
             try
             {
-                var repository = container.GetInstance<IRepository<DetailedException>>();
+                var repository = container.Resolve<IRepository<DetailedException>>();
 
                 repository.Add(new DetailedException
                 {

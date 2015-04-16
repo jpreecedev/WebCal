@@ -7,7 +7,6 @@ namespace TachographReader.DataModel
     using Connect.Shared.Models;
     using Shared;
     using Shared.Helpers;
-    using StructureMap;
 
     [Table("RegistrationData")]
     public class RegistrationData : BaseModel
