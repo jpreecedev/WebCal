@@ -16,6 +16,11 @@ namespace TachographReader.DataModel
 
         public string LicenseKey { get; set; }
 
+        public bool HasValidLicense
+        {
+            get { return !string.IsNullOrEmpty(LicenseKey) && ExpirationDate.HasValue && ExpirationDate.Value >= DateTime.Now; }
+        }
+
         public DateTime? ExpirationDate
         {
             get { return LicenseManager.GetExpirationDate(LicenseKey); }

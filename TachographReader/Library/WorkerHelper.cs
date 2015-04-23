@@ -7,6 +7,8 @@
     using System.Threading.Tasks;
     using System.Windows;
     using DataModel;
+    using DataModel.Core;
+    using Microsoft.Practices.Unity;
     using Properties;
     using Shared;
     using Shared.Workers;
@@ -36,13 +38,12 @@
 
         public static void QueueTask(IWorkerTask workerTask)
         {
-            using (TachographContext context = new TachographContext())
+            using (var repository = ContainerBootstrapper.Container.Resolve<IRepository<WorkerTask>>())
             {
                 var task = (WorkerTask)workerTask;
                 task.Added = DateTime.Now;
 
-                context.WorkerTasks.Add(task);
-                context.SaveChanges();
+                repository.Add(task);
             }
 
             ProcessQueue();

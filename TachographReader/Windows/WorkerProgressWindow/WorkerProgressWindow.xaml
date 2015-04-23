@@ -74,6 +74,10 @@
                     Command="{Binding RefreshRecentTasksCommand}"
                     Height="35"
                     Width="120" />
+            <Button Content="{x:Static Properties:Resources.TXT_WORKER_PROGRESS_DELETE_TASK}"
+                    Command="{Binding DeleteTaskCommand}"
+                    Height="35"
+                    Width="120" />
             <Button Content="{x:Static Properties:Resources.TXT_WORKER_PROGRESS_CLOSE}"
                     Command="{Binding CloseCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"

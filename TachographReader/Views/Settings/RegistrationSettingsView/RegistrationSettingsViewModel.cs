@@ -16,6 +16,7 @@
     public class RegistrationSettingsViewModel : BaseSettingsViewModel
     {
         private string _serial;
+        private RegistrationData _registrationData;
 
         public IRepository<RegistrationData> Repository { get; set; }
 
@@ -30,7 +31,7 @@
                     return null;
                 }
 
-                return Repository.GetAll().First();
+                return _registrationData ?? (_registrationData = Repository.GetAll().First());
             }
         }
 
@@ -104,6 +105,7 @@
             LicenseKeyField.Valid = true;
             LicenseKeyField.IsHighlighted = true;
             Settings.LicenseKey = Serial;
+            Repository.AddOrUpdate(Settings);
         }
 
         private void OnConnect(object obj)

@@ -60,7 +60,7 @@
             string town = Resources.TXT_DEMO;
             string postCode = Resources.TXT_SOFTWARE;
 
-            if (!string.IsNullOrEmpty(RegistrationData.LicenseKey) || RegistrationData.ExpirationDate < DateTime.Now.Date)
+            if (RegistrationData.HasValidLicense)
             {
                 companyName = WorkshopSettings.WorkshopName;
                 address = WorkshopSettings.Address1;
@@ -87,7 +87,7 @@
 
         protected Image GetWorkshopImage()
         {
-            return ImageHelper.LoadFromResources("skillray-small1").ToBitmap();
+            return ImageHelper.LoadFromResources("skillray_small1").ToBitmap();
         }
 
         protected string TrimDocumentType(string type)

@@ -38,7 +38,7 @@ namespace TachographReader.Library.PDF
             }
 
             //Skillray
-            Image image = ImageHelper.LoadFromResources("webcal-print-logo").ToBitmap();
+            Image image = ImageHelper.LoadFromResources("webcal_print_logo").ToBitmap();
             document.AddImage(image.ToByteArray(), 180, 41, (startHorizontal + 350), (startVertical + 670));
         }
 

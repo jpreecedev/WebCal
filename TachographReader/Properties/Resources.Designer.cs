@@ -6460,6 +6460,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string TXT_WORKER_PROGRESS_DELETE_TASK {
+            get {
+                return ResourceManager.GetString("TXT_WORKER_PROGRESS_DELETE_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No tasks have been processed recently..
         /// </summary>
         public static string TXT_WORKER_PROGRESS_NO_PENDING_TASKS {

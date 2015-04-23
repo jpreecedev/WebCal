@@ -2401,4 +2401,7 @@ date
   <data name="TXT_TECHNICIANS_EDIT" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="TXT_WORKER_PROGRESS_DELETE_TASK" xml:space="preserve">
+    <value>Delete</value>
+  </data>
 </root>

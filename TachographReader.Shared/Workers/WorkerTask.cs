@@ -1,11 +1,13 @@
 ﻿namespace TachographReader.Shared.Workers
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Xml.Serialization;
     using global::Connect.Shared.Models;
 
     public class WorkerTask : BaseModel, IWorkerTask
     {
+        [MaxLength]
         public string ParametersAsString
         {
             get { return Parameters.Serialize(); }

@@ -21,6 +21,7 @@
         {
             Repository = ContainerBootstrapper.Resolve<IRepository<WorkerTask>>();
             RefreshRecentTasksCommand = new DelegateCommand<object>(OnRefreshRecentTasks);
+            DeleteTaskCommand = new DelegateCommand<object>(OnDeleteTask);
             ReProcessTaskCommand = new DelegateCommand<Window>(OnReProcessTask);
             CloseCommand = new DelegateCommand<Window>(OnClose);
 
@@ -39,6 +40,8 @@
         public WorkerTask SelectedTask { get; set; }
 
         public DelegateCommand<object> RefreshRecentTasksCommand { get; set; }
+
+        public DelegateCommand<object> DeleteTaskCommand { get; set; }
 
         public DelegateCommand<Window> ReProcessTaskCommand { get; set; }
 
@@ -60,6 +63,17 @@
 
             RecentTasks.Clear();
             RecentTasks.AddRange(Repository.Where(t => t.Deleted == null && t.Added >= DateTime.Now.AddHours(-48)).OrderByDescending(t => t.Added));
+        }
+
+        private void OnDeleteTask(object parameter)
+        {
+            if (SelectedTask == null)
+            {
+                return;
+            }
+
+            Repository.Remove(SelectedTask);
+            RefreshRecentTasksCommand.Execute(null);
         }
 
         private void OnClose(Window window)

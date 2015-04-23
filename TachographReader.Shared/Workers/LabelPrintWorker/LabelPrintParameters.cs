@@ -1,6 +1,9 @@
 ﻿namespace TachographReader.Shared.Workers.LabelPrintWorker
 {
     using System;
+    using System.Drawing;
+    using System.Windows.Media.Imaging;
+    using Helpers;
     using Shared.Workers;
 
     public class LabelPrintParameters : WorkerParameters
@@ -90,9 +93,9 @@
             get { return GetParameter<string>("SerialNumber"); }
         }
 
-        public string SkillrayTachoIcon
+        public Image SkillrayTachoIcon
         {
-            get { return GetParameter<string>("SkillrayTachoIcon"); }
+            get { return GetParameter<byte[]>("SkillrayTachoIcon").ToImage(); }
         }
 
         public string TemporaryDirectory

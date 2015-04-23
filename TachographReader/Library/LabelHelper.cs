@@ -46,7 +46,7 @@
             workerTask.Parameters.SetParameter("CalibrationTime", document.CalibrationTime);
 
             workerTask.Parameters.SetParameter("SealNumber", registrationData.SealNumber);
-            workerTask.Parameters.SetParameter("SkillrayTachoIcon", ImageHelper.LoadFromResources("skillray-tacho-icon"));
+            workerTask.Parameters.SetParameter("SkillrayTachoIcon", ImageHelper.LoadFromResources("skillray_tacho_icon").ToByteArray());
 
             WorkerHelper.QueueTask(workerTask);
         }

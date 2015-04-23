@@ -104,17 +104,17 @@
 
                     DrawSpacedText(g, GetCompanyName(), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
 
-                    if (string.IsNullOrEmpty(PrintParameters.LicenseKey) && !(PrintParameters.ExpirationDate < DateTime.Now.Date))
-                    {
-                        DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, Track(_textVerticalOffset += TEXT_HEIGHT))); //address 1
-                        DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, Track((_textVerticalOffset += TEXT_HEIGHT) - 15))); //town
-                        DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, (_textVerticalOffset += TEXT_HEIGHT) - 30)); //post code
-                    }
-                    else
+                    if (!string.IsNullOrEmpty(PrintParameters.LicenseKey) && PrintParameters.ExpirationDate >= DateTime.Now.Date)
                     {
                         DrawSpacedText(g, PrintParameters.Address1 ?? string.Empty, brush, new PointF(LEFT_OFFSET, Track(_textVerticalOffset += TEXT_HEIGHT))); //address 1
                         DrawSpacedText(g, PrintParameters.Town ?? string.Empty, brush, new PointF(LEFT_OFFSET, Track((_textVerticalOffset += TEXT_HEIGHT) - 15))); //town
                         DrawSpacedText(g, PrintParameters.PostCode ?? string.Empty, brush, new PointF(LEFT_OFFSET, (_textVerticalOffset += TEXT_HEIGHT) - 30)); //post code
+                    }
+                    else
+                    {
+                        DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, Track(_textVerticalOffset += TEXT_HEIGHT))); //address 1
+                        DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, Track((_textVerticalOffset += TEXT_HEIGHT) - 15))); //town
+                        DrawSpacedText(g, Resources.TXT_DEMO, brush, new PointF(LEFT_OFFSET, (_textVerticalOffset += TEXT_HEIGHT) - 30)); //post code
                     }
 
                     g.Flush();
@@ -199,14 +199,14 @@
 
             private Image GetWorkshopImage()
             {
-                return Image.FromFile(PrintParameters.SkillrayTachoIcon);
+                return PrintParameters.SkillrayTachoIcon;
             }
 
             private string GetCompanyName()
             {
                 string companyName = PrintParameters.CompanyName;
 
-                if (string.IsNullOrEmpty(PrintParameters.LicenseKey) && !(PrintParameters.ExpirationDate < DateTime.Now.Date))
+                if (string.IsNullOrEmpty(PrintParameters.LicenseKey) || PrintParameters.ExpirationDate < DateTime.Now.Date)
                 {
                     companyName = Resources.TXT_SKILLRAY;
                 }

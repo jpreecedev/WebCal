@@ -99,7 +99,7 @@ namespace TachographReader.Library.PDF
 
         private static string GetCompanyName(RegistrationData registrationData)
         {
-            if (!string.IsNullOrEmpty(registrationData.LicenseKey) || registrationData.ExpirationDate < DateTime.Now.Date) //Registered
+            if (registrationData.HasValidLicense)
             {
                 return registrationData.CompanyName;
             }
