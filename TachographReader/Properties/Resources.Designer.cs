@@ -5624,6 +5624,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string TXT_TECHNICIANS_EDIT {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_EDIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Has Signature?.
         /// </summary>
         public static string TXT_TECHNICIANS_HAS_SIGNATURE {

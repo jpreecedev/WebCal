@@ -7,16 +7,16 @@
     using Windows.SignatureCaptureWindow;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using Library;
     using Library.ViewModels;
     using Properties;
     using Shared;
+    using Image = System.Drawing.Image;
 
     public class TechniciansViewModel : BaseSettingsViewModel
     {
         private Technician _selectedTechnician;
-        private System.Drawing.Image _signatureImage = null;
+        private Image _signatureImage;
 
         public IRepository<Technician> Repository { get; set; }
         public ObservableCollection<Technician> Technicians { get; set; }
@@ -32,13 +32,14 @@
         }
 
         public DelegateCommand<UserControl> AddTechnicianCommand { get; set; }
+        public DelegateCommand<UserControl> EditTechnicianCommand { get; set; }
         public DelegateCommand<object> RemoveTechnicianCommand { get; set; }
         public DelegateCommand<object> SetDefaultCommand { get; set; }
         public DelegateCommand<object> AddSignatureCommand { get; set; }
 
         protected override void Load()
         {
-            ICollection<Technician> technicians = Repository.GetAll().RemoveAt(0);
+            ICollection<Technician> technicians = Repository.GetAll().Where(c => !string.IsNullOrEmpty(c.Name)).ToList();
 
             Technicians = new ObservableCollection<Technician>(technicians);
             Technicians.CollectionChanged += (sender, e) => RefreshCommands();
@@ -47,6 +48,7 @@
         protected override void InitialiseCommands()
         {
             AddTechnicianCommand = new DelegateCommand<UserControl>(OnAddTechnician);
+            EditTechnicianCommand = new DelegateCommand<UserControl>(OnEditTechnician);
             RemoveTechnicianCommand = new DelegateCommand<object>(OnRemoveTechnician, CanRemoveTechnician);
             SetDefaultCommand = new DelegateCommand<object>(OnSetDefault, CanSetDefault);
             AddSignatureCommand = new DelegateCommand<object>(OnAddSignature);
@@ -59,14 +61,14 @@
 
         private void OnAddTechnician(UserControl window)
         {
-            var userPromptViewModel = new UserPromptViewModel()
+            var userPromptViewModel = new UserPromptViewModel
             {
                 FirstPrompt = Resources.TXT_GIVE_NAME_OF_TECHNICIAN,
                 SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER,
                 AddSignatureCommand = AddSignatureCommand
             };
 
-            GetInputFromUser(window, userPromptViewModel , OnAddTechnician);
+            GetInputFromUser(window, userPromptViewModel, OnAddTechnician);
         }
 
         private void OnAddTechnician(UserPromptViewModel result)
@@ -86,6 +88,54 @@
                 };
                 Technicians.Add(technician);
                 Repository.Add(technician);
+            }
+        }
+
+        private void OnEditTechnician(UserControl window)
+        {
+            if (SelectedTechnician == null)
+            {
+                return;
+            }
+
+            var userPromptViewModel = new UserPromptViewModel
+            {
+                FirstPrompt = Resources.TXT_GIVE_NAME_OF_TECHNICIAN,
+                FirstInput = SelectedTechnician.Name,
+                SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER,
+                SecondInput = SelectedTechnician.Number,
+                AddSignatureCommand = AddSignatureCommand
+            };
+
+            GetInputFromUser(window, userPromptViewModel, OnEditTechnician);
+        }
+
+        private void OnEditTechnician(UserPromptViewModel result)
+        {
+            if (result == null)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(result.FirstInput))
+            {
+                var selectedTechnician = SelectedTechnician.Clone<Technician>();
+                selectedTechnician.Name = result.FirstInput;
+                selectedTechnician.Number = result.SecondInput;
+
+                var index = Technicians.IndexOf(SelectedTechnician);
+                Technicians.Remove(SelectedTechnician);
+
+                if (index > -1)
+                {
+                    Technicians.Insert(index, selectedTechnician);
+                }
+                else
+                {
+                    Technicians.Add(selectedTechnician);
+                }
+                Repository.AddOrUpdate(selectedTechnician);
+                SelectedTechnician = null;
             }
         }
 

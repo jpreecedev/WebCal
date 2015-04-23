@@ -2398,4 +2398,7 @@ date
   <data name="TXT_WORKER_PROGRESS_RE_PROCESSED_SOON" xml:space="preserve">
     <value>The task will be re-processed shortly.</value>
   </data>
+  <data name="TXT_TECHNICIANS_EDIT" xml:space="preserve">
+    <value>Edit</value>
+  </data>
 </root>
