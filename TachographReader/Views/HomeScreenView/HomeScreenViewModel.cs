@@ -11,10 +11,6 @@
     {
         public double ButtonHeight { get; set; }
         public double ButtonWidth { get; set; }
-        public string DigitalText { get; set; }
-        public string AnalogueText { get; set; }
-        public string CertificateText { get; set; }
-        public string PlaqueText { get; set; }
         public string ColumnWidth { get; set; }
 
         public string VersionNumber
@@ -84,25 +80,15 @@
                 return;
             }
 
-            if (userControl.ActualHeight < 595)
+            if (userControl.ActualHeight < 580)
             {
-                ButtonHeight = 150;
-                ButtonWidth = 128;
-
-                DigitalText = string.Empty;
-                AnalogueText = string.Empty;
-                CertificateText = string.Empty;
-                PlaqueText = string.Empty;
+                ButtonHeight = 224;
+                ButtonWidth = 185;
             }
             else
             {
                 ButtonHeight = 285;
                 ButtonWidth = 235;
-
-                DigitalText = Resources.TXT_DIGITAL_TACHOGRAPH_DOCUMENT;
-                AnalogueText = Resources.TXT_ANALOGUE_TACHOGRAPH_DOCUMENT;
-                CertificateText = Resources.TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT;
-                PlaqueText = Resources.TXT_PLAQUE_TACHOGRAPH_DOCUMENT;
             }
         }
     }

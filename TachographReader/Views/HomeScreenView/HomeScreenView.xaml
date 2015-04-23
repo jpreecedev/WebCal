@@ -53,7 +53,7 @@
                     <Image Source="{core:LocalizedImageBinding ConverterParameter={}NewTachoDoc}"
                            Margin="10,10,10,10" />
                     <TextBlock TextAlignment="Center"
-                               Text="{Binding DigitalText}"
+                               Text="{x:Static Properties:Resources.TXT_DIGITAL_TACHOGRAPH_DOCUMENT}"
                                TextWrapping="Wrap"
                                Margin="5,5,5,15"
                                FontSize="10pt" />
@@ -71,7 +71,7 @@
                     <Image Source="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDoc}"
                            Margin="10,10,10,10" />
                     <TextBlock TextAlignment="Center"
-                               Text="{Binding AnalogueText}"
+                               Text="{x:Static Properties:Resources.TXT_ANALOGUE_TACHOGRAPH_DOCUMENT}"
                                TextWrapping="Wrap"
                                Margin="5,5,5,15"
                                FontSize="10pt" />
@@ -89,7 +89,7 @@
                     <Image Source="{core:LocalizedImageBinding ConverterParameter={}NewCertificateDoc}"
                            Margin="10,10,10,10" />
                     <TextBlock TextAlignment="Center"
-                               Text="{Binding CertificateText}"
+                               Text="{x:Static Properties:Resources.TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT}"
                                TextWrapping="Wrap"
                                Margin="5,5,5,15"
                                FontSize="10pt" />
@@ -107,7 +107,7 @@
                     <Image Source="{core:LocalizedImageBinding ConverterParameter={}NewPlaqueDoc}"
                            Margin="10,10,10,10" />
                     <TextBlock TextAlignment="Center"
-                               Text="{Binding PlaqueText}"
+                               Text="{x:Static Properties:Resources.TXT_PLAQUE_TACHOGRAPH_DOCUMENT}"
                                TextWrapping="Wrap"
                                Margin="5,5,5,15"
                                FontSize="10pt" />
