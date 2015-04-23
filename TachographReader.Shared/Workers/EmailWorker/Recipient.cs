@@ -1,4 +1,4 @@
-namespace TachographReader.EmailWorker
+namespace TachographReader.Shared.Workers.EmailWorker
 {
     public class Recipient
     {

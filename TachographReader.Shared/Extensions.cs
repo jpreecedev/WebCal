@@ -1,11 +1,12 @@
 ﻿namespace TachographReader.Shared
 {
     using System;
+    using System.Linq;
+    using System.Reflection;
     using System.ServiceModel;
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Input;
     using System.Windows.Threading;
     using Connect;
     using global::Connect.Shared;
@@ -13,11 +14,19 @@
 
     public static class Extensions
     {
-        public static string DoubleEscape(this string input)
+        public static T GetAttribute<T>(this Enum enumValue) where T : Attribute
         {
-            return input.Replace("\"", "'");
+            MemberInfo memberInfo = enumValue.GetType().GetMember(enumValue.ToString()).FirstOrDefault();
+
+            if (memberInfo != null)
+            {
+                var attribute = (T)memberInfo.GetCustomAttributes(typeof(T), false).FirstOrDefault();
+                return attribute;
+            }
+
+            return null;
         }
-        
+
         public static void CallAsync<TResult>(this IConnectClient client, IConnectKeys connectKeys, Func<IConnectClient, TResult> beginCall, Action<ConnectOperationResult> endCall = null, Action<Exception> exceptionHandler = null, Action alwaysCall = null)
         {
             if (connectKeys == null)
@@ -31,7 +40,6 @@
 
             try
             {
-                Mouse.OverrideCursor = Cursors.Wait;
                 TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
 
                 Task.Factory.StartNew(() =>
@@ -62,7 +70,6 @@
                 {
                     Application.Current.Dispatcher.Invoke(() =>
                     {
-                        Mouse.OverrideCursor = null;
                         if (alwaysCall != null)
                         {
                             alwaysCall();
@@ -72,7 +79,6 @@
             }
             catch (Exception ex)
             {
-                Mouse.OverrideCursor = null;
                 if (exceptionHandler != null)
                 {
                     exceptionHandler(ex);
@@ -93,7 +99,6 @@
 
             try
             {
-                Mouse.OverrideCursor = Cursors.Wait;
                 TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
 
                 Task.Factory.StartNew(() =>
@@ -126,7 +131,6 @@
                 }, DispatcherPriority.Normal), TaskContinuationOptions.OnlyOnFaulted)
                 .ContinueWith(alwaysTask => Application.Current.Dispatcher.Invoke(() =>
                 {
-                    Mouse.OverrideCursor = null;
                     if (alwaysCall != null)
                     {
                         alwaysCall();
@@ -135,8 +139,6 @@
             }
             catch (Exception ex)
             {
-                Mouse.OverrideCursor = null;
-
                 if (exceptionHandler != null)
                 {
                     exceptionHandler(ex);

@@ -46,11 +46,6 @@
             Repository = GetInstance<IRepository<TyreSize>>();
         }
 
-        public override void Save()
-        {
-            Repository.Save();
-        }
-
         private void OnAddTyreSize(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_TYRE_SIZE, OnAddTyreSize);

@@ -1,20 +1,12 @@
-﻿using TachographReader.EmailWorker.Properties;
-
-namespace TachographReader.EmailWorker
+﻿namespace TachographReader.Shared.Workers.EmailWorker
 {
-    using System;
     using System.IO;
     using System.Net;
     using System.Net.Mail;
-    using Shared.Workers;
+    using Properties;
 
     public class EmailQueueWorker : BaseWorker
     {
-        public EmailQueueWorker(Action<string> sendMessage)
-            : base(sendMessage)
-        {
-        }
-
         public override void Start(IWorkerParameters parameters)
         {
             var emailParameters = new EmailParameters(parameters);
@@ -36,7 +28,6 @@ namespace TachographReader.EmailWorker
                 return;
             }
 
-            SendMessage(Resources.TXT_SENDING_VIA_MAPI);
             var mapiMailMessage = new MapiMailMessage
             {
                 Subject = parameters.Subject,
@@ -60,7 +51,6 @@ namespace TachographReader.EmailWorker
                 return;
             }
 
-            SendMessage(Resources.TXT_SENDING_VIA_SMTP);
             using (var mailMessage = new MailMessage())
             {
                 mailMessage.To.Add(parameters.Recipient);

@@ -1,62 +1,30 @@
 ﻿namespace TachographReader.Shared.Workers
 {
-    using System.Diagnostics;
-    using System.IO;
-    using System.IO.Pipes;
+    using System;
 
     public class PipeServer : BasePipeProvider, IPipeServer
     {
-        private StreamReader _reader;
-        private readonly Process _pipeClient = new Process();
-        private readonly AnonymousPipeServerStream _pipeServer = new AnonymousPipeServerStream(PipeDirection.In, HandleInheritability.Inheritable);
+        private readonly Type _pluginType;
 
-        public PipeServer(string clientPath)
+        public PipeServer(Type pluginType)
         {
-            _pipeClient.StartInfo.FileName = clientPath;
+            _pluginType = pluginType;
         }
 
         public void Connect(IWorkerParameters parameters)
         {
-            _pipeClient.StartInfo.Arguments = _pipeServer.GetClientHandleAsString() + " " + parameters.Serialize().DoubleEscape();
-            _pipeClient.StartInfo.UseShellExecute = false;
-            _pipeClient.StartInfo.CreateNoWindow = true;
-            _pipeClient.Start();
-
-            _pipeServer.DisposeLocalCopyOfClientHandle();
-
-            _reader = new StreamReader(_pipeServer);
-
-            string temp;
-            while ((temp = _reader.ReadLine()) != null)
+            try
             {
-                OnChanged(ProgressChanged, temp);
+                var plugin = (IWorker) Activator.CreateInstance(_pluginType);
+                plugin.Start(parameters);
+            }
+            catch (Exception ex)
+            {
+                OnChanged(Error, ex.Message);
+                return;
             }
 
             OnChanged(Completed, string.Empty);
-        }
-
-        public void Close()
-        {
-            _pipeClient.WaitForExit();
-            _pipeClient.Close();
-        }
-
-        public void Dispose()
-        {
-            Close();
-
-            if (_pipeClient != null)
-            {
-                _pipeClient.Dispose();
-            }
-            if (_pipeServer != null)
-            {
-                _pipeServer.Dispose();
-            }
-            if (_reader != null)
-            {
-                _reader.Dispose();
-            }
         }
     }
 }

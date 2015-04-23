@@ -60,12 +60,7 @@
         {
             Repository = GetInstance<IRepository<TachographMake>>();
         }
-
-        public override void Save()
-        {
-            Repository.Save();
-        }
-
+        
         private void OnAddMake(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_MAKE_OF_TACHOGRAPH, OnAddMake);

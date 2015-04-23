@@ -12,7 +12,13 @@
     {
         public T Get(Func<T, bool> filter, params string[] includes)
         {
-            List<T> settings = Safely(() => Context.Set<T>().WithIncludes(Context, includes).ToList());
+            List<T> settings = Safely(() =>
+            {
+                using (var context = new TachographContext())
+                {
+                    return context.Set<T>().WithIncludes(context, includes).ToList();
+                }
+            });
 
             if (settings.Count == 0)
             {
@@ -35,9 +41,12 @@
         {
             Safely(() =>
             {
-                Context.Set<T>().Attach(settings);
-                Context.Entry(settings).State = EntityState.Modified;
-                Context.SaveChanges();
+                using (var context = new TachographContext())
+                {
+                    context.Set<T>().Attach(settings);
+                    context.Entry(settings).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
             });
         }
     }

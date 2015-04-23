@@ -914,6 +914,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Added.
+        /// </summary>
+        public static string TXT_ADDED {
+            get {
+                return ResourceManager.GetString("TXT_ADDED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Files (*.*)|*.*.
         /// </summary>
         public static string TXT_ALL_FILES {
@@ -3382,7 +3391,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to View Task Queue.
+        ///   Looks up a localized string similar to See Recent Tasks.
         /// </summary>
         public static string TXT_MAIN_WINDOW_VIEW_TASK_QUEUE {
             get {
@@ -5579,6 +5588,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Task.
+        /// </summary>
+        public static string TXT_TASK {
+            get {
+                return ResourceManager.GetString("TXT_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
         public static string TXT_TECHNICIAN {
@@ -6433,7 +6451,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are no tasks waiting to be processed..
+        ///   Looks up a localized string similar to No tasks have been processed recently..
         /// </summary>
         public static string TXT_WORKER_PROGRESS_NO_PENDING_TASKS {
             get {
@@ -6442,7 +6460,34 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Task Queue.
+        ///   Looks up a localized string similar to The task will be re-processed shortly..
+        /// </summary>
+        public static string TXT_WORKER_PROGRESS_RE_PROCESSED_SOON {
+            get {
+                return ResourceManager.GetString("TXT_WORKER_PROGRESS_RE_PROCESSED_SOON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string TXT_WORKER_PROGRESS_REFRESH {
+            get {
+                return ResourceManager.GetString("TXT_WORKER_PROGRESS_REFRESH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-Process Task.
+        /// </summary>
+        public static string TXT_WORKER_PROGRESS_REPROCESS_TASK {
+            get {
+                return ResourceManager.GetString("TXT_WORKER_PROGRESS_REPROCESS_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recent Tasks.
         /// </summary>
         public static string TXT_WORKER_PROGRESS_TITLE {
             get {

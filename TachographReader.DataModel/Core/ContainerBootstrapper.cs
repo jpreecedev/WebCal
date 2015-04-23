@@ -10,6 +10,7 @@
     using Shared.Connect;
     using Shared.Helpers;
     using Shared.Models;
+    using Shared.Workers;
 
     public static class ContainerBootstrapper
     {
@@ -51,7 +52,8 @@
                 container.RegisterType<IRepository<InspectionEquipment>,Repository<InspectionEquipment>>();
                 container.RegisterType<IRepository<DetailedException>,Repository<DetailedException>>();
                 container.RegisterType<IRepository<RegistrationData>,Repository<RegistrationData>>();
-                container.RegisterType<IRepository<User>,Repository<User>>();
+                container.RegisterType<IRepository<User>, Repository<User>>();
+                container.RegisterType<IRepository<WorkerTask>, Repository<WorkerTask>>();
 
                 container.RegisterType<ISettingsRepository<WorkshopSettings>,SettingsRepository<WorkshopSettings>>();
                 container.RegisterType<ISettingsRepository<PrinterSettings>,SettingsRepository<PrinterSettings>>();

@@ -1892,7 +1892,7 @@ date
     <value>Restore Database</value>
   </data>
   <data name="TXT_MAIN_WINDOW_VIEW_TASK_QUEUE" xml:space="preserve">
-    <value>View Task Queue</value>
+    <value>See Recent Tasks</value>
   </data>
   <data name="TXT_MAIN_WINDOW_CHECK_FOR_UPDATES" xml:space="preserve">
     <value>Check For Updates</value>
@@ -2036,10 +2036,10 @@ date
     <value>Task Queue</value>
   </data>
   <data name="TXT_WORKER_PROGRESS_TITLE" xml:space="preserve">
-    <value>Task Queue</value>
+    <value>Recent Tasks</value>
   </data>
   <data name="TXT_WORKER_PROGRESS_NO_PENDING_TASKS" xml:space="preserve">
-    <value>There are no tasks waiting to be processed.</value>
+    <value>No tasks have been processed recently.</value>
   </data>
   <data name="TXT_WORKER_PROGRESS_CLOSE" xml:space="preserve">
     <value>Close</value>
@@ -2382,5 +2382,20 @@ date
   </data>
   <data name="TXT_SPLASH_SCREEN_PATH" xml:space="preserve">
     <value>Resources/splash.png</value>
+  </data>
+  <data name="TXT_TASK" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="TXT_ADDED" xml:space="preserve">
+    <value>Added</value>
+  </data>
+  <data name="TXT_WORKER_PROGRESS_REFRESH" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="TXT_WORKER_PROGRESS_REPROCESS_TASK" xml:space="preserve">
+    <value>Re-Process Task</value>
+  </data>
+  <data name="TXT_WORKER_PROGRESS_RE_PROCESSED_SOON" xml:space="preserve">
+    <value>The task will be re-processed shortly.</value>
   </data>
 </root>

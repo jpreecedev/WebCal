@@ -7,9 +7,9 @@
                       Title="{x:Static Properties:Resources.TXT_WORKER_PROGRESS_TITLE}"
                       WindowStartupLocation="CenterScreen"
                       ResizeMode="NoResize"
-                      Height="300"
-                      Width="500"
-                      AllowDrop="True">
+                      Height="600"
+                      Width="800"
+                      AllowDrop="False">
     <core:BaseModalWindow.DataContext>
         <vm:WorkerProgressWindowViewModel />
     </core:BaseModalWindow.DataContext>
@@ -24,47 +24,61 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ScrollViewer>
-            <ItemsControl ItemsSource="{Binding Tasks}"
-                          Margin="10">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Message}">
-                            <TextBlock.Style>
-                                <Style>
-                                    <Setter Property="TextBlock.Margin"
-                                            Value="0,0,0,5" />
-                                    <Setter Property="TextBlock.FontSize"
-                                            Value="12" />
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel IsItemsHost="True"
-                                    Orientation="Vertical" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.Style>
-                    <Style TargetType="{x:Type ItemsControl}">
-                        <Style.Triggers>
-                            <DataTrigger Value="0"
-                                         Binding="{Binding Tasks}">
-                                <Setter Property="Template"
-                                        Value="{StaticResource EmptyListTemplate}" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ItemsControl.Style>
-            </ItemsControl>
-        </ScrollViewer>
+        <ListView ItemsSource="{Binding RecentTasks}"
+                  SelectedItem="{Binding SelectedTask}"
+                  IsSynchronizedWithCurrentItem="True"
+                  SelectionMode="Single"
+                  Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_TASK}"
+                                    DisplayMemberBinding="{Binding WorkerId}"
+                                    Width="0" />
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_TASK}"
+                                    DisplayMemberBinding="{Binding TaskName}"
+                                    Width="150" />
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_ADDED}"
+                                    DisplayMemberBinding="{Binding Added, StringFormat={}{0:dd-MMM-yyyy}}"
+                                    Width="150" />
+                    <GridViewColumn Header="Processed"
+                                    DisplayMemberBinding="{Binding Processed, StringFormat={}{0:dd-MMM-yyyy}}"
+                                    Width="150" />
+                    <GridViewColumn Header="Message"
+                                    DisplayMemberBinding="{Binding Message}"
+                                    Width="250" />
+                </GridView>
+            </ListView.View>
+            <ListView.Style>
+                <Style TargetType="{x:Type ListView}">
+                    <Style.Triggers>
+                        <DataTrigger Value="0"
+                                     Binding="{Binding RecentTasks}">
+                            <Setter Property="Template"
+                                    Value="{StaticResource EmptyListTemplate}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Style>
+        </ListView>
 
-        <Button Content="{x:Static Properties:Resources.TXT_WORKER_PROGRESS_CLOSE}"
-                Command="{Binding CloseCommand}"
-                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                Height="35"
-                Grid.Row="1" />
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Content="{x:Static Properties:Resources.TXT_WORKER_PROGRESS_REPROCESS_TASK}"
+                    Command="{Binding ReProcessTaskCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                    Height="35"
+                    Width="120" />
+            <Button Content="{x:Static Properties:Resources.TXT_WORKER_PROGRESS_REFRESH}"
+                    Command="{Binding RefreshRecentTasksCommand}"
+                    Height="35"
+                    Width="120" />
+            <Button Content="{x:Static Properties:Resources.TXT_WORKER_PROGRESS_CLOSE}"
+                    Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                    Height="35"
+                    Width="120" />
+        </StackPanel>
     </Grid>
 </core:BaseModalWindow>

@@ -79,7 +79,6 @@
 
         public override void Save()
         {
-            Repository.Save();
             ConnectHelper.ConnectKeysChanged();
         }
 

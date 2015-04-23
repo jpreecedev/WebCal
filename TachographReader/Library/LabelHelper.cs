@@ -48,7 +48,7 @@
             workerTask.Parameters.SetParameter("SealNumber", registrationData.SealNumber);
             workerTask.Parameters.SetParameter("SkillrayTachoIcon", ImageHelper.LoadFromResources("skillray-tacho-icon"));
 
-            WorkerHelper.RunTask(workerTask);
+            WorkerHelper.QueueTask(workerTask);
         }
 
         private static RegistrationData GetRegistrationData()

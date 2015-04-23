@@ -1,4 +1,4 @@
-﻿namespace TachographReader.PrintWorker
+﻿namespace TachographReader.Shared.Workers.PrintWorker
 {
     using Shared.Workers;
 

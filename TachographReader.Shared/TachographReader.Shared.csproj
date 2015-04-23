@@ -131,6 +131,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncHelper.cs" />
     <Compile Include="Connect\ConnectUrlHelper.cs" />
     <Compile Include="Connect\IConnectClient.cs" />
     <Compile Include="Connect\IConnectClientCredentials.cs" />
@@ -157,26 +158,32 @@
     <Compile Include="Helpers\ScreenshotHelper.cs" />
     <Compile Include="SerializableKeyValuePair.cs" />
     <Compile Include="SmartCardOperation.cs" />
-    <Compile Include="Workers\BaseElementCollection.cs" />
     <Compile Include="Workers\BasePipeClient.cs" />
     <Compile Include="Workers\BaseWorker.cs" />
     <Compile Include="Workers\BaseWorkerEntryPoint.cs" />
+    <Compile Include="Workers\EmailWorker\EmailParameters.cs" />
+    <Compile Include="Workers\EmailWorker\EmailQueueWorker.cs" />
+    <Compile Include="Workers\EmailWorker\MapiHelperInterop.cs" />
+    <Compile Include="Workers\EmailWorker\MapiMailMessage.cs" />
+    <Compile Include="Workers\EmailWorker\Recipient.cs" />
+    <Compile Include="Workers\EmailWorker\RecipientCollection.cs" />
+    <Compile Include="Workers\EmailWorker\RecipientType.cs" />
     <Compile Include="Workers\IPipe.cs" />
-    <Compile Include="Workers\IPipeClient.cs" />
     <Compile Include="Workers\IPipeServer.cs" />
     <Compile Include="Workers\IWorker.cs" />
     <Compile Include="Workers\IWorkerParameters.cs" />
     <Compile Include="Workers\IWorkerTask.cs" />
-    <Compile Include="Workers\PipeClient.cs" />
+    <Compile Include="Workers\LabelPrintWorker\LabelPrintParameters.cs" />
+    <Compile Include="Workers\LabelPrintWorker\LabelPrintQueueWorker.cs" />
     <Compile Include="Workers\PipeServer.cs" />
-    <Compile Include="Workers\Plugin.cs" />
-    <Compile Include="Workers\PluginsElementCollection.cs" />
-    <Compile Include="WebcalConfigurationSection.cs" />
+    <Compile Include="Workers\PrintWorker\PrintParameters.cs" />
+    <Compile Include="Workers\PrintWorker\PrintQueueWorker.cs" />
     <Compile Include="Workers\WorkerMessage.cs" />
     <Compile Include="Workers\WorkerParameters.cs" />
     <Compile Include="Workers\WorkerProgressEventArgs.cs" />
     <Compile Include="Workers\WorkerTask.cs" />
     <Compile Include="Workers\WorkerTaskName.cs" />
+    <Compile Include="Workers\WorkerTaskPluginAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

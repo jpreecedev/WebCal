@@ -3,6 +3,7 @@
     using System.Data.Entity;
     using Connect.Shared.Models;
     using Shared.Models;
+    using Shared.Workers;
 
     public class TachographContext : DbContext
     {
@@ -32,5 +33,6 @@
         public DbSet<MailSettings> MailSettings { get; set; }
         public DbSet<ThemeSettings> ThemeSettings { get; set; }
         public DbSet<MiscellaneousSettings> MiscellaneousSettings { get; set; }
+        public DbSet<WorkerTask> WorkerTasks { get; set; }
     }
 }

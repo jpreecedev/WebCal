@@ -85,6 +85,9 @@
             ThemeSettings themeSettings = ContainerBootstrapper.Resolve<ISettingsRepository<ThemeSettings>>().GetThemeSettings();
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = themeSettings.Source });
 
+            //Initialise worker queue, which will start checking for unprocessed tasks
+            WorkerHelper.Initialize();
+
             return true;
         }
 

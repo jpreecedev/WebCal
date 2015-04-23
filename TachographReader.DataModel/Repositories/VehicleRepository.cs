@@ -13,20 +13,23 @@
             return Safely(() =>
             {
                 //Workaround to avoid the selected item being defaulted in
-                List<VehicleMake> items = Context.VehicleMakes.Include(c => c.Models).WithIncludes(Context, includes).Where(c => c.Name != null).OrderBy(c => c.Name).ToList();
-
-                foreach (VehicleMake item in items)
+                using (var context = new TachographContext())
                 {
-                    item.Models = new ObservableCollection<VehicleModel>(item.Models.Where(m => m.Name != null).OrderBy(c => c.Name));
+                    List<VehicleMake> items = context.VehicleMakes.Include(c => c.Models).WithIncludes(context, includes).Where(c => c.Name != null).OrderBy(c => c.Name).ToList();
 
-                    if (item.Models.All(m => m.Name != null))
+                    foreach (VehicleMake item in items)
                     {
-                        item.Models.Insert(0, new VehicleModel());
-                    }
-                }
+                        item.Models = new ObservableCollection<VehicleModel>(item.Models.Where(m => m.Name != null).OrderBy(c => c.Name));
 
-                items.Insert(0, null);
-                return items;
+                        if (item.Models.All(m => m.Name != null))
+                        {
+                            item.Models.Insert(0, new VehicleModel());
+                        }
+                    }
+
+                    items.Insert(0, null);
+                    return items;
+                }
             });
         }
     }

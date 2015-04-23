@@ -56,10 +56,5 @@
         {
             DriverCardFilesRepository.Remove((DriverCardFile) SelectedStoredFile);
         }
-
-        public override void OnClosing(bool cancelled)
-        {
-            DriverCardFilesRepository.Save();
-        }
     }
 }

@@ -4,13 +4,11 @@ namespace TachographReader.Shared.Workers
 
     public class BaseWorker : IWorker
     {
-        public BaseWorker(Action<string> sendMessage)
+        public BaseWorker()
         {
-            SendMessage = sendMessage;
             Id = Guid.NewGuid();
         }
 
-        protected Action<string> SendMessage { get; set; }
         public bool Started { get; protected set; }
         public Guid Id { get; private set; }
 
@@ -23,27 +21,8 @@ namespace TachographReader.Shared.Workers
             GC.SuppressFinalize(this);
         }
 
-        public event EventHandler<WorkerChangedEventArgs> ProgressChanged;
         public event EventHandler<WorkerChangedEventArgs> Completed;
-
-        protected virtual void OnProgressChanged(WorkerMessage message)
-        {
-            if (message == null)
-            {
-                return;
-            }
-
-            EventHandler<WorkerChangedEventArgs> handler = ProgressChanged;
-            if (handler != null)
-            {
-                handler(this, new WorkerChangedEventArgs
-                {
-                    Message = message.Message,
-                    WorkerId = message.WorkerId
-                });
-            }
-        }
-
+        
         protected virtual void OnCompleted(WorkerChangedEventArgs e)
         {
             EventHandler<WorkerChangedEventArgs> handler = Completed;

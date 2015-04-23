@@ -98,7 +98,7 @@
             workerTask.Parameters.SetParameter("DefaultNumberOfCopies", settings.DefaultNumberOfCopies);
             workerTask.Parameters.SetParameter("LabelNumberOfCopies", settings.LabelNumberOfCopies);
 
-            WorkerHelper.RunTask(workerTask);
+            WorkerHelper.QueueTask(workerTask);
             return true;
         }
 

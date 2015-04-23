@@ -46,11 +46,6 @@
             InspectionMethods.CollectionChanged += (sender, e) => RefreshCommands();
         }
 
-        public override void Save()
-        {
-            Repository.Save();
-        }
-
         private void OnAddInspectionMethod(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_INSPECTION_METHOD, OnAddInspectionMethod);

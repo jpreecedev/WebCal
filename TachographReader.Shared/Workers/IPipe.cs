@@ -2,11 +2,10 @@
 {
     using System;
 
-    public interface IPipe : IDisposable
+    public interface IPipe
     {
         Guid Id { get; }
-        EventHandler<WorkerChangedEventArgs> ProgressChanged { get; set; }
         EventHandler<WorkerChangedEventArgs> Completed { get; set; }
-        void Close();
+        EventHandler<WorkerChangedEventArgs> Error { get; set; }
     }
 }

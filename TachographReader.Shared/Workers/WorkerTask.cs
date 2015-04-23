@@ -1,8 +1,30 @@
 ﻿namespace TachographReader.Shared.Workers
 {
-    public class WorkerTask : IWorkerTask
+    using System;
+    using System.Xml.Serialization;
+    using global::Connect.Shared.Models;
+
+    public class WorkerTask : BaseModel, IWorkerTask
     {
+        public string ParametersAsString
+        {
+            get { return Parameters.Serialize(); }
+            set
+            {
+                Parameters = new WorkerParameters();
+                Parameters.Deserialize(value);
+            }
+        }
+
         public WorkerTaskName TaskName { get; set; }
+
+        [XmlIgnore]
         public IWorkerParameters Parameters { get; set; }
+
+        public DateTime Added { get; set; }
+        public bool IsProcessing { get; set; }
+        public DateTime? Processed { get; set; }
+        public Guid WorkerId { get; set; }
+        public string Message { get; set; }
     }
 }

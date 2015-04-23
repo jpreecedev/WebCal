@@ -1,3 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<root><xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xsd:import namespace="http://www.w3.org/XML/1998/namespace" /><xsd:element name="root" msdata:IsDataSet="true"><xsd:complexType><xsd:choice maxOccurs="unbounded"><xsd:element name="metadata"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" /></xsd:sequence><xsd:attribute name="name" use="required" type="xsd:string" /><xsd:attribute name="type" type="xsd:string" /><xsd:attribute name="mimetype" type="xsd:string" /><xsd:attribute ref="xml:space" /></xsd:complexType></xsd:element><xsd:element name="assembly"><xsd:complexType><xsd:attribute name="alias" type="xsd:string" /><xsd:attribute name="name" type="xsd:string" /></xsd:complexType></xsd:element><xsd:element name="data"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /><xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" /></xsd:sequence><xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" /><xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" /><xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" /><xsd:attribute ref="xml:space" /></xsd:complexType></xsd:element><xsd:element name="resheader"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /></xsd:sequence><xsd:attribute name="name" type="xsd:string" use="required" /></xsd:complexType></xsd:element></xsd:choice></xsd:complexType></xsd:element></xsd:schema><resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>2.0</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="EXC_ENTITY_VALIDATION_ERRORS" xml:space="preserve"><value>"Объект ""{0}"" содержит следующие ошибки:"</value></data><data name="EXC_VALIDATION_ERROR_PROPERTY" xml:space="preserve"><value>{1}</value></data><data name="ERR_UNABLE_FIND_DATA_PROVIDER" xml:space="preserve"><value>Не удается найти требуемого поставщика данных .NET Framework. Не может быть установлен.</value></data><data name="ERR_UNABLE_FIND_SQL_CE" xml:space="preserve"><value>Произошла ошибка. SQL CE 4.0 не может быть установлен.</value></data><data name="TXT_ERROR" xml:space="preserve"><value>Ошибка</value></data><data name="EXC_IMAGE_COULD_NOT_BE_LOADED" xml:space="preserve"><value>Изображение не может быть загружено</value></data><data name="TXT_MAX_RETRIES_REACHED" xml:space="preserve"><value>Было достигнуто максимальное число попыток</value></data><data name="TXT_ATTEMPT_FAILED" xml:space="preserve"><value>Не удалось. Попытка снова в {0} секунд ...</value></data><data name="TXT_FAILED" xml:space="preserve"><value>Не удалось.</value></data></root>
+<root><xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xsd:import namespace="http://www.w3.org/XML/1998/namespace" /><xsd:element name="root" msdata:IsDataSet="true"><xsd:complexType><xsd:choice maxOccurs="unbounded"><xsd:element name="metadata"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" /></xsd:sequence><xsd:attribute name="name" use="required" type="xsd:string" /><xsd:attribute name="type" type="xsd:string" /><xsd:attribute name="mimetype" type="xsd:string" /><xsd:attribute ref="xml:space" /></xsd:complexType></xsd:element><xsd:element name="assembly"><xsd:complexType><xsd:attribute name="alias" type="xsd:string" /><xsd:attribute name="name" type="xsd:string" /></xsd:complexType></xsd:element><xsd:element name="data"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /><xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" /></xsd:sequence><xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" /><xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" /><xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" /><xsd:attribute ref="xml:space" /></xsd:complexType></xsd:element><xsd:element name="resheader"><xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /></xsd:sequence><xsd:attribute name="name" type="xsd:string" use="required" /></xsd:complexType></xsd:element></xsd:choice></xsd:complexType></xsd:element></xsd:schema><resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>2.0</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="EXC_ENTITY_VALIDATION_ERRORS" xml:space="preserve"><value>"Объект ""{0}"" содержит следующие ошибки:"</value></data><data name="EXC_VALIDATION_ERROR_PROPERTY" xml:space="preserve"><value>{1}</value></data><data name="ERR_UNABLE_FIND_DATA_PROVIDER" xml:space="preserve"><value>Не удается найти требуемого поставщика данных .NET Framework. Не может быть установлен.</value></data><data name="ERR_UNABLE_FIND_SQL_CE" xml:space="preserve"><value>Произошла ошибка. SQL CE 4.0 не может быть установлен.</value></data><data name="TXT_ERROR" xml:space="preserve"><value>Ошибка</value></data><data name="EXC_IMAGE_COULD_NOT_BE_LOADED" xml:space="preserve"><value>Изображение не может быть загружено</value></data><data name="TXT_MAX_RETRIES_REACHED" xml:space="preserve"><value>Было достигнуто максимальное число попыток</value></data><data name="TXT_ATTEMPT_FAILED" xml:space="preserve"><value>Не удалось. Попытка снова в {0} секунд ...</value></data><data name="TXT_FAILED" xml:space="preserve"><value>Не удалось.</value></data>
+  <data name="TXT_SENDING_VIA_MAPI" xml:space="preserve"><value>Отправить через MAPI</value></data>
+  <data name="TXT_SENDING_VIA_SMTP" xml:space="preserve"><value>Отправить через SMTP</value></data>
+  <data name="TXT_USER_ABORTED" xml:space="preserve"><value>Пользователь прерван.</value></data>
+  <data name="TXT_MAPI_FAILURE" xml:space="preserve"><value>MAPI сбой.</value></data>
+  <data name="TXT_LOGIN_FAILURE" xml:space="preserve"><value>Логин неверный.</value></data>
+  <data name="TXT_MAPI_DISK_FULL" xml:space="preserve"><value>MAPI Диск заполнен.</value></data>
+  <data name="TXT_MAPI_INSUFFICIENT_MEMORY" xml:space="preserve"><value>MAPI Недостаточно памяти.</value></data>
+  <data name="TXT_MAPI_BLOCK_TOO_SMALL" xml:space="preserve"><value>MAPI Блок слишком мал.</value></data>
+  <data name="TXT_MAPI_TOO_MANY_SESSIONS" xml:space="preserve"><value>MAPI Слишком много сеансов</value></data>
+  <data name="TXT_MAPI_TOO_MANY_FILES" xml:space="preserve"><value>MAPI Слишком много файлов.</value></data>
+  <data name="TXT_MAPI_TOO_MANY_RECIPIENTS" xml:space="preserve"><value>MAPI Слишком много получателей.</value></data>
+  <data name="TXT_MAPI_ATTACHMENT_NOT_FOUND" xml:space="preserve"><value>MAPI Приложение не обнаружено.</value></data>
+  <data name="TXT_MAPI_ATTACHMENT_OPEN_FAILURE" xml:space="preserve"><value>MAPI Ошибка при открытии приложения.</value></data>
+  <data name="TXT_MAPI_ATTACHMENT_WRITE_FAILURE" xml:space="preserve"><value>MAPI Ошибка считывания приложения</value></data>
+  <data name="TXT_MAPI_UNKNOWN_RECIPEIENT" xml:space="preserve"><value>MAPI Неизвестный получатель.</value></data>
+  <data name="TXT_MAPI_BAD_RECIPIENT_TYPE" xml:space="preserve"><value>MAPI Плохой тип получателя.</value></data>
+  <data name="TXT_MAPI_NO_MESSAGES" xml:space="preserve"><value>MAPI Нет сообщений.</value></data>
+  <data name="TXT_MAPI_INVALID_MESSAGE" xml:space="preserve"><value>MAPI Неверное сообщение.</value></data>
+  <data name="TXT_MAPI_TEXT_TOO_LARGE" xml:space="preserve"><value>MAPI Текст слишком большой.</value></data>
+  <data name="TXT_MAPI_INVALID_SESSION" xml:space="preserve"><value>MAPI Неверная сессия.</value></data>
+  <data name="TXT_MAPI_TYPE_NOT_SUPPORTED" xml:space="preserve"><value>MAPI Вид не поддерживается</value></data>
+  <data name="TXT_MAPI_AMBIGUOUS_RECIPIENT" xml:space="preserve"><value>MAPI Неопределенный получатель. </value></data>
+  <data name="TXT_MAPI_MESSAGE_IN_USE" xml:space="preserve"><value>MAPI Сообщение не используется.</value></data>
+  <data name="TXT_MAPI_NETWORK_FAILURE" xml:space="preserve"><value>MAPI Ошибка сети.</value></data>
+  <data name="TXT_MAPI_INVALID_EDIT_FIELDS" xml:space="preserve"><value>MAPI Неверные поля редактирования.</value></data>
+  <data name="TXT_MAPI_INVALID_RECIPIENTS" xml:space="preserve"><value>MAPI Недопустимые получатели.</value></data>
+  <data name="TXT_MAPI_NOT_SUPPORTED" xml:space="preserve"><value>MAPI Не поддерживается.</value></data>
+  <data name="TXT_MAPI_NO_LIBRARY" xml:space="preserve"><value>MAPI Нет библиотеки.</value></data>
+  <data name="TXT_MAPI_INVALID_PARAMETER" xml:space="preserve"><value>MAPI Неверный параметр.</value></data>
+  <data name="ERR_ERROR_SEND_MAPI_EMAIL" xml:space="preserve"><value>Ошибка при отправке MAPI Email. Ошибка: {0} (code = {1}).</value></data>
+  <data name="TXT_SIX_YEAR_CALIBRATION" xml:space="preserve"><value>6 - 6 год калибровки</value></data>
+  <data name="TXT_TWO_YEAR_INSPECTION" xml:space="preserve"><value>2 - 2 год инспекции</value></data>
+  <data name="TXT_RECALIBRATION" xml:space="preserve"><value>П - Перекалибровка</value></data>
+  <data name="TXT_MINOR_WORK_DETAILS" xml:space="preserve"><value>М - Маленькая Работа</value></data>
+  <data name="TXT_INSTALLATION_CALIBRATION" xml:space="preserve"><value>У - Установка / Первоначальная калибровка</value></data>
+  <data name="TXT_LABEL_INITIAL_CALIBRATION" xml:space="preserve"><value>Первоначальная Калибровка</value></data>
+  <data name="TXT_LABEL_MINOR_WORK" xml:space="preserve"><value>Маленькая Работа</value></data>
+  <data name="TXT_LABEL_RECALIBRATION" xml:space="preserve"><value>Перекалибровка</value></data>
+  <data name="TXT_LABEL_TWO_YEAR_INSPECTION" xml:space="preserve"><value>2 года Инспекция</value></data>
+  <data name="TXT_LABEL_SIX_YEAR_CALIBRATION" xml:space="preserve"><value>6 лет Инспекция</value></data>
+  <data name="TXT_LABEL_DIGITAL_INITIAL_CALIBRATION" xml:space="preserve"><value>Цифровой изначальный </value></data>
+  <data name="TXT_LABEL_DIGITAL_TWO_YEAR" xml:space="preserve"><value>Цифровой 2 года</value></data>
+  <data name="TXT_DATE" xml:space="preserve"><value>ДАТА:</value></data>
+  <data name="TXT_DIGITAL_INITIAL_CALIBRATION" xml:space="preserve"><value>3 - Цифровая изначальная калибровка</value></data>
+  <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION" xml:space="preserve"><value>4 - Цифровая 2 годовая калибровка</value></data>
+  <data name="TXT_SKILLRAY" xml:space="preserve"><value>RoadSoft</value></data>
+  <data name="TXT_LABEL_CUSTOMER_NAME" xml:space="preserve"><value>{0}</value></data>
+  <data name="TXT_LABEL_CUSTOMER_PHONE_NUMBER" xml:space="preserve"><value>Номе телефона: {0}</value></data>
+  <data name="TXT_LABEL_K_FACTOR" xml:space="preserve"><value>K={0} имп./км</value></data>
+  <data name="TXT_LABEL_W_FACTOR" xml:space="preserve"><value>W={0} имп./км</value></data>
+  <data name="TXT_LABEL_L_FACTOR" xml:space="preserve"><value>L={0} мм</value></data>
+  <data name="TXT_LABEL_SEAL_NUMBER" xml:space="preserve"><value>Серийный номер={0}</value></data>
+  <data name="TXT_LABEL_VIN" xml:space="preserve"><value>ВИН-Код={0}</value></data>
+  <data name="TXT_LABEL_SERIAL_NUMBER" xml:space="preserve"><value>Серийный Номер: {0}</value></data>
+  <data name="TXT_LABEL_TYRE_SIZE" xml:space="preserve"><value>Размер шин: {0}</value></data>
+  <data name="TXT_CALIBRATION_DATE" xml:space="preserve"><value>ДАТА: {0}</value></data>
+  <data name="TXT_DEMO" xml:space="preserve"><value>Демо</value></data>
+  <data name="EXC_UNABLE_FIND_LABEL_FONT" xml:space="preserve"><value>"Не удается найти шрифт ""Lucida Console"". Печать не может быть продолжена"</value></data>
+  <data name="ERR_UNABLE_FIND_SUITABLE_PDF_EXECUTABLE_PATH" xml:space="preserve"><value>Не удалось найти подходящий PDF путь к исполняемому файлу</value></data>
+  <data name="TXT_PREPARING_TO_PRINT" xml:space="preserve"><value>Подготовка к печати</value></data></root>

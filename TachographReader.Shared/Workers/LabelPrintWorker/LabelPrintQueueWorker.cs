@@ -1,4 +1,4 @@
-﻿namespace TachographReader.LabelPrintWorker
+﻿namespace TachographReader.Shared.Workers.LabelPrintWorker
 {
     using System;
     using System.Collections.Generic;
@@ -8,23 +8,16 @@
     using System.Globalization;
     using System.IO;
     using System.Linq;
+    using Helpers;
     using Properties;
-    using Shared;
-    using Shared.Helpers;
-    using Shared.Workers;
+    using Workers;
 
     public class LabelPrintQueueWorker : BaseWorker
     {
-        public LabelPrintQueueWorker(Action<string> sendMessage)
-            : base(sendMessage)
-        {
-        }
-
         public override void Start(IWorkerParameters parameters)
         {
             var labelPrintParameters = new LabelPrintParameters(parameters);
 
-            SendMessage(Resources.TXT_PREPARING_TO_PRINT);
             var labelPrintDocument = new LabelPrintDocument();
             labelPrintDocument.Print(labelPrintParameters);
         }

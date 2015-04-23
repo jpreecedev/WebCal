@@ -5,7 +5,6 @@
     using System.Linq;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using Shared;
 
     public class CustomerSettingsViewModel : BaseSettingsViewModel
@@ -69,11 +68,6 @@
             InitialiseNewCustomerContact();
         }
 
-        public override void Save()
-        {
-            Repository.Save();
-        }
-
         public override void Dispose()
         {
             if (NewCustomerContact != null)
@@ -116,8 +110,6 @@
             Reset();
             Repository.AddOrUpdate(customerContact);
             Saved(customerContact);
-
-            Repository.Save();
         }
 
         private void OnCancel(object obj)

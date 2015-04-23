@@ -303,7 +303,6 @@
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
     <Compile Include="Library\ViewModels\UserPromptViewModel.cs" />
-    <Compile Include="Library\ViewModels\WorkerViewModel.cs" />
     <Compile Include="Library\WorkerHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

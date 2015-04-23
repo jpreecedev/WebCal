@@ -9,28 +9,31 @@
         {
             Safely(() =>
             {
-                TachographDocument existing = Context.TachographDocuments.Find(entity.Id);
-                if (existing != null)
+                using (var context = new TachographContext())
                 {
-                    Context.Entry(existing).CurrentValues.SetValues(entity);
-                }
-                else
-                {
-                    Context.Set<TachographDocument>().Add(entity);
-                }
+                    TachographDocument existing = context.TachographDocuments.Find(entity.Id);
+                    if (existing != null)
+                    {
+                        context.Entry(existing).CurrentValues.SetValues(entity);
+                    }
+                    else
+                    {
+                        context.Set<TachographDocument>().Add(entity);
+                    }
 
-                CheckVehicleExists(entity);
+                    CheckVehicleExists(context, entity);
+                }
             });
         }
 
-        private void CheckVehicleExists(TachographDocument entity)
+        private void CheckVehicleExists(TachographContext context, TachographDocument entity)
         {
             if (entity == null)
             {
                 return;
             }
 
-            var vehicleMakes = Context.VehicleMakes.ToList();
+            var vehicleMakes = context.VehicleMakes.ToList();
             VehicleMake vehicleMake = vehicleMakes.FirstOrDefault(v => string.Equals(v.Name, entity.VehicleMake));
 
             if (vehicleMake != null)
@@ -38,17 +41,17 @@
                 bool vehicleModelExists = vehicleMakes.First(m => string.Equals(m.Name, entity.VehicleMake)).Models.Any(c => string.Equals(c.Name, entity.VehicleModel));
                 if (!vehicleModelExists && !string.IsNullOrEmpty(entity.VehicleModel))
                 {
-                    VehicleModel vehicleModel = new VehicleModel {Name = entity.VehicleModel};
+                    VehicleModel vehicleModel = new VehicleModel { Name = entity.VehicleModel };
                     vehicleMake.Models.Add(vehicleModel);
                 }
             }
             else
             {
-                vehicleMake = Context.VehicleMakes.Add(new VehicleMake {Name = entity.VehicleMake});
+                vehicleMake = context.VehicleMakes.Add(new VehicleMake { Name = entity.VehicleMake });
 
                 if (!string.IsNullOrEmpty(entity.VehicleModel))
                 {
-                    vehicleMake.Models.Add(new VehicleModel {Name = entity.VehicleModel});
+                    vehicleMake.Models.Add(new VehicleModel { Name = entity.VehicleModel });
                 }
             }
         }

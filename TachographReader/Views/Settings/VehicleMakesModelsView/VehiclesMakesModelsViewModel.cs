@@ -60,12 +60,7 @@
             Makes = new ObservableCollection<VehicleMake>(Repository.GetAll("Models").RemoveAt(0));
             Makes.CollectionChanged += (sender, e) => RefreshCommands();
         }
-
-        public override void Save()
-        {
-            Repository.Save();
-        }
-
+        
         private void OnAddMake(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_MAKE_OF_VEHICLE, OnAddMake);

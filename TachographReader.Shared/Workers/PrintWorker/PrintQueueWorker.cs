@@ -1,6 +1,4 @@
-﻿using TachographReader.PrintWorker.Properties;
-
-namespace TachographReader.PrintWorker
+﻿namespace TachographReader.Shared.Workers.PrintWorker
 {
     using System;
     using System.Diagnostics;
@@ -8,15 +6,11 @@ namespace TachographReader.PrintWorker
     using System.Linq;
     using System.Runtime.InteropServices;
     using System.Text;
-    using Shared.Workers;
+    using Properties;
+    using Workers;
 
     public class PrintQueueWorker : BaseWorker
     {
-        public PrintQueueWorker(Action<string> sendMessage)
-            : base(sendMessage)
-        {
-        }
-
         [DllImport("shell32.dll")]
         private static extern int FindExecutable(string lpFile, string lpDirectory, [Out] StringBuilder lpResult);
 
@@ -36,45 +30,33 @@ namespace TachographReader.PrintWorker
             string pdfExecutablePath = FindExecutable(printParameters.FilePath);
             if (string.IsNullOrEmpty(pdfExecutablePath))
             {
-                SendMessage(Resources.ERR_UNABLE_FIND_SUITABLE_PDF_EXECUTABLE_PATH);
-                return;
+                throw new Exception(Resources.ERR_UNABLE_FIND_SUITABLE_PDF_EXECUTABLE_PATH);
             }
 
-            try
+            var proc = new Process
             {
-                SendMessage(Resources.TXT_PREPARING_TO_PRINT);
-
-                var proc = new Process
+                StartInfo =
                 {
-                    StartInfo =
-                    {
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                        Verb = "Print",
-                        FileName = pdfExecutablePath,
-                        UseShellExecute = false,
-                        CreateNoWindow = true,
-                        Arguments = GetStartupArguments(printParameters.FilePath, printParameters)
-                    }
-                };
-
-                proc.EnableRaisingEvents = true;
-
-                for (int i = 0; i < printParameters.DefaultNumberOfCopies; i++)
-                {
-                    proc.Start();
-                    proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    proc.WaitForExit(180000);
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    Verb = "Print",
+                    FileName = pdfExecutablePath,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    Arguments = GetStartupArguments(printParameters.FilePath, printParameters)
                 }
+            };
 
-                SendMessage(Resources.TXT_PRINT_COMPLETE);
+            proc.EnableRaisingEvents = true;
 
-                proc.Close();
-                KillPDFViewer(Path.GetFileNameWithoutExtension(pdfExecutablePath));
-            }
-            catch (Exception ex)
+            for (int i = 0; i < printParameters.DefaultNumberOfCopies; i++)
             {
-                SendMessage(ex.Message);
+                proc.Start();
+                proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                proc.WaitForExit(180000);
             }
+
+            proc.Close();
+            KillPDFViewer(Path.GetFileNameWithoutExtension(pdfExecutablePath));
         }
 
         private static string GetStartupArguments(string filePath, PrintParameters parameters)

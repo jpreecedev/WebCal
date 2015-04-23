@@ -10,7 +10,7 @@
         }
 
         public Guid Id { get; protected set; }
-        public EventHandler<WorkerChangedEventArgs> ProgressChanged { get; set; }
+        public EventHandler<WorkerChangedEventArgs> Error { get; set; }
         public EventHandler<WorkerChangedEventArgs> Completed { get; set; }
 
         protected void OnChanged(EventHandler<WorkerChangedEventArgs> handler, string message)

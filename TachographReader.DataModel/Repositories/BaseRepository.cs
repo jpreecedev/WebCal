@@ -9,13 +9,6 @@
 
     public class BaseRepository
     {
-        public BaseRepository()
-        {
-            Context = new TachographContext();
-        }
-
-        protected TachographContext Context { get; set; }
-
         protected void Safely(Action action)
         {
             try
@@ -56,23 +49,6 @@
             }
 
             return default(T);
-        }
-
-        public void Save()
-        {
-            try
-            {
-                Context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.EXC_UNABLE_SAVE_CHANGES, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
-            }
-        }
-
-        public void Dispose()
-        {
-            Context = null;
         }
     }
 }

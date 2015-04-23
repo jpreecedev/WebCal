@@ -57,11 +57,6 @@
             Repository = GetInstance<IRepository<Technician>>();
         }
 
-        public override void Save()
-        {
-            Repository.Save();
-        }
-
         private void OnAddTechnician(UserControl window)
         {
             var userPromptViewModel = new UserPromptViewModel()

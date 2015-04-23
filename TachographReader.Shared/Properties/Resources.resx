@@ -172,4 +172,190 @@
 
 {0}</value>
   </data>
+  <data name="TXT_SENDING_VIA_MAPI" xml:space="preserve">
+    <value>Sending via MAPI</value>
+  </data>
+  <data name="TXT_SENDING_VIA_SMTP" xml:space="preserve">
+    <value>Sending via SMTP</value>
+  </data>
+  <data name="TXT_USER_ABORTED" xml:space="preserve">
+    <value>User Aborted.</value>
+  </data>
+  <data name="TXT_MAPI_FAILURE" xml:space="preserve">
+    <value>MAPI Failure.</value>
+  </data>
+  <data name="TXT_LOGIN_FAILURE" xml:space="preserve">
+    <value>Login Failure.</value>
+  </data>
+  <data name="TXT_MAPI_DISK_FULL" xml:space="preserve">
+    <value>MAPI Disk full.</value>
+  </data>
+  <data name="TXT_MAPI_INSUFFICIENT_MEMORY" xml:space="preserve">
+    <value>MAPI Insufficient memory.</value>
+  </data>
+  <data name="TXT_MAPI_BLOCK_TOO_SMALL" xml:space="preserve">
+    <value>MAPI Block too small.</value>
+  </data>
+  <data name="TXT_MAPI_TOO_MANY_SESSIONS" xml:space="preserve">
+    <value>MAPI Too many sessions.</value>
+  </data>
+  <data name="TXT_MAPI_TOO_MANY_FILES" xml:space="preserve">
+    <value>MAPI too many files.</value>
+  </data>
+  <data name="TXT_MAPI_TOO_MANY_RECIPIENTS" xml:space="preserve">
+    <value>MAPI too many recipients.</value>
+  </data>
+  <data name="TXT_MAPI_ATTACHMENT_NOT_FOUND" xml:space="preserve">
+    <value>MAPI Attachment not found.</value>
+  </data>
+  <data name="TXT_MAPI_ATTACHMENT_OPEN_FAILURE" xml:space="preserve">
+    <value>MAPI Attachment open failure.</value>
+  </data>
+  <data name="TXT_MAPI_ATTACHMENT_WRITE_FAILURE" xml:space="preserve">
+    <value>MAPI Attachment Write Failure.</value>
+  </data>
+  <data name="TXT_MAPI_UNKNOWN_RECIPEIENT" xml:space="preserve">
+    <value>MAPI Unknown recipient.</value>
+  </data>
+  <data name="TXT_MAPI_BAD_RECIPIENT_TYPE" xml:space="preserve">
+    <value>MAPI Bad recipient type.</value>
+  </data>
+  <data name="TXT_MAPI_NO_MESSAGES" xml:space="preserve">
+    <value>MAPI No messages.</value>
+  </data>
+  <data name="TXT_MAPI_INVALID_MESSAGE" xml:space="preserve">
+    <value>MAPI Invalid message.</value>
+  </data>
+  <data name="TXT_MAPI_TEXT_TOO_LARGE" xml:space="preserve">
+    <value>MAPI Text too large.</value>
+  </data>
+  <data name="TXT_MAPI_INVALID_SESSION" xml:space="preserve">
+    <value>MAPI Invalid session.</value>
+  </data>
+  <data name="TXT_MAPI_TYPE_NOT_SUPPORTED" xml:space="preserve">
+    <value>MAPI Type not supported.</value>
+  </data>
+  <data name="TXT_MAPI_AMBIGUOUS_RECIPIENT" xml:space="preserve">
+    <value>MAPI Ambiguous recipient.</value>
+  </data>
+  <data name="TXT_MAPI_MESSAGE_IN_USE" xml:space="preserve">
+    <value>MAPI Message in use.</value>
+  </data>
+  <data name="TXT_MAPI_NETWORK_FAILURE" xml:space="preserve">
+    <value>MAPI Network failure.</value>
+  </data>
+  <data name="TXT_MAPI_INVALID_EDIT_FIELDS" xml:space="preserve">
+    <value>MAPI Invalid edit fields.</value>
+  </data>
+  <data name="TXT_MAPI_INVALID_RECIPIENTS" xml:space="preserve">
+    <value>MAPI Invalid Recipients.</value>
+  </data>
+  <data name="TXT_MAPI_NOT_SUPPORTED" xml:space="preserve">
+    <value>MAPI Not supported.</value>
+  </data>
+  <data name="TXT_MAPI_NO_LIBRARY" xml:space="preserve">
+    <value>MAPI No Library.</value>
+  </data>
+  <data name="TXT_MAPI_INVALID_PARAMETER" xml:space="preserve">
+    <value>MAPI Invalid parameter.</value>
+  </data>
+  <data name="ERR_ERROR_SEND_MAPI_EMAIL" xml:space="preserve">
+    <value>Error sending MAPI Email. Error: {0} (code = {1}).</value>
+  </data>
+  <data name="TXT_SIX_YEAR_CALIBRATION">
+    <value xml:space="preserve">6 - 6 year calibration</value>
+  </data>
+  <data name="TXT_TWO_YEAR_INSPECTION">
+    <value xml:space="preserve">2 - 2 year inspection</value>
+  </data>
+  <data name="TXT_RECALIBRATION">
+    <value xml:space="preserve">R - Recalibration</value>
+  </data>
+  <data name="TXT_MINOR_WORK_DETAILS">
+    <value xml:space="preserve">M - Minor Work</value>
+  </data>
+  <data name="TXT_INSTALLATION_CALIBRATION">
+    <value xml:space="preserve">I - Installation / Initial calibration</value>
+  </data>
+  <data name="TXT_LABEL_INITIAL_CALIBRATION">
+    <value xml:space="preserve">Initial Calibration</value>
+  </data>
+  <data name="TXT_LABEL_MINOR_WORK">
+    <value xml:space="preserve">Minor Work</value>
+  </data>
+  <data name="TXT_LABEL_RECALIBRATION">
+    <value xml:space="preserve">Recalibration</value>
+  </data>
+  <data name="TXT_LABEL_TWO_YEAR_INSPECTION">
+    <value xml:space="preserve">2yr Inspection</value>
+  </data>
+  <data name="TXT_LABEL_SIX_YEAR_CALIBRATION">
+    <value xml:space="preserve">6yr Calibration</value>
+  </data>
+  <data name="TXT_LABEL_DIGITAL_INITIAL_CALIBRATION">
+    <value xml:space="preserve">Digital Initial</value>
+  </data>
+  <data name="TXT_LABEL_DIGITAL_TWO_YEAR">
+    <value xml:space="preserve">Digital 2yr</value>
+  </data>
+  <data name="TXT_DATE">
+    <value xml:space="preserve">DATE: </value>
+  </data>
+  <data name="TXT_DIGITAL_INITIAL_CALIBRATION">
+    <value xml:space="preserve">3 - Digital initial calibration</value>
+  </data>
+  <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION">
+    <value xml:space="preserve">4 - Digital 2 year calibration</value>
+  </data>
+  <data name="TXT_SKILLRAY">
+    <value xml:space="preserve">Skillray</value>
+  </data>
+  <data name="TXT_LABEL_CUSTOMER_NAME">
+    <value xml:space="preserve">{0}</value>
+  </data>
+  <data name="TXT_LABEL_CUSTOMER_PHONE_NUMBER">
+    <value xml:space="preserve">Phone number: {0}</value>
+  </data>
+  <data name="TXT_LABEL_K_FACTOR">
+    <value xml:space="preserve">K={0} imp/km</value>
+  </data>
+  <data name="TXT_LABEL_W_FACTOR">
+    <value xml:space="preserve">W={0} imp/km</value>
+  </data>
+  <data name="TXT_LABEL_L_FACTOR">
+    <value xml:space="preserve">L={0} mm</value>
+  </data>
+  <data name="TXT_LABEL_SEAL_NUMBER">
+    <value xml:space="preserve">Seal no={0}</value>
+  </data>
+  <data name="TXT_LABEL_VIN">
+    <value xml:space="preserve">VIN={0}</value>
+  </data>
+  <data name="TXT_LABEL_SERIAL_NUMBER">
+    <value xml:space="preserve">Serial No: {0}</value>
+  </data>
+  <data name="TXT_LABEL_TYRE_SIZE">
+    <value xml:space="preserve">Tyre size: {0}</value>
+  </data>
+  <data name="TXT_CALIBRATION_DATE">
+    <value xml:space="preserve">DATE: {0}</value>
+  </data>
+  <data name="TXT_DEMO">
+    <value xml:space="preserve">Demo</value>
+  </data>
+  <data name="EXC_UNABLE_FIND_LABEL_FONT">
+    <value xml:space="preserve">Unable to find font 'Lucida Console'.  Printing cannot continue</value>
+  </data>
+  <data name="TXT_PREPARING_TO_PRINT" xml:space="preserve">
+    <value>Preparing to print...</value>
+  </data>
+  <data name="ERR_UNABLE_FIND_SUITABLE_PDF_EXECUTABLE_PATH" xml:space="preserve">
+    <value>Unable to find suitable PDF executable path</value>
+  </data>
+  <data name="TXT_PREPARING_TO_PRINT" xml:space="preserve">
+    <value>Preparing to print</value>
+  </data>
+  <data name="TXT_PRINT_COMPLETE" xml:space="preserve">
+    <value>Print complete, tidying up.</value>
+  </data>
 </root>

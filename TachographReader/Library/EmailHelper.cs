@@ -94,7 +94,7 @@
             workerTask.Parameters.SetParameter("Subject", settings.Subject);
             workerTask.Parameters.SetParameter("Body", settings.Body);
 
-            WorkerHelper.RunTask(workerTask);
+            WorkerHelper.QueueTask(workerTask);
         }
 
         private static bool IsValidEmail(string email)

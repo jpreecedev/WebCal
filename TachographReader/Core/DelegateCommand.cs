@@ -4,7 +4,7 @@
     using System.Windows.Input;
     using DataModel.Library;
 
-    public class DelegateCommand<T> : ICommand where T : class
+    public class DelegateCommand<T> : ICommand
     {
         protected bool _isEnabled = true;
         private readonly Predicate<T> _canExecute;

@@ -1,6 +1,4 @@
-﻿using TachographReader.EmailWorker.Properties;
-
-namespace TachographReader.EmailWorker
+﻿namespace TachographReader.Shared.Workers.EmailWorker
 {
     using System;
     using System.Collections;
@@ -8,6 +6,7 @@ namespace TachographReader.EmailWorker
     using System.IO;
     using System.Runtime.InteropServices;
     using System.Threading;
+    using Properties;
 
     public class MapiMailMessage
     {
@@ -263,8 +262,6 @@ namespace TachographReader.EmailWorker
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
         private class MapiFileDescriptor
         {
-            public int reserved = 0;
-            public int flags = 0;
             public int position;
             public string path;
             public string name;

@@ -5,7 +5,6 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using Library.ViewModels;
     using Properties;
     using Shared;
@@ -44,11 +43,6 @@
         protected override void InitialiseRepositories()
         {
             Repository = GetInstance<IRepository<InspectionEquipment>>();
-        }
-
-        public override void Save()
-        {
-            Repository.Save();
         }
 
         private void OnAddInspectionEquipment(UserControl window)

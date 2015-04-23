@@ -28,7 +28,6 @@
             if (superUser == null)
             {
                 UserManagement.AddSuperUser(userRepository);
-                userRepository.Save();
             }
             else
             {

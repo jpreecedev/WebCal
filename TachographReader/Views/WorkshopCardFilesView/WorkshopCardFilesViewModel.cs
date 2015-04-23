@@ -88,7 +88,6 @@
 
         public override void OnClosing(bool cancelled)
         {
-            WorkshopCardFilesRepository.Save();
             DriverCardReader.Dispose();
         }
 

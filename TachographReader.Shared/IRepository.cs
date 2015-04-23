@@ -20,6 +20,5 @@
         T First(Expression<Func<T, bool>> predicate);
         ICollection<T> Where(Expression<Func<T, bool>> predicate);
         ICollection<T> Where(Expression<Func<T, bool>> predicate, bool includeDeleted);
-        void Save();
     }
 }

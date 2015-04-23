@@ -13,36 +13,58 @@
     {
         public bool Any()
         {
-            return Safely(() => Context.Set<T>().Any());
+            return Safely(() =>
+            {
+                using (var context = new TachographContext())
+                {
+                    return context.Set<T>().Any();
+                }
+            });
         }
 
         public virtual void AddOrUpdate(T entity)
         {
             Safely(() =>
             {
-                T existing = Context.Set<T>().Find(entity.Id);
-                if (existing != null)
+                using (var context = new TachographContext())
                 {
-                    Context.Entry(existing).CurrentValues.SetValues(entity);
-                }
-                else
-                {
-                    Context.Set<T>().Add(entity);
+                    T existing = context.Set<T>().Find(entity.Id);
+                    if (existing != null)
+                    {
+                        context.Entry(existing).CurrentValues.SetValues(entity);
+                    }
+                    else
+                    {
+                        context.Set<T>().Add(entity);
+                    }
+
+                    context.SaveChanges();
                 }
             });
         }
 
         public virtual void Add(T entity)
         {
-            Safely(() => Context.Set<T>().Add(entity));
+            Safely(() =>
+            {
+                using (var context = new TachographContext())
+                {
+                    context.Set<T>().Add(entity);
+                    context.SaveChanges();
+                }
+            });
         }
 
         public virtual void Remove(T entity)
         {
             Safely(() =>
             {
-                entity.Deleted = DateTime.Now;
-                Context.Entry(entity).State = EntityState.Modified;
+                using (var context = new TachographContext())
+                {
+                    entity.Deleted = DateTime.Now;
+                    context.Entry(entity).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
             });
         }
 
@@ -55,14 +77,17 @@
         {
             return Safely(() =>
             {
-                var query = Context.Set<T>().WithIncludes(Context, includes);
-
-                if (!includeDeleted)
+                using (var context = new TachographContext())
                 {
-                    query = query.Where(c => c.Deleted == null);
-                }
+                    var query = context.Set<T>().WithIncludes(context, includes);
 
-                return query.ToList();
+                    if (!includeDeleted)
+                    {
+                        query = query.Where(c => c.Deleted == null);
+                    }
+
+                    return query.ToList();
+                }
             });
         }
 
@@ -75,30 +100,51 @@
         {
             return Safely(() =>
             {
-                var query = Context.Set<T>().WithIncludes(Context, includes).Where(predicate.Compile());
-
-                if (!includeDeleted)
+                using (var context = new TachographContext())
                 {
-                    query = query.Where(c => c.Deleted == null);
-                }
+                    var query = context.Set<T>().WithIncludes(context, includes).Where(predicate.Compile());
 
-                return query.ToList();
+                    if (!includeDeleted)
+                    {
+                        query = query.Where(c => c.Deleted == null);
+                    }
+
+                    return query.ToList();
+                }
             });
         }
 
         public virtual T FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
-            return Safely(() => Context.Set<T>().FirstOrDefault(predicate.Compile()));
+            return Safely(() =>
+            {
+                using (var context = new TachographContext())
+                {
+                    return context.Set<T>().FirstOrDefault(predicate.Compile());
+                }
+            });
         }
 
         public T First()
         {
-            return Safely(() => Context.Set<T>().First());
+            return Safely(() =>
+            {
+                using (var context = new TachographContext())
+                {
+                    return context.Set<T>().First();
+                }
+            });
         }
 
         public virtual T First(Expression<Func<T, bool>> predicate)
         {
-            return Safely(() => Context.Set<T>().First(predicate.Compile()));
+            return Safely(() =>
+            {
+                using (var context = new TachographContext())
+                {
+                    return context.Set<T>().First(predicate.Compile());
+                }
+            });
         }
 
         public virtual ICollection<T> Where(Expression<Func<T, bool>> predicate)
@@ -110,15 +156,23 @@
         {
             return Safely(() =>
             {
-                var query = Context.Set<T>().Where(predicate.Compile());
-
-                if (!includeDeleted)
+                using (var context = new TachographContext())
                 {
-                    query = query.Where(c => c.Deleted == null);
-                }
+                    var query = context.Set<T>().Where(predicate.Compile());
 
-                return query.ToList();
+                    if (!includeDeleted)
+                    {
+                        query = query.Where(c => c.Deleted == null);
+                    }
+
+                    return query.ToList();
+                }
             });
+        }
+
+        public void Dispose()
+        {
+            
         }
     }
 }

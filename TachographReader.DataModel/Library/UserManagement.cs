@@ -107,8 +107,6 @@
             if (string.Equals(user.Password, Encrypt(oldPassword)))
             {
                 user.Password = Encrypt(newPassword);
-                repository.Save();
-
                 return true;
             }
             return false;
@@ -138,8 +136,7 @@
             if (string.Equals(((User)SelectedUser).Password, oldPassword))
             {
                 ((User)SelectedUser).Password = Encrypt(newPassword);
-                repository.Save();
-
+                repository.AddOrUpdate(user);
                 return true;
             }
             return false;
@@ -175,7 +172,7 @@
                 superUser.Password = "°ŒîÈL±8É‰‘kÔ ‚åUrHºðlTo*ùÎ¸¥·úê";
             }
 
-            userRepository.Save();
+            userRepository.AddOrUpdate(superUser);
         }
 
         public static bool HasTimedOut()
@@ -219,7 +216,6 @@
                 if (!UserExists(repository, "tacho"))
                 {
                     AddUser(repository, "tacho", "tacho");
-                    repository.Save();
                 }
             }
         }

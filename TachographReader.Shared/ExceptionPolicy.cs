@@ -22,17 +22,13 @@
 
             try
             {
-                var repository = container.Resolve<IRepository<DetailedException>>();
-
-                repository.Add(new DetailedException
+                container.Resolve<IRepository<DetailedException>>().Add(new DetailedException
                 {
                     ApplicationName = AppDomain.CurrentDomain.FriendlyName,
                     ExceptionDetails = string.Format("{0}\n{1}", exception.Message, exception.StackTrace),
                     Occurred = DateTime.Now,
                     RawImage = ScreenshotHelper.TakeScreenshot()
                 });
-                
-                repository.Save();
             }
             catch (Exception ex)
             {

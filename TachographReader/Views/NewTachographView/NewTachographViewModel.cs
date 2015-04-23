@@ -106,9 +106,6 @@
             }
 
             TachographDocumentRepository.AddOrUpdate(Document);
-            TachographDocumentRepository.Save();
-            WorkshopCardFilesRepository.Save();
-
             ConnectHelper.Upload(Document);
         }
 

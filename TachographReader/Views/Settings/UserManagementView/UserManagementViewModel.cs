@@ -52,12 +52,7 @@
         {
             Repository = GetInstance<IRepository<User>>();
         }
-
-        public override void Save()
-        {
-            Repository.Save();
-        }
-
+        
         protected override void OnPropertyChanged(string propertyName)
         {
             base.OnPropertyChanged(propertyName);
@@ -80,7 +75,6 @@
             }
 
             UserManagement.AddUser(Repository, NewUserName, passwordBox.Password);
-            Repository.Save();
             Users = new ObservableCollection<User>(Repository.GetAll());
             OnClear(passwordBox);
         }
@@ -173,7 +167,6 @@
             {
                 SelectedUser.Image = signature;
                 Repository.AddOrUpdate(SelectedUser);
-                Repository.Save();
             };
 
             window.ShowDialog();
