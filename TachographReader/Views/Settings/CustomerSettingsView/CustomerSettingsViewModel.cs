@@ -3,9 +3,11 @@
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
+    using Connect.Shared.Models;
     using Core;
-    using DataModel;
+    using Library;
     using Shared;
+    using Shared.Connect;
 
     public class CustomerSettingsViewModel : BaseSettingsViewModel
     {
@@ -38,15 +40,19 @@
         }
 
         public int SelectedIndex { get; set; }
+        public bool IsSearchingConnect { get; set; }
+
         public DelegateCommand<object> RemoveCommand { get; set; }
         public DelegateCommand<object> SaveCommand { get; set; }
         public DelegateCommand<object> CancelCommand { get; set; }
-
+        public DelegateCommand<string> CustomerContactNameChangedCommand { get; set; }
+ 
         protected override void InitialiseCommands()
         {
             RemoveCommand = new DelegateCommand<object>(OnRemove, CanRemove);
             SaveCommand = new DelegateCommand<object>(OnSave, CanSave);
             CancelCommand = new DelegateCommand<object>(OnCancel);
+            CustomerContactNameChangedCommand = new DelegateCommand<string>(OnCustomerContactNameChanged);
         }
 
         protected override void InitialiseRepositories()
@@ -110,6 +116,38 @@
             Reset();
             Repository.AddOrUpdate(customerContact);
             Saved(customerContact);
+        }
+
+        private void OnCustomerContactNameChanged(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return;
+            }
+
+            IsSearchingConnect = true;
+
+            GetInstance<IConnectClient>().CallAsync(ConnectHelper.GetConnectKeys(), client =>
+            {
+                return client.Service.FindExistingCustomerContact(name);
+            },
+            result =>
+            {
+                if (result.IsSuccess && result.Data != null)
+                {
+                    var customerContact = (CustomerContact)result.Data;
+                    NewCustomerContact.Address = customerContact.Address;
+                    NewCustomerContact.Email = customerContact.Email;
+                    NewCustomerContact.PhoneNumber = customerContact.PhoneNumber;
+                    NewCustomerContact.PostCode = customerContact.PostCode;
+                    NewCustomerContact.SecondaryEmail = customerContact.SecondaryEmail;
+                    NewCustomerContact.Town = customerContact.Town;
+                }
+            },
+            alwaysCall: () =>
+            {
+                IsSearchingConnect = false;
+            });
         }
 
         private void OnCancel(object obj)

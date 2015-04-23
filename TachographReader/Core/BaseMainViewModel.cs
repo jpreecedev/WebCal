@@ -4,9 +4,8 @@
     using System.ComponentModel;
     using System.Linq;
     using System.Windows;
+    using Connect.Shared.Models;
     using Controls;
-    using DataModel;
-    using DataModel.Core;
     using EventArguments;
     using Library;
     using Properties;
@@ -67,9 +66,14 @@
             get { return false; }
         }
 
+        protected virtual void OnCustomerContactAdded(CustomerContact customerContact)
+        {
+            
+        }
+
         private void OnNewCustomer(object obj)
         {
-            MainWindow.ShowSmallModal<CustomerSettingsView>();
+            MainWindow.ShowSmallModal<CustomerSettingsLightView>();
         }
 
         private void OnSmallModalClosed(object sender, ModalClosedEventArgs e)
@@ -90,6 +94,7 @@
                     if (item == e.Parameter)
                     {
                         SelectedCustomerContact = item;
+                        OnCustomerContactAdded(item);
                     }
                 }
             }

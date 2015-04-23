@@ -856,6 +856,9 @@
                 <Setter TargetName="MainContent"
                         Property="Height"
                         Value="400" />
+                <Setter TargetName="MainContent"
+                        Property="Width"
+                        Value="550" />
             </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>

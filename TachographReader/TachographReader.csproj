@@ -324,6 +324,9 @@
     <Compile Include="Views\NewTachographView\NewAnalogueTachographView.xaml.cs">
       <DependentUpon>NewAnalogueTachographView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\CustomerSettingsView\CustomerSettingsLightView.xaml.cs">
+      <DependentUpon>CustomerSettingsLightView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\MailSettingsView\MailSettingsView.xaml.cs">
       <DependentUpon>MailSettingsView.xaml</DependentUpon>
     </Compile>
@@ -470,6 +473,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\NewTachographView\NewAnalogueTachographView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Settings\CustomerSettingsView\CustomerSettingsLightView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

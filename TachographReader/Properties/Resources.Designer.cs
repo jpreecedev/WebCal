@@ -1483,6 +1483,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Customer.
+        /// </summary>
+        public static string TXT_CUSTOMER_SETTINGS_NEW_CUSTOMER {
+            get {
+                return ResourceManager.GetString("TXT_CUSTOMER_SETTINGS_NEW_CUSTOMER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone Number:.
         /// </summary>
         public static string TXT_CUSTOMER_SETTINGS_PHONE_NUMBER {

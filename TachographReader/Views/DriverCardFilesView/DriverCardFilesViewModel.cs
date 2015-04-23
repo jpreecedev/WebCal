@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using DataModel.Core;

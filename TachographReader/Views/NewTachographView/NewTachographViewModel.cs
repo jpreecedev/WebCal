@@ -288,6 +288,11 @@
             }
         }
 
+        protected override void OnCustomerContactAdded(CustomerContact customerContact)
+        {
+            Document.CustomerContact = customerContact.Name;
+        }
+
         private string GetRegistrationToQuery(CalibrationRecord calibrationRecord)
         {
             if (calibrationRecord == null)

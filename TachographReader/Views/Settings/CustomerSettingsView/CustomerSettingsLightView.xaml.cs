@@ -1,8 +1,8 @@
 ﻿namespace TachographReader.Views.Settings
 {
-    public partial class CustomerSettingsView
+    public partial class CustomerSettingsLightView
     {
-        public CustomerSettingsView()
+        public CustomerSettingsLightView()
         {
             InitializeComponent();
             HelpText = Properties.Resources.TXT_SELECT_CUSTOMER_ON_LEFT;

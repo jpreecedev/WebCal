@@ -145,7 +145,6 @@
     <Compile Include="Library\SeedDataHelper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomDayOfWeek.cs" />
-    <Compile Include="Models\CustomerContact.cs" />
     <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\BaseFile.cs" />
     <Compile Include="Models\DriverCardFile.cs" />

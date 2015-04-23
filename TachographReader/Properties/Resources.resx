@@ -2404,4 +2404,7 @@ date
   <data name="TXT_WORKER_PROGRESS_DELETE_TASK" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="TXT_CUSTOMER_SETTINGS_NEW_CUSTOMER" xml:space="preserve">
+    <value>New Customer</value>
+  </data>
 </root>

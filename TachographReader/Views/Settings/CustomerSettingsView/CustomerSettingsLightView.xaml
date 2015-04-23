@@ -1,0 +1,70 @@
+﻿<core:BaseSettingsView x:Class="TachographReader.Views.Settings.CustomerSettingsLightView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:vm="clr-namespace:TachographReader.Views.Settings"
+                       xmlns:ctrls="clr-namespace:TachographReader.Controls"
+                       xmlns:core="clr-namespace:TachographReader.Core"
+                       xmlns:Properties="clr-namespace:TachographReader.Properties"
+                       xmlns:behav="clr-namespace:TachographReader.Behaviours"
+                       mc:Ignorable="d"
+                       d:DesignWidth="628"
+                       d:DesignHeight="374">
+    <core:BaseSettingsView.DataContext>
+        <vm:CustomerSettingsViewModel />
+    </core:BaseSettingsView.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_NEW_CUSTOMER}"
+                   Style="{StaticResource SettingsTitleFont}" />
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="280" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical">
+
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME}"
+                                      Text="{core:InputBinding NewCustomerContact.Name, UpdateSourceTrigger=LostFocus}"
+                                      behav:LostFocusBehaviour.Command="{Binding CustomerContactNameChangedCommand}"
+                                      behav:LostFocusBehaviour.CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
+                                      IsLoading="{Binding IsSearchingConnect}"/>
+
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_EMAIL}"
+                                      Text="{core:InputBinding NewCustomerContact.Email}" />
+
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_SECONDARY_EMAIL}"
+                                      Text="{core:InputBinding NewCustomerContact.SecondaryEmail}" />
+
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_ADDRESS}"
+                                      Text="{core:InputBinding NewCustomerContact.Address}" />
+
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_POST_CODE}"
+                                      Text="{core:InputBinding NewCustomerContact.PostCode}" />
+
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_TOWN}"
+                                      Text="{core:InputBinding NewCustomerContact.Town}" />
+
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_PHONE_NUMBER}"
+                                      Text="{core:InputBinding NewCustomerContact.PhoneNumber}" />
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
+                <Button Content="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_SAVE}"
+                        Command="{Binding SaveCommand}" />
+                <Button Content="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CANCEL}"
+                        Command="{Binding CancelCommand}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</core:BaseSettingsView>
