@@ -109,14 +109,12 @@
 
         private void OnConnect(object obj)
         {
-            string url = WebcalConfigurationSection.Instance.GetConnectUrl();
-
             var webcalConnectKey = WebcalConnectKey.Split('-');
             var companyName = webcalConnectKey[0];
             var machineKey = webcalConnectKey[1];
             var expiration = int.Parse(webcalConnectKey[2]);
 
-            var connectKeys = new ConnectKeys(url, expiration, companyName, machineKey);
+            var connectKeys = new ConnectKeys(ConnectUrlHelper.ServiceUrl, expiration, companyName, machineKey);
             
             GetInstance<IConnectClient>().CallAsync(connectKeys, client =>
             {

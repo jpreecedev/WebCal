@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Diagnostics;
+    using System.IO;
     using System.Windows;
     using System.Windows.Threading;
     using Windows;
@@ -30,14 +31,14 @@
             var splashScreen = new SplashScreen(LocalizationHelper.GetResourceManager().GetString("TXT_SPLASH_SCREEN_PATH"));
             splashScreen.Show(false);
 
+            CheckForUpdates();
+
             if (!InitialiseApplication())
             {
                 return;
             }
 
             splashScreen.Close(new TimeSpan(0, 0, 0));
-
-            CheckForUpdates();
 
             var window = new LogInWindow();
             if (window.ShowDialog() == true)
@@ -91,7 +92,7 @@
         {
             try
             {
-                Process.Start("AutoUpdater.exe", "/silentall");
+                Process.Start(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "updater.exe"));
             }
             catch
             {

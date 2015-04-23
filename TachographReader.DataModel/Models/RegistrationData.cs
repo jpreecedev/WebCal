@@ -5,7 +5,7 @@ namespace TachographReader.DataModel
     using System.Globalization;
     using Connect.Shared;
     using Connect.Shared.Models;
-    using Shared;
+    using Shared.Connect;
     using Shared.Helpers;
 
     [Table("RegistrationData")]
@@ -36,7 +36,6 @@ namespace TachographReader.DataModel
         {
             get
             {
-                string url = WebcalConfigurationSection.Instance.GetConnectUrl();
                 var licenseKey = 0;
 
                 if (ExpirationDate != null)
@@ -44,7 +43,7 @@ namespace TachographReader.DataModel
                     int.TryParse(ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0'), out licenseKey);
                 }
 
-                return new ConnectKeys(url, licenseKey, CompanyName, LicenseManager.GetMachineKey());
+                return new ConnectKeys(ConnectUrlHelper.ServiceUrl, licenseKey, CompanyName, LicenseManager.GetMachineKey());
             }
         }
 

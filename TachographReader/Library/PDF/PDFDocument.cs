@@ -297,7 +297,7 @@
 
         public BaseFont GetBaseFont()
         {
-            return BaseFont.CreateFont("c:\\windows\\fonts\\Arial.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            return BaseFont.CreateFont("c:\\windows\\fonts\\Arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         }
 
         public void AddPage()

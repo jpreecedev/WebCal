@@ -131,10 +131,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connect\ConnectElement.cs" />
+    <Compile Include="Connect\ConnectUrlHelper.cs" />
     <Compile Include="Connect\IConnectClient.cs" />
     <Compile Include="Connect\IConnectClientCredentials.cs" />
-    <Compile Include="Connect\ConnectElementCollection.cs" />
     <Compile Include="Connect\ConnectOperationResult.cs" />
     <Compile Include="Core\BaseSettings.cs" />
     <Compile Include="Models\DetailedException.cs" />
