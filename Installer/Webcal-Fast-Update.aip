@@ -88,25 +88,25 @@
     <ROW Section="2.2.6.0" Key="Version" Value="2.2.6.0"/>
     <ROW Section="2.2.7.0" Key="Name" Value="Webcal"/>
     <ROW Section="2.2.7.0" Key="ProductVersion" Value="2.2.7.0"/>
-    <ROW Section="2.2.7.0" Key="URL" Value="http://www.webcalconnect.com/software/webcal.exe"/>
-    <ROW Section="2.2.7.0" Key="Size" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
+    <ROW Section="2.2.7.0" Key="URL" Value="http://www.webcalconnect.com/software/webcal-fast.exe"/>
+    <ROW Section="2.2.7.0" Key="Size" Value="..\..\..\Users\Jon\Desktop\webcal-fast.exe"/>
     <ROW Section="2.2.7.0" Key="ReleaseDate" Value="18070"/>
-    <ROW Section="2.2.7.0" Key="MD5" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
-    <ROW Section="2.2.7.0" Key="ServerFileName" Value="webcal.exe"/>
+    <ROW Section="2.2.7.0" Key="MD5" Value="..\..\..\Users\Jon\Desktop\webcal-fast.exe"/>
+    <ROW Section="2.2.7.0" Key="ServerFileName" Value="webcal-fast.exe"/>
     <ROW Section="2.2.7.0" Key="Flags" Value="Critical|NoCache"/>
     <ROW Section="2.2.7.0" Key="RegistryKey" Value="HKUD\Software\Skillray Transport Services Ltd\Webcal\Version"/>
     <ROW Section="2.2.7.0" Key="Version" Value="2.2.7.0"/>
     <ROW Section="2.2.9.0" Key="Name" Value="Webcal"/>
     <ROW Section="2.2.9.0" Key="ProductVersion" Value="2.2.9.0"/>
-    <ROW Section="2.2.9.0" Key="URL" Value="http://www.webcalconnect.com/software/webcal.exe"/>
-    <ROW Section="2.2.9.0" Key="Size" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
+    <ROW Section="2.2.9.0" Key="URL" Value="http://www.webcalconnect.com/software/webcal-fast.exe"/>
+    <ROW Section="2.2.9.0" Key="Size" Value="..\..\..\Users\Jon\Desktop\webcal-fast.exe"/>
     <ROW Section="2.2.9.0" Key="ReleaseDate" Value="18070"/>
-    <ROW Section="2.2.9.0" Key="MD5" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
-    <ROW Section="2.2.9.0" Key="ServerFileName" Value="webcal.exe"/>
+    <ROW Section="2.2.9.0" Key="MD5" Value="..\..\..\Users\Jon\Desktop\webcal-fast.exe"/>
+    <ROW Section="2.2.9.0" Key="ServerFileName" Value="webcal-fast.exe"/>
     <ROW Section="2.2.9.0" Key="Flags" Value="Critical|NoCache"/>
     <ROW Section="2.2.9.0" Key="RegistryKey" Value="HKUD\Software\Skillray Transport Services Ltd\Webcal\Version"/>
     <ROW Section="2.2.9.0" Key="Version" Value="2.2.9.0"/>
-    <ATTRIBUTE name="OutputFileName" value="webcal-updates.txt"/>
+    <ATTRIBUTE name="OutputFileName" value="webcal-fast-updates.txt"/>
     <ATTRIBUTE name="OutputFolder" value="..\..\..\Users\Jon\Desktop"/>
   </COMPONENT>
 </DOCUMENT>
