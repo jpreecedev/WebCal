@@ -19,7 +19,10 @@
 
         public static readonly DependencyProperty ValidateOnLoadProperty =
             DependencyProperty.Register("ValidateOnLoad", typeof(bool), typeof(BaseInputField), new PropertyMetadata(false));
-        
+
+        public static readonly DependencyProperty IsLoadingProperty =
+            DependencyProperty.Register("IsLoading", typeof (bool), typeof (BaseInputField));
+
         protected BaseInputField()
         {
             Valid = true;
@@ -50,6 +53,12 @@
         {
             get { return (bool)GetValue(ValidateOnLoadProperty); }
             set { SetValue(ValidateOnLoadProperty, value); }
+        }
+
+        public bool IsLoading
+        {
+            get { return (bool)GetValue(IsLoadingProperty); }
+            set { SetValue(IsLoadingProperty, value); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -45,7 +45,17 @@
                 Task.Factory.StartNew(() =>
                 {
                     client.Open(connectKeys);
-                    return Try(() => beginCall(client));
+                    return Try(() =>
+                    {
+                        TResult result = default(TResult);
+
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            result = beginCall(client);
+                        });
+
+                        return result;
+                    });
                 })
                 .ContinueWith(mainTask =>
                 {

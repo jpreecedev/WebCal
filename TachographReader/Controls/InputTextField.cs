@@ -3,40 +3,49 @@
     using System;
     using System.Linq.Expressions;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Data;
     using System.Windows.Input;
+    using System.Windows.Media;
 
     public class InputTextField : BaseInputTextField
     {
         public static readonly DependencyProperty LabelProperty =
-            DependencyProperty.Register("Label", typeof (string), typeof (InputTextField), new PropertyMetadata(null));
+            DependencyProperty.Register("Label", typeof(string), typeof(InputTextField), new PropertyMetadata(null));
 
         public static readonly DependencyProperty CommandProperty =
-            DependencyProperty.Register("Command", typeof (ICommand), typeof (InputTextField));
+            DependencyProperty.Register("Command", typeof(ICommand), typeof(InputTextField));
 
         public static readonly DependencyProperty CommandLabelProperty =
-            DependencyProperty.Register("CommandLabel", typeof (string), typeof (InputTextField));
+            DependencyProperty.Register("CommandLabel", typeof(string), typeof(InputTextField));
 
         static InputTextField()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof (InputTextField), new FrameworkPropertyMetadata(typeof (InputTextField)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(InputTextField), new FrameworkPropertyMetadata(typeof(InputTextField)));
         }
-        
+
+        public InputTextField()
+        {
+            AddHandler(PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(SelectivelyIgnoreMouseButton), true);
+            AddHandler(GotKeyboardFocusEvent, new RoutedEventHandler(SelectAllText), true);
+            AddHandler(MouseDoubleClickEvent, new RoutedEventHandler(SelectAllText), true);
+        }
+
         public ICommand Command
         {
-            get { return (ICommand) GetValue(CommandProperty); }
+            get { return (ICommand)GetValue(CommandProperty); }
             set { SetValue(CommandProperty, value); }
         }
-        
+
         public string CommandLabel
         {
-            get { return (string) GetValue(CommandLabelProperty); }
+            get { return (string)GetValue(CommandLabelProperty); }
             set { SetValue(CommandLabelProperty, value); }
         }
-        
+
         public string Label
         {
-            get { return (string) GetValue(LabelProperty); }
+            get { return (string)GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
         }
 
@@ -77,6 +86,35 @@
             textField.SetBinding(TextProperty, binding);
 
             return textField;
+        }
+
+        private static void SelectivelyIgnoreMouseButton(object sender, MouseButtonEventArgs e)
+        {
+            // Find the TextBox
+            DependencyObject parent = e.OriginalSource as UIElement;
+            while (parent != null && !(parent is TextBox))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+
+            if (parent != null)
+            {
+                var textBox = (TextBox)parent;
+                if (!textBox.IsKeyboardFocusWithin)
+                {
+                    textBox.Focus();
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private static void SelectAllText(object sender, RoutedEventArgs e)
+        {
+            var textBox = e.OriginalSource as TextBox;
+            if (textBox != null)
+            {
+                textBox.SelectAll();
+            }
         }
     }
 }

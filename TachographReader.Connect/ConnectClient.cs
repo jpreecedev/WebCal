@@ -21,6 +21,14 @@
 
         public void Open(IConnectKeys connectKeys)
         {
+            if (_channelFactory != null)
+            {
+                if (_channelFactory.State == CommunicationState.Opened || _channelFactory.State == CommunicationState.Opening)
+                {
+                    return;
+                }    
+            }
+            
             var serviceAddress = new EndpointAddress(connectKeys.Url);
 
             _channelFactory = new ChannelFactory<IConnectService>(GetBinding(), serviceAddress);

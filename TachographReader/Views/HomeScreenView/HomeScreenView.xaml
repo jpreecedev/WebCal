@@ -11,9 +11,7 @@
              d:DesignHeight="800"
              d:DesignWidth="750"
              behav:LoadedBehaviour.Command="{Binding ResizeCommand}"
-             behav:LoadedBehaviour.CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
-             behav:ResizeBehaviour.Command="{Binding ResizeCommand}"
-             behav:ResizeBehaviour.CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+             behav:LoadedBehaviour.CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.DataContext>
         <vm:HomeScreenViewModel />
     </UserControl.DataContext>

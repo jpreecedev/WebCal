@@ -2407,4 +2407,7 @@ date
   <data name="TXT_CUSTOMER_SETTINGS_NEW_CUSTOMER" xml:space="preserve">
     <value>New Customer</value>
   </data>
+  <data name="TXT_CUSTOMER_SETTINGS_ENTER_CUSTOMER_NAME" xml:space="preserve">
+    <value>Please enter a customer name.</value>
+  </data>
 </root>

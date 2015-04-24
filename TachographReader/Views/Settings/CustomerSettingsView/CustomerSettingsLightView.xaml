@@ -7,13 +7,37 @@
                        xmlns:ctrls="clr-namespace:TachographReader.Controls"
                        xmlns:core="clr-namespace:TachographReader.Core"
                        xmlns:Properties="clr-namespace:TachographReader.Properties"
-                       xmlns:behav="clr-namespace:TachographReader.Behaviours"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
                        d:DesignHeight="374">
     <core:BaseSettingsView.DataContext>
         <vm:CustomerSettingsViewModel />
     </core:BaseSettingsView.DataContext>
+    <core:BaseSettingsView.Resources>
+        <DataTemplate x:Key="AutoCompleteBoxItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}"
+                           Width="150" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Address}"
+                               FontStyle="Italic"
+                               Foreground="DarkGray" />
+                    <TextBlock Text=", "
+                               FontStyle="Italic"
+                               Foreground="DarkGray" />
+                    <TextBlock Text="{Binding Town}"
+                               FontStyle="Italic"
+                               Foreground="DarkGray" />
+                    <TextBlock Text=", "
+                               FontStyle="Italic"
+                               Foreground="DarkGray" />
+                    <TextBlock Text="{Binding PostCode}"
+                               FontStyle="Italic"
+                               Foreground="DarkGray" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </core:BaseSettingsView.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
@@ -30,11 +54,12 @@
 
             <StackPanel Orientation="Vertical">
 
-                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME}"
-                                      Text="{core:InputBinding NewCustomerContact.Name, UpdateSourceTrigger=LostFocus}"
-                                      behav:LostFocusBehaviour.Command="{Binding CustomerContactNameChangedCommand}"
-                                      behav:LostFocusBehaviour.CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
-                                      IsLoading="{Binding IsSearchingConnect}"/>
+                <ctrls:InputAutoCompleteField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME}"
+                                              ItemsSource="{Binding AutoCompleteCustomerContacts}"
+                                              ItemTemplate="{StaticResource AutoCompleteBoxItemTemplate}"
+                                              IsLoading="{Binding IsSearchingConnect}"
+                                              TextChangedCommand="{Binding CustomerContactNameChangedCommand}"
+                                              SelectionChangedCommand="{Binding AutoCompleteSelectionChangedCommand}"/>
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_EMAIL}"
                                       Text="{core:InputBinding NewCustomerContact.Email}" />

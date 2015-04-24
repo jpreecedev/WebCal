@@ -71,6 +71,12 @@
             set { SetValue(SelectedTextChangedProperty, value); }
         }
 
+        public bool IsTextSearchEnabled
+        {
+            get { return (bool)GetValue(IsTextSearchEnabledProperty); }
+            set { SetValue(IsTextSearchEnabledProperty, value); }
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -104,6 +110,11 @@
             {
                 _combo.Text = null;
             }
+        }
+
+        public ComboBox Combo
+        {
+            get { return _combo; }
         }
 
         protected override void ReValidated()
@@ -165,7 +176,9 @@
             DependencyProperty.Register("SelectedIndex", typeof(int), typeof(InputComboField), new PropertyMetadata(-1));
 
         public static readonly DependencyProperty SelectedTextChangedProperty =
-    DependencyProperty.Register("SelectedTextChanged", typeof(ICommand), typeof(InputComboField));
+            DependencyProperty.Register("SelectedTextChanged", typeof (ICommand), typeof (InputComboField));
 
+        public static readonly DependencyProperty IsTextSearchEnabledProperty =
+            DependencyProperty.Register("IsTextSearchEnabled", typeof(bool), typeof(InputComboField), new PropertyMetadata(false));
     }
 }

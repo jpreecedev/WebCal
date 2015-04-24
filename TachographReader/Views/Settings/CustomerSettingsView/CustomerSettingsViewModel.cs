@@ -6,11 +6,13 @@
     using Connect.Shared.Models;
     using Core;
     using Library;
+    using Properties;
     using Shared;
     using Shared.Connect;
 
     public class CustomerSettingsViewModel : BaseSettingsViewModel
     {
+        private bool _hasSearchedConnect;
         private CustomerContact _selectedCustomerContact;
         public IRepository<CustomerContact> Repository { get; set; }
         public ObservableCollection<CustomerContact> CustomerContacts { get; set; }
@@ -41,18 +43,21 @@
 
         public int SelectedIndex { get; set; }
         public bool IsSearchingConnect { get; set; }
+        public ObservableCollection<CustomerContact> AutoCompleteCustomerContacts { get; set; }
 
         public DelegateCommand<object> RemoveCommand { get; set; }
         public DelegateCommand<object> SaveCommand { get; set; }
         public DelegateCommand<object> CancelCommand { get; set; }
         public DelegateCommand<string> CustomerContactNameChangedCommand { get; set; }
+        public DelegateCommand<CustomerContact> AutoCompleteSelectionChangedCommand { get; set; }
  
         protected override void InitialiseCommands()
         {
             RemoveCommand = new DelegateCommand<object>(OnRemove, CanRemove);
-            SaveCommand = new DelegateCommand<object>(OnSave, CanSave);
+            SaveCommand = new DelegateCommand<object>(OnSave);
             CancelCommand = new DelegateCommand<object>(OnCancel);
             CustomerContactNameChangedCommand = new DelegateCommand<string>(OnCustomerContactNameChanged);
+            AutoCompleteSelectionChangedCommand = new DelegateCommand<CustomerContact>(OnAutoCompleteSelectionChanged);
         }
 
         protected override void InitialiseRepositories()
@@ -62,15 +67,8 @@
 
         protected override void Load()
         {
-            if (DoneCallback == null)
-            {
-                CustomerContacts = new ObservableCollection<CustomerContact>(Repository.GetAll().OrderBy(c => c.Name));
-            }
-            else
-            {
-                CustomerContacts = new ObservableCollection<CustomerContact>();
-            }
-
+            LoadCustomerContacts();
+            AutoCompleteCustomerContacts = new ObservableCollection<CustomerContact>();
             InitialiseNewCustomerContact();
         }
 
@@ -95,16 +93,17 @@
             CustomerContacts.Remove(SelectedCustomerContact);
         }
 
-        private bool CanSave(object obj)
-        {
-            return NewCustomerContact != null && !string.IsNullOrEmpty(NewCustomerContact.Name) && NewCustomerContact.Name.Length > 1;
-        }
-
         private void OnSave(object obj)
         {
+            if (string.IsNullOrEmpty(NewCustomerContact.Name) || NewCustomerContact.Name.Length < 2)
+            {
+                ShowError(Resources.TXT_CUSTOMER_SETTINGS_ENTER_CUSTOMER_NAME);
+                return;
+            }
+
             var customerContact = NewCustomerContact.Clone<CustomerContact>();
 
-            if (IsEditing)
+            if (IsEditing && SelectedIndex > -1)
             {
                 CustomerContacts[SelectedIndex] = customerContact;
             }
@@ -116,15 +115,37 @@
             Reset();
             Repository.AddOrUpdate(customerContact);
             Saved(customerContact);
+
+            CustomerContacts.Clear();
+            CustomerContacts.AddRange(Repository.GetAll().OrderBy(c => c.Name));
         }
 
-        private void OnCustomerContactNameChanged(string name)
+        private void OnAutoCompleteSelectionChanged(CustomerContact customerContact)
         {
-            if (string.IsNullOrEmpty(name))
+            if (customerContact == null)
             {
                 return;
             }
 
+            SelectedCustomerContact = customerContact;
+        }
+
+        private void OnCustomerContactNameChanged(string name)
+        {
+            NewCustomerContact.Name = name;
+
+            if (string.IsNullOrEmpty(name) || name.Length < 3 || name.Trim().Length < 3)
+            {
+                _hasSearchedConnect = false;
+                return;
+            }
+
+            if (_hasSearchedConnect)
+            {
+                return;
+            }
+
+            _hasSearchedConnect = true;
             IsSearchingConnect = true;
 
             GetInstance<IConnectClient>().CallAsync(ConnectHelper.GetConnectKeys(), client =>
@@ -133,15 +154,12 @@
             },
             result =>
             {
-                if (result.IsSuccess && result.Data != null)
+                AutoCompleteCustomerContacts.Clear();
+
+                if (result.IsSuccess && result.Data is CustomerContact[])
                 {
-                    var customerContact = (CustomerContact)result.Data;
-                    NewCustomerContact.Address = customerContact.Address;
-                    NewCustomerContact.Email = customerContact.Email;
-                    NewCustomerContact.PhoneNumber = customerContact.PhoneNumber;
-                    NewCustomerContact.PostCode = customerContact.PostCode;
-                    NewCustomerContact.SecondaryEmail = customerContact.SecondaryEmail;
-                    NewCustomerContact.Town = customerContact.Town;
+                    var customerContacts = (CustomerContact[])result.Data;
+                    AutoCompleteCustomerContacts.AddRange(customerContacts);
                 }
             },
             alwaysCall: () =>
@@ -181,6 +199,18 @@
             SelectedIndex = -1;
             IsEditing = false;
             InitialiseNewCustomerContact();
+        }
+
+        private void LoadCustomerContacts()
+        {
+            if (DoneCallback == null)
+            {
+                CustomerContacts = new ObservableCollection<CustomerContact>(Repository.GetAll().OrderBy(c => c.Name));
+            }
+            else
+            {
+                CustomerContacts = new ObservableCollection<CustomerContact>();
+            }
         }
     }
 }
