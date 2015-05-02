@@ -185,3 +185,4 @@ FakesAssemblies/
 /libs/Newtonsoft.Json.6.0.5
 *.7z
 *.exe
+*.db

@@ -165,7 +165,7 @@
         {
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Resources\\SmartCardReader.jar";
 
-            var processInfo = new ProcessStartInfo("java.exe", string.Format("-jar {1} {0}", arguments, path))
+            var processInfo = new ProcessStartInfo("java.exe", string.Format("-jar \"{1}\" {0}", arguments, path)) 
             {
                 CreateNoWindow = true,
                 UseShellExecute = false,

@@ -27,6 +27,17 @@
     <ROW Section="2.2.11.0" Key="FilePath" Value="[APPDIR]TachographReader.exe"/>
     <ROW Section="2.2.11.0" Key="Version" Value="2.2.11.0"/>
     <ROW Section="2.2.11.0" Key="AutoCloseApplication" Value="[APPDIR]Webcal.exe"/>
+    <ROW Section="2.2.12.0" Key="Name" Value="Webcal"/>
+    <ROW Section="2.2.12.0" Key="ProductVersion" Value="2.2.12.0"/>
+    <ROW Section="2.2.12.0" Key="URL" Value="https://www.webcalconnect.com/software/webcal.exe"/>
+    <ROW Section="2.2.12.0" Key="Size" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
+    <ROW Section="2.2.12.0" Key="ReleaseDate" Value="18070"/>
+    <ROW Section="2.2.12.0" Key="MD5" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
+    <ROW Section="2.2.12.0" Key="ServerFileName" Value="webcal.exe"/>
+    <ROW Section="2.2.12.0" Key="Flags" Value="Critical|NoCache"/>
+    <ROW Section="2.2.12.0" Key="FilePath" Value="[APPDIR]TachographReader.exe"/>
+    <ROW Section="2.2.12.0" Key="Version" Value="2.2.12.0"/>
+    <ROW Section="2.2.12.0" Key="AutoCloseApplication" Value="[APPDIR]Webcal.exe"/>
     <ATTRIBUTE name="OutputFileName" value="webcal-updates.txt"/>
     <ATTRIBUTE name="OutputFolder" value="..\..\..\Users\Jon\Desktop"/>
   </COMPONENT>
