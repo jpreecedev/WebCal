@@ -24,10 +24,10 @@
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:6"/>
     <ROW Property="Manufacturer" Value="Skillray Transport Services Ltd"/>
-    <ROW Property="ProductCode" Value="2057:{10D17091-4582-417E-858A-A8DC91C25C16} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{D6372DED-0949-4E64-8589-1D0153C98FAE} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
     <ROW Property="ProductName" Value="Webcal"/>
-    <ROW Property="ProductVersion" Value="2.2.10.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="2.2.11.0" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR;UPGRADE_2"/>
     <ROW Property="UpgradeCode" Value="{F9EC440C-AFF5-45B7-905E-77CC783AF1F3}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -45,6 +45,7 @@
     <ROW Directory="Microsoft.VC90.CRT_1_Dir" Directory_Parent="x86_Dir" DefaultDir="MICROS~1.CRT|Microsoft.VC90.CRT"/>
     <ROW Directory="Microsoft.VC90.CRT_Dir" Directory_Parent="amd64_Dir" DefaultDir="MICROS~1.CRT|Microsoft.VC90.CRT"/>
     <ROW Directory="Resources_Dir" Directory_Parent="APPDIR" DefaultDir="RESOUR~1|Resources"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="amd64_Dir" Directory_Parent="APPDIR" DefaultDir="amd64"/>
     <ROW Directory="de_Dir" Directory_Parent="APPDIR" DefaultDir="de"/>
@@ -79,8 +80,11 @@
     <ROW Component="Microsoft.VC90.CRT.manifest_1" ComponentId="{4AB1414B-13BE-4B75-8BF7-24E6460E0FB7}" Directory_="Microsoft.VC90.CRT_1_Dir" Attributes="0" KeyPath="Microsoft.VC90.CRT.manifest_1" Type="0"/>
     <ROW Component="Newtonsoft.Json.dll" ComponentId="{5BBB2F9D-09B5-49E2-AD33-0420535CC877}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
     <ROW Component="ProductInformation" ComponentId="{E0C2FD5E-72F5-4CF2-B473-5E06A78A1DF0}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{C622E1AD-8F95-4D99-879F-1F13AA07E538}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="SmartCardReader.jar" ComponentId="{4E34172A-7850-42BA-914B-1567C7C05331}" Directory_="Resources_Dir" Attributes="0" KeyPath="SmartCardReader.jar" Type="0"/>
     <ROW Component="System.Data.SqlServerCe.dll" ComponentId="{CFC4579C-5BDA-4EB4-A2CF-ADE1E98D8041}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SqlServerCe.dll"/>
+    <ROW Component="System.Windows.Controls.Input.Toolkit.dl" ComponentId="{6AB5EBF9-05C0-45C1-888A-9F7BD6A7AABB}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Controls.Input.Toolkit.dll"/>
+    <ROW Component="System.Windows.Controls.Layout.Toolkit.d" ComponentId="{9949900D-9975-47E9-9AC6-694E508AA975}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Controls.Layout.Toolkit.dll"/>
     <ROW Component="System.Windows.Interactivity.dll" ComponentId="{E1C9A1EC-A9FC-4405-A59D-7B241880DA69}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Interactivity.dll"/>
     <ROW Component="TachographReader.ConnectClient.dll" ComponentId="{2FEB692A-BF19-4449-AABE-AA5BA35125EB}" Directory_="APPDIR" Attributes="0" KeyPath="TachographReader.ConnectClient.dll"/>
     <ROW Component="TachographReader.DataModel.dll" ComponentId="{0BAE19CD-A1A8-4C63-AA08-40600CC4DA72}" Directory_="APPDIR" Attributes="0" KeyPath="TachographReader.DataModel.dll"/>
@@ -128,7 +132,7 @@
     <ROW Feature="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Title="SQL Server Compact 4.0 x64" Description="SQL Server Compact 4.0 x64" Display="7" Level="1" Attributes="0" Components="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF AI_CustomARPName AI_ExePath"/>
     <ROW Feature="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Title="SQL Server Compact 4.0 x86" Description="SQL Server Compact 4.0 x86" Display="9" Level="1" Attributes="0" Components="AI_CustomARPName AI_ExePath B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
     <ROW Feature="B7F3EF2947194DBBA24570C9D8F78D96" Title="SQL Server Compact 4.0 SP1 x86" Description="SQL Server Compact 4.0 SP1 x86" Display="3" Level="1" Attributes="16" Components="AI_CustomARPName AI_ExePath"/>
-    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_ExePath BackupRestoreUtility.exe BackupRestoreUtility.exe.config Connect.Shared.dll EntityFramework.SqlServer.dll EntityFramework.SqlServerCompact.dll EntityFramework.dll Fluent.dll Hardcodet.Wpf.TaskbarNotification.dll Microsoft.Practices.Unity.Configuration. Microsoft.Practices.Unity.RegistrationBy Microsoft.Practices.Unity.dll Microsoft.VC90.CRT.manifest Microsoft.VC90.CRT.manifest_1 Newtonsoft.Json.dll ProductInformation SmartCardReader.jar System.Data.SqlServerCe.dll System.Windows.Interactivity.dll TachographReader.ConnectClient.dll TachographReader.DataModel.dll TachographReader.DataModel.resources.dll TachographReader.Imaging.dll TachographReader.Shared.dll TachographReader.Shared.resources.dll TachographReader.exe TachographReader.resources.dll Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.AvalonDock.resources.dll Xceed.Wpf.AvalonDock.resources.dll_1 Xceed.Wpf.AvalonDock.resources.dll_2 Xceed.Wpf.AvalonDock.resources.dll_3 Xceed.Wpf.AvalonDock.resources.dll_4 Xceed.Wpf.AvalonDock.resources.dll_5 Xceed.Wpf.AvalonDock.resources.dll_6 Xceed.Wpf.AvalonDock.resources.dll_7 Xceed.Wpf.AvalonDock.resources.dll_8 Xceed.Wpf.AvalonDock.resources.dll_9 Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll itextsharp.dll msvcr90.dll msvcr90.dll_1 pcscsharp.dll sqlceca40.dll sqlceca40.dll_1 sqlcecompact40.dll sqlcecompact40.dll_1 sqlceer40EN.dll sqlceer40EN.dll_1 sqlceme40.dll sqlceme40.dll_1 sqlceqp40.dll sqlceqp40.dll_1 sqlcese40.dll sqlcese40.dll_1 updater.exe"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_ExePath BackupRestoreUtility.exe BackupRestoreUtility.exe.config Connect.Shared.dll EntityFramework.SqlServer.dll EntityFramework.SqlServerCompact.dll EntityFramework.dll Fluent.dll Hardcodet.Wpf.TaskbarNotification.dll Microsoft.Practices.Unity.Configuration. Microsoft.Practices.Unity.RegistrationBy Microsoft.Practices.Unity.dll Microsoft.VC90.CRT.manifest Microsoft.VC90.CRT.manifest_1 Newtonsoft.Json.dll ProductInformation SHORTCUTDIR SmartCardReader.jar System.Data.SqlServerCe.dll System.Windows.Controls.Input.Toolkit.dl System.Windows.Controls.Layout.Toolkit.d System.Windows.Interactivity.dll TachographReader.ConnectClient.dll TachographReader.DataModel.dll TachographReader.DataModel.resources.dll TachographReader.Imaging.dll TachographReader.Shared.dll TachographReader.Shared.resources.dll TachographReader.exe TachographReader.resources.dll Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.AvalonDock.resources.dll Xceed.Wpf.AvalonDock.resources.dll_1 Xceed.Wpf.AvalonDock.resources.dll_2 Xceed.Wpf.AvalonDock.resources.dll_3 Xceed.Wpf.AvalonDock.resources.dll_4 Xceed.Wpf.AvalonDock.resources.dll_5 Xceed.Wpf.AvalonDock.resources.dll_6 Xceed.Wpf.AvalonDock.resources.dll_7 Xceed.Wpf.AvalonDock.resources.dll_8 Xceed.Wpf.AvalonDock.resources.dll_9 Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll itextsharp.dll msvcr90.dll msvcr90.dll_1 pcscsharp.dll sqlceca40.dll sqlceca40.dll_1 sqlcecompact40.dll sqlcecompact40.dll_1 sqlceer40EN.dll sqlceer40EN.dll_1 sqlceme40.dll sqlceme40.dll_1 sqlceqp40.dll sqlceqp40.dll_1 sqlcese40.dll sqlcese40.dll_1 updater.exe"/>
     <ROW Feature="Microsoft.NETFrame" Title="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" Description="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" Display="5" Level="1" Attributes="16" Components="AI_CustomARPName AI_ExePath"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
@@ -151,6 +155,8 @@
     <ROW File="README_ENU.txt_1" Component_="Microsoft.VC90.CRT.manifest_1" FileName="README~1.TXT|README_ENU.txt" Attributes="0" SourcePath="..\bin\x86\Microsoft.VC90.CRT\README_ENU.txt" SelfReg="false" NextFile="sqlceca40.dll_1"/>
     <ROW File="SmartCardReader.jar" Component_="SmartCardReader.jar" FileName="SMARTC~1.JAR|SmartCardReader.jar" Attributes="0" SourcePath="..\bin\Resources\SmartCardReader.jar" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.resources.dll_6"/>
     <ROW File="System.Data.SqlServerCe.dll" Component_="System.Data.SqlServerCe.dll" FileName="SYSTEM~1.DLL|System.Data.SqlServerCe.dll" Attributes="0" SourcePath="..\bin\System.Data.SqlServerCe.dll" SelfReg="false" NextFile="System.Windows.Interactivity.dll"/>
+    <ROW File="System.Windows.Controls.Input.Toolkit.dll" Component_="System.Windows.Controls.Input.Toolkit.dl" FileName="SYSTEM~3.DLL|System.Windows.Controls.Input.Toolkit.dll" Attributes="0" SourcePath="..\bin\System.Windows.Controls.Input.Toolkit.dll" SelfReg="false" NextFile="System.Windows.Controls.Layout.Toolkit.dll"/>
+    <ROW File="System.Windows.Controls.Layout.Toolkit.dll" Component_="System.Windows.Controls.Layout.Toolkit.d" FileName="SYSTEM~4.DLL|System.Windows.Controls.Layout.Toolkit.dll" Attributes="0" SourcePath="..\bin\System.Windows.Controls.Layout.Toolkit.dll" SelfReg="false"/>
     <ROW File="System.Windows.Interactivity.dll" Component_="System.Windows.Interactivity.dll" FileName="SYSTEM~2.DLL|System.Windows.Interactivity.dll" Attributes="0" SourcePath="..\bin\System.Windows.Interactivity.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.dll"/>
     <ROW File="TachographReader.ConnectClient.dll" Component_="TachographReader.ConnectClient.dll" FileName="TACHOG~4.DLL|TachographReader.ConnectClient.dll" Attributes="0" SourcePath="..\bin\TachographReader.ConnectClient.dll" SelfReg="false" NextFile="TachographReader.exe.config"/>
     <ROW File="TachographReader.DataModel.dll" Component_="TachographReader.DataModel.dll" FileName="TACHOG~1.DLL|TachographReader.DataModel.dll" Attributes="0" SourcePath="..\bin\TachographReader.DataModel.dll" SelfReg="false" NextFile="TachographReader.exe"/>
@@ -193,7 +199,7 @@
     <ROW File="sqlceqp40.dll_1" Component_="sqlceqp40.dll_1" FileName="SQLCEQ~1.DLL|sqlceqp40.dll" Attributes="0" SourcePath="..\bin\x86\sqlceqp40.dll" SelfReg="false" NextFile="sqlcese40.dll_1"/>
     <ROW File="sqlcese40.dll" Component_="sqlcese40.dll" FileName="SQLCES~1.DLL|sqlcese40.dll" Attributes="0" SourcePath="..\bin\amd64\sqlcese40.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.resources.dll"/>
     <ROW File="sqlcese40.dll_1" Component_="sqlcese40.dll_1" FileName="SQLCES~1.DLL|sqlcese40.dll" Attributes="0" SourcePath="..\bin\x86\sqlcese40.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.resources.dll_9"/>
-    <ROW File="updater.exe" Component_="updater.exe" FileName="updater.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="&lt;AI_STUBS&gt;updater.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="updater.exe" Component_="updater.exe" FileName="updater.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="&lt;AI_STUBS&gt;updater.exe" SelfReg="false" NextFile="System.Windows.Controls.Input.Toolkit.dll" DigSign="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" GeneralOptions="bh" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" EulaPathLocId="*" IntroTextPathLocId="*"/>
@@ -241,6 +247,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="ShortcutFlags.dll" SourcePath="&lt;AI_CUSTACTS&gt;ShortcutFlags.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
     <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
   </COMPONENT>
@@ -279,8 +286,12 @@
     <ROW Dialog_="FatalError" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="102"/>
     <ROW Dialog_="UserExit" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="101"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
+    <ROW Action="AI_ApplyShortcutFlags" Type="3073" Source="ShortcutFlags.dll" Target="UpdateShortcutFlags" WithoutSeq="true"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_CleanPrereq" Type="65" Source="Prereq.dll" Target="CleanPrereq" WithoutSeq="true"/>
     <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
@@ -305,6 +316,9 @@
     <ROW Action="AI_InstallPrerequisite" Type="65" Source="Prereq.dll" Target="InstallPrereq"/>
     <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#TachographReader.exe]"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="PinShortcuts"/>
+    <ROW Action="AI_PinToTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="PinToTaskbar" WithoutSeq="true"/>
+    <ROW Action="AI_PrepareShortcutFlags" Type="1" Source="ShortcutFlags.dll" Target="PrepareActionData"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_RemoveExternalUIStub" Type="1" Source="ExternalUICleaner.dll" Target="RemoveExternalUIStub"/>
@@ -314,12 +328,15 @@
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Type="82" Source="updater.exe" Target="/clean silent"/>
+    <ROW Action="AI_UnpinFromTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="UnpinFromTaskbar" WithoutSeq="true"/>
+    <ROW Action="AI_UnpinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="UnpinShortcuts"/>
     <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_UserProgramFiles][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="TachographReader.exe" SourcePath="..\..\Webcal 2.1.x\App\TachographReader\Main Icon.ico" Index="0"/>
     <ROW Name="WebcalIcon.exe" SourcePath="Resources\Webcal Icon.ico" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
@@ -328,7 +345,7 @@
     <ROW IniFile="ApplicationVersion" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ApplicationVersion" Value="[ProductVersion]" Action="0" Component_="updater.exe"/>
     <ROW IniFile="CheckFrequency" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="CheckFrequency" Value="2" Action="0" Component_="updater.exe"/>
     <ROW IniFile="CompanyName" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="CompanyName" Value="[Manufacturer]" Action="0" Component_="updater.exe"/>
-    <ROW IniFile="DefaultCommandLine" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DefaultCommandLine" Value="/silentall -nofreqcheck" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="DefaultCommandLine" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DefaultCommandLine" Value="/checknow -minuseractions" Action="0" Component_="updater.exe"/>
     <ROW IniFile="DownloadsFolder" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DownloadsFolder" Value="[CommonAppDataFolder][Manufacturer]\[ProductName]\updates\" Action="0" Component_="updater.exe"/>
     <ROW IniFile="Flags" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="Flags" Value="PerMachine" Action="0" Component_="updater.exe"/>
     <ROW IniFile="ID" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ID" Value="[UpgradeCode]" Action="0" Component_="updater.exe"/>
@@ -359,6 +376,9 @@
     <ROW Action="AI_SETMIXINSTLOCATION" Sequence="747"/>
     <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Condition="($updater.exe = 2) AND (?updater.exe = 3) AND NOT (UPGRADINGPRODUCTCODE)" Sequence="1551"/>
+    <ROW Action="AI_PrepareShortcutFlags" Condition="(VersionNT &gt; 501) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="4501"/>
+    <ROW Action="AI_PinShortcuts" Condition="(VersionNT &gt; 600) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="4502"/>
+    <ROW Action="AI_UnpinShortcuts" Condition="(VersionNT &gt; 600) AND (REMOVE = &quot;ALL&quot;)" Sequence="3199"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="ExecuteAction" Sequence="1296" SeqType="0" MsiKey="ExecuteAction"/>
@@ -414,6 +434,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="Webcal" Directory_="DesktopFolder" Name="Webcal" Component_="TachographReader.exe" Target="[#TachographReader.exe]" Hotkey="0" Icon_="WebcalIcon.exe" IconIndex="0" ShowCmd="1" WkDir="DesktopFolder"/>
+    <ROW Shortcut="Webcal_1" Directory_="SHORTCUTDIR" Name="Webcal" Component_="TachographReader.exe" Target="[#TachographReader.exe]" Hotkey="0" Icon_="TachographReader.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR" CustomFlags="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="azure"/>
@@ -432,7 +453,7 @@
     <ATTRIBUTE name="PrereqsOrder" value="C673FE9433B49AFAC9592AB26B8F8E4 FB44691010D74C6D89B33E019630EAF6 EE84CE1C98744810AB435A53A3737024 A5FAD2_A0AB_492E_9F3A_F3AED8E676FF B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
-    <ROW SearchKey="A5FAD2_A0AB_492E_9F3A_F3AED8E676FFVersion" Prereq="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server Compact Edition\v4.0\Version" VerMin="4.0.8482.1" Order="1" Property="PreReqSearch_A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
+    <ROW SearchKey="A5FAD2_A0AB_492E_9F3A_F3AED8E676FFVersion" Prereq="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server Compact Edition\v4.0\Version" VerMin="4.0.8482.1" Order="1" Property="PreReqSearch_A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Platform="1"/>
     <ROW SearchKey="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79Version" Prereq="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server Compact Edition\v4.0\Version" VerMin="4.0.8482.1" Order="1" Property="PreReqSearch_B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
     <ROW SearchKey="C673FE9433B49AFAC9592AB26B8F8E4Install" Prereq="C673FE9433B49AFAC9592AB26B8F8E4" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Install" RefContent="M1" Order="1" Property="PreReqSearch_C673FE9433B49AFAC9592AB26B8F8E4"/>
     <ROW SearchKey="EE84CE1C98744810AB435A53A3737024CurrentVersion" Prereq="EE84CE1C98744810AB435A53A3737024" SearchType="2" SearchString="HKLM\SOFTWARE\JavaSoft\Java Runtime Environment\CurrentVersion" VerMin="1.7" Order="1" Property="PreReqSearch_EE84CE1C98744810AB435A53A3737024"/>
