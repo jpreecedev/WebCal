@@ -3,7 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
+    using System.IO;
     using System.Linq;
+    using System.Reflection;
     using System.Threading.Tasks;
     using System.Xml.Linq;
     using DataModel.Core;
@@ -161,7 +163,9 @@
 
         private static string ReadSmartCard(string arguments)
         {
-            var processInfo = new ProcessStartInfo("java.exe", string.Format("-jar Resources\\SmartCardReader.jar {0}", arguments))
+            var path = Path.Combine(Assembly.GetExecutingAssembly().GetName().CodeBase, "Resources\\SmartCardReader.jar");
+
+            var processInfo = new ProcessStartInfo("java.exe", string.Format("-jar {1} {0}", arguments, path))
             {
                 CreateNoWindow = true,
                 UseShellExecute = false,
