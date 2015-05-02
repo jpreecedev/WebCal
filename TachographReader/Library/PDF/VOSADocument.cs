@@ -12,6 +12,7 @@ namespace TachographReader.Library.PDF
     using iTextSharp.text.pdf;
     using Properties;
     using Shared;
+    using Shared.Helpers;
 
     public static class VOSADocument
     {
@@ -52,10 +53,7 @@ namespace TachographReader.Library.PDF
             Document.AddParagraph(Resources.TXT_GV_212, column1, Document.GetLargeFont(true));
 
             //VOSA Logo
-            StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/Vosa.png");
-
-            var rawData = new byte[resourceStream.Stream.Length];
-            resourceStream.Stream.Read(rawData, 0, rawData.Length);
+            var rawData = ImageHelper.LoadFromResourcesAsByteArray("Vosa");
             Document.AddImage(rawData, 100, 45, Document.Width - 115, Document.Height - 60);
 
             var column2 = new ColumnText(Document.ContentByte);
@@ -179,10 +177,7 @@ namespace TachographReader.Library.PDF
 
         private static void CreateFooter()
         {
-            StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/Footer.png");
-            var rawData = new byte[resourceStream.Stream.Length];
-            resourceStream.Stream.Read(rawData, 0, rawData.Length);
-
+            var rawData = ImageHelper.LoadFromResourcesAsByteArray("Footer");
             Document.AddImage(rawData, 525, 171, Document.MarginLeft + 8, 20);
         }
 

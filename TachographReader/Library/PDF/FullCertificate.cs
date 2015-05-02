@@ -4,6 +4,7 @@
     using Connect.Shared.Models;
     using iTextSharp.text;
     using Properties;
+    using Shared.Helpers;
 
     public class FullCertificate : BasePlaqueDocument
     {
@@ -109,8 +110,7 @@
             TryAddSignature(document, tachographDocument, (startHorizontal + 350));
             AbsolutePositionText(document, string.Format(Resources.TXT_SIGNATURE_TECHNICIAN, tachographDocument.Technician), (startHorizontal + 350), (startVertical + 340), 550, 20);
 
-            string imageFilePath = (DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/skillray-small.png")).ToString();
-            Image logoImage = Image.GetInstance(imageFilePath);
+            Image logoImage = Image.GetInstance(ImageHelper.CopyResourceToFileSystem("skillray_small"));
             logoImage.SetAbsolutePosition(50, 790);
         }
     }

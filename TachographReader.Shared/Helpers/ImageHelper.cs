@@ -18,6 +18,23 @@ namespace TachographReader.Shared.Helpers
         private static readonly string TempByEnvironmentVariable = Environment.GetEnvironmentVariable("TEMP");
         private static readonly string TempByPath = Path.GetTempPath();
 
+        public static string CopyResourceToFileSystem(string key, Assembly assembly = null)
+        {
+            var resourceManager = new ResourceManager("TachographReader.Properties.Resources", assembly ?? Assembly.GetCallingAssembly());
+            var image = resourceManager.GetObject(key, CultureInfo.CurrentUICulture);
+
+            if (image == null)
+            {
+                return null;
+            }
+
+            var bitmap = (Bitmap)image;
+            var imagePath = Path.Combine(GetTemporaryDirectory(), Guid.NewGuid().ToString(), ".png");
+            SaveImageToDisk(bitmap, imagePath);
+
+            return imagePath;
+        }
+
         public static BitmapSource LoadFromResources(string key, Assembly assembly = null)
         {
             var resourceManager = new ResourceManager("TachographReader.Properties.Resources", assembly ?? Assembly.GetCallingAssembly());
@@ -47,7 +64,7 @@ namespace TachographReader.Shared.Helpers
             var asByteArray = bitmap.ToByteArray();
             return asByteArray;
         }
-
+        
         public static Image LoadImageSafely(string imagePath)
         {
             using (var bmpTemp = new Bitmap(imagePath))

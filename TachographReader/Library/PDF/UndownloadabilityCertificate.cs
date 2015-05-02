@@ -19,10 +19,7 @@
             var settingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
             WorkshopSettings settings = settingsRepository.GetWorkshopSettings();
 
-            StreamResourceInfo resourceStream = DocumentHelper.GetResourceStreamFromSimplePath("Images/PDF/UndownloadHeader.png");
-
-            var rawData = new byte[resourceStream.Stream.Length];
-            resourceStream.Stream.Read(rawData, 0, rawData.Length);
+            var rawData = ImageHelper.LoadFromResourcesAsByteArray("UndownloadHeader");
             document.AddImage(rawData, 390, 290, 59, document.Height - 350);
 
             AbsolutePositionText(document, settings.WorkshopName, 61, 710, 500, 50, document.GetLargeFont(true), Element.ALIGN_LEFT);

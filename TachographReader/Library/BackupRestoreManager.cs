@@ -5,6 +5,7 @@
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
+    using System.Reflection;
     using DataModel;
     using DataModel.Core;
     using Properties;
@@ -50,7 +51,7 @@
             DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.SQLServerCEDatabaseFile, string.Empty);
             if (result.Result == true)
             {
-                Run(string.Format(@"/r ""{0}"" ""{1}"" ""{2}""", result.FileName, databasePath, AppDomain.CurrentDomain.FriendlyName), false);
+                Run(string.Format(@"/r ""{0}"" ""{1}"" ""{2}""", result.FileName, databasePath, Assembly.GetExecutingAssembly().GetName().CodeBase), false);
             }
         }
 

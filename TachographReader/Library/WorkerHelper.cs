@@ -63,9 +63,9 @@
 
             var task = new Task(() =>
             {
-                using (var context = new TachographContext())
+                using (var repository = ContainerBootstrapper.Container.Resolve<IRepository<WorkerTask>>())
                 {
-                    foreach (var unprocessedTask in context.WorkerTasks.Where(workerTask => workerTask.IsProcessing == false && workerTask.Processed == null))
+                    foreach (var unprocessedTask in repository.Where(workerTask => workerTask.IsProcessing == false && workerTask.Processed == null && workerTask.Deleted == null))
                     {
                         Type plugin = Find(unprocessedTask.TaskName);
                         if (plugin == null)
@@ -80,7 +80,7 @@
                         unprocessedTask.WorkerId = server.Id;
                         unprocessedTask.IsProcessing = true;
 
-                        context.SaveChanges();
+                        repository.AddOrUpdate(unprocessedTask);
 
                         _workers.Add(server);
 

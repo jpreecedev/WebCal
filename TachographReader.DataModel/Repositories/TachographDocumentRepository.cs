@@ -22,6 +22,7 @@
                     }
 
                     CheckVehicleExists(context, entity);
+                    context.SaveChanges();
                 }
             });
         }

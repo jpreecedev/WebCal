@@ -37,13 +37,13 @@
 
         public static void MigrateIfRequired()
         {
-            MigrateOldPath((string) AppDomain.CurrentDomain.GetData("DataDirectory"));
+            MigrateOldPath((string)AppDomain.CurrentDomain.GetData("DataDirectory"));
             MigrateWorkshopImages();
         }
 
         public static void SetDatabasePermissions()
         {
-            var databasePath = (string) AppDomain.CurrentDomain.GetData("DataDirectory");
+            var databasePath = (string)AppDomain.CurrentDomain.GetData("DataDirectory");
 
             if (IsAdministrator())
             {
@@ -56,7 +56,7 @@
             var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Webcal", "ContactImages");
             if (Directory.Exists(path))
             {
-                var supportedFormats = new[] {Resources.TXT_EXTENSION_JPG, Resources.TXT_EXTENSION_JPEG, Resources.TXT_EXTENSION_PNG};
+                var supportedFormats = new[] { Resources.TXT_EXTENSION_JPG, Resources.TXT_EXTENSION_JPEG, Resources.TXT_EXTENSION_PNG };
                 var logo = Directory.GetFiles(path).FirstOrDefault(f => supportedFormats.Any(format => string.Equals(Path.GetExtension(f), format, StringComparison.CurrentCultureIgnoreCase)));
                 if (logo != null)
                 {
@@ -80,11 +80,19 @@
 
         private static void MigrateOldPath(string databasePath)
         {
-            var oldPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            if (File.Exists(Path.Combine(oldPath, "webcal.sdf")) && !(File.Exists(Path.Combine(databasePath, "webcal.sdf"))))
+            var oldPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "webcal.sdf");
+            var newWebcalPath = Path.Combine(databasePath, "webcal.sdf");
+            var newTachoPath = Path.Combine(databasePath, "tacho.sdf");
+
+            if (File.Exists(oldPath)) //If there is an old database
             {
-                File.Move(Path.Combine(oldPath, "webcal.sdf"), Path.Combine(databasePath, "tacho.sdf"));
+                if (!File.Exists(newWebcalPath) && !File.Exists(newTachoPath)) //And there isn't a new database
+                {
+                    File.Move(oldPath, newTachoPath);
+                }
             }
+
+            //If there is an old database AND a new database at either path, do nothing
         }
 
         private static bool IsAdministrator()
@@ -111,7 +119,7 @@
 
         public static void HackMigrationHistoryTable()
         {
-            var databasePath = Path.Combine((string) AppDomain.CurrentDomain.GetData("DataDirectory"), "tacho.sdf");
+            var databasePath = Path.Combine((string)AppDomain.CurrentDomain.GetData("DataDirectory"), "tacho.sdf");
 
             if (!File.Exists(databasePath))
             {
