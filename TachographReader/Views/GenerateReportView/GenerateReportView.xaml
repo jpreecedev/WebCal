@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:ctrls="clr-namespace:TachographReader.Controls"
              xmlns:vm="clr-namespace:TachographReader.Views"
-             xmlns:Windows="clr-namespace:TachographReader.Windows" xmlns:core="clr-namespace:TachographReader.Core"
+             xmlns:Windows="clr-namespace:TachographReader.Windows"
              xmlns:Properties="clr-namespace:TachographReader.Properties"
+             xmlns:controls="clr-namespace:TachographReader.Controls"
+             xmlns:core="clr-namespace:TachographReader.Core"
              mc:Ignorable="d"
              d:DesignWidth="628"
              d:DesignHeight="450"
@@ -14,137 +15,85 @@
     <UserControl.DataContext>
         <vm:GenerateReportViewModel />
     </UserControl.DataContext>
-    <UserControl.Resources>
-        <Style TargetType="{x:Type RadioButton}">
-            <Setter Property="Margin"
-                    Value="0,5,0,5" />
-            <Setter Property="VerticalAlignment"
-                    Value="Center" />
-        </Style>
-    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="25" />
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition Height="35" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="{x:Static Properties:Resources.TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING}"
+        <TextBlock Text="{x:Static Properties:Resources.TXT_GENERATE_REPORT_SETTINGS_TITLE}"
                    Style="{StaticResource SettingsTitleFont}"
-                   Margin="0,0,0,5"
-                   Grid.ColumnSpan="3" />
+                   Margin="0,0,0,5" />
 
-        <GroupBox Header="Report Type"
-                  Grid.Row="1">
-            <StackPanel Orientation="Vertical">
-                <RadioButton x:Name="ExpiringTachographDocuments"
-                             Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH}"
-                             GroupName="ReportTypeRadioGroup"
-                             IsChecked="{Binding IsExpiringDocumentsChecked}" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENT_STATISTICS}"
-                             GroupName="ReportTypeRadioGroup"
-                             IsChecked="{Binding IsDocumentStatisticsChecked}"/>
+            <controls:InputComboField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_REPORT_TYPE}"
+                                      ItemsSource="{core:InputBinding ReportTypes}"
+                                      SelectedText="{core:InputBinding Report.ReportType}"
+                                      IsSynchronisedWithCurrentItem="true"
+                                      IsMandatory="True"
+                                      IsEditable="False"
+                                      Grid.Row="1" />
+
+            <controls:InputComboField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENT_TYPE}"
+                                      ItemsSource="{core:InputBinding DocumentTypes}"
+                                      SelectedText="{core:InputBinding Report.DocumentType}"
+                                      IsSynchronisedWithCurrentItem="true"
+                                      IsMandatory="True"
+                                      IsEditable="False"
+                                      Grid.Row="2" />
+
+            <controls:InputMultiSelectComboField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_TECHNICIAN}"
+                                                 ItemsSource="{core:InputBinding Technicians}"
+                                                 SelectedItems="{core:InputBinding Report.Technicians}"
+                                                 IsMandatory="True"
+                                                 Grid.Row="3" />
+
+            <controls:InputMultiSelectComboField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_VEHICLE_MANUFACTURER}"
+                                                 ItemsSource="{core:InputBinding VehicleManufacturers}"
+                                                 SelectedItems="{core:InputBinding Report.VehicleManufacturers}"
+                                                 IsMandatory="True"
+                                                 Grid.Row="4" />
+
+            <controls:InputTextField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_REGISTRATION_NUMBER}"
+                                     Text="{core:InputBinding Report.RegistrationNumber}"
+                                     Grid.Row="5" />
+
+            <controls:InputTextField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_INVOICE_NUMBER}"
+                                     Text="{core:InputBinding Report.InvoiceNumber}"
+                                     Grid.Row="6" />
+
+            <controls:InputDatePickerField SelectedDate="{Binding Report.FromDate}"
+                                           Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_FROM_DATE}"
+                                           Grid.Row="7" />
+
+            <controls:InputDatePickerField SelectedDate="{Binding Report.ToDate}"
+                                           Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_TO_DATE}"
+                                           Grid.Row="8" />
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Grid.Row="9">
+                <Button Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_GENERATE}"
+                        Command="{Binding GenerateReportCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+                <Button Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_CANCEL}"
+                        Command="{Binding DataContext.CancelModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Windows:MainWindow}}}" />
+
             </StackPanel>
-        </GroupBox>
-
-        <GroupBox Header="{x:Static Properties:Resources.TXT_GENERATE_REPORT_FILE_FORMAT}"
-                  Grid.Row="1"
-                  Grid.Column="2">
-            <StackPanel Orientation="Vertical">
-                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_TEXT}"
-                             GroupName="FileFormatRadioGroup"
-                             IsChecked="{Binding IsTextFormatChecked}" />
-                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_EXCEL}"
-                             GroupName="FileFormatRadioGroup" 
-                             IsChecked="{Binding IsExcelFormatChecked}"/>
-            </StackPanel>
-        </GroupBox>
-
-        <GroupBox Header="{x:Static Properties:Resources.TXT_GENERATE_REPORT_TIME_SPAN}"
-                  Grid.Row="2"
-                  Grid.ColumnSpan="3"
-                  Grid.RowSpan="2"
-                  IsEnabled="{Binding IsChecked, ElementName=ExpiringTachographDocuments}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="2*" />
-                </Grid.ColumnDefinitions>
-
-                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_QUICK_SELECTION}"
-                             GroupName="TimeSpanRadioGroup"
-                             IsChecked="{Binding IsQuickSelectionChecked}" />
-
-                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING}"
-                             GroupName="SubTimeSpanRadioGroup"
-                             IsChecked="{Binding IsDocumentExpireThisMonthChecked}"
-                             Grid.Column="1" />
-
-                <RadioButton Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH}"
-                             GroupName="SubTimeSpanRadioGroup"
-                             IsChecked="{Binding IsDocumentExpireNextMonthChecked}"
-                             Grid.Row="1"
-                             Grid.Column="1" />
-
-                <RadioButton x:Name="SelectTimeFrameRadio"
-                             IsChecked="{Binding IsSelectTimeFrameChecked}"
-                             Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_SELECT_TIME_FRAME}"
-                             GroupName="TimeSpanRadioGroup"
-                             Grid.Row="2" />
-
-                <TextBlock Text="{x:Static Properties:Resources.TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD}"
-                           VerticalAlignment="Center"
-                           Grid.Row="2"
-                           Grid.Column="4" />
-
-                <ctrls:InputDatePickerField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_START_DATE}"
-                                            IsEnabled="{Binding IsChecked, ElementName=SelectTimeFrameRadio}"
-                                            IsMandatory="{Binding IsEnabled, RelativeSource={RelativeSource Self}}"
-                                            SelectedDate="{core:InputBinding StartDateTime}"
-                                            Grid.Column="2"
-                                            Grid.Row="3" />
-
-                <ctrls:InputDatePickerField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_END_DATE}"
-                                            IsEnabled="{Binding IsChecked, ElementName=SelectTimeFrameRadio}"
-                                            IsMandatory="{Binding IsEnabled, RelativeSource={RelativeSource Self}}"
-                                            SelectedDate="{core:InputBinding EndDateTime}"
-                                            Grid.Column="2"
-                                            Grid.Row="4" />
-
-            </Grid>
-        </GroupBox>
-
-        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_OFFICE}"
-                              VerticalAlignment="Bottom"
-                              Text="{core:InputBinding Office}"
-                              Grid.Row="4" />
-
-        <StackPanel Orientation="Horizontal"
-                    Grid.Row="5"
-                    Grid.Column="2"
-                    HorizontalAlignment="Right">
-            <Button Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_GENERATE}"
-                    Command="{Binding GenerateReportCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"/>
-            <Button Content="{x:Static Properties:Resources.TXT_GENERATE_REPORT_CANCEL}"
-                    Command="{Binding DataContext.CancelModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Windows:MainWindow}}}" />
-
-        </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

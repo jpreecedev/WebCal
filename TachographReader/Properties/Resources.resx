@@ -1012,51 +1012,6 @@ date
   <data name="TXT_DRIVER_CARD_FILES_REMOVE" xml:space="preserve">
     <value>Remove</value>
   </data>
-  <data name="TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING" xml:space="preserve">
-    <value>Generate report of expiring documents or statistics report</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH" xml:space="preserve">
-    <value>Expiring tachograph documents</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_DOCUMENT_STATISTICS" xml:space="preserve">
-    <value>Document statistics</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_FILE_FORMAT" xml:space="preserve">
-    <value>File format</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_TEXT" xml:space="preserve">
-    <value>Text (.txt)</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_EXCEL" xml:space="preserve">
-    <value>Excel 2007 (.xlsx)</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_TIME_SPAN" xml:space="preserve">
-    <value>Time span</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_QUICK_SELECTION" xml:space="preserve">
-    <value>Quick selection</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING" xml:space="preserve">
-    <value>Documents which expire during this month</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH" xml:space="preserve">
-    <value>Documents which expire during next month</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_SELECT_TIME_FRAME" xml:space="preserve">
-    <value>Select time frame</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD" xml:space="preserve">
-    <value>(Documents which expire during this time period)</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_START_DATE" xml:space="preserve">
-    <value>Start date</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_END_DATE" xml:space="preserve">
-    <value>End date</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_OFFICE" xml:space="preserve">
-    <value>Office</value>
-  </data>
   <data name="TXT_GENERATE_REPORT_GENERATE" xml:space="preserve">
     <value>Generate</value>
   </data>
@@ -2409,5 +2364,56 @@ date
   </data>
   <data name="TXT_CUSTOMER_SETTINGS_ENTER_CUSTOMER_NAME" xml:space="preserve">
     <value>Please enter a customer name.</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_REPORT_TYPE" xml:space="preserve">
+    <value>Report Type</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_DOCUMENT_TYPE" xml:space="preserve">
+    <value>Document Type</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_VEHICLE_MANUFACTURER" xml:space="preserve">
+    <value>Vehicle Manufacturer</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration Number</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_INVOICE_NUMBER" xml:space="preserve">
+    <value>Invoice Number</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_FROM_DATE" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_TO_DATE" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="TXT_GENERATE_REPORT_SETTINGS_TITLE" xml:space="preserve">
+    <value>Generate Report</value>
+  </data>
+  <data name="TXT_RECENT_CALIBRATIONS" xml:space="preserve">
+    <value>Recent Calibrations</value>
+  </data>
+  <data name="TXT_CALIBRATIONS_DUE" xml:space="preserve">
+    <value>Calibrations Due</value>
+  </data>
+  <data name="TXT_ANY" xml:space="preserve">
+    <value>Any</value>
+  </data>
+  <data name="TXT_DIGITAL_TACHOGRAPH" xml:space="preserve">
+    <value>Digital Tachograph</value>
+  </data>
+  <data name="TXT_ANALOGUE_TACHOGRAPH" xml:space="preserve">
+    <value>Analogue Tachograph</value>
+  </data>
+  <data name="TXT_UNDOWNLOADABILITY" xml:space="preserve">
+    <value>Undownloadability</value>
+  </data>
+  <data name="TXT_LETTER_FOR_DECOMMISSIONING" xml:space="preserve">
+    <value>Letter For Decommissioning</value>
+  </data>
+  <data name="TXT_DO_YOU_WANT_TO_PRINT" xml:space="preserve">
+    <value>Do you want to print this report?</value>
   </data>
 </root>

@@ -158,9 +158,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libs\PCSC.3.1.0.2\lib\net35\pcsc-sharp.dll</HintPath>
     </Reference>
-    <Reference Include="PropertyChanged">
-      <HintPath>..\libs\PropertyChanged.Fody.1.49.0\Lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="PropertyChanged, Version=1.49.1.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\libs\PropertyChanged.Fody.1.49.1\Lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -239,6 +239,7 @@
     <Compile Include="Controls\DayOfWeekPicker\DayOfWeekPicker.cs" />
     <Compile Include="Controls\ImageStrip.cs" />
     <Compile Include="Controls\InputAutoCompleteField.cs" />
+    <Compile Include="Controls\InputMultiSelectComboField.cs" />
     <Compile Include="Controls\InputComboField.cs" />
     <Compile Include="Controls\InputDatePickerField.cs" />
     <Compile Include="Controls\InputNumberPicker.cs" />
@@ -289,7 +290,6 @@
     <Compile Include="Library\DocumentHelper.cs" />
     <Compile Include="Library\DriverCardReader.cs" />
     <Compile Include="Library\EmailHelper.cs" />
-    <Compile Include="Library\ExcelHelper.cs" />
     <Compile Include="Library\Extensions.cs" />
     <Compile Include="Core\InputBinding.cs" />
     <Compile Include="Core\IValidate.cs" />
@@ -300,6 +300,8 @@
     <Compile Include="Library\LocalizationHelper.cs" />
     <Compile Include="Library\MigrationHelper.cs" />
     <Compile Include="Library\PDF\BasePlaqueDocument.cs" />
+    <Compile Include="Library\PDF\CustomReport.cs" />
+    <Compile Include="Library\PDF\CustomReportDataBuilder.cs" />
     <Compile Include="Library\PDF\FullCertificate.cs" />
     <Compile Include="Library\PDF\IPlaque.cs" />
     <Compile Include="Library\PDF\LetterForDecommissioning.cs" />
@@ -308,7 +310,6 @@
     <Compile Include="Library\PDF\FullPlaqueDocument.cs" />
     <Compile Include="Library\PDF\MinimalPlaqueDocument.cs" />
     <Compile Include="Library\PDF\PDFDocument.cs" />
-    <Compile Include="Library\PDF\PlaqueDocumentType.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
     <Compile Include="Library\PDF\VOSADocument.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />

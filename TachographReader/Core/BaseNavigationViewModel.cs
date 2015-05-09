@@ -34,6 +34,7 @@
         public UserControl ModalView { get; set; }
         public bool IsModalWindowVisible { get; set; }
         public bool IsSmallModal { get; set; }
+        public bool IsMediumModal { get; set; }
 
         public UserControl ShowSettingsView(Type view)
         {
@@ -56,6 +57,19 @@
         public void ShowSmallModal<T>() where T : UserControl, new()
         {
             IsSmallModal = true;
+            IsModalWindowVisible = true;
+            ModalView = new T();
+
+            var dataContext = ModalView.DataContext as IViewModel;
+            if (dataContext != null)
+            {
+                dataContext.DoneCallback = _doneCallback;
+            }
+        }
+
+        public void ShowMediumModal<T>() where T : UserControl, new()
+        {
+            IsMediumModal = true;
             IsModalWindowVisible = true;
             ModalView = new T();
 
@@ -121,6 +135,7 @@
         protected void ShowModalView<T>() where T : UserControl, new()
         {
             IsSmallModal = false;
+            IsMediumModal = false;
             IsModalWindowVisible = true;
             ModalView = new T();
         }
@@ -128,6 +143,7 @@
         protected void ShowSettingsModalView()
         {
             IsSmallModal = false;
+            IsMediumModal = false;
             IsModalWindowVisible = true;
 
             ModalView = _settingsView ?? (_settingsView = new SettingsView());

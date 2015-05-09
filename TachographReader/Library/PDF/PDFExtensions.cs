@@ -13,6 +13,20 @@
 
     public static class PDFExtensions
     {
+        public static PDFDocumentResult ToPDF(this Report report)
+        {
+            DialogHelperResult result = Save(true);
+            if (result.Result == true)
+            {
+                using (var pdfDocument = new PDFDocument(result.FileName))
+                {
+                    CustomReport.Create(pdfDocument, report);
+                    return new PDFDocumentResult { FilePath = result.FileName };
+                }
+            }
+            return new PDFDocumentResult();
+        }
+
         public static PDFDocumentResult ToPDF<T>(this T document, bool readOnly = true, bool excludeLogos = false, bool promptUser = false) where T : Document
         {
             if (!readOnly)
@@ -110,8 +124,7 @@
                 return new DialogHelperResult { FileName = path, Result = true };
             }
 
-            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);
-            return result;
+            return DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);
         }
     }
 }

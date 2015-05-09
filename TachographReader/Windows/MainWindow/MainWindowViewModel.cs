@@ -59,7 +59,7 @@
 
         private void OnGenerateReport(object param)
         {
-            ShowModalView<GenerateReportView>();
+            ShowMediumModal<GenerateReportView>();
         }
 
         private void OnBackupDatabase(object param)

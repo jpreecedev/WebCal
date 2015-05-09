@@ -541,6 +541,100 @@
         </Setter>
     </Style>
 
+
+    <Style x:Key="{x:Type ctrls:InputMultiSelectComboField}"
+           TargetType="{x:Type ctrls:InputMultiSelectComboField}">
+        <Setter Property="Height"
+                Value="45" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrls:InputMultiSelectComboField}">
+                    <Grid Margin="0,0,0,5"
+                          Focusable="False">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="145" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Height="45">
+                            <TextBlock Text="{TemplateBinding Label}"
+                                       Focusable="False"
+                                       VerticalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,5,0" />
+                        </Border>
+
+                        <Border x:Name="Border"
+                                Grid.Column="1"
+                                Height="25"
+                                VerticalAlignment="Center">
+                            <xctk:CheckComboBox x:Name="Combo"
+                                                ItemsSource="{TemplateBinding ItemsSource}"
+                                                SelectedItemsOverride="{core:InputBinding SelectedItems, RelativeSource={RelativeSource TemplatedParent}}"
+                                                IsTextSearchEnabled="{TemplateBinding IsTextSearchEnabled}"
+                                                Background="Transparent"
+                                                VerticalAlignment="Center"
+                                                Height="25" />
+                        </Border>
+
+                        <ctrls:BusyIndicator  x:Name="BusyAnimation"
+                                              Grid.Column="2"
+                                              Visibility="Collapsed"
+                                              Height="27"
+                                              Margin="5,-4,0,0" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsAutoPopulated"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="BorderBrush"
+                                    Value="Black" />
+                            <Setter TargetName="Border"
+                                    Property="BorderThickness"
+                                    Value="2" />
+                        </Trigger>
+                        <Trigger Property="IsHighlighted"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="BorderBrush"
+                                    Value="LightGreen" />
+                            <Setter TargetName="Border"
+                                    Property="BorderThickness"
+                                    Value="2" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Valid, RelativeSource={RelativeSource Self}}"
+                                     Value="False">
+                            <Setter TargetName="Border"
+                                    Property="BorderBrush"
+                                    Value="Red" />
+                            <Setter TargetName="Border"
+                                    Property="BorderThickness"
+                                    Value="2" />
+                        </DataTrigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{StaticResource DisabledBackgroundBrush}" />
+                            <Setter TargetName="Border"
+                                    Property="BorderBrush"
+                                    Value="{StaticResource DisabledBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsLoading"
+                                 Value="True">
+                            <Setter TargetName="BusyAnimation"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="{x:Type ctrls:InputTextField}"
            TargetType="{x:Type ctrls:InputTextField}">
         <Setter Property="Height"
@@ -947,6 +1041,15 @@
                 <Setter TargetName="MainContent"
                         Property="Width"
                         Value="550" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsMediumModal}"
+                         Value="true">
+                <Setter TargetName="MainContent"
+                        Property="Height"
+                        Value="425" />
+                <Setter TargetName="MainContent"
+                        Property="Width"
+                        Value="600" />
             </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>

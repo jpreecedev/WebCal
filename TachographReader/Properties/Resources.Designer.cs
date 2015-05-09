@@ -959,6 +959,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analogue Tachograph.
+        /// </summary>
+        public static string TXT_ANALOGUE_TACHOGRAPH {
+            get {
+                return ResourceManager.GetString("TXT_ANALOGUE_TACHOGRAPH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analogue Tachograph Default Document Type:.
         /// </summary>
         public static string TXT_ANALOGUE_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE {
@@ -982,6 +991,15 @@ namespace TachographReader.Properties {
         public static string TXT_AND {
             get {
                 return ResourceManager.GetString("TXT_AND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Any.
+        /// </summary>
+        public static string TXT_ANY {
+            get {
+                return ResourceManager.GetString("TXT_ANY", resourceCulture);
             }
         }
         
@@ -1252,6 +1270,15 @@ namespace TachographReader.Properties {
         public static string TXT_CALIBRATIONS_CLEAR_SELECTION {
             get {
                 return ResourceManager.GetString("TXT_CALIBRATIONS_CLEAR_SELECTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calibrations Due.
+        /// </summary>
+        public static string TXT_CALIBRATIONS_DUE {
+            get {
+                return ResourceManager.GetString("TXT_CALIBRATIONS_DUE", resourceCulture);
             }
         }
         
@@ -1618,6 +1645,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Digital Tachograph.
+        /// </summary>
+        public static string TXT_DIGITAL_TACHOGRAPH {
+            get {
+                return ResourceManager.GetString("TXT_DIGITAL_TACHOGRAPH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Digital Tachograph Default Document Type:.
         /// </summary>
         public static string TXT_DIGITAL_TACHOGRAPH_DEFAULT_DOCUMENT_TYPE {
@@ -1650,6 +1686,15 @@ namespace TachographReader.Properties {
         public static string TXT_DISTRIBUTOR_SEAL {
             get {
                 return ResourceManager.GetString("TXT_DISTRIBUTOR_SEAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to print this report?.
+        /// </summary>
+        public static string TXT_DO_YOU_WANT_TO_PRINT {
+            get {
+                return ResourceManager.GetString("TXT_DO_YOU_WANT_TO_PRINT", resourceCulture);
             }
         }
         
@@ -2113,74 +2158,20 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Document statistics.
+        ///   Looks up a localized string similar to Document Type.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_DOCUMENT_STATISTICS {
+        public static string TXT_GENERATE_REPORT_DOCUMENT_TYPE {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENT_STATISTICS", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENT_TYPE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (Documents which expire during this time period).
+        ///   Looks up a localized string similar to From Date.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD {
+        public static string TXT_GENERATE_REPORT_FROM_DATE {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENTS_EXPIRE_THIS_TIME_PERIOD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Documents which expire during this month.
-        /// </summary>
-        public static string TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING {
-            get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_DURING", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Documents which expire during next month.
-        /// </summary>
-        public static string TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH {
-            get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_DOCUMENTS_WHICH_EXPIRE_NEXT_MONTH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to End date.
-        /// </summary>
-        public static string TXT_GENERATE_REPORT_END_DATE {
-            get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_END_DATE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Excel 2007 (.xlsx).
-        /// </summary>
-        public static string TXT_GENERATE_REPORT_EXCEL {
-            get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_EXCEL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Expiring tachograph documents.
-        /// </summary>
-        public static string TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH {
-            get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to File format.
-        /// </summary>
-        public static string TXT_GENERATE_REPORT_FILE_FORMAT {
-            get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_FILE_FORMAT", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_FROM_DATE", resourceCulture);
             }
         }
         
@@ -2194,65 +2185,65 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Generate report of expiring documents or statistics report.
+        ///   Looks up a localized string similar to Invoice Number.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING {
+        public static string TXT_GENERATE_REPORT_INVOICE_NUMBER {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_GENERATE_REPORT_OF_EXPIRING", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_INVOICE_NUMBER", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Office.
+        ///   Looks up a localized string similar to Registration Number.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_OFFICE {
+        public static string TXT_GENERATE_REPORT_REGISTRATION_NUMBER {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_OFFICE", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_REGISTRATION_NUMBER", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quick selection.
+        ///   Looks up a localized string similar to Report Type.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_QUICK_SELECTION {
+        public static string TXT_GENERATE_REPORT_REPORT_TYPE {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_QUICK_SELECTION", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_REPORT_TYPE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select time frame.
+        ///   Looks up a localized string similar to Generate Report.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_SELECT_TIME_FRAME {
+        public static string TXT_GENERATE_REPORT_SETTINGS_TITLE {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_SELECT_TIME_FRAME", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_SETTINGS_TITLE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start date.
+        ///   Looks up a localized string similar to Technician.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_START_DATE {
+        public static string TXT_GENERATE_REPORT_TECHNICIAN {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_START_DATE", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_TECHNICIAN", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Text (.txt).
+        ///   Looks up a localized string similar to To Date.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_TEXT {
+        public static string TXT_GENERATE_REPORT_TO_DATE {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_TEXT", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_TO_DATE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time span.
+        ///   Looks up a localized string similar to Vehicle Manufacturer.
         /// </summary>
-        public static string TXT_GENERATE_REPORT_TIME_SPAN {
+        public static string TXT_GENERATE_REPORT_VEHICLE_MANUFACTURER {
             get {
-                return ResourceManager.GetString("TXT_GENERATE_REPORT_TIME_SPAN", resourceCulture);
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_VEHICLE_MANUFACTURER", resourceCulture);
             }
         }
         
@@ -2748,6 +2739,15 @@ namespace TachographReader.Properties {
         public static string TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA {
             get {
                 return ResourceManager.GetString("TXT_LETTER_DECOMMISSIONING_VEHICLE_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Letter For Decommissioning.
+        /// </summary>
+        public static string TXT_LETTER_FOR_DECOMMISSIONING {
+            get {
+                return ResourceManager.GetString("TXT_LETTER_FOR_DECOMMISSIONING", resourceCulture);
             }
         }
         
@@ -4617,6 +4617,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recent Calibrations.
+        /// </summary>
+        public static string TXT_RECENT_CALIBRATIONS {
+            get {
+                return ResourceManager.GetString("TXT_RECENT_CALIBRATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Regards.
         /// </summary>
         public static string TXT_REGARDS {
@@ -5863,6 +5872,15 @@ namespace TachographReader.Properties {
         public static string TXT_UNABLE_READ_SMART_CARD {
             get {
                 return ResourceManager.GetString("TXT_UNABLE_READ_SMART_CARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undownloadability.
+        /// </summary>
+        public static string TXT_UNDOWNLOADABILITY {
+            get {
+                return ResourceManager.GetString("TXT_UNDOWNLOADABILITY", resourceCulture);
             }
         }
         

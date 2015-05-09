@@ -879,39 +879,6 @@
   <data name="TXT_DRIVER_CARD_FILES_REMOVE" xml:space="preserve">
     <value>Удаление</value>
   </data>
-  <data name="TXT_GENERATE_REPORT_EXPIRING_TACHOGRAPH" xml:space="preserve">
-    <value>Истекающий срок действия документа тахографа</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_DOCUMENT_STATISTICS" xml:space="preserve">
-    <value>Статистика документа</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_FILE_FORMAT" xml:space="preserve">
-    <value>Формат файла</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_TEXT" xml:space="preserve">
-    <value>Текст (.txt)</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_EXCEL" xml:space="preserve">
-    <value>Excel 2007 (.xlsx)</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_TIME_SPAN" xml:space="preserve">
-    <value>Промежуток времени</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_QUICK_SELECTION" xml:space="preserve">
-    <value>Быстрый выбор</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_SELECT_TIME_FRAME" xml:space="preserve">
-    <value>Выберите временные рамки</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_START_DATE" xml:space="preserve">
-    <value>Начало даты</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_END_DATE" xml:space="preserve">
-    <value>Конец даты</value>
-  </data>
-  <data name="TXT_GENERATE_REPORT_OFFICE" xml:space="preserve">
-    <value>Офис</value>
-  </data>
   <data name="TXT_GENERATE_REPORT_GENERATE" xml:space="preserve">
     <value>Генерировать</value>
   </data>

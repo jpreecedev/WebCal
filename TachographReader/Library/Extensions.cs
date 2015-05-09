@@ -7,6 +7,7 @@
     using System.IO;
     using System.Linq;
     using System.Reflection;
+    using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Interop;
     using System.Windows.Media;
@@ -17,6 +18,11 @@
 
     public static class Extensions
     {
+        public static string SplitByCapitals(this string source)
+        {
+            return string.Join(" ", Regex.Split(source, @"(?<!^)(?=[A-Z])"));
+        }
+
         public static bool IsBetween(this DateTime dateTime, DateTime start, DateTime end)
         {
             return dateTime >= start && dateTime <= end;
@@ -93,7 +99,7 @@
                 return null;
             }
 
-            Type[] controls = Assembly.GetCallingAssembly().GetTypes().Where(type => Attribute.IsDefined(type, typeof (BaseControlAttribute))).ToArray();
+            Type[] controls = Assembly.GetCallingAssembly().GetTypes().Where(type => Attribute.IsDefined(type, typeof(BaseControlAttribute))).ToArray();
 
             return FindVisualChildren(root, controls).Cast<IValidate>().ToList();
         }
@@ -110,7 +116,7 @@
                 DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
                 if (child != null && child is T)
                 {
-                    yield return (T) child;
+                    yield return (T)child;
                 }
 
                 foreach (T childOfChild in FindVisualChildren<T>(child))
@@ -170,7 +176,7 @@
                 Int32Rect.Empty,
                 BitmapSizeOptions.FromEmptyOptions());
         }
-        
+
         public static Image Resize(this Image image, Size size)
         {
             return new Bitmap(image, size);

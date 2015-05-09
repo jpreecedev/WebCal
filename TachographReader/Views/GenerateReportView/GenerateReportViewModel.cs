@@ -1,67 +1,69 @@
 ﻿namespace TachographReader.Views
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Windows.Controls;
     using Core;
-    using Library;
+    using DataModel;
+    using Library.PDF;
     using Properties;
+    using Shared;
 
     public class GenerateReportViewModel : BaseNavigationViewModel
     {
-        private bool _isDocumentExpireNextMonthChecked;
-        private bool _isDocumentExpireThisMonthChecked;
-
-        public GenerateReportViewModel()
-        {
-            IsExpiringDocumentsChecked = true;
-            IsExcelFormatChecked = true;
-            IsQuickSelectionChecked = true;
-            IsDocumentExpireThisMonthChecked = true;
-        }
-
-        public bool IsExpiringDocumentsChecked { get; set; }
-        public bool IsDocumentStatisticsChecked { get; set; }
-        public bool IsQuickSelectionChecked { get; set; }
-        public bool IsSelectTimeFrameChecked { get; set; }
-        public DateTime? StartDateTime { get; set; }
-        public DateTime? EndDateTime { get; set; }
-        public bool IsTextFormatChecked { get; set; }
-        public bool IsExcelFormatChecked { get; set; }
-        public string Office { get; set; }
-
-        public bool IsDocumentExpireThisMonthChecked
-        {
-            get { return _isDocumentExpireThisMonthChecked; }
-            set
-            {
-                _isDocumentExpireThisMonthChecked = value;
-
-                if (value)
-                {
-                    SetStartEndDates(true);
-                }
-            }
-        }
-
-        public bool IsDocumentExpireNextMonthChecked
-        {
-            get { return _isDocumentExpireNextMonthChecked; }
-            set
-            {
-                _isDocumentExpireNextMonthChecked = value;
-
-                if (value)
-                {
-                    SetStartEndDates(false);
-                }
-            }
-        }
+        public IRepository<Technician> TechniciansRepository { get; set; }
+        public IRepository<VehicleMake> VehicleMakesRepository { get; set; }
 
         public DelegateCommand<Grid> GenerateReportCommand { get; set; }
+
+        public ICollection<string> ReportTypes { get; set; }
+        public ICollection<string> DocumentTypes { get; set; }
+        public ICollection<string> Technicians { get; set; }
+        public ICollection<string> VehicleManufacturers { get; set; }
+
+        public Report Report { get; set; }
 
         protected override void InitialiseCommands()
         {
             GenerateReportCommand = new DelegateCommand<Grid>(OnGenerateReport);
+        }
+
+        protected override void InitialiseRepositories()
+        {
+            TechniciansRepository = GetInstance<IRepository<Technician>>();
+            VehicleMakesRepository = GetInstance<IRepository<VehicleMake>>();
+        }
+
+        protected override void Load()
+        {
+            ReportTypes = new List<string>
+            {
+                Resources.TXT_RECENT_CALIBRATIONS, 
+                Resources.TXT_CALIBRATIONS_DUE
+            };
+
+            DocumentTypes = new List<string>
+            {
+                Resources.TXT_ANY, 
+                Resources.TXT_DIGITAL_TACHOGRAPH, 
+                Resources.TXT_ANALOGUE_TACHOGRAPH,
+                Resources.TXT_UNDOWNLOADABILITY, 
+                Resources.TXT_LETTER_FOR_DECOMMISSIONING
+            };
+
+            Technicians = TechniciansRepository.GetAll().Where(c => c != null).OrderBy(c => c.Name).Select(c => c.Name).ToList();
+            VehicleManufacturers = VehicleMakesRepository.GetAll().Where(c => c != null).OrderBy(c => c.Name).Select(c => c.Name).ToList();
+
+            Report = new Report(Resources.TXT_RECENT_CALIBRATIONS, Resources.TXT_CALIBRATIONS_DUE)
+            {
+                ReportType = ReportTypes.First(),
+                DocumentType = DocumentTypes.First(),
+                Technicians = new List<string>(),
+                VehicleManufacturers = new List<string>(),
+                FromDate = DateTime.Now.AddMonths(-2),
+                ToDate = DateTime.Now
+            };
         }
 
         private void OnGenerateReport(Grid root)
@@ -72,36 +74,13 @@
                 return;
             }
 
-            ReportFileFormat fileFormat = IsTextFormatChecked ? ReportFileFormat.Text : ReportFileFormat.Excel;
-
-            if (IsDocumentStatisticsChecked)
+            PDFDocumentResult result = Report.ToPDF();
+            if (result.Success)
             {
-                ExcelHelper.GenerateDocumentStatistics(fileFormat, Office);
-                return;
-            }
-
-            if (IsExpiringDocumentsChecked)
-            {
-                if (StartDateTime == null || EndDateTime == null)
+                if (AskQuestion(Resources.TXT_DO_YOU_WANT_TO_PRINT))
                 {
-                    return;
+                    result.Print();
                 }
-
-                ExcelHelper.GenerateExpiringTachographDocumentsReport(fileFormat, StartDateTime.Value, EndDateTime.Value, Office);
-            }
-        }
-
-        private void SetStartEndDates(bool thisMonth)
-        {
-            if (thisMonth)
-            {
-                StartDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-                EndDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
-            }
-            else
-            {
-                StartDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1);
-                EndDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(2).AddDays(-1);
             }
         }
     }

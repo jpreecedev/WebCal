@@ -10,7 +10,15 @@
         [MaxLength]
         public string ParametersAsString
         {
-            get { return Parameters.Serialize(); }
+            get
+            {
+                if (Parameters == null)
+                {
+                    return string.Empty;
+                }
+
+                return Parameters.Serialize();
+            }
             set
             {
                 Parameters = new WorkerParameters();
