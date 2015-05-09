@@ -29,7 +29,10 @@
                 {
                     if (_progress != null)
                     {
-                        _progress(Resources.TXT_STARTING);
+                        System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            _progress(Resources.TXT_STARTING);
+                        });
                     }
 
                     operation.Invoke();
@@ -88,7 +91,10 @@
 
                 if (_progress != null)
                 {
-                    _progress(string.Format(Resources.TXT_ATTEMPT_FAILED, actualDelay.Seconds));
+                    System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        _progress(string.Format(Resources.TXT_ATTEMPT_FAILED, actualDelay.Seconds));
+                    });
                 }
 
                 return actualDelay;
