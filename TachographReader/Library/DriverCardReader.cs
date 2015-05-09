@@ -165,7 +165,7 @@
         {
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Resources\\SmartCardReader.jar";
 
-            var processInfo = new ProcessStartInfo("java.exe", string.Format("-jar \"{1}\" {0}", arguments, path)) 
+            var processInfo = new ProcessStartInfo("java.exe", string.Format("-jar \"{1}\" {0}", arguments, path))
             {
                 CreateNoWindow = true,
                 UseShellExecute = false,
@@ -214,7 +214,10 @@
             var progress = Progress;
             if (progress != null)
             {
-                progress(this, new DriverCardProgressEventArgs { Message = message });
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    progress(this, new DriverCardProgressEventArgs { Message = message });
+                });
             }
         }
 
@@ -246,7 +249,10 @@
             var completed = Completed;
             if (completed != null)
             {
-                completed(this, args);
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    completed(this, args);
+                });
             }
         }
 
