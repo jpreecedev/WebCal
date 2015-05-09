@@ -236,6 +236,14 @@
                         }
                     }
 
+                    if (!string.IsNullOrEmpty(Document.TachographMake) && string.Equals(Document.TachographMake, Resources.TXT_SIEMENS_VDO))
+                    {
+                        if (!string.IsNullOrEmpty(e.CalibrationRecord.VuPartNumber) && e.CalibrationRecord.VuPartNumber.StartsWith(DataModel.Properties.Resources.TXT_SEED_TACHO_MODEL_NAME))
+                        {
+                            Document.TachographModel = DataModel.Properties.Resources.TXT_SEED_TACHO_MODEL_NAME;
+                        }
+                    }
+
                     PrintLabel(Document, false);
 
                     StatusText = Resources.TXT_GENERATING_WORKSHOP_CARD_FILE;
