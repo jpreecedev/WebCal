@@ -7,6 +7,8 @@
     {
         EventHandler<DriverCardCompletedEventArgs> Completed { get; set; }
         EventHandler<DriverCardProgressEventArgs> Progress { get; set; }
+        EventHandler<EventArgs> CardInserted { get; set; }
+        EventHandler<EventArgs> CardRemoved { get; set; }
 
         void FastRead(bool autoRead);
         void GetFullHistory();

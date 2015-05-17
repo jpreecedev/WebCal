@@ -72,6 +72,8 @@
             };
 
             DriverCardReader.Progress += OnProgress;
+            DriverCardReader.CardInserted += OnCardInserted;
+            DriverCardReader.CardRemoved += OnCardRemoved;
         }
 
         protected virtual void Add()
@@ -95,9 +97,17 @@
         {
         }
 
+        protected virtual void OnCardInserted(object sender, EventArgs e)
+        {
+        }
+
+        protected virtual void OnCardRemoved(object sender, EventArgs e)
+        {
+        }
+
         protected virtual void OnFoundDocumentOnConnect(Document document)
         {
-            
+
         }
 
         protected virtual void TachographMakeChanged(string make)
@@ -114,6 +124,10 @@
         {
             if (DriverCardReader != null)
             {
+                DriverCardReader.CardInserted -= OnCardInserted;
+                DriverCardReader.CardRemoved -= OnCardRemoved;
+                DriverCardReader.Progress -= OnProgress;
+                DriverCardReader.CardRemoved -= OnCardRemoved;
                 DriverCardReader.Dispose();
             }
         }
@@ -210,7 +224,7 @@
                     {
                         if (result.IsSuccess && result.Data != null)
                         {
-                            var documentFound = (Document) result.Data;
+                            var documentFound = (Document)result.Data;
                             documentFound.Id = 0;
                             OnFoundDocumentOnConnect(documentFound);
                         }

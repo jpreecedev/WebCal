@@ -21,7 +21,7 @@
 
     public class NewTachographViewModel : BaseNewDocumentViewModel
     {
-        public bool CardBeingRead = false;
+        public bool CardBeingRead;
 
         public NewTachographViewModel()
         {
@@ -262,20 +262,37 @@
                 WorkshopCardFile workshopCardFile = WorkshopCardFile.GetWorkshopCardFile(DateTime.Now, cardDetails[1], cardDetails[0]);
                 WorkshopCardFilesRepository.Add(workshopCardFile.Clone<WorkshopCardFile>());
                 StatusText = Resources.TXT_WORKSHOP_CARD_FILE_GENERATED;
+                MainWindow.IsNavigationLocked = true;
+                SwitchReadButtonState(false);
             }
             else
             {
                 StatusText = Resources.TXT_UNABLE_GENERATE_WORKSHOP_CARD;
                 MessageBoxHelper.ShowMessage(Resources.ERR_UNABLE_READ_SMART_CARD);
                 MainWindow.IsNavigationLocked = false;
+                SwitchReadButtonState(true);
             }
-
-            SwitchReadButtonState(true);
         }
 
         protected override void OnProgress(object sender, DriverCardProgressEventArgs e)
         {
             StatusText = e.Message;
+        }
+
+        protected override void OnCardInserted(object sender, EventArgs e)
+        {
+            if (ReadFromCardCommand != null)
+            {
+                ReadFromCardCommand.Execute(new object());
+            }
+        }
+
+        protected override void OnCardRemoved(object sender, EventArgs e)
+        {
+            CardBeingRead = false;
+            StatusText = Resources.TXT_UNABLE_READ_SMART_CARD;
+            SwitchReadButtonState(true);
+            MainWindow.IsNavigationLocked = false;
         }
 
         protected override bool IncludeDeletedContacts
@@ -316,7 +333,7 @@
             return calibrationRecord.VehicleRegistrationNumber;
         }
 
-        private void OnReadFromCard(object obj)
+        private void OnReadFromCard(object param)
         {
             if (!CardBeingRead)
             {
@@ -324,10 +341,9 @@
 
                 try
                 {
-                    IsCardReadUserInitiated = obj == null;
+                    IsCardReadUserInitiated = param == null;
                     SwitchReadButtonState(false);
-
-                    DriverCardReader.FastRead(obj != null);
+                    DriverCardReader.FastRead(param != null);
                 }
                 catch (AggregateException aggregateEx)
                 {

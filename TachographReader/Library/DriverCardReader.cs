@@ -7,6 +7,7 @@
     using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
+    using System.Windows;
     using System.Xml.Linq;
     using DataModel.Core;
     using EventArguments;
@@ -22,6 +23,8 @@
         private SCardMonitor _monitor;
         public EventHandler<DriverCardCompletedEventArgs> Completed { get; set; }
         public EventHandler<DriverCardProgressEventArgs> Progress { get; set; }
+        public EventHandler<EventArgs> CardInserted { get; set; }
+        public EventHandler<EventArgs> CardRemoved { get; set; }
 
         public void FastRead(bool autoRead)
         {
@@ -126,6 +129,8 @@
         {
             if (_monitor != null)
             {
+                _monitor.CardInserted -= Monitor_CardInserted;
+                _monitor.CardRemoved -= Monitor_CardRemoved;
                 _monitor.Cancel();
                 _monitor.Dispose();
             }
@@ -141,6 +146,8 @@
             try
             {
                 _monitor = new SCardMonitor(new SCardContext(), SCardScope.System);
+                _monitor.CardInserted += Monitor_CardInserted;
+                _monitor.CardRemoved += Monitor_CardRemoved;
 
                 var cardReaders = DetectSmartCardReaders();
                 if (cardReaders.IsNullOrEmpty())
@@ -214,10 +221,7 @@
             var progress = Progress;
             if (progress != null)
             {
-                System.Windows.Application.Current.Dispatcher.Invoke(() =>
-                {
-                    progress(this, new DriverCardProgressEventArgs { Message = message });
-                });
+                Application.Current.Dispatcher.Invoke(() => { progress(this, new DriverCardProgressEventArgs {Message = message}); });
             }
         }
 
@@ -230,13 +234,13 @@
                     var resilient = new Resilient(OnProgress);
                     resilient.ExecuteWithRetry(action);
                 })
-                .ContinueWith(t =>
-                {
-                    if (t.IsFaulted)
+                    .ContinueWith(t =>
                     {
-                        HandleException(operation, t.Exception);
-                    }
-                });
+                        if (t.IsFaulted)
+                        {
+                            HandleException(operation, t.Exception);
+                        }
+                    });
             }
             catch (Exception ex)
             {
@@ -249,10 +253,7 @@
             var completed = Completed;
             if (completed != null)
             {
-                System.Windows.Application.Current.Dispatcher.Invoke(() =>
-                {
-                    completed(this, args);
-                });
+                Application.Current.Dispatcher.Invoke(() => { completed(this, args); });
             }
         }
 
@@ -264,6 +265,22 @@
                 Exception = exception,
                 Operation = operation
             });
+        }
+
+        private void Monitor_CardRemoved(object sender, CardStatusEventArgs e)
+        {
+            if (CardRemoved != null)
+            {
+                CardRemoved(this, new EventArgs());
+            }
+        }
+
+        private void Monitor_CardInserted(object sender, CardStatusEventArgs e)
+        {
+            if (CardInserted != null)
+            {
+                CardInserted(this, new EventArgs());
+            }
         }
     }
 }
