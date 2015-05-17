@@ -19,21 +19,34 @@
 
     public class DriverCardReader : IDriverCardReader
     {
-        private bool _isInitialised;
         private SCardMonitor _monitor;
         public EventHandler<DriverCardCompletedEventArgs> Completed { get; set; }
         public EventHandler<DriverCardProgressEventArgs> Progress { get; set; }
         public EventHandler<EventArgs> CardInserted { get; set; }
         public EventHandler<EventArgs> CardRemoved { get; set; }
 
+        public DriverCardReader()
+        {
+            _monitor = new SCardMonitor(new SCardContext(), SCardScope.System);
+            _monitor.CardInserted += Monitor_CardInserted;
+            _monitor.CardRemoved += Monitor_CardRemoved;
+
+            var cardReaders = DetectSmartCardReaders();
+            if (cardReaders.IsNullOrEmpty())
+            {
+                return;
+            }
+
+            _monitor.Start(cardReaders);
+        }
+
         public void FastRead(bool autoRead)
         {
-            var error = Initialise();
-            if (error != null)
+            if (!_monitor.Monitoring)
             {
                 OnCompleted(new DriverCardCompletedEventArgs
                 {
-                    Exception = error,
+                    Exception = new Exception(Resources.EXC_NO_SMART_CARD_READERS_FOUND),
                     Operation = SmartCardReadOperation.Fast
                 });
                 return;
@@ -67,13 +80,12 @@
 
         public void GetFullHistory()
         {
-            var error = Initialise();
-            if (error != null)
+            if (!_monitor.Monitoring)
             {
                 OnCompleted(new DriverCardCompletedEventArgs
                 {
                     Operation = SmartCardReadOperation.History,
-                    Exception = error
+                    Exception = new Exception(Resources.EXC_NO_SMART_CARD_READERS_FOUND)
                 });
                 return;
             }
@@ -103,13 +115,12 @@
 
         public void GenerateDump()
         {
-            var error = Initialise();
-            if (error != null)
+            if (!_monitor.Monitoring)
             {
                 OnCompleted(new DriverCardCompletedEventArgs
                 {
                     Operation = SmartCardReadOperation.Dump,
-                    Exception = error
+                    Exception = new Exception(Resources.EXC_NO_SMART_CARD_READERS_FOUND)
                 });
                 return;
             }
@@ -134,38 +145,6 @@
                 _monitor.Cancel();
                 _monitor.Dispose();
             }
-        }
-
-        private Exception Initialise()
-        {
-            if (_isInitialised)
-            {
-                return null;
-            }
-
-            try
-            {
-                _monitor = new SCardMonitor(new SCardContext(), SCardScope.System);
-                _monitor.CardInserted += Monitor_CardInserted;
-                _monitor.CardRemoved += Monitor_CardRemoved;
-
-                var cardReaders = DetectSmartCardReaders();
-                if (cardReaders.IsNullOrEmpty())
-                {
-                    _isInitialised = false;
-                    throw new Exception(Resources.EXC_NO_SMART_CARD_READERS_FOUND);
-                }
-
-                _monitor.Start(cardReaders);
-                _isInitialised = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_INITIALISE_SMART_CARD_READER, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
-                return ex;
-            }
-
-            return null;
         }
 
         private static string ReadSmartCard(string arguments)
