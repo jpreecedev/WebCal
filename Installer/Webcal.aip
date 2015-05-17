@@ -24,10 +24,10 @@
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:6"/>
     <ROW Property="Manufacturer" Value="Skillray Transport Services Ltd"/>
-    <ROW Property="ProductCode" Value="2057:{6C6A666B-AB26-4FFD-BB00-9197606AEF07} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{BAEC354E-56BA-4BAF-8400-08435A5C2DED} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
     <ROW Property="ProductName" Value="Webcal"/>
-    <ROW Property="ProductVersion" Value="2.2.13.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="2.2.14.0" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR;UPGRADE_2"/>
     <ROW Property="UpgradeCode" Value="{F9EC440C-AFF5-45B7-905E-77CC783AF1F3}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
