@@ -49,7 +49,6 @@
         public string StatusText { get; set; }
         public bool IsCardReadUserInitiated { get; set; }
         public bool IsReadOnly { get; set; }
-        public string LastPlateRead { get; set; }
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<Grid> PrintLabelCommand { get; set; }
 
@@ -204,51 +203,41 @@
             }
             else
             {
-                if (string.IsNullOrEmpty(LastPlateRead))
+                if (RegistrationChangedCommand != null)
                 {
-                    LastPlateRead = string.Empty;
+                    RegistrationChangedCommand.Execute(GetRegistrationToQuery(e.CalibrationRecord));
                 }
 
-                if (LastPlateRead != e.CalibrationRecord.VehicleRegistrationNumber || !e.AutoRead)
+                MainWindow.IsNavigationLocked = true;
+
+                Document.Convert(e.CalibrationRecord);
+
+                if (!Technicians.IsNullOrEmpty() && !string.IsNullOrEmpty(e.CalibrationRecord.CardSerialNumber))
                 {
-                    LastPlateRead = e.CalibrationRecord.VehicleRegistrationNumber;
-
-                    if (RegistrationChangedCommand != null)
+                    foreach (var technician in Technicians)
                     {
-                        RegistrationChangedCommand.Execute(GetRegistrationToQuery(e.CalibrationRecord));
-                    }
-
-                    MainWindow.IsNavigationLocked = true;
-
-                    Document.Convert(e.CalibrationRecord);
-
-                    if (!Technicians.IsNullOrEmpty() && !string.IsNullOrEmpty(e.CalibrationRecord.CardSerialNumber))
-                    {
-                        foreach (var technician in Technicians)
+                        if (technician != null && !string.IsNullOrEmpty(technician.Number))
                         {
-                            if (technician != null && !string.IsNullOrEmpty(technician.Number))
+                            if (string.Equals(technician.Number, e.CalibrationRecord.CardSerialNumber))
                             {
-                                if (string.Equals(technician.Number, e.CalibrationRecord.CardSerialNumber))
-                                {
-                                    Document.Technician = technician.Name;
-                                }
+                                Document.Technician = technician.Name;
                             }
                         }
                     }
-
-                    if (!string.IsNullOrEmpty(Document.TachographMake) && string.Equals(Document.TachographMake, Resources.TXT_SIEMENS_VDO))
-                    {
-                        if (!string.IsNullOrEmpty(e.CalibrationRecord.VuPartNumber) && e.CalibrationRecord.VuPartNumber.StartsWith(DataModel.Properties.Resources.TXT_SEED_TACHO_MODEL_NAME))
-                        {
-                            Document.TachographModel = DataModel.Properties.Resources.TXT_SEED_TACHO_MODEL_NAME;
-                        }
-                    }
-
-                    PrintLabel(Document, false);
-
-                    StatusText = Resources.TXT_GENERATING_WORKSHOP_CARD_FILE;
-                    DriverCardReader.GenerateDump();
                 }
+
+                if (!string.IsNullOrEmpty(Document.TachographMake) && string.Equals(Document.TachographMake, Resources.TXT_SIEMENS_VDO))
+                {
+                    if (!string.IsNullOrEmpty(e.CalibrationRecord.VuPartNumber) && e.CalibrationRecord.VuPartNumber.StartsWith(DataModel.Properties.Resources.TXT_SEED_TACHO_MODEL_NAME))
+                    {
+                        Document.TachographModel = DataModel.Properties.Resources.TXT_SEED_TACHO_MODEL_NAME;
+                    }
+                }
+
+                PrintLabel(Document, false);
+
+                StatusText = Resources.TXT_GENERATING_WORKSHOP_CARD_FILE;
+                DriverCardReader.GenerateDump();
             }
         }
 
