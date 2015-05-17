@@ -15,11 +15,10 @@
     using Properties;
     using Shared;
     using Shared.Core;
-    using Shared.Helpers;
 
     public class DriverCardReader : IDriverCardReader
     {
-        private SCardMonitor _monitor;
+        private readonly SCardMonitor _monitor;
         public EventHandler<DriverCardCompletedEventArgs> Completed { get; set; }
         public EventHandler<DriverCardProgressEventArgs> Progress { get; set; }
         public EventHandler<EventArgs> CardInserted { get; set; }
@@ -27,22 +26,29 @@
 
         public DriverCardReader()
         {
-            _monitor = new SCardMonitor(new SCardContext(), SCardScope.System);
-            _monitor.CardInserted += Monitor_CardInserted;
-            _monitor.CardRemoved += Monitor_CardRemoved;
-
-            var cardReaders = DetectSmartCardReaders();
-            if (cardReaders.IsNullOrEmpty())
+            try
             {
-                return;
-            }
+                _monitor = new SCardMonitor(new SCardContext(), SCardScope.System);
+                _monitor.CardInserted += Monitor_CardInserted;
+                _monitor.CardRemoved += Monitor_CardRemoved;
 
-            _monitor.Start(cardReaders);
+                var cardReaders = DetectSmartCardReaders();
+                if (cardReaders.IsNullOrEmpty())
+                {
+                    return;
+                }
+
+                _monitor.Start(cardReaders);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void FastRead(bool autoRead)
         {
-            if (!_monitor.Monitoring)
+            if (_monitor == null || !_monitor.Monitoring)
             {
                 OnCompleted(new DriverCardCompletedEventArgs
                 {
@@ -80,7 +86,7 @@
 
         public void GetFullHistory()
         {
-            if (!_monitor.Monitoring)
+            if (_monitor == null || !_monitor.Monitoring)
             {
                 OnCompleted(new DriverCardCompletedEventArgs
                 {
@@ -115,7 +121,7 @@
 
         public void GenerateDump()
         {
-            if (!_monitor.Monitoring)
+            if (_monitor == null || !_monitor.Monitoring)
             {
                 OnCompleted(new DriverCardCompletedEventArgs
                 {
@@ -200,7 +206,7 @@
             var progress = Progress;
             if (progress != null)
             {
-                Application.Current.Dispatcher.Invoke(() => { progress(this, new DriverCardProgressEventArgs {Message = message}); });
+                Application.Current.Dispatcher.Invoke(() => { progress(this, new DriverCardProgressEventArgs { Message = message }); });
             }
         }
 

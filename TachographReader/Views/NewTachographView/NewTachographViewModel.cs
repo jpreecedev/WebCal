@@ -261,9 +261,11 @@
             {
                 WorkshopCardFile workshopCardFile = WorkshopCardFile.GetWorkshopCardFile(DateTime.Now, cardDetails[1], cardDetails[0]);
                 WorkshopCardFilesRepository.Add(workshopCardFile.Clone<WorkshopCardFile>());
-                StatusText = Resources.TXT_WORKSHOP_CARD_FILE_GENERATED;
-                MainWindow.IsNavigationLocked = true;
+
                 SwitchReadButtonState(false);
+                MainWindow.IsNavigationLocked = true;
+                StatusText = Resources.TXT_WORKSHOP_CARD_FILE_GENERATED;
+                ReadFromCardContent = Resources.TXT_READ_FROM_CARD;
             }
             else
             {
