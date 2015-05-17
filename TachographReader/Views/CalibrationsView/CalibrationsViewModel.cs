@@ -16,16 +16,12 @@
         public ObservableCollection<CalibrationRecord> CalibrationRecords { get; set; }
         public CalibrationRecord SelectedCalibrationRecord { get; set; }
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
-        public DelegateCommand<object> SelectAllCommand { get; set; }
-        public DelegateCommand<object> ClearSelectionCommand { get; set; }
         public DelegateCommand<object> ShowDetailsCommand { get; set; }
         public IDriverCardReader DriverCardReader { get; set; }
 
         protected override void InitialiseCommands()
         {
             ReadFromCardCommand = new DelegateCommand<object>(OnReadFromCard);
-            SelectAllCommand = new DelegateCommand<object>(OnSelectAll);
-            ClearSelectionCommand = new DelegateCommand<object>(OnClearSelection);
             ShowDetailsCommand = new DelegateCommand<object>(OnShowDetails);
         }
 
@@ -48,32 +44,6 @@
             DriverCardReader.GetFullHistory();
 
             _progressWindow.ShowDialog();
-        }
-
-        private void OnSelectAll(object obj)
-        {
-            if (CalibrationRecords.IsNullOrEmpty())
-            {
-                return;
-            }
-
-            foreach (CalibrationRecord calibrationRecord in CalibrationRecords)
-            {
-                calibrationRecord.IsSelected = true;
-            }
-        }
-
-        private void OnClearSelection(object obj)
-        {
-            if (CalibrationRecords.IsNullOrEmpty())
-            {
-                return;
-            }
-
-            foreach (CalibrationRecord calibrationRecord in CalibrationRecords)
-            {
-                calibrationRecord.IsSelected = false;
-            }
         }
 
         private void OnShowDetails(object obj)

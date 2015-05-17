@@ -61,10 +61,6 @@
                     <ContextMenu>
                         <MenuItem Header="{x:Static Properties:Resources.TXT_SHOW_DETAILS}"
                                   Command="{Binding ShowDetailsCommand}" />
-                        <MenuItem Header="{x:Static Properties:Resources.TXT_SELECT_ALL}"
-                                  Command="{Binding SelectAllCommand}" />
-                        <MenuItem Header="{x:Static Properties:Resources.TXT_CLEAR_SELECTION}"
-                                  Command="{Binding ClearSelectionCommand}" />
                     </ContextMenu>
                 </ListView.ContextMenu>
             </ListView>
@@ -74,10 +70,6 @@
                 <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_READ_FROM_CARD}"
                         Command="{Binding ReadFromCardCommand}"
                         Height="35" />
-                <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_SELECT_ALL}"
-                        Command="{Binding SelectAllCommand}" />
-                <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_CLEAR_SELECTION}"
-                        Command="{Binding ClearSelectionCommand}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"

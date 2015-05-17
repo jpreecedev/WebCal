@@ -3,7 +3,6 @@
     using System.Windows;
     using Connect.Shared.Models;
     using Core;
-    using DataModel.Library;
 
     public class CalibrationDetailsViewModel : BaseModalWindowViewModel
     {
