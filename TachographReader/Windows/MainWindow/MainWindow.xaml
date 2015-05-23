@@ -301,6 +301,16 @@
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN}" />
                         </r:Button.ToolTip>
                     </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_DRIVER_CARD}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}TachoBackupSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}TachoBackupSm}"
+                              Command="{Binding DriverCardFilesCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_DRIVER_CARD_FILES}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}TachoBackupSm}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_DRIVER_CARD_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
 

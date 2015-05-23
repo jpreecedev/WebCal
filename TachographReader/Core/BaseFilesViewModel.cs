@@ -32,6 +32,7 @@
         public BaseFile SelectedStoredFile { get; set; }
         public DelegateCommand<Grid> EmptyFieldsCommand { get; set; }
         public DelegateCommand<Grid> AddStoredFileCommand { get; set; }
+        public DelegateCommand<object> ShowDetailsCommand { get; set; }
         public DelegateCommand<object> ExportCommand { get; set; }
         public DelegateCommand<object> RemoveCommand { get; set; }
 
@@ -41,8 +42,14 @@
 
             EmptyFieldsCommand = new DelegateCommand<Grid>(OnEmptyFields);
             AddStoredFileCommand = new DelegateCommand<Grid>(OnAddStoredFile);
+            ShowDetailsCommand = new DelegateCommand<object>(OnShowDetails);
             ExportCommand = new DelegateCommand<object>(OnExport);
             RemoveCommand = new DelegateCommand<object>(OnRemove);
+        }
+
+        protected virtual void OnShowFileDetails()
+        {
+            
         }
 
         protected virtual void OnAddStoredFile()
@@ -91,6 +98,16 @@
 
             OnAddStoredFile();
             SelectedStoredFile = null;
+        }
+
+        private void OnShowDetails(object obj)
+        {
+            if (SelectedStoredFile == null)
+            {
+                return;
+            }
+
+            OnShowFileDetails();
         }
 
         private void OnExport(object obj)

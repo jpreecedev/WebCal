@@ -1717,6 +1717,60 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activity.
+        /// </summary>
+        public static string TXT_DRIVER_CARD_DETAILS_ACTIVITY {
+            get {
+                return ResourceManager.GetString("TXT_DRIVER_CARD_DETAILS_ACTIVITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string TXT_DRIVER_CARD_DETAILS_DATE {
+            get {
+                return ResourceManager.GetString("TXT_DRIVER_CARD_DETAILS_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance.
+        /// </summary>
+        public static string TXT_DRIVER_CARD_DETAILS_DISTANCE {
+            get {
+                return ResourceManager.GetString("TXT_DRIVER_CARD_DETAILS_DISTANCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Driving Status.
+        /// </summary>
+        public static string TXT_DRIVER_CARD_DETAILS_DRIVING_STATUS {
+            get {
+                return ResourceManager.GetString("TXT_DRIVER_CARD_DETAILS_DRIVING_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string TXT_DRIVER_CARD_DETAILS_TIME {
+            get {
+                return ResourceManager.GetString("TXT_DRIVER_CARD_DETAILS_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Driver Card Details.
+        /// </summary>
+        public static string TXT_DRIVER_CARD_DETAILS_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_DRIVER_CARD_DETAILS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string TXT_DRIVER_CARD_FILES_ADD {
@@ -1812,6 +1866,15 @@ namespace TachographReader.Properties {
         public static string TXT_DRIVER_CARD_FILES_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_REMOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Details.
+        /// </summary>
+        public static string TXT_DRIVER_CARD_FILES_SHOW_DETAILS {
+            get {
+                return ResourceManager.GetString("TXT_DRIVER_CARD_FILES_SHOW_DETAILS", resourceCulture);
             }
         }
         
@@ -3094,6 +3157,24 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Driver Card.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_DRIVER_CARD {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_DRIVER_CARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Driver Card Files.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_DRIVER_CARD_FILES {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_DRIVER_CARD_FILES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         public static string TXT_MAIN_WINDOW_EXIT {
@@ -3306,6 +3387,15 @@ namespace TachographReader.Properties {
         public static string TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_CALIBRATIONS_SCREEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows the driver card files screen.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_SHOWS_DRIVER_CARD_SCREEN {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_DRIVER_CARD_SCREEN", resourceCulture);
             }
         }
         

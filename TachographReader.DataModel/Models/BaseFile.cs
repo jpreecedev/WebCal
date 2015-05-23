@@ -4,8 +4,6 @@
     using System.ComponentModel.DataAnnotations;
     using System.IO;
     using Connect.Shared.Models;
-    using Shared;
-    using Shared.Core;
 
     public class BaseFile : BaseModel
     {
@@ -18,7 +16,15 @@
 
         public static byte[] GetStoredFile(string filePath)
         {
-            return File.ReadAllBytes(filePath);
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            {
+                using (BinaryReader binaryReader = new BinaryReader(fileStream))
+                {
+                    var buffer = new byte[binaryReader.BaseStream.Length];
+                    binaryReader.Read(buffer, 0, buffer.Length);
+                    return buffer;
+                }
+            }
         }
     }
 }

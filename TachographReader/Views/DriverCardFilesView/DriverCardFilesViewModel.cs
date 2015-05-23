@@ -2,6 +2,8 @@
 {
     using System;
     using System.IO;
+    using Windows.CalibrationDetailsWindow;
+    using Windows.DriverCardDetailsWindow;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
@@ -38,7 +40,6 @@
                 var driverCardFile = new DriverCardFile
                 {
                     Date = SelectedDate,
-                    Customer = SelectedCustomerContact.Clone<CustomerContact>(),
                     Driver = Driver,
                     FileName = Path.GetFileName(FilePath),
                     SerializedFile = BaseFile.GetStoredFile(FilePath)
@@ -51,6 +52,13 @@
             {
                 ShowError(Resources.EXC_UNABLE_TO_CREATE_DRIVER_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
             }
+        }
+
+        protected override void OnShowFileDetails()
+        {
+            var window = new DriverCardDetailsWindow();
+            ((DriverCardDetailsViewModel)window.DataContext).DriverCardFile = SelectedStoredFile;
+            window.ShowDialog();
         }
 
         protected override void OnStoredFileRemoved()

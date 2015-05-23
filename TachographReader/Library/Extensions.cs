@@ -13,7 +13,6 @@
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using Core;
-    using Image = System.Drawing.Image;
     using Size = System.Drawing.Size;
 
     public static class Extensions

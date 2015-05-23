@@ -117,6 +117,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Webcal.DataService\bin\Connect.Shared.dll</HintPath>
     </Reference>
+    <Reference Include="DDDFileReader">
+      <HintPath>..\..\DDD File Reader\bin\DDDFileReader.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libs\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -355,6 +358,10 @@
       <DependentUpon>UserManagementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\UserManagementView\UserManagementViewModel.cs" />
+    <Compile Include="Windows\DriverCardDetailsWindow\DriverCardDetailsViewModel.cs" />
+    <Compile Include="Windows\DriverCardDetailsWindow\DriverCardDetailsWindow.xaml.cs">
+      <DependentUpon>DriverCardDetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CalibrationDetailsWindow\CalibrationDetailsViewModel.cs" />
     <Compile Include="Windows\CalibrationDetailsWindow\CalibrationDetailsWindow.xaml.cs">
       <DependentUpon>CalibrationDetailsWindow.xaml</DependentUpon>
@@ -507,6 +514,10 @@
     <Page Include="Views\Settings\UserManagementView\UserManagementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DriverCardDetailsWindow\DriverCardDetailsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\CalibrationDetailsWindow\CalibrationDetailsWindow.xaml">
       <SubType>Designer</SubType>

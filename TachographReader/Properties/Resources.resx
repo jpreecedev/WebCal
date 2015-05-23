@@ -1960,6 +1960,9 @@ date
   <data name="TXT_MAIN_WINDOW_SHOWS_WORKSHOP_CARD_SCREEN" xml:space="preserve">
     <value>Shows the workshop card files screen</value>
   </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_DRIVER_CARD_SCREEN" xml:space="preserve">
+    <value>Shows the driver card files screen</value>
+  </data>
   <data name="TXT_MAIN_WINDOW_WEBCAL" xml:space="preserve">
     <value>Webcal</value>
   </data>
@@ -2415,5 +2418,32 @@ date
   </data>
   <data name="TXT_DO_YOU_WANT_TO_PRINT" xml:space="preserve">
     <value>Do you want to print this report?</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_DRIVER_CARD" xml:space="preserve">
+    <value>Driver Card</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_DRIVER_CARD_FILES" xml:space="preserve">
+    <value>Driver Card Files</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_DETAILS_TITLE" xml:space="preserve">
+    <value>Driver Card Details</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_FILES_SHOW_DETAILS" xml:space="preserve">
+    <value>Show Details</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_DETAILS_DATE" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_DETAILS_DISTANCE" xml:space="preserve">
+    <value>Distance</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_DETAILS_TIME" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_DETAILS_ACTIVITY" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="TXT_DRIVER_CARD_DETAILS_DRIVING_STATUS" xml:space="preserve">
+    <value>Driving Status</value>
   </data>
 </root>
