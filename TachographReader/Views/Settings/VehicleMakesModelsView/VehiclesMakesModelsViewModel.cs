@@ -4,7 +4,7 @@
     using System.Windows.Controls;
     using Core;
     using DataModel;
-    using DataModel.Core;
+    using DataModel.Repositories;
     using Library;
     using Library.ViewModels;
     using Properties;
@@ -15,7 +15,7 @@
         private VehicleMake _selectedMake;
         private VehicleModel _selectedModel;
         public ObservableCollection<VehicleMake> Makes { get; set; }
-        public IRepository<VehicleMake> Repository { get; set; }
+        public VehicleRepository Repository { get; set; }
 
         public VehicleMake SelectedMake
         {
@@ -52,7 +52,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = GetInstance<IRepository<VehicleMake>>();
+            Repository = GetInstance<VehicleRepository>();
         }
 
         protected override void Load()
@@ -60,7 +60,7 @@
             Makes = new ObservableCollection<VehicleMake>(Repository.GetAll("Models").RemoveAt(0));
             Makes.CollectionChanged += (sender, e) => RefreshCommands();
         }
-        
+
         private void OnAddMake(UserControl window)
         {
             GetInputFromUser(window, Resources.TXT_GIVE_MAKE_OF_VEHICLE, OnAddMake);
@@ -106,7 +106,11 @@
 
             if (!string.IsNullOrEmpty(result.FirstInput))
             {
-                SelectedMake.Models.Add(new VehicleModel {Name = result.FirstInput});
+                var vehicleModel = new VehicleModel {Name = result.FirstInput};
+                SelectedMake.Models.Add(vehicleModel);
+
+                Repository.AddOrUpdate(SelectedMake);
+                SelectedModel = vehicleModel;
             }
         }
 
@@ -117,7 +121,10 @@
 
         private void OnRemoveModel(object obj)
         {
+            Repository.Remove(SelectedModel.Clone<VehicleModel>());
             SelectedMake.Models.Remove(SelectedModel);
+
+            SelectedModel = null;
         }
 
         private bool CanRemoveModel(object obj)

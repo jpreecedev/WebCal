@@ -1,8 +1,6 @@
 ﻿namespace TachographReader.DataModel
 {
     using Connect.Shared.Models;
-    using Shared;
-    using Shared.Core;
 
     public abstract class Model : BaseModel
     {

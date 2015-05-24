@@ -73,7 +73,7 @@
             return GetAll(false, includes);
         }
 
-        public ICollection<T> GetAll(bool includeDeleted, params string[] includes)
+        public virtual ICollection<T> GetAll(bool includeDeleted, params string[] includes)
         {
             return Safely(() =>
             {
