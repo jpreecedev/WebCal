@@ -1,5 +1,6 @@
 ﻿namespace TachographReader.Core
 {
+    using System;
     using System.ComponentModel;
     using System.Windows;
 
@@ -23,11 +24,20 @@
             {
                 if (!Equals(this, Application.Current.MainWindow))
                 {
-                    Owner = dataContext.Window = Application.Current.MainWindow;                    
+                    Owner = dataContext.Window = Application.Current.MainWindow;
                 }
             }
+            try
+            {
+                return base.ShowDialog();
 
-            return base.ShowDialog();
+            }
+            catch (Exception)
+            {
+                
+            }
+
+            return null;
         }
     }
 }

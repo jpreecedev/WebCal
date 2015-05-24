@@ -131,6 +131,7 @@
                        Grid.Row="12" />
 
             <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_SPEEDLIMITER_CUSTOMER}"
+                                   IsEditable="False"
                                    ItemsSource="{core:InputBinding CustomerContacts}"
                                    SelectedText="{core:InputBinding SelectedCustomerContact}"
                                    DisplayMemberPath="Name"

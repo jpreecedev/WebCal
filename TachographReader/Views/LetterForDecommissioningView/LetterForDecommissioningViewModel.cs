@@ -78,7 +78,13 @@
             if (letterForDecommissioningDocument != null)
             {
                 Document = letterForDecommissioningDocument;
+                SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, Document.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
             }
+        }
+
+        protected override void OnCustomerContactChanged(CustomerContact customerContact)
+        {
+            Document.CustomerContact = customerContact == null ? null : customerContact.Name;
         }
 
         protected override DocumentType GetDocumentType()
@@ -108,6 +114,7 @@
             if (match != null)
             {
                 Document = match;
+                SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, match.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
                 return true;
             }
 
@@ -128,6 +135,8 @@
             {
                 Document.Technician = defaultTechnician.Name;
             }
+
+            SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, Document.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
         }
 
         #endregion

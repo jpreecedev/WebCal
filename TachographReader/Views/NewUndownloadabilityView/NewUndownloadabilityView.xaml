@@ -119,7 +119,8 @@
 
             <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_CUSTOMER}"
                                    ItemsSource="{core:InputBinding CustomerContacts}"
-                                   SelectedText="{core:InputBinding Document.CustomerContact}"
+                                   SelectedItem="{core:InputBinding SelectedCustomerContact}"
+                                   IsEditable="False"
                                    DisplayMemberPath="Name"
                                    IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                    Grid.Row="9" />

@@ -50,6 +50,7 @@
                     : (NewTachographViewModel) MainWindow.ShowView<NewAnalogueTachographView>();
 
                 viewModel.Document = tachographDocument;
+                viewModel.SelectedCustomerContact = viewModel.CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, tachographDocument.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
                 viewModel.SetDocumentTypes(tachographDocument.IsDigital);
                 viewModel.IsReadOnly = true;
                 viewModel.IsHistoryMode = true;

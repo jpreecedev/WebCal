@@ -114,6 +114,7 @@
             if (tachographDocument != null)
             {
                 Document = tachographDocument;
+                SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, Document.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
             }
         }
 
@@ -178,6 +179,8 @@
             Document.VehicleType = match.VehicleType;
             Document.VIN = match.VIN;
             Document.NewBattery = match.NewBattery;
+
+            SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, match.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
 
             return true;
         }
@@ -304,9 +307,9 @@
             }
         }
 
-        protected override void OnCustomerContactAdded(CustomerContact customerContact)
+        protected override void OnCustomerContactChanged(CustomerContact customerContact)
         {
-            Document.CustomerContact = customerContact.Name;
+            Document.CustomerContact = customerContact == null ? null : customerContact.Name;
         }
 
         private string GetRegistrationToQuery(CalibrationRecord calibrationRecord)

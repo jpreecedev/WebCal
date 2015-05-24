@@ -15,6 +15,8 @@
 
     public class BaseMainViewModel : BaseViewModel
     {
+        private CustomerContact _selectedCustomerContact;
+
         public BaseMainViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
@@ -26,8 +28,17 @@
             CustomerContacts = new ObservableCollection<CustomerContact>(CustomerContactRepository.GetAll(true).OrderBy(c => c.Name));
         }
 
+        public CustomerContact SelectedCustomerContact
+        {
+            get { return _selectedCustomerContact; }
+            set
+            {
+                _selectedCustomerContact = value;
+                OnCustomerContactChanged(value);
+            }
+        }
+
         public ObservableCollection<CustomerContact> CustomerContacts { get; set; }
-        public CustomerContact SelectedCustomerContact { get; set; }
         public IRepository<CustomerContact> CustomerContactRepository { get; set; }
         public DelegateCommand<object> NewCustomerCommand { get; set; }
         public DelegateCommand<object> CancelCommand { get; set; }
@@ -66,9 +77,8 @@
             get { return false; }
         }
 
-        protected virtual void OnCustomerContactAdded(CustomerContact customerContact)
-        {
-            
+        protected virtual void OnCustomerContactChanged(CustomerContact customerContact)
+        {            
         }
 
         private void OnNewCustomer(object obj)
@@ -94,7 +104,6 @@
                     if (item == e.Parameter)
                     {
                         SelectedCustomerContact = item;
-                        OnCustomerContactAdded(item);
                     }
                 }
             }
