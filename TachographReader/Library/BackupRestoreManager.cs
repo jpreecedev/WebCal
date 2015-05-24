@@ -62,12 +62,12 @@
                 throw new ArgumentNullException("workshopSettings");
             }
 
-            if (workshopSettings.BackupFilePath.Length < 3 || workshopSettings.BackupFilePath == Resources.TXT_NO_PATH_SPECIFIED || workshopSettings.AutoBackup == false || workshopSettings.BackupDaysOfWeek == null || workshopSettings.BackupDaysOfWeek.Count == 0)
+            if (workshopSettings.BackupFilePath.Length < 3 || workshopSettings.BackupFilePath == Resources.TXT_NO_PATH_SPECIFIED || workshopSettings.AutoBackup == false || workshopSettings.CustomDayOfWeeks == null || workshopSettings.CustomDayOfWeeks.Count == 0)
             {
                 return;
             }
 
-            if (workshopSettings.BackupDaysOfWeek.Any(d => CustomDayOfWeek.Parse(d.DayOfWeek) == DateTime.Now.DayOfWeek))
+            if (workshopSettings.CustomDayOfWeeks.Any(d => CustomDayOfWeek.Parse(d.DayOfWeek) == DateTime.Now.DayOfWeek))
             {
                 AutoBackup(workshopSettings.BackupFilePath);
             }

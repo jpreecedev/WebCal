@@ -1,5 +1,6 @@
 ﻿namespace TachographReader.DataModel
 {
+    using System;
     using System.Data.Entity;
     using Connect.Shared.Models;
     using Shared.Models;
@@ -12,6 +13,7 @@
             Configuration.LazyLoadingEnabled = false;
         }
 
+        public DbSet<CustomDayOfWeek> CustomDayOfWeeks { get; set; }
         public DbSet<TachographDocument> TachographDocuments { get; set; }
         public DbSet<UndownloadabilityDocument> UndownloadabilityDocuments { get; set; }
         public DbSet<LetterForDecommissioningDocument> LetterForDecommissioningDocuments { get; set; }

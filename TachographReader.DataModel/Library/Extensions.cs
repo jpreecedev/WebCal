@@ -104,7 +104,7 @@ namespace TachographReader.DataModel.Library
                                        !string.IsNullOrEmpty(w.Office) ||
                                        !string.IsNullOrEmpty(w.PostCode) ||
                                        !string.IsNullOrEmpty(w.Town) ||
-                                       !string.IsNullOrEmpty(w.WorkshopName));
+                                       !string.IsNullOrEmpty(w.WorkshopName), "CustomDayOfWeeks");
         }
 
         public static PrinterSettings GetPrinterSettings(this ISettingsRepository<PrinterSettings> repository)

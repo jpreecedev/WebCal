@@ -37,7 +37,7 @@
             return settings.FirstOrDefault();
         }
 
-        public void Save(T settings)
+        public virtual void Save(T settings)
         {
             Safely(() =>
             {

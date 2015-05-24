@@ -55,7 +55,7 @@
                 container.RegisterType<IRepository<User>, Repository<User>>();
                 container.RegisterType<IRepository<WorkerTask>, Repository<WorkerTask>>();
 
-                container.RegisterType<ISettingsRepository<WorkshopSettings>,SettingsRepository<WorkshopSettings>>();
+                container.RegisterType<ISettingsRepository<WorkshopSettings>,WorkshopSettingsRepository>();
                 container.RegisterType<ISettingsRepository<PrinterSettings>,SettingsRepository<PrinterSettings>>();
                 container.RegisterType<ISettingsRepository<MailSettings>,SettingsRepository<MailSettings>>();
                 container.RegisterType<ISettingsRepository<ThemeSettings>,SettingsRepository<ThemeSettings>>();

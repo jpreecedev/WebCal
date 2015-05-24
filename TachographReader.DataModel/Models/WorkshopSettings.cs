@@ -14,7 +14,6 @@
         private bool _sendToOffice;
         public bool AutoBackup { get; set; }
         public string BackupFilePath { get; set; }
-        public IList<CustomDayOfWeek> BackupDaysOfWeek { get; set; }
         public string Office { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
@@ -25,6 +24,8 @@
         public bool AutoPrintLabels { get; set; }
         public string MainEmailAddress { get; set; }
         public string SecondaryEmailAddress { get; set; }
+
+        public virtual List<CustomDayOfWeek> CustomDayOfWeeks { get; set; }
 
         public bool SendToCustomer
         {

@@ -10,13 +10,11 @@
     using Core;
     using Properties;
     using Shared;
-    using Shared.Core;
 
     public class Technician : BaseModel, IUserSignatureCapture
     {
         public string Name { get; set; }
         public string Number { get; set; }
-
         public bool IsDefault { get; set; }
 
         public bool HasSignature

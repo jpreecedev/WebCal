@@ -4,17 +4,15 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using Connect.Shared.Models;
     using Properties;
-    using Shared;
-    using Shared.Core;
 
-    public class CustomDayOfWeek : BaseNotification
+    public class CustomDayOfWeek : BaseModel
     {
-        public int Id { get; set; }
-
         [NotMapped]
         public bool IsChecked { get; set; }
 
         public string DayOfWeek { get; set; }
+
+        public WorkshopSettings WorkshopSettings { get; set; }
 
         public static DayOfWeek Parse(string dayOfWeek)
         {

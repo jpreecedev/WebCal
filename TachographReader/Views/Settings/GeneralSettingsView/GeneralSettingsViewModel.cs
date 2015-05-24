@@ -1,6 +1,4 @@
-﻿using TachographReader.Properties;
-
-namespace TachographReader.Views.Settings
+﻿namespace TachographReader.Views.Settings
 {
     using System;
     using System.Collections.Generic;
@@ -9,8 +7,9 @@ namespace TachographReader.Views.Settings
     using System.Windows.Forms;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using DataModel.Library;
+    using DataModel.Repositories;
+    using Properties;
     using Shared;
 
     public class GeneralSettingsViewModel : BaseSettingsViewModel
@@ -30,7 +29,7 @@ namespace TachographReader.Views.Settings
         }
 
         public WorkshopSettings Settings { get; set; }
-        public ISettingsRepository<WorkshopSettings> SettingsRepository { get; set; }
+        public WorkshopSettingsRepository SettingsRepository { get; set; }
         public ICollection<CustomDayOfWeek> DaysOfWeek { get; set; }
         public DelegateCommand<object> BrowseCommand { get; set; }
 
@@ -38,12 +37,12 @@ namespace TachographReader.Views.Settings
         {
             Settings = SettingsRepository.GetWorkshopSettings();
 
-            if (Settings.BackupDaysOfWeek == null)
+            if (Settings.CustomDayOfWeeks == null)
             {
                 return;
             }
 
-            foreach (CustomDayOfWeek dayOfWeek in Settings.BackupDaysOfWeek)
+            foreach (CustomDayOfWeek dayOfWeek in Settings.CustomDayOfWeeks)
             {
                 foreach (CustomDayOfWeek customDay in DaysOfWeek)
                 {
@@ -62,18 +61,18 @@ namespace TachographReader.Views.Settings
 
         protected override void InitialiseRepositories()
         {
-            SettingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
+            SettingsRepository = GetInstance<WorkshopSettingsRepository>();
         }
 
         public override void Save()
         {
-            Settings.BackupDaysOfWeek = DaysOfWeek.Where(d => d.IsChecked).ToList();
+            Settings.CustomDayOfWeeks = DaysOfWeek.Where(d => d.IsChecked).ToList();
             SettingsRepository.Save(Settings);
         }
 
         private void OnBrowse(object obj)
         {
-            var folderBrowserDialog = new FolderBrowserDialog {SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)};
+            var folderBrowserDialog = new FolderBrowserDialog { SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) };
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 Settings.BackupFilePath = folderBrowserDialog.SelectedPath;

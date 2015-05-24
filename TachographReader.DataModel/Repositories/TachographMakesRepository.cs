@@ -6,9 +6,28 @@
     using System.Data.Entity;
     using System.Linq;
     using Library;
+    using Microsoft.Practices.ObjectBuilder2;
 
     public class TachographMakesRepository : Repository<TachographMake>
     {
+        public override void Remove(TachographMake entity)
+        {
+            Safely(() =>
+            {
+                using (var context = new TachographContext())
+                {
+                    var existingEntity = context.TachographMakes.Include(m => m.Models).FirstOrDefault(c => c.Id == entity.Id);
+                    if (existingEntity != null)
+                    {
+                        existingEntity.Models.ForEach(m => m.Deleted = DateTime.Now);
+                        existingEntity.Deleted = DateTime.Now;
+                    }
+
+                    context.SaveChanges();
+                }
+            });
+        }
+
         public void Remove(TachographModel entity)
         {
             Safely(() =>

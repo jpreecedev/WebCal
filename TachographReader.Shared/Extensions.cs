@@ -1,6 +1,7 @@
 ﻿namespace TachographReader.Shared
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using System.ServiceModel;
@@ -14,6 +15,11 @@
 
     public static class Extensions
     {
+        public static ICollection<T> Clone<T>(this ICollection<T> collection) where T : ICloneable
+        {
+            return collection.Select(item => (T)item.Clone()).ToList();
+        }
+
         public static T GetAttribute<T>(this Enum enumValue) where T : Attribute
         {
             MemberInfo memberInfo = enumValue.GetType().GetMember(enumValue.ToString()).FirstOrDefault();

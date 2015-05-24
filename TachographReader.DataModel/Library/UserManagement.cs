@@ -107,39 +107,28 @@
             if (string.Equals(user.Password, Encrypt(oldPassword)))
             {
                 user.Password = Encrypt(newPassword);
+                repository.AddOrUpdate(user);
                 return true;
             }
             return false;
         }
 
-        public static bool ResetPassword(IRepository<User> repository, string oldPassword, string newPassword)
+        public static bool ResetPassword(IRepository<User> repository, string userName)
         {
             if (repository == null)
             {
                 throw new ArgumentNullException("repository");
             }
-            if (string.IsNullOrEmpty(oldPassword))
-            {
-                throw new ArgumentNullException("oldPassword");
-            }
-            if (string.IsNullOrEmpty(newPassword))
-            {
-                throw new ArgumentNullException("newPassword");
-            }
 
-            User user = repository.FirstOrDefault(u => string.Equals(LoggedInUserName, u.Username, StringComparison.CurrentCultureIgnoreCase));
+            User user = repository.FirstOrDefault(u => string.Equals(userName, u.Username, StringComparison.CurrentCultureIgnoreCase));
             if (user == null)
             {
                 return false;
             }
 
-            if (string.Equals(((User)SelectedUser).Password, oldPassword))
-            {
-                ((User)SelectedUser).Password = Encrypt(newPassword);
-                repository.AddOrUpdate(user);
-                return true;
-            }
-            return false;
+            user.Password = Encrypt("password");
+            repository.AddOrUpdate(user);
+            return true;
         }
 
         public static void AddSuperUser(IRepository<User> repository)

@@ -2482,4 +2482,13 @@ date
   <data name="TXT_SETTINGS_CLOSE" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="TXT_TECHNICIANS_DEFAULT" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="ERR_PASSWORDS_RESET_BY_ADMINISTRATOR" xml:space="preserve">
+    <value>Passwords can only be reset by an administrator.</value>
+  </data>
+  <data name="ERR_PASSWORD_CANNOT_BE_RESET" xml:space="preserve">
+    <value>Your password cannot be reset.</value>
+  </data>
 </root>

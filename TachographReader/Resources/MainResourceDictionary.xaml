@@ -125,6 +125,7 @@
     <conv:BooleanToVisibilityWithHiddenConverter x:Key="Bool2Hidden" />
     <conv:BooleanToYesNoConverter x:Key="Bool2YesNo" />
     <conv:InverseBooleanConverter x:Key="InvBool" />
+    <conv:InverseVisibilityConverter x:Key="InvVis" />
     <conv:ImageToBitmapSourceConverter x:Key="ImgToBitmapSource" />
     <conv:NullToBooleanConverter x:Key="Null2Bool" />
     <conv:DateTimeToVisibilityConverter x:Key="DateTime2Vis" />

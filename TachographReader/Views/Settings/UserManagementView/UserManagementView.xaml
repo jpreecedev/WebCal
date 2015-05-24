@@ -7,6 +7,7 @@
                        xmlns:vm="clr-namespace:TachographReader.Views.Settings"
                        xmlns:Library="clr-namespace:TachographReader.DataModel.Library;assembly=Webcal.DataModel"
                        xmlns:Properties="clr-namespace:TachographReader.Properties"
+                       xmlns:library="clr-namespace:TachographReader.DataModel.Library;assembly=TachographReader.DataModel"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
                        d:DesignHeight="374">
@@ -65,7 +66,8 @@
                     </StackPanel>
 
                     <!-- Old Password -->
-                    <Grid Grid.Row="6">
+                    <Grid Grid.Row="6"
+                          Visibility="{Binding Path=LoggedInAsSuperUser, Mode=OneWay, Converter={StaticResource InvVis}}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20" />
                             <RowDefinition Height="20" />

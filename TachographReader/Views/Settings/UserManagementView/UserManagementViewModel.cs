@@ -118,23 +118,20 @@
             string currentUser = UserManagement.LoggedInUserName;
             if (currentUser != "superuser")
             {
-                MessageBoxHelper.ShowMessage(Resources.ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER);
+                MessageBoxHelper.ShowMessage(Resources.ERR_PASSWORDS_RESET_BY_ADMINISTRATOR);
                 return;
             }
             if (currentUser == SelectedUser.Username)
             {
-                MessageBoxHelper.ShowMessage(Resources.ERR_DO_NOT_RESET_OWN_PASSWORD);
+                MessageBoxHelper.ShowMessage(Resources.ERR_PASSWORD_CANNOT_BE_RESET);
                 return;
             }
             if (grid == null)
             {
                 return;
             }
-
-            string old = SelectedUser.Password;
-            const string newPassword = "password";
-
-            bool changed = UserManagement.ResetPassword(Repository, old, newPassword);
+            
+            bool changed = UserManagement.ResetPassword(Repository, SelectedUser.Username);
             if (changed)
             {
                 MessageBoxHelper.ShowMessage(Resources.TXT_PASSWORD_HAS_BEEN_RESET);

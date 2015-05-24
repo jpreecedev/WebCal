@@ -203,11 +203,29 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your password cannot be reset..
+        /// </summary>
+        public static string ERR_PASSWORD_CANNOT_BE_RESET {
+            get {
+                return ResourceManager.GetString("ERR_PASSWORD_CANNOT_BE_RESET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please log in as superuser to reset your password..
         /// </summary>
         public static string ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER {
             get {
                 return ResourceManager.GetString("ERR_PASSWORD_HAS_TO_BE_RESET_BY_SUPERUSER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords can only be reset by an administrator..
+        /// </summary>
+        public static string ERR_PASSWORDS_RESET_BY_ADMINISTRATOR {
+            get {
+                return ResourceManager.GetString("ERR_PASSWORDS_RESET_BY_ADMINISTRATOR", resourceCulture);
             }
         }
         
@@ -5773,6 +5791,15 @@ namespace TachographReader.Properties {
         public static string TXT_TECHNICIANS_ADD {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string TXT_TECHNICIANS_DEFAULT {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_DEFAULT", resourceCulture);
             }
         }
         

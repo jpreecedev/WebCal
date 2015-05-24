@@ -175,17 +175,15 @@
                 return;
             }
 
-            var copy = new List<Technician>(Technicians.ToArray());
-            int selectedIndex = Technicians.IndexOf(SelectedTechnician);
-
-            foreach (Technician technician in copy)
+            var currentDefault = Technicians.FirstOrDefault(c => c.IsDefault);
+            if (currentDefault != null)
             {
-                technician.IsDefault = false;
+                currentDefault.IsDefault = false;
+                Repository.AddOrUpdate(currentDefault);
             }
 
-            Technicians = new ObservableCollection<Technician>(copy);
-            SelectedTechnician = Technicians[selectedIndex];
             SelectedTechnician.IsDefault = true;
+            Repository.AddOrUpdate(SelectedTechnician);
         }
 
         private void RefreshCommands()

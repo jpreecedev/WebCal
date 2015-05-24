@@ -81,6 +81,7 @@
         public override void Save()
         {
             ConnectHelper.ConnectKeysChanged();
+            Repository.AddOrUpdate(Settings);
         }
 
         private void SerialChanged()
@@ -108,7 +109,9 @@
             var webcalConnectKey = WebcalConnectKey.Split('-');
             var companyName = webcalConnectKey[0];
             var machineKey = webcalConnectKey[1];
-            var expiration = int.Parse(webcalConnectKey[2]);
+
+            int expiration;
+            int.TryParse(webcalConnectKey[2], out expiration);
 
             var connectKeys = new ConnectKeys(ConnectUrlHelper.ServiceUrl, expiration, companyName, machineKey);
             WebcalConnectField.IsLoading = true;
