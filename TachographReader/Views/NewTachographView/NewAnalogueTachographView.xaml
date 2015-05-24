@@ -292,7 +292,7 @@
                                        Grid.Row="18"
                                        IsEditable="False"
                                        ItemsSource="{core:InputBinding CustomerContacts}"
-                                       SelectedText="{core:InputBinding Document.CustomerContact}"
+                                       SelectedItem="{core:InputBinding SelectedCustomerContact}"
                                        DisplayMemberPath="Name"
                                        Grid.RowSpan="2" />
 
