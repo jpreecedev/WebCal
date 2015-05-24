@@ -940,7 +940,7 @@
 
                             <TextBox x:Name="PART_TextBox"
                                      Margin="20,5,20,0"
-                                     Text="{Binding Prompt.FirstInput, RelativeSource={RelativeSource TemplatedParent}}"
+                                     Text="{core:InputBinding Prompt.FirstInput, RelativeSource={RelativeSource TemplatedParent}}"
                                      FocusManager.FocusedElement="{Binding ElementName=PART_TextBox}"
                                      AcceptsReturn="False"
                                      AcceptsTab="False"
@@ -962,7 +962,7 @@
                                        Margin="0,10,0,0" />
 
                             <TextBox Margin="20,5,20,0"
-                                     Text="{Binding Prompt.SecondInput, RelativeSource={RelativeSource TemplatedParent}}"
+                                     Text="{core:InputBinding Prompt.SecondInput, RelativeSource={RelativeSource TemplatedParent}}"
                                      Visibility="{Binding Prompt.HasSecondPrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
                                      AcceptsReturn="False"
                                      AcceptsTab="False"

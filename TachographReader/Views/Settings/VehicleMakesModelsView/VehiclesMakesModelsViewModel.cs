@@ -8,7 +8,6 @@
     using Library;
     using Library.ViewModels;
     using Properties;
-    using Shared;
 
     public class VehiclesMakesModelsViewModel : BaseSettingsViewModel
     {
@@ -83,6 +82,11 @@
 
         private void OnRemoveMake(object obj)
         {
+            if (SelectedMake == null)
+            {
+                return;
+            }
+
             Repository.Remove(SelectedMake);
             Makes.Remove(SelectedMake);
         }

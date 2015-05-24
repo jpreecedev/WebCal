@@ -2479,4 +2479,7 @@ date
   <data name="TXT_WORKSHOP_CARD_FILES_SHOW_DETAILS" xml:space="preserve">
     <value>Show Details</value>
   </data>
+  <data name="TXT_SETTINGS_CLOSE" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

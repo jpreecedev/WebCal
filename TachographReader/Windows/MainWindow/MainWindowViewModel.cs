@@ -43,7 +43,6 @@
         public DelegateCommand<object> ViewTaskQueueCommand { get; set; }
         public DelegateCommand<object> UpdateCommand { get; set; }
         public DelegateCommand<UserControl> SaveModalCommand { get; set; }
-        public DelegateCommand<object> CancelModalCommand { get; set; }
         public DelegateCommand<object> LetterForDecommissioningCommand { get; set; }
         public DelegateCommand<object> LetterForDecommissioningHistoryCommand { get; set; }
 
@@ -217,11 +216,6 @@
             }
         }
 
-        private void OnCancelModal(object obj)
-        {
-            CloseSettingsModal(false);
-        }
-
         public IViewModel ShowView<T>() where T : UserControl, new()
         {
             return ShowView<T>(this);
@@ -252,7 +246,6 @@
             ViewTaskQueueCommand = new DelegateCommand<object>(OnViewTaskQueue);
             UpdateCommand = new DelegateCommand<object>(OnUpdate);
             SaveModalCommand = new DelegateCommand<UserControl>(OnSaveModal);
-            CancelModalCommand = new DelegateCommand<object>(OnCancelModal);
             LetterForDecommissioningCommand = new DelegateCommand<object>(OnLetterForDecommissioning);
             LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
         }

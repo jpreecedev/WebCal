@@ -4968,6 +4968,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string TXT_SETTINGS_CLOSE {
+            get {
+                return ResourceManager.GetString("TXT_SETTINGS_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save All &amp; Close.
         /// </summary>
         public static string TXT_SETTINGS_SAVE_ALL_AND_CLOSE {

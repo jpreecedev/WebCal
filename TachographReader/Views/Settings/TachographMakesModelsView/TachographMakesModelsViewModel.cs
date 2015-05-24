@@ -5,6 +5,7 @@
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Repositories;
     using Library;
     using Library.ViewModels;
     using Properties;
@@ -36,7 +37,7 @@
             }
         }
 
-        public IRepository<TachographMake> Repository { get; set; }
+        public TachographMakesRepository Repository { get; set; }
         public DelegateCommand<UserControl> AddMakeCommand { get; set; }
         public DelegateCommand<object> RemoveMakeCommand { get; set; }
         public DelegateCommand<UserControl> AddModelCommand { get; set; }
@@ -58,7 +59,7 @@
 
         protected override void InitialiseRepositories()
         {
-            Repository = GetInstance<IRepository<TachographMake>>();
+            Repository = GetInstance<TachographMakesRepository>();
         }
         
         private void OnAddMake(UserControl window)
@@ -111,8 +112,11 @@
 
             if (!string.IsNullOrEmpty(result.FirstInput))
             {
-                var model = new TachographModel {Name = result.FirstInput};
-                SelectedMake.Models.Add(model);
+                var tachographModel = new TachographModel { Name = result.FirstInput };
+                SelectedMake.Models.Add(tachographModel);
+
+                Repository.AddOrUpdate(SelectedMake);
+                SelectedModel = tachographModel;
             }
         }
 
@@ -123,7 +127,10 @@
 
         private void OnRemoveModel(object obj)
         {
+            Repository.Remove(SelectedModel.Clone<TachographModel>());
             SelectedMake.Models.Remove(SelectedModel);
+
+            SelectedModel = null;
         }
 
         private bool CanRemoveModel(object obj)
