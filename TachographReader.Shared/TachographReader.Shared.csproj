@@ -150,7 +150,6 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="ISettingsRepository.cs" />
     <Compile Include="IUserSignatureCapture.cs" />
-    <Compile Include="Helpers\LicenseManager.cs" />
     <Compile Include="MaxAttemptsReachedException.cs" />
     <Compile Include="Helpers\MessageBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

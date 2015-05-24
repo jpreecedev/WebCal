@@ -86,24 +86,19 @@
         private void SerialChanged()
         {
             DateTime expirationDate;
-            if (!LicenseManager.IsValid(Serial, out expirationDate))
+            if (!LicenseManager.IsValid(Serial, out expirationDate) || LicenseManager.HasExpired(expirationDate))
             {
                 ExpirationDateTime = default(DateTime);
                 LicenseKeyField.Valid = false;
                 LicenseKeyField.IsHighlighted = false;
-                return;
             }
-
-            if (LicenseManager.HasExpired(expirationDate))
+            else
             {
-                ExpirationDateTime = default(DateTime);
-                LicenseKeyField.Valid = false;
-                return;
+                ExpirationDateTime = expirationDate;
+                LicenseKeyField.Valid = true;
+                LicenseKeyField.IsHighlighted = true;    
             }
 
-            ExpirationDateTime = expirationDate;
-            LicenseKeyField.Valid = true;
-            LicenseKeyField.IsHighlighted = true;
             Settings.LicenseKey = Serial;
             Repository.AddOrUpdate(Settings);
         }
@@ -116,7 +111,8 @@
             var expiration = int.Parse(webcalConnectKey[2]);
 
             var connectKeys = new ConnectKeys(ConnectUrlHelper.ServiceUrl, expiration, companyName, machineKey);
-            
+            WebcalConnectField.IsLoading = true;
+
             GetInstance<IConnectClient>().CallAsync(connectKeys, client =>
             {
                 client.Service.Echo();
@@ -129,6 +125,10 @@
             {
                 WebcalConnectField.Valid = WebcalConnectField.IsHighlighted = false;
                 ShowError(ExceptionPolicy.HandleException(ContainerBootstrapper.Container, exception));
+            },
+            () =>
+            {
+                WebcalConnectField.IsLoading = false;
             });
         }
     }

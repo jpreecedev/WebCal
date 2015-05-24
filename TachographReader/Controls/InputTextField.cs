@@ -90,6 +90,11 @@
 
         private static void SelectivelyIgnoreMouseButton(object sender, MouseButtonEventArgs e)
         {
+            if (e.Source != null && e.Source.GetType().IsAssignableFrom(typeof (Button)))
+            {
+                return;
+            }
+
             // Find the TextBox
             DependencyObject parent = e.OriginalSource as UIElement;
             while (parent != null && !(parent is TextBox))

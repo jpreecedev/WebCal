@@ -44,7 +44,18 @@
             {
                 owner = Application.Current.MainWindow;
             }
-            MessageBox.Show(owner, message, caption, buttons, messageBoxImage);
+
+            if (Application.Current.Dispatcher.CheckAccess())
+            {
+                MessageBox.Show(owner, message, caption, buttons, messageBoxImage);
+            }
+            else
+            {
+                Application.Current.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() =>
+                {
+                    MessageBox.Show(owner, message, caption, buttons, messageBoxImage);
+                }));
+            }
         }
     }
 }

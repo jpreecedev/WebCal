@@ -31,7 +31,7 @@ namespace TachographReader.DataModel
 
         public string WebcalConnectKey
         {
-            get { return string.Format("{0}-{1}-{2}", CompanyName, LicenseManager.GetMachineKey(), ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0')); }
+            get { return string.Format("{0}-{1}-{2}", CompanyName, LicenseManager.GetMachineKey(), LicenseKey); }
         }
 
         public bool IsConnectEnabled { get; set; }

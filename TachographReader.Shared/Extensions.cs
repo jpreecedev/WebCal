@@ -84,7 +84,8 @@
                         {
                             alwaysCall();
                         }
-                    }, DispatcherPriority.Normal);
+                    }, DispatcherPriority.Normal); 
+                    client.Close();
                 });
             }
             catch (Exception ex)
@@ -139,13 +140,17 @@
                     BuildException((Task<ConnectOperationResult>)exceptionTask, exceptionHandler);
 
                 }, DispatcherPriority.Normal), TaskContinuationOptions.OnlyOnFaulted)
-                .ContinueWith(alwaysTask => Application.Current.Dispatcher.Invoke(() =>
+                .ContinueWith(alwaysTask =>
                 {
-                    if (alwaysCall != null)
+                    Application.Current.Dispatcher.Invoke(() =>
                     {
-                        alwaysCall();
-                    }
-                }, DispatcherPriority.Normal));
+                        if (alwaysCall != null)
+                        {
+                            alwaysCall();
+                        }
+                    }, DispatcherPriority.Normal); 
+                    client.Close();
+                });
             }
             catch (Exception ex)
             {

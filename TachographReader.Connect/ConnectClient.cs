@@ -26,9 +26,9 @@
                 if (_channelFactory.State == CommunicationState.Opened || _channelFactory.State == CommunicationState.Opening)
                 {
                     return;
-                }    
+                }
             }
-            
+
             var serviceAddress = new EndpointAddress(connectKeys.Url);
 
             _channelFactory = new ChannelFactory<IConnectService>(GetBinding(), serviceAddress);
@@ -41,17 +41,14 @@
 
             Service = _channelFactory.CreateChannel();
         }
-
-        public override void ForceClose()
-        {
-            if (_channelFactory != null)
-                _channelFactory.Abort();
-        }
-
+        
         public void Close()
         {
             if (_channelFactory != null)
+            {
+                _channelFactory.Abort();
                 _channelFactory.Close();
+            }
         }
 
         public void Dispose()
