@@ -5,7 +5,9 @@
     using System.Linq;
     using System.Windows.Controls;
     using System.Xml.Linq;
+    using Windows.DriverCardDetailsWindow;
     using Windows.ProgressWindow;
+    using Windows.WorkshopCardDetailsWindow;
     using Core;
     using DataModel;
     using DataModel.Core;
@@ -73,6 +75,13 @@
             {
                 ShowError(Resources.EXC_UNABLE_ADD_WORKSHOP_CARD_FILE, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
             }
+        }
+
+        protected override void OnShowFileDetails()
+        {
+            var window = new WorkshopCardDetailsWindow();
+            ((WorkshopCardDetailsViewModel)window.DataContext).WorkshopCardFile = SelectedStoredFile;
+            window.ShowDialog();
         }
 
         protected override void OnStoredFileRemoved()

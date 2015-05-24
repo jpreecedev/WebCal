@@ -1,4 +1,4 @@
-﻿namespace TachographReader.Windows.DriverCardDetailsWindow
+﻿namespace TachographReader.Windows.WorkshopCardDetailsWindow
 {
     using System.Windows;
     using Core;
@@ -9,28 +9,27 @@
     using Shared;
     using Shared.Helpers;
 
-    public class DriverCardDetailsViewModel : BaseModalWindowViewModel
+    public class WorkshopCardDetailsViewModel : BaseModalWindowViewModel
     {
-        public DriverCardDetailsViewModel()
+        public WorkshopCardDetailsViewModel()
         {
             OkCommand = new DelegateCommand<Window>(OnOk);
         }
 
-        public BaseFile DriverCardFile { get; set; }
+        public BaseFile WorkshopCardFile { get; set; }
         public DelegateCommand<Window> OkCommand { get; set; }
 
         public TachographCard TachographCard { get; set; }
-        public ActivityDataItem SelectedActivityDataItem { get; set; }
 
         protected override void OnPropertyChanged(string propertyName)
         {
             base.OnPropertyChanged(propertyName);
 
-            if (propertyName == "DriverCardFile")
+            if (propertyName == "WorkshopCardFile")
             {
                 AsyncHelper.CallAsync(() =>
                 {
-                    return DDDReader.Read(DriverCardFile.SerializedFile);
+                    return DDDReader.Read(WorkshopCardFile.SerializedFile);
                 },
                 result =>
                 {
@@ -38,7 +37,7 @@
                 },
                 exception =>
                 {
-                    MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_ERROR_WHILST_READING_DRIVER_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, exception)));
+                    MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_ERROR_WHILST_READING_WORKSHOP_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, exception)));
                 },
                 () =>
                 {

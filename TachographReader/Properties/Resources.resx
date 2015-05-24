@@ -2446,4 +2446,37 @@ date
   <data name="TXT_DRIVER_CARD_DETAILS_DRIVING_STATUS" xml:space="preserve">
     <value>Driving Status</value>
   </data>
+  <data name="TXT_ERROR_WHILST_READING_DRIVER_CARD" xml:space="preserve">
+    <value>An error occurred whilst reading the Driver card.</value>
+  </data>
+  <data name="TXT_LOADING" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_DETAILS_TITLE" xml:space="preserve">
+    <value>Workshop Card Details</value>
+  </data>
+  <data name="TXT_ERROR_WHILST_READING_WORKSHOP_CARD" xml:space="preserve">
+    <value>An error occurred whilst reading the Workshop card.</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_DETAILS_IDENTIFICATION_NUMBER" xml:space="preserve">
+    <value>Identification Number</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_DETAILS_REGISTRATION_NUMBER" xml:space="preserve">
+    <value>Registration Number</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_DETAILS_K_FACTOR" xml:space="preserve">
+    <value>K Factor</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_DETAILS_L_FACTOR" xml:space="preserve">
+    <value>L Factor</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_DETAILS_TYRE_SIZE" xml:space="preserve">
+    <value>Tyre Size</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_DETAILS_VU_PART_NUMBER" xml:space="preserve">
+    <value>VU Part Number</value>
+  </data>
+  <data name="TXT_WORKSHOP_CARD_FILES_SHOW_DETAILS" xml:space="preserve">
+    <value>Show Details</value>
+  </data>
 </root>

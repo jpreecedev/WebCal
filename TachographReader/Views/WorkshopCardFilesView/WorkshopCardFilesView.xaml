@@ -120,6 +120,8 @@
                 </ListView.View>
                 <ListView.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_SHOW_DETAILS}"
+                                  Command="{Binding ShowDetailsCommand}" />
                         <MenuItem Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_EXPORT}"
                                   Command="{Binding ExportCommand}" />
                         <MenuItem Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_FILES_REMOVE}"

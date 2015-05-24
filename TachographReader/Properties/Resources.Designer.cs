@@ -2059,6 +2059,24 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error occurred whilst reading the Driver card..
+        /// </summary>
+        public static string TXT_ERROR_WHILST_READING_DRIVER_CARD {
+            get {
+                return ResourceManager.GetString("TXT_ERROR_WHILST_READING_DRIVER_CARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred whilst reading the Workshop card..
+        /// </summary>
+        public static string TXT_ERROR_WHILST_READING_WORKSHOP_CARD {
+            get {
+                return ResourceManager.GetString("TXT_ERROR_WHILST_READING_WORKSHOP_CARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string TXT_EXCEPTION_WINDOW_CLOSE {
@@ -2964,6 +2982,15 @@ namespace TachographReader.Properties {
         public static string TXT_LICENSE_NUMBER_LABEL {
             get {
                 return ResourceManager.GetString("TXT_LICENSE_NUMBER_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading....
+        /// </summary>
+        public static string TXT_LOADING {
+            get {
+                return ResourceManager.GetString("TXT_LOADING", resourceCulture);
             }
         }
         
@@ -6649,6 +6676,69 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Identification Number.
+        /// </summary>
+        public static string TXT_WORKSHOP_CARD_DETAILS_IDENTIFICATION_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_CARD_DETAILS_IDENTIFICATION_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to K Factor.
+        /// </summary>
+        public static string TXT_WORKSHOP_CARD_DETAILS_K_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_CARD_DETAILS_K_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L Factor.
+        /// </summary>
+        public static string TXT_WORKSHOP_CARD_DETAILS_L_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_CARD_DETAILS_L_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration Number.
+        /// </summary>
+        public static string TXT_WORKSHOP_CARD_DETAILS_REGISTRATION_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_CARD_DETAILS_REGISTRATION_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workshop Card Details.
+        /// </summary>
+        public static string TXT_WORKSHOP_CARD_DETAILS_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_CARD_DETAILS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tyre Size.
+        /// </summary>
+        public static string TXT_WORKSHOP_CARD_DETAILS_TYRE_SIZE {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_CARD_DETAILS_TYRE_SIZE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VU Part Number.
+        /// </summary>
+        public static string TXT_WORKSHOP_CARD_DETAILS_VU_PART_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_CARD_DETAILS_VU_PART_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Workshop card file was generated..
         /// </summary>
         public static string TXT_WORKSHOP_CARD_FILE_GENERATED {
@@ -6735,6 +6825,15 @@ namespace TachographReader.Properties {
         public static string TXT_WORKSHOP_CARD_FILES_REMOVE {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_REMOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Details.
+        /// </summary>
+        public static string TXT_WORKSHOP_CARD_FILES_SHOW_DETAILS {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_CARD_FILES_SHOW_DETAILS", resourceCulture);
             }
         }
         

@@ -10,7 +10,7 @@
 
     public static class AsyncHelper
     {
-        public static void CallAsync<TResult>(Func<TResult> beginCall, Action endCall, Action<Exception> exceptionHandler, Action alwaysCall = null)
+        public static void CallAsync<TResult>(Func<TResult> beginCall, Action<TResult> endCall, Action<Exception> exceptionHandler, Action alwaysCall = null)
         {
             try
             {
@@ -30,7 +30,7 @@
                     {
                         if (endCall != null)
                         {
-                            endCall();
+                            endCall(mainTask.Result);
                         }
                     }
                 }, synchronizationContext)

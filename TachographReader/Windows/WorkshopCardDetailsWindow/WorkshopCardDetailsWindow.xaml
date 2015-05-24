@@ -1,0 +1,44 @@
+﻿<core:BaseModalWindow x:Class="TachographReader.Windows.WorkshopCardDetailsWindow.WorkshopCardDetailsWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:local="clr-namespace:TachographReader.Windows.WorkshopCardDetailsWindow"
+                      xmlns:Properties="clr-namespace:TachographReader.Properties"
+                      xmlns:core="clr-namespace:TachographReader.Core"
+                      Title="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_DETAILS_TITLE}"
+                      WindowStartupLocation="CenterScreen"
+                      ResizeMode="NoResize"
+                      WindowStyle="ToolWindow"
+                      Height="550"
+                      Width="800">
+    <core:BaseModalWindow.DataContext>
+        <local:WorkshopCardDetailsViewModel />
+    </core:BaseModalWindow.DataContext>
+    <Grid Margin="10">
+        
+        <ListView ItemsSource="{core:InputBinding TachographCard.CalibrationData.Items}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_DETAILS_IDENTIFICATION_NUMBER}"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding VehicleIdentificationNumber}" />
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_DETAILS_REGISTRATION_NUMBER}"
+                                    Width="120"
+                                    DisplayMemberBinding="{Binding VehicleRegistrationNumber}" />
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_DETAILS_K_FACTOR}"
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding KConstantOfRecordingEquipment}" />
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_DETAILS_L_FACTOR}"
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding LTyreCircumference}" />
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_DETAILS_TYRE_SIZE}"
+                                    Width="100"
+                                    DisplayMemberBinding="{Binding TyreSize}" />
+                    <GridViewColumn Header="{x:Static Properties:Resources.TXT_WORKSHOP_CARD_DETAILS_VU_PART_NUMBER}"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding VUPartNumber}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+
+</core:BaseModalWindow>
