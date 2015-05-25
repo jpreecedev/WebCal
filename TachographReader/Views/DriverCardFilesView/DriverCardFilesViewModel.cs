@@ -3,15 +3,17 @@
     using System;
     using System.IO;
     using System.Linq;
-    using Windows.CalibrationDetailsWindow;
+    using System.Xml.Linq;
     using Windows.DriverCardDetailsWindow;
-    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
+    using EventArguments;
     using Library;
     using Properties;
     using Shared;
+    using Shared.Helpers;
 
     public class DriverCardFilesViewModel : BaseFilesViewModel
     {
@@ -20,6 +22,8 @@
 
         protected override void Load()
         {
+            base.Load();
+
             StoredFiles.AddRange(DriverCardFilesRepository.GetAll("Customer").OrderByDescending(c => c.Date));
         }
 
@@ -69,6 +73,43 @@
         protected override void OnStoredFileRemoved()
         {
             DriverCardFilesRepository.Remove((DriverCardFile) SelectedStoredFile);
+        }
+
+        protected override void OnReadComplete(string dumpFilePath)
+        {
+            DisplayDriverCardDetails(dumpFilePath);
+        }
+
+        private void DisplayDriverCardDetails(string xml)
+        {
+            try
+            {
+                SelectedDate = DateTime.Now;
+                XDocument document = XDocument.Parse(xml);
+                XElement first = document.Descendants("CardDump").FirstOrDefault();
+
+                if (first != null)
+                {
+                    FilePath = first.Element("TempPath").SafelyGetValue();
+                    Driver = null;
+                    IsReadFromCardEnabled = false;
+                    IsFormEnabled = false;
+                }
+
+                if (!File.Exists(FilePath))
+                {
+                    FilePath = null;
+                    Driver = null;
+                    IsReadFromCardEnabled = true;
+                    IsFormEnabled = true;
+
+                    MessageBoxHelper.ShowError(Resources.ERR_UNABLE_GENERATE_CARD_DUMP);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
+            }
         }
     }
 }

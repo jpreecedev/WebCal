@@ -12,6 +12,7 @@
     using DataModel;
     using Library;
     using Properties;
+    using TachographReader.EventArguments;
 
     public class BaseFilesViewModel : BaseMainViewModel
     {
@@ -36,6 +37,13 @@
         public DelegateCommand<object> ExportCommand { get; set; }
         public DelegateCommand<object> RemoveCommand { get; set; }
 
+        public bool IsReadFromCardEnabled { get; set; }
+        public DelegateCommand<object> ReadFromCardCommand { get; set; }
+        public string ReadFromCardContent { get; set; }
+        public IDriverCardReader DriverCardReader { get; set; }
+
+        public bool IsFormEnabled { get; set; }
+
         protected override void InitialiseCommands()
         {
             base.InitialiseCommands();
@@ -45,11 +53,11 @@
             ShowDetailsCommand = new DelegateCommand<object>(OnShowDetails);
             ExportCommand = new DelegateCommand<object>(OnExport);
             RemoveCommand = new DelegateCommand<object>(OnRemove);
+            ReadFromCardCommand = new DelegateCommand<object>(OnReadFromCard);
         }
 
         protected virtual void OnShowFileDetails()
-        {
-            
+        {            
         }
 
         protected virtual void OnAddStoredFile()
@@ -60,8 +68,41 @@
         {
         }
 
-        protected virtual void OnEmptyFields()
+        protected virtual void OnReadComplete(string dumpFilePath)
         {
+        }
+
+        protected override void Load()
+        {
+            base.Load();
+
+            IsFormEnabled = true;
+            ReadFromCardContent = Resources.TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD;
+
+            DriverCardReader = new DriverCardReader();
+            DriverCardReader.Completed += Completed;
+            IsReadFromCardEnabled = true;
+        }
+
+        private void OnReadFromCard(object obj)
+        {
+            ReadFromCardContent = Resources.TXT_READING;
+            IsReadFromCardEnabled = false;
+            DriverCardReader.GenerateDump();
+        }
+
+        private void Completed(object sender, DriverCardCompletedEventArgs e)
+        {
+            ReadFromCardContent = Resources.TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD;
+            IsReadFromCardEnabled = true;
+
+            if (!e.IsSuccess)
+            {
+                ShowError(Resources.TXT_UNABLE_READ_SMART_CARD);
+                return;
+            }
+
+            OnReadComplete(e.DumpFilePath);
         }
 
         private void OnEmptyFields(Grid grid)
@@ -85,7 +126,8 @@
                 inputDatePicker.Clear();
             }
 
-            OnEmptyFields();
+            IsFormEnabled = true;
+            IsReadFromCardEnabled = true;
         }
 
         private void OnAddStoredFile(Grid grid)
@@ -98,6 +140,7 @@
 
             OnAddStoredFile();
             SelectedStoredFile = null;
+            IsFormEnabled = true;
         }
 
         private void OnShowDetails(object obj)

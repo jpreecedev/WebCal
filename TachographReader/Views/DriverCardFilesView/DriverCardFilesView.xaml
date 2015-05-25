@@ -42,16 +42,28 @@
 
             <TextBlock Text="Add file"
                        Style="{StaticResource SubHeaderFont}" />
-           
+            <StackPanel Grid.Column="2"
+                        IsEnabled="{Binding IsReadFromCardEnabled}">
+                <Button Content="{Binding ReadFromCardContent}"
+                        Command="{Binding ReadFromCardCommand}"
+                        IsEnabled="{Binding IsReadFromCardEnabled}"
+                        Width="Auto"
+                        Height="35"
+                        Margin="0,3,0,0"
+                        HorizontalAlignment="Right" />
+            </StackPanel>
+
             <ctrls:InputTextField x:Name="FileInputField"
                                   IsMandatory="True"
                                   Label="File:"
-                                  Text="{core:InputBinding FilePath}"
+                                  Text="{core:InputBinding FilePath}"                                  
+                                  IsEnabled="{Binding IsFormEnabled}"
                                   Grid.Row="1" />
 
             <Button Content="{x:Static Properties:Resources.TXT_DRIVER_CARD_FILES_BROWSE}"
                     Command="{Binding BrowseCommand}"
                     CommandParameter="{Binding ElementName=FileInputField}"
+                    IsEnabled="{Binding IsFormEnabled}"
                     Grid.Row="1"
                     Grid.Column="2"
                     HorizontalAlignment="Left"
@@ -59,11 +71,13 @@
 
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_DRIVER_CARD_FILES_DRIVER}"
                                   Text="{core:InputBinding Driver}"
-                                  IsMandatory="True"
+                                  IsEnabled="{Binding IsFormEnabled}"
+                                  IsMandatory="False"
                                   Grid.Row="2" />
 
             <ctrls:InputDatePickerField SelectedDate="{core:InputBinding SelectedDate}" 
                                         Label="{x:Static Properties:Resources.TXT_DRIVER_CARD_FILES_DATE}"
+                                        IsEnabled="{Binding IsFormEnabled}"
                                         IsMandatory="True"
                                         Grid.Row="3" />
 
