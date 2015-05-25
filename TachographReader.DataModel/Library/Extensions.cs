@@ -26,7 +26,12 @@ namespace TachographReader.DataModel.Library
         {
             try
             {
-                return attribute.Value;
+                var value = attribute.Value;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value.Trim();
+                }
+                return value;
             }
             catch
             {
@@ -38,7 +43,12 @@ namespace TachographReader.DataModel.Library
         {
             try
             {
-                return element.Value;
+                var value = element.Value;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    value = value.Trim();
+                }
+                return value;
             }
             catch
             {
