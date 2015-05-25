@@ -26,17 +26,14 @@
             Current.Startup += Current_Startup;
         }
 
-        private void Current_Startup(object sender, StartupEventArgs e)
+        private async void Current_Startup(object sender, StartupEventArgs e)
         {
             var splashScreen = new SplashScreen(LocalizationHelper.GetResourceManager().GetString("TXT_SPLASH_SCREEN_PATH"));
             splashScreen.Show(false);
 
             CheckForUpdates();
 
-            if (!InitialiseApplication())
-            {
-                return;
-            }
+            await AsyncHelper.CallSync(InitialiseApplication);
 
             splashScreen.Close(new TimeSpan(0, 0, 0));
 

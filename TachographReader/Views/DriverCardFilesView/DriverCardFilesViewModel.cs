@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Linq;
     using Windows.CalibrationDetailsWindow;
     using Windows.DriverCardDetailsWindow;
     using Connect.Shared.Models;
@@ -19,7 +20,7 @@
 
         protected override void Load()
         {
-            StoredFiles.AddRange(DriverCardFilesRepository.GetAll("Customer"));
+            StoredFiles.AddRange(DriverCardFilesRepository.GetAll("Customer").OrderByDescending(c => c.Date));
         }
 
         protected override void InitialiseRepositories()
@@ -47,6 +48,10 @@
 
                 StoredFiles.Add(driverCardFile);
                 DriverCardFilesRepository.Add(driverCardFile);
+
+                Driver = null;
+                SelectedDate = DateTime.Now;
+                FilePath = null;
             }
             catch (Exception ex)
             {

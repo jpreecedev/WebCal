@@ -32,7 +32,7 @@
         {
             IsReadFromCardEnabled = true;
             IsFormEnabled = true;
-            StoredFiles.AddRange(WorkshopCardFilesRepository.GetAll());
+            StoredFiles.AddRange(WorkshopCardFilesRepository.GetAll().OrderByDescending(c => c.Date));
 
             DriverCardReader = new DriverCardReader();
             DriverCardReader.Completed += Completed;

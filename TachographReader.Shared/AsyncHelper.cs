@@ -10,13 +10,18 @@
 
     public static class AsyncHelper
     {
-        public static void CallAsync<TResult>(Func<TResult> beginCall, Action<TResult> endCall, Action<Exception> exceptionHandler, Action alwaysCall = null)
+        public static async Task CallSync<TResult>(Func<TResult> beginCall, Action<Exception> exceptionHandler = null, Action alwaysCall = null)
+        {
+            await CallAsync(beginCall, null, exceptionHandler, alwaysCall, true);
+        }
+
+        public static async Task CallAsync<TResult>(Func<TResult> beginCall, Action<TResult> endCall, Action<Exception> exceptionHandler, Action alwaysCall = null, bool synchronous = false)
         {
             try
             {
                 TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
 
-                Task.Factory.StartNew(() =>
+                var task = Task.Factory.StartNew(() =>
                 {
                     return beginCall();
                 })
@@ -49,6 +54,11 @@
                         }
                     }, DispatcherPriority.Normal);
                 });
+
+                if (synchronous)
+                {
+                    await task;
+                }
             }
             catch (Exception ex)
             {

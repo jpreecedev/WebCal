@@ -58,7 +58,7 @@
                     Margin="0,-5,0,0" />
 
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_DRIVER_CARD_FILES_DRIVER}"
-                                  Text="{core:InputBinding SelectedStoredFile.Driver}"
+                                  Text="{core:InputBinding Driver}"
                                   IsMandatory="True"
                                   Grid.Row="2" />
 
