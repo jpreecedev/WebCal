@@ -3,10 +3,7 @@
     using System;
     using System.IO;
     using System.Linq;
-    using System.Windows.Controls;
     using System.Xml.Linq;
-    using Windows.DriverCardDetailsWindow;
-    using Windows.ProgressWindow;
     using Windows.WorkshopCardDetailsWindow;
     using Core;
     using DataModel;
@@ -20,12 +17,12 @@
 
     public class WorkshopCardFilesViewModel : BaseFilesViewModel
     {
-        private ProgressWindow _progressWindow;
         public IRepository<WorkshopCardFile> WorkshopCardFilesRepository { get; set; }
         public string Workshop { get; set; }
         public bool IsReadFromCardEnabled { get; set; }
         public bool IsFormEnabled { get; set; }
-        public DelegateCommand<Grid> ReadFromCardCommand { get; set; }
+        public DelegateCommand<object> ReadFromCardCommand { get; set; }
+        public string ReadFromCardContent { get; set; }
         public IDriverCardReader DriverCardReader { get; set; }
 
         protected override void Load()
@@ -33,10 +30,10 @@
             IsReadFromCardEnabled = true;
             IsFormEnabled = true;
             StoredFiles.AddRange(WorkshopCardFilesRepository.GetAll().OrderByDescending(c => c.Date));
+            ReadFromCardContent = Resources.TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD;
 
             DriverCardReader = new DriverCardReader();
             DriverCardReader.Completed += Completed;
-            DriverCardReader.Progress += Progress;
         }
 
         protected override void InitialiseRepositories()
@@ -48,7 +45,7 @@
         {
             base.InitialiseCommands();
 
-            ReadFromCardCommand = new DelegateCommand<Grid>(OnReadFromCard);
+            ReadFromCardCommand = new DelegateCommand<object>(OnReadFromCard);
         }
 
         protected override void OnAddStoredFile()
@@ -100,27 +97,17 @@
             DriverCardReader.Dispose();
         }
 
-        private void OnReadFromCard(Grid root)
+        private void OnReadFromCard(object obj)
         {
-            if (root == null)
-            {
-                return;
-            }
-
+            ReadFromCardContent = Resources.TXT_READING;
+            IsReadFromCardEnabled = false;
             DriverCardReader.GenerateDump();
-
-            _progressWindow = new ProgressWindow();
-            _progressWindow.ShowDialog();
-        }
-
-        private void Progress(object sender, DriverCardProgressEventArgs e)
-        {
-            ((ProgressWindowViewModel) _progressWindow.DataContext).ProgressText = e.Message;
         }
 
         private void Completed(object sender, DriverCardCompletedEventArgs e)
         {
-            _progressWindow.Close();
+            ReadFromCardContent = Resources.TXT_WORKSHOP_CARD_FILES_READ_FROM_CARD;
+            IsReadFromCardEnabled = true;
 
             if (!e.IsSuccess)
             {
