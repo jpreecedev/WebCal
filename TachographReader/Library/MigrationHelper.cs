@@ -35,10 +35,9 @@
             }
         }
 
-        public static void MigrateIfRequired()
+        public static void MoveDatabaseIfRequired()
         {
             MigrateOldPath((string)AppDomain.CurrentDomain.GetData("DataDirectory"));
-            MigrateWorkshopImages();
         }
 
         public static void SetDatabasePermissions()
@@ -51,7 +50,7 @@
             }
         }
 
-        private static void MigrateWorkshopImages()
+        public static void MigrateWorkshopImages()
         {
             var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Webcal", "ContactImages");
             if (Directory.Exists(path))

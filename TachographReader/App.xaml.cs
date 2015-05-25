@@ -59,11 +59,13 @@
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative) });
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("pack://application:,,,/Fluent;Component/Themes/Generic.xaml") });
             
-            MigrationHelper.MigrateIfRequired();
+            MigrationHelper.MoveDatabaseIfRequired();
             MigrationHelper.HackMigrationHistoryTable();
 
             //Prepare database
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<TachographContext, Configuration>());
+
+            MigrationHelper.MigrateWorkshopImages();
 
             TachographContext context = new TachographContext();
             context.Database.CreateIfNotExists();
