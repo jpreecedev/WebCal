@@ -2023,6 +2023,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable syncing data to Webcal Connect?.
+        /// </summary>
+        public static string TXT_ENABLE_SYNCING_DATA_TO_WEBCAL {
+            get {
+                return ResourceManager.GetString("TXT_ENABLE_SYNCING_DATA_TO_WEBCAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter the technician number.
         /// </summary>
         public static string TXT_ENTER_TECHNICIAN_NUMBER {

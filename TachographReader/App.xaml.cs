@@ -3,11 +3,14 @@
     using System;
     using System.Data.Entity;
     using System.Diagnostics;
+    using System.Globalization;
     using System.IO;
+    using System.Threading;
     using System.Windows;
     using System.Windows.Threading;
     using Windows;
     using Windows.LogInWindow;
+    using Core;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
@@ -28,6 +31,14 @@
 
         private async void Current_Startup(object sender, StartupEventArgs e)
         {
+            var startupArguments = new StartupArguments();
+            startupArguments.Parse(e.Args);
+
+            if (!string.IsNullOrEmpty(startupArguments.Culture))
+            {
+                Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new CultureInfo(startupArguments.Culture);
+            }
+
             var splashScreen = new SplashScreen(LocalizationHelper.GetResourceManager().GetString("TXT_SPLASH_SCREEN_PATH"));
             splashScreen.Show(false);
 

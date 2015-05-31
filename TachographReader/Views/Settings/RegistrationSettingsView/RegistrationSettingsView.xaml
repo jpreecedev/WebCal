@@ -47,7 +47,7 @@
 
             <ContentPresenter Content="{Binding WebcalConnectField}" />
 
-            <CheckBox Content="Enable syncing data to Webcal Connect?"
+            <CheckBox Content="{x:Static Properties:Resources.TXT_ENABLE_SYNCING_DATA_TO_WEBCAL}"
                       IsChecked="{Binding Settings.IsConnectEnabled}"
                       Margin="0,10,0,10" />
 

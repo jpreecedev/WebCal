@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DOCUMENT Type="Advanced Installer" CreateVersion="11.4.1" version="12.0" Modules="professional" RootPath="." Language="en_GB" Id="{44D9532E-0E25-44B4-A4BA-7A112E3A07F0}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
-    <ROW Name="HiddenItems" Value="ActSyncAppComponent;BackgroundImagesComponent;DictionaryComponent"/>
+    <ROW Name="HiddenItems" Value="ActSyncAppComponent;BackgroundImagesComponent"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_BackgroundColor" Value="lightblue" MultiBuildValue="DefaultBuild:powderblue" MsiKey="AI_BackgroundColor"/>
     <ROW Property="AI_EXTERNALUIUNINSTALLERNAME" MultiBuildValue="DefaultBuild:aiui"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
     <ROW Property="AI_FrameBtnsColor" Value="powderblue" MultiBuildValue="DefaultBuild:mediumorchid" MsiKey="AI_FrameBtnsColor"/>
     <ROW Property="AI_FrameColor" Value="powderblue" MultiBuildValue="DefaultBuild:deepskyblue" MsiKey="AI_FrameColor"/>
     <ROW Property="AI_PRODUCTNAME_ARP" Value="[|ProductName]"/>
@@ -14,20 +15,20 @@
     <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
     <ROW Property="ALLUSERS" Value="1" MultiBuildValue="DefaultBuild:2"/>
     <ROW Property="ARPCOMMENTS" Value="[|ProductName] installer" ValueLocId="*"/>
-    <ROW Property="ARPPRODUCTICON" Value="WebcalIcon.exe" Type="8"/>
+    <ROW Property="ARPPRODUCTICON" Value="RoadSoftIcon.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
-    <ROW Property="ARPURLUPDATEINFO" Value="http://www.webcalconnect.com/software/webcal-fast-updates.txt"/>
+    <ROW Property="ARPURLUPDATEINFO" Value="http://www.webcalconnect.com/software/roadsoft-fast-updates.txt"/>
     <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="AiSkipExitDlg" Value="1"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:6"/>
-    <ROW Property="Manufacturer" Value="Skillray Transport Services Ltd"/>
-    <ROW Property="ProductCode" Value="2057:{FA406AEC-F05C-4C9B-95D5-8C0DEE6D7248} " Type="16"/>
+    <ROW Property="Manufacturer" Value="RoadSoft Transport Services Ltd"/>
+    <ROW Property="ProductCode" Value="1049:{428E5351-129D-4CC7-84AF-8A99FC30E33B} 2057:{FA406AEC-F05C-4C9B-95D5-8C0DEE6D7248} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
-    <ROW Property="ProductName" Value="Webcal"/>
+    <ROW Property="ProductName" Value="RoadSoft Webcal"/>
     <ROW Property="ProductVersion" Value="2.2.17.0" Type="32"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
-    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;UPGRADE_2"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;UPGRADE_2;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{F9EC440C-AFF5-45B7-905E-77CC783AF1F3}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -62,6 +63,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" ComponentId="{23848CA7-78BB-4B1C-B6EB-911BD5844CB3}" Directory_="APPDIR" Attributes="4" KeyPath="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Options="2"/>
     <ROW Component="AI_CustomARPName" ComponentId="{22EA15B7-4C51-4A52-96FF-F877553BCA16}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_ExePath" ComponentId="{30DFC68A-BF9D-4A41-9C42-13061932F927}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
     <ROW Component="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" ComponentId="{941C311D-80E4-4039-B6A4-31AEB93D9BBC}" Directory_="APPDIR" Attributes="4" KeyPath="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Options="2"/>
     <ROW Component="BackupRestoreUtility.exe" ComponentId="{57253D9C-CF1E-464E-A334-6F173A02424C}" Directory_="APPDIR" Attributes="0" KeyPath="BackupRestoreUtility.exe"/>
     <ROW Component="BackupRestoreUtility.exe.config" ComponentId="{20CC0CDA-D3A8-4ADE-856B-D04AEDEED402}" Directory_="APPDIR" Attributes="0" KeyPath="BackupRestoreUtility.exe.config" Type="0"/>
@@ -79,7 +81,7 @@
     <ROW Component="Microsoft.VC90.CRT.manifest_1" ComponentId="{4AB1414B-13BE-4B75-8BF7-24E6460E0FB7}" Directory_="Microsoft.VC90.CRT_1_Dir" Attributes="0" KeyPath="Microsoft.VC90.CRT.manifest_1" Type="0"/>
     <ROW Component="Newtonsoft.Json.dll" ComponentId="{5BBB2F9D-09B5-49E2-AD33-0420535CC877}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
     <ROW Component="ProductInformation" ComponentId="{E0C2FD5E-72F5-4CF2-B473-5E06A78A1DF0}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="SHORTCUTDIR" ComponentId="{8BC2CA61-C2D6-4BA7-BCB6-55A2C0211B0C}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{6413DF64-4A99-4EE1-8187-0BD712977A1A}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="SmartCardReader.jar" ComponentId="{4E34172A-7850-42BA-914B-1567C7C05331}" Directory_="Resources_Dir" Attributes="0" KeyPath="SmartCardReader.jar" Type="0"/>
     <ROW Component="System.Data.SqlServerCe.dll" ComponentId="{CFC4579C-5BDA-4EB4-A2CF-ADE1E98D8041}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SqlServerCe.dll"/>
     <ROW Component="System.Windows.Controls.Input.Toolkit.dl" ComponentId="{76B76D70-B720-4385-812B-53166F872FF8}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Controls.Input.Toolkit.dll"/>
@@ -132,7 +134,7 @@
     <ROW Feature="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Title="SQL Server Compact 4.0 x64" Description="SQL Server Compact 4.0 x64" Display="7" Level="1" Attributes="0" Components="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF AI_CustomARPName"/>
     <ROW Feature="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Title="SQL Server Compact 4.0 x86" Description="SQL Server Compact 4.0 x86" Display="9" Level="1" Attributes="0" Components="AI_CustomARPName B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
     <ROW Feature="B7F3EF2947194DBBA24570C9D8F78D96" Title="SQL Server Compact 4.0 SP1 x86" Description="SQL Server Compact 4.0 SP1 x86" Display="3" Level="1" Attributes="16" Components="AI_CustomARPName"/>
-    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName BackupRestoreUtility.exe BackupRestoreUtility.exe.config Connect.Shared.dll DDDFileReader.dll EntityFramework.SqlServer.dll EntityFramework.SqlServerCompact.dll EntityFramework.dll Fluent.dll Hardcodet.Wpf.TaskbarNotification.dll Microsoft.Practices.Unity.Configuration. Microsoft.Practices.Unity.RegistrationBy Microsoft.Practices.Unity.dll Microsoft.VC90.CRT.manifest Microsoft.VC90.CRT.manifest_1 Newtonsoft.Json.dll ProductInformation SHORTCUTDIR SmartCardReader.jar System.Data.SqlServerCe.dll System.Windows.Controls.Input.Toolkit.dl System.Windows.Controls.Layout.Toolkit.d System.Windows.Interactivity.dll TachographReader.ConnectClient.dll TachographReader.DataModel.dll TachographReader.DataModel.resources.dll TachographReader.Imaging.dll TachographReader.Shared.dll TachographReader.Shared.resources.dll TachographReader.exe TachographReader.resources.dll WPFToolkit.dll Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.AvalonDock.resources.dll Xceed.Wpf.AvalonDock.resources.dll_1 Xceed.Wpf.AvalonDock.resources.dll_2 Xceed.Wpf.AvalonDock.resources.dll_3 Xceed.Wpf.AvalonDock.resources.dll_4 Xceed.Wpf.AvalonDock.resources.dll_5 Xceed.Wpf.AvalonDock.resources.dll_6 Xceed.Wpf.AvalonDock.resources.dll_7 Xceed.Wpf.AvalonDock.resources.dll_8 Xceed.Wpf.AvalonDock.resources.dll_9 Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll itextsharp.dll msvcr90.dll msvcr90.dll_1 pcscsharp.dll sqlceca40.dll sqlceca40.dll_1 sqlcecompact40.dll sqlcecompact40.dll_1 sqlceer40EN.dll sqlceer40EN.dll_1 sqlceme40.dll sqlceme40.dll_1 sqlceqp40.dll sqlceqp40.dll_1 sqlcese40.dll sqlcese40.dll_1 updater.exe"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_ExePath BackupRestoreUtility.exe BackupRestoreUtility.exe.config Connect.Shared.dll DDDFileReader.dll EntityFramework.SqlServer.dll EntityFramework.SqlServerCompact.dll EntityFramework.dll Fluent.dll Hardcodet.Wpf.TaskbarNotification.dll Microsoft.Practices.Unity.Configuration. Microsoft.Practices.Unity.RegistrationBy Microsoft.Practices.Unity.dll Microsoft.VC90.CRT.manifest Microsoft.VC90.CRT.manifest_1 Newtonsoft.Json.dll ProductInformation SHORTCUTDIR SmartCardReader.jar System.Data.SqlServerCe.dll System.Windows.Controls.Input.Toolkit.dl System.Windows.Controls.Layout.Toolkit.d System.Windows.Interactivity.dll TachographReader.ConnectClient.dll TachographReader.DataModel.dll TachographReader.DataModel.resources.dll TachographReader.Imaging.dll TachographReader.Shared.dll TachographReader.Shared.resources.dll TachographReader.exe TachographReader.resources.dll WPFToolkit.dll Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.AvalonDock.resources.dll Xceed.Wpf.AvalonDock.resources.dll_1 Xceed.Wpf.AvalonDock.resources.dll_2 Xceed.Wpf.AvalonDock.resources.dll_3 Xceed.Wpf.AvalonDock.resources.dll_4 Xceed.Wpf.AvalonDock.resources.dll_5 Xceed.Wpf.AvalonDock.resources.dll_6 Xceed.Wpf.AvalonDock.resources.dll_7 Xceed.Wpf.AvalonDock.resources.dll_8 Xceed.Wpf.AvalonDock.resources.dll_9 Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll itextsharp.dll msvcr90.dll msvcr90.dll_1 pcscsharp.dll sqlceca40.dll sqlceca40.dll_1 sqlcecompact40.dll sqlcecompact40.dll_1 sqlceer40EN.dll sqlceer40EN.dll_1 sqlceme40.dll sqlceme40.dll_1 sqlceqp40.dll sqlceqp40.dll_1 sqlcese40.dll sqlcese40.dll_1 updater.exe"/>
     <ROW Feature="Microsoft.NETFrame" Title="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" Description="Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)" Display="5" Level="1" Attributes="16" Components="AI_CustomARPName"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
@@ -207,13 +209,14 @@
     <ROW BootstrOptKey="GlobalOptions" GeneralOptions="bh" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" EulaPathLocId="*" IntroTextPathLocId="*"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\..\Users\Jon\Desktop" PackageFileName="webcal-fast" Languages="en_GB" InstallationType="4" ExtUI="true" UseLargeSchema="true" UACExecutionLevel="2"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\..\Users\Jon\Desktop" PackageFileName="roadsoft-webcal-fast" Languages="en_GB;ru" LangOpt="1" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="Resources\RoadSoft Icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" UACExecutionLevel="2"/>
     <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
     <ROW Path="&lt;AI_DICTS&gt;ui_en_GB.ail"/>
     <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_ru.ail"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
     <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
@@ -229,17 +232,25 @@
     <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\WelcomeDlg.aip"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
     <ROW Action="AI_DownloadPrereq" Description="Downloading prerequisite software" Template="Downloading [1]{[2] completed}" DescriptionLocId="ActionText.Description.AI_DownloadPrereq" TemplateLocId="ActionText.Template.AI_DownloadPrereq"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
     <ROW Action="AI_ExtractPrereq" Description="Extracting prerequisite software" Template="Extracting [1]{[2] completed}" DescriptionLocId="ActionText.Description.AI_ExtractPrereq" TemplateLocId="ActionText.Template.AI_ExtractPrereq"/>
     <ROW Action="AI_InstallPostPrerequisite" Description="Installing prerequisite software" Template="Installing [1]{[2] completed}" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
     <ROW Action="AI_InstallPrerequisite" Description="Installing prerequisite software" Template="Installing [1]{[2] completed}" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
     <ROW Action="AI_VerifyPrereq" Description="Verifying prerequisites" Template="[1] was not installed correctly." DescriptionLocId="ActionText.Description.AI_VerifyPrereq" TemplateLocId="ActionText.Template.AI_VerifyPrereq"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
-    <ROW Name="ShortcutFlags.dll" SourcePath="&lt;AI_CUSTACTS&gt;ShortcutFlags.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
     <ROW Dialog_="WelcomeDlg" Control="WelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
@@ -281,14 +292,23 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
-    <ROW Action="AI_ApplyShortcutFlags" Type="3073" Source="ShortcutFlags.dll" Target="UpdateShortcutFlags" WithoutSeq="true"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_CleanPrereq" Type="65" Source="Prereq.dll" Target="CleanPrereq" WithoutSeq="true"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
     <ROW Action="AI_DoRemoveExternalUIStub" Type="3585" Source="ExternalUICleaner.dll" Target="DoRemoveExternalUIStub" WithoutSeq="true"/>
     <ROW Action="AI_DownloadPrereq" Type="1" Source="Prereq.dll" Target="DownloadPrereq"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EstimateExtractFiles" Type="1" Source="Prereq.dll" Target="EstimateExtractFiles"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
     <ROW Action="AI_ExtractPrereq" Type="65" Source="Prereq.dll" Target="ExtractPrereq"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
     <ROW Action="AI_FinishActions" Type="1" Source="aicustact.dll" Target="RunAllExitActions"/>
     <ROW Action="AI_GetArpIconPath" Type="1" Source="aicustact.dll" Target="GetArpIconPath"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
@@ -296,9 +316,6 @@
     <ROW Action="AI_InstallPrerequisite" Type="65" Source="Prereq.dll" Target="InstallPrereq"/>
     <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#TachographReader.exe]"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
-    <ROW Action="AI_PinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="PinShortcuts"/>
-    <ROW Action="AI_PinToTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="PinToTaskbar" WithoutSeq="true"/>
-    <ROW Action="AI_PrepareShortcutFlags" Type="1" Source="ShortcutFlags.dll" Target="PrepareActionData"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_RemoveExternalUIStub" Type="1" Source="ExternalUICleaner.dll" Target="RemoveExternalUIStub"/>
@@ -308,15 +325,13 @@
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Type="82" Source="updater.exe" Target="/clean silent"/>
-    <ROW Action="AI_UnpinFromTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="UnpinFromTaskbar" WithoutSeq="true"/>
-    <ROW Action="AI_UnpinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="UnpinShortcuts"/>
     <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_UserProgramFiles][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
-    <ROW Name="WebcalIcon.exe" SourcePath="Resources\Webcal Icon.ico" Index="0"/>
+    <ROW Name="RoadSoftIcon.exe" SourcePath="Resources\RoadSoft Icon.ico" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
     <ROW IniFile="AppDir" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="AppDir" Value="[APPDIR]" Action="0" Component_="updater.exe"/>
@@ -328,7 +343,7 @@
     <ROW IniFile="DownloadsFolder" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DownloadsFolder" Value="[CommonAppDataFolder][Manufacturer]\[ProductName]\updates\" Action="0" Component_="updater.exe"/>
     <ROW IniFile="Flags" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="Flags" Value="NoDisableAutoCheck|PerMachine" Action="0" Component_="updater.exe"/>
     <ROW IniFile="ID" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ID" Value="[UpgradeCode]" Action="0" Component_="updater.exe"/>
-    <ROW IniFile="URL" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="URL" Value="http://www.webcalconnect.com/software/webcal-fast-updates.txt" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="URL" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="URL" Value="http://www.webcalconnect.com/software/roadsoft-fast-updates.txt" Action="0" Component_="updater.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
@@ -337,15 +352,24 @@
     <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1502"/>
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="51"/>
-    <ROW Action="AI_AppSearchEx" Sequence="101"/>
+    <ROW Action="AI_AppSearchEx" Sequence="102"/>
     <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
     <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
     <ROW Action="AI_SETMIXINSTLOCATION" Sequence="747"/>
     <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Condition="($updater.exe = 2) AND (?updater.exe = 3) AND NOT (UPGRADINGPRODUCTCODE)" Sequence="1551"/>
-    <ROW Action="AI_PrepareShortcutFlags" Condition="(VersionNT &gt; 501) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="4501"/>
-    <ROW Action="AI_PinShortcuts" Condition="(VersionNT &gt; 600) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="4502"/>
-    <ROW Action="AI_UnpinShortcuts" Condition="(VersionNT &gt; 600) AND (REMOVE = &quot;ALL&quot;)" Sequence="3199"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6595" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
+    <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="ExecuteAction" Sequence="1296" SeqType="0" MsiKey="ExecuteAction"/>
@@ -366,10 +390,16 @@
     <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &gt;= 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &lt;&gt; 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &lt;&gt; 2)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &gt;= 1)))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &lt;&gt; 1)))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &lt;&gt; 2)))) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT64Display]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &gt;= 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 2))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 3))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 4))) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &gt;= 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 2))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 3))) OR VersionNT64) AND (((VersionNT &lt;&gt; 502) OR ((VersionNT = 502) AND (ServicePackLevel &gt;= 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 502) OR ((VersionNT = 502) AND (ServicePackLevel &lt;&gt; 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 502) OR ((VersionNT = 502) AND (ServicePackLevel &lt;&gt; 2))) OR VersionNT64) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT40Display]" DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]" DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
     <ROW Registry="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Value="1" Component_="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
     <ROW Registry="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Value="1" Component_="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
     <ROW Registry="Comments" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Comments" Value="[ARPCOMMENTS]" Component_="AI_CustomARPName"/>
     <ROW Registry="Contact" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Contact" Value="[ARPCONTACT]" Component_="AI_CustomARPName"/>
@@ -390,8 +420,8 @@
     <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#1" Component_="AI_CustomARPName"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="Webcal" Directory_="DesktopFolder" Name="Webcal" Component_="TachographReader.exe" Target="[#TachographReader.exe]" Hotkey="0" Icon_="WebcalIcon.exe" IconIndex="0" ShowCmd="1" WkDir="DesktopFolder" CustomFlags="1"/>
-    <ROW Shortcut="Webcal_1" Directory_="SHORTCUTDIR" Name="Webcal" Component_="TachographReader.exe" Target="[#TachographReader.exe]" Hotkey="0" Icon_="WebcalIcon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR" CustomFlags="1"/>
+    <ROW Shortcut="RoadSoftWebcal" Directory_="SHORTCUTDIR" Name="ROADSO~1|RoadSoft Webcal" Component_="TachographReader.exe" Target="[#TachographReader.exe]" Arguments="/Culture:ru" Hotkey="0" Icon_="RoadSoftIcon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="Webcal" Directory_="DesktopFolder" Name="ROADSO~1|RoadSoft Webcal" Component_="TachographReader.exe" Target="[#TachographReader.exe]" Arguments="/Culture:ru" Hotkey="0" Icon_="RoadSoftIcon.exe" IconIndex="0" ShowCmd="1" WkDir="DesktopFolder"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="azure"/>
@@ -402,8 +432,8 @@
     <ROW UpgradeCode="{2CB42CF5-059B-447C-B583-C854FFB376C8}" VersionMax="2.0.8.0" Language="2057" Attributes="517" ActionProperty="UPGRADE_2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
-    <ROW PrereqKey="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" DisplayName="SQL Server Compact 4.0 x64" VersionMin="4.0" SetupFileUrl="http://www.webcalconnect.com/software/SSCERuntime_x64-ENU.exe" Location="1" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86" Operator="1" Options="x" TargetName="SQL Server Compact 4.0" Type="1" Feature="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
-    <ROW PrereqKey="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" DisplayName="SQL Server Compact 4.0 x86" VersionMin="4.0" SetupFileUrl="http://www.webcalconnect.com/software/SSCERuntime_x86-ENU.exe" Location="1" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64" Operator="1" TargetName="SQL Server Compact 4.0" Type="1" Feature="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
+    <ROW PrereqKey="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" DisplayName="SQL Server Compact 4.0 x64" VersionMin="4.0" SetupFileUrl="http://www.webcalconnect.com/software/SSCERuntime_x64-RUS.exe" Location="1" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86" Operator="1" Options="x" TargetName="SQL Server Compact 4.0" Type="1" Feature="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
+    <ROW PrereqKey="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" DisplayName="SQL Server Compact 4.0 x86" VersionMin="4.0" SetupFileUrl="http://www.webcalconnect.com/software/SSCERuntime_x86-RUS.exe" Location="1" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64" Operator="1" TargetName="SQL Server Compact 4.0" Type="1" Feature="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
     <ROW PrereqKey="C673FE9433B49AFAC9592AB26B8F8E4" DisplayName=".NET Framework 4.0" SetupFileUrl="http://www.webcalconnect.com/software/dotNetFx40_Full_x86_x64.exe" Location="1" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows Server 2003 x86, Windows 8 x86, Windows 8.1 x86" WinNT64Versions="Windows XP x64, Windows Server 2003 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" Operator="1" ComLine="/q" BasicUiComLine="/q" NoUiComLine="/q" Options="x" TargetName=".NET Framework 4.0"/>
     <ROW PrereqKey="EE84CE1C98744810AB435A53A3737024" DisplayName="Java SE Runtime Environment 7u55 x86" VersionMin="1.7" SetupFileUrl="http://www.webcalconnect.com/software/jre-7u55-windows-i586.exe" Location="1" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4" Operator="0" ComLine="/s" BasicUiComLine="/s" NoUiComLine="/s" Options="m"/>
     <ROW PrereqKey="FB44691010D74C6D89B33E019630EAF6" DisplayName=".NET Framework 4.5" SetupFileUrl="http://www.webcalconnect.com/software/dotnetfx45_full_x86_x64.exe" Location="1" ExactSize="0" WinNTVersions="Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows XP x86 Service Pack 2, Windows XP x86 Service Pack 3, Windows Server 2003 x86, Windows Server 2003 x86 Service Pack 1, Windows Server 2003 x86 Service Pack 2, Windows 8 x86, Windows 8.1 x86" WinNT64Versions="Windows XP x64, Windows XP x64 Service Pack 1, Windows XP x64 Service Pack 2, Windows Server 2003 x64, Windows Server 2003 x64 Service Pack 1, Windows Server 2003 x64 Service Pack 2, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" Operator="1" ComLine="/q" BasicUiComLine="/q" NoUiComLine="/q" Options="xm" TargetName=".NET Framework 4.5"/>

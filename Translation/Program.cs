@@ -99,7 +99,7 @@
                 var name = split[0];
                 var translation = string.Empty;
 
-                if (split.Length == 3 && !string.IsNullOrEmpty(split[2]))
+                if (split.Length >= 3 && !string.IsNullOrEmpty(split[2]))
                 {
                     translation = split[2];
                     sb.AppendFormat("<data name=\"{0}\" xml:space=\"preserve\"><value>{1}</value></data>", name, translation);

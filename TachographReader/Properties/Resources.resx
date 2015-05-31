@@ -2491,4 +2491,7 @@ date
   <data name="ERR_PASSWORD_CANNOT_BE_RESET" xml:space="preserve">
     <value>Your password cannot be reset.</value>
   </data>
+  <data name="TXT_ENABLE_SYNCING_DATA_TO_WEBCAL" xml:space="preserve">
+    <value>Enable syncing data to Webcal Connect?</value>
+  </data>
 </root>

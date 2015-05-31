@@ -118,93 +118,96 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TXT_GOODS_VEHICLE" xml:space="preserve">
-    <value>G - грузовой автомобиль</value>
-  </data>
+		<value>G - грузовой автомобиль</value>
+	</data>
   <data name="TXT_PASSENGER_VEHICLE" xml:space="preserve">
-    <value>P - пассажирский автомобиль</value>
-  </data>
+		<value>P - пассажирский автомобиль</value>
+	</data>
   <data name="TXT_INSTALLATION_CALIBRATION" xml:space="preserve">
-    <value>I - Установка / начальная калибровка</value>
-  </data>
+		<value>I - Установка / начальная калибровка</value>
+	</data>
   <data name="TXT_MINOR_WORK_DETAILS" xml:space="preserve">
-    <value>M - Малой Работа</value>
-  </data>
+		<value>M - Малой Работа</value>
+	</data>
   <data name="TXT_RECALIBRATION" xml:space="preserve">
-    <value>R - Межповерочный</value>
-  </data>
+		<value>R - Межповерочный</value>
+	</data>
   <data name="TXT_TWO_YEAR_INSPECTION" xml:space="preserve">
-    <value>2 - 2 год осмотр</value>
-  </data>
+		<value>2 - 2 год осмотр</value>
+	</data>
   <data name="TXT_SIX_YEAR_CALIBRATION" xml:space="preserve">
-    <value>6 - 6 год калибровка</value>
-  </data>
+		<value>6 - 6 год калибровка</value>
+	</data>
   <data name="TXT_DIGITAL_INITIAL_CALIBRATION" xml:space="preserve">
-    <value>3 - Цифровая изначальная калибровка</value>
-  </data>
+		<value>3 - Цифровая изначальная калибровка</value>
+	</data>
   <data name="TXT_DIGITAL_TWO_YEAR_CALIBRATION" xml:space="preserve">
-    <value>4 - Цифровая 2 годовая калибровка</value>
-  </data>
+		<value>4 - Цифровая 2 годовая калибровка</value>
+	</data>
   <data name="EXC_UNABLE_SAVE_CHANGES" xml:space="preserve">
-    <value>Невозможно , чтобы сохранить изменения . Некоторые данные могут быть потеряны .</value>
-  </data>
+		<value>Невозможно , чтобы сохранить изменения . Некоторые данные могут быть потеряны .</value>
+	</data>
   <data name="TXT_ERROR" xml:space="preserve">
-    <value>Ошибка</value>
-  </data>
+		<value>Ошибка</value>
+	</data>
   <data name="EXC_UNABLE_TO_FULL_READ_SMART_CARD" xml:space="preserve">
-    <value>Произошла ошибка во время чтения карты. Некоторые данные могут быть утеряны или ошибочным.</value>
-  </data>
+		<value>Произошла ошибка во время чтения карты. Некоторые данные могут быть утеряны или ошибочным.</value>
+	</data>
   <data name="EXC_UNABLE_TO_COMPLETE_REQUEST" xml:space="preserve">
-    <value>Не удалось выполнить запрос к базе данных.
-
-{0}</value>
-  </data>
+		<value>Не удалось выполнить запрос к базе данных. {0}</value>
+	</data>
   <data name="ERR_DAY_OF_WEEK_NOT_RECOGNISED" xml:space="preserve">
-    <value>День недели не признается</value>
-  </data>
+		<value>День недели не распознается</value>
+	</data>
   <data name="TXT_NO_PATH_SPECIFIED" xml:space="preserve">
-    <value>( Путь не указан)</value>
-  </data>
+		<value>( Путь не указан)</value>
+	</data>
   <data name="ERR_UNABLE_DISCARD_CHANGES" xml:space="preserve">
-    <value>Невозможно , чтобы отменить изменения</value>
-  </data>
+		<value>Невозможно , чтобы отменить изменения</value>
+	</data>
   <data name="EXC_DOCUMENT_TYPE_NOT_RECOGNISED" xml:space="preserve">
-    <value>Данный тип документа не был признан</value>
-  </data>
+		<value>Данный тип документа не был признан</value>
+	</data>
   <data name="ERR_APPLICATION_CANNOT_CONTINUE" xml:space="preserve">
-    <value>Что произошла ошибка иприложение не может продолжать</value>
-  </data>
+		<value>Произошла ошибка и приложение не может продолжать</value>
+	</data>
   <data name="EXC_UNLOGGABLE_EXCEPTION" xml:space="preserve">
-    <value>Невозможно выполнить это действие . Ошибка не может быть зарегистрирован в базе данных.
-
-{0}</value>
-  </data>
+		<value>Невозможно выполнить это действие . Ошибка не может быть зарегистрирован в базе данных. {0}</value>
+	</data>
   <data name="EXC_USER_REPOSITORY_IS_REQUIRED" xml:space="preserve">
-    <value>Хранилище пользователя , необходимые для создания супер аккаунт.</value>
-  </data>
-  <data name="TXT_MONDAY" xml:space="preserve">
-    <value>Понедельник</value>
-  </data>
-  <data name="TXT_TUESDAY" xml:space="preserve">
-    <value>Вторник</value>
-  </data>
-  <data name="TXT_WEDNESDAY" xml:space="preserve">
-    <value>Среда</value>
-  </data>
-  <data name="TXT_THURSDAY" xml:space="preserve">
-    <value>Четверг</value>
-  </data>
+		<value>Хранилище пользователя , необходимые для создания супер аккаунт.</value>
+	</data>
+  <data name="TXT_ACTIVITY_MODE_CHANGE" xml:space="preserve">
+		<value>Изменить Activity Mode</value>
+	</data>
+  <data name="TXT_SEED_SKILLRAY" xml:space="preserve">
+		<value>RoadSoft</value>
+	</data>
   <data name="TXT_FRIDAY" xml:space="preserve">
-    <value>Пятница</value>
-  </data>
+		<value>Пятница</value>
+	</data>
+  <data name="TXT_MONDAY" xml:space="preserve">
+		<value>Понедельник</value>
+	</data>
   <data name="TXT_SATURDAY" xml:space="preserve">
-    <value>Суббота</value>
-  </data>
+		<value>Суббота</value>
+	</data>
   <data name="TXT_SUNDAY" xml:space="preserve">
-    <value>Воскресенье</value>
-  </data>
+		<value>Воскресенье</value>
+	</data>
+  <data name="TXT_THURSDAY" xml:space="preserve">
+		<value>Четверг</value>
+	</data>
+  <data name="TXT_TUESDAY" xml:space="preserve">
+		<value>Вторник</value>
+	</data>
+  <data name="TXT_WEDNESDAY" xml:space="preserve">
+		<value>Среда</value>
+	</data>
   <data name="TXT_TECHNICIAN_DEFAULT" xml:space="preserve">
-    <value>{0} (По умолчанию )</value>
-  </data>
-  <data name="TXT_OK" xml:space="preserve"><value>хорошо</value></data>
-  <data name="TXT_CANCEL" xml:space="preserve"><value>отменить</value></data>
+		<value>{0} (По умолчанию )</value>
+	</data>
+  <data name="TXT_CANCEL" xml:space="preserve">
+		<value>Отмена</value>
+	</data>
 </root>

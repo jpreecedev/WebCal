@@ -632,7 +632,7 @@ namespace TachographReader.Shared.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Preparing to print.
+        ///   Looks up a localized string similar to Preparing to print....
         /// </summary>
         public static string TXT_PREPARING_TO_PRINT {
             get {

@@ -352,9 +352,6 @@
   <data name="ERR_UNABLE_FIND_SUITABLE_PDF_EXECUTABLE_PATH" xml:space="preserve">
     <value>Unable to find suitable PDF executable path</value>
   </data>
-  <data name="TXT_PREPARING_TO_PRINT" xml:space="preserve">
-    <value>Preparing to print</value>
-  </data>
   <data name="TXT_PRINT_COMPLETE" xml:space="preserve">
     <value>Print complete, tidying up.</value>
   </data>
