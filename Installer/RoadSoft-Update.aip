@@ -16,6 +16,17 @@
     <ROW Section="2.2.17.0" Key="FilePath" Value="[APPDIR]TachographReader.exe"/>
     <ROW Section="2.2.17.0" Key="Version" Value="2.2.17.0"/>
     <ROW Section="2.2.17.0" Key="AutoCloseApplication" Value="[APPDIR]TachographReader.exe|/Culture:ru"/>
+    <ROW Section="2.2.18.0" Key="Name" Value="Webcal"/>
+    <ROW Section="2.2.18.0" Key="ProductVersion" Value="2.2.18.0"/>
+    <ROW Section="2.2.18.0" Key="URL" Value="https://www.webcalconnect.com/software/roadsoft-webcal.exe"/>
+    <ROW Section="2.2.18.0" Key="Size" Value="..\..\..\Users\Jon\Desktop\roadsoft-webcal.exe"/>
+    <ROW Section="2.2.18.0" Key="ReleaseDate" Value="18070"/>
+    <ROW Section="2.2.18.0" Key="MD5" Value="..\..\..\Users\Jon\Desktop\roadsoft-webcal.exe"/>
+    <ROW Section="2.2.18.0" Key="ServerFileName" Value="roadsoft-webcal.exe"/>
+    <ROW Section="2.2.18.0" Key="Flags" Value="Critical|NoCache"/>
+    <ROW Section="2.2.18.0" Key="FilePath" Value="[APPDIR]TachographReader.exe"/>
+    <ROW Section="2.2.18.0" Key="Version" Value="2.2.18.0"/>
+    <ROW Section="2.2.18.0" Key="AutoCloseApplication" Value="[APPDIR]TachographReader.exe|/Culture:ru"/>
     <ATTRIBUTE name="OutputFileName" value="roadsoft-updates.txt"/>
     <ATTRIBUTE name="OutputFolder" value="..\..\..\Users\Jon\Desktop"/>
   </COMPONENT>
