@@ -23,10 +23,10 @@
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:6"/>
     <ROW Property="Manufacturer" Value="RoadSoft Transport Services Ltd"/>
-    <ROW Property="ProductCode" Value="1049:{B778B05E-F1C9-4305-A0D2-46D80B8B4C71} 2057:{F04EFDC1-2F84-47C7-B9DD-905091FBEF7C} " Type="16"/>
+    <ROW Property="ProductCode" Value="1049:{2E36CA32-3B60-4447-B5CC-A2659BC0B18B} 2057:{C1DBE6F1-A2EE-46B2-8679-413CD60485CD} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
     <ROW Property="ProductName" Value="RoadSoft Webcal"/>
-    <ROW Property="ProductVersion" Value="2.2.18.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="2.2.19.0" Type="32"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;UPGRADE_2;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{F9EC440C-AFF5-45B7-905E-77CC783AF1F3}"/>
