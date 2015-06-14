@@ -1387,6 +1387,9 @@ date
   <data name="TXT_PRINTER_SETTINGS_ALWAYS_USE" xml:space="preserve">
     <value>Use this printer always:</value>
   </data>
+  <data name="TXT_PRINTER_SETTINGS_DEFAULT_FONT" xml:space="preserve">
+    <value>Default font:</value>
+  </data>
   <data name="TXT_PRINTER_SETTINGS_DEFAULT_NUMBER" xml:space="preserve">
     <value>Default number of copies:</value>
   </data>

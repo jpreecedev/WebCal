@@ -28,6 +28,7 @@
 
                 var printerSettings = printerSettingsRepository.GetPrinterSettings();
                 printerSettings.AutoPrintLabels = workshopSettings.AutoPrintLabels;
+                printerSettings.DefaultFont = "Lucida Sans Unicode";
 
                 printerSettingsRepository.Save(printerSettings);
                 miscellaneousSettings.LastMigrationHackId = 1;

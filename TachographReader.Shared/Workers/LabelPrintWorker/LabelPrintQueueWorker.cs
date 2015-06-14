@@ -183,9 +183,9 @@
                 return !string.IsNullOrEmpty(PrintParameters.DefaultLabelPrinter);
             }
 
-            private static Font GetFont(int fontSize, bool bold)
+            private Font GetFont(int fontSize, bool bold)
             {
-                FontFamily fontFamily = FontFamily.Families.FirstOrDefault(t => t.Name == "Lucida Console"); //Really, what are the chances of this going wrong?
+                FontFamily fontFamily = FontFamily.Families.FirstOrDefault(t => t.Name == PrintParameters.DefaultFont);
                 if (fontFamily == null)
                 {
                     throw new InvalidOperationException(Resources.EXC_UNABLE_FIND_LABEL_FONT);

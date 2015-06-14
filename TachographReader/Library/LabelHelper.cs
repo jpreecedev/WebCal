@@ -29,12 +29,13 @@
             workerTask.Parameters.SetParameter("PostCode", workshopSettings.PostCode);
             workerTask.Parameters.SetParameter("WorkshopName", workshopSettings.WorkshopName);
             workerTask.Parameters.SetParameter("PhoneNumber", workshopSettings.PhoneNumber);
-            workerTask.Parameters.SetParameter("DateFormat", Constants.DateFormat);
+            workerTask.Parameters.SetParameter("DateFormat", Constants.ShortYearDateFormat);
             workerTask.Parameters.SetParameter("LicenseKey", registrationData.LicenseKey);
             workerTask.Parameters.SetParameter("ExpirationDate", registrationData.ExpirationDate);
             workerTask.Parameters.SetParameter("DefaultLabelPrinter", printerSettings.DefaultLabelPrinter);
             workerTask.Parameters.SetParameter("CompanyName", registrationData.CompanyName);
             workerTask.Parameters.SetParameter("TemporaryDirectory", ImageHelper.GetTemporaryDirectory());
+            workerTask.Parameters.SetParameter("DefaultFont", printerSettings.DefaultFont);
 
             workerTask.Parameters.SetParameter("DocumentType", document.DocumentType);
             workerTask.Parameters.SetParameter("KFactor", document.KFactor);

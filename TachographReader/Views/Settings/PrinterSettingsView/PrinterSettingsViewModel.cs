@@ -1,6 +1,8 @@
 ﻿namespace TachographReader.Views.Settings
 {
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Drawing.Text;
     using System.Linq;
     using Core;
     using DataModel;
@@ -12,6 +14,7 @@
     public class PrinterSettingsViewModel : BaseSettingsViewModel
     {
         public ObservableCollection<string> Printers { get; set; }
+        public ObservableCollection<string> Fonts { get; set; }
         public PrinterSettings Settings { get; set; }
         public ISettingsRepository<PrinterSettings> SettingsRepository { get; set; }
 
@@ -31,6 +34,8 @@
             {
                 Settings.DefaultLabelPrinter = Printers.First();
             }
+
+            Fonts = new ObservableCollection<string>(GetInstalledFonts());
         }
 
         protected override void InitialiseRepositories()
@@ -41,6 +46,12 @@
         public override void Save()
         {
             SettingsRepository.Save(Settings);
+        }
+
+        private static ICollection<string> GetInstalledFonts()
+        {
+            InstalledFontCollection installedFontCollection = new InstalledFontCollection();
+            return installedFontCollection.Families.Select(c => c.Name).ToList();
         }
     }
 }

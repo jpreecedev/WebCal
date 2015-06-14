@@ -4680,6 +4680,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default font:.
+        /// </summary>
+        public static string TXT_PRINTER_SETTINGS_DEFAULT_FONT {
+            get {
+                return ResourceManager.GetString("TXT_PRINTER_SETTINGS_DEFAULT_FONT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default number of copies:.
         /// </summary>
         public static string TXT_PRINTER_SETTINGS_DEFAULT_NUMBER {

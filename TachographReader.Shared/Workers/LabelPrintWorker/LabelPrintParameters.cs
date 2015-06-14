@@ -127,5 +127,10 @@
         {
             get { return GetParameter<string>("WorkshopName"); }
         }
+
+        public string DefaultFont
+        {
+            get { return GetParameter<string>("DefaultFont") ?? "Lucida Sans Unicode"; }
+        }
     }
 }

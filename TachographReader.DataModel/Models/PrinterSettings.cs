@@ -1,5 +1,6 @@
 ﻿namespace TachographReader.DataModel
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations.Schema;
     using Shared.Core;
 
@@ -15,5 +16,8 @@
         public bool IsLandscape { get; set; }
         public int LabelNumberOfCopies { get; set; }
         public bool AutoPrintLabels { get; set; }
+
+        [DefaultValue("Lucida Sans Unicode")]
+        public string DefaultFont { get; set; }
     }
 }
