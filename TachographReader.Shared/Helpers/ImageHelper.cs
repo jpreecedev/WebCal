@@ -49,7 +49,7 @@ namespace TachographReader.Shared.Helpers
 
             return Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
         }
-        
+
         public static byte[] LoadFromResourcesAsByteArray(string key, Assembly assembly = null)
         {
             var resourceManager = new ResourceManager("TachographReader.Properties.Resources", assembly ?? Assembly.GetCallingAssembly());
@@ -64,7 +64,7 @@ namespace TachographReader.Shared.Helpers
             var asByteArray = bitmap.ToByteArray();
             return asByteArray;
         }
-        
+
         public static Image LoadImageSafely(string imagePath)
         {
             using (var bmpTemp = new Bitmap(imagePath))
@@ -73,7 +73,7 @@ namespace TachographReader.Shared.Helpers
             }
         }
 
-        public static Image Scale(Image image, int maxHeight)
+        public static Image Scale(Image image, int maxWidth, int maxHeight)
         {
             if (image == null)
             {
@@ -89,13 +89,10 @@ namespace TachographReader.Shared.Helpers
                 return image;
             }
 
-            var aspectRatio = Math.Round((double)image.Width / image.Height, 2);
-            var newWidth = (int)Math.Round(aspectRatio * 50);
-
-            return Resize(image, new Size(newWidth, maxHeight));
+            return Resize(image, ResizeKeepAspect(image.Size, maxWidth, maxHeight));
         }
 
-        public static Image Scale(string path, int maxHeight)
+        public static Image Scale(string path, int maxWidth, int maxHeight)
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -116,11 +113,8 @@ namespace TachographReader.Shared.Helpers
             {
                 return image;
             }
-
-            var aspectRatio = Math.Round((double)image.Width / image.Height, 2);
-            var newWidth = (int)Math.Round(aspectRatio * 50);
-
-            return Resize(image, new Size(newWidth, maxHeight));
+            
+            return Resize(image, ResizeKeepAspect(image.Size, maxWidth, maxHeight));
         }
 
         public static void SaveImageToDisk(Image image, string destinationPath)
@@ -205,6 +199,25 @@ namespace TachographReader.Shared.Helpers
             }
 
             return null;
+        }
+
+        private static Size ResizeKeepAspect(Size currentDimensions, int maxWidth, int maxHeight)
+        {
+            int newHeight = currentDimensions.Height;
+            int newWidth = currentDimensions.Width;
+            if (maxWidth > 0 && newWidth > maxWidth) //WidthResize
+            {
+                Decimal divider = Math.Abs((decimal)newWidth / maxWidth);
+                newWidth = maxWidth;
+                newHeight = (int)Math.Round(newHeight / divider);
+            }
+            if (maxHeight > 0 && newHeight > maxHeight) //HeightResize
+            {
+                Decimal divider = Math.Abs((decimal)newHeight / maxHeight);
+                newHeight = maxHeight;
+                newWidth = (int)Math.Round(newWidth / divider);
+            }
+            return new Size(newWidth, newHeight);
         }
     }
 }

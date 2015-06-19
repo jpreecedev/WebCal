@@ -112,7 +112,7 @@
 
             if (signatureImage != null)
             {
-                Image image = ImageHelper.Scale(signatureImage, 50);
+                Image image = ImageHelper.Scale(signatureImage, 500, 50);
                 document.AddImage(ToByteArray(image), image.Width, image.Height, x, y);
             }
         }

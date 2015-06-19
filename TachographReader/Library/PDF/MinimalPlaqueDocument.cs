@@ -3,14 +3,9 @@ namespace TachographReader.Library.PDF
     using System;
     using System.Drawing;
     using Connect.Shared.Models;
-    using DataModel;
-    using DataModel.Core;
-    using DataModel.Library;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
-    using Org.BouncyCastle.Utilities.Collections;
     using Properties;
-    using Shared;
     using Shared.Helpers;
     using Image = System.Drawing.Image;
 
@@ -271,7 +266,7 @@ namespace TachographReader.Library.PDF
 
             if (WorkshopSettings.Image != null && !excludeLogos)
             {
-                var image = ImageHelper.Scale(WorkshopSettings.Image, 150);
+                var image = ImageHelper.Scale(WorkshopSettings.Image, 545, 150);
                 document.AddImage(image.ToByteArray(), image.Width, image.Height, (startHorizontal + 5), startVertical + 660);
             }
 
