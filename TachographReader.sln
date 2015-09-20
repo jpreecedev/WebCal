@@ -1,6 +1,6 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+Microsoft Visual Studio Solution File, Format Version 13.00
+# Visual Studio 2015
+VisualStudioVersion = 13.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachographReader", "TachographReader\TachographReader.csproj", "{D4EE3EA7-9E62-46B1-8183-9139C33C9A20}"
 	ProjectSection(ProjectDependencies) = postProject
