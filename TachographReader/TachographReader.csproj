@@ -90,7 +90,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TachographReader.App</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>
@@ -178,6 +179,7 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Windows.Controls.Input.Toolkit">
       <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
     </Reference>
@@ -322,6 +324,7 @@
     <Compile Include="Library\PDF\PDFDocument.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
     <Compile Include="Library\PDF\VOSADocument.cs" />
+    <Compile Include="Library\RegistryHelper.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
     <Compile Include="Library\ViewModels\UserPromptViewModel.cs" />
@@ -331,6 +334,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SingleInstance.cs" />
     <Compile Include="Views\CalibrationsView\CalibrationsView.xaml.cs">
       <DependentUpon>CalibrationsView.xaml</DependentUpon>
     </Compile>
