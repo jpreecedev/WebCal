@@ -97,7 +97,7 @@
             {
                 ExpirationDateTime = expirationDate;
                 LicenseKeyField.Valid = true;
-                LicenseKeyField.IsHighlighted = true;    
+                LicenseKeyField.IsHighlighted = true;
             }
 
             Settings.LicenseKey = Serial;
@@ -109,11 +109,12 @@
             var webcalConnectKey = WebcalConnectKey.Split('-');
             var companyName = webcalConnectKey[0];
             var machineKey = webcalConnectKey[1];
+            var depotKey = webcalConnectKey[3];
 
             int expiration;
             int.TryParse(webcalConnectKey[2], out expiration);
 
-            var connectKeys = new ConnectKeys(ConnectUrlHelper.ServiceUrl, expiration, companyName, machineKey);
+            var connectKeys = new ConnectKeys(ConnectUrlHelper.ServiceUrl, expiration, companyName, machineKey, depotKey);
             WebcalConnectField.IsLoading = true;
 
             GetInstance<IConnectClient>().CallAsync(connectKeys, client =>

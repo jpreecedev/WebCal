@@ -352,4 +352,10 @@
   <data name="TXT_CANCEL" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="TXT_REGISTRATION_SETTINGS_DEPOT_NAME" xml:space="preserve">
+    <value>Depot Name</value>
+  </data>
+  <data name="TXT_SEED_HARDWICK_GRANGE" xml:space="preserve">
+    <value>Hardwick Grange</value>
+  </data>
 </root>

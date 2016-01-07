@@ -28,10 +28,11 @@ namespace TachographReader.DataModel
 
         public string CompanyName { get; set; }
         public string SealNumber { get; set; }
+        public string DepotName { get; set; }
 
         public string WebcalConnectKey
         {
-            get { return string.Format("{0}-{1}-{2}", CompanyName, LicenseManager.GetMachineKey(), LicenseKey); }
+            get { return string.Format("{0}-{1}-{2}-{3}", CompanyName, LicenseManager.GetMachineKey(), LicenseKey, DepotName); }
         }
 
         public bool IsConnectEnabled { get; set; }
@@ -48,7 +49,7 @@ namespace TachographReader.DataModel
                     int.TryParse(ExpirationDate.GetValueOrDefault().Ticks.ToString(CultureInfo.InvariantCulture).TrimEnd('0'), out licenseKey);
                 }
 
-                return new ConnectKeys(ConnectUrlHelper.ServiceUrl, licenseKey, CompanyName, LicenseManager.GetMachineKey());
+                return new ConnectKeys(ConnectUrlHelper.ServiceUrl, licenseKey, CompanyName, LicenseManager.GetMachineKey(), DepotName);
             }
         }
 

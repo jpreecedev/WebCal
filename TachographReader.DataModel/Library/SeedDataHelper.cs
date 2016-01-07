@@ -84,6 +84,7 @@
             {
                 LicenseKey = null,
                 CompanyName = Resources.TXT_SEED_SKILLRAY,
+                DepotName = Resources.TXT_SEED_HARDWICK_GRANGE,
                 SealNumber = string.Empty,
                 IsConnectEnabled = true
             });

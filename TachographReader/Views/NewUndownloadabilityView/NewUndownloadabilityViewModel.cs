@@ -43,6 +43,11 @@
             UndownloadabilityRepository = GetInstance<IRepository<UndownloadabilityDocument>>();
             TachographMakesRepository = GetInstance<IRepository<TachographMake>>();
             TechnicianRepository = GetInstance<IRepository<Technician>>();
+
+            if (string.IsNullOrEmpty(Document.DepotName))
+            {
+                Document.DepotName = RegistrationData.DepotName;
+            }
         }
 
         public override void OnModalClosed()

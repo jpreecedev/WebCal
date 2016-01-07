@@ -80,6 +80,11 @@
             TechniciansRepository = GetInstance<IRepository<Technician>>();
             TachographDocumentRepository = GetInstance<IRepository<TachographDocument>>();
             WorkshopCardFilesRepository = GetInstance<IRepository<WorkshopCardFile>>();
+
+            if (string.IsNullOrEmpty(Document.DepotName))
+            {
+                Document.DepotName = RegistrationData.DepotName;
+            }
         }
 
         protected override void Load()
@@ -178,7 +183,6 @@
             Document.VehicleModel = match.VehicleModel;
             Document.VehicleType = match.VehicleType;
             Document.VIN = match.VIN;
-            Document.NewBattery = match.NewBattery;
 
             SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, match.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
 
@@ -405,7 +409,7 @@
                     return null;
                 }
 
-                XDocument document = XDocument.Parse(xml);
+                XDocument document = XDocument.Parse(xml.Replace("&","&amp;"));
                 XElement first = document.Descendants("CardDump").FirstOrDefault();
 
                 var result = new List<string>();

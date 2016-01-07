@@ -44,9 +44,6 @@
 
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS}"
                                   Text="{core:InputBinding Settings.MainEmailAddress}" />
-
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_SECONDARY_EMAIL_ADDRESS}"
-                                  Text="{core:InputBinding Settings.SecondaryEmailAddress}" />
             
             <StackPanel Orientation="Horizontal">
                 <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO}"

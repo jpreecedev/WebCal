@@ -7,6 +7,7 @@
              xmlns:ctrls="clr-namespace:TachographReader.Controls"
              xmlns:core="clr-namespace:TachographReader.Core"
              xmlns:Properties="clr-namespace:TachographReader.Properties"
+             xmlns:properties="clr-namespace:TachographReader.DataModel.Properties;assembly=TachographReader.DataModel"
              mc:Ignorable="d"
              d:DesignWidth="628"
              d:DesignHeight="374">
@@ -26,6 +27,8 @@
                     Grid.Row="1">
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_REGISTRATION_SETTINGS_COMPANY_NAME}"
                                   Text="{core:InputBinding Settings.CompanyName}" />
+            <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_REGISTRATION_SETTINGS_DEPOT_NAME}"
+                                  Text="{core:InputBinding Settings.DepotName}" />
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_REGISTRATION_SETTINGS_SEAL_NUMBER}"
                                   Text="{core:InputBinding Settings.SealNumber}" />
 
