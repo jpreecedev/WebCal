@@ -53,8 +53,8 @@
                     <RowDefinition Height="20" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="40" />
-                    <RowDefinition Height="65" />
-                    <RowDefinition Height="45" />
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="70" />
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
 
@@ -276,12 +276,11 @@
                 <ctrls:InputTextField Text="{core:InputBinding Document.InspectionInfo}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_INSPECTION_DATA}"
+                                      IsMultiline="True"
                                       TextWrapping="Wrap"
                                       AcceptsReturn="True"
-                                      Height="45"
                                       Grid.ColumnSpan="3"
-                                      Grid.Row="16"
-                                      Margin="0,10" />
+                                      Grid.Row="16" />
 
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CUSTOMER_DATA}"
