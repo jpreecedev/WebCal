@@ -18,7 +18,10 @@
 
         public static readonly DependencyProperty CommandLabelProperty =
             DependencyProperty.Register("CommandLabel", typeof(string), typeof(InputTextField));
-
+        
+        public static readonly DependencyProperty IsMultilineProperty =
+            DependencyProperty.Register("IsMultiline", typeof(bool), typeof(InputTextField), new PropertyMetadata(false));
+        
         static InputTextField()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(InputTextField), new FrameworkPropertyMetadata(typeof(InputTextField)));
@@ -47,6 +50,12 @@
         {
             get { return (string)GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
+        }
+
+        public bool IsMultiline
+        {
+            get { return (bool)GetValue(IsMultilineProperty); }
+            set { SetValue(IsMultilineProperty, value); }
         }
 
         public override bool IsValid()

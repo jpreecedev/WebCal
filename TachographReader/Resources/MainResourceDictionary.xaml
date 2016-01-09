@@ -675,7 +675,8 @@
                             <ScrollViewer x:Name="PART_ContentHost"
                                           Margin="0"
                                           MinWidth="120"
-                                          Height="25" />
+                                          Height="25"
+                                          VerticalScrollBarVisibility="Visible"/>
                         </Border>
 
                         <Button x:Name="CommandButton"
@@ -693,8 +694,20 @@
                                               Margin="5,-4,0,0" />
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsMultiline"
+                                 Value="True">
+                            <Setter TargetName="Border"
+                                    Property="Height"
+                                    Value="60" />
+                            <Setter TargetName="PART_ContentHost"
+                                    Property="Height"
+                                    Value="55" />
+                            <Setter Property="Height"
+                                    Value="70" />
+                        </Trigger>
                         <Trigger Property="Label"
                                  Value="">
+
                             <Setter TargetName="LabelColumn"
                                     Property="Width"
                                     Value="0" />

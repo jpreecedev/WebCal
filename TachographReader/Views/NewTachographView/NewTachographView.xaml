@@ -54,9 +54,10 @@
                     <RowDefinition Height="35" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="65" />
-                    <RowDefinition Height="30" />
+                    <RowDefinition Height="50" />
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition Height="40" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="45" />
                 </Grid.RowDefinitions>
@@ -396,7 +397,7 @@
                                       Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INSPECTION_DATA}"
                                       TextWrapping="Wrap"
                                       AcceptsReturn="True"
-                                      Height="45"
+                                      IsMultiline="True"
                                       Grid.ColumnSpan="3"
                                       Grid.Row="16">
                     <ctrls:InputTextField.IsEnabled>
@@ -448,23 +449,15 @@
                         Style="{StaticResource NewCustomerButton}"
                         Grid.Row="20"
                         Grid.Column="2" />
-                
-                <StackPanel Orientation="Horizontal"
-                            Grid.Row="21"
-                            Margin="0,20,0,0"
-                            Visibility="{Binding MailSettings.DontSendEmails, Converter={StaticResource InvBool2Vis}}">
-                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_SEND_TO_OFFICE}"
-                              IsChecked="{Binding WorkshopSettings.SendToOffice}"
-                              Margin="0,0,10,0"/>
-                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_SEND_TO_CUSTOMER}"
-                              IsChecked="{Binding WorkshopSettings.SendToCustomer}"
-                              Margin="0,0,10,0" />
-                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DO_NOT_SEND}"
-                              IsChecked="{Binding WorkshopSettings.DoNotSend}" />
-                </StackPanel>
+
+                <ctrls:InputTextField Label="Customer Email Address"
+                                      Grid.Row="21"
+                                      IsReadOnly="True"
+                                      Text="{Binding SelectedCustomerContact.Email}"
+                                      Visibility="{Binding SelectedCustomerContact, Converter={StaticResource Null2Vis}}"/>
 
                 <StackPanel Orientation="Horizontal"
-                            Grid.Row="21"
+                            Grid.Row="22"
                             Grid.Column="1"
                             Grid.ColumnSpan="2"
                             VerticalAlignment="Center"

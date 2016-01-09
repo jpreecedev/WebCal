@@ -95,23 +95,23 @@
             switch (SearchFilters.IndexOf(SelectedSearchFilter))
             {
                 case 0:
-                    Documents.Remove(item => !item.RegistrationNumber.Contains(SearchTerm));
+                    Documents.Remove(item => item.RegistrationNumber == null || !item.RegistrationNumber.ToLower().Contains(SearchTerm.ToLower()));
                     break;
 
                 case 1:
-                    Documents.Remove(item => !item.CustomerContact.Contains(SearchTerm));
+                    Documents.Remove(item => item.CustomerContact == null || !item.CustomerContact.ToLower().Contains(SearchTerm.ToLower()));
                     break;
 
                 case 2:
-                    Documents.Remove(item => !item.Technician.Contains(SearchTerm));
+                    Documents.Remove(item => item.Technician == null || !item.Technician.ToLower().Contains(SearchTerm.ToLower()));
                     break;
 
                 case 3:
-                    Documents.Remove(item => !item.Office.Contains(SearchTerm));
+                    Documents.Remove(item => item.Office == null || !item.Office.ToLower().Contains(SearchTerm.ToLower()));
                     break;
 
                 case 4:
-                    Documents.Remove(item => !item.DocumentType.Contains(SearchTerm));
+                    Documents.Remove(item => item.DocumentType == null || !item.DocumentType.ToLower().Contains(SearchTerm.ToLower()));
                     break;
             }
         }

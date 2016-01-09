@@ -1,4 +1,6 @@
-﻿namespace TachographReader.Library
+﻿using Microsoft.Practices.ObjectBuilder2;
+
+namespace TachographReader.Library
 {
     using System;
     using System.Net.Mail;
@@ -31,7 +33,11 @@
                 return;
             }
 
-            CreateEmailTask(mailSettings, attachmentPath, recipient);
+            recipient.Split(';').ForEach(c =>
+            {
+                CreateEmailTask(mailSettings, attachmentPath, c);
+            });
+
         }
 
         private static string GetRecipientEmailAddresses(WorkshopSettings workshopSettings, MailSettings mailSettings, string customerContact)
