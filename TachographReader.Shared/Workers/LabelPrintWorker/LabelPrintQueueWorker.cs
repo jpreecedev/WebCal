@@ -70,7 +70,7 @@
                     g.SmoothingMode = SmoothingMode.HighQuality;
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-                    g.TranslateTransform(bitmap.Width/2, bitmap.Height/2);
+                    g.TranslateTransform(bitmap.Width / 2, bitmap.Height / 2);
                     g.RotateTransform(270);
                     g.DrawLine(pen, LEFT_OFFSET, _horizontalLinesVerticalOffset, LINE_WIDTH, _horizontalLinesVerticalOffset);
 
@@ -90,17 +90,22 @@
                         DrawSpacedText(g, string.Format(Resources.TXT_LABEL_CUSTOMER_PHONE_NUMBER, PrintParameters.PhoneNumber), brush, new PointF(-125, -200));
                     }
 
-                    DrawSpacedText(g, GetDocumentType(PrintParameters.DocumentType), brush, new PointF(LEFT_OFFSET, _textVerticalOffset));
+                    DrawCenteredText(g, GetDocumentType(PrintParameters.DocumentType), brush, new PointF(LEFT_OFFSET, _textVerticalOffset));
 
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_K_FACTOR, PrintParameters.KFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
-                    DrawSpacedText(g, string.Format(Resources.TXT_LABEL_W_FACTOR, PrintParameters.WFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
-                    DrawSpacedText(g, string.Format(Resources.TXT_LABEL_L_FACTOR, PrintParameters.LFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
 
+                    var wFactorVerticalOffset = _textVerticalOffset += TEXT_HEIGHT;
+                    DrawSpacedText(g, string.Format(Resources.TXT_LABEL_W_FACTOR, PrintParameters.WFactor), brush, new PointF(LEFT_OFFSET, wFactorVerticalOffset));
+                    
+                    DrawSpacedText(g, Resources.TXT_CALIBRATION_DATE, brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, wFactorVerticalOffset));
+                    DrawSpacedText(g, GetCalibrationTime(PrintParameters.CalibrationTime), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, wFactorVerticalOffset + TEXT_HEIGHT));
+                    DrawRectangle(g, TEXT_SECONDARY_LEFT_OFFSET, wFactorVerticalOffset, 130, 70);
+
+                    DrawSpacedText(g, string.Format(Resources.TXT_LABEL_L_FACTOR, PrintParameters.LFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_VIN, PrintParameters.VIN), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_SERIAL_NUMBER, PrintParameters.SerialNumber), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_SEAL_NUMBER, PrintParameters.SealNumber), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, _textVerticalOffset));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_TYRE_SIZE, PrintParameters.TyreSize), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
-                    DrawSpacedText(g, string.Format(Resources.TXT_CALIBRATION_DATE, GetCalibrationTime(PrintParameters.CalibrationTime)), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, _textVerticalOffset));
 
                     DrawSpacedText(g, GetCompanyName(), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
 
@@ -122,7 +127,7 @@
 
                 bitmap.Save(Path.Combine(PrintParameters.TemporaryDirectory, "label.bmp"));
                 PrinterSettings.PrinterName = PrintParameters.DefaultLabelPrinter;
-                PrinterSettings.Copies = (short) PrintParameters.LabelNumberOfCopies;
+                PrinterSettings.Copies = (short)PrintParameters.LabelNumberOfCopies;
 
                 Print();
             }
@@ -153,12 +158,32 @@
                 return calibrationTime.Value.ToString(PrintParameters.DateFormat);
             }
 
+            private void DrawCenteredText(Graphics g, string text, Brush brush, PointF point)
+            {
+                var stringFormat = new StringFormat
+                {
+                    Alignment = StringAlignment.Center
+                };
+
+                g.DrawString(text, Font, brush, new RectangleF(point, new SizeF(425,30)), stringFormat);
+            }
+
+            private void DrawRectangle(Graphics g, int x, int y, int width, int height)
+            {
+                g.DrawRectangle(Pens.Black, new Rectangle(x, y, width, height));
+            }
+
             private void DrawSpacedText(Graphics g, string text, Brush brush, PointF point)
             {
-                DrawSpacedText(g, text, brush, Font, point);
+                DrawSpacedText(g, text, brush, Font, point, null);
             }
 
             private static void DrawSpacedText(Graphics g, string text, Brush brush, Font font, PointF point)
+            {
+                DrawSpacedText(g, text, brush, font, point, null);
+            }
+
+            private static void DrawSpacedText(Graphics g, string text, Brush brush, Font font, PointF point, StringFormat stringFormat)
             {
                 const float spacing = -6;
 
@@ -173,7 +198,7 @@
                         continue;
                     }
 
-                    g.DrawString(character.ToString(CultureInfo.InvariantCulture), font, brush, new PointF(point.X + indent, point.Y));
+                    g.DrawString(character.ToString(CultureInfo.InvariantCulture), font, brush, new PointF(point.X + indent, point.Y), stringFormat);
                     indent += g.MeasureString(character.ToString(CultureInfo.InvariantCulture), font).Width + spacing;
                 }
             }

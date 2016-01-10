@@ -338,7 +338,7 @@
     <value xml:space="preserve">Tyre size: {0}</value>
   </data>
   <data name="TXT_CALIBRATION_DATE">
-    <value xml:space="preserve">DATE: {0}</value>
+    <value xml:space="preserve">DATE</value>
   </data>
   <data name="TXT_DEMO">
     <value xml:space="preserve">Demo</value>
