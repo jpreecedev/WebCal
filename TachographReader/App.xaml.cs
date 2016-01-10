@@ -10,6 +10,7 @@ namespace TachographReader
     using System.Globalization;
     using System.IO;
     using System.Threading;
+    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Threading;
     using Windows;

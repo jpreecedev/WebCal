@@ -48,7 +48,7 @@
             {
                 TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
 
-                Task.Factory.StartNew(() =>
+                var task = Task.Factory.StartNew(() =>
                 {
                     client.Open(connectKeys);
                     return Try(() =>
@@ -90,7 +90,7 @@
                         {
                             alwaysCall();
                         }
-                    }, DispatcherPriority.Normal); 
+                    }, DispatcherPriority.Normal);
                     client.Close();
                 });
             }
@@ -118,7 +118,7 @@
             {
                 TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
 
-                Task.Factory.StartNew(() =>
+                var task = Task.Factory.StartNew(() =>
                 {
                     client.Open(connectKeys);
                     return Try(() => beginCall(client));
@@ -154,7 +154,7 @@
                         {
                             alwaysCall();
                         }
-                    }, DispatcherPriority.Normal); 
+                    }, DispatcherPriority.Normal);
                     client.Close();
                 });
             }

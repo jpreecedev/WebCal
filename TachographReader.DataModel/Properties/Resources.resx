@@ -358,4 +358,7 @@
   <data name="TXT_SEED_HARDWICK_GRANGE" xml:space="preserve">
     <value>Hardwick Grange</value>
   </data>
+  <data name="TXT_PROCESSING" xml:space="preserve">
+    <value>Processing...</value>
+  </data>
 </root>

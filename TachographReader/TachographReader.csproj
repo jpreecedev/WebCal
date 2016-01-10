@@ -294,6 +294,7 @@
     <Compile Include="EventArguments\DriverCardCompletedEventArgs.cs" />
     <Compile Include="EventArguments\DriverCardProgressEventArgs.cs" />
     <Compile Include="Library\ConnectHelper.cs" />
+    <Compile Include="Library\FtpHelper.cs" />
     <Compile Include="Library\IDriverCardReader.cs" />
     <Compile Include="Library\BackupRestoreManager.cs" />
     <Compile Include="Library\CalibrationRecordParser.cs" />

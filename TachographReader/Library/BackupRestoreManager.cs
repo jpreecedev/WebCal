@@ -6,6 +6,7 @@
     using System.IO;
     using System.Linq;
     using System.Reflection;
+    using System.Threading.Tasks;
     using DataModel;
     using DataModel.Core;
     using Properties;
@@ -35,6 +36,8 @@
             {
                 Run(string.Format(@"/b ""{0}"" ""{1}""", databasePath, result.FileName), false);
             }
+
+            ConnectHelper.BackupDatabase(databasePath);
         }
 
         public static void Restore()

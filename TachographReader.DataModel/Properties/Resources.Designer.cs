@@ -263,6 +263,15 @@ namespace TachographReader.DataModel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Processing....
+        /// </summary>
+        public static string TXT_PROCESSING {
+            get {
+                return ResourceManager.GetString("TXT_PROCESSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to R - Recalibration.
         /// </summary>
         public static string TXT_RECALIBRATION {
