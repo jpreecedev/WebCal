@@ -92,6 +92,11 @@
 
         public void AddImage(byte[] rawImage, float width, float height, float x, float y)
         {
+            if (rawImage == null)
+            {
+                return;
+            }
+
             Image image = Image.GetInstance(rawImage);
             image.ScaleAbsolute(width, height);
             image.SetAbsolutePosition(x, y);
@@ -101,6 +106,11 @@
 
         public void AddImage(string imagePath, float width, float height, float x, float y)
         {
+            if (string.IsNullOrEmpty(imagePath))
+            {
+                return;
+            }
+
             Image image = Image.GetInstance(imagePath);
             image.ScaleAbsolute(width, height);
             image.SetAbsolutePosition(x, y);
@@ -110,6 +120,11 @@
 
         public Image GetImage(string imagePath, float width, float height)
         {
+            if (string.IsNullOrEmpty(imagePath))
+            {
+                return null;
+            }
+
             Image image = Image.GetInstance(imagePath);
             image.ScaleAbsolute(width, height);
             return image;
@@ -117,6 +132,11 @@
 
         public void AddSmallParagraph(string text, ColumnText column)
         {
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
             var para = new Paragraph(text, GetSmallFont(false));
             column.AddText(para);
             column.Go();
@@ -124,6 +144,11 @@
 
         public void AddParagraph(string text, ColumnText column)
         {
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
             var para = new Paragraph(text, GetRegularFont(false));
             column.AddText(para);
             column.Go();
@@ -131,6 +156,11 @@
 
         public void AddParagraph(string text, ColumnText column, Font font)
         {
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
             var para = new Paragraph(text, font);
             column.AddText(para);
             column.Go();
@@ -138,107 +168,192 @@
 
         public void AddParagraph(string text, ColumnText column, Font font, int alignment)
         {
-            var para = new Paragraph(text, font);
-            para.Alignment = alignment;
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
+            var para = new Paragraph(text, font)
+            {
+                Alignment = alignment
+            };
             column.AddText(para);
             column.Go();
         }
 
         public void AddCell(PdfPTable table, string text)
         {
-            var paragraph = new Paragraph(text, GetSmallFont(false)) {Alignment = Element.ALIGN_CENTER};
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
 
-            var cell = new PdfPCell(paragraph);
-            cell.HorizontalAlignment = Element.ALIGN_CENTER;
-            cell.VerticalAlignment = Element.ALIGN_CENTER;
+            var paragraph = new Paragraph(text, GetSmallFont(false)) { Alignment = Element.ALIGN_CENTER };
+
+            var cell = new PdfPCell(paragraph)
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_CENTER
+            };
 
             table.AddCell(cell);
         }
 
         public void AddCell(PdfPTable table, string text, Font font)
         {
-            var paragraph = new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER};
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
 
-            var cell = new PdfPCell(paragraph);
-            cell.HorizontalAlignment = Element.ALIGN_CENTER;
-            cell.VerticalAlignment = Element.ALIGN_CENTER;
+            var paragraph = new Paragraph(text, font) { Alignment = Element.ALIGN_CENTER };
+
+            var cell = new PdfPCell(paragraph)
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_CENTER
+            };
 
             table.AddCell(cell);
         }
 
         public void AddCell(PdfPTable table, string text, Font font, int height)
         {
-            var paragraph = new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER};
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
 
-            var cell = new PdfPCell(paragraph);
-            cell.HorizontalAlignment = Element.ALIGN_CENTER;
-            cell.VerticalAlignment = Element.ALIGN_CENTER;
-            cell.FixedHeight = height;
+            var paragraph = new Paragraph(text, font) { Alignment = Element.ALIGN_CENTER };
+
+            var cell = new PdfPCell(paragraph)
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_CENTER,
+                FixedHeight = height
+            };
 
             table.AddCell(cell);
         }
 
         public void AddCell(PdfPTable table, string text, Font font, int height, int width)
         {
-            var paragraph = new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER};
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
 
-            var cell = new PdfPCell(paragraph);
-            cell.HorizontalAlignment = Element.ALIGN_CENTER;
-            cell.VerticalAlignment = Element.ALIGN_CENTER;
-            cell.FixedHeight = height;
+            var paragraph = new Paragraph(text, font)
+            {
+                Alignment = Element.ALIGN_CENTER
+            };
+
+            var cell = new PdfPCell(paragraph)
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_CENTER,
+                FixedHeight = height
+            };
 
             table.AddCell(cell);
         }
 
         public void AddSpannedCell(PdfPTable table, string text, int colspan)
         {
-            var c = new PdfPCell(new Paragraph(text, GetSmallFont(false)) {Alignment = Element.ALIGN_CENTER});
-            c.Colspan = colspan;
-            c.HorizontalAlignment = Element.ALIGN_CENTER;
-            c.VerticalAlignment = Element.ALIGN_CENTER;
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
+            var c = new PdfPCell(new Paragraph(text, GetSmallFont(false))
+            {
+                Alignment = Element.ALIGN_CENTER
+            })
+            {
+                Colspan = colspan,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_CENTER
+            };
 
             table.AddCell(c);
         }
 
         public void AddSpannedCell(PdfPTable table, string text, int colspan, Font font)
         {
-            var c = new PdfPCell(new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER});
-            c.Colspan = colspan;
-            c.HorizontalAlignment = Element.ALIGN_CENTER;
-            c.VerticalAlignment = Element.ALIGN_CENTER;
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
+            var c = new PdfPCell(new Paragraph(text, font)
+            {
+                Alignment = Element.ALIGN_CENTER
+            })
+            {
+                Colspan = colspan,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_CENTER
+            };
 
             table.AddCell(c);
         }
 
         public void AddSpannedCell(PdfPTable table, string text, int colspan, Font font, float height)
         {
-            var c = new PdfPCell(new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER});
-            c.Colspan = colspan;
-            c.HorizontalAlignment = Element.ALIGN_CENTER;
-            c.VerticalAlignment = Element.ALIGN_CENTER;
-            c.FixedHeight = height;
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
+            var c = new PdfPCell(new Paragraph(text, font)
+            {
+                Alignment = Element.ALIGN_CENTER
+            })
+            {
+                Colspan = colspan,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_CENTER,
+                FixedHeight = height
+            };
 
             table.AddCell(c);
         }
 
         public void AddSpannedCell(PdfPTable table, Image image, int colspan, Font font, float height)
         {
-            var c = new PdfPCell(image);
-            c.Colspan = colspan;
-            c.HorizontalAlignment = Element.ALIGN_CENTER;
-            c.VerticalAlignment = Element.ALIGN_CENTER;
-            c.FixedHeight = height;
+            if (image == null)
+            {
+                return;
+            }
+
+            var c = new PdfPCell(image)
+            {
+                Colspan = colspan,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_CENTER,
+                FixedHeight = height
+            };
 
             table.AddCell(c);
         }
 
         public void AddSpannedCell(PdfPTable table, string text, int colspan, Font font, float height, int alignment)
         {
-            var c = new PdfPCell(new Paragraph(text, font) {Alignment = Element.ALIGN_CENTER});
-            c.Colspan = colspan;
-            c.HorizontalAlignment = alignment;
-            c.VerticalAlignment = Element.ALIGN_CENTER;
-            c.FixedHeight = height;
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
+            var c = new PdfPCell(new Paragraph(text, font)
+            {
+                Alignment = Element.ALIGN_CENTER
+            })
+            {
+                Colspan = colspan,
+                HorizontalAlignment = alignment,
+                VerticalAlignment = Element.ALIGN_CENTER,
+                FixedHeight = height
+            };
 
             table.AddCell(c);
         }
