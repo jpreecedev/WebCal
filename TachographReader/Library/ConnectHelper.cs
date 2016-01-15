@@ -36,7 +36,7 @@
         public static bool IsConnectEnabled()
         {
             var registrationData = ContainerBootstrapper.Resolve<IRepository<RegistrationData>>().First();
-            return registrationData.IsConnectEnabled;
+            return registrationData.IsConnectEnabled && GetConnectKeys() != null;
         }
 
         public static IConnectKeys GetConnectKeys()

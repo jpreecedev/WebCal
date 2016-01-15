@@ -8,6 +8,7 @@
              xmlns:Properties="clr-namespace:TachographReader.Properties"
              xmlns:controls="clr-namespace:TachographReader.Controls"
              xmlns:core="clr-namespace:TachographReader.Core"
+             xmlns:properties="clr-namespace:TachographReader.DataModel.Properties;assembly=TachographReader.DataModel"
              mc:Ignorable="d"
              d:DesignWidth="628"
              d:DesignHeight="450"
@@ -61,9 +62,9 @@
                                                  IsMandatory="True"
                                                  Grid.Row="3" />
 
-            <controls:InputMultiSelectComboField Label="{x:Static Properties:Resources.TXT_GENERATE_REPORT_VEHICLE_MANUFACTURER}"
-                                                 ItemsSource="{core:InputBinding VehicleManufacturers}"
-                                                 SelectedItems="{core:InputBinding Report.VehicleManufacturers}"
+            <controls:InputMultiSelectComboField Label="{x:Static properties:Resources.TXT_GENERATE_REPORT_CUSTOMER_CONTACT}"
+                                                 ItemsSource="{core:InputBinding CustomerContacts}"
+                                                 SelectedItems="{core:InputBinding Report.Customers}"
                                                  IsMandatory="True"
                                                  Grid.Row="4" />
 

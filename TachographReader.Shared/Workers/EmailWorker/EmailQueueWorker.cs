@@ -65,8 +65,8 @@
 
                 using (var smtp = new SmtpClient())
                 {
-                    smtp.Credentials = new NetworkCredential("webcal@tachoworkshop.co.uk", "skillraywebcal");
-                    smtp.Host = "mail.yellowbus.co.uk";
+                    smtp.Credentials = new NetworkCredential("admin@webcalconnect.com", "No05K8lGgB");
+                    smtp.Host = "mail.webcalconnect.com";
                     smtp.Send(mailMessage);
                 }
             }

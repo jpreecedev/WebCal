@@ -80,9 +80,9 @@
         {
         }
 
-        protected virtual bool RegistrationChanged(string registrationNumber)
+        protected virtual void RegistrationChanged(string registrationNumber)
         {
-            return false;
+
         }
 
         protected virtual void OnProgress(object sender, DriverCardProgressEventArgs e)
@@ -103,11 +103,6 @@
 
         protected virtual void OnCardRemoved(object sender, EventArgs e)
         {
-        }
-
-        protected virtual void OnFoundDocumentOnConnect(Document document)
-        {
-
         }
 
         protected virtual void TachographMakeChanged(string make)
@@ -210,35 +205,9 @@
             {
                 IsRegistrationChanging = true;
 
-                bool foundDocument = RegistrationChanged(registrationNumber);
-                if (!foundDocument && RegistrationData.IsConnectEnabled)
-                {
-                    IsSearchingConnect = true;
+                RegistrationChanged(registrationNumber);
 
-                    GetInstance<IConnectClient>().CallAsync(ConnectHelper.GetConnectKeys(), client =>
-                    {
-                        return client.Service.Find(registrationNumber, GetDocumentType());
-                    },
-                    result =>
-                    {
-                        if (result.IsSuccess && result.Data != null)
-                        {
-                            var documentFound = (Document)result.Data;
-                            documentFound.Id = 0;
-                            OnFoundDocumentOnConnect(documentFound);
-                        }
-                    },
-                    alwaysCall: () =>
-                    {
-                        IsSearchingConnect = false;
-                        IsRegistrationChanging = false;
-                    });
-                }
-
-                if (!RegistrationData.IsConnectEnabled)
-                {
-                    IsRegistrationChanging = false;
-                }
+                IsRegistrationChanging = false;
             }
         }
 

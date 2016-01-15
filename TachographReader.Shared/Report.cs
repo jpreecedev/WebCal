@@ -18,7 +18,7 @@
         public string ReportType { get; set; }
         public string DocumentType { get; set; }
         public IList<string> Technicians { get; set; }
-        public IList<string> VehicleManufacturers { get; set; }
+        public IList<string> Customers { get; set; }
         public string RegistrationNumber { get; set; }
         public string InvoiceNumber { get; set; }
         public DateTime FromDate { get; set; }

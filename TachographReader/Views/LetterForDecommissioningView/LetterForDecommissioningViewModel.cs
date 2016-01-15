@@ -77,16 +77,6 @@
             ConnectHelper.Upload(Document);
         }
 
-        protected override void OnFoundDocumentOnConnect(Document document)
-        {
-            var letterForDecommissioningDocument = document as LetterForDecommissioningDocument;
-            if (letterForDecommissioningDocument != null)
-            {
-                Document = letterForDecommissioningDocument;
-                SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, Document.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
-            }
-        }
-
         protected override void OnCustomerContactChanged(CustomerContact customerContact)
         {
             Document.CustomerContact = customerContact == null ? null : customerContact.Name;
@@ -97,16 +87,16 @@
             return DocumentType.LetterForDecommissioning;
         }
 
-        protected override bool RegistrationChanged(string registrationNumber)
+        protected override void RegistrationChanged(string registrationNumber)
         {
             if (string.IsNullOrEmpty(registrationNumber))
             {
-                return false;
+                return;
             }
 
             if (!LetterForDecommissioningRepository.Any())
             {
-                return false;
+                return;
             }
 
             //Remove all spaces from registration number
@@ -120,10 +110,7 @@
             {
                 Document = match;
                 SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, match.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
-                return true;
             }
-
-            return false;
         }
 
         #endregion

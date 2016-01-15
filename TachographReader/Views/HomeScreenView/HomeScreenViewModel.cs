@@ -18,7 +18,8 @@
             get
             {
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                return string.Format(Resources.TXT_PRODUCT_VERSION, assembly.GetName().Version);
+                var version = assembly.GetName().Version;
+                return string.Format(Resources.TXT_PRODUCT_VERSION, string.Format("{0}.{1}.{2}", version.Major, version.Minor, version.Build));
             }
         }
 

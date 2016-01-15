@@ -67,16 +67,6 @@
             ConnectHelper.Upload(Document);
         }
 
-        protected override void OnFoundDocumentOnConnect(Document document)
-        {
-            var undownloadabilityDocument = document as UndownloadabilityDocument;
-            if (undownloadabilityDocument != null)
-            {
-                Document = undownloadabilityDocument;
-                SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, Document.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
-            }
-        }
-
         protected override void OnCustomerContactChanged(CustomerContact customerContact)
         {
             Document.CustomerContact = customerContact == null ? null : customerContact.Name;
@@ -87,16 +77,16 @@
             return DocumentType.Undownloadability;
         }
 
-        protected override bool RegistrationChanged(string registrationNumber)
+        protected override void RegistrationChanged(string registrationNumber)
         {
             if (string.IsNullOrEmpty(registrationNumber))
             {
-                return false;
+                return;
             }
             
             if (!UndownloadabilityRepository.Any())
             {
-                return false;
+                return;
             }
 
             //Remove all spaces from registration number
@@ -110,10 +100,7 @@
             {
                 Document = match;
                 SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, Document.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
-                return true;
             }
-
-            return false;
         }
 
         private void Populate()

@@ -2,8 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows.Controls;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using Library.PDF;
@@ -20,7 +22,7 @@
         public ICollection<string> ReportTypes { get; set; }
         public ICollection<string> DocumentTypes { get; set; }
         public ICollection<string> Technicians { get; set; }
-        public ICollection<string> VehicleManufacturers { get; set; }
+        public ICollection<string> CustomerContacts { get; set; }
 
         public Report Report { get; set; }
 
@@ -53,14 +55,16 @@
             };
 
             Technicians = TechniciansRepository.GetAll().Where(c => c != null).OrderBy(c => c.Name).Select(c => c.Name).ToList();
-            VehicleManufacturers = VehicleMakesRepository.GetAll().Where(c => c != null).OrderBy(c => c.Name).Select(c => c.Name).ToList();
+
+            var customerContactRepository = GetInstance<IRepository<CustomerContact>>();
+            CustomerContacts = new ObservableCollection<string>(customerContactRepository.GetAll(true).Select(c => c.Name).OrderBy(c => c));
 
             Report = new Report(Resources.TXT_RECENT_CALIBRATIONS, Resources.TXT_CALIBRATIONS_DUE)
             {
                 ReportType = ReportTypes.First(),
                 DocumentType = DocumentTypes.First(),
                 Technicians = new List<string>(),
-                VehicleManufacturers = new List<string>(),
+                Customers = new List<string>(),
                 FromDate = DateTime.Now.AddMonths(-2),
                 ToDate = DateTime.Now
             };

@@ -200,6 +200,15 @@ namespace TachographReader.DataModel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        public static string TXT_GENERATE_REPORT_CUSTOMER_CONTACT {
+            get {
+                return ResourceManager.GetString("TXT_GENERATE_REPORT_CUSTOMER_CONTACT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to G - goods vehicle.
         /// </summary>
         public static string TXT_GOODS_VEHICLE {

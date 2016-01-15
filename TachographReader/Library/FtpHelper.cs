@@ -66,7 +66,7 @@
                     return stream.ReadToEnd();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

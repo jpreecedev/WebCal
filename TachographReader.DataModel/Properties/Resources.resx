@@ -361,4 +361,7 @@
   <data name="TXT_PROCESSING" xml:space="preserve">
     <value>Processing...</value>
   </data>
+  <data name="TXT_GENERATE_REPORT_CUSTOMER_CONTACT" xml:space="preserve">
+    <value>Customer</value>
+  </data>
 </root>

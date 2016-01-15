@@ -70,7 +70,7 @@
 #if DEBUG
             return new X509Certificate2(Resources.webcal_connect);
 #else
-            return new X509Certificate2(Resources.webcalconnect_com);            
+            return new X509Certificate2(Resources.webcalconnect_com);
 #endif
         }
     }

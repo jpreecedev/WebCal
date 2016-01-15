@@ -113,26 +113,16 @@
             ConnectHelper.Upload(Document);
         }
 
-        protected override void OnFoundDocumentOnConnect(Document document)
-        {
-            var tachographDocument = document as TachographDocument;
-            if (tachographDocument != null)
-            {
-                Document = tachographDocument;
-                SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, Document.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
-            }
-        }
-
         protected override Connect.Shared.DocumentType GetDocumentType()
         {
             return Connect.Shared.DocumentType.Tachograph;
         }
 
-        protected override bool RegistrationChanged(string registrationNumber)
+        protected override void RegistrationChanged(string registrationNumber)
         {
             if (string.IsNullOrEmpty(registrationNumber))
             {
-                return false;
+                return;
             }
 
             //Remove all spaces from registration number
@@ -140,7 +130,7 @@
 
             if (!TachographDocumentRepository.Any())
             {
-                return false;
+                return;
             }
 
             TachographDocument match = TachographDocumentRepository.Where(doc => string.Equals(doc.RegistrationNumber, Document.RegistrationNumber, StringComparison.CurrentCultureIgnoreCase))
@@ -156,7 +146,7 @@
 
             if (match == null)
             {
-                return false;
+                return;
             }
 
             Document.CalibrationTime = DateTime.Now;
@@ -185,8 +175,6 @@
             Document.VIN = match.VIN;
 
             SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, match.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
-
-            return true;
         }
 
         protected override void OnFastReadCompleted(object sender, DriverCardCompletedEventArgs e)

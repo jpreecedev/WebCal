@@ -63,14 +63,13 @@
             {
                 documents = documents.Where(document => report.Technicians.Any(d => d == document.Technician));
             }
-            if (report.VehicleManufacturers != null && report.VehicleManufacturers.Count > 0 && typeof(T) == typeof(TachographDocument))
+            if (report.Customers != null && report.Customers.Count > 0)
             {
-                documents = documents.Where(document => report.VehicleManufacturers.Any(vehicleManufacturer =>
+                documents = documents.Where(document => report.Customers.Any(customer =>
                 {
-                    var tachographDocument = document as TachographDocument;
-                    if (tachographDocument != null)
+                    if (!string.IsNullOrEmpty(document.CustomerContact))
                     {
-                        return tachographDocument.VehicleMake == vehicleManufacturer;
+                        return document.CustomerContact == customer;
                     }
                     return false;
                 }));
