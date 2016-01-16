@@ -90,8 +90,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>TachographReader.EntryPoint</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>
@@ -227,10 +226,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    </Page>
     <Compile Include="Behaviours\CheckChangedBehaviour.cs" />
     <Compile Include="Behaviours\ComboKeyUpBehaviour.cs" />
     <Compile Include="Behaviours\ElementClickedBehaviour.cs" />
@@ -291,6 +290,7 @@
     <Compile Include="Core\LocalizedImageBinding.cs" />
     <Compile Include="Core\OneWayInputBinding.cs" />
     <Compile Include="Core\StartupArguments.cs" />
+    <Compile Include="EntryPoint.cs" />
     <Compile Include="EventArguments\DriverCardCompletedEventArgs.cs" />
     <Compile Include="EventArguments\DriverCardProgressEventArgs.cs" />
     <Compile Include="Library\ConnectHelper.cs" />

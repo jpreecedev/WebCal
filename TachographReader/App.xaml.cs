@@ -1,42 +1,29 @@
-﻿using System.Collections.Generic;
-using Microsoft.Shell;
-using TachographReader.Windows.ReprintWindow;
-
-namespace TachographReader
+﻿namespace TachographReader
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Diagnostics;
     using System.Globalization;
     using System.IO;
     using System.Threading;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Threading;
     using Windows;
     using Windows.LogInWindow;
+    using Windows.ReprintWindow;
     using Core;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
     using DataModel.Migrations;
     using Library;
+    using Microsoft.Shell;
     using Shared;
     using Shared.Helpers;
 
     public partial class App : ISingleInstanceApp
     {
-        public App()
-        {
-            if (SingleInstance<App>.InitializeAsFirstInstance("TachographReader"))
-            {
-                Dispatcher.CurrentDispatcher.UnhandledException += CurrentDispatcher_UnhandledException;
-                ShutdownMode = ShutdownMode.OnExplicitShutdown;
-
-                Current.Startup += Current_Startup;
-            }
-        }
-
         public bool SignalExternalCommandLineArgs(IList<string> args)
         {
             if (args == null || args.Count < 2)
@@ -66,7 +53,7 @@ namespace TachographReader
                             }
                         };
 
-                        var dataContext = (ReprintWindowViewModel) window.DataContext;
+                        var dataContext = (ReprintWindowViewModel)window.DataContext;
                         dataContext.ReprintCommand.Execute(window);
 
                         break;
@@ -75,10 +62,18 @@ namespace TachographReader
             }
             catch (Exception)
             {
-                
+
             }
 
             return true;
+        }
+
+        public void Boot()
+        {
+            Dispatcher.CurrentDispatcher.UnhandledException += CurrentDispatcher_UnhandledException;
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
+            Current.Startup += Current_Startup;
         }
 
         private async void Current_Startup(object sender, StartupEventArgs e)
