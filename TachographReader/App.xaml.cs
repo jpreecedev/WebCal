@@ -132,12 +132,8 @@
             MigrationHelper.SetDatabasePermissions();
 
             //Seed database
-            ISettingsRepository<WorkshopSettings> generalSettings = SeedDataHelper.SeedDatabase();
             MigrationHelper.ApplyDataHacks();
-
-            //Back up the database, if needed
-            BackupRestoreManager.BackupIfRequired(generalSettings.GetWorkshopSettings());
-
+            
             //Apply theme
             ThemeSettings themeSettings = ContainerBootstrapper.Resolve<ISettingsRepository<ThemeSettings>>().GetThemeSettings();
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = themeSettings.Source });

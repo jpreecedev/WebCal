@@ -74,6 +74,15 @@
             CallAsync(() => _connectClient.Service.UploadLetterForDecommissioningDocument(document));
         }
 
+        public static void BackupDatabaseAsync(string databasePath)
+        {
+            CallAsync(() =>
+            {
+                var serviceCredentials = _connectClient.Service.GetServiceCredentials();
+                FtpHelper.SaveDatabaseBackup(serviceCredentials, File.ReadAllBytes(databasePath));
+            });
+        }
+
         public static void BackupDatabase(string databasePath)
         {
             CallSync(() =>

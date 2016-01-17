@@ -78,6 +78,7 @@
 
         protected virtual void Add()
         {
+            
         }
 
         protected virtual void RegistrationChanged(string registrationNumber)

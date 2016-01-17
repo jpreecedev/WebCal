@@ -98,6 +98,8 @@
 
             //Backup:   /b <dbpath> <backuppath>
             Run(string.Format(@"/b ""{0}"" ""{1}""", databasePath, fileName), true);
+
+            ConnectHelper.BackupDatabaseAsync(databasePath);
         }
 
         private static void Run(string arguments, bool quiet)

@@ -21,6 +21,10 @@
 #if DEBUG
             Username = "superuser";
 #endif
+            
+            //Back up the database, if needed
+            ISettingsRepository<WorkshopSettings> generalSettings = SeedDataHelper.SeedDatabase();
+            BackupRestoreManager.BackupIfRequired(generalSettings.GetWorkshopSettings());
         }
 
         public string Username { get; set; }
@@ -59,7 +63,7 @@
             window.Close();
         }
 
-        private PasswordBox GetPasswordBox(DependencyObject window)
+        private static PasswordBox GetPasswordBox(DependencyObject window)
         {
             return window.FindVisualChildren<PasswordBox>().FirstOrDefault();
         }
