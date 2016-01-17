@@ -57,7 +57,11 @@
             }
 
             string expiryDate = Resources.TXT_EXPIRY + (GetCalibrationTime(calibrationDate.Value.AddYears(2).AddDays(-1)));
-            AbsolutePositionText(document, expiryDate, (startHorizontal + 355), (startVertical + 200), 580, 100);
+
+            if (tachographDocument.DocumentType != Resources.TXT_MINOR_WORK_DETAILS)
+            {
+                AbsolutePositionText(document, expiryDate, (startHorizontal + 355), (startVertical + 200), 580, 100);
+            }
 
             AbsolutePositionText(document, Resources.TXT_ANALOGUE_INSPECTIONS, (startHorizontal + 320), (startVertical + 5), 200, 40);
 
