@@ -2497,4 +2497,13 @@ date
   <data name="TXT_ENABLE_SYNCING_DATA_TO_WEBCAL" xml:space="preserve">
     <value>Enable syncing data to Webcal Connect?</value>
   </data>
+  <data name="TXT_NEW_TACHOGRAPH_CUSTOMER_EMAIL_ADDRESS" xml:space="preserve">
+    <value>Customer Email Address</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_NEW_INSPECTION_DATA" xml:space="preserve">
+    <value>New Inspection Data</value>
+  </data>
+  <data name="TXT_NEW_TACHOGRAPH_ADD_INSPECTION_DATA" xml:space="preserve">
+    <value>Add Inspection Data</value>
+  </data>
 </root>

@@ -675,8 +675,7 @@
                             <ScrollViewer x:Name="PART_ContentHost"
                                           Margin="0"
                                           MinWidth="120"
-                                          Height="25"
-                                          VerticalScrollBarVisibility="Visible"/>
+                                          Height="25" />
                         </Border>
 
                         <Button x:Name="CommandButton"
@@ -704,6 +703,12 @@
                                     Value="55" />
                             <Setter Property="Height"
                                     Value="70" />
+                            <Setter Property="TextWrapping"
+                                    Value="Wrap" />
+                            <Setter Property="VerticalScrollBarVisibility"
+                                    Value="Auto" />
+                            <Setter Property="AcceptsReturn"
+                                    Value="True" />
                         </Trigger>
                         <Trigger Property="Label"
                                  Value="">

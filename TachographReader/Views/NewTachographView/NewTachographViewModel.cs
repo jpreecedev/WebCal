@@ -51,6 +51,7 @@
         public bool IsReadOnly { get; set; }
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<Grid> PrintLabelCommand { get; set; }
+        public DelegateCommand<object> AddInspectionInfoCommand { get; set; }
 
         public void SetDocumentTypes(bool isDigital)
         {
@@ -68,6 +69,7 @@
 
             ReadFromCardCommand = new DelegateCommand<object>(OnReadFromCard);
             PrintLabelCommand = new DelegateCommand<Grid>(OnPrintLabel);
+            AddInspectionInfoCommand = new DelegateCommand<object>(OnAddInspectionInfo);
         }
 
         protected override void InitialiseRepositories()
@@ -342,6 +344,25 @@
                     ShowError("{0}\n\n{1}", Resources.EXC_ERROR_WHILST_READING_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex));
                 }
             }
+        }
+
+        private void OnAddInspectionInfo(object param)
+        {
+            if (string.IsNullOrEmpty(Document.NewInspectionInfo))
+            {
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Document.InspectionInfo))
+            {
+                Document.InspectionInfo = Document.NewInspectionInfo;
+            }
+            else
+            {
+                Document.InspectionInfo = string.Format("{0}\n{1}", Document.NewInspectionInfo, Document.InspectionInfo);
+            }
+
+            Document.NewInspectionInfo = string.Empty;
         }
 
         private void OnPrintLabel(DependencyObject root)

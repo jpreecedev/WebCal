@@ -46,16 +46,17 @@
                     <RowDefinition Height="35" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
+                    <RowDefinition Height="0" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="20" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="40" />
-                    <RowDefinition Height="75" />
+                    <RowDefinition Height="110" />
                     <RowDefinition Height="70" />
                     <RowDefinition Height="50" />
+                    <RowDefinition Height="45" />
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TACHOGRAPH_RECORD_TYPE}"
@@ -164,27 +165,35 @@
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="7" />
 
-                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_W_FACTOR}"
-                                      Text="{core:InputBinding Document.WFactor}"
-                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                                      IsMandatory="False"
-                                      IsAutoPopulated="True"
-                                      Grid.Row="8" />
+                <Grid Grid.Row="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="35" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="35" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_K_FACTOR}"
-                                      Text="{core:InputBinding Document.KFactor}"
-                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                                      IsMandatory="False"
-                                      IsAutoPopulated="True"
-                                      Grid.Row="8"
-                                      Grid.Column="2" />
+                    <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_W_FACTOR}"
+                                          Text="{core:InputBinding Document.WFactor}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          IsMandatory="False"
+                                          IsAutoPopulated="True" />
 
-                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_L_FACTOR}"
-                                      Text="{core:InputBinding Document.LFactor}"
-                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                                      IsMandatory="True"
-                                      IsAutoPopulated="True"
-                                      Grid.Row="9" />
+                    <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_K_FACTOR}"
+                                          Text="{core:InputBinding Document.KFactor}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          IsMandatory="False"
+                                          IsAutoPopulated="True"
+                                          Grid.Column="2" />
+
+                    <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_L_FACTOR}"
+                                          Text="{core:InputBinding Document.LFactor}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          IsMandatory="True"
+                                          IsAutoPopulated="True"
+                                          Grid.Column="4" />
+                </Grid>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TACHOGRAPH_DATA}"
                            Style="{StaticResource SubHeaderFont}"
@@ -273,34 +282,62 @@
                                       Grid.Row="15"
                                       Grid.Column="2" />
 
-                <ctrls:InputTextField Text="{core:InputBinding Document.InspectionInfo}"
-                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                                      Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_INSPECTION_DATA}"
-                                      IsMultiline="True"
-                                      TextWrapping="Wrap"
-                                      AcceptsReturn="True"
-                                      Grid.ColumnSpan="3"
-                                      Grid.Row="16" />
+                <StackPanel Orientation="Vertical"
+                            Grid.Row="16">
 
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="15" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ctrls:InputTextField Text="{Binding Document.NewInspectionInfo, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                              Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_NEW_INSPECTION_DATA}" />
+                        <Button Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_ADD_INSPECTION_DATA}"
+                                Command="{Binding AddInspectionInfoCommand}"
+                                Style="{StaticResource NewCustomerButton}"
+                                Grid.Column="2" />
+                    </Grid>
+
+                    <ctrls:InputTextField Text="{core:InputBinding Document.InspectionInfo}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_INSPECTION_DATA}"
+                                          IsMultiline="True"
+                                          IsReadOnly="True" />
+                </StackPanel>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CUSTOMER_DATA}"
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="17" />
 
-                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CUSTOMER}"
-                                       Grid.Row="18"
-                                       IsEditable="False"
-                                       ItemsSource="{core:InputBinding CustomerContacts}"
-                                       SelectedItem="{core:InputBinding SelectedCustomerContact}"
-                                       DisplayMemberPath="Name"
-                                       Grid.RowSpan="2" />
+                <Grid Grid.Row="18">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="15" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-                <Button Command="{Binding NewCustomerCommand}"
-                        IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
-                        Style="{StaticResource NewCustomerButton}"
-                        Grid.Row="18"
-                        Grid.Column="2"
-                        Grid.RowSpan="2" />
+                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CUSTOMER}"
+                                           Grid.Row="18"
+                                           IsEditable="False"
+                                           ItemsSource="{core:InputBinding CustomerContacts}"
+                                           SelectedItem="{core:InputBinding SelectedCustomerContact}"
+                                           DisplayMemberPath="Name"
+                                           Grid.RowSpan="2" />
+
+                    <Button Command="{Binding NewCustomerCommand}"
+                            IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                            Style="{StaticResource NewCustomerButton}"
+                            Grid.Column="2" />
+
+                </Grid>
+
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER_EMAIL_ADDRESS}"
+                                      Grid.Row="18"
+                                      Grid.Column="3"
+                                      IsReadOnly="True"
+                                      Text="{Binding SelectedCustomerContact.Email}"
+                                      Visibility="{Binding SelectedCustomerContact, Converter={StaticResource Null2Vis}}" />
 
                 <StackPanel Orientation="Horizontal"
                             Grid.Row="19"

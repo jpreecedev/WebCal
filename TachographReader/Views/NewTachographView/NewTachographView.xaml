@@ -46,14 +46,14 @@
                     <RowDefinition Height="35" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
+                    <RowDefinition Height="0" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="20" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="40" />
-                    <RowDefinition Height="65" />
+                    <RowDefinition Height="110" />
                     <RowDefinition Height="50" />
                     <RowDefinition />
                     <RowDefinition />
@@ -225,45 +225,53 @@
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="7" />
 
-                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_W_FACTOR}"
-                                      Text="{Binding Document.WFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      IsMandatory="True"
-                                      IsAutoPopulated="True"
-                                      Grid.Row="8">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.WFactor" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                <Grid Grid.Row="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="35" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="35" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_K_FACTOR}"
-                                      Text="{Binding Document.KFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      IsMandatory="True"
-                                      IsAutoPopulated="True"
-                                      Grid.Row="8"
-                                      Grid.Column="2">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.KFactor" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                    <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_W_FACTOR}"
+                                          Text="{Binding Document.WFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsMandatory="True"
+                                          IsAutoPopulated="True">
+                        <ctrls:InputTextField.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
+                                <Binding Path="IsReadOnly" />
+                                <Binding Path="Document.WFactor" />
+                            </MultiBinding>
+                        </ctrls:InputTextField.IsEnabled>
+                    </ctrls:InputTextField>
 
-                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_L_FACTOR}"
-                                      Text="{Binding Document.LFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      IsMandatory="True"
-                                      IsAutoPopulated="True"
-                                      Grid.Row="9">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.LFactor" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                    <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_K_FACTOR}"
+                                          Text="{Binding Document.KFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsMandatory="True"
+                                          IsAutoPopulated="True"
+                                          Grid.Column="2">
+                        <ctrls:InputTextField.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
+                                <Binding Path="IsReadOnly" />
+                                <Binding Path="Document.KFactor" />
+                            </MultiBinding>
+                        </ctrls:InputTextField.IsEnabled>
+                    </ctrls:InputTextField>
+
+                    <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_L_FACTOR}"
+                                          Text="{Binding Document.LFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsMandatory="True"
+                                          IsAutoPopulated="True"
+                                          Grid.Column="4">
+                        <ctrls:InputTextField.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
+                                <Binding Path="IsReadOnly" />
+                                <Binding Path="Document.LFactor" />
+                            </MultiBinding>
+                        </ctrls:InputTextField.IsEnabled>
+                    </ctrls:InputTextField>
+                </Grid>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TACHOGRAPH_DATA}"
                            Style="{StaticResource SubHeaderFont}"
@@ -393,20 +401,28 @@
                     </ctrls:InputTextField.IsEnabled>
                 </ctrls:InputTextField>
 
-                <ctrls:InputTextField Text="{Binding Document.InspectionInfo, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INSPECTION_DATA}"
-                                      TextWrapping="Wrap"
-                                      AcceptsReturn="True"
-                                      IsMultiline="True"
-                                      Grid.ColumnSpan="3"
-                                      Grid.Row="16">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.InspectionInfo" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                <StackPanel Orientation="Vertical"
+                            Grid.Row="16">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="15" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ctrls:InputTextField Text="{Binding Document.NewInspectionInfo, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                              Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_NEW_INSPECTION_DATA}" />
+                        <Button Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_ADD_INSPECTION_DATA}"
+                                Command="{Binding AddInspectionInfoCommand}"
+                                Style="{StaticResource NewCustomerButton}"
+                                Grid.Column="2"/>
+                    </Grid>
+
+                    <ctrls:InputTextField Text="{Binding Document.InspectionInfo, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INSPECTION_DATA}"
+                                          IsMultiline="True"
+                                          IsReadOnly="True" />
+                </StackPanel>
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_PPRN_CONSTANT}"
                                       IsMandatory="False"
@@ -437,21 +453,28 @@
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="19" />
 
-                <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER}"
-                                       Grid.Row="20"
-                                       IsMandatory="True"
-                                       IsEditable="False"
-                                       ItemsSource="{core:InputBinding CustomerContacts}"
-                                       SelectedItem="{core:InputBinding SelectedCustomerContact}"
-                                       DisplayMemberPath="Name" />
+                <Grid Grid.Row="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+	                    <ColumnDefinition Width="15" />
+	                    <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER}"
+                                           IsMandatory="True"
+                                           IsEditable="False"
+                                           ItemsSource="{core:InputBinding CustomerContacts}"
+                                           SelectedItem="{core:InputBinding SelectedCustomerContact}"
+                                           DisplayMemberPath="Name" />
 
-                <Button Command="{Binding NewCustomerCommand}"
-                        Style="{StaticResource NewCustomerButton}"
-                        Grid.Row="20"
-                        Grid.Column="2" />
-
-                <ctrls:InputTextField Label="Customer Email Address"
-                                      Grid.Row="21"
+                    <Button Command="{Binding NewCustomerCommand}"
+                            Style="{StaticResource NewCustomerButton}"
+                            Grid.Column="2" />
+                </Grid>
+                
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER_EMAIL_ADDRESS}"
+                                      Grid.Row="20"
+                                      Grid.Column="3"
                                       IsReadOnly="True"
                                       Text="{Binding SelectedCustomerContact.Email}"
                                       Visibility="{Binding SelectedCustomerContact, Converter={StaticResource Null2Vis}}"/>
