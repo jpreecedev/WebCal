@@ -34,7 +34,7 @@
                 return;
             }
 
-            var vehicleMakes = context.VehicleMakes.ToList();
+            var vehicleMakes = context.VehicleMakes.Include("Models").ToList();
             VehicleMake vehicleMake = vehicleMakes.FirstOrDefault(v => string.Equals(v.Name, entity.VehicleMake));
 
             if (vehicleMake != null)
