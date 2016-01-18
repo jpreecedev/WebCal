@@ -22,6 +22,9 @@
         public static readonly DependencyProperty IsMultilineProperty =
             DependencyProperty.Register("IsMultiline", typeof(bool), typeof(InputTextField), new PropertyMetadata(false));
         
+        public static readonly DependencyProperty IsLabelAutoWidthProperty =
+            DependencyProperty.Register("IsLabelAutoWidth", typeof(bool), typeof(InputTextField), new PropertyMetadata(false));
+        
         static InputTextField()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(InputTextField), new FrameworkPropertyMetadata(typeof(InputTextField)));
@@ -56,6 +59,12 @@
         {
             get { return (bool)GetValue(IsMultilineProperty); }
             set { SetValue(IsMultilineProperty, value); }
+        }
+
+        public bool IsLabelAutoWidth
+        {
+            get { return (bool)GetValue(IsLabelAutoWidthProperty); }
+            set { SetValue(IsLabelAutoWidthProperty, value); }
         }
 
         public override bool IsValid()

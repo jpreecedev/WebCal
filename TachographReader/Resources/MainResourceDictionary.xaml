@@ -693,6 +693,12 @@
                                               Margin="5,-4,0,0" />
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsLabelAutoWidth"
+                                 Value="true">
+                            <Setter TargetName="LabelColumn"
+                                    Property="Width"
+                                    Value="Auto" />
+                        </Trigger>
                         <Trigger Property="IsMultiline"
                                  Value="True">
                             <Setter TargetName="Border"

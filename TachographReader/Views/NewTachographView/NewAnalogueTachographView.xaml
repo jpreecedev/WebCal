@@ -165,7 +165,8 @@
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="7" />
 
-                <Grid Grid.Row="8">
+                <Grid Grid.Row="8"
+                      Grid.ColumnSpan="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="35" />
@@ -178,21 +179,21 @@
                                           Text="{core:InputBinding Document.WFactor}"
                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                           IsMandatory="False"
-                                          IsAutoPopulated="True" />
+                                          IsAutoPopulated="True"/>
 
                     <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_K_FACTOR}"
                                           Text="{core:InputBinding Document.KFactor}"
                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                           IsMandatory="False"
                                           IsAutoPopulated="True"
-                                          Grid.Column="2" />
+                                          Grid.Column="2"/>
 
                     <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_L_FACTOR}"
                                           Text="{core:InputBinding Document.LFactor}"
                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                           IsMandatory="True"
                                           IsAutoPopulated="True"
-                                          Grid.Column="4" />
+                                          Grid.Column="4"/>
                 </Grid>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_TACHOGRAPH_DATA}"

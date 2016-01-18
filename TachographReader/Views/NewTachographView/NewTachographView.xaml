@@ -225,7 +225,8 @@
                            Style="{StaticResource SubHeaderFont}"
                            Grid.Row="7" />
 
-                <Grid Grid.Row="8">
+                <Grid Grid.Row="8"
+                      Grid.ColumnSpan="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="35" />

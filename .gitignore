@@ -186,3 +186,6 @@ FakesAssemblies/
 *.7z
 *.exe
 *.db
+
+Installer/Webcal-cache
+Installer/Webcal-Fast-cache
