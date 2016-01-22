@@ -8,7 +8,7 @@
     {
         private readonly string _calibrationsDueText;
         private readonly string _recentCalibrationsText;
-
+        
         public Report(string recentCalibrationsText, string calibrationsDueText)
         {
             _recentCalibrationsText = recentCalibrationsText;
@@ -17,8 +17,8 @@
 
         public string ReportType { get; set; }
         public string DocumentType { get; set; }
-        public IList<string> Technicians { get; set; }
-        public IList<string> Customers { get; set; }
+        public ICollection<string> Technicians { get; set; }
+        public ICollection<string> Customers { get; set; }
         public string RegistrationNumber { get; set; }
         public string InvoiceNumber { get; set; }
         public DateTime FromDate { get; set; }

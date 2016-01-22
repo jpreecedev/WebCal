@@ -63,8 +63,8 @@
             {
                 ReportType = ReportTypes.First(),
                 DocumentType = DocumentTypes.First(),
-                Technicians = new List<string>(),
-                Customers = new List<string>(),
+                Technicians = new ObservableCollection<string>(),
+                Customers = new ObservableCollection<string>(),
                 FromDate = DateTime.Now.AddMonths(-2),
                 ToDate = DateTime.Now
             };
