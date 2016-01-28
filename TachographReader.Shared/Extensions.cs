@@ -3,13 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection;
     using System.ServiceModel;
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Threading;
     using Connect;
+    using Core;
     using global::Connect.Shared;
     using Properties;
 
@@ -22,7 +22,7 @@
 
         public static T GetAttribute<T>(this Enum enumValue) where T : Attribute
         {
-            MemberInfo memberInfo = enumValue.GetType().GetMember(enumValue.ToString()).FirstOrDefault();
+            var memberInfo = enumValue.GetType().GetMember(enumValue.ToString()).FirstOrDefault();
 
             if (memberInfo != null)
             {
@@ -46,14 +46,14 @@
 
             try
             {
-                TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
+                var synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
 
-                var task = Task.Factory.StartNew(() =>
+                Task.Factory.StartNew(() =>
                 {
                     client.Open(connectKeys);
                     return Try(() =>
                     {
-                        TResult result = default(TResult);
+                        var result = default(TResult);
 
                         Application.Current.Dispatcher.Invoke(() =>
                         {
@@ -116,9 +116,9 @@
 
             try
             {
-                TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
+                var synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
 
-                var task = Task.Factory.StartNew(() =>
+                Task.Factory.StartNew(() =>
                 {
                     client.Open(connectKeys);
                     return Try(() => beginCall(client));
@@ -171,7 +171,9 @@
         {
             try
             {
-                action();
+                var resilient = new Resilient();
+                resilient.ExecuteWithRetry(action);
+
                 return new ConnectOperationResult();
             }
             catch (CommunicationException communicationException)
@@ -200,6 +202,10 @@
             {
                 return new ConnectOperationResult(timeoutException, Resources.TXT_REQUEST_TIMED_OUT);
             }
+            catch (MaxAttemptsReachedException maxAttemptsException)
+            {
+                return new ConnectOperationResult(maxAttemptsException.InnerException, string.Format(Resources.TXT_REQUEST_FAILED_WITH_UNEXPECTED_EXCEPTION, maxAttemptsException.InnerException));
+            }
             catch (Exception ex)
             {
                 return new ConnectOperationResult(ex, string.Format(Resources.TXT_REQUEST_FAILED_WITH_UNEXPECTED_EXCEPTION, ex));
@@ -210,7 +216,7 @@
         {
             try
             {
-                return new ConnectOperationResult(func());
+                return new ConnectOperationResult(new Resilient().ExecuteWithRetry(func));
             }
             catch (CommunicationException communicationException)
             {
@@ -238,6 +244,10 @@
             {
                 return new ConnectOperationResult(timeoutException, Resources.TXT_REQUEST_TIMED_OUT);
             }
+            catch (MaxAttemptsReachedException maxAttemptsException)
+            {
+                return new ConnectOperationResult(maxAttemptsException.InnerException, string.Format(Resources.TXT_REQUEST_FAILED_WITH_UNEXPECTED_EXCEPTION, maxAttemptsException.InnerException));
+            }
             catch (Exception ex)
             {
                 return new ConnectOperationResult(ex, string.Format(Resources.TXT_REQUEST_FAILED_WITH_UNEXPECTED_EXCEPTION, ex));
@@ -246,7 +256,7 @@
 
         private static void BuildException(Task<ConnectOperationResult> task, Action<Exception> exceptionHandler)
         {
-            Exception exception = task.Exception ?? task.Result.Exception;
+            var exception = task.Exception ?? task.Result.Exception;
             BuildException(exception, exceptionHandler);
         }
 
@@ -262,12 +272,12 @@
             var exceptionAsAggregate = exception as AggregateException;
             if (exceptionAsAggregate != null)
             {
-                AggregateException aggregateException = exceptionAsAggregate.Flatten();
+                var aggregateException = exceptionAsAggregate.Flatten();
 
-                for (int i = 0; i < aggregateException.InnerExceptions.Count; i++)
+                for (var i = 0; i < aggregateException.InnerExceptions.Count; i++)
                 {
-                    Exception innerException = aggregateException.InnerExceptions[i];
-                    builder.AppendLine(String.Format("{0}. {1}", i + 1, innerException.Message));
+                    var innerException = aggregateException.InnerExceptions[i];
+                    builder.AppendLine($"{i + 1}. {innerException.Message}");
                 }
             }
             else

@@ -9,11 +9,16 @@
         private const double DEFAULT_EXPONENTIAL_BASE = 2;
         private const double DEFAULT_RANDOM_FACTOR = 1.1;
         private const int MAX_RETRY_COUNT = 5;
-        private static readonly TimeSpan DefaultCoefficient = TimeSpan.FromSeconds(1);
-        private static readonly TimeSpan MaxDelay = TimeSpan.FromSeconds(60);
-        private static readonly Random _random = new Random();
-        private static int _attempts;
+        private readonly TimeSpan _defaultCoefficient = TimeSpan.FromSeconds(1);
+        private readonly TimeSpan _maxDelay = TimeSpan.FromSeconds(60);
+        private readonly Random _random = new Random();
+        private int _attempts;
         private readonly Action<string> _progress;
+
+        public Resilient()
+        {
+
+        }
 
         public Resilient(Action<string> progress)
         {
@@ -27,14 +32,7 @@
                 TimeSpan? delay;
                 try
                 {
-                    if (_progress != null)
-                    {
-                        System.Windows.Application.Current.Dispatcher.Invoke(() =>
-                        {
-                            _progress(Resources.TXT_STARTING);
-                        });
-                    }
-
+                    ReportProgress(Resources.TXT_STARTING);
                     operation.Invoke();
                     return;
                 }
@@ -58,13 +56,8 @@
                 TimeSpan? delay;
                 try
                 {
-                    if (_progress != null)
-                    {
-                        _progress(Resources.TXT_STARTING);
-                    }
-
-                    T result = operation();
-                    return result;
+                    ReportProgress(Resources.TXT_STARTING);
+                    return operation();
                 }
                 catch (Exception ex)
                 {
@@ -84,28 +77,29 @@
             _attempts += 1;
             if (_attempts < MAX_RETRY_COUNT)
             {
-                double delta = (Math.Pow(DEFAULT_EXPONENTIAL_BASE, _attempts) - 1.0)*(1.0 + _random.NextDouble()*(DEFAULT_RANDOM_FACTOR - 1.0));
-                double delay = Math.Min(DefaultCoefficient.TotalMilliseconds*delta, MaxDelay.TotalMilliseconds);
+                var delta = (Math.Pow(DEFAULT_EXPONENTIAL_BASE, _attempts) - 1.0) * (1.0 + _random.NextDouble() * (DEFAULT_RANDOM_FACTOR - 1.0));
+                var delay = Math.Min(_defaultCoefficient.TotalMilliseconds * delta, _maxDelay.TotalMilliseconds);
 
                 var actualDelay = TimeSpan.FromMilliseconds(delay);
-
-                if (_progress != null)
-                {
-                    System.Windows.Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        _progress(string.Format(Resources.TXT_ATTEMPT_FAILED, actualDelay.Seconds));
-                    });
-                }
-
+                ReportProgress(string.Format(Resources.TXT_ATTEMPT_FAILED, actualDelay.Seconds));
+                
                 return actualDelay;
             }
 
-            if (_progress != null)
-            {
-                _progress(Resources.TXT_FAILED);
-            }
+            ReportProgress(Resources.TXT_FAILED);
 
             return null;
+        }
+
+        private void ReportProgress(string progress)
+        {
+            if (_progress != null && !string.IsNullOrEmpty(progress))
+            {
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    _progress(progress);
+                });
+            }
         }
     }
 }
