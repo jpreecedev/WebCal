@@ -74,7 +74,7 @@
 
             Document.Created = DateTime.Now;
             LetterForDecommissioningRepository.Add(Document);
-            ConnectHelper.Upload(Document);
+            ConnectHelper.Upload(Document, false);
         }
 
         protected override void OnCustomerContactChanged(CustomerContact customerContact)

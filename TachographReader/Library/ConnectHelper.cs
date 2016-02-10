@@ -41,7 +41,7 @@
 
         public static IConnectKeys GetConnectKeys()
         {
-            var cachedKeys = (IConnectKeys) _cache.Get(ConnectCacheKey);
+            var cachedKeys = (IConnectKeys)_cache.Get(ConnectCacheKey);
             if (cachedKeys == null)
             {
                 var registrationData = ContainerBootstrapper.Resolve<IRepository<RegistrationData>>().First();
@@ -49,7 +49,7 @@
                 {
                     cachedKeys = registrationData.ConnectKeys;
 
-                    _cache.Add(new CacheItem(ConnectCacheKey, cachedKeys), new CacheItemPolicy {SlidingExpiration = new TimeSpan(0, 30, 0)});
+                    _cache.Add(new CacheItem(ConnectCacheKey, cachedKeys), new CacheItemPolicy { SlidingExpiration = new TimeSpan(0, 30, 0) });
                 }
             }
             if (cachedKeys == null || cachedKeys.LicenseKey == 0)
@@ -59,19 +59,52 @@
             return cachedKeys;
         }
 
-        public static void Upload(TachographDocument document)
+        public static void Upload(TachographDocument document, bool isAutoUpload)
         {
-            CallAsync(() => _connectClient.Service.UploadTachographDocument(document));
+            CallAsync(() =>
+            {
+                if (isAutoUpload)
+                {
+                    _connectClient.Service.AutoUploadTachographDocument(document);
+                }
+                else
+                {
+                    _connectClient.Service.UploadTachographDocument(document);
+                }
+                SaveDocumentUpload(document);
+            });
         }
 
-        public static void Upload(UndownloadabilityDocument document)
+        public static void Upload(UndownloadabilityDocument document, bool isAutoUpload)
         {
-            CallAsync(() => _connectClient.Service.UploadUndownloadabilityDocument(document));
+            CallAsync(() =>
+            {
+                if (isAutoUpload)
+                {
+                    _connectClient.Service.AutoUploadUndownloadabilityDocument(document);
+                }
+                else
+                {
+                    _connectClient.Service.UploadUndownloadabilityDocument(document);
+                }
+                SaveDocumentUpload(document);
+            });
         }
 
-        public static void Upload(LetterForDecommissioningDocument document)
+        public static void Upload(LetterForDecommissioningDocument document, bool isAutoUpload)
         {
-            CallAsync(() => _connectClient.Service.UploadLetterForDecommissioningDocument(document));
+            CallAsync(() =>
+            {
+                if (isAutoUpload)
+                {
+                    _connectClient.Service.AutoUploadLetterForDecommissioningDocument(document);
+                }
+                else
+                {
+                    _connectClient.Service.UploadLetterForDecommissioningDocument(document);
+                }
+                SaveDocumentUpload(document);
+            });
         }
 
         public static void BackupDatabaseAsync(string databasePath)
@@ -100,7 +133,7 @@
             }
 
             ToggleConnectProgress(true);
-            
+
             _connectClient.CallAsync(GetConnectKeys(), client =>
             {
                 action.Invoke();
@@ -121,7 +154,7 @@
             {
                 return;
             }
-            
+
             _connectClient.CallAsync(GetConnectKeys(), client =>
             {
                 action.Invoke();
@@ -162,6 +195,14 @@
                 _progressWindow.Close();
                 _progressWindow = null;
             }
+        }
+
+        private static void SaveDocumentUpload<T>(T document) where T : Document
+        {
+            document.Uploaded = DateTime.Now;
+
+            var repository = ContainerBootstrapper.Resolve<IRepository<T>>();
+            repository.AddOrUpdate(document);
         }
     }
 }

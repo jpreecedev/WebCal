@@ -112,7 +112,7 @@
             }
 
             TachographDocumentRepository.AddOrUpdate(Document);
-            ConnectHelper.Upload(Document);
+            ConnectHelper.Upload(Document, false);
         }
 
         protected override Connect.Shared.DocumentType GetDocumentType()
