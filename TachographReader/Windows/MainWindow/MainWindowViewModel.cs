@@ -257,6 +257,13 @@
             LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
         }
 
+        protected override void Load()
+        {
+            base.Load();
+
+            ConnectHelper.SyncDocuments();
+        }
+
         private void CloseSettingsModal(bool save)
         {
             var settingsView = ModalView as SettingsView;

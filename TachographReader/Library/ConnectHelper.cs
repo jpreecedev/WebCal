@@ -13,13 +13,14 @@
     using System.IO;
     using Windows.ProgressWindow;
     using DataModel.Properties;
+    using PDF;
 
     public static class ConnectHelper
     {
         private static readonly IConnectClient _connectClient;
 
         private static readonly ObjectCache _cache = new MemoryCache("ConnectHelperCache");
-        private const string ConnectCacheKey = "ConnectKeysCache";
+        private const string CONNECT_CACHE_KEY = "ConnectKeysCache";
 
         private static ProgressWindow _progressWindow;
 
@@ -30,7 +31,7 @@
 
         public static void ConnectKeysChanged()
         {
-            _cache.Remove(ConnectCacheKey);
+            _cache.Remove(CONNECT_CACHE_KEY);
         }
 
         public static bool IsConnectEnabled()
@@ -41,7 +42,7 @@
 
         public static IConnectKeys GetConnectKeys()
         {
-            var cachedKeys = (IConnectKeys)_cache.Get(ConnectCacheKey);
+            var cachedKeys = (IConnectKeys)_cache.Get(CONNECT_CACHE_KEY);
             if (cachedKeys == null)
             {
                 var registrationData = ContainerBootstrapper.Resolve<IRepository<RegistrationData>>().First();
@@ -49,7 +50,7 @@
                 {
                     cachedKeys = registrationData.ConnectKeys;
 
-                    _cache.Add(new CacheItem(ConnectCacheKey, cachedKeys), new CacheItemPolicy { SlidingExpiration = new TimeSpan(0, 30, 0) });
+                    _cache.Add(new CacheItem(CONNECT_CACHE_KEY, cachedKeys), new CacheItemPolicy { SlidingExpiration = new TimeSpan(0, 30, 0) });
                 }
             }
             if (cachedKeys == null || cachedKeys.LicenseKey == 0)
@@ -57,6 +58,32 @@
                 return null;
             }
             return cachedKeys;
+        }
+
+        public static void SyncDocuments()
+        {
+            var tachographDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>();
+            var undownloadabilityDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<UndownloadabilityDocument>>();
+            var letterForDecommissioningRepository = ContainerBootstrapper.Resolve<IRepository<LetterForDecommissioningDocument>>();
+            
+            CallAsync(() =>
+            {
+                foreach (var tachographDocument in tachographDocumentsRepository.Where(c => c.Uploaded == null))
+                {
+                    _connectClient.Service.AutoUploadTachographDocument(CheckSerializedData(tachographDocument));
+                    SaveDocumentUpload(tachographDocument);
+                }
+                foreach (var undownloadabilityDocument in undownloadabilityDocumentsRepository.Where(c => c.Uploaded == null))
+                {
+                    _connectClient.Service.AutoUploadUndownloadabilityDocument(CheckSerializedData(undownloadabilityDocument));
+                    SaveDocumentUpload(undownloadabilityDocument);
+                }
+                foreach (var letterForDecommissioningDocument in letterForDecommissioningRepository.Where(c => c.Uploaded == null))
+                {
+                    _connectClient.Service.AutoUploadLetterForDecommissioningDocument(CheckSerializedData(letterForDecommissioningDocument));
+                    SaveDocumentUpload(letterForDecommissioningDocument);
+                }
+            });
         }
 
         public static void Upload(TachographDocument document, bool isAutoUpload)
@@ -203,6 +230,15 @@
 
             var repository = ContainerBootstrapper.Resolve<IRepository<T>>();
             repository.AddOrUpdate(document);
+        }
+
+        private static T CheckSerializedData<T>(T document) where T : Document
+        {
+            if (document.SerializedData == null)
+            {
+                document.ToPDF();
+            }
+            return document;
         }
     }
 }
