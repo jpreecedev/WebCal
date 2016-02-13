@@ -43,20 +43,15 @@
                     UseShellExecute = false,
                     CreateNoWindow = true,
                     Arguments = GetStartupArguments(printParameters.FilePath, printParameters)
-                }
+                },
+                EnableRaisingEvents = true
             };
 
-            proc.EnableRaisingEvents = true;
-
-            for (int i = 0; i < printParameters.DefaultNumberOfCopies; i++)
+            for (var i = 0; i < printParameters.DefaultNumberOfCopies; i++)
             {
                 proc.Start();
                 proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                proc.WaitForExit(180000);
             }
-
-            proc.Close();
-            KillPDFViewer(Path.GetFileNameWithoutExtension(pdfExecutablePath));
         }
 
         private static string GetStartupArguments(string filePath, PrintParameters parameters)
