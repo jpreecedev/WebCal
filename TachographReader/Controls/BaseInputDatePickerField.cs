@@ -18,10 +18,19 @@
         public static readonly DependencyProperty IsHighlightedProperty =
             DependencyProperty.Register("IsHighlighted", typeof (bool), typeof (BaseInputDatePickerField), new PropertyMetadata(false));
 
+        public static readonly DependencyProperty IsHistoryModeProperty =
+            DependencyProperty.Register("IsHistoryMode", typeof (bool), typeof (BaseInputDatePickerField), new PropertyMetadata(false));
+
         protected BaseInputDatePickerField()
         {
             Valid = true;
             SelectedDateChanged += (sender, e) => ReValidate(this, new DependencyPropertyChangedEventArgs());
+        }
+
+        public bool IsHistoryMode
+        {
+            get { return (bool) GetValue(IsHistoryModeProperty); }
+            set { SetValue(IsHistoryModeProperty, value); }
         }
 
         public bool Valid { get; set; }

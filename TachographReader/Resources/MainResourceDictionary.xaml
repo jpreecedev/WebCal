@@ -366,22 +366,27 @@
                                 BorderBrush="{StaticResource WindowBackgroundBrush}"
                                 BorderThickness="2">
                             <StackPanel Orientation="Horizontal">
-                                <ctrls:RadioButton Content="{x:Static Properties:Resources.TXT_YES}"
+                                <ctrls:RadioButton x:Name="YesRadioButton"
+                                                   Content="{x:Static Properties:Resources.TXT_YES}"
                                                    GroupName="{TemplateBinding GroupName}"
                                                    CheckedValue="1"
                                                    Margin="0,5,10,5"
-                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}" />
-                                <ctrls:RadioButton Content="{x:Static Properties:Resources.TXT_NO}"
+                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                                   IsEnabled="{Binding IsHistoryMode, Converter={StaticResource InvBool}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <ctrls:RadioButton x:Name="NoRadioButton"
+                                                   Content="{x:Static Properties:Resources.TXT_NO}"
                                                    GroupName="{TemplateBinding GroupName}"
                                                    CheckedValue="2"
                                                    Margin="0,5,10,5"
-                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                                   IsEnabled="{Binding IsHistoryMode, Converter={StaticResource InvBool}, RelativeSource={RelativeSource TemplatedParent}}" />
                                 <ctrls:RadioButton x:Name="NotApplicableRadio"
                                                    Content="{x:Static Properties:Resources.TXT_NOT_APPLICABLE}"
                                                    GroupName="{TemplateBinding GroupName}"
                                                    CheckedValue="3"
                                                    Margin="0,5,10,5"
-                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                                   IsEnabled="{Binding IsHistoryMode, Converter={StaticResource InvBool}, RelativeSource={RelativeSource TemplatedParent}}" />
                             </StackPanel>
                         </Border>
 
@@ -458,7 +463,8 @@
                             <DatePicker x:Name="Picker"
                                         SelectedDate="{core:InputBinding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
                                         Width="200"
-                                        HorizontalAlignment="Left" />
+                                        HorizontalAlignment="Left"
+                                        IsEnabled="{Binding IsHistoryMode, RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>

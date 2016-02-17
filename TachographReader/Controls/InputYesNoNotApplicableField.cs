@@ -1,6 +1,7 @@
 ﻿namespace TachographReader.Controls
 {
     using System.ComponentModel;
+    using System.Data.SqlServerCe;
     using System.Runtime.CompilerServices;
     using System.Windows;
     using System.Windows.Controls;
@@ -10,6 +11,10 @@
     [BaseControl]
     public class InputYesNoNotApplicableField : Control, IValidate, INotifyPropertyChanged
     {
+        private RadioButton _noRadioButton;
+        private RadioButton _notApplicableRadioButton;
+        private RadioButton _yesRadioButton;
+
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof (bool?), typeof (InputYesNoNotApplicableField), new PropertyMetadata(false, ReValidate));
 
@@ -24,7 +29,10 @@
 
         public static readonly DependencyProperty IsMandatoryProperty =
             DependencyProperty.Register("IsMandatory", typeof (bool), typeof (InputYesNoNotApplicableField), new PropertyMetadata(false));
-
+        
+        public static readonly DependencyProperty IsHistoryModeProperty =
+            DependencyProperty.Register("IsHistoryMode", typeof (bool), typeof (InputYesNoNotApplicableField), new PropertyMetadata(false));
+        
         static InputYesNoNotApplicableField()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof (InputYesNoNotApplicableField), new FrameworkPropertyMetadata(typeof (InputYesNoNotApplicableField)));
@@ -34,6 +42,12 @@
         {
             Valid = true;
             CheckChangedCommand = new DelegateCommand<RadioButton>(OnCheckChanged);
+        }
+
+        public bool IsHistoryMode
+        {
+            get { return (bool) GetValue(IsHistoryModeProperty); }
+            set { SetValue(IsHistoryModeProperty, value); }
         }
 
         public bool IsMandatory
@@ -53,7 +67,7 @@
             get { return (bool?) GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
-        
+
         public string GroupName
         {
             get { return (string) GetValue(GroupNameProperty); }
@@ -70,11 +84,11 @@
 
         protected bool HasValidated { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public ICommand CheckChangedCommand { get; set; }
 
         public bool HasSelectedValue { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public bool IsValid()
         {
@@ -82,17 +96,42 @@
 
             if (!IsNotApplicableDisplayed)
             {
-                return Valid = HasSelectedValue;
+                return Valid = HasSelectedValue || Value.HasValue;
             }
 
-            return Valid = (Value.HasValue || HasSelectedValue);
+            return Valid = Value.HasValue || HasSelectedValue;
+        }
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            _yesRadioButton = GetTemplateChild("YesRadioButton") as RadioButton;
+            _noRadioButton = GetTemplateChild("NoRadioButton") as RadioButton;
+            _notApplicableRadioButton = GetTemplateChild("NotApplicableRadioButton") as RadioButton;
+
+            if (!IsHistoryMode)
+                return;
+
+            switch (Value)
+            {
+                case true:
+                    if (_yesRadioButton != null) _yesRadioButton.IsChecked = true;
+                    break;
+                case false:
+                    if (_noRadioButton != null) _noRadioButton.IsChecked = true;
+                    break;
+                default:
+                    if (_notApplicableRadioButton != null) _notApplicableRadioButton.IsChecked = true;
+                    break;
+            }
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
+
         private static void ReValidate(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var sender = d as InputYesNoNotApplicableField;
@@ -110,7 +149,7 @@
             }
 
             HasSelectedValue = true;
-            
+
             switch (radioButton.CurrentValue)
             {
                 case 1:

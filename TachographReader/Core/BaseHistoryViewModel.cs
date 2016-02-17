@@ -8,13 +8,13 @@
     using System.Windows;
     using Windows.DateRangePickerWindow;
     using Connect.Shared.Models;
-    using DataModel;
     using Library;
     using Properties;
 
     public class BaseHistoryViewModel : BaseMainViewModel
     {
         private ObservableCollection<Document> _originalDocuments;
+        private ObservableCollection<BaseReport> _originalReports; 
 
         public BaseHistoryViewModel()
         {
@@ -39,7 +39,9 @@
         public string SelectedSearchFilter { get; set; }
         public string SearchTerm { get; set; }
         public ObservableCollection<Document> Documents { get; set; }
+        public ObservableCollection<BaseReport> Reports { get; set; }
         public Document SelectedDocument { get; set; }
+        public BaseReport SelectedReport { get; set; }
         public DelegateCommand<object> OpenInReportFormCommand { get; set; }
         public DelegateCommand<object> EmailReportFormCommand { get; set; }
         public DelegateCommand<object> PerformSearchCommand { get; set; }
@@ -59,6 +61,10 @@
         {
         }
 
+        protected virtual void OnReportSelected(BaseReport report)
+        {
+        }
+
         protected virtual void OnEmailReportSelected(Document document)
         {
         }
@@ -67,14 +73,33 @@
         {
         }
 
+        protected virtual void SearchReports()
+        {
+        }
+
         protected override void AfterLoad()
         {
-            _originalDocuments = new ObservableCollection<Document>(Documents);
+            if (Documents != null)
+            {
+                _originalDocuments = new ObservableCollection<Document>(Documents);
+            }
+
+            if (Reports != null)
+            {
+                _originalReports = new ObservableCollection<BaseReport>(Reports);
+            }
         }
 
         private void OnOpenInReportForm(object obj)
         {
-            OnDocumentSelected(SelectedDocument);
+            if (SelectedDocument != null)
+            {
+                OnDocumentSelected(SelectedDocument);
+            }
+            if (SelectedReport != null)
+            {
+                OnReportSelected(SelectedReport);
+            }
         }
 
         private void OnEmailReportFormCommand(object obj)
@@ -89,30 +114,40 @@
                 return;
             }
 
-            Documents.Clear();
-            Documents.AddRange(_originalDocuments);
-
-            switch (SearchFilters.IndexOf(SelectedSearchFilter))
+            if (Documents != null)
             {
-                case 0:
-                    Documents.Remove(item => item.RegistrationNumber == null || !item.RegistrationNumber.ToLower().Contains(SearchTerm.ToLower()));
-                    break;
+                Documents.Clear();
+                Documents.AddRange(_originalDocuments);
 
-                case 1:
-                    Documents.Remove(item => item.CustomerContact == null || !item.CustomerContact.ToLower().Contains(SearchTerm.ToLower()));
-                    break;
+                switch (SearchFilters.IndexOf(SelectedSearchFilter))
+                {
+                    case 0:
+                        Documents.Remove(item => item.RegistrationNumber == null || !item.RegistrationNumber.ToLower().Contains(SearchTerm.ToLower()));
+                        break;
 
-                case 2:
-                    Documents.Remove(item => item.Technician == null || !item.Technician.ToLower().Contains(SearchTerm.ToLower()));
-                    break;
+                    case 1:
+                        Documents.Remove(item => item.CustomerContact == null || !item.CustomerContact.ToLower().Contains(SearchTerm.ToLower()));
+                        break;
 
-                case 3:
-                    Documents.Remove(item => item.Office == null || !item.Office.ToLower().Contains(SearchTerm.ToLower()));
-                    break;
+                    case 2:
+                        Documents.Remove(item => item.Technician == null || !item.Technician.ToLower().Contains(SearchTerm.ToLower()));
+                        break;
 
-                case 4:
-                    Documents.Remove(item => item.DocumentType == null || !item.DocumentType.ToLower().Contains(SearchTerm.ToLower()));
-                    break;
+                    case 3:
+                        Documents.Remove(item => item.Office == null || !item.Office.ToLower().Contains(SearchTerm.ToLower()));
+                        break;
+
+                    case 4:
+                        Documents.Remove(item => item.DocumentType == null || !item.DocumentType.ToLower().Contains(SearchTerm.ToLower()));
+                        break;
+                }
+            }
+            if (Reports != null)
+            {
+                Reports.Clear();
+                Reports.AddRange(_originalReports);
+
+                SearchReports();
             }
         }
 
@@ -128,7 +163,7 @@
                     return;
                 }
 
-                DateTime end = DateTime.Parse(string.Format("{0} 23:59:59", viewModel.EndDateTime.ToString(Constants.DateFormat)));
+                var end = DateTime.Parse($"{viewModel.EndDateTime.ToString(Constants.DateFormat)} 23:59:59");
                 OnCreateVOSADocument(viewModel.StartDateTime, end);
             }
         }

@@ -13,7 +13,7 @@
 
         public static readonly DependencyProperty LabelWidthProperty =
             DependencyProperty.Register("LabelWidth", typeof(int), typeof(InputDatePickerField), new PropertyMetadata(0));
-
+        
         public string Label
         {
             get { return (string) GetValue(LabelProperty); }
@@ -35,7 +35,7 @@
         public override bool IsValid()
         {
             HasValidated = true;
-
+            
             if (!IsMandatory)
             {
                 return Valid = true;

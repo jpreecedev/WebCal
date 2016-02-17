@@ -344,6 +344,10 @@
       <DependentUpon>CalibrationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CalibrationsView\CalibrationsViewModel.cs" />
+    <Compile Include="Views\QCCheckHistoryView\QCCheckHistoryView.xaml.cs">
+      <DependentUpon>QCCheckHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QCCheckHistoryView\QCCheckHistoryViewModel.cs" />
     <Compile Include="Views\LetterForDecommissioningHistoryView\LetterForDecommissioningHistoryView.xaml.cs">
       <DependentUpon>LetterForDecommissioningHistoryView.xaml</DependentUpon>
     </Compile>
@@ -511,6 +515,10 @@
       <DependentUpon>WorkerProgressWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WorkerProgressWindow\WorkerProgressWindowViewModel.cs" />
+    <Page Include="Views\QCCheckHistoryView\QCCheckHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\LetterForDecommissioningHistoryView\LetterForDecommissioningHistoryView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1070,6 +1078,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\traintec_small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QCCheckHistoryIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

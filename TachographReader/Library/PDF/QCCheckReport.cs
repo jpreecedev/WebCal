@@ -176,16 +176,18 @@
             }
             
             document.DrawBox(61, 350, 225, 35);
-            AbsolutePositionText(document, Resources.TXT_QC_REPORT_CHECK_TECHNICIAN, 65, 380, 255, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            AbsolutePositionText(document, $"{Resources.TXT_QC_REPORT_CHECK_TECHNICIAN} {qcReportDocument.TechnicianName}", 65, 380, 255, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
             
             document.DrawBox(310, 350, 225, 35);
             AbsolutePositionText(document, Resources.TXT_QC_REPORT_CHECK_SIGNATURE, 315, 380, 450, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            TryAddSignature(document, qcReportDocument, qcReportDocument.TechnicianName, 345, 340);
 
             document.DrawBox(61, 300, 225, 35);
-            AbsolutePositionText(document, Resources.TXT_QC_REPORT_CHECK_QC, 65, 330, 255, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            AbsolutePositionText(document, $"{Resources.TXT_QC_REPORT_CHECK_QC} {qcReportDocument.QCManagerName}", 65, 330, 255, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
 
             document.DrawBox(310, 300, 225, 35);
             AbsolutePositionText(document, Resources.TXT_QC_REPORT_CHECK_SIGNATURE, 315, 330, 450, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            TryAddSignature(document, qcReportDocument, qcReportDocument.QCManagerName, 345, 290);
 
             document.DrawBox(61, 250, 225, 35);
             AbsolutePositionText(document, Resources.DATE + DateTime.Now.ToString(Constants.ShortYearDateFormat), 65, 280, 255, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
@@ -228,6 +230,31 @@
                 }
 
                 AbsolutePositionText(document, Resources.TXT_QC_REPORT_CHECK_NA, 700, top - 1, 465, 25, document.GetLargeFont(false), Element.ALIGN_LEFT);
+            }
+        }
+
+        private static void TryAddSignature(PDFDocument document, QCReportViewModel qcReportDocument, string technicianName, int x, int y = 88)
+        {
+            System.Drawing.Image signatureImage = null;
+
+            var userRepository = ContainerBootstrapper.Resolve<IRepository<User>>();
+            var user = UserManagement.GetUser(userRepository, UserManagement.LoggedInUserName);
+            if (user != null && user.Image != null)
+            {
+                signatureImage = user.Image;
+            }
+
+            IRepository<Technician> technicianRepository = ContainerBootstrapper.Resolve<IRepository<Technician>>();
+            var technicianUser = technicianRepository.FirstOrDefault(c => string.Equals(c.Name, technicianName));
+            if (technicianUser != null && technicianUser.Image != null)
+            {
+                signatureImage = technicianUser.Image;
+            }
+
+            if (signatureImage != null)
+            {
+                var image = ImageHelper.Scale(signatureImage, 500, 50);
+                document.AddImage(image.ToByteArray(), image.Width, image.Height, x, y);
             }
         }
 

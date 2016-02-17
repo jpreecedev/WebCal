@@ -264,6 +264,16 @@
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP}" />
                         </r:Button.ToolTip>
                     </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECK_HISTORY}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}QCCheckHistoryIcon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}QCCheckHistoryIcon}"
+                              Command="{Binding QCCheckHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECK_HISTORY}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}QCCheckHistoryIcon}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECK_HISTORY_TOOLTIP}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
 

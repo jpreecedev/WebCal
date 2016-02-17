@@ -806,6 +806,16 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap QCCheckHistoryIcon {
+            get {
+                object obj = ResourceManager.GetObject("QCCheckHistoryIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Would you like to back-up the database?.
         /// </summary>
         public static string QTN_WOULD_YOU_LIKE_BACKUP_DATABASE {
@@ -3415,6 +3425,24 @@ namespace TachographReader.Properties {
         /// <summary>
         ///   Looks up a localized string similar to QC Check.
         /// </summary>
+        public static string TXT_MAIN_WINDOW_QC_CHECK_HISTORY {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_QC_CHECK_HISTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QC Check History.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_QC_CHECK_HISTORY_TOOLTIP {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_QC_CHECK_HISTORY_TOOLTIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QC Check.
+        /// </summary>
         public static string TXT_MAIN_WINDOW_QC_WALKAROUND {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_QC_WALKAROUND", resourceCulture);
@@ -5220,6 +5248,69 @@ namespace TachographReader.Properties {
         public static string TXT_PRODUCT_VERSION {
             get {
                 return ResourceManager.GetString("TXT_PRODUCT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creation date.
+        /// </summary>
+        public static string TXT_QC_CHECK_HISTORY_CREATION_DATE {
+            get {
+                return ResourceManager.GetString("TXT_QC_CHECK_HISTORY_CREATION_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter search term.
+        /// </summary>
+        public static string TXT_QC_CHECK_HISTORY_ENTER_SEARCH_TERM {
+            get {
+                return ResourceManager.GetString("TXT_QC_CHECK_HISTORY_ENTER_SEARCH_TERM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in report form.
+        /// </summary>
+        public static string TXT_QC_CHECK_HISTORY_OPEN_IN_REPORT_FORM {
+            get {
+                return ResourceManager.GetString("TXT_QC_CHECK_HISTORY_OPEN_IN_REPORT_FORM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-Print Report.
+        /// </summary>
+        public static string TXT_QC_CHECK_HISTORY_REPRINT_CERTIFICATE {
+            get {
+                return ResourceManager.GetString("TXT_QC_CHECK_HISTORY_REPRINT_CERTIFICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician.
+        /// </summary>
+        public static string TXT_QC_CHECK_HISTORY_TECHNICIAN {
+            get {
+                return ResourceManager.GetString("TXT_QC_CHECK_HISTORY_TECHNICIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle registration number.
+        /// </summary>
+        public static string TXT_QC_CHECK_HISTORY_VEHICLE_REGISTRATION_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_QC_CHECK_HISTORY_VEHICLE_REGISTRATION_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QC Check document history.
+        /// </summary>
+        public static string TXT_QC_CHECK_HISTORY_VIEW {
+            get {
+                return ResourceManager.GetString("TXT_QC_CHECK_HISTORY_VIEW", resourceCulture);
             }
         }
         

@@ -46,6 +46,7 @@
         public DelegateCommand<UserControl> SaveModalCommand { get; set; }
         public DelegateCommand<object> LetterForDecommissioningCommand { get; set; }
         public DelegateCommand<object> LetterForDecommissioningHistoryCommand { get; set; }
+        public DelegateCommand<object> QCCheckHistoryCommand { get; set; }
         public DelegateCommand<object> QCCheckCommand { get; set; }
         public DelegateCommand<object> QC3MonthCheckCommand { get; set; }
 
@@ -141,6 +142,11 @@
         private void OnLetterForDecommissioningHistory(object param)
         {
             ShowView<LetterForDecommissioningHistoryView>();
+        }
+
+        private void OnQCCheckHistory(object obj)
+        {
+            ShowView<QCCheckHistoryView>();
         }
 
         private void OnQCCheck(object param)
@@ -267,6 +273,7 @@
             CloseModalCommand = new DelegateCommand<UserControl>(OnCloseModal);
             LetterForDecommissioningCommand = new DelegateCommand<object>(OnLetterForDecommissioning);
             LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
+            QCCheckHistoryCommand = new DelegateCommand<object>(OnQCCheckHistory);
             QCCheckCommand = new DelegateCommand<object>(OnQCCheck);
             QC3MonthCheckCommand = new DelegateCommand<object>(OnQC3MonthCheck);
         }

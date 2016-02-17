@@ -68,6 +68,7 @@
 
                     <ctrls:InputComboField IsMandatory="True"
                                            IsEditable="False"
+                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                            ItemsSource="{Binding Document.ReportTypes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            SelectedItem="{Binding Document.TypeOfTachographCheck, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_REPORT_TYPE}"
@@ -77,6 +78,7 @@
                     <ctrls:InputDatePickerField SelectedDate="{Binding Document.DateOfAudit}"
                                                 Label="{x:Static properties:Resources.TXT_NEW_QC_DATE_OF_AUDIT}"
                                                 IsLabelWidthCustom="True"
+                                                IsHistoryMode="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                                 LabelWidth="200"
                                                 Grid.Column="2" />
                 </Grid>
@@ -316,30 +318,35 @@
 
                     <ctrls:InputYesNoNotApplicableField Value="{core:InputBinding Document.ClockTestCompleted}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_CLOCK_TEST_COMPLETED}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group1"
                                                         IsMandatory="True" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Column="2"
                                                         Value="{core:InputBinding Document.BenchTestCarriedOutAnalogue}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_BENCH_TEST_CARRIED_OUT}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group2"
                                                         IsMandatory="True" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Column="4"
                                                         Value="{core:InputBinding Document.FunctionalBenchTestDigital}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_FUNCTIONAL_BENCH_TEST}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group3"
                                                         IsMandatory="True" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Column="6"
                                                         Value="{core:InputBinding Document.DistanceCheckCarriedOut}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_DISTANCE_CHECK_CARRIED_OUT}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group4"
                                                         IsMandatory="True" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="1"
                                                         Value="{core:InputBinding Document.TestChartsCompleted}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TEST_CHARTS_COMPLETED}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group5"
                                                         IsMandatory="True" />
 
@@ -347,6 +354,7 @@
                                                         Grid.Column="2"
                                                         Value="{core:InputBinding Document.SpeedForSpeedCheckCompleted}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_SPEED_FOR_SPEED_CHECK}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group6"
                                                         IsMandatory="True" />
 
@@ -354,6 +362,7 @@
                                                         Grid.Column="4"
                                                         Value="{core:InputBinding Document.SystemSealedInAccordance}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_SYSTEM_SEALED_IN_ACCORDANCE}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group7"
                                                         IsMandatory="True"
                                                         IsNotApplicableDisplayed="False" />
@@ -362,6 +371,7 @@
                                                         Grid.Column="6"
                                                         Value="{core:InputBinding Document.CalibrationCertificateCompleted}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CALIBRATION_CERTIFICATE_COMPLETED}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group8"
                                                         IsMandatory="True"
                                                         IsNotApplicableDisplayed="False" />
@@ -369,6 +379,7 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="2"
                                                         Value="{core:InputBinding Document.ReferenceCableCheckCompleted}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_REFERENCE_CABLE_CHECK_CONPLETED}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group9"
                                                         IsMandatory="True" />
 
@@ -376,6 +387,7 @@
                                                         Grid.Column="2"
                                                         Value="{core:InputBinding Document.TechnicalDataPrintoutsCreated}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TECHNICAL_PRINTOUTS_CREATED}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group10"
                                                         IsMandatory="True" />
 
@@ -383,6 +395,7 @@
                                                         Grid.Column="4"
                                                         Value="{core:InputBinding Document.EventsFaultsReadCleared}"
                                                         Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_EVENTS_FAULTS_CLEARED}"
+                                                        IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group11"
                                                         IsMandatory="True" />
                 </Grid>

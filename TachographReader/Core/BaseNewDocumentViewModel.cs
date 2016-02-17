@@ -167,9 +167,10 @@
                     {
 
                     }
+
+                    Add();
                 }
 
-                Add();
                 Close();
             }
             catch (Exception ex)
