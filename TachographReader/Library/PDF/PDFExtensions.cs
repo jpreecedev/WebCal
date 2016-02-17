@@ -10,6 +10,7 @@
     using Shared;
     using Shared.Helpers;
     using Shared.Workers;
+    using ViewModels;
 
     public static class PDFExtensions
     {
@@ -27,12 +28,36 @@
             return new PDFDocumentResult();
         }
 
+        public static PDFDocumentResult ToReportPDF<T>(this T report, bool readOnly = true, bool excludeLogos = false, bool promptUser = false) where T : BaseReport
+        {
+            if (!readOnly)
+                report.Created = DateTime.Now;
+
+            var result = Save(promptUser);
+            if (result.Result == true)
+            {
+                using (var pdfDocument = new PDFDocument(result.FileName))
+                {
+                    var qcReportViewModel = report as QCReportViewModel;
+                    if (qcReportViewModel != null)
+                    {
+                        QCCheckReport.Create(pdfDocument, qcReportViewModel);
+                    }
+                }
+
+                report.SerializedData = File.ReadAllBytes(result.FileName);
+                return new PDFDocumentResult { FilePath = result.FileName, Report = report };
+            }
+
+            return new PDFDocumentResult();
+        }
+
         public static PDFDocumentResult ToPDF<T>(this T document, bool readOnly = true, bool excludeLogos = false, bool promptUser = false) where T : Document
         {
             if (!readOnly)
                 document.InspectionDate = DateTime.Now;
 
-            DialogHelperResult result = Save(promptUser);
+            var result = Save(promptUser);
             if (result.Result == true)
             {
                 using (var pdfDocument = new PDFDocument(result.FileName))
@@ -66,7 +91,7 @@
 
         public static PDFDocumentResult GenerateVOSADocument(this ICollection<TachographDocument> documents, DateTime start, DateTime end)
         {
-            DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);
+            var result = DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);
             if (result.Result == true)
             {
                 VOSADocument.Create(result.FileName, documents, start, end);
@@ -103,9 +128,12 @@
             var repository = ContainerBootstrapper.Resolve<ISettingsRepository<PrinterSettings>>();
             var settings = repository.GetPrinterSettings();
 
-            var workerTask = new WorkerTask { TaskName = WorkerTaskName.Print };
+            var workerTask = new WorkerTask
+            {
+                TaskName = WorkerTaskName.Print,
+                Parameters = new WorkerParameters()
+            };
 
-            workerTask.Parameters = new WorkerParameters();
             workerTask.Parameters.SetParameter("FilePath", pdfDocumentResult.FilePath);
             workerTask.Parameters.SetParameter("AlwaysAskForPrinter", settings.AlwaysAskForPrinter);
             workerTask.Parameters.SetParameter("DefaultPrinterName", settings.DefaultPrinterName);
@@ -120,7 +148,7 @@
         {
             if (!promptUser)
             {
-                string path = Path.Combine(ImageHelper.GetTemporaryDirectory(), string.Format("{0}.pdf", Guid.NewGuid().ToString().Replace("-", "")));
+                var path = Path.Combine(ImageHelper.GetTemporaryDirectory(), $"{Guid.NewGuid().ToString().Replace("-", "")}.pdf");
                 return new DialogHelperResult { FileName = path, Result = true };
             }
 

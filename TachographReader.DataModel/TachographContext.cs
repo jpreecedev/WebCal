@@ -36,5 +36,7 @@
         public DbSet<ThemeSettings> ThemeSettings { get; set; }
         public DbSet<MiscellaneousSettings> MiscellaneousSettings { get; set; }
         public DbSet<WorkerTask> WorkerTasks { get; set; }
+        public DbSet<QCReport> QCReports { get; set; }
+        public DbSet<QCReport3Month> QCReport3Months { get; set; }
     }
 }

@@ -121,6 +121,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date: .
+        /// </summary>
+        public static string DATE {
+            get {
+                return ResourceManager.GetString("DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap email {
@@ -777,6 +786,26 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap QC3Month {
+            get {
+                object obj = ResourceManager.GetObject("QC3Month", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap QCCheck {
+            get {
+                object obj = ResourceManager.GetObject("QCCheck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Would you like to back-up the database?.
         /// </summary>
         public static string QTN_WOULD_YOU_LIKE_BACKUP_DATABASE {
@@ -900,6 +929,26 @@ namespace TachographReader.Properties {
         public static System.Drawing.Bitmap TachoBackupSm {
             get {
                 object obj = ResourceManager.GetObject("TachoBackupSm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap traintec {
+            get {
+                object obj = ResourceManager.GetObject("traintec", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap traintec_small {
+            get {
+                object obj = ResourceManager.GetObject("traintec_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -3130,6 +3179,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3 Month Walk Around.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_3_MONTH_WALKAROUND {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_3_MONTH_WALKAROUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string TXT_MAIN_WINDOW_ABOUT {
@@ -3355,6 +3413,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to QC Check.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_QC_WALKAROUND {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_QC_WALKAROUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restore Database.
         /// </summary>
         public static string TXT_MAIN_WINDOW_RESTORE_DATABASE {
@@ -3427,6 +3494,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shows the 3 month walk around screen.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_SHOWS_3_MONTH_WALKAROUND {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_3_MONTH_WALKAROUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shows about and technical information.
         /// </summary>
         public static string TXT_MAIN_WINDOW_SHOWS_ABOUT_AND_TECH {
@@ -3463,7 +3539,16 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows the new tachograh document screen.
+        ///   Looks up a localized string similar to Shows the QC Check screen.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_SHOWS_QC_WALKAROUND {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_QC_WALKAROUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows the new tachograph document screen.
         /// </summary>
         public static string TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN {
             get {
@@ -4057,6 +4142,375 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 2 year calibration digital.
+        /// </summary>
+        public static string TXT_NEW_QC_2_CALIBRATION_DIGITAL {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_2_CALIBRATION_DIGITAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2 year inspection analogue.
+        /// </summary>
+        public static string TXT_NEW_QC_2_YEAR_ANALOGUE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_2_YEAR_ANALOGUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 40km/h test (if applicable).
+        /// </summary>
+        public static string TXT_NEW_QC_40_KM_TEST {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_40_KM_TEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calibration certificate completed.
+        /// </summary>
+        public static string TXT_NEW_QC_CALIBRATION_CERTIFICATE_COMPLETED {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CALIBRATION_CERTIFICATE_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3 basic checks completed.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_3_BASIC_CHECKS_COMPLETED {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_3_BASIC_CHECKS_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 60km/h test (if applicable).
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_60_KM_TEST {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_60_KM_TEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bench test carried out (analogue).
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_BENCH_TEST_CARRIED_OUT {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_BENCH_TEST_CARRIED_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calibration / Inspection:.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_CALIBRATION_INSPECTION {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_CALIBRATION_INSPECTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clock test completed (if applicable).
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_CLOCK_TEST_COMPLETED {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_CLOCK_TEST_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance check carried out.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_DISTANCE_CHECK_CARRIED_OUT {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_DISTANCE_CHECK_CARRIED_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Events &amp; Faults &amp; cleared.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_EVENTS_FAULTS_CLEARED {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_EVENTS_FAULTS_CLEARED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Functional bench test (digital).
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_FUNCTIONAL_BENCH_TEST {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_FUNCTIONAL_BENCH_TEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Initial installation analogue.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_INITIAL_INSTALLATION_ANALOGUE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_INITIAL_INSTALLATION_ANALOGUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passed?.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_PASSED {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_PASSED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quality Control Manager&apos;s Name.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_QC_MANAGER_NAME {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_QC_MANAGER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report Type.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_REPORT_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_REPORT_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speed for Speed check completed.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_SPEED_FOR_SPEED_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_SPEED_FOR_SPEED_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TACHO_MODEL {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TACHO_MODEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Serial Number.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TACHO_SERIAL_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TACHO_SERIAL_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Data.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TACHOGRAPH_DATA {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TACHOGRAPH_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Make.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TACHOGRAPH_MAKE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TACHOGRAPH_MAKE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Manager&apos;s Name.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TAHCO_MANAGER_NAME {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TAHCO_MANAGER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technical data printouts created.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TECHNICAL_PRINTOUTS_CREATED {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TECHNICAL_PRINTOUTS_CREATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician&apos;s Name.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TECHNICIAN_NAME {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TECHNICIAN_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test charts completed.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TEST_CHARTS_COMPLETED {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TEST_CHARTS_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of Tachograph Check - Technician Assessment.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_TYPE_OF_TACHO_TECHNICIAN_ASSESSMENT {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_TYPE_OF_TACHO_TECHNICIAN_ASSESSMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle Data.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_VEHICLE_DATA {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_VEHICLE_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle Make.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_VEHICLE_MAKE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_VEHICLE_MAKE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_VEHICLE_MODEL {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_VEHICLE_MODEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration Number.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_VEHICLE_REGISTRATION {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_VEHICLE_REGISTRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VIN.
+        /// </summary>
+        public static string TXT_NEW_QC_CHECK_VIN {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_CHECK_VIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of audit.
+        /// </summary>
+        public static string TXT_NEW_QC_DATE_OF_AUDIT {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_DATE_OF_AUDIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Establish &apos;L&apos;.
+        /// </summary>
+        public static string TXT_NEW_QC_ESTABLISH_L_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_ESTABLISH_L_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Establish &apos;W&apos; (if applicable).
+        /// </summary>
+        public static string TXT_NEW_QC_ESTABLISH_W_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_ESTABLISH_W_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Initial installation digital.
+        /// </summary>
+        public static string TXT_NEW_QC_INITIAL_DIGITAL {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_INITIAL_DIGITAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to K&apos; factor setting.
+        /// </summary>
+        public static string TXT_NEW_QC_K_FACTOR_SETTING {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_K_FACTOR_SETTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reference cable check completed.
+        /// </summary>
+        public static string TXT_NEW_QC_REFERENCE_CABLE_CHECK_CONPLETED {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_REFERENCE_CABLE_CHECK_CONPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6 year calibration analogue.
+        /// </summary>
+        public static string TXT_NEW_QC_SIX_YEAR_ANALOGUE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_SIX_YEAR_ANALOGUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System sealed in accordance.
+        /// </summary>
+        public static string TXT_NEW_QC_SYSTEM_SEALED_IN_ACCORDANCE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC_SYSTEM_SEALED_IN_ACCORDANCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3 Month Walk Around.
+        /// </summary>
+        public static string TXT_NEW_QC3MONTH_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QC3MONTH_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QC Check.
+        /// </summary>
+        public static string TXT_NEW_QCCHECK_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_NEW_QCCHECK_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Inspection Data.
         /// </summary>
         public static string TXT_NEW_TACHOGRAPH_ADD_INSPECTION_DATA {
@@ -4552,6 +5006,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not Applicable.
+        /// </summary>
+        public static string TXT_NOT_APPLICABLE {
+            get {
+                return ResourceManager.GetString("TXT_NOT_APPLICABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nothing to export.
         /// </summary>
         public static string TXT_NOTHING_TO_EXPORT {
@@ -4757,6 +5220,384 @@ namespace TachographReader.Properties {
         public static string TXT_PRODUCT_VERSION {
             get {
                 return ResourceManager.GetString("TXT_PRODUCT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Centre Details:.
+        /// </summary>
+        public static string TXT_QC_CHECK_REPORT_TACHO_CENTRE_DETAILS {
+            get {
+                return ResourceManager.GetString("TXT_QC_CHECK_REPORT_TACHO_CENTRE_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3 basic checks completed.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_3_BASIC_CHECKS_COMPLETED {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_3_BASIC_CHECKS_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 40km/h test (if applicable).
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_40_KM_TEST {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_40_KM_TEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 60km/h test (if applicable).
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_60_KM_TEST {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_60_KM_TEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bench test carried out (analogue).
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_BENCH_TEST_CARRIED_OUT {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_BENCH_TEST_CARRIED_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calibration certificate completed.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_CALIBRATION_CERTIFICATE_COMPLETED {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_CALIBRATION_CERTIFICATE_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calibration / Inspection:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_CALIBRATION_INSPECTION {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_CALIBRATION_INSPECTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clock test completed (if applicable).
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_CLOCK_TEST_COMPLETED {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_CLOCK_TEST_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comments:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_COMMENTS {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_COMMENTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of audit:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_DATE_OF_AUDIT {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_DATE_OF_AUDIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance check carried out.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_DISTANCE_CHECK_CARRIED_OUT {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_DISTANCE_CHECK_CARRIED_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Establish &apos;L&apos;.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_ESTABLISH_L {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_ESTABLISH_L", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Establish &apos;W&apos; (if applicable).
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_ESTABLISH_W_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_ESTABLISH_W_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Events &amp; Faults read &amp; cleared.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_EVENTS_FAULTS_READ {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_EVENTS_FAULTS_READ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FAIL.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_FAIL {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_FAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Functional bench test (digital).
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_FUNCTIONAL_BENCH_TEST {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_FUNCTIONAL_BENCH_TEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to imp/km.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_IMP_KM {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_IMP_KM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to K&apos; factor setting.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_K_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_K_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to km/h.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_KMH {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_KMH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to mm.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_MM {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_MM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to N/A.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_NA {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_NA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PASS.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_PASS {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_PASS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QC:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_QC {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_QC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reference cable check completed.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_REFERENCE_CABLE_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_REFERENCE_CABLE_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signature:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_SIGNATURE {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_SIGNATURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speed for Speed check completed.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_SPEED_FOR_SPEED_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_SPEED_FOR_SPEED_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System sealed in accordance.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_SYSTEM_SEALED_IN_ACCORDANCE {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_SYSTEM_SEALED_IN_ACCORDANCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TACHO_MAKE {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TACHO_MAKE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Manager&apos;s name:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TACHO_MANAGER_NAME {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TACHO_MANAGER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Serial Number:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TACHO_SERIAL {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TACHO_SERIAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type i.e. Model:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TACHO_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TACHO_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technical data printouts created.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TECHNICAL_DATA_PRINTOUTS {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TECHNICAL_DATA_PRINTOUTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TECHNICIAN {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TECHNICIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician&apos;s name:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TECHNICIAN_NAME {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TECHNICIAN_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test charts completed.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TEST_CHARTS_COMPLETED {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TEST_CHARTS_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of Tachograph Check - Technician Assessment.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_TYPE_OF_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_TYPE_OF_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle Details:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_VEHICLE_DETAILS {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_VEHICLE_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration Number:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_VEHICLE_REGISTRATION {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_VEHICLE_REGISTRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_VEHICLE_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_VEHICLE_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VIN:.
+        /// </summary>
+        public static string TXT_QC_REPORT_CHECK_VIN {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_CHECK_VIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quality Control Manager&apos;s name:.
+        /// </summary>
+        public static string TXT_QC_REPORT_QC_MANAGER_NAME {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_QC_MANAGER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph Details:.
+        /// </summary>
+        public static string TXT_QC_REPORT_TACHOGRAPH_DETAILS {
+            get {
+                return ResourceManager.GetString("TXT_QC_REPORT_TACHOGRAPH_DETAILS", resourceCulture);
             }
         }
         
@@ -6982,6 +7823,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address 3.
+        /// </summary>
+        public static string TXT_WORKSHOP_SETITNGS_ADDRESS_3 {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_SETITNGS_ADDRESS_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose Logo.
         /// </summary>
         public static string TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO {
@@ -7059,6 +7909,15 @@ namespace TachographReader.Properties {
         public static string TXT_WORKSHOP_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_WORKSHOP_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X.
+        /// </summary>
+        public static string TXT_X {
+            get {
+                return ResourceManager.GetString("TXT_X", resourceCulture);
             }
         }
         

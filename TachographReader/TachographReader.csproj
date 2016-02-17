@@ -252,7 +252,9 @@
     <Compile Include="Controls\InputDatePickerField.cs" />
     <Compile Include="Controls\InputNumberPicker.cs" />
     <Compile Include="Controls\InputTextField.cs" />
+    <Compile Include="Controls\InputYesNoNotApplicableField.cs" />
     <Compile Include="Controls\PopupWindow.cs" />
+    <Compile Include="Controls\RadioButton.cs" />
     <Compile Include="Controls\Shortcut.cs" />
     <Compile Include="Converters\BooleanMultiConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityWithHiddenConverter.cs" />
@@ -323,11 +325,13 @@
     <Compile Include="Library\PDF\FullPlaqueDocument.cs" />
     <Compile Include="Library\PDF\MinimalPlaqueDocument.cs" />
     <Compile Include="Library\PDF\PDFDocument.cs" />
+    <Compile Include="Library\PDF\QCCheckReport.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
     <Compile Include="Library\PDF\VOSADocument.cs" />
     <Compile Include="Library\RegistryHelper.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
+    <Compile Include="Library\ViewModels\QCReportViewModel.cs" />
     <Compile Include="Library\ViewModels\UserPromptViewModel.cs" />
     <Compile Include="Library\WorkerHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -351,6 +355,14 @@
     <Compile Include="Views\NewTachographView\NewAnalogueTachographView.xaml.cs">
       <DependentUpon>NewAnalogueTachographView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\QC3MonthCheckView\QC3MonthCheckView.xaml.cs">
+      <DependentUpon>QC3MonthCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QC3MonthCheckView\QC3MonthCheckViewModel.cs" />
+    <Compile Include="Views\QCCheckView\QCCheckView.xaml.cs">
+      <DependentUpon>QCCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QCCheckView\QCCheckViewModel.cs" />
     <Compile Include="Views\Settings\CustomerSettingsView\CustomerSettingsLightView.xaml.cs">
       <DependentUpon>CustomerSettingsLightView.xaml</DependentUpon>
     </Compile>
@@ -508,6 +520,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\NewTachographView\NewAnalogueTachographView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\QC3MonthCheckView\QC3MonthCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\QCCheckView\QCCheckView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1038,6 +1058,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\webcal-ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traintec.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traintec_small.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

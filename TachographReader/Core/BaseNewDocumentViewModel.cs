@@ -1,7 +1,6 @@
 ﻿namespace TachographReader.Core
 {
     using System;
-    using System.Windows;
     using System.Windows.Controls;
     using Connect.Shared.Models;
     using DataModel;
@@ -12,9 +11,7 @@
     using Library.PDF;
     using Properties;
     using Shared;
-    using Shared.Connect;
     using Views;
-    using DocumentType = Connect.Shared.DocumentType;
 
     public class BaseNewDocumentViewModel : BaseMainViewModel, INewDocumentViewModel
     {
@@ -78,7 +75,7 @@
 
         protected virtual void Add()
         {
-            
+
         }
 
         protected virtual void RegistrationChanged(string registrationNumber)
@@ -111,9 +108,14 @@
 
         }
 
-        protected virtual DocumentType GetDocumentType()
+        protected virtual Document GetDocument()
         {
-            return DocumentType.Tachograph | DocumentType.Undownloadability | DocumentType.LetterForDecommissioning;
+            return null;
+        }
+
+        protected virtual BaseReport GetReport()
+        {
+            return null;
         }
 
         public override void OnClosing(bool cancelled)
@@ -138,28 +140,37 @@
 
             try
             {
-                Document document = GetNewDocument(root);
+                Document document;
+                BaseReport report;
+                var pdfDocumentResult = ToPDF(out document, out report, false, true);
 
-                var pdfDocumentResult = document.ToPDF(IsHistoryMode, false, true);
-
-                if (pdfDocumentResult.Success)
+                if (!pdfDocumentResult.Success)
                 {
-                    if (!IsHistoryMode)
+                    return;
+                }
+
+                if (!IsHistoryMode)
+                {
+                    try
                     {
-                        try
+                        var miscellaneousSettings = ContainerBootstrapper.Resolve<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
+                        if (document != null)
                         {
-                            var miscellaneousSettings = ContainerBootstrapper.Resolve<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
                             document.ToPDF(IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting).Email(WorkshopSettings, MailSettings);
                         }
-                        catch
+                        if (report != null)
                         {
-
+                            report.ToReportPDF(IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting).Email(WorkshopSettings, MailSettings);
                         }
                     }
+                    catch
+                    {
 
-                    Add();
-                    Close();
+                    }
                 }
+
+                Add();
+                Close();
             }
             catch (Exception ex)
             {
@@ -175,16 +186,17 @@
                 return;
             }
 
-            MiscellaneousSettings miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
-            Document document = GetNewDocument(root);
+            var miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
 
-            document.ToPDF(IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting).Print();
+            Document document;
+            BaseReport report;
+            ToPDF(out document, out report, miscellaneousSettings.ExcludeLogosWhenPrinting, false).Print();
 
             if (!IsHistoryMode)
             {
                 try
                 {
-                    document.ToPDF(IsHistoryMode).Email(WorkshopSettings, MailSettings);
+                    ToPDF(out document, out report, false, false).Email(WorkshopSettings, MailSettings);
                 }
                 finally
                 {
@@ -193,6 +205,18 @@
             }
 
             Close();
+        }
+
+        private PDFDocumentResult ToPDF(out Document document, out BaseReport report, bool excludeLogos, bool promptUser)
+        {
+            document = GetDocument();
+            report = GetReport();
+
+            if (document != null)
+            {
+                return document.ToPDF(IsHistoryMode, excludeLogos, promptUser);
+            }
+            return report.ToReportPDF(IsHistoryMode, excludeLogos, promptUser);
         }
 
         private void OnRegistrationChanged(string registrationNumber)
@@ -210,29 +234,6 @@
 
                 IsRegistrationChanging = false;
             }
-        }
-
-        private static Document GetNewDocument(FrameworkElement root)
-        {
-            var sender = root.DataContext as BaseNewDocumentViewModel;
-            if (sender == null)
-            {
-                return null;
-            }
-
-            var viewModel = sender as NewTachographViewModel;
-            if (viewModel != null)
-            {
-                return viewModel.Document;
-            }
-
-            LetterForDecommissioningViewModel letterForDecommissioningViewModel = sender as LetterForDecommissioningViewModel;
-            if (letterForDecommissioningViewModel != null)
-            {
-                return letterForDecommissioningViewModel.Document;
-            }
-
-            return ((NewUndownloadabilityViewModel)sender).Document;
         }
 
         private void Close()

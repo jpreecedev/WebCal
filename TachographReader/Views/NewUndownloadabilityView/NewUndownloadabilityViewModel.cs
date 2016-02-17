@@ -8,7 +8,6 @@
     using DataModel;
     using Library;
     using Shared;
-    using DocumentType = Connect.Shared.DocumentType;
 
     public class NewUndownloadabilityViewModel : BaseNewDocumentViewModel
     {
@@ -50,6 +49,11 @@
             }
         }
 
+        protected override Document GetDocument()
+        {
+            return Document;
+        }
+
         public override void OnModalClosed()
         {
             Populate();
@@ -70,11 +74,6 @@
         protected override void OnCustomerContactChanged(CustomerContact customerContact)
         {
             Document.CustomerContact = customerContact == null ? null : customerContact.Name;
-        }
-
-        protected override DocumentType GetDocumentType()
-        {
-            return DocumentType.Undownloadability;
         }
 
         protected override void RegistrationChanged(string registrationNumber)

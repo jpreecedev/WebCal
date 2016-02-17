@@ -7,6 +7,8 @@
     {
         public Document Document { get; set; }
 
+        public BaseReport Report { get; set; }
+
         public string FilePath { get; set; }
 
         public string FileName

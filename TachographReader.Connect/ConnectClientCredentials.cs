@@ -13,7 +13,7 @@
         {
             if (connectKeys == null)
             {
-                throw new ArgumentNullException("connectKeys");
+                throw new ArgumentNullException(nameof(connectKeys));
             }
             _connectKeys = connectKeys;
         }

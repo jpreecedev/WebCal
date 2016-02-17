@@ -1543,6 +1543,9 @@ date
   <data name="TXT_WORKSHOP_SETITNGS_ADDRESS_2" xml:space="preserve">
     <value>Address 2</value>
   </data>
+  <data name="TXT_WORKSHOP_SETITNGS_ADDRESS_3" xml:space="preserve">
+    <value>Address 3</value>
+  </data>
   <data name="TXT_WORKSHOP_SETITNGS_TOWN" xml:space="preserve">
     <value>Town</value>
   </data>
@@ -1904,7 +1907,7 @@ date
     <value>Digital Tachograph</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_TACHO_DOCUMENT_SCREEN" xml:space="preserve">
-    <value>Shows the new tachograh document screen</value>
+    <value>Shows the new tachograph document screen</value>
   </data>
   <data name="TXT_MAIN_WINDOW_NEW_TACHO_DOCUMENT" xml:space="preserve">
     <value>New Tachograph Document</value>
@@ -2505,5 +2508,287 @@ date
   </data>
   <data name="TXT_NEW_TACHOGRAPH_ADD_INSPECTION_DATA" xml:space="preserve">
     <value>Add Inspection Data</value>
+  </data>
+  <data name="QCCheck" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clipboard-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QC3Month" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_QC_WALKAROUND" xml:space="preserve">
+    <value>QC Check</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_QC_WALKAROUND" xml:space="preserve">
+    <value>Shows the QC Check screen</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_3_MONTH_WALKAROUND" xml:space="preserve">
+    <value>3 Month Walk Around</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_3_MONTH_WALKAROUND" xml:space="preserve">
+    <value>Shows the 3 month walk around screen</value>
+  </data>
+  <data name="TXT_NEW_QC3MONTH_TITLE" xml:space="preserve">
+    <value>3 Month Walk Around</value>
+  </data>
+  <data name="TXT_NEW_QCCHECK_TITLE" xml:space="preserve">
+    <value>QC Check</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TAHCO_MANAGER_NAME" xml:space="preserve">
+    <value>Tachograph Manager's Name</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_QC_MANAGER_NAME" xml:space="preserve">
+    <value>Quality Control Manager's Name</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TECHNICIAN_NAME" xml:space="preserve">
+    <value>Technician's Name</value>
+  </data>
+  <data name="TXT_NEW_QC_DATE_OF_AUDIT" xml:space="preserve">
+    <value>Date of audit</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TYPE_OF_TACHO_TECHNICIAN_ASSESSMENT" xml:space="preserve">
+    <value>Type of Tachograph Check - Technician Assessment</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_INITIAL_INSTALLATION_ANALOGUE" xml:space="preserve">
+    <value>Initial installation analogue</value>
+  </data>
+  <data name="TXT_NEW_QC_SIX_YEAR_ANALOGUE" xml:space="preserve">
+    <value>6 year calibration analogue</value>
+  </data>
+  <data name="TXT_NEW_QC_2_YEAR_ANALOGUE" xml:space="preserve">
+    <value>2 year inspection analogue</value>
+  </data>
+  <data name="TXT_NEW_QC_INITIAL_DIGITAL" xml:space="preserve">
+    <value>Initial installation digital</value>
+  </data>
+  <data name="TXT_NEW_QC_2_CALIBRATION_DIGITAL" xml:space="preserve">
+    <value>2 year calibration digital</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TACHOGRAPH_DATA" xml:space="preserve">
+    <value>Tachograph Data</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TACHOGRAPH_MAKE" xml:space="preserve">
+    <value>Tachograph Make</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TACHO_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TACHO_SERIAL_NUMBER" xml:space="preserve">
+    <value>Serial Number</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_VEHICLE_REGISTRATION" xml:space="preserve">
+    <value>Registration Number</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_VIN" xml:space="preserve">
+    <value>VIN</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_VEHICLE_DATA" xml:space="preserve">
+    <value>Vehicle Data</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_VEHICLE_MAKE" xml:space="preserve">
+    <value>Vehicle Make</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_VEHICLE_MODEL" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_REPORT_TYPE" xml:space="preserve">
+    <value>Report Type</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_CALIBRATION_INSPECTION" xml:space="preserve">
+    <value>Calibration / Inspection:</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_3_BASIC_CHECKS_COMPLETED" xml:space="preserve">
+    <value>3 basic checks completed</value>
+  </data>
+  <data name="TXT_NEW_QC_ESTABLISH_W_FACTOR" xml:space="preserve">
+    <value>Establish 'W' (if applicable)</value>
+  </data>
+  <data name="TXT_NEW_QC_ESTABLISH_L_FACTOR" xml:space="preserve">
+    <value>Establish 'L'</value>
+  </data>
+  <data name="TXT_NEW_QC_K_FACTOR_SETTING" xml:space="preserve">
+    <value>K' factor setting</value>
+  </data>
+  <data name="TXT_NEW_QC_40_KM_TEST" xml:space="preserve">
+    <value>40km/h test (if applicable)</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_60_KM_TEST" xml:space="preserve">
+    <value>60km/h test (if applicable)</value>
+  </data>
+  <data name="TXT_NOT_APPLICABLE" xml:space="preserve">
+    <value>Not Applicable</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_CLOCK_TEST_COMPLETED" xml:space="preserve">
+    <value>Clock test completed (if applicable)</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_BENCH_TEST_CARRIED_OUT" xml:space="preserve">
+    <value>Bench test carried out (analogue)</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_FUNCTIONAL_BENCH_TEST" xml:space="preserve">
+    <value>Functional bench test (digital)</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_DISTANCE_CHECK_CARRIED_OUT" xml:space="preserve">
+    <value>Distance check carried out</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TEST_CHARTS_COMPLETED" xml:space="preserve">
+    <value>Test charts completed</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_SPEED_FOR_SPEED_CHECK" xml:space="preserve">
+    <value>Speed for Speed check completed</value>
+  </data>
+  <data name="TXT_NEW_QC_SYSTEM_SEALED_IN_ACCORDANCE" xml:space="preserve">
+    <value>System sealed in accordance</value>
+  </data>
+  <data name="TXT_NEW_QC_CALIBRATION_CERTIFICATE_COMPLETED" xml:space="preserve">
+    <value>Calibration certificate completed</value>
+  </data>
+  <data name="TXT_NEW_QC_REFERENCE_CABLE_CHECK_CONPLETED" xml:space="preserve">
+    <value>Reference cable check completed</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_TECHNICAL_PRINTOUTS_CREATED" xml:space="preserve">
+    <value>Technical data printouts created</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_EVENTS_FAULTS_CLEARED" xml:space="preserve">
+    <value>Events &amp; Faults &amp; cleared</value>
+  </data>
+  <data name="traintec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traintec.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="traintec_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traintec_small.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TXT_QC_CHECK_REPORT_TACHO_CENTRE_DETAILS" xml:space="preserve">
+    <value>Tachograph Centre Details:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TACHO_MANAGER_NAME" xml:space="preserve">
+    <value>Tachograph Manager's name:</value>
+  </data>
+  <data name="TXT_QC_REPORT_QC_MANAGER_NAME" xml:space="preserve">
+    <value>Quality Control Manager's name:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TECHNICIAN_NAME" xml:space="preserve">
+    <value>Technician's name:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_DATE_OF_AUDIT" xml:space="preserve">
+    <value>Date of audit:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TYPE_OF_CHECK" xml:space="preserve">
+    <value>Type of Tachograph Check - Technician Assessment</value>
+  </data>
+  <data name="TXT_X" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="TXT_QC_REPORT_TACHOGRAPH_DETAILS" xml:space="preserve">
+    <value>Tachograph Details:</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_PASSED" xml:space="preserve">
+    <value>Passed?</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TACHO_MAKE" xml:space="preserve">
+    <value>Make:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TACHO_TYPE" xml:space="preserve">
+    <value>Type i.e. Model:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TACHO_SERIAL" xml:space="preserve">
+    <value>Serial Number:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_VEHICLE_DETAILS" xml:space="preserve">
+    <value>Vehicle Details:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_VEHICLE_TYPE" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_VEHICLE_REGISTRATION" xml:space="preserve">
+    <value>Registration Number:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_VIN" xml:space="preserve">
+    <value>VIN:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_CALIBRATION_INSPECTION" xml:space="preserve">
+    <value>Calibration / Inspection:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_3_BASIC_CHECKS_COMPLETED" xml:space="preserve">
+    <value>3 basic checks completed</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_ESTABLISH_W_FACTOR" xml:space="preserve">
+    <value>Establish 'W' (if applicable)</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_IMP_KM" xml:space="preserve">
+    <value>imp/km</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_ESTABLISH_L" xml:space="preserve">
+    <value>Establish 'L'</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_MM" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_K_FACTOR" xml:space="preserve">
+    <value>K' factor setting</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_40_KM_TEST" xml:space="preserve">
+    <value>40km/h test (if applicable)</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_KMH" xml:space="preserve">
+    <value>km/h</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_60_KM_TEST" xml:space="preserve">
+    <value>60km/h test (if applicable)</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_CLOCK_TEST_COMPLETED" xml:space="preserve">
+    <value>Clock test completed (if applicable)</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_BENCH_TEST_CARRIED_OUT" xml:space="preserve">
+    <value>Bench test carried out (analogue)</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_FUNCTIONAL_BENCH_TEST" xml:space="preserve">
+    <value>Functional bench test (digital)</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_DISTANCE_CHECK_CARRIED_OUT" xml:space="preserve">
+    <value>Distance check carried out</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TEST_CHARTS_COMPLETED" xml:space="preserve">
+    <value>Test charts completed</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_SPEED_FOR_SPEED_CHECK" xml:space="preserve">
+    <value>Speed for Speed check completed</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_SYSTEM_SEALED_IN_ACCORDANCE" xml:space="preserve">
+    <value>System sealed in accordance</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_CALIBRATION_CERTIFICATE_COMPLETED" xml:space="preserve">
+    <value>Calibration certificate completed</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_REFERENCE_CABLE_CHECK" xml:space="preserve">
+    <value>Reference cable check completed</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TECHNICAL_DATA_PRINTOUTS" xml:space="preserve">
+    <value>Technical data printouts created</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_EVENTS_FAULTS_READ" xml:space="preserve">
+    <value>Events &amp; Faults read &amp; cleared</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_COMMENTS" xml:space="preserve">
+    <value>Comments:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_PASS" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_FAIL" xml:space="preserve">
+    <value>FAIL</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_TECHNICIAN" xml:space="preserve">
+    <value>Technician:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_SIGNATURE" xml:space="preserve">
+    <value>Signature:</value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_QC" xml:space="preserve">
+    <value>QC:</value>
+  </data>
+  <data name="DATE" xml:space="preserve">
+    <value>Date: </value>
+  </data>
+  <data name="TXT_QC_REPORT_CHECK_NA" xml:space="preserve">
+    <value>N/A</value>
   </data>
 </root>

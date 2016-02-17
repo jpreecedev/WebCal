@@ -13,7 +13,7 @@ namespace TachographReader.Imaging
         public static string Transform(Bitmap bitmap)
         {
             if (bitmap == null)
-                throw new ArgumentNullException("bitmap");
+                throw new ArgumentNullException(nameof(bitmap));
 
             bitmap = ApplyFilter(Grayscale.CommonAlgorithms.BT709, bitmap);
             bitmap = ApplyFilter(new GrayscaleToRGB(), bitmap);

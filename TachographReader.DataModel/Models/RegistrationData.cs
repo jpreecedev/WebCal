@@ -32,7 +32,7 @@ namespace TachographReader.DataModel
 
         public string WebcalConnectKey
         {
-            get { return string.Format("{0}-{1}-{2}-{3}", CompanyName, LicenseManager.GetMachineKey(), LicenseKey, DepotName); }
+            get { return $"{CompanyName}-{LicenseManager.GetMachineKey()}-{LicenseKey}-{DepotName}"; }
         }
 
         public bool IsConnectEnabled { get; set; }

@@ -54,6 +54,8 @@
                 container.RegisterType<IRepository<RegistrationData>,Repository<RegistrationData>>();
                 container.RegisterType<IRepository<User>, Repository<User>>();
                 container.RegisterType<IRepository<WorkerTask>, Repository<WorkerTask>>();
+                container.RegisterType<IRepository<QCReport>, Repository<QCReport>>();
+                container.RegisterType<IRepository<QCReport3Month>, Repository<QCReport3Month>>();
 
                 container.RegisterType<ISettingsRepository<WorkshopSettings>,WorkshopSettingsRepository>();
                 container.RegisterType<ISettingsRepository<PrinterSettings>,SettingsRepository<PrinterSettings>>();
@@ -65,7 +67,7 @@
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_APPLICATION_CANNOT_CONTINUE, ExceptionPolicy.HandleException(container, ex)));
+                MessageBoxHelper.ShowError($"{Resources.ERR_APPLICATION_CANNOT_CONTINUE}\n\n{ExceptionPolicy.HandleException(container, ex)}");
             }
         }
     }

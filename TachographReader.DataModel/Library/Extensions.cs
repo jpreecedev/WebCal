@@ -94,8 +94,8 @@ namespace TachographReader.DataModel.Library
 
         public static IQueryable<T> WithIncludes<T>(this IQueryable<T> source, DbContext context, params string[] associations) where T : class
         {
-            ObjectContext objectContext = ((IObjectContextAdapter) context).ObjectContext;
-            ObjectSet<T> objectSet = objectContext.CreateObjectSet<T>();
+            var objectContext = ((IObjectContextAdapter) context).ObjectContext;
+            var objectSet = objectContext.CreateObjectSet<T>();
 
             var query = (ObjectQuery<T>) objectSet;
 
@@ -111,6 +111,7 @@ namespace TachographReader.DataModel.Library
         {
             return repository.Get(w => !string.IsNullOrEmpty(w.Address1) ||
                                        !string.IsNullOrEmpty(w.Address2) ||
+                                       !string.IsNullOrEmpty(w.Address3) ||
                                        !string.IsNullOrEmpty(w.Office) ||
                                        !string.IsNullOrEmpty(w.PostCode) ||
                                        !string.IsNullOrEmpty(w.Town) ||

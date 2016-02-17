@@ -89,6 +89,11 @@
             }
         }
 
+        protected override Document GetDocument()
+        {
+            return Document;
+        }
+
         protected override void Load()
         {
             base.Load();
@@ -113,11 +118,6 @@
 
             TachographDocumentRepository.AddOrUpdate(Document);
             ConnectHelper.Upload(Document, false);
-        }
-
-        protected override Connect.Shared.DocumentType GetDocumentType()
-        {
-            return Connect.Shared.DocumentType.Tachograph;
         }
 
         protected override void RegistrationChanged(string registrationNumber)
@@ -359,7 +359,7 @@
             }
             else
             {
-                Document.InspectionInfo = string.Format("{0}\n{1}", Document.NewInspectionInfo, Document.InspectionInfo);
+                Document.InspectionInfo = $"{Document.NewInspectionInfo}\n{Document.InspectionInfo}";
             }
 
             Document.NewInspectionInfo = string.Empty;
@@ -399,7 +399,7 @@
         {
             TyreSizes = new ObservableCollection<TyreSize>(TyreSizesRepository.GetAll());
             VehicleMakes = new ObservableCollection<VehicleMake>(VehicleRepository.GetAll("Models"));
-            TachographMakes = new ObservableCollection<TachographMake>(TachographMakesRepository.GetAll());
+            TachographMakes = new ObservableCollection<TachographMake>(TachographMakesRepository.GetAll("Models"));
             Technicians = new ObservableCollection<Technician>(TechniciansRepository.GetAll());
 
             Technician defaultTechnician = Technicians.FirstOrDefault(technician => technician != null && technician.IsDefault);
@@ -438,7 +438,7 @@
             }
             catch (Exception ex)
             {
-                ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_READ_SMART_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
+                ShowError($"{Resources.TXT_UNABLE_READ_SMART_CARD}\n\n{ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)}");
             }
 
             return null;
@@ -447,7 +447,7 @@
         private static void PrintLabel(TachographDocument document, bool userInitiated)
         {
             if (document == null)
-                throw new ArgumentNullException("document");
+                throw new ArgumentNullException(nameof(document));
 
             if (string.IsNullOrEmpty(document.DocumentType))
             {

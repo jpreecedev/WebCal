@@ -51,7 +51,7 @@
             {
                 if (parameters == null)
                 {
-                    throw new ArgumentNullException("parameters");
+                    throw new ArgumentNullException(nameof(parameters));
                 }
 
                 PrintParameters = parameters;

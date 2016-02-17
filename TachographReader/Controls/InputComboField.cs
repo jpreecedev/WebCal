@@ -77,6 +77,18 @@
             set { SetValue(IsTextSearchEnabledProperty, value); }
         }
 
+        public int LabelWidth
+        {
+            get { return (int)GetValue(LabelWidthProperty); }
+            set { SetValue(LabelWidthProperty, value); }
+        }
+
+        public bool IsLabelCustomWidth
+        {
+            get { return (bool)GetValue(IsLabelCustomWidthProperty); }
+            set { SetValue(IsLabelCustomWidthProperty, value); }
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -176,9 +188,15 @@
             DependencyProperty.Register("SelectedIndex", typeof(int), typeof(InputComboField), new PropertyMetadata(-1));
 
         public static readonly DependencyProperty SelectedTextChangedProperty =
-            DependencyProperty.Register("SelectedTextChanged", typeof (ICommand), typeof (InputComboField));
+            DependencyProperty.Register("SelectedTextChanged", typeof(ICommand), typeof(InputComboField));
 
         public static readonly DependencyProperty IsTextSearchEnabledProperty =
             DependencyProperty.Register("IsTextSearchEnabled", typeof(bool), typeof(InputComboField), new PropertyMetadata(false));
+
+        public static readonly DependencyProperty LabelWidthProperty =
+            DependencyProperty.Register("LabelWidth", typeof (int), typeof (InputComboField), new PropertyMetadata(0));
+
+        public static readonly DependencyProperty IsLabelCustomWidthProperty =
+            DependencyProperty.Register("IsLabelCustomWidth", typeof (bool), typeof (InputComboField), new PropertyMetadata(false));
     }
 }

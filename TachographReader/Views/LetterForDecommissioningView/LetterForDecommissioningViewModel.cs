@@ -8,12 +8,9 @@
     using DataModel;
     using Library;
     using Shared;
-    using DocumentType = Connect.Shared.DocumentType;
 
     public class LetterForDecommissioningViewModel : BaseNewDocumentViewModel
     {
-        #region Constructors
-
         public LetterForDecommissioningViewModel()
         {
             Document = new LetterForDecommissioningDocument();
@@ -23,11 +20,7 @@
         {
             Document = document;
         }
-
-        #endregion
-
-        #region Public Properties
-
+        
         public LetterForDecommissioningDocument Document { get; set; }
 
         public IRepository<LetterForDecommissioningDocument> LetterForDecommissioningRepository { get; set; }
@@ -39,11 +32,7 @@
         public IRepository<Technician> TechnicianRepository { get; set; }
 
         public ObservableCollection<Technician> Technicians { get; set; }
-
-        #endregion
-
-        #region Overrides
-
+        
         protected override void Load()
         {
             Populate();
@@ -63,6 +52,11 @@
             }
         }
 
+        protected override Document GetDocument()
+        {
+            return Document;
+        }
+
         public override void OnModalClosed()
         {
             Populate();
@@ -80,11 +74,6 @@
         protected override void OnCustomerContactChanged(CustomerContact customerContact)
         {
             Document.CustomerContact = customerContact == null ? null : customerContact.Name;
-        }
-
-        protected override DocumentType GetDocumentType()
-        {
-            return DocumentType.LetterForDecommissioning;
         }
 
         protected override void RegistrationChanged(string registrationNumber)
@@ -112,11 +101,7 @@
                 SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, match.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
             }
         }
-
-        #endregion
-
-        #region Private Methods
-
+        
         private void Populate()
         {
             TachographMakes = new ObservableCollection<TachographMake>(TachographMakesRepository.GetAll());
@@ -130,7 +115,5 @@
 
             SelectedCustomerContact = CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, Document.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
         }
-
-        #endregion
     }
 }

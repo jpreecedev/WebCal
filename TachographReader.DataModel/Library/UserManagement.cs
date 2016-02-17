@@ -37,7 +37,7 @@
         {
             if (repository == null)
             {
-                throw new ArgumentNullException("repository");
+                throw new ArgumentNullException(nameof(repository));
             }
 
             if (string.IsNullOrEmpty(username))
@@ -87,15 +87,15 @@
         {
             if (repository == null)
             {
-                throw new ArgumentNullException("repository");
+                throw new ArgumentNullException(nameof(repository));
             }
             if (string.IsNullOrEmpty(oldPassword))
             {
-                throw new ArgumentNullException("oldPassword");
+                throw new ArgumentNullException(nameof(oldPassword));
             }
             if (string.IsNullOrEmpty(newPassword))
             {
-                throw new ArgumentNullException("newPassword");
+                throw new ArgumentNullException(nameof(newPassword));
             }
 
             User user = repository.FirstOrDefault(u => string.Equals(LoggedInUserName, u.Username, StringComparison.CurrentCultureIgnoreCase));
@@ -117,7 +117,7 @@
         {
             if (repository == null)
             {
-                throw new ArgumentNullException("repository");
+                throw new ArgumentNullException(nameof(repository));
             }
 
             User user = repository.FirstOrDefault(u => string.Equals(userName, u.Username, StringComparison.CurrentCultureIgnoreCase));
@@ -149,11 +149,11 @@
         {
             if (userRepository == null)
             {
-                throw new ArgumentNullException("userRepository");
+                throw new ArgumentNullException(nameof(userRepository));
             }
             if (superUser == null)
             {
-                throw new ArgumentNullException("superUser");
+                throw new ArgumentNullException(nameof(superUser));
             }
 
             if (!string.Equals("°ŒîÈL±8É‰‘kÔ ‚åUrHºðlTo*ùÎ¸¥·úê", superUser.Password))
@@ -186,11 +186,11 @@
         {
             if (repository == null)
             {
-                throw new ArgumentNullException("repository");
+                throw new ArgumentNullException(nameof(repository));
             }
             if (string.IsNullOrEmpty(userName))
             {
-                throw new ArgumentNullException("userName");
+                throw new ArgumentNullException(nameof(userName));
             }
 
             return repository.FirstOrDefault(user => string.Equals(user.Username, userName, StringComparison.CurrentCultureIgnoreCase));

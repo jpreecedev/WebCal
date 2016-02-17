@@ -16,7 +16,7 @@
         {
             if (serviceCredentials == null)
             {
-                throw new ArgumentNullException("serviceCredentials");
+                throw new ArgumentNullException(nameof(serviceCredentials));
             }
 
             if (!ConnectHelper.IsConnectEnabled())

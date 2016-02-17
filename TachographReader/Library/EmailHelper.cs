@@ -16,11 +16,11 @@ namespace TachographReader.Library
         {
             if (workshopSettings == null)
             {
-                throw new ArgumentNullException("workshopSettings");
+                throw new ArgumentNullException(nameof(workshopSettings));
             }
             if (mailSettings == null)
             {
-                throw new ArgumentNullException("mailSettings");
+                throw new ArgumentNullException(nameof(mailSettings));
             }
             if (document == null)
             {

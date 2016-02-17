@@ -89,7 +89,7 @@
             AbsolutePositionText(document, Resources.TXT_ODOMETER_READING, (startHorizontal + 170), (startVertical + 560), 550, 72, document.GetRegularFont(false));
             AbsolutePositionText(document, Resources.TXT_SET_K_FACTOR, (startHorizontal + 170), (startVertical + 72), 570, 72, document.GetRegularFont(false));
 
-            AbsolutePositionText(document, string.Format("{0} {1}", tachographDocument.VehicleMake, tachographDocument.VehicleModel), (startHorizontal + 170), (startVertical + 500), 550, 72, document.GetLargerFont(false));
+            AbsolutePositionText(document, $"{tachographDocument.VehicleMake} {tachographDocument.VehicleModel}", (startHorizontal + 170), (startVertical + 500), 550, 72, document.GetLargerFont(false));
 
             AbsolutePositionText(document, tachographDocument.RegistrationNumber, (startHorizontal + 240), (startVertical + 510), 550, 72);
             AbsolutePositionText(document, tachographDocument.VIN, (startHorizontal + 240), (startVertical + 520), 550, 72);
@@ -105,7 +105,7 @@
 
             AbsolutePositionText(document, WorkshopSettings.Address1, (startHorizontal + 30), (startVertical + 700), 550, 72, document.GetLargerFont(false));
 
-            AbsolutePositionText(document, string.Format("{0} {1}", WorkshopSettings.Town, WorkshopSettings.PostCode), (startHorizontal + 30), (startVertical + 730), 550, 72, document.GetLargerFont(false));
+            AbsolutePositionText(document, $"{WorkshopSettings.Town} {WorkshopSettings.PostCode}", (startHorizontal + 30), (startVertical + 730), 550, 72, document.GetLargerFont(false));
 
             AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 30), (startVertical + 760), 550, 72, document.GetRegularFont(false));
 

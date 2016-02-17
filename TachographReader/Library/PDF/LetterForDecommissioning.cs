@@ -27,7 +27,7 @@
             {
                 AbsolutePositionText(document, customerContact.Name, 61, 740, 500, 50, document.GetLargeFont(true), Element.ALIGN_LEFT);
                 AbsolutePositionText(document, customerContact.Address, 61, 720, 500, 50, document.GetLargerFont(false), Element.ALIGN_LEFT);
-                AbsolutePositionText(document, string.Format("{0}, {1}", customerContact.Town, customerContact.PostCode), 61, 705, 500, 50, document.GetLargerFont(false), Element.ALIGN_LEFT);
+                AbsolutePositionText(document, $"{customerContact.Town}, {customerContact.PostCode}", 61, 705, 500, 50, document.GetLargerFont(false), Element.ALIGN_LEFT);
             }
 
             if (letterForDecommissioningDocument.InspectionDate != null)
@@ -54,10 +54,10 @@
 
             AbsolutePositionText(document, settings.WorkshopName, 61, 200, 500, 100, document.GetLargerFont(false), Element.ALIGN_LEFT);
 
-            string address1 = string.Format("{0}, {1}", settings.Address1, settings.Address2);
+            string address1 = $"{settings.Address1}, {settings.Address2}";
             AbsolutePositionText(document, address1, 61, 185, 500, 100, document.GetLargerFont(false), Element.ALIGN_LEFT);
 
-            string address2 = string.Format("{0}, {1}", settings.Town, settings.PostCode);
+            string address2 = $"{settings.Town}, {settings.PostCode}";
             AbsolutePositionText(document, address2, 61, 170, 500, 100, document.GetLargerFont(false), Element.ALIGN_LEFT);
         }
 
@@ -83,7 +83,7 @@
 
         private static string GetRegardsText(string technicianName)
         {
-            return string.Format("{0}, {1}", Resources.TXT_REGARDS, technicianName);
+            return $"{Resources.TXT_REGARDS}, {technicianName}";
         }
 
         private static void AbsolutePositionText(PDFDocument document, string text, float left, float top, float width, float height, Font font, int alignment)

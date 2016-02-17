@@ -346,6 +346,68 @@
     <SolidColorBrush x:Key="DisabledBackgroundBrush"
                      Color="#EEE" />
 
+    <Style TargetType="{x:Type ctrls:InputYesNoNotApplicableField}">
+        <Setter Property="Margin"
+                Value="0,10,0,0"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrls:InputYesNoNotApplicableField}">
+                    <StackPanel Orientation="Vertical">
+                        <Border Height="35"
+                                Margin="0,5,0,5">
+                            <TextBlock Text="{TemplateBinding Label}"
+                                       Focusable="False"
+                                       TextWrapping="Wrap"
+                                       Style="{StaticResource SubHeaderFont}" />
+                        </Border>
+
+                        <Border x:Name="Border"
+                                Padding="2"
+                                BorderBrush="{StaticResource WindowBackgroundBrush}"
+                                BorderThickness="2">
+                            <StackPanel Orientation="Horizontal">
+                                <ctrls:RadioButton Content="{x:Static Properties:Resources.TXT_YES}"
+                                                   GroupName="{TemplateBinding GroupName}"
+                                                   CheckedValue="1"
+                                                   Margin="0,5,10,5"
+                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+                                <ctrls:RadioButton Content="{x:Static Properties:Resources.TXT_NO}"
+                                                   GroupName="{TemplateBinding GroupName}"
+                                                   CheckedValue="2"
+                                                   Margin="0,5,10,5"
+                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+                                <ctrls:RadioButton x:Name="NotApplicableRadio"
+                                                   Content="{x:Static Properties:Resources.TXT_NOT_APPLICABLE}"
+                                                   GroupName="{TemplateBinding GroupName}"
+                                                   CheckedValue="3"
+                                                   Margin="0,5,10,5"
+                                                   Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </StackPanel>
+                        </Border>
+
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsNotApplicableDisplayed"
+                                 Value="False">
+                            <Setter TargetName="NotApplicableRadio"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Valid, RelativeSource={RelativeSource Self}}"
+                                     Value="False">
+                            <Setter TargetName="Border"
+                                    Property="BorderBrush"
+                                    Value="Red" />
+                            <Setter TargetName="Border"
+                                    Property="BorderThickness"
+                                    Value="2" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="{x:Type ctrls:Shortcut}">
         <Setter Property="Margin"
                 Value="0,10,0,0" />
@@ -378,7 +440,8 @@
 
                     <Grid Margin="0,0,0,5">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="145" />
+                            <ColumnDefinition Name="LabelColumn"
+                                              Width="145" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
@@ -399,6 +462,12 @@
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsLabelWidthCustom"
+                                 Value="True">
+                            <Setter TargetName="LabelColumn"
+                                    Property="Width"
+                                    Value="{Binding LabelWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
                         <Trigger Property="IsAutoPopulated"
                                  Value="True">
                             <Setter TargetName="Border"
@@ -457,7 +526,8 @@
                     <Grid Margin="0,0,0,5"
                           Focusable="False">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="145" />
+                            <ColumnDefinition Name="LabelColumn"
+                                              Width="145" />
                             <ColumnDefinition />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
@@ -494,6 +564,12 @@
                                               Margin="5,-4,0,0" />
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsLabelCustomWidth"
+                                 Value="True">
+                            <Setter TargetName="LabelColumn"
+                                    Property="Width"
+                                    Value="{Binding LabelWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
                         <Trigger Property="IsAutoPopulated"
                                  Value="True">
                             <Setter TargetName="Border"
@@ -699,6 +775,12 @@
                                     Property="Width"
                                     Value="Auto" />
                         </Trigger>
+                        <Trigger Property="IsLabelCustomWidth"
+                                 Value="True">
+                            <Setter TargetName="LabelColumn"
+                                    Property="Width"
+                                    Value="{Binding LabelWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
                         <Trigger Property="IsMultiline"
                                  Value="True">
                             <Setter TargetName="Border"
@@ -718,7 +800,6 @@
                         </Trigger>
                         <Trigger Property="Label"
                                  Value="">
-
                             <Setter TargetName="LabelColumn"
                                     Property="Width"
                                     Value="0" />

@@ -12,6 +12,7 @@
     using System.Windows.Interop;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
+    using Connect.Shared.Models;
     using Core;
     using Size = System.Drawing.Size;
 
@@ -203,6 +204,22 @@
             {
                 EmptyFolder(subfolder);
             }
+        }
+
+        public static T Downcast<T>(this object obj) where T : new()
+        {
+            var properties = typeof(T).GetProperties();
+            var b = new T();
+
+            foreach (var pi in properties)
+            {
+                if (pi.GetSetMethod() != null)
+                {
+                    pi.SetValue(b, pi.GetValue(obj, null), null);
+                }
+            }
+
+            return b;
         }
     }
 }

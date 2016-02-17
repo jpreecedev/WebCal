@@ -11,23 +11,29 @@
     public class InputTextField : BaseInputTextField
     {
         public static readonly DependencyProperty LabelProperty =
-            DependencyProperty.Register("Label", typeof(string), typeof(InputTextField), new PropertyMetadata(null));
+            DependencyProperty.Register("Label", typeof (string), typeof (InputTextField), new PropertyMetadata(null));
 
         public static readonly DependencyProperty CommandProperty =
-            DependencyProperty.Register("Command", typeof(ICommand), typeof(InputTextField));
+            DependencyProperty.Register("Command", typeof (ICommand), typeof (InputTextField));
 
         public static readonly DependencyProperty CommandLabelProperty =
-            DependencyProperty.Register("CommandLabel", typeof(string), typeof(InputTextField));
-        
+            DependencyProperty.Register("CommandLabel", typeof (string), typeof (InputTextField));
+
         public static readonly DependencyProperty IsMultilineProperty =
-            DependencyProperty.Register("IsMultiline", typeof(bool), typeof(InputTextField), new PropertyMetadata(false));
-        
+            DependencyProperty.Register("IsMultiline", typeof (bool), typeof (InputTextField), new PropertyMetadata(false));
+
         public static readonly DependencyProperty IsLabelAutoWidthProperty =
-            DependencyProperty.Register("IsLabelAutoWidth", typeof(bool), typeof(InputTextField), new PropertyMetadata(false));
-        
+            DependencyProperty.Register("IsLabelAutoWidth", typeof (bool), typeof (InputTextField), new PropertyMetadata(false));
+
+        public static readonly DependencyProperty LabelWidthProperty =
+            DependencyProperty.Register("LabelWidth", typeof (int), typeof (InputTextField), new PropertyMetadata(0));
+
+        public static readonly DependencyProperty IsLabelCustomWidthProperty =
+            DependencyProperty.Register("IsLabelCustomWidth", typeof (bool), typeof (InputTextField), new PropertyMetadata(false));
+
         static InputTextField()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(InputTextField), new FrameworkPropertyMetadata(typeof(InputTextField)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof (InputTextField), new FrameworkPropertyMetadata(typeof (InputTextField)));
         }
 
         public InputTextField()
@@ -39,34 +45,46 @@
 
         public ICommand Command
         {
-            get { return (ICommand)GetValue(CommandProperty); }
+            get { return (ICommand) GetValue(CommandProperty); }
             set { SetValue(CommandProperty, value); }
         }
 
         public string CommandLabel
         {
-            get { return (string)GetValue(CommandLabelProperty); }
+            get { return (string) GetValue(CommandLabelProperty); }
             set { SetValue(CommandLabelProperty, value); }
         }
 
         public string Label
         {
-            get { return (string)GetValue(LabelProperty); }
+            get { return (string) GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
         }
 
         public bool IsMultiline
         {
-            get { return (bool)GetValue(IsMultilineProperty); }
+            get { return (bool) GetValue(IsMultilineProperty); }
             set { SetValue(IsMultilineProperty, value); }
         }
 
         public bool IsLabelAutoWidth
         {
-            get { return (bool)GetValue(IsLabelAutoWidthProperty); }
+            get { return (bool) GetValue(IsLabelAutoWidthProperty); }
             set { SetValue(IsLabelAutoWidthProperty, value); }
         }
 
+        public int LabelWidth
+        {
+            get { return (int) GetValue(LabelWidthProperty); }
+            set { SetValue(LabelWidthProperty, value); }
+        }
+        
+        public bool IsLabelCustomWidth
+        {
+            get { return (bool) GetValue(IsLabelCustomWidthProperty); }
+            set { SetValue(IsLabelCustomWidthProperty, value); }
+        }
+        
         public override bool IsValid()
         {
             HasValidated = true;
@@ -98,7 +116,7 @@
             var binding = new TBinding
             {
                 Source = source,
-                Path = new PropertyPath(((MemberExpression)property.Body).Member.Name)
+                Path = new PropertyPath(((MemberExpression) property.Body).Member.Name)
             };
 
             textField.SetBinding(TextProperty, binding);
@@ -122,7 +140,7 @@
 
             if (parent != null)
             {
-                var textBox = (TextBox)parent;
+                var textBox = (TextBox) parent;
                 if (!textBox.IsKeyboardFocusWithin)
                 {
                     textBox.Focus();

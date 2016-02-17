@@ -77,11 +77,11 @@ namespace TachographReader.Shared.Helpers
         {
             if (image == null)
             {
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             }
             if (maxHeight < 0)
             {
-                throw new ArgumentNullException("maxHeight");
+                throw new ArgumentNullException(nameof(maxHeight));
             }
 
             if (image.Height <= maxHeight) //No scaling required
@@ -96,11 +96,11 @@ namespace TachographReader.Shared.Helpers
         {
             if (string.IsNullOrEmpty(path))
             {
-                throw new ArgumentNullException("path");
+                throw new ArgumentNullException(nameof(path));
             }
             if (maxHeight < 0)
             {
-                throw new ArgumentNullException("maxHeight");
+                throw new ArgumentNullException(nameof(maxHeight));
             }
 
             var image = LoadImageSafely(path);
@@ -121,11 +121,11 @@ namespace TachographReader.Shared.Helpers
         {
             if (image == null)
             {
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             }
             if (string.IsNullOrEmpty(destinationPath))
             {
-                throw new ArgumentNullException("destinationPath");
+                throw new ArgumentNullException(nameof(destinationPath));
             }
 
             image.Save(destinationPath, image.RawFormat);

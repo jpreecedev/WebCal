@@ -1,0 +1,418 @@
+﻿<UserControl x:Class="TachographReader.Views.QCCheckView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:TachographReader.Views"
+             xmlns:ctrls="clr-namespace:TachographReader.Controls"
+             xmlns:core="clr-namespace:TachographReader.Core"
+             xmlns:properties="clr-namespace:TachographReader.Properties"
+             mc:Ignorable="d"
+             d:DesignWidth="1000"
+             d:DesignHeight="1000">
+    <UserControl.DataContext>
+        <vm:QCCheckViewModel />
+    </UserControl.DataContext>
+
+    <Grid Style="{StaticResource MainGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QCCHECK_TITLE}"
+                   Style="{StaticResource TitleFont}" />
+
+        <ScrollViewer Grid.Row="1"
+                      Margin="5,0,5,0"
+                      Padding="0,0,5,0">
+            <ScrollViewer.RenderTransform>
+                <TranslateTransform Y="-10" />
+            </ScrollViewer.RenderTransform>
+            <Grid Style="{StaticResource InnerGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1"
+                      Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+
+                    <ctrls:InputComboField IsMandatory="True"
+                                           IsEditable="False"
+                                           ItemsSource="{Binding Document.ReportTypes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           SelectedItem="{Binding Document.TypeOfTachographCheck, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_REPORT_TYPE}"
+                                           IsLabelCustomWidth="True"
+                                           LabelWidth="200" />
+
+                    <ctrls:InputDatePickerField SelectedDate="{Binding Document.DateOfAudit}"
+                                                Label="{x:Static properties:Resources.TXT_NEW_QC_DATE_OF_AUDIT}"
+                                                IsLabelWidthCustom="True"
+                                                LabelWidth="200"
+                                                Grid.Column="2" />
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+
+                    <ctrls:InputComboField IsMandatory="True"
+                                           IsLabelCustomWidth="True"
+                                           LabelWidth="200"
+                                           Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TAHCO_MANAGER_NAME}"
+                                           ItemsSource="{Binding Technicians}"
+                                           SelectedText="{Binding Document.TachoManagerName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
+
+                    <ctrls:InputComboField IsMandatory="True"
+                                           IsLabelCustomWidth="True"
+                                           LabelWidth="200"
+                                           Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_QC_MANAGER_NAME}"
+                                           Grid.Column="2"
+                                           SelectedText="{Binding Document.QCManagerName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           ItemsSource="{Binding Technicians}"
+                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
+
+                    <ctrls:InputComboField IsMandatory="True"
+                                           IsLabelCustomWidth="True"
+                                           LabelWidth="200"
+                                           Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TECHNICIAN_NAME}"
+                                           Grid.Column="4"
+                                           SelectedText="{Binding Document.TechnicianName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           ItemsSource="{Binding Technicians}"
+                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
+                </Grid>
+
+                <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TACHOGRAPH_DATA}"
+                           Style="{StaticResource SubHeaderFont}"
+                           Grid.Row="4" />
+
+                <Grid Grid.Row="5"
+                      Grid.ColumnSpan="3"
+                      DataContext="{Binding TachographMakes}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+
+                    <ctrls:InputComboField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TACHOGRAPH_MAKE}"
+                                           SelectedText="{core:InputBinding DataContext.Document.TachographMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
+                                           SelectedTextChanged="{Binding DataContext.TachographMakeChangedCommand, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
+                                           IsSynchronisedWithCurrentItem="True"
+                                           IsLabelCustomWidth="True"
+                                           LabelWidth="200"
+                                           ItemsSource="{Binding}"
+                                           IsMandatory="True"
+                                           IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+
+                    <ctrls:InputComboField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TACHO_MODEL}"
+                                           SelectedText="{Binding DataContext.Document.TachographModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                           IsSynchronisedWithCurrentItem="True"
+                                           IsLabelCustomWidth="True"
+                                           LabelWidth="200"
+                                           ItemsSource="{Binding Models}"
+                                           IsMandatory="True"
+                                           Grid.Column="2"
+                                           IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+
+                    <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TACHO_SERIAL_NUMBER}"
+                                          Text="{Binding DataContext.Document.TachographSerialNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
+                                          IsMandatory="True"
+                                          Grid.Column="4"
+                                          IsLabelCustomWidth="True"
+                                          LabelWidth="200"
+                                          IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}, AncestorLevel=1}}" />
+                </Grid>
+
+                <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_DATA}"
+                           Style="{StaticResource SubHeaderFont}"
+                           Grid.Row="6" />
+
+                <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_REGISTRATION}"
+                                      Text="{Binding Document.VehicleRegistrationNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                      IsMandatory="True"
+                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                      IsLabelCustomWidth="True"
+                                      LabelWidth="200"
+                                      Grid.Row="7" />
+
+                <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VIN}"
+                                      Text="{Binding Document.VehicleIdentificationNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                      IsLabelCustomWidth="True"
+                                      LabelWidth="200"
+                                      IsMandatory="True"
+                                      Grid.Row="7"
+                                      Grid.Column="2"
+                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
+
+                <Grid Grid.Row="8"
+                      Grid.ColumnSpan="3"
+                      DataContext="{Binding VehicleMakes}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <ctrls:InputComboField x:Name="VehicleMakeCombo"
+                                           Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_MAKE}"
+                                           ItemsSource="{Binding}"
+                                           SelectedText="{Binding DataContext.Document.VehicleMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           IsSynchronisedWithCurrentItem="True"
+                                           IsLabelCustomWidth="True"
+                                           LabelWidth="200"
+                                           DisplayMemberPath="Name"
+                                           IsMandatory="True"
+                                           IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+
+                    <ctrls:InputComboField x:Name="VehicleModelCombo"
+                                           Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_MODEL}"
+                                           ItemsSource="{Binding Models, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           SelectedText="{Binding DataContext.Document.VehicleType, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                           IsSynchronisedWithCurrentItem="True"
+                                           IsLabelCustomWidth="True"
+                                           LabelWidth="200"
+                                           IsMandatory="True"
+                                           Grid.Column="2"
+                                           IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+                </Grid>
+
+                <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QC_CHECK_CALIBRATION_INSPECTION}"
+                           Style="{StaticResource SubHeaderFont}"
+                           Grid.Row="9" />
+
+                <CheckBox Content="{x:Static properties:Resources.TXT_NEW_QC_CHECK_3_BASIC_CHECKS_COMPLETED}"
+                          IsChecked="{Binding Document.ThreeBasicChecksCompleted}"
+                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                          Grid.Row="10"
+                          Margin="0,5,0,5" />
+
+                <Grid Grid.Row="11"
+                      Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+
+                    <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_ESTABLISH_W_FACTOR}"
+                                          Text="{Binding Document.WFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          IsLabelCustomWidth="True"
+                                          LabelWidth="200" />
+
+                    <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_ESTABLISH_L_FACTOR}"
+                                          Text="{Binding Document.LFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          IsLabelCustomWidth="True"
+                                          LabelWidth="200"
+                                          IsMandatory="True"
+                                          Grid.Column="2" />
+
+                    <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_K_FACTOR_SETTING}"
+                                          Text="{Binding Document.KFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          IsLabelCustomWidth="True"
+                                          LabelWidth="200"
+                                          Grid.Column="4"
+                                          IsMandatory="True" />
+                </Grid>
+
+                <Grid Grid.Row="12"
+                      Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+
+                    <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_40_KM_TEST}"
+                                          Text="{Binding Document.FortyKmTest, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          IsLabelCustomWidth="True"
+                                          LabelWidth="200" />
+
+                    <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_60_KM_TEST}"
+                                          Text="{Binding Document.SixtyKmTest, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                          IsLabelCustomWidth="True"
+                                          LabelWidth="200"
+                                          Grid.Column="2" />
+                </Grid>
+
+                <ctrls:InputTextField Grid.Row="13"
+                                      Grid.ColumnSpan="3"
+                                      IsMultiline="True"
+                                      Label="Comments"
+                                      Text="{Binding Document.Comments, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                      IsLabelCustomWidth="True"
+                                      LabelWidth="200" />
+
+                <Grid ColumnSpan="3"
+                      Grid.Row="14">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+
+                    <ctrls:InputYesNoNotApplicableField Value="{core:InputBinding Document.ClockTestCompleted}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_CLOCK_TEST_COMPLETED}"
+                                                        GroupName="Group1"
+                                                        IsMandatory="True" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Column="2"
+                                                        Value="{core:InputBinding Document.BenchTestCarriedOutAnalogue}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_BENCH_TEST_CARRIED_OUT}"
+                                                        GroupName="Group2"
+                                                        IsMandatory="True" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Column="4"
+                                                        Value="{core:InputBinding Document.FunctionalBenchTestDigital}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_FUNCTIONAL_BENCH_TEST}"
+                                                        GroupName="Group3"
+                                                        IsMandatory="True" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Column="6"
+                                                        Value="{core:InputBinding Document.DistanceCheckCarriedOut}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_DISTANCE_CHECK_CARRIED_OUT}"
+                                                        GroupName="Group4"
+                                                        IsMandatory="True" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Row="1"
+                                                        Value="{core:InputBinding Document.TestChartsCompleted}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TEST_CHARTS_COMPLETED}"
+                                                        GroupName="Group5"
+                                                        IsMandatory="True" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Row="1"
+                                                        Grid.Column="2"
+                                                        Value="{core:InputBinding Document.SpeedForSpeedCheckCompleted}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_SPEED_FOR_SPEED_CHECK}"
+                                                        GroupName="Group6"
+                                                        IsMandatory="True" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Row="1"
+                                                        Grid.Column="4"
+                                                        Value="{core:InputBinding Document.SystemSealedInAccordance}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_SYSTEM_SEALED_IN_ACCORDANCE}"
+                                                        GroupName="Group7"
+                                                        IsMandatory="True"
+                                                        IsNotApplicableDisplayed="False" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Row="1"
+                                                        Grid.Column="6"
+                                                        Value="{core:InputBinding Document.CalibrationCertificateCompleted}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CALIBRATION_CERTIFICATE_COMPLETED}"
+                                                        GroupName="Group8"
+                                                        IsMandatory="True"
+                                                        IsNotApplicableDisplayed="False" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Row="2"
+                                                        Value="{core:InputBinding Document.ReferenceCableCheckCompleted}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_REFERENCE_CABLE_CHECK_CONPLETED}"
+                                                        GroupName="Group9"
+                                                        IsMandatory="True" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Row="2"
+                                                        Grid.Column="2"
+                                                        Value="{core:InputBinding Document.TechnicalDataPrintoutsCreated}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TECHNICAL_PRINTOUTS_CREATED}"
+                                                        GroupName="Group10"
+                                                        IsMandatory="True" />
+
+                    <ctrls:InputYesNoNotApplicableField Grid.Row="2"
+                                                        Grid.Column="4"
+                                                        Value="{core:InputBinding Document.EventsFaultsReadCleared}"
+                                                        Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_EVENTS_FAULTS_CLEARED}"
+                                                        GroupName="Group11"
+                                                        IsMandatory="True" />
+                </Grid>
+
+                <CheckBox Content="{x:Static properties:Resources.TXT_NEW_QC_CHECK_PASSED}"
+                          IsChecked="{Binding Document.Passed}"
+                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                          Grid.Row="15"
+                          Margin="0,10,0,5" />
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="16"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right">
+
+                    <Button Content="{x:Static properties:Resources.TXT_NEW_TACHOGRAPH_EXPORT_PDF}"
+                            Command="{Binding ExportPDFCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
+
+                    <Button Content="{x:Static properties:Resources.TXT_NEW_TACHOGRAPH_PRINT}"
+                            Command="{Binding PrintCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
+
+                    <Button Content="{x:Static properties:Resources.TXT_NEW_TACHOGRAPH_CANCEL}"
+                            Command="{Binding CancelCommand}" />
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

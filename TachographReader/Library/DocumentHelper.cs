@@ -15,7 +15,7 @@
         {
             if (string.IsNullOrEmpty(simplePath))
             {
-                throw new ArgumentNullException("simplePath");
+                throw new ArgumentNullException(nameof(simplePath));
             }
 
             StreamResourceInfo streamResourceInfo = GetResourceStreamFromSimplePath(simplePath);

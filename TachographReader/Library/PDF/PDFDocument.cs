@@ -55,6 +55,27 @@
             return column;
         }
 
+        public void DrawBox(float x, float y, float width, float height)
+        {
+            ContentByte.SetLineWidth(1.0f);
+            ContentByte.Rectangle(x, y, width, height);
+            ContentByte.Stroke();
+        }
+
+        public void FillBox(float x, float y, float width, float height, BaseColor color)
+        {
+            var state = new PdfGState {FillOpacity = 0.5f};
+            ContentByte.SetGState(state);
+
+            ContentByte.SetLineWidth(1.0f);
+            ContentByte.Rectangle(x, y, width, height);
+            ContentByte.SetColorFill(color);
+            ContentByte.FillStroke();
+
+            state.FillOpacity = 1f;
+            ContentByte.SetGState(state);
+        }
+
         public void DrawLine(float x1, float y1, float x2, float y2)
         {
             ContentByte.SetLineWidth(1.0f);
@@ -172,6 +193,8 @@
             {
                 return;
             }
+
+            font.Color = BaseColor.BLACK;
 
             var para = new Paragraph(text, font)
             {

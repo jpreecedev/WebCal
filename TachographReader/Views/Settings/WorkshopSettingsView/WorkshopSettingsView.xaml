@@ -33,6 +33,9 @@
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_2}"
                                   Text="{core:InputBinding Settings.Address2}" />
 
+            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_3}"
+                                  Text="{core:InputBinding Settings.Address3}" />
+
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_TOWN}"
                                   Text="{core:InputBinding Settings.Town}" />
 
