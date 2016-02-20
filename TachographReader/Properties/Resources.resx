@@ -2821,4 +2821,76 @@ date
   <data name="QCCheckHistoryIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QCCheckHistoryIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TXT_QC_3_MONTH_SECTION_3_QUESTION_1" xml:space="preserve">
+    <value>Does the linear track meet requirements of ATCM?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_3_QUESTION_2" xml:space="preserve">
+    <value>Is the GV209 (Centre approval document) displayed in the centre</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_4_QUESTION_1" xml:space="preserve">
+    <value>Do the security requirements meet the conditions of approval?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_4_QUESTION_2" xml:space="preserve">
+    <value>Are all active seals and sealing devices correctly stored when not in use?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_4_QUESTION_3" xml:space="preserve">
+    <value>Are keys and access to tachograph room correctly controlled?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_5_QUESTION_1" xml:space="preserve">
+    <value>Is all equipment correctly calibrated in accordance with the ATCM?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_5_QUESTION_2" xml:space="preserve">
+    <value>Are the current calibration certificates available should DVSA visit?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_7_QUESTION_1" xml:space="preserve">
+    <value>Are all technicians training certificates in date?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_7_QUESTION_2" xml:space="preserve">
+    <value>Is the GV213 notice correct and up to date?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_9_10_QUESTION_1" xml:space="preserve">
+    <value>Are all calibration documents being completed correctly?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_9_10_QUESTION_2" xml:space="preserve">
+    <value>Are all calibration documents being stored in accordance with ATCM?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_9_10_QUESTION_3" xml:space="preserve">
+    <value>Are GV212 documents completed and printed as required in ATCM?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_10_QUESTION_1" xml:space="preserve">
+    <value>Are digital tachographs downloaded and decommissioned when required?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_10_QUESTION_2" xml:space="preserve">
+    <value>Is download data then stored in accordance with section 10 ATCM?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECTION_10_QUESTION_3" xml:space="preserve">
+    <value>Are certificates of undownloadability completed and filed as required?</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_FACILITIES_ATCM_SECTION_3" xml:space="preserve">
+    <value>Facilities ATCM Section 3</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_SECURITY_ATCM_SECTION_4" xml:space="preserve">
+    <value>Security ATCM section 4</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_EQUIPMENT_ATCM_SECTION_5" xml:space="preserve">
+    <value>Equipment ATCM section 5</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_TECHNICIAN_TRAINING_SECTION_7" xml:space="preserve">
+    <value>Technician training certificates ATCM section 7</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10" xml:space="preserve">
+    <value>Calibration documentation ATCM section 9 and 10</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_TACHO_CENTRE_ATCM_SECTION_10" xml:space="preserve">
+    <value>Tachograph centre data management ATCM section 10</value>
+  </data>
+  <data name="TXT_NEW_QC_CHECK_COMMENTS" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_COMMENTS" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="TXT_QC_3_MONTH_TECHNICIAN" xml:space="preserve">
+    <value>Technician</value>
+  </data>
 </root>

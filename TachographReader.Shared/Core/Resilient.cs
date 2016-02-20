@@ -1,6 +1,7 @@
 ﻿namespace TachographReader.Shared.Core
 {
     using System;
+    using System.ServiceModel.Security;
     using System.Threading;
     using Properties;
 
@@ -35,6 +36,10 @@
                     ReportProgress(Resources.TXT_STARTING);
                     operation.Invoke();
                     return;
+                }
+                catch (MessageSecurityException)
+                {
+                    throw;
                 }
                 catch (Exception ex)
                 {

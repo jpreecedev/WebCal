@@ -291,7 +291,7 @@
                 <ctrls:InputTextField Grid.Row="13"
                                       Grid.ColumnSpan="3"
                                       IsMultiline="True"
-                                      Label="Comments"
+                                      Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_COMMENTS}"
                                       Text="{Binding Document.Comments, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsLabelCustomWidth="True"

@@ -348,17 +348,18 @@
 
     <Style TargetType="{x:Type ctrls:InputYesNoNotApplicableField}">
         <Setter Property="Margin"
-                Value="0,10,0,0"></Setter>
+                Value="0,5,0,10" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctrls:InputYesNoNotApplicableField}">
                     <StackPanel Orientation="Vertical">
                         <Border Height="35"
-                                Margin="0,5,0,5">
+                                Margin="0,0,0,5">
                             <TextBlock Text="{TemplateBinding Label}"
                                        Focusable="False"
-                                       TextWrapping="Wrap"
-                                       Style="{StaticResource SubHeaderFont}" />
+                                       VerticalAlignment="Center"
+                                       TextWrapping="Wrap"/>
+
                         </Border>
 
                         <Border x:Name="Border"
@@ -370,21 +371,21 @@
                                                    Content="{x:Static Properties:Resources.TXT_YES}"
                                                    GroupName="{TemplateBinding GroupName}"
                                                    CheckedValue="1"
-                                                   Margin="0,5,10,5"
+                                                   Margin="0,0,10,5"
                                                    Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                                    IsEnabled="{Binding IsHistoryMode, Converter={StaticResource InvBool}, RelativeSource={RelativeSource TemplatedParent}}"/>
                                 <ctrls:RadioButton x:Name="NoRadioButton"
                                                    Content="{x:Static Properties:Resources.TXT_NO}"
                                                    GroupName="{TemplateBinding GroupName}"
                                                    CheckedValue="2"
-                                                   Margin="0,5,10,5"
+                                                   Margin="0,0,10,5"
                                                    Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                                    IsEnabled="{Binding IsHistoryMode, Converter={StaticResource InvBool}, RelativeSource={RelativeSource TemplatedParent}}" />
                                 <ctrls:RadioButton x:Name="NotApplicableRadio"
                                                    Content="{x:Static Properties:Resources.TXT_NOT_APPLICABLE}"
                                                    GroupName="{TemplateBinding GroupName}"
                                                    CheckedValue="3"
-                                                   Margin="0,5,10,5"
+                                                   Margin="0,0,10,5"
                                                    Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                                    IsEnabled="{Binding IsHistoryMode, Converter={StaticResource InvBool}, RelativeSource={RelativeSource TemplatedParent}}" />
                             </StackPanel>
