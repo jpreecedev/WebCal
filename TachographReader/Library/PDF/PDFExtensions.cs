@@ -43,6 +43,12 @@
                     {
                         QCCheckReport.Create(pdfDocument, qcReportViewModel);
                     }
+
+                    var qcReport3Month = report as QCReport3Month;
+                    if (qcReport3Month != null)
+                    {
+                        QC3MonthReport.Create(pdfDocument, qcReport3Month);
+                    }
                 }
 
                 report.SerializedData = File.ReadAllBytes(result.FileName);

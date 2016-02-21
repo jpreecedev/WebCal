@@ -51,8 +51,14 @@
 
         protected override void Add()
         {
+            if (IsReadOnly || IsHistoryMode)
+            {
+                return;
+            }
+
             Document.Created = DateTime.Now;
             Repository.AddOrUpdate(Document.Downcast<QCReport>());
+            ConnectHelper.Upload(Document.Downcast<QCReport>());
         }
 
         protected override void Load()

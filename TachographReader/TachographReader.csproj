@@ -325,6 +325,7 @@
     <Compile Include="Library\PDF\FullPlaqueDocument.cs" />
     <Compile Include="Library\PDF\MinimalPlaqueDocument.cs" />
     <Compile Include="Library\PDF\PDFDocument.cs" />
+    <Compile Include="Library\PDF\QC3MonthReport.cs" />
     <Compile Include="Library\PDF\QCCheckReport.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
     <Compile Include="Library\PDF\VOSADocument.cs" />

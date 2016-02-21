@@ -94,14 +94,19 @@
         {
             HasValidated = true;
 
+            if (IsHistoryMode)
+            {
+                return true;
+            }
+
             if (!IsNotApplicableDisplayed)
             {
-                return Valid = HasSelectedValue || Value.HasValue;
+                return Valid = HasSelectedValue;
             }
 
             return Valid = Value.HasValue || HasSelectedValue;
         }
-
+        
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();

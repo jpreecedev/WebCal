@@ -65,7 +65,9 @@
             var tachographDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>();
             var undownloadabilityDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<UndownloadabilityDocument>>();
             var letterForDecommissioningRepository = ContainerBootstrapper.Resolve<IRepository<LetterForDecommissioningDocument>>();
-            
+            var qcReportRepository = ContainerBootstrapper.Resolve<IRepository<QCReport>>();
+            var qcReport3MonthRepository = ContainerBootstrapper.Resolve<IRepository<QCReport3Month>>();
+
             CallAsync(() =>
             {
                 foreach (var tachographDocument in tachographDocumentsRepository.Where(c => c.Uploaded == null))
@@ -83,54 +85,61 @@
                     _connectClient.Service.AutoUploadLetterForDecommissioningDocument(CheckSerializedData(letterForDecommissioningDocument));
                     SaveDocumentUpload(letterForDecommissioningDocument);
                 }
+                foreach (var qcReport in qcReportRepository.Where(c => c.Uploaded == null))
+                {
+                    _connectClient.Service.AutoUploadQCReport(qcReport);
+                    SaveReportUpload(qcReport);
+                }
+                foreach (var qcReport3Month in qcReport3MonthRepository.Where(c => c.Uploaded == null))
+                {
+                    _connectClient.Service.AutoUploadQCReport3Month(qcReport3Month);
+                    SaveReportUpload(qcReport3Month);
+                }
             });
         }
 
-        public static void Upload(TachographDocument document, bool isAutoUpload)
+        public static void Upload(TachographDocument document)
         {
             CallAsync(() =>
             {
-                if (isAutoUpload)
-                {
-                    _connectClient.Service.AutoUploadTachographDocument(document);
-                }
-                else
-                {
-                    _connectClient.Service.UploadTachographDocument(document);
-                }
+                _connectClient.Service.UploadTachographDocument(document);
                 SaveDocumentUpload(document);
             });
         }
 
-        public static void Upload(UndownloadabilityDocument document, bool isAutoUpload)
+        public static void Upload(UndownloadabilityDocument document)
         {
             CallAsync(() =>
             {
-                if (isAutoUpload)
-                {
-                    _connectClient.Service.AutoUploadUndownloadabilityDocument(document);
-                }
-                else
-                {
-                    _connectClient.Service.UploadUndownloadabilityDocument(document);
-                }
+                _connectClient.Service.UploadUndownloadabilityDocument(document);
                 SaveDocumentUpload(document);
             });
         }
 
-        public static void Upload(LetterForDecommissioningDocument document, bool isAutoUpload)
+        public static void Upload(LetterForDecommissioningDocument document)
         {
             CallAsync(() =>
             {
-                if (isAutoUpload)
-                {
-                    _connectClient.Service.AutoUploadLetterForDecommissioningDocument(document);
-                }
-                else
-                {
-                    _connectClient.Service.UploadLetterForDecommissioningDocument(document);
-                }
+                _connectClient.Service.UploadLetterForDecommissioningDocument(document);
                 SaveDocumentUpload(document);
+            });
+        }
+
+        public static void Upload(QCReport report)
+        {
+            CallAsync(() =>
+            {
+                _connectClient.Service.UploadQCReport(report);
+                SaveReportUpload(report);
+            });
+        }
+
+        public static void Upload(QCReport3Month report)
+        {
+            CallAsync(() =>
+            {
+                _connectClient.Service.UploadQCReport3Month(report);
+                SaveReportUpload(report);
             });
         }
 
@@ -230,6 +239,14 @@
 
             var repository = ContainerBootstrapper.Resolve<IRepository<T>>();
             repository.AddOrUpdate(document);
+        }
+
+        private static void SaveReportUpload<T>(T report) where T : BaseReport
+        {
+            report.Uploaded = DateTime.Now;
+
+            var repository = ContainerBootstrapper.Resolve<IRepository<T>>();
+            repository.AddOrUpdate(report);
         }
 
         private static T CheckSerializedData<T>(T document) where T : Document

@@ -68,7 +68,7 @@
 
             Document.Created = DateTime.Now;
             UndownloadabilityRepository.Add(Document);
-            ConnectHelper.Upload(Document, false);
+            ConnectHelper.Upload(Document);
         }
 
         protected override void OnCustomerContactChanged(CustomerContact customerContact)

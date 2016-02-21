@@ -232,6 +232,7 @@
 
                 <ctrls:InputTextField Grid.Row="3"
                                       IsMultiline="True"
+                                      IsMandatory="True"
                                       Label="{x:Static properties:Resources.TXT_QC_3_MONTH_COMMENTS}"
                                       Text="{Binding Document.FurtherDetails, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />

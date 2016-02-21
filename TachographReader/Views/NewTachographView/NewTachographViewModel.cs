@@ -117,7 +117,7 @@
             }
 
             TachographDocumentRepository.AddOrUpdate(Document);
-            ConnectHelper.Upload(Document, false);
+            ConnectHelper.Upload(Document);
         }
 
         protected override void RegistrationChanged(string registrationNumber)

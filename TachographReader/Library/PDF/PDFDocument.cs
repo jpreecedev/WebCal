@@ -417,6 +417,22 @@
             return new Font(GetBaseFont(), 8, bold ? Font.BOLD : Font.NORMAL);
         }
 
+        public Font GetRegularFont(bool bold, bool underline)
+        {
+            var f = Font.NORMAL;
+            if (bold)
+            {
+                f = Font.BOLD;
+            }
+            if (underline)
+            {
+                f = f | Font.UNDERLINE;
+            }
+
+            return new Font(GetBaseFont(), 8, f);
+
+        }
+
         public Font GetLargerFont(bool bold)
         {
             return new Font(GetBaseFont(), 10, bold ? Font.BOLD : Font.NORMAL);

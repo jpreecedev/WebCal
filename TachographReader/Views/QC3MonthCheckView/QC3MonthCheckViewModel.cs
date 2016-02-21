@@ -5,6 +5,7 @@
     using Connect.Shared.Models;
     using Core;
     using DataModel;
+    using Library;
     using Shared;
 
     public class QC3MonthCheckViewModel : BaseNewDocumentViewModel
@@ -34,8 +35,14 @@
 
         protected override void Add()
         {
+            if (IsReadOnly || IsHistoryMode)
+            {
+                return;
+            }
+
             Document.Created = DateTime.Now;
             Repository.AddOrUpdate(Document);
+            ConnectHelper.Upload(Document);
         }
 
         protected override BaseReport GetReport()
@@ -58,6 +65,7 @@
         {
             Technicians = new ObservableCollection<Technician>(TechniciansRepository.GetAll());
             Document.TachoCentreName = WorkshopSettings.WorkshopName;
+            Document.CentreSealNumber = RegistrationData.SealNumber;
         }
     }
 }

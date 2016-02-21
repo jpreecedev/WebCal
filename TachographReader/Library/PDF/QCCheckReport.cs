@@ -180,14 +180,14 @@
             
             document.DrawBox(310, 350, 225, 35);
             AbsolutePositionText(document, Resources.TXT_QC_REPORT_CHECK_SIGNATURE, 315, 380, 450, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
-            TryAddSignature(document, qcReportDocument, qcReportDocument.TechnicianName, 345, 340);
+            TryAddSignature(document, qcReportDocument.TechnicianName, 345, 340);
 
             document.DrawBox(61, 300, 225, 35);
             AbsolutePositionText(document, $"{Resources.TXT_QC_REPORT_CHECK_QC} {qcReportDocument.QCManagerName}", 65, 330, 255, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
 
             document.DrawBox(310, 300, 225, 35);
             AbsolutePositionText(document, Resources.TXT_QC_REPORT_CHECK_SIGNATURE, 315, 330, 450, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
-            TryAddSignature(document, qcReportDocument, qcReportDocument.QCManagerName, 345, 290);
+            TryAddSignature(document, qcReportDocument.QCManagerName, 345, 290);
 
             document.DrawBox(61, 250, 225, 35);
             AbsolutePositionText(document, Resources.DATE + DateTime.Now.ToString(Constants.ShortYearDateFormat), 65, 280, 255, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
@@ -233,7 +233,7 @@
             }
         }
 
-        private static void TryAddSignature(PDFDocument document, QCReportViewModel qcReportDocument, string technicianName, int x, int y = 88)
+        private static void TryAddSignature(PDFDocument document, string technicianName, int x, int y = 88)
         {
             System.Drawing.Image signatureImage = null;
 
