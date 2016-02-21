@@ -30,7 +30,7 @@
         public DelegateCommand<object> NewTachographCommand { get; set; }
         public DelegateCommand<object> NewAnalogueTachographCommand { get; set; }
         public DelegateCommand<object> NewUndownloadabilityCommand { get; set; }
-        public DelegateCommand<object> TachographHistoryCommand { get; set; }
+        public DelegateCommand<object> DocumentHistoryCommand { get; set; }
         public DelegateCommand<object> UndownloadabilityHistoryCommand { get; set; }
         public DelegateCommand<object> CalibrationsCommand { get; set; }
         public DelegateCommand<object> DriverCardFilesCommand { get; set; }
@@ -109,16 +109,11 @@
             ShowView<NewUndownloadabilityView>();
         }
 
-        private void OnTachographHistory(object param)
+        private void OnDocumentHistory(object param)
         {
-            ShowView<TachographHistoryView>();
+            ShowView<DocumentHistoryView>();
         }
-
-        private void OnUndownloadabilityHistory(object param)
-        {
-            ShowView<UndownloadabilityHistoryView>();
-        }
-
+        
         private void OnCalibrations(object param)
         {
             ShowView<CalibrationsView>();
@@ -137,16 +132,6 @@
         private void OnLetterForDecommissioning(object param)
         {
             ShowView<LetterForDecommissioningView>();
-        }
-
-        private void OnLetterForDecommissioningHistory(object param)
-        {
-            ShowView<LetterForDecommissioningHistoryView>();
-        }
-
-        private void OnQCCheckHistory(object obj)
-        {
-            ShowView<QCCheckHistoryView>();
         }
 
         private void OnQCCheck(object param)
@@ -257,8 +242,7 @@
             NewTachographCommand = new DelegateCommand<object>(OnNewTachograph);
             NewAnalogueTachographCommand = new DelegateCommand<object>(OnNewAnalogueTachograph);
             NewUndownloadabilityCommand = new DelegateCommand<object>(OnNewUndownloadability);
-            TachographHistoryCommand = new DelegateCommand<object>(OnTachographHistory);
-            UndownloadabilityHistoryCommand = new DelegateCommand<object>(OnUndownloadabilityHistory);
+            DocumentHistoryCommand = new DelegateCommand<object>(OnDocumentHistory);
             CalibrationsCommand = new DelegateCommand<object>(OnCalibrations);
             DriverCardFilesCommand = new DelegateCommand<object>(OnDriverCardFiles);
             WorkshopCardFilesCommand = new DelegateCommand<object>(OnWorkshopCardFiles);
@@ -272,8 +256,6 @@
             SaveModalCommand = new DelegateCommand<UserControl>(OnSaveModal);
             CloseModalCommand = new DelegateCommand<UserControl>(OnCloseModal);
             LetterForDecommissioningCommand = new DelegateCommand<object>(OnLetterForDecommissioning);
-            LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
-            QCCheckHistoryCommand = new DelegateCommand<object>(OnQCCheckHistory);
             QCCheckCommand = new DelegateCommand<object>(OnQCCheck);
             QC3MonthCheckCommand = new DelegateCommand<object>(OnQC3MonthCheck);
         }

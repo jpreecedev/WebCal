@@ -9,7 +9,7 @@
     using Library;
     using Shared;
 
-    public class NewUndownloadabilityViewModel : BaseNewDocumentViewModel
+    public class NewUndownloadabilityViewModel : BaseNewDocumentViewModel<UndownloadabilityDocument>
     {
         public NewUndownloadabilityViewModel()
         {
@@ -21,14 +21,12 @@
             Document = document;
         }
 
-        public UndownloadabilityDocument Document { get; set; }
         public IRepository<UndownloadabilityDocument> UndownloadabilityRepository { get; set; }
         public IRepository<TachographMake> TachographMakesRepository { get; set; }
         public ObservableCollection<TachographMake> TachographMakes { get; set; }
         public IRepository<Technician> TechnicianRepository { get; set; }
         public ObservableCollection<Technician> Technicians { get; set; }
-        public bool IsReadOnly { get; set; }
-
+        
         protected override void Load()
         {
             base.Load();

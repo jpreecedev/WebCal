@@ -236,6 +236,7 @@
     </Page>
     <Compile Include="Behaviours\CheckChangedBehaviour.cs" />
     <Compile Include="Behaviours\ComboKeyUpBehaviour.cs" />
+    <Compile Include="Behaviours\ComboSelectionChangedBehaviour.cs" />
     <Compile Include="Behaviours\ElementClickedBehaviour.cs" />
     <Compile Include="Behaviours\ListItemDoubleClickedBehaviour.cs" />
     <Compile Include="Behaviours\LoadedBehaviour.cs" />
@@ -279,7 +280,6 @@
     <Compile Include="Core\BaseCardBrowserViewModel.cs" />
     <Compile Include="Core\BaseControlAttribute.cs" />
     <Compile Include="Core\BaseFilesViewModel.cs" />
-    <Compile Include="Core\BaseHistoryViewModel.cs" />
     <Compile Include="Core\BaseMainViewModel.cs" />
     <Compile Include="Core\BaseModalWindowViewModel.cs" />
     <Compile Include="Core\BaseNavigationViewModel.cs" />
@@ -292,6 +292,8 @@
     <Compile Include="Core\CommandReference.cs" />
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\DelegateCommand.cs" />
+    <Compile Include="Core\DocumentHistoryItem.cs" />
+    <Compile Include="Core\IDocumentHistoryItem.cs" />
     <Compile Include="Core\INewDocumentViewModel.cs" />
     <Compile Include="Core\LocalizedImageBinding.cs" />
     <Compile Include="Core\OneWayInputBinding.cs" />
@@ -349,14 +351,10 @@
       <DependentUpon>CalibrationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CalibrationsView\CalibrationsViewModel.cs" />
-    <Compile Include="Views\QCCheckHistoryView\QCCheckHistoryView.xaml.cs">
-      <DependentUpon>QCCheckHistoryView.xaml</DependentUpon>
+    <Compile Include="Views\DocumentHistoryView\DocumentHistoryView.xaml.cs">
+      <DependentUpon>DocumentHistoryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QCCheckHistoryView\QCCheckHistoryViewModel.cs" />
-    <Compile Include="Views\LetterForDecommissioningHistoryView\LetterForDecommissioningHistoryView.xaml.cs">
-      <DependentUpon>LetterForDecommissioningHistoryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LetterForDecommissioningHistoryView\LetterForDecommissioningHistoryViewModel.cs" />
+    <Compile Include="Views\DocumentHistoryView\DocumentHistoryViewModel.cs" />
     <Compile Include="Views\LetterForDecommissioningView\LetterForDecommissioningView.xaml.cs">
       <DependentUpon>LetterForDecommissioningView.xaml</DependentUpon>
     </Compile>
@@ -483,14 +481,6 @@
       <DependentUpon>SpeedlimiterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SpeedlimiterView\SpeedlimiterViewModel.cs" />
-    <Compile Include="Views\TachographHistoryView\TachographHistoryView.xaml.cs">
-      <DependentUpon>TachographHistoryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TachographHistoryView\TachographHistoryViewModel.cs" />
-    <Compile Include="Views\UndownloadabilityHistoryView\UndownloadabilityHistoryView.xaml.cs">
-      <DependentUpon>UndownloadabilityHistoryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UndownloadabilityHistoryView\UndownloadabilityHistoryViewModel.cs" />
     <Compile Include="Views\WorkshopCardFilesView\WorkshopCardFilesView.xaml.cs">
       <DependentUpon>WorkshopCardFilesView.xaml</DependentUpon>
     </Compile>
@@ -520,11 +510,7 @@
       <DependentUpon>WorkerProgressWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WorkerProgressWindow\WorkerProgressWindowViewModel.cs" />
-    <Page Include="Views\QCCheckHistoryView\QCCheckHistoryView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\LetterForDecommissioningHistoryView\LetterForDecommissioningHistoryView.xaml">
+    <Page Include="Views\DocumentHistoryView\DocumentHistoryView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -682,14 +668,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Settings\WorkshopSettingsView\WorkshopSettingsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TachographHistoryView\TachographHistoryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UndownloadabilityHistoryView\UndownloadabilityHistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1086,6 +1064,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\QCCheckHistoryIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

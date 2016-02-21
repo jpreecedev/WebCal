@@ -9,7 +9,7 @@
     using Library;
     using Shared;
 
-    public class LetterForDecommissioningViewModel : BaseNewDocumentViewModel
+    public class LetterForDecommissioningViewModel : BaseNewDocumentViewModel<LetterForDecommissioningDocument>
     {
         public LetterForDecommissioningViewModel()
         {
@@ -21,8 +21,6 @@
             Document = document;
         }
         
-        public LetterForDecommissioningDocument Document { get; set; }
-
         public IRepository<LetterForDecommissioningDocument> LetterForDecommissioningRepository { get; set; }
 
         public IRepository<TachographMake> TachographMakesRepository { get; set; }

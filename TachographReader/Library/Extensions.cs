@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Data.Entity;
     using System.Drawing;
     using System.IO;
     using System.Linq;
@@ -14,6 +15,7 @@
     using System.Windows.Media.Imaging;
     using Connect.Shared.Models;
     using Core;
+    using DataModel;
     using Size = System.Drawing.Size;
 
     public static class Extensions
@@ -220,6 +222,39 @@
             }
 
             return b;
+        }
+        
+        public static IEnumerable<Document> GetAllDocuments(this TachographContext context)
+        {
+            IEnumerable<Document> result = new List<Document>();
+
+            result = result.Concat(GetDocuments<TachographDocument>(context));
+            result = result.Concat(GetDocuments<UndownloadabilityDocument>(context));
+            result = result.Concat(GetDocuments<LetterForDecommissioningDocument>(context));
+
+            return result.OrderByDescending(c => c.InspectionDate.GetValueOrDefault());
+        }
+
+        public static IEnumerable<BaseReport> GetQCReports(this TachographContext context)
+        {
+            IEnumerable<BaseReport> result = new List<BaseReport>();
+
+            result = result.Concat(GetDocuments<QCReport>(context));
+
+            return result.OrderByDescending(c => c.Created.Date);
+        }
+
+        private static IEnumerable<T> GetDocuments<T>(DbContext context) where T : BaseModel
+        {
+            var documentCount = context.Set<T>().Count();
+            if (documentCount > 0)
+            {
+                return from document in context.Set<T>()
+                    where document.Deleted == null
+                    select document;
+            }
+
+            return new List<T>();
         }
     }
 }

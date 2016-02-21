@@ -9,17 +9,13 @@
     using Library.ViewModels;
     using Shared;
 
-    public class QCCheckViewModel : BaseNewDocumentViewModel
+    public class QCCheckViewModel : BaseNewDocumentViewModel<QCReportViewModel>
     {
         public QCCheckViewModel()
         {
             Document = new QCReportViewModel();
         }
-
-        public QCReportViewModel Document { get; set; }
-
-        public bool IsReadOnly { get; set; }
-
+        
         public IRepository<QCReport> Repository { get; set; }
 
         public IRepository<TachographMake> TachographMakesRepository { get; set; }

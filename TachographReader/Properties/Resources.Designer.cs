@@ -93,6 +93,16 @@ namespace TachographReader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap clock {
+            get {
+                object obj = ResourceManager.GetObject("clock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Close {
             get {
                 object obj = ResourceManager.GetObject("Close", resourceCulture);
@@ -1776,6 +1786,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Document history.
+        /// </summary>
+        public static string TXT_DOCUMENT_HISTORY_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_DOCUMENT_HISTORY_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The document has been sent to your default printer.
         /// </summary>
         public static string TXT_DOCUMENT_PRINTED {
@@ -3437,6 +3456,15 @@ namespace TachographReader.Properties {
         public static string TXT_MAIN_WINDOW_QC_CHECK_HISTORY_TOOLTIP {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_QC_CHECK_HISTORY_TOOLTIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QC Checks.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_QC_CHECKS {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_QC_CHECKS", resourceCulture);
             }
         }
         
@@ -6696,6 +6724,15 @@ namespace TachographReader.Properties {
         public static string TXT_TACHO_HISTORY_CUSTOMER {
             get {
                 return ResourceManager.GetString("TXT_TACHO_HISTORY_CUSTOMER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document Type.
+        /// </summary>
+        public static string TXT_TACHO_HISTORY_DOCUMENT_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_TACHO_HISTORY_DOCUMENT_TYPE", resourceCulture);
             }
         }
         

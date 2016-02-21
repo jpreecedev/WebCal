@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TachographReader.Views.TachographHistoryView"
+﻿<UserControl x:Class="TachographReader.Views.DocumentHistoryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,12 +7,12 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:behav="clr-namespace:TachographReader.Behaviours"
              xmlns:core="clr-namespace:TachographReader.Core"
-             xmlns:Properties="clr-namespace:TachographReader.Properties"
+             xmlns:properties="clr-namespace:TachographReader.Properties"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="500">
     <UserControl.DataContext>
-        <vm:TachographHistoryViewModel />
+        <vm:DocumentHistoryViewModel />
     </UserControl.DataContext>
     <Grid Style="{StaticResource MainGrid}">
         <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="{x:Static Properties:Resources.TXT_TACHO_HISTORY_TITLE}"
+        <TextBlock Text="{x:Static properties:Resources.TXT_DOCUMENT_HISTORY_TITLE}"
                    Style="{StaticResource TitleFont}" />
 
         <Grid Grid.Row="1"
@@ -35,17 +35,26 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <xctk:WatermarkTextBox Watermark="{x:Static Properties:Resources.TXT_TACHO_HISTORY_ENTER_SEARCH_TERM}"
+                <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.TXT_TACHO_HISTORY_ENTER_SEARCH_TERM}"
                                        Text="{core:InputBinding SearchTerm}"
                                        behav:TextChangedBehaviour.Command="{Binding PerformSearchCommand}"
                                        Margin="0,0,5,10" />
 
                 <ComboBox ItemsSource="{Binding SearchFilters}"
                           SelectedItem="{Binding SelectedSearchFilter}"
+                          behav:ComboSelectionChangedBehaviour.Command="{Binding PerformSearchCommand}"
                           IsEditable="False"
                           Grid.Column="1"
+                          Margin="5,0,0,10" />
+
+                <ComboBox ItemsSource="{Binding DocumentTypes}"
+                          SelectedItem="{Binding SelectedDocumentType}"
+                          behav:ComboSelectionChangedBehaviour.Command="{Binding PerformSearchCommand}"
+                          IsEditable="False"
+                          Grid.Column="2"
                           Margin="5,0,0,10" />
 
             </Grid>
@@ -57,49 +66,47 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="200"
-                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_CREATION_DATE}"
+                                        Header="{x:Static properties:Resources.TXT_TACHO_HISTORY_CREATION_DATE}"
                                         DisplayMemberBinding="{Binding Path=Created, StringFormat={}{0:dd-MMM-yyyy HH:mm}}" />
+                        <GridViewColumn Width="220"
+                                        Header="{x:Static properties:Resources.TXT_TACHO_HISTORY_DOCUMENT_TYPE}"
+                                        DisplayMemberBinding="{Binding Path=Type}" />
                         <GridViewColumn Width="200"
-                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_TYPE}"
+                                        Header="{x:Static properties:Resources.TXT_TACHO_HISTORY_TYPE}"
                                         DisplayMemberBinding="{Binding DocumentType}" />
                         <GridViewColumn Width="200"
-                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_VEHICLE_REGISTRATION_NUMBER}"
+                                        Header="{x:Static properties:Resources.TXT_TACHO_HISTORY_VEHICLE_REGISTRATION_NUMBER}"
                                         DisplayMemberBinding="{Binding RegistrationNumber}" />
                         <GridViewColumn Width="200"
-                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_TECHNICIAN}"
-                                        DisplayMemberBinding="{Binding Technician}" />
+                                        Header="{x:Static properties:Resources.TXT_TACHO_HISTORY_TECHNICIAN}"
+                                        DisplayMemberBinding="{Binding TechnicianName}" />
                         <GridViewColumn Width="200"
-                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_OFFICE}"
+                                        Header="{x:Static properties:Resources.TXT_TACHO_HISTORY_OFFICE}"
                                         DisplayMemberBinding="{Binding Office}" />
                         <GridViewColumn Width="200"
-                                        Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_CUSTOMER}"
+                                        Header="{x:Static properties:Resources.TXT_TACHO_HISTORY_CUSTOMER}"
                                         DisplayMemberBinding="{Binding CustomerContact}" />
                     </GridView>
                 </ListView.View>
-                <ListView.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM}"
-                                  Command="{Binding OpenInReportFormCommand}" />
-                        <MenuItem Header="{x:Static Properties:Resources.TXT_TACHO_HISTORY_EMAIL_REPORT}"
-                                  Command="{Binding EmailReportFormCommand}" />
-                    </ContextMenu>
-                </ListView.ContextMenu>
             </ListView>
 
             <StackPanel Orientation="Horizontal"
                         Grid.Row="2"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right">
-                <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM}"
+                <Button Content="{x:Static properties:Resources.TXT_TACHO_HISTORY_OPEN_IN_REPORT_FORM}"
                         Command="{Binding OpenInReportFormCommand}"
+                        Visibility="{Binding SelectedDocument, Converter={StaticResource Null2Vis}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         Width="Auto" />
-                <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT}"
+                <Button Content="{x:Static properties:Resources.TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT}"
                         Command="{Binding CreateVOSADocumentCommand}"
+                        Visibility="{Binding SelectedDocument.CanPrintVOSADocument, Converter={StaticResource Bool2Vis}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         Width="Auto" />
-                <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_REPRINT_LABEL}"
+                <Button Content="{x:Static properties:Resources.TXT_TACHO_HISTORY_REPRINT_LABEL}"
                         Command="{Binding ReprintLabelCommand}"
+                        Visibility="{Binding SelectedDocument.CanReprintLabel, Converter={StaticResource Bool2Vis}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         Width="Auto" />
-                <Button Content="{x:Static Properties:Resources.TXT_TACHO_HISTORY_REPRINT_CERTIFICATE}"
+                <Button Content="{x:Static properties:Resources.TXT_TACHO_HISTORY_REPRINT_CERTIFICATE}"
                         Command="{Binding ReprintCertificateCommand}"
                         Width="Auto" />
             </StackPanel>

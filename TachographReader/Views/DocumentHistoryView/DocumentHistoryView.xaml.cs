@@ -2,9 +2,9 @@
 
 namespace TachographReader.Views
 {
-    public partial class LetterForDecommissioningHistoryView : UserControl
+    public partial class DocumentHistoryView : UserControl
     {
-        public LetterForDecommissioningHistoryView()
+        public DocumentHistoryView()
         {
             InitializeComponent();
         }

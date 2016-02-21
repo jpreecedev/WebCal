@@ -13,7 +13,13 @@
     using Shared;
     using Views;
 
-    public class BaseNewDocumentViewModel : BaseMainViewModel, INewDocumentViewModel
+    public class BaseNewDocumentViewModel : BaseMainViewModel
+    {
+        public bool IsHistoryMode { get; set; }
+        public bool IsReadOnly { get; set; }
+    }
+
+    public class BaseNewDocumentViewModel<T> : BaseNewDocumentViewModel, INewDocumentViewModel where T : class
     {
         public DelegateCommand<Grid> ExportPDFCommand { get; set; }
         public DelegateCommand<Grid> PrintCommand { get; set; }
@@ -23,11 +29,12 @@
         public WorkshopSettings WorkshopSettings { get; set; }
         public MailSettings MailSettings { get; set; }
         public RegistrationData RegistrationData { get; set; }
-        public bool IsHistoryMode { get; set; }
         public IDriverCardReader DriverCardReader { get; set; }
 
         public bool IsSearchingConnect { get; set; }
         public bool IsRegistrationChanging { get; set; }
+
+        public T Document { get; set; }
 
         public virtual void OnModalClosed()
         {

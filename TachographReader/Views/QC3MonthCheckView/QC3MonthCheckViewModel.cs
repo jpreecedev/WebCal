@@ -8,16 +8,12 @@
     using Library;
     using Shared;
 
-    public class QC3MonthCheckViewModel : BaseNewDocumentViewModel
+    public class QC3MonthCheckViewModel : BaseNewDocumentViewModel<QCReport3Month>
     {
         public QC3MonthCheckViewModel()
         {
             Document = new QCReport3Month();
         }
-
-        public QCReport3Month Document { get; set; }
-
-        public bool IsReadOnly { get; set; }
 
         public IRepository<QCReport3Month> Repository { get; set; }
 

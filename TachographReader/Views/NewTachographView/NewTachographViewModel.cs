@@ -19,7 +19,7 @@
     using Shared;
     using Shared.Helpers;
 
-    public class NewTachographViewModel : BaseNewDocumentViewModel
+    public class NewTachographViewModel : BaseNewDocumentViewModel<TachographDocument>
     {
         public bool CardBeingRead;
 
@@ -30,8 +30,7 @@
             VehicleTypes = VehicleType.GetVehicleTypes();
             Document.VehicleType = VehicleTypes.First();
         }
-
-        public TachographDocument Document { get; set; }
+        
         public IRepository<VehicleMake> VehicleRepository { get; set; }
         public IRepository<TyreSize> TyreSizesRepository { get; set; }
         public IRepository<TachographMake> TachographMakesRepository { get; set; }
@@ -48,7 +47,6 @@
         public string ReadFromCardContent { get; set; }
         public string StatusText { get; set; }
         public bool IsCardReadUserInitiated { get; set; }
-        public bool IsReadOnly { get; set; }
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<Grid> PrintLabelCommand { get; set; }
         public DelegateCommand<object> AddInspectionInfoCommand { get; set; }
@@ -62,7 +60,6 @@
             DocumentTypes = DocumentType.GetDocumentTypes(isDigital);
             Document.DocumentType = Document.DocumentType ?? DocumentTypes.FirstOrDefault(c => string.Equals(c, isDigital ? settings.DefaultDigitalDocumentType : settings.DefaultAnalogueDocumentType));
         }
-
         protected override void InitialiseCommands()
         {
             base.InitialiseCommands();
