@@ -5,23 +5,28 @@
     using System.Runtime.CompilerServices;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Controls.Primitives;
     using System.Windows.Input;
     using System.Windows.Threading;
     using Core;
-    using DataModel;
     using Library.ViewModels;
     using Views;
 
-    [TemplatePart(Name = "PART_TextBox", Type = typeof (TextBox))]
+    [TemplatePart(Name = "PART_TextBox", Type = typeof(TextBox))]
     public class PopupWindow : UserControl, INotifyPropertyChanged
     {
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof (SettingsViewModel), typeof (PopupWindow),
+            DependencyProperty.Register("ViewModel", typeof(SettingsViewModel), typeof(PopupWindow),
                 new PropertyMetadata(null));
 
         public static readonly DependencyProperty PromptProperty =
-            DependencyProperty.Register("Prompt", typeof (UserPromptViewModel), typeof (PopupWindow), new PropertyMetadata(null, OnPromptChanged) );
+            DependencyProperty.Register("Prompt", typeof(UserPromptViewModel), typeof(PopupWindow), new PropertyMetadata(null, OnPromptChanged));
+
+        public static readonly DependencyProperty HasSecondPromptProperty =
+            DependencyProperty.Register("HasSecondPrompt", typeof(bool), typeof(PopupWindow));
+
+
+        public static readonly DependencyProperty TechniciansViewModelProperty =
+            DependencyProperty.Register("TechniciansViewModel", typeof(TechniciansViewModel), typeof(PopupWindow));
 
         private TextBox _textBox;
 
@@ -35,10 +40,9 @@
 
         public UserPromptViewModel Prompt
         {
-            get { return (UserPromptViewModel) GetValue(PromptProperty); }
+            get { return (UserPromptViewModel)GetValue(PromptProperty); }
             set { SetValue(PromptProperty, value); }
         }
-
 
 
         public bool HasSecondPrompt
@@ -47,16 +51,20 @@
             set { SetValue(HasSecondPromptProperty, value); }
         }
 
-        public static readonly DependencyProperty HasSecondPromptProperty =
-            DependencyProperty.Register("HasSecondPrompt", typeof(bool), typeof(PopupWindow));
-
-        
 
         public SettingsViewModel ViewModel
         {
-            get { return (SettingsViewModel) GetValue(ViewModelProperty); }
+            get { return (SettingsViewModel)GetValue(ViewModelProperty); }
             set { SetValue(ViewModelProperty, value); }
         }
+
+
+        public TechniciansViewModel TechniciansViewModel
+        {
+            get { return (TechniciansViewModel)GetValue(TechniciansViewModelProperty); }
+            set { SetValue(TechniciansViewModelProperty, value); }
+        }
+
 
         public DelegateCommand<object> OKCommand { get; set; }
         public DelegateCommand<object> CancelCommand { get; set; }
@@ -76,26 +84,40 @@
             {
                 ViewModel.IsPromptVisible = false;
             }
+            if (TechniciansViewModel != null)
+            {
+                TechniciansViewModel.IsPromptVisible = false;
+            }
         }
 
         private void OnOK(object obj)
         {
-            if (ViewModel == null)
+            if (ViewModel == null && TechniciansViewModel == null)
             {
                 return;
             }
 
-            ViewModel.IsPromptVisible = false;
-
-            if (ViewModel.Callback != null)
+            if (ViewModel != null)
             {
-                ViewModel.Callback.Invoke(Prompt);
+                ViewModel.IsPromptVisible = false;
+                if (ViewModel.Callback != null)
+                {
+                    ViewModel.Callback.Invoke(Prompt);
+                }
+            }
+            if (TechniciansViewModel != null)
+            {
+                TechniciansViewModel.IsPromptVisible = false;
+                if (TechniciansViewModel.Callback != null)
+                {
+                    TechniciansViewModel.Callback.Invoke(Prompt);
+                }
             }
         }
 
         private void VisibilityChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if ((bool) e.NewValue)
+            if ((bool)e.NewValue)
             {
                 Text = string.Empty;
 

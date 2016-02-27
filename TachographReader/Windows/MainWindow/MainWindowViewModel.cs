@@ -12,6 +12,7 @@
     using Properties;
     using Shared;
     using Views;
+    using Views.Settings;
 
     public class MainWindowViewModel : BaseNavigationViewModel
     {
@@ -22,6 +23,7 @@
 
         public DelegateCommand<object> SettingsCommand { get; set; }
         public DelegateCommand<object> GenerateReportCommand { get; set; }
+        public DelegateCommand<object> TechniciansCommand { get; set; }
         public DelegateCommand<object> BackupDatabaseCommand { get; set; }
         public DelegateCommand<object> RestoreDatabaseCommand { get; set; }
         public DelegateCommand<object> CopyWorkshopCardCommand { get; set; }
@@ -63,6 +65,11 @@
         private void OnGenerateReport(object param)
         {
             ShowMediumModal<GenerateReportView>();
+        }
+
+        private void OnTechnicians(object param)
+        {
+            ShowLargeModal<TechniciansView>();
         }
 
         private void OnBackupDatabase(object param)
@@ -234,6 +241,7 @@
         {
             SettingsCommand = new DelegateCommand<object>(OnSettings);
             GenerateReportCommand = new DelegateCommand<object>(OnGenerateReport);
+            TechniciansCommand = new DelegateCommand<object>(OnTechnicians);
             BackupDatabaseCommand = new DelegateCommand<object>(OnBackupDatabase);
             RestoreDatabaseCommand = new DelegateCommand<object>(OnRestoreDatabase);
             CopyWorkshopCardCommand = new DelegateCommand<object>(OnCopyWorkshopCard);

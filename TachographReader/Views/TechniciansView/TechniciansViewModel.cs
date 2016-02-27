@@ -1,25 +1,32 @@
-﻿namespace TachographReader.Views.Settings
+﻿namespace TachographReader.Views
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
+    using System.Windows;
     using System.Windows.Controls;
     using Windows.SignatureCaptureWindow;
     using Core;
     using DataModel;
+    using DataModel.Library;
     using Library;
     using Library.ViewModels;
     using Properties;
     using Shared;
     using Image = System.Drawing.Image;
 
-    public class TechniciansViewModel : BaseSettingsViewModel
+    public class TechniciansViewModel : BaseNavigationViewModel
     {
         private Technician _selectedTechnician;
         private Image _signatureImage;
 
         public IRepository<Technician> Repository { get; set; }
         public ObservableCollection<Technician> Technicians { get; set; }
+
+        public bool IsPromptVisible { get; set; }
+        public UserPromptViewModel Prompt { get; set; }
+        public Action<UserPromptViewModel> Callback { get; set; }
 
         public Technician SelectedTechnician
         {
@@ -29,6 +36,11 @@
                 _selectedTechnician = value;
                 RefreshCommands();
             }
+        }
+
+        public Visibility LoggedInAsSuperUser
+        {
+            get { return UserManagement.LoggedInAsSuperUser ? Visibility.Visible : Visibility.Collapsed; }
         }
 
         public DelegateCommand<UserControl> AddTechnicianCommand { get; set; }

@@ -1164,6 +1164,15 @@
                         Property="Width"
                         Value="600" />
             </DataTrigger>
+            <DataTrigger Binding="{Binding IsLargeModal}"
+                         Value="true">
+                <Setter TargetName="MainContent"
+                        Property="Height"
+                        Value="475" />
+                <Setter TargetName="MainContent"
+                        Property="Width"
+                        Value="750" />
+            </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
 

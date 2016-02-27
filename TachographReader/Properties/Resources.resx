@@ -2905,4 +2905,16 @@ date
   <data name="TXT_TACHO_HISTORY_DOCUMENT_TYPE" xml:space="preserve">
     <value>Document Type</value>
   </data>
+  <data name="TXT_MAIN_WINDOW_TECHNICIANS" xml:space="preserve">
+    <value>Technicians</value>
+  </data>
+  <data name="technician" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\technician.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_TECHNICIANS" xml:space="preserve">
+    <value>Shows the technicians dialog</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_OTHER" xml:space="preserve">
+    <value>Other</value>
+  </data>
 </root>

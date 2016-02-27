@@ -37,12 +37,6 @@
                             View="{x:Type vm:VehicleMakesModelsView}"
                             SettingsViewModel="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
 
-            <ctrls:Shortcut Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_TECHNICIANS}"
-                            Command="{Binding ShortcutCommand}"
-                            CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
-                            View="{x:Type vm:TechniciansView}"
-                            SettingsViewModel="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
-
             <ctrls:Shortcut Text="{x:Static Properties:Resources.TXT_SHORTCUT_SETTINGS_INSPECTION_METHODS}"
                             Command="{Binding ShortcutCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Self}}"

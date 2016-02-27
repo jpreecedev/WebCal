@@ -956,6 +956,16 @@ namespace TachographReader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap technician {
+            get {
+                object obj = ResourceManager.GetObject("technician", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap traintec {
             get {
                 object obj = ResourceManager.GetObject("traintec", resourceCulture);
@@ -3442,6 +3452,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_OTHER {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_OTHER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to QC Check.
         /// </summary>
         public static string TXT_MAIN_WINDOW_QC_CHECK_HISTORY {
@@ -3622,6 +3641,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shows the technicians dialog.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_SHOWS_TECHNICIANS {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_TECHNICIANS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shows the historial undownloadability documents screen.
         /// </summary>
         public static string TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN {
@@ -3663,6 +3691,15 @@ namespace TachographReader.Properties {
         public static string TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technicians.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_TECHNICIANS {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_TECHNICIANS", resourceCulture);
             }
         }
         

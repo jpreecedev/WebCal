@@ -96,7 +96,6 @@
                     {
                         new TreeViewItem {Header = Resources.TXT_TACHOGRAPH_MAKES_MODELS, DataContext = typeof (TachographMakesModelsView)},
                         new TreeViewItem {Header = Resources.TXT_VEHICLE_MAKES_MODELS, DataContext = typeof (VehicleMakesModelsView)},
-                        new TreeViewItem {Header = Resources.TXT_TECHNICIAN, DataContext = typeof (TechniciansView)},
                         new TreeViewItem {Header = Resources.TXT_INSPECTION_METHODS, DataContext = typeof (InspectionMethodsView)},
                         new TreeViewItem {Header = Resources.TXT_INSPECTION_EQUIPMENTS, DataContext = typeof (InspectionEquipmentsView)},
                         new TreeViewItem {Header = Resources.TXT_TYRE_SIZES, DataContext = typeof (TyreSizesView)}
