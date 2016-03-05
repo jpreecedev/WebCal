@@ -18,6 +18,10 @@
 
         public DateTime? DateInput { get; set; }
 
+        public string SecondDatePrompt { get; set; }
+
+        public DateTime? SecondDateInput { get; set; }
+
         public ICommand AddSignatureCommand { get; set; }
 
         public bool HasSecondPrompt
@@ -28,6 +32,11 @@
         public bool HasDatePrompt
         {
             get { return !string.IsNullOrEmpty(DatePrompt); }
+        }
+
+        public bool HasSecondDatePrompt
+        {
+            get { return !string.IsNullOrEmpty(SecondDatePrompt); }
         }
     }
 }

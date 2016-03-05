@@ -1553,7 +1553,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Customer settings.
+        ///   Looks up a localized string similar to Customers.
         /// </summary>
         public static string TXT_CUSTOMER_SETTINGS {
             get {
@@ -1715,7 +1715,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date of last check.
+        ///   Looks up a localized string similar to Last 3 Month Check.
         /// </summary>
         public static string TXT_DATE_OF_LAST_CHECK {
             get {
@@ -2318,7 +2318,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to General settings.
+        ///   Looks up a localized string similar to General.
         /// </summary>
         public static string TXT_GENERAL_SETTINGS {
             get {
@@ -2350,6 +2350,24 @@ namespace TachographReader.Properties {
         public static string TXT_GENERAL_SETTINGS_GENERAL_SETTINGS {
             get {
                 return ResourceManager.GetString("TXT_GENERAL_SETTINGS_GENERAL_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Tacho Centre Quarterly Check Date.
+        /// </summary>
+        public static string TXT_GENERAL_SETTINGS_LAST_QUARTERLY_CHECK_DATE {
+            get {
+                return ResourceManager.GetString("TXT_GENERAL_SETTINGS_LAST_QUARTERLY_CHECK_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Monthly GV212 Date.
+        /// </summary>
+        public static string TXT_GENERAL_SETTINGS_LAST_QUARTERLY_GV_212_DATE {
+            get {
+                return ResourceManager.GetString("TXT_GENERAL_SETTINGS_LAST_QUARTERLY_GV_212_DATE", resourceCulture);
             }
         }
         
@@ -6064,7 +6082,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registration settings.
+        ///   Looks up a localized string similar to Registration.
         /// </summary>
         public static string TXT_REGISTRATION_SETTINGS {
             get {
@@ -6280,7 +6298,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shortcut settings.
+        ///   Looks up a localized string similar to Shortcuts.
         /// </summary>
         public static string TXT_SHORTCUT_SETTINGS {
             get {
@@ -7071,7 +7089,16 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date of Last Check.
+        ///   Looks up a localized string similar to Last 3 Year Check.
+        /// </summary>
+        public static string TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 3 Month Check.
         /// </summary>
         public static string TXT_TECHNICIANS_DATE_OF_LAST_CHECK {
             get {
@@ -7094,6 +7121,15 @@ namespace TachographReader.Properties {
         public static string TXT_TECHNICIANS_EDIT {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_EDIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate Status Report.
+        /// </summary>
+        public static string TXT_TECHNICIANS_GENERATE_REPORT {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_GENERATE_REPORT", resourceCulture);
             }
         }
         
@@ -8303,7 +8339,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Workshop settings.
+        ///   Looks up a localized string similar to Workshop.
         /// </summary>
         public static string TXT_WORKSHOP_SETTINGS {
             get {

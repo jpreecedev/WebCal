@@ -1040,7 +1040,7 @@
                 <ControlTemplate TargetType="{x:Type ctrls:PopupWindow}">
                     <ControlTemplate.Resources>
                         <core:CommandReference x:Key="OKCommand"
-                                               Command="{Binding OKCommand, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                               Command="{Binding OKCommand, RelativeSource={RelativeSource TemplatedParent}}" />
                         <core:CommandReference x:Key="CancelCommand"
                                                Command="{Binding CancelCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
@@ -1121,10 +1121,36 @@
                                 </ctrls:InputDatePickerField.InputBindings>
                             </ctrls:InputDatePickerField>
 
+                            <TextBlock Text="{Binding Prompt.SecondDatePrompt, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0}:}"
+                                       Visibility="{Binding Prompt.HasSecondDatePrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,10,0,0" />
+
+                            <ctrls:InputDatePickerField Margin="20,5,20,0"
+                                                        SelectedDate="{core:InputBinding Prompt.SecondDateInput, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Visibility="{Binding Prompt.HasSecondDatePrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
+                                                        IsLabelWidthCustom="True"
+                                                        IsEnabled="True"
+                                                        IsHistoryMode="True"
+                                                        LabelWidth="0"
+                                                        AllowDrop="False">
+                                <ctrls:InputDatePickerField.InputBindings>
+                                    <KeyBinding Command="{StaticResource OKCommand}"
+                                                Key="Return" />
+                                    <KeyBinding Command="{StaticResource OKCommand}"
+                                                Key="Enter" />
+                                    <KeyBinding Command="{StaticResource CancelCommand}"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                Key="Escape" />
+                                </ctrls:InputDatePickerField.InputBindings>
+                            </ctrls:InputDatePickerField>
+
                             <StackPanel Orientation="Horizontal"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center">
                                 <Button Content="{x:Static Properties:Resources.TXT_OK}"
+                                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                                         Command="{StaticResource OKCommand}"
                                         Width="Auto" />
                                 <Button Content="{x:Static Properties:Resources.TXT_ADD_SIGNATURE}"
@@ -1150,6 +1176,11 @@
                             <Setter Property="Height"
                                     Value="230" />
                         </Trigger>
+                        <Trigger Property="HasSecondDatePrompt"
+                                 Value="True">
+                            <Setter Property="Height"
+                                    Value="305"/>
+                            </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

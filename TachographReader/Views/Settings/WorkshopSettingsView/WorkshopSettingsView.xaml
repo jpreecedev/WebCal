@@ -13,52 +13,79 @@
     <core:BaseSettingsView.DataContext>
         <vm:WorkshopSettingsViewModel />
     </core:BaseSettingsView.DataContext>
-    <Grid>
+    <Grid VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="92" />
+            <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <TextBlock Text="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_TITLE}"
-                   Style="{StaticResource SettingsTitleFont}" />
+                   Style="{StaticResource SettingsTitleFont}"
+                   Grid.ColumnSpan="3"/>
 
-        <StackPanel Orientation="Vertical"
-                    Grid.Row="1">
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_WORKSHOP_NAME}"
+                              Text="{core:InputBinding Settings.WorkshopName}"
+                              Grid.Row="1"
+                              Grid.ColumnSpan="3" />
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_WORKSHOP_NAME}"
-                                  Text="{core:InputBinding Settings.WorkshopName}" />
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_1}"
+                              Text="{core:InputBinding Settings.Address1}"
+                              Grid.Row="2"
+                              Grid.ColumnSpan="3" />
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_1}"
-                                  Text="{core:InputBinding Settings.Address1}" />
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_2}"
+                              Text="{core:InputBinding Settings.Address2}"
+                              Grid.Row="3"
+                              Grid.ColumnSpan="3" />
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_2}"
-                                  Text="{core:InputBinding Settings.Address2}" />
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_3}"
+                              Text="{core:InputBinding Settings.Address3}"
+                              Grid.Row="4"
+                              Grid.ColumnSpan="3" />
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_ADDRESS_3}"
-                                  Text="{core:InputBinding Settings.Address3}" />
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_TOWN}"
+                              Text="{core:InputBinding Settings.Town}"
+                              Grid.Row="5" />
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_TOWN}"
-                                  Text="{core:InputBinding Settings.Town}" />
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_POST_CODE}"
+                              Text="{core:InputBinding Settings.PostCode}"
+                              Grid.Row="5"
+                              Grid.Column="2" />
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_POST_CODE}"
-                                  Text="{core:InputBinding Settings.PostCode}" />
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_PHONE_NUMBER}"
+                              Text="{core:InputBinding Settings.PhoneNumber}"
+                              Grid.Row="6"
+                              Grid.ColumnSpan="3" />
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_PHONE_NUMBER}"
-                                  Text="{core:InputBinding Settings.PhoneNumber}" />
+        <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS}"
+                              Text="{core:InputBinding Settings.MainEmailAddress}"
+                              Grid.Row="7"
+                              Grid.ColumnSpan="3" />
 
-            <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_MAIN_EMAIL_ADDRESS}"
-                                  Text="{core:InputBinding Settings.MainEmailAddress}" />
-            
-            <StackPanel Orientation="Horizontal">
-                <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO}"
-                        Command="{Binding BrowseCommand}"
-                        HorizontalAlignment="Left"
-                        Width="Auto" />
-                <Image Source="{Binding Settings.Image, Converter={StaticResource ImgToBitmapSource}}" 
-                       Width="100"
-                       Height="100"
-                       HorizontalAlignment="Left"
-                       Margin="45,0,0,0"/>
-            </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="8"
+                    Grid.ColumnSpan="3">
+            <Button Content="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_CHOOSE_LOGO}"
+                    Command="{Binding BrowseCommand}"
+                    HorizontalAlignment="Left"
+                    Width="Auto" />
+            <Image Source="{Binding Settings.Image, Converter={StaticResource ImgToBitmapSource}}"
+                   MaxWidth="350"
+                   MaxHeight="92"
+                   HorizontalAlignment="Left"
+                   Margin="45,0,0,0" />
         </StackPanel>
     </Grid>
 </core:BaseSettingsView>

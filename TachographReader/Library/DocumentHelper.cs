@@ -32,7 +32,7 @@
                 simplePath = simplePath.Substring(3, simplePath.Length - 3);
             }
 
-            StreamResourceInfo resourceInfo = Application.GetResourceStream(new Uri(string.Format("pack://application:,,,/{0}", simplePath), UriKind.Absolute));
+            StreamResourceInfo resourceInfo = Application.GetResourceStream(new Uri($"pack://application:,,,/{simplePath}", UriKind.Absolute));
 
             if (resourceInfo == null)
             {
@@ -49,7 +49,7 @@
                 simplePath = simplePath.Substring(3, simplePath.Length - 3);
             }
 
-            StreamResourceInfo resourceInfo = Application.GetResourceStream(new Uri(string.Format("pack://application:,,,/{0}", simplePath), UriKind.Absolute));
+            StreamResourceInfo resourceInfo = Application.GetResourceStream(new Uri($"pack://application:,,,/{simplePath}", UriKind.Absolute));
 
             if (resourceInfo == null)
             {

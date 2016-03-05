@@ -155,7 +155,7 @@ namespace TachographReader.Shared.Helpers
         {
             try
             {
-                return (Bitmap)((new ImageConverter()).ConvertFrom(rawData));
+                return (Bitmap)(new ImageConverter().ConvertFrom(rawData));
             }
             catch (Exception)
             {

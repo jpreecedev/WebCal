@@ -77,34 +77,25 @@
                 {
                     IsSelected = true,
                     IsExpanded = true,
-                    DataContext = typeof (GeneralSettingsView),
+                    DataContext = typeof(GeneralSettingsView),
                     Header = Resources.TXT_GENERAL_SETTINGS,
                     ItemsSource = new List<TreeViewItem>
                     {
-                        new TreeViewItem {Header = Resources.TXT_WORKSHOP_SETTINGS, DataContext = typeof (WorkshopSettingsView)},
-                        new TreeViewItem {Header = Resources.TXT_REGISTRATION_SETTINGS, DataContext = typeof (RegistrationSettingsView)},
-                        new TreeViewItem {Header = Resources.TXT_MISCELLANEOUS_SETTINGS, DataContext = typeof (MiscellaneousSettingsView)}
+                        new TreeViewItem {Header = Resources.TXT_WORKSHOP_SETTINGS, DataContext = typeof(WorkshopSettingsView)},
+                        new TreeViewItem {Header = Resources.TXT_REGISTRATION_SETTINGS, DataContext = typeof(RegistrationSettingsView)},
+                        new TreeViewItem {Header = Resources.TXT_MISCELLANEOUS_SETTINGS, DataContext = typeof(MiscellaneousSettingsView)}
                     }
                 },
-                new TreeViewItem {Header = Resources.TXT_CUSTOMER_SETTINGS, DataContext = typeof (CustomerSettingsView)},
-                new TreeViewItem
-                {
-                    Header = Resources.TXT_SHORTCUT_SETTINGS,
-                    DataContext = typeof (ShortcutSettingsView),
-                    IsExpanded = true,
-                    ItemsSource = new List<TreeViewItem>
-                    {
-                        new TreeViewItem {Header = Resources.TXT_TACHOGRAPH_MAKES_MODELS, DataContext = typeof (TachographMakesModelsView)},
-                        new TreeViewItem {Header = Resources.TXT_VEHICLE_MAKES_MODELS, DataContext = typeof (VehicleMakesModelsView)},
-                        new TreeViewItem {Header = Resources.TXT_INSPECTION_METHODS, DataContext = typeof (InspectionMethodsView)},
-                        new TreeViewItem {Header = Resources.TXT_INSPECTION_EQUIPMENTS, DataContext = typeof (InspectionEquipmentsView)},
-                        new TreeViewItem {Header = Resources.TXT_TYRE_SIZES, DataContext = typeof (TyreSizesView)}
-                    }
-                },
-                new TreeViewItem {Header = Resources.TXT_PRINTER_SETTINGS, DataContext = typeof (PrinterSettingsView)},
-                new TreeViewItem {Header = Resources.TXT_MAIL_SETTINGS, DataContext = typeof (MailSettingsView)},
-                new TreeViewItem {Header = Resources.TXT_USER_MANAGEMENT, DataContext = typeof (UserManagementView)},
-                new TreeViewItem {Header = Resources.TXT_THEME_SETTINGS, DataContext = typeof (ThemeSettingsView)}
+                new TreeViewItem {Header = Resources.TXT_CUSTOMER_SETTINGS, DataContext = typeof(CustomerSettingsView)},
+                new TreeViewItem {Header = Resources.TXT_TACHOGRAPH_MAKES_MODELS, DataContext = typeof(TachographMakesModelsView)},
+                new TreeViewItem {Header = Resources.TXT_VEHICLE_MAKES_MODELS, DataContext = typeof(VehicleMakesModelsView)},
+                new TreeViewItem {Header = Resources.TXT_INSPECTION_METHODS, DataContext = typeof(InspectionMethodsView)},
+                new TreeViewItem {Header = Resources.TXT_INSPECTION_EQUIPMENTS, DataContext = typeof(InspectionEquipmentsView)},
+                new TreeViewItem {Header = Resources.TXT_TYRE_SIZES, DataContext = typeof(TyreSizesView)},
+                new TreeViewItem {Header = Resources.TXT_PRINTER_SETTINGS, DataContext = typeof(PrinterSettingsView)},
+                new TreeViewItem {Header = Resources.TXT_MAIL_SETTINGS, DataContext = typeof(MailSettingsView)},
+                new TreeViewItem {Header = Resources.TXT_USER_MANAGEMENT, DataContext = typeof(UserManagementView)},
+                new TreeViewItem {Header = Resources.TXT_THEME_SETTINGS, DataContext = typeof(ThemeSettingsView)}
             };
         }
     }

@@ -11,6 +11,7 @@
     using DataModel;
     using DataModel.Library;
     using Library;
+    using Library.PDF;
     using Library.ViewModels;
     using Properties;
     using Shared;
@@ -48,6 +49,7 @@
         public DelegateCommand<object> RemoveTechnicianCommand { get; set; }
         public DelegateCommand<object> SetDefaultCommand { get; set; }
         public DelegateCommand<object> AddSignatureCommand { get; set; }
+        public DelegateCommand<object> GenerateStatusReportCommand { get; set; }
 
         protected override void Load()
         {
@@ -64,8 +66,9 @@
             RemoveTechnicianCommand = new DelegateCommand<object>(OnRemoveTechnician, CanRemoveTechnician);
             SetDefaultCommand = new DelegateCommand<object>(OnSetDefault, CanSetDefault);
             AddSignatureCommand = new DelegateCommand<object>(OnAddSignature);
+            GenerateStatusReportCommand = new DelegateCommand<object>(OnGenerateStatusReport);
         }
-
+        
         protected override void InitialiseRepositories()
         {
             Repository = GetInstance<IRepository<Technician>>();
@@ -78,6 +81,7 @@
                 FirstPrompt = Resources.TXT_GIVE_NAME_OF_TECHNICIAN,
                 SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER,
                 DatePrompt = Resources.TXT_DATE_OF_LAST_CHECK,
+                SecondDatePrompt = Resources.TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK,
                 AddSignatureCommand = AddSignatureCommand
             };
 
@@ -98,7 +102,8 @@
                     Name = result.FirstInput,
                     Number = result.SecondInput,
                     Image = _signatureImage,
-                    DateOfLastCheck = result.DateInput
+                    DateOfLastCheck = result.DateInput,
+                    DateOfLast3YearCheck = result.SecondDateInput
                 };
                 Technicians.Add(technician);
                 Repository.Add(technician);
@@ -120,6 +125,8 @@
                 SecondInput = SelectedTechnician.Number,
                 DatePrompt = Resources.TXT_DATE_OF_LAST_CHECK,
                 DateInput = SelectedTechnician.DateOfLastCheck,
+                SecondDatePrompt = Resources.TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK,
+                SecondDateInput = SelectedTechnician.DateOfLast3YearCheck,
                 AddSignatureCommand = AddSignatureCommand
             };
 
@@ -139,6 +146,7 @@
                 selectedTechnician.Name = result.FirstInput;
                 selectedTechnician.Number = result.SecondInput;
                 selectedTechnician.DateOfLastCheck = result.DateInput;
+                selectedTechnician.DateOfLast3YearCheck = result.SecondDateInput;
 
                 var index = Technicians.IndexOf(SelectedTechnician);
                 Technicians.Remove(SelectedTechnician);
@@ -158,8 +166,8 @@
 
         private void OnAddSignature(object arg)
         {
-            SignatureCaptureWindow window = new SignatureCaptureWindow();
-            SignatureCaptureWindowViewModel dataContext = (SignatureCaptureWindowViewModel)window.DataContext;
+            var window = new SignatureCaptureWindow();
+            var dataContext = (SignatureCaptureWindowViewModel)window.DataContext;
 
             dataContext.OnSignatureCaptured = signature =>
             {
@@ -208,6 +216,26 @@
             AddTechnicianCommand.RaiseCanExecuteChanged();
             RemoveTechnicianCommand.RaiseCanExecuteChanged();
             SetDefaultCommand.RaiseCanExecuteChanged();
+        }
+        
+        private void OnGenerateStatusReport(object obj)
+        {
+            var generalSettingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+            var statusReport = new StatusReportViewModel
+            {
+                Technicians = Technicians,
+                TachoCentreLastCheck = generalSettingsRepository.CentreQuarterlyCheckDate,
+                GV212LastCheck = generalSettingsRepository.MonthlyGV212Date
+            };
+
+            var result = statusReport.GenerateStatusReport();
+            if (result.Success)
+            {
+                if (AskQuestion(Resources.TXT_DO_YOU_WANT_TO_PRINT))
+                {
+                    result.Print();
+                }
+            }
         }
     }
 }

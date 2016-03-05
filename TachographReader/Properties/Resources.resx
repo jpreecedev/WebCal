@@ -141,19 +141,19 @@ Any unsaved changes will be lost.</value>
     <value>Give model of vehicle</value>
   </data>
   <data name="TXT_GENERAL_SETTINGS" xml:space="preserve">
-    <value>General settings</value>
+    <value>General</value>
   </data>
   <data name="TXT_WORKSHOP_SETTINGS" xml:space="preserve">
-    <value>Workshop settings</value>
+    <value>Workshop</value>
   </data>
   <data name="TXT_REGISTRATION_SETTINGS" xml:space="preserve">
-    <value>Registration settings</value>
+    <value>Registration</value>
   </data>
   <data name="TXT_CUSTOMER_SETTINGS" xml:space="preserve">
-    <value>Customer settings</value>
+    <value>Customers</value>
   </data>
   <data name="TXT_SHORTCUT_SETTINGS" xml:space="preserve">
-    <value>Shortcut settings</value>
+    <value>Shortcuts</value>
   </data>
   <data name="TXT_TACHOGRAPH_MAKES_MODELS" xml:space="preserve">
     <value>Tachograph makes and models</value>
@@ -2918,9 +2918,21 @@ date
     <value>Other</value>
   </data>
   <data name="TXT_TECHNICIANS_DATE_OF_LAST_CHECK" xml:space="preserve">
-    <value>Date of Last Check</value>
+    <value>Last 3 Month Check</value>
   </data>
   <data name="TXT_DATE_OF_LAST_CHECK" xml:space="preserve">
-    <value>Date of last check</value>
+    <value>Last 3 Month Check</value>
+  </data>
+  <data name="TXT_TECHNICIANS_GENERATE_REPORT" xml:space="preserve">
+    <value>Generate Status Report</value>
+  </data>
+  <data name="TXT_GENERAL_SETTINGS_LAST_QUARTERLY_CHECK_DATE" xml:space="preserve">
+    <value>Last Tacho Centre Quarterly Check Date</value>
+  </data>
+  <data name="TXT_GENERAL_SETTINGS_LAST_QUARTERLY_GV_212_DATE" xml:space="preserve">
+    <value>Last Monthly GV212 Date</value>
+  </data>
+  <data name="TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK" xml:space="preserve">
+    <value>Last 3 Year Check</value>
   </data>
 </root>

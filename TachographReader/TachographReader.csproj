@@ -333,12 +333,14 @@
     <Compile Include="Library\PDF\PDFDocument.cs" />
     <Compile Include="Library\PDF\QC3MonthReport.cs" />
     <Compile Include="Library\PDF\QCCheckReport.cs" />
+    <Compile Include="Library\PDF\StatusReport.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
     <Compile Include="Library\PDF\VOSADocument.cs" />
     <Compile Include="Library\RegistryHelper.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
     <Compile Include="Library\ViewModels\QCReportViewModel.cs" />
+    <Compile Include="Library\ViewModels\StatusReportViewModel.cs" />
     <Compile Include="Library\ViewModels\UserPromptViewModel.cs" />
     <Compile Include="Library\WorkerHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

@@ -24,29 +24,44 @@
         public static readonly DependencyProperty HasSecondPromptProperty =
             DependencyProperty.Register("HasSecondPrompt", typeof(bool), typeof(PopupWindow));
 
-
         public static readonly DependencyProperty TechniciansViewModelProperty =
             DependencyProperty.Register("TechniciansViewModel", typeof(TechniciansViewModel), typeof(PopupWindow));
 
         public static readonly DependencyProperty HasDatePromptProperty =
             DependencyProperty.Register("HasDatePrompt", typeof(bool), typeof(PopupWindow), new PropertyMetadata(false));
 
+        public static readonly DependencyProperty HasSecondDateProperty =
+            DependencyProperty.Register("HasSecondDate", typeof(bool), typeof(PopupWindow), new PropertyMetadata(false));
+
+        public static readonly DependencyProperty HasSecondDatePromptProperty =
+            DependencyProperty.Register("HasSecondDatePrompt", typeof(bool), typeof(PopupWindow), new PropertyMetadata(false));
 
         private TextBox _textBox;
 
         public PopupWindow()
         {
-            OKCommand = new DelegateCommand<object>(OnOK);
+            OKCommand = new DelegateCommand<TechniciansViewModel>(OnOK);
             CancelCommand = new DelegateCommand<TechniciansViewModel>(OnCancel);
 
             IsVisibleChanged += VisibilityChanged;
         }
 
+        public bool HasSecondDate
+        {
+            get { return (bool) GetValue(HasSecondDateProperty); }
+            set { SetValue(HasSecondDateProperty, value); }
+        }
 
         public bool HasDatePrompt
         {
             get { return (bool) GetValue(HasDatePromptProperty); }
             set { SetValue(HasDatePromptProperty, value); }
+        }
+        
+        public bool HasSecondDatePrompt
+        {
+            get { return (bool) GetValue(HasSecondDatePromptProperty); }
+            set { SetValue(HasSecondDatePromptProperty, value); }
         }
 
         public UserPromptViewModel Prompt
@@ -55,13 +70,11 @@
             set { SetValue(PromptProperty, value); }
         }
 
-
         public bool HasSecondPrompt
         {
             get { return (bool) GetValue(HasSecondPromptProperty); }
             set { SetValue(HasSecondPromptProperty, value); }
         }
-
 
         public SettingsViewModel ViewModel
         {
@@ -69,15 +82,13 @@
             set { SetValue(ViewModelProperty, value); }
         }
 
-
         public TechniciansViewModel TechniciansViewModel
         {
             get { return (TechniciansViewModel) GetValue(TechniciansViewModelProperty); }
             set { SetValue(TechniciansViewModelProperty, value); }
         }
 
-
-        public DelegateCommand<object> OKCommand { get; set; }
+        public DelegateCommand<TechniciansViewModel> OKCommand { get; set; }
         public DelegateCommand<TechniciansViewModel> CancelCommand { get; set; }
         public string Text { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -101,7 +112,7 @@
             }
         }
 
-        private void OnOK(object obj)
+        private void OnOK(TechniciansViewModel viewModel)
         {
             if (ViewModel == null && TechniciansViewModel == null)
             {
@@ -116,12 +127,12 @@
                     ViewModel.Callback.Invoke(Prompt);
                 }
             }
-            if (TechniciansViewModel != null)
+            if (viewModel != null)
             {
-                TechniciansViewModel.IsPromptVisible = false;
-                if (TechniciansViewModel.Callback != null)
+                viewModel.IsPromptVisible = false;
+                if (viewModel.Callback != null)
                 {
-                    TechniciansViewModel.Callback.Invoke(Prompt);
+                    viewModel.Callback.Invoke(Prompt);
                 }
             }
         }
@@ -154,6 +165,7 @@
                 {
                     popupWindow.HasSecondPrompt = userPromptViewModel.HasSecondPrompt;
                     popupWindow.HasDatePrompt = userPromptViewModel.HasDatePrompt;
+                    popupWindow.HasSecondDatePrompt = userPromptViewModel.HasSecondDatePrompt;
                 }
             }
         }

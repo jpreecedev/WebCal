@@ -112,6 +112,20 @@
             return new PDFDocumentResult();
         }
 
+        public static PDFDocumentResult GenerateStatusReport(this StatusReportViewModel statusReport)
+        {
+            var result = DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);
+            if (result.Result == true)
+            {
+                using (var pdfDocument = new PDFDocument(result.FileName))
+                {
+                    StatusReport.Create(pdfDocument, statusReport);
+                }
+                return new PDFDocumentResult { FilePath = result.FileName };
+            }
+            return new PDFDocumentResult();
+        }
+
         public static void Email(this PDFDocumentResult pdfDocumentResult, WorkshopSettings workshopSettings, MailSettings mailSettings)
         {
             if (pdfDocumentResult.Document == null)

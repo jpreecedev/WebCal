@@ -1,5 +1,6 @@
 ﻿namespace TachographReader.DataModel
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -95,5 +96,9 @@
                 RawImage = value.ToByteArray();
             }
         }
+
+        public DateTime? CentreQuarterlyCheckDate { get; set; }
+
+        public DateTime? MonthlyGV212Date { get; set; }
     }
 }
