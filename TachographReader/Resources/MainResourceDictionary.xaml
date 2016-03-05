@@ -358,7 +358,7 @@
                             <TextBlock Text="{TemplateBinding Label}"
                                        Focusable="False"
                                        VerticalAlignment="Center"
-                                       TextWrapping="Wrap"/>
+                                       TextWrapping="Wrap" />
 
                         </Border>
 
@@ -373,7 +373,7 @@
                                                    CheckedValue="1"
                                                    Margin="0,0,10,5"
                                                    Command="{Binding CheckChangedCommand, RelativeSource={RelativeSource TemplatedParent}}"
-                                                   IsEnabled="{Binding IsHistoryMode, Converter={StaticResource InvBool}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                                   IsEnabled="{Binding IsHistoryMode, Converter={StaticResource InvBool}, RelativeSource={RelativeSource TemplatedParent}}" />
                                 <ctrls:RadioButton x:Name="NoRadioButton"
                                                    Content="{x:Static Properties:Resources.TXT_NO}"
                                                    GroupName="{TemplateBinding GroupName}"
@@ -465,7 +465,7 @@
                                         SelectedDate="{core:InputBinding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
                                         Width="200"
                                         HorizontalAlignment="Left"
-                                        IsEnabled="{Binding IsHistoryMode, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        IsEnabled="{Binding IsHistoryMode, RelativeSource={RelativeSource TemplatedParent}}" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -474,6 +474,9 @@
                             <Setter TargetName="LabelColumn"
                                     Property="Width"
                                     Value="{Binding LabelWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="Picker"
+                                    Property="Width"
+                                    Value="310" />
                         </Trigger>
                         <Trigger Property="IsAutoPopulated"
                                  Value="True">
@@ -1037,9 +1040,10 @@
                 <ControlTemplate TargetType="{x:Type ctrls:PopupWindow}">
                     <ControlTemplate.Resources>
                         <core:CommandReference x:Key="OKCommand"
-                                               Command="{Binding OKCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+                                               Command="{Binding OKCommand, RelativeSource={RelativeSource TemplatedParent}}"/>
                         <core:CommandReference x:Key="CancelCommand"
-                                               Command="{Binding CancelCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+                                               Command="{Binding CancelCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                               CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
                     </ControlTemplate.Resources>
 
                     <Border Background="White"
@@ -1064,6 +1068,7 @@
                                     <KeyBinding Command="{StaticResource OKCommand}"
                                                 Key="Enter" />
                                     <KeyBinding Command="{StaticResource CancelCommand}"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                                 Key="Escape" />
                                 </TextBox.InputBindings>
                             </TextBox>
@@ -1086,9 +1091,35 @@
                                     <KeyBinding Command="{StaticResource OKCommand}"
                                                 Key="Enter" />
                                     <KeyBinding Command="{StaticResource CancelCommand}"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                                 Key="Escape" />
                                 </TextBox.InputBindings>
                             </TextBox>
+
+                            <TextBlock Text="{Binding Prompt.DatePrompt, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0}:}"
+                                       Visibility="{Binding Prompt.HasDatePrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,10,0,0" />
+
+                            <ctrls:InputDatePickerField Margin="20,5,20,0"
+                                                        SelectedDate="{core:InputBinding Prompt.DateInput, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Visibility="{Binding Prompt.HasDatePrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
+                                                        IsLabelWidthCustom="True"
+                                                        IsEnabled="True"
+                                                        IsHistoryMode="True"
+                                                        LabelWidth="0"
+                                                        AllowDrop="False">
+                                <ctrls:InputDatePickerField.InputBindings>
+                                    <KeyBinding Command="{StaticResource OKCommand}"
+                                                Key="Return" />
+                                    <KeyBinding Command="{StaticResource OKCommand}"
+                                                Key="Enter" />
+                                    <KeyBinding Command="{StaticResource CancelCommand}"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                Key="Escape" />
+                                </ctrls:InputDatePickerField.InputBindings>
+                            </ctrls:InputDatePickerField>
 
                             <StackPanel Orientation="Horizontal"
                                         VerticalAlignment="Center"
@@ -1102,6 +1133,7 @@
                                         Width="Auto" />
                                 <Button Content="{x:Static Properties:Resources.TXT_CANCEL}"
                                         Command="{StaticResource CancelCommand}"
+                                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
                                         Width="Auto" />
                             </StackPanel>
 
@@ -1112,6 +1144,11 @@
                                  Value="true">
                             <Setter Property="Height"
                                     Value="155" />
+                        </Trigger>
+                        <Trigger Property="HasDatePrompt"
+                                 Value="true">
+                            <Setter Property="Height"
+                                    Value="230" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

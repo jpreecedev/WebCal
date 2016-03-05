@@ -29,7 +29,7 @@
 
         public void Execute(object parameter)
         {
-            Command.Execute(CommandParameter);
+            Command.Execute(parameter);
         }
 
         public event EventHandler CanExecuteChanged;

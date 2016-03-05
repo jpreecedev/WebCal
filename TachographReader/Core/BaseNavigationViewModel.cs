@@ -190,6 +190,8 @@
         {
             IsModalWindowVisible = false;
             IsSmallModal = false;
+            IsMediumModal = false;
+            IsLargeModal = false;
 
             OnSmallModalClosed(saved, parameter);
         }

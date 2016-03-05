@@ -230,6 +230,15 @@
         private void OnCloseModal(UserControl obj)
         {
             IsModalWindowVisible = false;
+
+            var dataContext = ModalView.DataContext as BaseNavigationViewModel;
+            if (dataContext != null)
+            {
+                dataContext.Dispose();
+            }
+
+            ModalView.DataContext = null;
+            ModalView = null;
         }
 
         public IViewModel ShowView<T>() where T : UserControl, new()

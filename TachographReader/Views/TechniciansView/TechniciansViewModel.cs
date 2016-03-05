@@ -77,6 +77,7 @@
             {
                 FirstPrompt = Resources.TXT_GIVE_NAME_OF_TECHNICIAN,
                 SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER,
+                DatePrompt = Resources.TXT_DATE_OF_LAST_CHECK,
                 AddSignatureCommand = AddSignatureCommand
             };
 
@@ -96,7 +97,8 @@
                 {
                     Name = result.FirstInput,
                     Number = result.SecondInput,
-                    Image = _signatureImage
+                    Image = _signatureImage,
+                    DateOfLastCheck = result.DateInput
                 };
                 Technicians.Add(technician);
                 Repository.Add(technician);
@@ -116,6 +118,8 @@
                 FirstInput = SelectedTechnician.Name,
                 SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER,
                 SecondInput = SelectedTechnician.Number,
+                DatePrompt = Resources.TXT_DATE_OF_LAST_CHECK,
+                DateInput = SelectedTechnician.DateOfLastCheck,
                 AddSignatureCommand = AddSignatureCommand
             };
 
@@ -124,7 +128,7 @@
 
         private void OnEditTechnician(UserPromptViewModel result)
         {
-            if (result == null)
+            if (result == null || SelectedTechnician == null)
             {
                 return;
             }
@@ -134,6 +138,7 @@
                 var selectedTechnician = SelectedTechnician.Clone<Technician>();
                 selectedTechnician.Name = result.FirstInput;
                 selectedTechnician.Number = result.SecondInput;
+                selectedTechnician.DateOfLastCheck = result.DateInput;
 
                 var index = Technicians.IndexOf(SelectedTechnician);
                 Technicians.Remove(SelectedTechnician);

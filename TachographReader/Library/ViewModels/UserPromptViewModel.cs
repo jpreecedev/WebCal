@@ -1,9 +1,8 @@
 ﻿namespace TachographReader.Library.ViewModels
 {
+    using System;
     using System.Windows.Input;
     using Connect.Shared.Models;
-    using Shared;
-    using Shared.Core;
 
     public class UserPromptViewModel : BaseNotification
     {
@@ -15,11 +14,20 @@
 
         public string SecondInput { get; set; }
 
+        public string DatePrompt { get; set; }
+
+        public DateTime? DateInput { get; set; }
+
         public ICommand AddSignatureCommand { get; set; }
 
         public bool HasSecondPrompt
         {
             get { return !string.IsNullOrEmpty(SecondPrompt); }
+        }
+
+        public bool HasDatePrompt
+        {
+            get { return !string.IsNullOrEmpty(DatePrompt); }
         }
     }
 }

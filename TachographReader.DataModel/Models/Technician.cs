@@ -16,6 +16,7 @@
         public string Name { get; set; }
         public string Number { get; set; }
         public bool IsDefault { get; set; }
+        public DateTime? DateOfLastCheck { get; set; }
 
         public bool HasSignature
         {

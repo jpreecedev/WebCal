@@ -1715,6 +1715,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date of last check.
+        /// </summary>
+        public static string TXT_DATE_OF_LAST_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_DATE_OF_LAST_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Demo.
         /// </summary>
         public static string TXT_DEMO {
@@ -7058,6 +7067,15 @@ namespace TachographReader.Properties {
         public static string TXT_TECHNICIANS_ADD {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of Last Check.
+        /// </summary>
+        public static string TXT_TECHNICIANS_DATE_OF_LAST_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_DATE_OF_LAST_CHECK", resourceCulture);
             }
         }
         

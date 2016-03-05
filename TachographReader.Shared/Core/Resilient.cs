@@ -1,6 +1,7 @@
 ﻿namespace TachographReader.Shared.Core
 {
     using System;
+    using System.ServiceModel;
     using System.ServiceModel.Security;
     using System.Threading;
     using Properties;
@@ -41,6 +42,10 @@
                 {
                     throw;
                 }
+                catch (ServiceActivationException)
+                {
+                    throw;
+                }
                 catch (Exception ex)
                 {
                     delay = GetNextDelay();
@@ -63,6 +68,14 @@
                 {
                     ReportProgress(Resources.TXT_STARTING);
                     return operation();
+                }
+                catch (MessageSecurityException)
+                {
+                    throw;
+                }
+                catch (ServiceActivationException)
+                {
+                    throw;
                 }
                 catch (Exception ex)
                 {

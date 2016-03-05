@@ -28,6 +28,10 @@
         public static readonly DependencyProperty TechniciansViewModelProperty =
             DependencyProperty.Register("TechniciansViewModel", typeof(TechniciansViewModel), typeof(PopupWindow));
 
+        public static readonly DependencyProperty HasDatePromptProperty =
+            DependencyProperty.Register("HasDatePrompt", typeof(bool), typeof(PopupWindow), new PropertyMetadata(false));
+
+
         private TextBox _textBox;
 
         public PopupWindow()
@@ -38,30 +42,37 @@
             IsVisibleChanged += VisibilityChanged;
         }
 
+
+        public bool HasDatePrompt
+        {
+            get { return (bool) GetValue(HasDatePromptProperty); }
+            set { SetValue(HasDatePromptProperty, value); }
+        }
+
         public UserPromptViewModel Prompt
         {
-            get { return (UserPromptViewModel)GetValue(PromptProperty); }
+            get { return (UserPromptViewModel) GetValue(PromptProperty); }
             set { SetValue(PromptProperty, value); }
         }
 
 
         public bool HasSecondPrompt
         {
-            get { return (bool)GetValue(HasSecondPromptProperty); }
+            get { return (bool) GetValue(HasSecondPromptProperty); }
             set { SetValue(HasSecondPromptProperty, value); }
         }
 
 
         public SettingsViewModel ViewModel
         {
-            get { return (SettingsViewModel)GetValue(ViewModelProperty); }
+            get { return (SettingsViewModel) GetValue(ViewModelProperty); }
             set { SetValue(ViewModelProperty, value); }
         }
 
 
         public TechniciansViewModel TechniciansViewModel
         {
-            get { return (TechniciansViewModel)GetValue(TechniciansViewModelProperty); }
+            get { return (TechniciansViewModel) GetValue(TechniciansViewModelProperty); }
             set { SetValue(TechniciansViewModelProperty, value); }
         }
 
@@ -117,7 +128,7 @@
 
         private void VisibilityChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if ((bool)e.NewValue)
+            if ((bool) e.NewValue)
             {
                 Text = string.Empty;
 
@@ -142,6 +153,7 @@
                 if (popupWindow != null)
                 {
                     popupWindow.HasSecondPrompt = userPromptViewModel.HasSecondPrompt;
+                    popupWindow.HasDatePrompt = userPromptViewModel.HasDatePrompt;
                 }
             }
         }

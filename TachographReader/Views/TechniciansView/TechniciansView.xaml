@@ -41,13 +41,16 @@
                                         Width="200" />
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_VIEW_NUMBER}"
                                         DisplayMemberBinding="{Binding Number, Mode=OneWay}"
-                                        Width="200" />
+                                        Width="150" />
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_HAS_SIGNATURE}"
                                         DisplayMemberBinding="{Binding HasSignature, Converter={StaticResource Bool2YesNo}}"
                                         Width="100" />
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_DATE_OF_LAST_CHECK}"
+                                        DisplayMemberBinding="{Binding DateOfLastCheck, StringFormat={}{0:dd-MMM-yyyy}}"
+                                        Width="120" />
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_DEFAULT}"
                                         DisplayMemberBinding="{Binding IsDefault, Converter={StaticResource Bool2YesNo}}"
-                                        Width="100" />
+                                        Width="70" />
                     </GridView>
                 </ListView.View>
             </ListView>
