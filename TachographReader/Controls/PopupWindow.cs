@@ -37,7 +37,7 @@
         public PopupWindow()
         {
             OKCommand = new DelegateCommand<object>(OnOK);
-            CancelCommand = new DelegateCommand<object>(OnCancel);
+            CancelCommand = new DelegateCommand<TechniciansViewModel>(OnCancel);
 
             IsVisibleChanged += VisibilityChanged;
         }
@@ -78,7 +78,7 @@
 
 
         public DelegateCommand<object> OKCommand { get; set; }
-        public DelegateCommand<object> CancelCommand { get; set; }
+        public DelegateCommand<TechniciansViewModel> CancelCommand { get; set; }
         public string Text { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -89,15 +89,15 @@
             _textBox = GetTemplateChild("PART_TextBox") as TextBox;
         }
 
-        private void OnCancel(object obj)
+        private void OnCancel(TechniciansViewModel viewModel)
         {
             if (ViewModel != null)
             {
                 ViewModel.IsPromptVisible = false;
             }
-            if (TechniciansViewModel != null)
+            if (viewModel != null)
             {
-                TechniciansViewModel.IsPromptVisible = false;
+                viewModel.IsPromptVisible = false;
             }
         }
 
