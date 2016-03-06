@@ -6756,6 +6756,123 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Centre Quarterly Check.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_CENTRE_QUARTERLY_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_CENTRE_QUARTERLY_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check due.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_CHECK_DUE {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_CHECK_DUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of last check.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_DATE_OF_LAST_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_DATE_OF_LAST_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of next check.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_DATE_OF_NEXT_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_DATE_OF_NEXT_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expired.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_EXPIRED {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generated and printed.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_GENERATED_AND_PRINTED {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_GENERATED_AND_PRINTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monthly GV212.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_MONTHLY_GV_212 {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_MONTHLY_GV_212", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_ok {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_STATUS {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician name.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_TECHNICIAN_NAME {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_TECHNICIAN_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician Training (3 yearly).
+        /// </summary>
+        public static string TXT_STATUS_REPORT_TECHNICIAN_TRAINING_3_YEARLY {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_TECHNICIAN_TRAINING_3_YEARLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technicians Qu Report.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_TECHNICIANS_QU_REPORT {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_TECHNICIANS_QU_REPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        public static string TXT_STATUS_REPORT_UNKNOWN {
+            get {
+                return ResourceManager.GetString("TXT_STATUS_REPORT_UNKNOWN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sunday.
         /// </summary>
         public static string TXT_SUNDAY {

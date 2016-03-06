@@ -339,6 +339,7 @@
     <Compile Include="Library\RegistryHelper.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
+    <Compile Include="Library\TechnicianCheckStatus.cs" />
     <Compile Include="Library\ViewModels\QCReportViewModel.cs" />
     <Compile Include="Library\ViewModels\StatusReportViewModel.cs" />
     <Compile Include="Library\ViewModels\UserPromptViewModel.cs" />

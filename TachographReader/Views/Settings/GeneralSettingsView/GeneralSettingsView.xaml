@@ -51,14 +51,12 @@
         <ctrls:InputDatePickerField SelectedDate="{Binding Settings.CentreQuarterlyCheckDate}"
                                     Label="{x:Static Properties:Resources.TXT_GENERAL_SETTINGS_LAST_QUARTERLY_CHECK_DATE}"
                                     IsLabelWidthCustom="True"
-                                    IsHistoryMode="True"
                                     LabelWidth="230"
                                     Grid.Row="3" />
 
         <ctrls:InputDatePickerField SelectedDate="{Binding Settings.MonthlyGV212Date}"
                                     Label="{x:Static Properties:Resources.TXT_GENERAL_SETTINGS_LAST_QUARTERLY_GV_212_DATE}"
                                     IsLabelWidthCustom="True"
-                                    IsHistoryMode="True"
                                     LabelWidth="230"
                                     Grid.Row="4" />
     </Grid>

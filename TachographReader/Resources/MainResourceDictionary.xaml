@@ -465,7 +465,7 @@
                                         SelectedDate="{core:InputBinding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
                                         Width="200"
                                         HorizontalAlignment="Left"
-                                        IsEnabled="{Binding IsHistoryMode, RelativeSource={RelativeSource TemplatedParent}}" />
+                                        IsEnabled="{Binding IsHistoryMode, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource InvBool}}" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -1107,7 +1107,6 @@
                                                         Visibility="{Binding Prompt.HasDatePrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
                                                         IsLabelWidthCustom="True"
                                                         IsEnabled="True"
-                                                        IsHistoryMode="True"
                                                         LabelWidth="0"
                                                         AllowDrop="False">
                                 <ctrls:InputDatePickerField.InputBindings>
@@ -1132,7 +1131,6 @@
                                                         Visibility="{Binding Prompt.HasSecondDatePrompt, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Bool2Vis}}"
                                                         IsLabelWidthCustom="True"
                                                         IsEnabled="True"
-                                                        IsHistoryMode="True"
                                                         LabelWidth="0"
                                                         AllowDrop="False">
                                 <ctrls:InputDatePickerField.InputBindings>

@@ -10,14 +10,16 @@
     using Connect.Shared.Models;
     using Core;
     using DataModel;
+    using DataModel.Library;
     using Library;
     using Library.PDF;
     using Library.ViewModels;
     using Properties;
+    using Shared;
 
     public class DocumentHistoryViewModel : BaseMainViewModel
     {
-        private ICollection<IDocumentHistoryItem> _originalDocumentHistoryItems; 
+        private ICollection<IDocumentHistoryItem> _originalDocumentHistoryItems;
 
         public List<string> SearchFilters { get; set; }
         public string SelectedSearchFilter { get; set; }
@@ -25,7 +27,7 @@
 
         public List<string> DocumentTypes { get; set; }
         public string SelectedDocumentType { get; set; }
-        
+
         public ObservableCollection<IDocumentHistoryItem> Documents { get; set; }
         public IDocumentHistoryItem SelectedDocument { get; set; }
 
@@ -93,11 +95,6 @@
 
         private void OnCreateVOSADocument(object obj)
         {
-            if (SelectedDocument == null)
-            {
-                return;
-            }
-
             var window = new DateRangePickerWindow();
 
             if (window.ShowDialog() != true)
@@ -118,7 +115,14 @@
                 .Cast<TachographDocument>()
                 .ToList();
 
-            applicableDocuments.GenerateVOSADocument(viewModel.StartDateTime, end);
+            var result = applicableDocuments.GenerateVOSADocument(viewModel.StartDateTime, end);
+            if (result.Success)
+            {
+                var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
+                var settings = settingsRepository.GetWorkshopSettings();
+                settings.MonthlyGV212Date = DateTime.Now.Date;
+                settingsRepository.Save(settings);
+            }
         }
 
         private void OnReprintLabel(object obj)
@@ -154,7 +158,7 @@
                 var report = SelectedDocument.Report as QCReport;
                 if (report != null)
                 {
-                    viewModel = (QCCheckViewModel) MainWindow.ShowView<QCCheckView>();
+                    viewModel = (QCCheckViewModel)MainWindow.ShowView<QCCheckView>();
                     var qcReportViewModel = (BaseNewDocumentViewModel<QCReportViewModel>)viewModel;
                     qcReportViewModel.Document = new QCReportViewModel(report);
                 }
@@ -165,10 +169,10 @@
                 if (tachographDocument != null)
                 {
                     viewModel = tachographDocument.IsDigital
-                        ? (NewTachographViewModel) MainWindow.ShowView<NewTachographView>()
-                        : (NewTachographViewModel) MainWindow.ShowView<NewAnalogueTachographView>();
+                        ? (NewTachographViewModel)MainWindow.ShowView<NewTachographView>()
+                        : (NewTachographViewModel)MainWindow.ShowView<NewAnalogueTachographView>();
 
-                    var tachographHistoryViewModel = (NewTachographViewModel) viewModel;
+                    var tachographHistoryViewModel = (NewTachographViewModel)viewModel;
                     tachographHistoryViewModel.Document = tachographDocument;
                     tachographHistoryViewModel.SetDocumentTypes(tachographDocument.IsDigital);
                     tachographHistoryViewModel.SelectedCustomerContact = viewModel.CustomerContacts.FirstOrDefault(c => string.Equals(c.Name, tachographDocument.CustomerContact, StringComparison.CurrentCultureIgnoreCase));
@@ -178,7 +182,7 @@
                 if (undownloadabilityDocument != null)
                 {
                     viewModel = (NewUndownloadabilityViewModel)MainWindow.ShowView<NewUndownloadabilityView>();
-                    var undownloadabilityViewModel = (BaseNewDocumentViewModel<UndownloadabilityDocument>) viewModel;
+                    var undownloadabilityViewModel = (BaseNewDocumentViewModel<UndownloadabilityDocument>)viewModel;
                     undownloadabilityViewModel.Document = undownloadabilityDocument;
                 }
 
@@ -186,7 +190,7 @@
                 if (letterForDecommissioningDocument != null)
                 {
                     viewModel = (BaseNewDocumentViewModel<LetterForDecommissioningDocument>)MainWindow.ShowView<LetterForDecommissioningView>();
-                    var letterForDecommissioningViewModel = (BaseNewDocumentViewModel<LetterForDecommissioningDocument>) viewModel;
+                    var letterForDecommissioningViewModel = (BaseNewDocumentViewModel<LetterForDecommissioningDocument>)viewModel;
                     letterForDecommissioningViewModel.Document = letterForDecommissioningDocument;
                 }
             }

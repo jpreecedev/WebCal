@@ -24,10 +24,6 @@ namespace TachographReader.Library.PDF
             {
                 return;
             }
-            if (documents.IsNullOrEmpty())
-            {
-                return;
-            }
 
             const int itemsPerPage = 18;
             int pages = GetPageCount(documents.Count, itemsPerPage);

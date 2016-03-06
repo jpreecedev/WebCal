@@ -1,11 +1,11 @@
 ﻿namespace TachographReader.Library.PDF
 {
-    using System;
     using System.Collections.Generic;
     using Core;
     using DataModel;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
+    using Properties;
     using Shared.Helpers;
     using ViewModels;
 
@@ -13,86 +13,26 @@
     {
         public static void Create(PDFDocument document, StatusReportViewModel statusReport)
         {
-            CreateQuarterlyCheckTable(document, statusReport);
+            CreateTachoCentreQuarterlyCheckTable(document, statusReport);
             CreateMonthlyGV212Table(document, statusReport);
-            CreateTechniciansQuarterlyTable(document, document.Height - 160, statusReport.Technicians);
-            CreateTechnicians3YearTable(document, document.Height - 160, statusReport.Technicians);
+            CreateTechniciansQuarterlyTable(document, statusReport.Technicians);
+            CreateTechnicians3YearTable(document, statusReport.Technicians);
         }
 
-        private static void CreateTechniciansQuarterlyTable(PDFDocument document, float top, IEnumerable<Technician> technicians)
+        private static void CreateTachoCentreQuarterlyCheckTable(PDFDocument document, StatusReportViewModel statusReport)
         {
-            document.AddPage();
-            AddImageFromResource(document, "skillray_small", 61, 770);
-            AddImageFromResource(document, "webcal_print_logo", 300, 770);
-
-            AbsolutePositionText(document, "Technicians Qu Report", 61, document.Height - 120, 300,35, document.GetLargeFont(true), Element.ALIGN_LEFT);
+            AddLogos(document);
+            AbsolutePositionText(document, Resources.TXT_STATUS_REPORT_CENTRE_QUARTERLY_CHECK, 61, document.Height - 120, 300, 35, document.GetLargeFont(true), Element.ALIGN_LEFT);
 
             var table = new PdfPTable(3);
-            table.SetWidths(new float[] { 386, 386, 386 });
+            table.SetWidths(new float[] {386, 386, 386});
 
-            AddCell(document, table, "Technician name", BaseColor.BLACK, true);
-            AddCell(document, table, "Date of next check", BaseColor.BLACK, true);
-            AddCell(document, table, "Status", BaseColor.BLACK, true);
-
-            foreach (var technician in technicians)
-            {
-                string statusText;
-                var color = GetStatus(GetTechnicianStatus(technician), out statusText);
-
-                AddCell(document, table, technician.Name, color, false);
-                AddCell(document, table, technician.DateOfLastCheck == null ? string.Empty : technician.DateOfLastCheck.Value.ToString(Constants.ShortYearDateFormat), color, false);
-                AddCell(document, table, statusText, BaseColor.BLACK, false);
-            }
-
-            table.TotalWidth = 520;
-            table.WriteSelectedRows(0, -1, document.Document.LeftMargin + 10, top, document.ContentByte);
-        }
-
-        private static void CreateTechnicians3YearTable(PDFDocument document, float top, IEnumerable<Technician> technicians)
-        {
-            document.AddPage();
-            AddImageFromResource(document, "skillray_small", 61, 770);
-            AddImageFromResource(document, "webcal_print_logo", 300, 770);
-
-            AbsolutePositionText(document, "Technician Training (3 yearly)", 61, document.Height - 120, 300, 35, document.GetLargeFont(true), Element.ALIGN_LEFT);
-
-            var table = new PdfPTable(3);
-            table.SetWidths(new float[] { 386, 386, 386 });
-
-            AddCell(document, table, "Technician name", BaseColor.BLACK, true);
-            AddCell(document, table, "Date of next check", BaseColor.BLACK, true);
-            AddCell(document, table, "Status", BaseColor.BLACK, true);
-
-            foreach (var technician in technicians)
-            {
-                string statusText;
-                var color = GetStatus(GetTechnicianStatus(technician), out statusText);
-
-                AddCell(document, table, technician.Name, color, false);
-                AddCell(document, table, technician.DateOfLastCheck == null ? string.Empty : technician.DateOfLastCheck.Value.ToString(Constants.ShortYearDateFormat), color, false);
-                AddCell(document, table, statusText, color, false);
-            }
-
-            table.TotalWidth = 520;
-            table.WriteSelectedRows(0, -1, document.Document.LeftMargin + 10, top, document.ContentByte);
-        }
-
-        private static void CreateQuarterlyCheckTable(PDFDocument document, StatusReportViewModel statusReport)
-        {
-            AddImageFromResource(document, "skillray_small", 61, 770);
-            AddImageFromResource(document, "webcal_print_logo", 300, 770);
-
-            AbsolutePositionText(document, "Centre Quarterly Check", 61, document.Height - 120, 300, 35, document.GetLargeFont(true), Element.ALIGN_LEFT);
-            
-            var table = new PdfPTable(3);
-            table.SetWidths(new float[] { 386, 386, 386 });
-
-            AddCell(document, table, "Date of last check", BaseColor.BLACK, true);
-            AddCell(document, table, "Date of next check", BaseColor.BLACK, true);
-            AddCell(document, table, "Status", BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_DATE_OF_LAST_CHECK, BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_DATE_OF_NEXT_CHECK, BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_STATUS, BaseColor.BLACK, true);
 
             string statusText;
-            var color = GetStatus(GetTachoCentreStatus(statusReport), out statusText);
+            var color = GetStatus(statusReport.TachoCentreQuarterlyStatus, out statusText);
             var lastCheck = statusReport.TachoCentreLastCheck.GetValueOrDefault();
             var nextCheck = lastCheck.AddMonths(3).Date;
 
@@ -107,21 +47,83 @@
         private static void CreateMonthlyGV212Table(PDFDocument document, StatusReportViewModel statusReport)
         {
             var table = new PdfPTable(2);
-            table.SetWidths(new float[] { 579, 579 });
+            table.SetWidths(new float[] {579, 579});
 
-            AbsolutePositionText(document, "Monthly GV212", 61, document.Height - 220, 300, 35, document.GetLargeFont(true), Element.ALIGN_LEFT);
+            AbsolutePositionText(document, Resources.TXT_STATUS_REPORT_MONTHLY_GV_212, 61, document.Height - 220, 300, 35, document.GetLargeFont(true), Element.ALIGN_LEFT);
 
-            AddCell(document, table, "Generated and printed", BaseColor.BLACK, true);
-            AddCell(document, table, "Status", BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_GENERATED_AND_PRINTED, BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_STATUS, BaseColor.BLACK, true);
 
             string statusText;
-            var color = GetStatus(GetGV212Status(statusReport), out statusText);
+            var color = GetStatus(statusReport.GV212Status, out statusText);
 
             AddCell(document, table, statusReport.GV212LastCheck == null ? string.Empty : statusReport.GV212LastCheck.Value.ToString(Constants.ShortYearDateFormat), color, false);
             AddCell(document, table, statusText, color, false);
 
             table.TotalWidth = 520;
             table.WriteSelectedRows(0, -1, document.Document.LeftMargin + 10, document.Height - 260, document.ContentByte);
+        }
+
+        private static void CreateTechniciansQuarterlyTable(PDFDocument document, IEnumerable<Technician> technicians)
+        {
+            document.AddPage();
+            AddLogos(document);
+
+            AbsolutePositionText(document, Resources.TXT_STATUS_REPORT_TECHNICIANS_QU_REPORT, 61, document.Height - 120, 300, 35, document.GetLargeFont(true), Element.ALIGN_LEFT);
+
+            var table = new PdfPTable(3);
+            table.SetWidths(new float[] {386, 386, 386});
+
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_TECHNICIAN_NAME, BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_DATE_OF_NEXT_CHECK, BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_STATUS, BaseColor.BLACK, true);
+
+            foreach (var technician in technicians)
+            {
+                string statusText;
+                var color = GetStatus(technician.QuarterlyStatus(), out statusText);
+
+                AddCell(document, table, technician.Name, color, false);
+                AddCell(document, table, technician.DateOfLastCheck == null ? string.Empty : technician.DateOfLastCheck.Value.ToString(Constants.ShortYearDateFormat), color, false);
+                AddCell(document, table, statusText, color, false);
+            }
+
+            table.TotalWidth = 520;
+            table.WriteSelectedRows(0, -1, document.Document.LeftMargin + 10, document.Height - 160, document.ContentByte);
+        }
+
+        private static void CreateTechnicians3YearTable(PDFDocument document, IEnumerable<Technician> technicians)
+        {
+            document.AddPage();
+            AddLogos(document);
+
+            AbsolutePositionText(document, Resources.TXT_STATUS_REPORT_TECHNICIAN_TRAINING_3_YEARLY, 61, document.Height - 120, 300, 35, document.GetLargeFont(true), Element.ALIGN_LEFT);
+
+            var table = new PdfPTable(3);
+            table.SetWidths(new float[] {386, 386, 386});
+
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_TECHNICIAN_NAME, BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_DATE_OF_NEXT_CHECK, BaseColor.BLACK, true);
+            AddCell(document, table, Resources.TXT_STATUS_REPORT_STATUS, BaseColor.BLACK, true);
+
+            foreach (var technician in technicians)
+            {
+                string statusText;
+                var color = GetStatus(technician.ThreeYearStatus(), out statusText);
+
+                AddCell(document, table, technician.Name, color, false);
+                AddCell(document, table, technician.DateOfLastCheck == null ? string.Empty : technician.DateOfLastCheck.Value.ToString(Constants.ShortYearDateFormat), color, false);
+                AddCell(document, table, statusText, color, false);
+            }
+
+            table.TotalWidth = 520;
+            table.WriteSelectedRows(0, -1, document.Document.LeftMargin + 10, document.Height - 160, document.ContentByte);
+        }
+
+        private static void AddLogos(PDFDocument document)
+        {
+            AddImageFromResource(document, "skillray_small", 61, 770);
+            AddImageFromResource(document, "webcal_print_logo", 300, 770);
         }
 
         private static void AddCell(PDFDocument document, PdfPTable table, string text, BaseColor color, bool bold)
@@ -152,111 +154,29 @@
             document.AddParagraph(text, absoluteColumn, font, alignment);
         }
 
-        private static Status GetTechnicianStatus(Technician technician)
-        {
-            if (technician == null)
-            {
-                return Status.Unknown;
-            }
-
-            var lastCheck = technician.DateOfLastCheck.GetValueOrDefault().Date;
-            if (lastCheck == default(DateTime))
-            {
-                return Status.Unknown;
-            }
-
-            var earliest = DateTime.Now.Date.AddMonths(-3);
-            var checkDue = DateTime.Now.Date.AddDays(-7);
-
-            if (lastCheck >= checkDue)
-            {
-                return Status.CheckDue;
-            }
-            if (lastCheck >= earliest && lastCheck < checkDue)
-            {
-                return Status.Ok;
-            }
-            if (lastCheck < earliest)
-            {
-                return Status.Expired;
-            }
-
-            return Status.Unknown;
-        }
-
-        private static Status GetTachoCentreStatus(StatusReportViewModel statusReport)
-        {
-            var lastCheck = statusReport.TachoCentreLastCheck.GetValueOrDefault();
-            if (lastCheck == default(DateTime))
-            {
-                return Status.Unknown;
-            }
-
-            var nextCheck = lastCheck.AddMonths(3).Date;
-            var dueDate = nextCheck.AddDays(-7);
-            if (DateTime.Now.Date > nextCheck)
-            {
-                return Status.Expired;
-            }
-            if (DateTime.Now.Date >= dueDate)
-            {
-                return Status.CheckDue;
-            }
-            if (DateTime.Now.Date < dueDate)
-            {
-                return Status.Ok;
-            }
-            return Status.Unknown;
-        }
-
-        private static Status GetGV212Status(StatusReportViewModel statusReport)
-        {
-            var lastCheck = statusReport.GV212LastCheck.GetValueOrDefault();
-            if (lastCheck == default(DateTime))
-            {
-                return Status.Unknown;
-            }
-
-            var checkMonth = lastCheck.Date.Month;
-            var checkYear = lastCheck.Date.Year;
-            if (checkMonth != DateTime.Now.Month && checkYear != DateTime.Now.Year)
-            {
-                return Status.Expired;
-            }
-            return Status.Ok;
-        }
-
-        private static BaseColor GetStatus(Status status, out string statusText)
+        private static BaseColor GetStatus(ReportItemStatus itemStatus, out string statusText)
         {
             BaseColor color;
-            switch (status)
+            switch (itemStatus)
             {
-                case Status.Ok:
-                    color = new BaseColor(0, 100, 0); 
-                    statusText = "OK";
+                case ReportItemStatus.Ok:
+                    color = new BaseColor(0, 100, 0);
+                    statusText = Resources.TXT_STATUS_REPORT_ok;
                     break;
-                case Status.CheckDue:
+                case ReportItemStatus.CheckDue:
                     color = new BaseColor(255, 140, 0);
-                    statusText = "Check due";
+                    statusText = Resources.TXT_STATUS_REPORT_CHECK_DUE;
                     break;
-                case Status.Expired:
+                case ReportItemStatus.Expired:
                     color = new BaseColor(178, 34, 34);
-                    statusText = "Expired";
+                    statusText = Resources.TXT_STATUS_REPORT_EXPIRED;
                     break;
                 default:
                     color = new BaseColor(178, 34, 34);
-                    statusText = "Unknown";
+                    statusText = Resources.TXT_STATUS_REPORT_UNKNOWN;
                     break;
             }
             return color;
-        }
-
-        private enum Status
-        {
-            Ok,
-            CheckDue,
-            Expired,
-            Unknown
         }
     }
 }

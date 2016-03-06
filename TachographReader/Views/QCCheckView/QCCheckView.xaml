@@ -78,7 +78,7 @@
                     <ctrls:InputDatePickerField SelectedDate="{Binding Document.DateOfAudit}"
                                                 Label="{x:Static properties:Resources.TXT_NEW_QC_DATE_OF_AUDIT}"
                                                 IsLabelWidthCustom="True"
-                                                IsHistoryMode="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
+                                                IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                 LabelWidth="200"
                                                 Grid.Column="2" />
                 </Grid>

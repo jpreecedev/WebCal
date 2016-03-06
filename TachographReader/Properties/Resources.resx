@@ -2935,4 +2935,43 @@ date
   <data name="TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK" xml:space="preserve">
     <value>Last 3 Year Check</value>
   </data>
+  <data name="TXT_STATUS_REPORT_CENTRE_QUARTERLY_CHECK" xml:space="preserve">
+    <value>Centre Quarterly Check</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_DATE_OF_LAST_CHECK" xml:space="preserve">
+    <value>Date of last check</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_DATE_OF_NEXT_CHECK" xml:space="preserve">
+    <value>Date of next check</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_STATUS" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_MONTHLY_GV_212" xml:space="preserve">
+    <value>Monthly GV212</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_GENERATED_AND_PRINTED" xml:space="preserve">
+    <value>Generated and printed</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_TECHNICIANS_QU_REPORT" xml:space="preserve">
+    <value>Technicians Qu Report</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_TECHNICIAN_NAME" xml:space="preserve">
+    <value>Technician name</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_TECHNICIAN_TRAINING_3_YEARLY" xml:space="preserve">
+    <value>Technician Training (3 yearly)</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_CHECK_DUE" xml:space="preserve">
+    <value>Check due</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_EXPIRED" xml:space="preserve">
+    <value>Expired</value>
+  </data>
+  <data name="TXT_STATUS_REPORT_UNKNOWN" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
 </root>
