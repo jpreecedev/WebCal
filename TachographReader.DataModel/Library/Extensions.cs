@@ -14,7 +14,7 @@ namespace TachographReader.DataModel.Library
         {
             try
             {
-                return (bool) attribute;
+                return (bool)attribute;
             }
             catch
             {
@@ -94,10 +94,10 @@ namespace TachographReader.DataModel.Library
 
         public static IQueryable<T> WithIncludes<T>(this IQueryable<T> source, DbContext context, params string[] associations) where T : class
         {
-            var objectContext = ((IObjectContextAdapter) context).ObjectContext;
+            var objectContext = ((IObjectContextAdapter)context).ObjectContext;
             var objectSet = objectContext.CreateObjectSet<T>();
 
-            var query = (ObjectQuery<T>) objectSet;
+            var query = (ObjectQuery<T>)objectSet;
 
             foreach (var assoc in associations)
             {
@@ -125,7 +125,16 @@ namespace TachographReader.DataModel.Library
 
         public static ThemeSettings GetThemeSettings(this ISettingsRepository<ThemeSettings> repository)
         {
-            return repository.Get(w => !string.IsNullOrEmpty(w.SelectedTheme));            
+            var themeSettings = repository.Get(w => !string.IsNullOrEmpty(w.SelectedTheme));
+            if (themeSettings == null)
+            {
+                using (var context = new TachographContext())
+                {
+                    themeSettings = context.ThemeSettings.Add(new ThemeSettings { SelectedTheme = "Silver" });
+                    context.SaveChanges();
+                }
+            }
+            return themeSettings;
         }
 
         public static MiscellaneousSettings GetMiscellaneousSettings(this ISettingsRepository<MiscellaneousSettings> repository)
