@@ -136,7 +136,10 @@
             
             //Apply theme
             ThemeSettings themeSettings = ContainerBootstrapper.Resolve<ISettingsRepository<ThemeSettings>>().GetThemeSettings();
-            Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = themeSettings.Source });
+            if (themeSettings != null)
+            {
+                Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = themeSettings.Source});
+            }
 
             //Launch Webcal Protocol
             RegistryHelper.RegisterProtocol();
@@ -160,7 +163,7 @@
 
         private static void CurrentDispatcher_UnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", TachographReader.Properties.Resources.EXC_UNHANDLED_EXCEPTION, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, e.Exception)));
+            MessageBoxHelper.ShowError($"{TachographReader.Properties.Resources.EXC_UNHANDLED_EXCEPTION}\n\n{ExceptionPolicy.HandleException(ContainerBootstrapper.Container, e.Exception)}");
             e.Handled = true;
         }
     }
