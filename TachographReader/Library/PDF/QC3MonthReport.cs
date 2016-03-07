@@ -21,7 +21,7 @@
             AbsolutePositionText(document, "Centre 3 monthly QC check", 400, 770, 560, 25, document.GetRegularFont(true, true), Element.ALIGN_LEFT);
 
             AbsolutePositionText(document, "Centre Name.", 61, 725, 480, 25, document.GetRegularFont(true), Element.ALIGN_LEFT);
-            AbsolutePositionText(document, qcReport3Month.TachoCentreName, 150, 725, 480, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            AbsolutePositionText(document, qcReport3Month.CentreName, 150, 725, 480, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);
 
             AbsolutePositionText(document, "Centre seal number.", 61, 700, 480, 25, document.GetRegularFont(true), Element.ALIGN_LEFT);
             AbsolutePositionText(document, qcReport3Month.CentreSealNumber, 150, 700, 480, 25, document.GetRegularFont(false), Element.ALIGN_LEFT);

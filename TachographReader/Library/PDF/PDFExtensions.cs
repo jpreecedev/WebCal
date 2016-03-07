@@ -38,12 +38,6 @@
             {
                 using (var pdfDocument = new PDFDocument(result.FileName))
                 {
-                    var qcReport = report as QCReport;
-                    if (qcReport != null)
-                    {
-                        QCCheckReport.Create(pdfDocument, new QCReportViewModel(qcReport));
-                    }
-                    
                     var qcReportViewModel = report as QCReportViewModel;
                     if (qcReportViewModel != null)
                     {

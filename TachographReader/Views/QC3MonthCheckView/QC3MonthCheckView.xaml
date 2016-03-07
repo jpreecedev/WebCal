@@ -39,7 +39,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="45" />
                 </Grid.RowDefinitions>
@@ -73,7 +73,14 @@
 
                     <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_FACILITIES_ATCM_SECTION_3}"
                                Style="{StaticResource SubHeaderFont}"
-                               Margin="0,10,0,0"/>
+                               Margin="0,10,0,0" />
+
+                    <ctrls:InputDatePickerField Grid.Column="5"
+                                                Grid.ColumnSpan="2"
+                                                SelectedDate="{core:InputBinding Document.Date}"
+                                                Label="{x:Static properties:Resources.TXT_DATE}"
+                                                IsHistoryMode="{core:InputBinding IsHistoryMode}"
+                                                IsMandatory="True" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="1"
                                                         Value="{core:InputBinding Document.Section3Question1}"
@@ -95,7 +102,7 @@
                     <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_SECURITY_ATCM_SECTION_4}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="2"
-                               Margin="0,10,0,0"/>
+                               Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="3"
                                                         Value="{core:InputBinding Document.Section4Question1}"
@@ -126,7 +133,7 @@
                     <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_EQUIPMENT_ATCM_SECTION_5}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="4"
-                               Margin="0,10,0,0"/>
+                               Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="5"
                                                         Value="{core:InputBinding Document.Section5Question1}"
@@ -148,7 +155,7 @@
                     <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_TECHNICIAN_TRAINING_SECTION_7}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="6"
-                               Margin="0,10,0,0"/>
+                               Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="7"
                                                         Value="{core:InputBinding Document.Section7Question1}"
@@ -170,7 +177,7 @@
                     <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="8"
-                               Margin="0,10,0,0"/>
+                               Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="9"
                                                         Value="{core:InputBinding Document.CalibrationSection9And10Question1}"
@@ -201,7 +208,7 @@
                     <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_TACHO_CENTRE_ATCM_SECTION_10}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="10"
-                               Margin="0,10,0,0"/>
+                               Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="11"
                                                         Value="{core:InputBinding Document.DataManagementSection10Question1}"

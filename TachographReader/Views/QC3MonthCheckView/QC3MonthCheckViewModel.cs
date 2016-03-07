@@ -12,7 +12,7 @@
     {
         public QC3MonthCheckViewModel()
         {
-            Document = new QCReport3Month();
+            Document = new QCReport3Month {Date = DateTime.Now};
         }
 
         public IRepository<QCReport3Month> Repository { get; set; }
@@ -60,7 +60,7 @@
         private void Populate()
         {
             Technicians = new ObservableCollection<Technician>(TechniciansRepository.GetAll());
-            Document.TachoCentreName = WorkshopSettings.WorkshopName;
+            Document.CentreName = WorkshopSettings.WorkshopName;
             Document.CentreSealNumber = RegistrationData.SealNumber;
         }
     }
