@@ -114,7 +114,7 @@
 
         private void OnOK(TechniciansViewModel viewModel)
         {
-            if (ViewModel == null && TechniciansViewModel == null)
+            if (ViewModel == null && viewModel == null)
             {
                 return;
             }
