@@ -82,14 +82,6 @@
                 settingsViewModel.Prompt = prompt;
                 settingsViewModel.Callback = callback;
             }
-
-            var techniciansViewModel = window.DataContext as TechniciansViewModel;
-            if (techniciansViewModel != null)
-            {
-                techniciansViewModel.IsPromptVisible = true;
-                techniciansViewModel.Prompt = prompt;
-                techniciansViewModel.Callback = callback;
-            }
         }
 
         protected virtual void InitialiseCommands()

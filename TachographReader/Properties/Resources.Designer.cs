@@ -7206,15 +7206,6 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last 3 Year Check.
-        /// </summary>
-        public static string TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK {
-            get {
-                return ResourceManager.GetString("TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Last 3 Month Check.
         /// </summary>
         public static string TXT_TECHNICIANS_DATE_OF_LAST_CHECK {
@@ -7251,7 +7242,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Has Signature?.
+        ///   Looks up a localized string similar to Signature.
         /// </summary>
         public static string TXT_TECHNICIANS_HAS_SIGNATURE {
             get {
@@ -7283,6 +7274,15 @@ namespace TachographReader.Properties {
         public static string TXT_TECHNICIANS_TITLE {
             get {
                 return ResourceManager.GetString("TXT_TECHNICIANS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training Date.
+        /// </summary>
+        public static string TXT_TECHNICIANS_TRAINING_DATE {
+            get {
+                return ResourceManager.GetString("TXT_TECHNICIANS_TRAINING_DATE", resourceCulture);
             }
         }
         

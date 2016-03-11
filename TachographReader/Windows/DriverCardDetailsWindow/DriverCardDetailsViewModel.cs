@@ -38,7 +38,7 @@
                 },
                 exception =>
                 {
-                    MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_ERROR_WHILST_READING_DRIVER_CARD, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, exception)));
+                    MessageBoxHelper.ShowError($"{Resources.TXT_ERROR_WHILST_READING_DRIVER_CARD}\n\n{ExceptionPolicy.HandleException(ContainerBootstrapper.Container, exception)}");
                 },
                 () =>
                 {

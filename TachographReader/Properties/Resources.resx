@@ -2060,7 +2060,7 @@ date
     <value>Add Signature</value>
   </data>
   <data name="TXT_TECHNICIANS_HAS_SIGNATURE" xml:space="preserve">
-    <value>Has Signature?</value>
+    <value>Signature</value>
   </data>
   <data name="TXT_LETTER_FOR_DECOMMISSIONING_TITLE" xml:space="preserve">
     <value>Letter For Decommissioning</value>
@@ -2932,8 +2932,8 @@ date
   <data name="TXT_GENERAL_SETTINGS_LAST_QUARTERLY_GV_212_DATE" xml:space="preserve">
     <value>Last Monthly GV212 Date</value>
   </data>
-  <data name="TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK" xml:space="preserve">
-    <value>Last 3 Year Check</value>
+  <data name="TXT_TECHNICIANS_TRAINING_DATE" xml:space="preserve">
+    <value>Training Date</value>
   </data>
   <data name="TXT_STATUS_REPORT_CENTRE_QUARTERLY_CHECK" xml:space="preserve">
     <value>Centre Quarterly Check</value>

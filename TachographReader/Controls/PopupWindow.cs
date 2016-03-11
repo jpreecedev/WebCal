@@ -23,10 +23,7 @@
 
         public static readonly DependencyProperty HasSecondPromptProperty =
             DependencyProperty.Register("HasSecondPrompt", typeof(bool), typeof(PopupWindow));
-
-        public static readonly DependencyProperty TechniciansViewModelProperty =
-            DependencyProperty.Register("TechniciansViewModel", typeof(TechniciansViewModel), typeof(PopupWindow));
-
+        
         public static readonly DependencyProperty HasDatePromptProperty =
             DependencyProperty.Register("HasDatePrompt", typeof(bool), typeof(PopupWindow), new PropertyMetadata(false));
 
@@ -40,8 +37,8 @@
 
         public PopupWindow()
         {
-            OKCommand = new DelegateCommand<TechniciansViewModel>(OnOK);
-            CancelCommand = new DelegateCommand<TechniciansViewModel>(OnCancel);
+            OKCommand = new DelegateCommand<object>(OnOK);
+            CancelCommand = new DelegateCommand<object>(OnCancel);
 
             IsVisibleChanged += VisibilityChanged;
         }
@@ -81,15 +78,9 @@
             get { return (SettingsViewModel) GetValue(ViewModelProperty); }
             set { SetValue(ViewModelProperty, value); }
         }
-
-        public TechniciansViewModel TechniciansViewModel
-        {
-            get { return (TechniciansViewModel) GetValue(TechniciansViewModelProperty); }
-            set { SetValue(TechniciansViewModelProperty, value); }
-        }
-
-        public DelegateCommand<TechniciansViewModel> OKCommand { get; set; }
-        public DelegateCommand<TechniciansViewModel> CancelCommand { get; set; }
+        
+        public DelegateCommand<object> OKCommand { get; set; }
+        public DelegateCommand<object> CancelCommand { get; set; }
         public string Text { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -100,41 +91,26 @@
             _textBox = GetTemplateChild("PART_TextBox") as TextBox;
         }
 
-        private void OnCancel(TechniciansViewModel viewModel)
+        private void OnCancel(object viewModel)
         {
             if (ViewModel != null)
             {
                 ViewModel.IsPromptVisible = false;
             }
-            if (viewModel != null)
-            {
-                viewModel.IsPromptVisible = false;
-            }
         }
 
-        private void OnOK(TechniciansViewModel viewModel)
+        private void OnOK(object obj)
         {
-            if (ViewModel == null && viewModel == null)
+            if (ViewModel == null)
             {
                 return;
             }
-
-            if (ViewModel != null)
-            {
+            
                 ViewModel.IsPromptVisible = false;
                 if (ViewModel.Callback != null)
                 {
                     ViewModel.Callback.Invoke(Prompt);
                 }
-            }
-            if (viewModel != null)
-            {
-                viewModel.IsPromptVisible = false;
-                if (viewModel.Callback != null)
-                {
-                    viewModel.Callback.Invoke(Prompt);
-                }
-            }
         }
 
         private void VisibilityChanged(object sender, DependencyPropertyChangedEventArgs e)

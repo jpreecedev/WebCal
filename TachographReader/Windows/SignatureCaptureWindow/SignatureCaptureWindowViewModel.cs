@@ -67,7 +67,7 @@
                     }
                     catch (Exception ex)
                     {
-                        MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.ERR_UNABLE_TO_APPLY_TRANSFORMATIONS, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
+                        MessageBoxHelper.ShowError($"{Resources.ERR_UNABLE_TO_APPLY_TRANSFORMATIONS}\n\n{ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)}");
                     }
                 }
                 catch

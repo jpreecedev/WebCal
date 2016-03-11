@@ -1,18 +1,18 @@
-﻿<UserControl x:Class="TachographReader.Views.TechniciansView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:Properties="clr-namespace:TachographReader.Properties"
-             xmlns:vm="clr-namespace:TachographReader.Views"
-             xmlns:controls="clr-namespace:TachographReader.Controls"
-             mc:Ignorable="d"
-             d:DesignWidth="628"
-             d:DesignHeight="450"
-             Padding="15">
-    <UserControl.DataContext>
+﻿<core:BaseSettingsView x:Class="TachographReader.Views.Settings.TechniciansView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:Properties="clr-namespace:TachographReader.Properties"
+                       xmlns:vm="clr-namespace:TachographReader.Views"
+                       xmlns:core="clr-namespace:TachographReader.Core"
+                       mc:Ignorable="d"
+                       d:DesignWidth="628"
+                       d:DesignHeight="450"
+                       Padding="15">
+    <core:BaseSettingsView.DataContext>
         <vm:TechniciansViewModel />
-    </UserControl.DataContext>
+    </core:BaseSettingsView.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
@@ -38,19 +38,19 @@
                     <GridView>
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_VIEW_NAME}"
                                         DisplayMemberBinding="{Binding Name, Mode=OneWay}"
-                                        Width="160" />
+                                        Width="130" />
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_VIEW_NUMBER}"
                                         DisplayMemberBinding="{Binding Number, Mode=OneWay}"
-                                        Width="130" />
+                                        Width="100" />
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_HAS_SIGNATURE}"
                                         DisplayMemberBinding="{Binding HasSignature, Converter={StaticResource Bool2YesNo}}"
-                                        Width="100" />
+                                        Width="80" />
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_DATE_OF_LAST_CHECK}"
                                         DisplayMemberBinding="{Binding DateOfLastCheck, StringFormat={}{0:dd-MMM-yyyy}}"
-                                        Width="120" />
-                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK}"
+                                        Width="100" />
+                        <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_TRAINING_DATE}"
                                         DisplayMemberBinding="{Binding DateOfLast3YearCheck, StringFormat={}{0:dd-MMM-yyyy}}"
-                                        Width="120" />
+                                        Width="100" />
                         <GridViewColumn Header="{x:Static Properties:Resources.TXT_TECHNICIANS_DEFAULT}"
                                         DisplayMemberBinding="{Binding IsDefault, Converter={StaticResource Bool2YesNo}}"
                                         Width="50" />
@@ -64,10 +64,10 @@
                         HorizontalAlignment="Center">
                 <Button Content="{x:Static Properties:Resources.TXT_TECHNICIANS_ADD}"
                         Command="{Binding AddTechnicianCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
                 <Button Content="{x:Static Properties:Resources.TXT_TECHNICIANS_EDIT}"
                         Command="{Binding EditTechnicianCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=2}}" />
                 <Button Content="{x:Static Properties:Resources.TXT_TECHNICIANS_REMOVE}"
                         Command="{Binding RemoveTechnicianCommand}"
                         Visibility="{Binding LoggedInAsSuperUser, Mode=OneWay}" />
@@ -77,20 +77,9 @@
                 <Button Content="{x:Static Properties:Resources.TXT_TECHNICIANS_GENERATE_REPORT}"
                         Width="Auto"
                         Command="{Binding GenerateStatusReportCommand}" />
-                <Button Content="{x:Static Properties:Resources.TXT_SETTINGS_CLOSE}"
-                        Command="{Binding DataContext.CloseModalCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
             </StackPanel>
 
         </Grid>
 
-        <Border Background="#50000000"
-                Style="{StaticResource FadeTransitionEffect}"
-                Visibility="{Binding IsPromptVisible, Converter={StaticResource Bool2Vis}}"
-                Grid.Row="1">
-
-            <controls:PopupWindow Prompt="{Binding Prompt}"
-                                  TechniciansViewModel="{Binding}" />
-        </Border>
-
     </Grid>
-</UserControl>
+</core:BaseSettingsView>

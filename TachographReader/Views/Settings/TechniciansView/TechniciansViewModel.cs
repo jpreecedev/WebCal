@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Drawing;
     using System.Linq;
-    using System.Windows;
     using System.Windows.Controls;
     using Windows.SignatureCaptureWindow;
     using Core;
@@ -17,10 +17,10 @@
     using Shared;
     using Image = System.Drawing.Image;
 
-    public class TechniciansViewModel : BaseNavigationViewModel
+    public class TechniciansViewModel : BaseSettingsViewModel
     {
         private Technician _selectedTechnician;
-        private Image _signatureImage;
+        private Image _signature;
 
         public IRepository<Technician> Repository { get; set; }
         public ObservableCollection<Technician> Technicians { get; set; }
@@ -28,6 +28,22 @@
         public bool IsPromptVisible { get; set; }
         public UserPromptViewModel Prompt { get; set; }
         public Action<UserPromptViewModel> Callback { get; set; }
+        
+        public Image Signature
+        {
+            get
+            {
+                if (_signature == null)
+                {
+                    return null;
+                }
+
+                var signature = (Image)_signature.Clone();
+                _signature = null;
+                return signature;
+            }
+            set { _signature = value; }
+        }
 
         public Technician SelectedTechnician
         {
@@ -38,17 +54,12 @@
                 RefreshCommands();
             }
         }
-
-        public Visibility LoggedInAsSuperUser
-        {
-            get { return UserManagement.LoggedInAsSuperUser ? Visibility.Visible : Visibility.Collapsed; }
-        }
-
+        
         public DelegateCommand<UserControl> AddTechnicianCommand { get; set; }
         public DelegateCommand<UserControl> EditTechnicianCommand { get; set; }
         public DelegateCommand<object> RemoveTechnicianCommand { get; set; }
         public DelegateCommand<object> SetDefaultCommand { get; set; }
-        public DelegateCommand<object> AddSignatureCommand { get; set; }
+        public DelegateCommand<Technician> AddSignatureCommand { get; set; }
         public DelegateCommand<object> GenerateStatusReportCommand { get; set; }
 
         protected override void Load()
@@ -65,7 +76,7 @@
             EditTechnicianCommand = new DelegateCommand<UserControl>(OnEditTechnician);
             RemoveTechnicianCommand = new DelegateCommand<object>(OnRemoveTechnician, CanRemoveTechnician);
             SetDefaultCommand = new DelegateCommand<object>(OnSetDefault, CanSetDefault);
-            AddSignatureCommand = new DelegateCommand<object>(OnAddSignature);
+            AddSignatureCommand = new DelegateCommand<Technician>(OnAddSignature);
             GenerateStatusReportCommand = new DelegateCommand<object>(OnGenerateStatusReport);
         }
         
@@ -81,7 +92,7 @@
                 FirstPrompt = Resources.TXT_GIVE_NAME_OF_TECHNICIAN,
                 SecondPrompt = Resources.TXT_ENTER_TECHNICIAN_NUMBER,
                 DatePrompt = Resources.TXT_DATE_OF_LAST_CHECK,
-                SecondDatePrompt = Resources.TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK,
+                SecondDatePrompt = Resources.TXT_TECHNICIANS_TRAINING_DATE,
                 AddSignatureCommand = AddSignatureCommand
             };
 
@@ -101,9 +112,9 @@
                 {
                     Name = result.FirstInput,
                     Number = result.SecondInput,
-                    Image = _signatureImage,
                     DateOfLastCheck = result.DateInput,
-                    DateOfLast3YearCheck = result.SecondDateInput
+                    DateOfLast3YearCheck = result.SecondDateInput,
+                    Image = Signature
                 };
                 Technicians.Add(technician);
                 Repository.Add(technician);
@@ -125,7 +136,7 @@
                 SecondInput = SelectedTechnician.Number,
                 DatePrompt = Resources.TXT_DATE_OF_LAST_CHECK,
                 DateInput = SelectedTechnician.DateOfLastCheck,
-                SecondDatePrompt = Resources.TXT_TECHNICIANS_DATE_OF_LAST_3_YEAR_CHECK,
+                SecondDatePrompt = Resources.TXT_TECHNICIANS_TRAINING_DATE,
                 SecondDateInput = SelectedTechnician.DateOfLast3YearCheck,
                 AddSignatureCommand = AddSignatureCommand
             };
@@ -148,6 +159,12 @@
                 selectedTechnician.DateOfLastCheck = result.DateInput;
                 selectedTechnician.DateOfLast3YearCheck = result.SecondDateInput;
 
+                var signature = Signature;
+                if (signature != null)
+                {
+                    selectedTechnician.Image = signature;
+                }
+
                 var index = Technicians.IndexOf(SelectedTechnician);
                 Technicians.Remove(SelectedTechnician);
 
@@ -164,16 +181,14 @@
             }
         }
 
-        private void OnAddSignature(object arg)
+        private void OnAddSignature(object obj)
         {
             var window = new SignatureCaptureWindow();
             var dataContext = (SignatureCaptureWindowViewModel)window.DataContext;
-
             dataContext.OnSignatureCaptured = signature =>
             {
-                _signatureImage = signature;
+                Signature = signature;
             };
-
             window.ShowDialog();
         }
 

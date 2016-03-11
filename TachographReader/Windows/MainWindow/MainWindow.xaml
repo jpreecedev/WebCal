@@ -28,8 +28,6 @@
                                        IsChecked="True" />
                 <r:QuickAccessMenuItem Target="{Binding ElementName=GenerateReportMenuItem}"
                                        IsChecked="True" />
-                <r:QuickAccessMenuItem Target="{Binding ElementName=TechniciansMenuItem}"
-                                       IsChecked="True" />
                 <r:QuickAccessMenuItem Target="{Binding ElementName=ExitMenuItem}"
                                        IsChecked="True" />
             </r:Ribbon.QuickAccessItems>
@@ -56,17 +54,6 @@
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}Report}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_REPORT}" />
-                        </r:MenuItem.ToolTip>
-                    </r:MenuItem>
-                    <r:MenuItem x:Name="TechniciansMenuItem"
-                                Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TECHNICIANS}"
-                                Icon="{core:LocalizedImageBinding ConverterParameter={}technician}"
-                                Command="{Binding TechniciansCommand}"
-                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                        <r:MenuItem.ToolTip>
-                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TECHNICIANS}"
-                                         Image="{core:LocalizedImageBinding ConverterParameter={}technician}"
-                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TECHNICIANS}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
@@ -228,25 +215,15 @@
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_OTHER}">
-                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
-                              Icon="{core:LocalizedImageBinding ConverterParameter={}clock}"
-                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}clock}"
-                              Command="{Binding DocumentHistoryCommand}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}Settings}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}Settings}"
+                              Command="{Binding SettingsCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
-                                         Image="{core:LocalizedImageBinding ConverterParameter={}clock}"
-                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}" />
-                        </r:Button.ToolTip>
-                    </r:Button>
-                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TECHNICIANS}"
-                              Icon="{core:LocalizedImageBinding ConverterParameter={}technician}"
-                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}technician}"
-                              Command="{Binding TechniciansCommand}">
-                        <r:Button.ToolTip>
-                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TECHNICIANS}"
-                                         Image="{core:LocalizedImageBinding ConverterParameter={}technician}"
-                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TECHNICIANS}" />
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}Settings}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>

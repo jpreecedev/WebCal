@@ -444,10 +444,10 @@
       <DependentUpon>InspectionMethodsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\InspectionMethodsView\InspectionMethodsViewModel.cs" />
-    <Compile Include="Views\TechniciansView\TechniciansView.xaml.cs">
+    <Compile Include="Views\Settings\TechniciansView\TechniciansView.xaml.cs">
       <DependentUpon>TechniciansView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TechniciansView\TechniciansViewModel.cs" />
+    <Compile Include="Views\Settings\TechniciansView\TechniciansViewModel.cs" />
     <Compile Include="Views\Settings\PrinterSettingsView\PrinterSettingsView.xaml.cs">
       <DependentUpon>PrinterSettingsView.xaml</DependentUpon>
     </Compile>
@@ -460,10 +460,6 @@
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\SettingsView\SettingsViewModel.cs" />
-    <Compile Include="Views\Settings\ShortcutSettingsView\ShortcutSettingsView.xaml.cs">
-      <DependentUpon>ShortcutSettingsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Settings\ShortcutSettingsView\ShortcutSettingsViewModel.cs" />
     <Compile Include="Views\Settings\TachographMakesModelsView\TachographMakesModelsView.xaml.cs">
       <DependentUpon>TachographMakesModelsView.xaml</DependentUpon>
     </Compile>
@@ -638,7 +634,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TechniciansView\TechniciansView.xaml">
+    <Page Include="Views\Settings\TechniciansView\TechniciansView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -651,10 +647,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Settings\SettingsView\SettingsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Settings\ShortcutSettingsView\ShortcutSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
