@@ -6891,6 +6891,24 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to STONERIDGE.
+        /// </summary>
+        public static string TXT_STONERIDGE {
+            get {
+                return ResourceManager.GetString("TXT_STONERIDGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9002.
+        /// </summary>
+        public static string TXT_STONERIDGE_CARD {
+            get {
+                return ResourceManager.GetString("TXT_STONERIDGE_CARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sunday.
         /// </summary>
         public static string TXT_SUNDAY {

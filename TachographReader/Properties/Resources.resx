@@ -2980,4 +2980,10 @@ date
   <data name="TXT_PRINTER_SETTINGS_AUTO_CLOSE_PDF" xml:space="preserve">
     <value>Automatically close PDF reader after printing</value>
   </data>
+  <data name="TXT_STONERIDGE" xml:space="preserve">
+    <value>STONERIDGE</value>
+  </data>
+  <data name="TXT_STONERIDGE_CARD" xml:space="preserve">
+    <value>9002</value>
+  </data>
 </root>

@@ -30,7 +30,7 @@
             VehicleTypes = VehicleType.GetVehicleTypes();
             Document.VehicleType = VehicleTypes.First();
         }
-        
+
         public IRepository<VehicleMake> VehicleRepository { get; set; }
         public IRepository<TyreSize> TyreSizesRepository { get; set; }
         public IRepository<TachographMake> TachographMakesRepository { get; set; }
@@ -220,11 +220,21 @@
                     }
                 }
 
-                if (!string.IsNullOrEmpty(Document.TachographMake) && string.Equals(Document.TachographMake, Resources.TXT_SIEMENS_VDO, StringComparison.CurrentCultureIgnoreCase))
+                if (!string.IsNullOrEmpty(Document.TachographMake) && !string.IsNullOrEmpty(e.CalibrationRecord.VuPartNumber))
                 {
-                    if (!string.IsNullOrEmpty(e.CalibrationRecord.VuPartNumber) && e.CalibrationRecord.VuPartNumber.StartsWith(DataModel.Properties.Resources.TXT_SEED_TACHO_MODEL_NAME))
+                    if (string.Equals(Document.TachographMake, Resources.TXT_SIEMENS_VDO, StringComparison.CurrentCultureIgnoreCase))
                     {
-                        Document.TachographModel = e.CalibrationRecord.VuPartNumber;
+                        if (e.CalibrationRecord.VuPartNumber.StartsWith(DataModel.Properties.Resources.TXT_SEED_TACHO_MODEL_NAME))
+                        {
+                            Document.TachographModel = e.CalibrationRecord.VuPartNumber;
+                        }
+                    }
+                    if (string.Equals(Document.TachographMake, Resources.TXT_STONERIDGE, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        if (e.CalibrationRecord.VuPartNumber.StartsWith(Resources.TXT_STONERIDGE_CARD))
+                        {
+                            Document.TachographModel = e.CalibrationRecord.VuPartNumber;
+                        }
                     }
                 }
 
@@ -418,7 +428,7 @@
                     return null;
                 }
 
-                XDocument document = XDocument.Parse(xml.Replace("&","&amp;"));
+                XDocument document = XDocument.Parse(xml.Replace("&", "&amp;"));
                 XElement first = document.Descendants("CardDump").FirstOrDefault();
 
                 var result = new List<string>();
