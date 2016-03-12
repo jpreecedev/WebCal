@@ -68,6 +68,12 @@
             UndownloadabilityRepository.Add(Document);
             ConnectHelper.Upload(Document);
         }
+        
+        protected override void Update()
+        {
+            UndownloadabilityRepository.AddOrUpdate(Document);
+            ConnectHelper.Upload(Document, true);
+        }
 
         protected override void OnCustomerContactChanged(CustomerContact customerContact)
         {

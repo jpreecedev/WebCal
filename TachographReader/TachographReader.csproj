@@ -368,7 +368,7 @@
     <Compile Include="Views\QC6MonthCheckView\QC6MonthCheckView.xaml.cs">
       <DependentUpon>QC6MonthCheckView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QC6MonthCheckView\QC3MonthCheckViewModel.cs" />
+    <Compile Include="Views\QC6MonthCheckView\QC6MonthCheckViewModel.cs" />
     <Compile Include="Views\QCCheckView\QCCheckView.xaml.cs">
       <DependentUpon>QCCheckView.xaml</DependentUpon>
     </Compile>

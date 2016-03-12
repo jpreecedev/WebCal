@@ -98,34 +98,55 @@
             });
         }
 
-        public static void Upload(TachographDocument document)
+        public static void Upload(TachographDocument document, bool isUpdating = false)
         {
             CallAsync(() =>
             {
-                _connectClient.Service.UploadTachographDocument(document);
+                if (isUpdating)
+                {
+                    _connectClient.Service.UpdateTachographDocument(document);
+                }
+                else
+                {
+                    _connectClient.Service.UploadTachographDocument(document);
+                }
                 SaveDocumentUpload(document);
             });
         }
 
-        public static void Upload(UndownloadabilityDocument document)
+        public static void Upload(UndownloadabilityDocument document, bool isUpdating = false)
         {
             CallAsync(() =>
             {
-                _connectClient.Service.UploadUndownloadabilityDocument(document);
+                if (isUpdating)
+                {
+                    _connectClient.Service.UpdateUndownloadabilityDocument(document);
+                }
+                else
+                {
+                    _connectClient.Service.UploadUndownloadabilityDocument(document);
+                }
                 SaveDocumentUpload(document);
             });
         }
 
-        public static void Upload(LetterForDecommissioningDocument document)
+        public static void Upload(LetterForDecommissioningDocument document, bool isUpdating = false)
         {
             CallAsync(() =>
             {
-                _connectClient.Service.UploadLetterForDecommissioningDocument(document);
+                if (isUpdating)
+                {
+                    _connectClient.Service.UpdateLetterForDecommissioningDocument(document);
+                }
+                else
+                {
+                    _connectClient.Service.UploadLetterForDecommissioningDocument(document);
+                }
                 SaveDocumentUpload(document);
             });
         }
 
-        public static void Upload(QCReport report)
+        public static void Upload(QCReport report, bool isUpdating = false)
         {
             CallAsync(() =>
             {
@@ -134,7 +155,7 @@
             });
         }
 
-        public static void Upload(QCReport6Month report)
+        public static void Upload(QCReport6Month report, bool isUpdating = false)
         {
             CallAsync(() =>
             {

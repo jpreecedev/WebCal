@@ -69,6 +69,12 @@
             ConnectHelper.Upload(Document);
         }
 
+        protected override void Update()
+        {
+            LetterForDecommissioningRepository.AddOrUpdate(Document);
+            ConnectHelper.Upload(Document, true);
+        }
+
         protected override void OnCustomerContactChanged(CustomerContact customerContact)
         {
             Document.CustomerContact = customerContact == null ? null : customerContact.Name;

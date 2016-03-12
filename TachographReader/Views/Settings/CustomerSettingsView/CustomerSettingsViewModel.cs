@@ -8,11 +8,9 @@
     using Library;
     using Properties;
     using Shared;
-    using Shared.Connect;
 
     public class CustomerSettingsViewModel : BaseSettingsViewModel
     {
-        private bool _hasSearchedConnect;
         private CustomerContact _selectedCustomerContact;
         public IRepository<CustomerContact> Repository { get; set; }
         public ObservableCollection<CustomerContact> CustomerContacts { get; set; }

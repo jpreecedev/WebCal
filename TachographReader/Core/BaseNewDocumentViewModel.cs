@@ -85,6 +85,11 @@
 
         }
 
+        protected virtual void Update()
+        {
+            
+        }
+
         protected virtual void RegistrationChanged(string registrationNumber)
         {
 
@@ -177,6 +182,10 @@
 
                     Add();
                 }
+                else
+                {
+                    Update();
+                }
 
                 Close();
             }
@@ -210,6 +219,10 @@
                 {
                     Add();
                 }
+            }
+            else
+            {
+                Update();
             }
 
             Close();

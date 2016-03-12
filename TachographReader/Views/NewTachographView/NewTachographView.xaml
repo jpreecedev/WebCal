@@ -80,14 +80,7 @@
                                       Grid.Row="2"
                                       Grid.Column="3"
                                       Text="{Binding Document.MinorWorkDetails, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      Visibility="{Binding SelectedItem, ElementName=DocumentTypeCombo, Converter={StaticResource DocType2Vis}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.MinorWorkDetails" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                                      Visibility="{Binding SelectedItem, ElementName=DocumentTypeCombo, Converter={StaticResource DocType2Vis}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_VEHICLE_DATA}"
                            Style="{StaticResource SubHeaderFont}"
@@ -124,28 +117,14 @@
                                       behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
                                       behav:LostFocusBehaviour.CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
                                       IsLoading="{Binding IsSearchingConnect}"
-                                      Grid.Row="4">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.RegistrationNumber" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                                      Grid.Row="4"/>
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_VIN}"
                                       Text="{Binding Document.VIN, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       IsAutoPopulated="True"
                                       Grid.Row="4"
-                                      Grid.Column="2">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.VIN" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                                      Grid.Column="2"/>
 
                 <Grid Grid.Row="5"
                       Grid.ColumnSpan="3"
@@ -162,16 +141,7 @@
                                            SelectedText="{Binding DataContext.Document.VehicleMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            IsSynchronisedWithCurrentItem="True"
                                            DisplayMemberPath="Name"
-                                           IsMandatory="True">
-                        <ctrls:InputComboField.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="DataContext.IsReadOnly"
-                                         RelativeSource="{RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}" />
-                                <Binding Path="DataContext.Document.VehicleMake"
-                                         RelativeSource="{RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}" />
-                            </MultiBinding>
-                        </ctrls:InputComboField.IsEnabled>
-                    </ctrls:InputComboField>
+                                           IsMandatory="True"/>
 
                     <ctrls:InputComboField x:Name="VehicleModelCombo"
                                            Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_MODEL}"
@@ -179,16 +149,7 @@
                                            SelectedText="{Binding DataContext.Document.VehicleModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            IsSynchronisedWithCurrentItem="True"
                                            IsMandatory="True"
-                                           Grid.Column="2">
-                        <ctrls:InputComboField.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="DataContext.IsReadOnly"
-                                         RelativeSource="{RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}" />
-                                <Binding Path="DataContext.Document.VehicleModel"
-                                         RelativeSource="{RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}" />
-                            </MultiBinding>
-                        </ctrls:InputComboField.IsEnabled>
-                    </ctrls:InputComboField>
+                                           Grid.Column="2"/>
                 </Grid>
 
                 <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TYRE_SIZE}"
@@ -197,14 +158,7 @@
                                        SelectedText="{Binding Document.TyreSize, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        IsMandatory="True"
                                        IsAutoPopulated="True"
-                                       Grid.Row="6">
-                    <ctrls:InputComboField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.TyreSize" />
-                        </MultiBinding>
-                    </ctrls:InputComboField.IsEnabled>
-                </ctrls:InputComboField>
+                                       Grid.Row="6"/>
 
                 <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_VEHICLE_TYPE}"
                                        ItemsSource="{Binding VehicleTypes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
@@ -212,14 +166,7 @@
                                        IsEditable="False"
                                        IsMandatory="True"
                                        Grid.Row="6"
-                                       Grid.Column="2">
-                    <ctrls:InputComboField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.VehicleType" />
-                        </MultiBinding>
-                    </ctrls:InputComboField.IsEnabled>
-                </ctrls:InputComboField>
+                                       Grid.Column="2"/>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CALIBRATION_DATA}"
                            Style="{StaticResource SubHeaderFont}"
@@ -238,40 +185,19 @@
                     <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_W_FACTOR}"
                                           Text="{Binding Document.WFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                           IsMandatory="True"
-                                          IsAutoPopulated="True">
-                        <ctrls:InputTextField.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="IsReadOnly" />
-                                <Binding Path="Document.WFactor" />
-                            </MultiBinding>
-                        </ctrls:InputTextField.IsEnabled>
-                    </ctrls:InputTextField>
+                                          IsAutoPopulated="True"/>
 
                     <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_K_FACTOR}"
                                           Text="{Binding Document.KFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                           IsMandatory="True"
                                           IsAutoPopulated="True"
-                                          Grid.Column="2">
-                        <ctrls:InputTextField.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="IsReadOnly" />
-                                <Binding Path="Document.KFactor" />
-                            </MultiBinding>
-                        </ctrls:InputTextField.IsEnabled>
-                    </ctrls:InputTextField>
+                                          Grid.Column="2"/>
 
                     <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_L_FACTOR}"
                                           Text="{Binding Document.LFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                           IsMandatory="True"
                                           IsAutoPopulated="True"
-                                          Grid.Column="4">
-                        <ctrls:InputTextField.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="IsReadOnly" />
-                                <Binding Path="Document.LFactor" />
-                            </MultiBinding>
-                        </ctrls:InputTextField.IsEnabled>
-                    </ctrls:InputTextField>
+                                          Grid.Column="4"/>
                 </Grid>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TACHOGRAPH_DATA}"
@@ -292,83 +218,37 @@
                                            SelectedTextChanged="{Binding DataContext.TachographMakeChangedCommand, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                            IsSynchronisedWithCurrentItem="True"
                                            ItemsSource="{Binding}"
-                                           IsMandatory="True">
-                        <ctrls:InputComboField.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="DataContext.IsReadOnly"
-                                         RelativeSource="{RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}" />
-                                <Binding Path="DataContext.Document.TachographMake"
-                                         RelativeSource="{RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}" />
-                            </MultiBinding>
-                        </ctrls:InputComboField.IsEnabled>
-                    </ctrls:InputComboField>
+                                           IsMandatory="True"/>
 
                     <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_MODEL}"
                                            SelectedText="{Binding DataContext.Document.TachographModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            IsSynchronisedWithCurrentItem="True"
                                            ItemsSource="{Binding Models}"
                                            IsMandatory="True"
-                                           Grid.Column="2">
-                        <ctrls:InputComboField.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="DataContext.IsReadOnly"
-                                         RelativeSource="{RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}" />
-                                <Binding Path="DataContext.Document.TachographModel"
-                                         RelativeSource="{RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}" />
-                            </MultiBinding>
-                        </ctrls:InputComboField.IsEnabled>
-                    </ctrls:InputComboField>
+                                           Grid.Column="2"/>
 
                 </Grid>
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_ODOMETER_READING}"
                                       Text="{Binding Document.OdometerReading, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
-                                      Grid.Row="12">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.OdometerReading" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                                      Grid.Row="12"/>
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_SERIAL_NUMBER}"
                                       Text="{Binding Document.SerialNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       IsAutoPopulated="True"
                                       Grid.Row="12"
-                                      Grid.Column="2">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.SerialNumber" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                                      Grid.Column="2"/>
 
                 <StackPanel Grid.Row="13"
                             Orientation="Horizontal">
                     <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TAMPERED}"
                               IsChecked="{Binding Document.Tampered}"
-                              Margin="145,0,0,0">
-                        <CheckBox.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="IsReadOnly" />
-                                <Binding Path="Document.Tampered" />
-                            </MultiBinding>
-                        </CheckBox.IsEnabled>
-                    </CheckBox>
+                              Margin="145,0,0,0"/>
                     <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_NEW_BATTERY}"
                               IsChecked="{Binding Document.NewBattery}"
-                              Margin="30,0,0,0">
-                        <CheckBox.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                                <Binding Path="IsReadOnly" />
-                                <Binding Path="Document.NewBattery" />
-                            </MultiBinding>
-                        </CheckBox.IsEnabled>
-                    </CheckBox>
+                              Margin="30,0,0,0"/>
                 </StackPanel>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INSPECTION_INFO}"
@@ -380,27 +260,13 @@
                                        ItemsSource="{Binding Technicians}"
                                        DisplayMemberPath="Name"
                                        IsMandatory="True"
-                                       Grid.Row="15">
-                    <ctrls:InputComboField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.Technician" />
-                        </MultiBinding>
-                    </ctrls:InputComboField.IsEnabled>
-                </ctrls:InputComboField>
+                                       Grid.Row="15"/>
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INVOICE_NUMBER}"
                                       Text="{Binding Document.InvoiceNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
                                       Grid.Row="15"
-                                      Grid.Column="3">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource ReadOnlyMultiConverter}">
-                            <Binding Path="IsReadOnly" />
-                            <Binding Path="Document.InvoiceNumber" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                                      Grid.Column="3"/>
 
                 <StackPanel Orientation="Vertical"
                             Grid.Row="16">
@@ -428,27 +294,13 @@
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_PPRN_CONSTANT}"
                                       IsMandatory="False"
                                       Text="{core:InputBinding Document.TachographAdapterSerialNumber}"
-                                      Grid.Row="17">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource BoolMultiConverter}">
-                            <Binding Path="IsReadOnly"
-                                     Converter="{StaticResource InvBool}" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                                      Grid.Row="17"/>
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DRIVE_SHAFT}"
                                       IsMandatory="False"
                                       Text="{core:InputBinding Document.TachographAdapterLocation}"
                                       Grid.Row="17"
-                                      Grid.Column="3">
-                    <ctrls:InputTextField.IsEnabled>
-                        <MultiBinding Converter="{StaticResource BoolMultiConverter}">
-                            <Binding Path="IsReadOnly"
-                                     Converter="{StaticResource InvBool}" />
-                        </MultiBinding>
-                    </ctrls:InputTextField.IsEnabled>
-                </ctrls:InputTextField>
+                                      Grid.Column="3"/>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER_DATA}"
                            Style="{StaticResource SubHeaderFont}"

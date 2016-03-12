@@ -53,7 +53,6 @@
                                   IsMandatory="True"
                                   behav:LostFocusBehaviour.Command="{Binding RegistrationChangedCommand}"
                                   behav:LostFocusBehaviour.CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
-                                  IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                   IsLoading="{Binding IsSearchingConnect}"
                                   Grid.Row="1" />
 
@@ -74,7 +73,6 @@
                                        ItemsSource="{Binding}"
                                        SelectedText="{core:InputBinding DataContext.Document.TachographMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                        IsSynchronisedWithCurrentItem="True"
-                                       IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                        IsMandatory="True"
                                        IsEditable="True" />
 
@@ -83,7 +81,6 @@
                                        SelectedText="{core:InputBinding DataContext.Document.TachographModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                        IsSynchronisedWithCurrentItem="True"
                                        Grid.Column="2"
-                                       IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                        IsMandatory="True"
                                        IsEditable="True" />
 
@@ -91,7 +88,6 @@
 
             <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_SERIAL_NUMBER}"
                                   Text="{core:InputBinding Document.SerialNumber}"
-                                  IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                   IsMandatory="True"
                                   Grid.Row="4" />
 
@@ -101,7 +97,6 @@
 
             <ctrls:InputDatePickerField Label="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_INSPECTION_DATE}"
                                         SelectedDate="{Binding Document.InspectionDate}"
-                                        IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                         IsMandatory="True"
                                         Grid.Row="6" />
 
@@ -109,7 +104,6 @@
                                    SelectedText="{core:InputBinding Document.Technician}"
                                    DisplayMemberPath="Name"
                                    ItemsSource="{Binding Technicians}"
-                                   IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                    IsMandatory="True"
                                    Grid.Row="7" />
 
@@ -122,12 +116,10 @@
                                    SelectedItem="{core:InputBinding SelectedCustomerContact}"
                                    IsEditable="False"
                                    DisplayMemberPath="Name"
-                                   IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                    Grid.Row="9" />
 
             <Button Style="{StaticResource NewCustomerButton}"
                     Command="{Binding NewCustomerCommand}"
-                    IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                     Grid.Row="9"
                     Grid.Column="2" />
 

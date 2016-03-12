@@ -41,6 +41,12 @@
             ConnectHelper.Upload(Document);
         }
 
+        protected override void Update()
+        {
+            Repository.AddOrUpdate(Document);
+            ConnectHelper.Upload(Document, true);
+        }
+
         protected override BaseReport GetReport()
         {
             return Document;

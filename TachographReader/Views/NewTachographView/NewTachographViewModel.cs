@@ -116,6 +116,12 @@
             ConnectHelper.Upload(Document);
         }
 
+        protected override void Update()
+        {
+            TachographDocumentRepository.AddOrUpdate(Document);
+            ConnectHelper.Upload(Document, true);
+        }
+
         protected override void RegistrationChanged(string registrationNumber)
         {
             if (string.IsNullOrEmpty(registrationNumber))

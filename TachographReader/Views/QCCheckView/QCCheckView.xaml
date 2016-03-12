@@ -68,7 +68,6 @@
 
                     <ctrls:InputComboField IsMandatory="True"
                                            IsEditable="False"
-                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                            ItemsSource="{Binding Document.ReportTypes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            SelectedItem="{Binding Document.TypeOfTachographCheck, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_REPORT_TYPE}"
@@ -99,8 +98,7 @@
                                            LabelWidth="200"
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TAHCO_MANAGER_NAME}"
                                            ItemsSource="{Binding Technicians}"
-                                           SelectedText="{Binding Document.TachoManagerName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
+                                           SelectedText="{Binding Document.TachoManagerName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
 
                     <ctrls:InputComboField IsMandatory="True"
                                            IsLabelCustomWidth="True"
@@ -108,8 +106,7 @@
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_QC_MANAGER_NAME}"
                                            Grid.Column="2"
                                            SelectedText="{Binding Document.QCManagerName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                           ItemsSource="{Binding Technicians}"
-                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
+                                           ItemsSource="{Binding Technicians}" />
 
                     <ctrls:InputComboField IsMandatory="True"
                                            IsLabelCustomWidth="True"
@@ -117,8 +114,7 @@
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TECHNICIAN_NAME}"
                                            Grid.Column="4"
                                            SelectedText="{Binding Document.TechnicianName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                           ItemsSource="{Binding Technicians}"
-                                           IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
+                                           ItemsSource="{Binding Technicians}" />
                 </Grid>
 
                 <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TACHOGRAPH_DATA}"
@@ -144,8 +140,7 @@
                                            IsLabelCustomWidth="True"
                                            LabelWidth="200"
                                            ItemsSource="{Binding}"
-                                           IsMandatory="True"
-                                           IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+                                           IsMandatory="True"/>
 
                     <ctrls:InputComboField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TACHO_MODEL}"
                                            SelectedText="{Binding DataContext.Document.TachographModel, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -154,16 +149,14 @@
                                            LabelWidth="200"
                                            ItemsSource="{Binding Models}"
                                            IsMandatory="True"
-                                           Grid.Column="2"
-                                           IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+                                           Grid.Column="2"/>
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TACHO_SERIAL_NUMBER}"
                                           Text="{Binding DataContext.Document.TachographSerialNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}"
                                           IsMandatory="True"
                                           Grid.Column="4"
                                           IsLabelCustomWidth="True"
-                                          LabelWidth="200"
-                                          IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}, AncestorLevel=1}}" />
+                                          LabelWidth="200"/>
                 </Grid>
 
                 <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_DATA}"
@@ -173,7 +166,6 @@
                 <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_REGISTRATION}"
                                       Text="{Binding Document.VehicleRegistrationNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsMandatory="True"
-                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsLabelCustomWidth="True"
                                       LabelWidth="200"
                                       Grid.Row="7" />
@@ -184,8 +176,7 @@
                                       LabelWidth="200"
                                       IsMandatory="True"
                                       Grid.Row="7"
-                                      Grid.Column="2"
-                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
+                                      Grid.Column="2"/>
 
                 <Grid Grid.Row="8"
                       Grid.ColumnSpan="3"
@@ -204,8 +195,7 @@
                                            IsLabelCustomWidth="True"
                                            LabelWidth="200"
                                            DisplayMemberPath="Name"
-                                           IsMandatory="True"
-                                           IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+                                           IsMandatory="True" />
 
                     <ctrls:InputComboField x:Name="VehicleModelCombo"
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_MODEL}"
@@ -215,8 +205,7 @@
                                            IsLabelCustomWidth="True"
                                            LabelWidth="200"
                                            IsMandatory="True"
-                                           Grid.Column="2"
-                                           IsEnabled="{Binding DataContext.IsReadOnly, Converter={StaticResource InvBool}, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}}" />
+                                           Grid.Column="2" />
                 </Grid>
 
                 <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QC_CHECK_CALIBRATION_INSPECTION}"
@@ -225,7 +214,6 @@
 
                 <CheckBox Content="{x:Static properties:Resources.TXT_NEW_QC_CHECK_3_BASIC_CHECKS_COMPLETED}"
                           IsChecked="{Binding Document.ThreeBasicChecksCompleted}"
-                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                           Grid.Row="10"
                           Margin="0,5,0,5" />
 
@@ -242,13 +230,11 @@
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_ESTABLISH_W_FACTOR}"
                                           Text="{Binding Document.WFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                           IsLabelCustomWidth="True"
                                           LabelWidth="200" />
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_ESTABLISH_L_FACTOR}"
                                           Text="{Binding Document.LFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                           IsLabelCustomWidth="True"
                                           LabelWidth="200"
                                           IsMandatory="True"
@@ -256,7 +242,6 @@
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_K_FACTOR_SETTING}"
                                           Text="{Binding Document.KFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                           IsLabelCustomWidth="True"
                                           LabelWidth="200"
                                           Grid.Column="4"
@@ -276,13 +261,11 @@
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_40_KM_TEST}"
                                           Text="{Binding Document.FortyKmTest, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                           IsLabelCustomWidth="True"
                                           LabelWidth="200" />
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_60_KM_TEST}"
                                           Text="{Binding Document.SixtyKmTest, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                           IsLabelCustomWidth="True"
                                           LabelWidth="200"
                                           Grid.Column="2" />
@@ -293,7 +276,6 @@
                                       IsMultiline="True"
                                       Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_COMMENTS}"
                                       Text="{Binding Document.Comments, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                                      IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                                       IsLabelCustomWidth="True"
                                       LabelWidth="200" />
 
@@ -402,7 +384,6 @@
 
                 <CheckBox Content="{x:Static properties:Resources.TXT_NEW_QC_CHECK_PASSED}"
                           IsChecked="{Binding Document.Passed}"
-                          IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}"
                           Grid.Row="15"
                           Margin="0,10,0,5" />
 
