@@ -798,9 +798,9 @@ namespace TachographReader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap QC3Month {
+        public static System.Drawing.Bitmap QC6Month {
             get {
-                object obj = ResourceManager.GetObject("QC3Month", resourceCulture);
+                object obj = ResourceManager.GetObject("QC6Month", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1715,7 +1715,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last 3 Month Check.
+        ///   Looks up a localized string similar to Last 6 Month Check.
         /// </summary>
         public static string TXT_DATE_OF_LAST_CHECK {
             get {
@@ -3245,11 +3245,11 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3 Month Walk Around.
+        ///   Looks up a localized string similar to 6 Month Walk Around.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_3_MONTH_WALKAROUND {
+        public static string TXT_MAIN_WINDOW_6_MONTH_WALKAROUND {
             get {
-                return ResourceManager.GetString("TXT_MAIN_WINDOW_3_MONTH_WALKAROUND", resourceCulture);
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_6_MONTH_WALKAROUND", resourceCulture);
             }
         }
         
@@ -3596,11 +3596,11 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows the 3 month walk around screen.
+        ///   Looks up a localized string similar to Shows the 6 month walk around screen.
         /// </summary>
-        public static string TXT_MAIN_WINDOW_SHOWS_3_MONTH_WALKAROUND {
+        public static string TXT_MAIN_WINDOW_SHOWS_6_MONTH_WALKAROUND {
             get {
-                return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_3_MONTH_WALKAROUND", resourceCulture);
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_6_MONTH_WALKAROUND", resourceCulture);
             }
         }
         
@@ -4622,11 +4622,11 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3 Month Walk Around.
+        ///   Looks up a localized string similar to 6 Month Walk Around.
         /// </summary>
-        public static string TXT_NEW_QC3MONTH_TITLE {
+        public static string TXT_NEW_QC6MONTH_TITLE {
             get {
-                return ResourceManager.GetString("TXT_NEW_QC3MONTH_TITLE", resourceCulture);
+                return ResourceManager.GetString("TXT_NEW_QC6MONTH_TITLE", resourceCulture);
             }
         }
         
@@ -5382,207 +5382,306 @@ namespace TachographReader.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Calibration documentation ATCM section 9 and 10.
         /// </summary>
-        public static string TXT_QC_3_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10 {
+        public static string TXT_QC_6_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10 {
             get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10", resourceCulture);
+                return ResourceManager.GetString("TXT_QC_6_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Centre Name..
+        /// </summary>
+        public static string TXT_QC_6_MONTH_CENTRE_NAME {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_CENTRE_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Centre 6 monthly QC check.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_CENTRE_QC_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_CENTRE_QC_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Centre seal number..
+        /// </summary>
+        public static string TXT_QC_6_MONTH_CENTRE_SEAL_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_CENTRE)SEAL_NUMBER", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Comments.
         /// </summary>
-        public static string TXT_QC_3_MONTH_COMMENTS {
+        public static string TXT_QC_6_MONTH_COMMENTS {
             get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_COMMENTS", resourceCulture);
+                return ResourceManager.GetString("TXT_QC_6_MONTH_COMMENTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The following document is to be completed and filed by the centre every 6 months to meet the requirements of Section 6 of the Approved Tachograph Centre Manual.  Any sections answered ‘no’ please state reason in comments box at end of document..
+        /// </summary>
+        public static string TXT_QC_6_MONTH_DECLARATION {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_DECLARATION", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Equipment ATCM section 5.
         /// </summary>
-        public static string TXT_QC_3_MONTH_EQUIPMENT_ATCM_SECTION_5 {
+        public static string TXT_QC_6_MONTH_EQUIPMENT_ATCM_SECTION_5 {
             get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_EQUIPMENT_ATCM_SECTION_5", resourceCulture);
+                return ResourceManager.GetString("TXT_QC_6_MONTH_EQUIPMENT_ATCM_SECTION_5", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Facilities ATCM Section 3.
         /// </summary>
-        public static string TXT_QC_3_MONTH_FACILITIES_ATCM_SECTION_3 {
+        public static string TXT_QC_6_MONTH_FACILITIES_ATCM_SECTION_3 {
             get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_FACILITIES_ATCM_SECTION_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are digital tachographs downloaded and decommissioned when required?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_10_QUESTION_1 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_10_QUESTION_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is download data then stored in accordance with section 10 ATCM?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_10_QUESTION_2 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_10_QUESTION_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are certificates of undownloadability completed and filed as required?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_10_QUESTION_3 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_10_QUESTION_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Does the linear track meet requirements of ATCM?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_3_QUESTION_1 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_3_QUESTION_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is the GV209 (Centre approval document) displayed in the centre.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_3_QUESTION_2 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_3_QUESTION_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do the security requirements meet the conditions of approval?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_4_QUESTION_1 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_4_QUESTION_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are all active seals and sealing devices correctly stored when not in use?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_4_QUESTION_2 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_4_QUESTION_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are keys and access to tachograph room correctly controlled?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_4_QUESTION_3 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_4_QUESTION_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is all equipment correctly calibrated in accordance with the ATCM?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_5_QUESTION_1 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_5_QUESTION_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are the current calibration certificates available should DVSA visit?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_5_QUESTION_2 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_5_QUESTION_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are all technicians training certificates in date?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_7_QUESTION_1 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_7_QUESTION_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is the GV213 notice correct and up to date?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_7_QUESTION_2 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_7_QUESTION_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are all calibration documents being completed correctly?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_9_10_QUESTION_1 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_9_10_QUESTION_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are all calibration documents being stored in accordance with ATCM?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_9_10_QUESTION_2 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_9_10_QUESTION_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are GV212 documents completed and printed as required in ATCM?.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECTION_9_10_QUESTION_3 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECTION_9_10_QUESTION_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Security ATCM section 4.
-        /// </summary>
-        public static string TXT_QC_3_MONTH_SECURITY_ATCM_SECTION_4 {
-            get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_SECURITY_ATCM_SECTION_4", resourceCulture);
+                return ResourceManager.GetString("TXT_QC_6_MONTH_FACILITIES_ATCM_SECTION_3", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Tachograph centre data management ATCM section 10.
         /// </summary>
-        public static string TXT_QC_3_MONTH_TACHO_CENTRE_ATCM_SECTION_10 {
+        public static string TXT_QC_6_MONTH_SECTION_10 {
             get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_TACHO_CENTRE_ATCM_SECTION_10", resourceCulture);
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_10", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Technician.
+        ///   Looks up a localized string similar to Are digital tachographs downloaded and decommissioned when required?.
         /// </summary>
-        public static string TXT_QC_3_MONTH_TECHNICIAN {
+        public static string TXT_QC_6_MONTH_SECTION_10_QUESTION_1 {
             get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_TECHNICIAN", resourceCulture);
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_10_QUESTION_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is download data then stored in accordance with section 10 ATCM?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_10_QUESTION_2 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_10_QUESTION_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are certificates of undownloadability completed and filed as required?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_10_QUESTION_3 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_10_QUESTION_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facilities ATCM Section 3.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_3 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Does the linear track meet requirements of ATCM?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_3_QUESTION_1 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_3_QUESTION_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is the GV209 (Centre approval document) displayed in the centre.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_3_QUESTION_2 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_3_QUESTION_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Security ATCM section 4.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_4 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do the security requirements meet the conditions of approval?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_4_QUESTION_1 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_4_QUESTION_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are all active seals and sealing devices correctly stored when not in use?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_4_QUESTION_2 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_4_QUESTION_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are keys and access to tachograph room correctly controlled?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_4_QUESTION_3 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_4_QUESTION_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equipment ATCM section 5.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_5 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is all equipment correctly calibrated in accordance with the ATCM?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_5_QUESTION_1 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_5_QUESTION_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are the current calibration certificates available should DVSA visit?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_5_QUESTION_2 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_5_QUESTION_2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Technician training certificates ATCM section 7.
         /// </summary>
-        public static string TXT_QC_3_MONTH_TECHNICIAN_TRAINING_SECTION_7 {
+        public static string TXT_QC_6_MONTH_SECTION_7 {
             get {
-                return ResourceManager.GetString("TXT_QC_3_MONTH_TECHNICIAN_TRAINING_SECTION_7", resourceCulture);
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are all technicians training certificates in date?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_7_QUESTION_1 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_7_QUESTION_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is the GV213 notice correct and up to date?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_7_QUESTION_2 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_7_QUESTION_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calibration documentation ATCM section 9 &amp; 10.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_9 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are all calibration documents being completed correctly?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_9_10_QUESTION_1 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_9_10_QUESTION_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are all calibration documents being stored in accordance with ATCM?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_9_10_QUESTION_2 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_9_10_QUESTION_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are GV212 documents completed and printed as required in ATCM?.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECTION_9_10_QUESTION_3 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECTION_9_10_QUESTION_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Security ATCM section 4.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_SECURITY_ATCM_SECTION_4 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_SECURITY_ATCM_SECTION_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Any answers, answered &apos;No&apos; please state reasons in box below;.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_STATE_REASONS {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_STATE_REASONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tachograph centre data management ATCM section 10.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_TACHO_CENTRE_ATCM_SECTION_10 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_TACHO_CENTRE_ATCM_SECTION_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_TECHNICIAN {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_TECHNICIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician training certificates ATCM section 7.
+        /// </summary>
+        public static string TXT_QC_6_MONTH_TECHNICIAN_TRAINING_SECTION_7 {
+            get {
+                return ResourceManager.GetString("TXT_QC_6_MONTH_TECHNICIAN_TRAINING_SECTION_7", resourceCulture);
             }
         }
         
@@ -7251,7 +7350,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last 3 Month Check.
+        ///   Looks up a localized string similar to Last 6 Month Check.
         /// </summary>
         public static string TXT_TECHNICIANS_DATE_OF_LAST_CHECK {
             get {

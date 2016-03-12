@@ -55,7 +55,7 @@
                 container.RegisterType<IRepository<User>, Repository<User>>();
                 container.RegisterType<IRepository<WorkerTask>, Repository<WorkerTask>>();
                 container.RegisterType<IRepository<QCReport>, Repository<QCReport>>();
-                container.RegisterType<IRepository<QCReport3Month>, Repository<QCReport3Month>>();
+                container.RegisterType<IRepository<QCReport6Month>, Repository<QCReport6Month>>();
 
                 container.RegisterType<ISettingsRepository<WorkshopSettings>,WorkshopSettingsRepository>();
                 container.RegisterType<ISettingsRepository<PrinterSettings>,SettingsRepository<PrinterSettings>>();

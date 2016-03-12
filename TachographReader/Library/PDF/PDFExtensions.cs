@@ -44,10 +44,10 @@
                         QCCheckReport.Create(pdfDocument, qcReportViewModel);
                     }
 
-                    var qcReport3Month = report as QCReport3Month;
-                    if (qcReport3Month != null)
+                    var qcReport6Month = report as QCReport6Month;
+                    if (qcReport6Month != null)
                     {
-                        QC3MonthReport.Create(pdfDocument, qcReport3Month);
+                        QC6MonthReport.Create(pdfDocument, qcReport6Month);
                     }
                 }
 

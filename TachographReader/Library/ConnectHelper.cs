@@ -66,7 +66,7 @@
             var undownloadabilityDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<UndownloadabilityDocument>>();
             var letterForDecommissioningRepository = ContainerBootstrapper.Resolve<IRepository<LetterForDecommissioningDocument>>();
             var qcReportRepository = ContainerBootstrapper.Resolve<IRepository<QCReport>>();
-            var qcReport3MonthRepository = ContainerBootstrapper.Resolve<IRepository<QCReport3Month>>();
+            var qcReport6MonthRepository = ContainerBootstrapper.Resolve<IRepository<QCReport6Month>>();
 
             CallAsync(() =>
             {
@@ -90,10 +90,10 @@
                     _connectClient.Service.AutoUploadQCReport(qcReport);
                     SaveReportUpload(qcReport);
                 }
-                foreach (var qcReport3Month in qcReport3MonthRepository.Where(c => c.Uploaded == null))
+                foreach (var qcReport6Month in qcReport6MonthRepository.Where(c => c.Uploaded == null))
                 {
-                    _connectClient.Service.AutoUploadQCReport3Month(qcReport3Month);
-                    SaveReportUpload(qcReport3Month);
+                    _connectClient.Service.AutoUploadQCReport6Month(qcReport6Month);
+                    SaveReportUpload(qcReport6Month);
                 }
             });
         }
@@ -134,11 +134,11 @@
             });
         }
 
-        public static void Upload(QCReport3Month report)
+        public static void Upload(QCReport6Month report)
         {
             CallAsync(() =>
             {
-                _connectClient.Service.UploadQCReport3Month(report);
+                _connectClient.Service.UploadQCReport6Month(report);
                 SaveReportUpload(report);
             });
         }

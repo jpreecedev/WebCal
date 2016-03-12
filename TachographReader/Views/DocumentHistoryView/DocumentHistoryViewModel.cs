@@ -3,9 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.ComponentModel;
     using System.Linq;
-    using System.Windows;
     using Windows.DateRangePickerWindow;
     using Connect.Shared.Models;
     using Core;
@@ -55,7 +53,7 @@
                 typeof (UndownloadabilityDocument).Name.SplitByCapitals(),
                 typeof (LetterForDecommissioningDocument).Name.SplitByCapitals(),
                 typeof (QCReport).Name.SplitByCapitals(),
-                typeof (QCReport3Month).Name.SplitByCapitals()
+                typeof (QCReport6Month).Name.SplitByCapitals()
             };
 
             SearchFilters = new List<string>

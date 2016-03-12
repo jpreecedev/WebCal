@@ -52,7 +52,7 @@
         public DelegateCommand<object> LetterForDecommissioningHistoryCommand { get; set; }
         public DelegateCommand<object> QCCheckHistoryCommand { get; set; }
         public DelegateCommand<object> QCCheckCommand { get; set; }
-        public DelegateCommand<object> QC3MonthCheckCommand { get; set; }
+        public DelegateCommand<object> QC6MonthCheckCommand { get; set; }
 
         public DispatcherTimer TimeoutTimer { get; set; }
         public bool IsLocked { get; set; }
@@ -182,9 +182,9 @@
             ShowView<QCCheckView>();
         }
 
-        private void OnQC3MonthCheck(object obj)
+        private void OnQC6MonthCheck(object obj)
         {
-            ShowView<QC3MonthCheckView>();
+            ShowView<QC6MonthCheckView>();
         }
 
         private static void OnShowWindow(object obj)
@@ -314,7 +314,7 @@
             LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
             QCCheckHistoryCommand = new DelegateCommand<object>(OnQCCheckHistory);
             QCCheckCommand = new DelegateCommand<object>(OnQCCheck);
-            QC3MonthCheckCommand = new DelegateCommand<object>(OnQC3MonthCheck);
+            QC6MonthCheckCommand = new DelegateCommand<object>(OnQC6MonthCheck);
         }
 
         protected override void Load()

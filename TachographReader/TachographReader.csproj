@@ -331,7 +331,7 @@
     <Compile Include="Library\PDF\FullPlaqueDocument.cs" />
     <Compile Include="Library\PDF\MinimalPlaqueDocument.cs" />
     <Compile Include="Library\PDF\PDFDocument.cs" />
-    <Compile Include="Library\PDF\QC3MonthReport.cs" />
+    <Compile Include="Library\PDF\QC6MonthReport.cs" />
     <Compile Include="Library\PDF\QCCheckReport.cs" />
     <Compile Include="Library\PDF\StatusReport.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
@@ -365,10 +365,10 @@
     <Compile Include="Views\NewTachographView\NewAnalogueTachographView.xaml.cs">
       <DependentUpon>NewAnalogueTachographView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QC3MonthCheckView\QC3MonthCheckView.xaml.cs">
-      <DependentUpon>QC3MonthCheckView.xaml</DependentUpon>
+    <Compile Include="Views\QC6MonthCheckView\QC6MonthCheckView.xaml.cs">
+      <DependentUpon>QC6MonthCheckView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QC3MonthCheckView\QC3MonthCheckViewModel.cs" />
+    <Compile Include="Views\QC6MonthCheckView\QC3MonthCheckViewModel.cs" />
     <Compile Include="Views\QCCheckView\QCCheckView.xaml.cs">
       <DependentUpon>QCCheckView.xaml</DependentUpon>
     </Compile>
@@ -521,7 +521,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\QC3MonthCheckView\QC3MonthCheckView.xaml">
+    <Page Include="Views\QC6MonthCheckView\QC6MonthCheckView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

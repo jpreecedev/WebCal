@@ -34,10 +34,10 @@
                 FromQCReport(qcReport);
             }
 
-            var month = report as QCReport3Month;
+            var month = report as QCReport6Month;
             if (month != null)
             {
-                FromQCReport3Month(month);
+                FromQCReport6Month(month);
             }
 
             Report = report;
@@ -106,7 +106,7 @@
             TechnicianName = report.TechnicianName;
         }
 
-        private void FromQCReport3Month(QCReport3Month report)
+        private void FromQCReport6Month(QCReport6Month report)
         {
             Type = report.GetType().Name.SplitByCapitals();
             Created = report.Created;

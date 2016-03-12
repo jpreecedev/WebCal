@@ -2536,7 +2536,7 @@ date
   <data name="QCCheck" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clipboard-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="QC3Month" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="QC6Month" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TXT_MAIN_WINDOW_QC_WALKAROUND" xml:space="preserve">
@@ -2545,14 +2545,14 @@ date
   <data name="TXT_MAIN_WINDOW_SHOWS_QC_WALKAROUND" xml:space="preserve">
     <value>Shows the QC Check screen</value>
   </data>
-  <data name="TXT_MAIN_WINDOW_3_MONTH_WALKAROUND" xml:space="preserve">
-    <value>3 Month Walk Around</value>
+  <data name="TXT_MAIN_WINDOW_6_MONTH_WALKAROUND" xml:space="preserve">
+    <value>6 Month Walk Around</value>
   </data>
-  <data name="TXT_MAIN_WINDOW_SHOWS_3_MONTH_WALKAROUND" xml:space="preserve">
-    <value>Shows the 3 month walk around screen</value>
+  <data name="TXT_MAIN_WINDOW_SHOWS_6_MONTH_WALKAROUND" xml:space="preserve">
+    <value>Shows the 6 month walk around screen</value>
   </data>
-  <data name="TXT_NEW_QC3MONTH_TITLE" xml:space="preserve">
-    <value>3 Month Walk Around</value>
+  <data name="TXT_NEW_QC6MONTH_TITLE" xml:space="preserve">
+    <value>6 Month Walk Around</value>
   </data>
   <data name="TXT_NEW_QCCHECK_TITLE" xml:space="preserve">
     <value>QC Check</value>
@@ -2821,76 +2821,76 @@ date
   <data name="QCCheckHistoryIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QCCheckHistoryIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_3_QUESTION_1" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_3_QUESTION_1" xml:space="preserve">
     <value>Does the linear track meet requirements of ATCM?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_3_QUESTION_2" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_3_QUESTION_2" xml:space="preserve">
     <value>Is the GV209 (Centre approval document) displayed in the centre</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_4_QUESTION_1" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_4_QUESTION_1" xml:space="preserve">
     <value>Do the security requirements meet the conditions of approval?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_4_QUESTION_2" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_4_QUESTION_2" xml:space="preserve">
     <value>Are all active seals and sealing devices correctly stored when not in use?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_4_QUESTION_3" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_4_QUESTION_3" xml:space="preserve">
     <value>Are keys and access to tachograph room correctly controlled?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_5_QUESTION_1" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_5_QUESTION_1" xml:space="preserve">
     <value>Is all equipment correctly calibrated in accordance with the ATCM?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_5_QUESTION_2" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_5_QUESTION_2" xml:space="preserve">
     <value>Are the current calibration certificates available should DVSA visit?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_7_QUESTION_1" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_7_QUESTION_1" xml:space="preserve">
     <value>Are all technicians training certificates in date?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_7_QUESTION_2" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_7_QUESTION_2" xml:space="preserve">
     <value>Is the GV213 notice correct and up to date?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_9_10_QUESTION_1" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_9_10_QUESTION_1" xml:space="preserve">
     <value>Are all calibration documents being completed correctly?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_9_10_QUESTION_2" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_9_10_QUESTION_2" xml:space="preserve">
     <value>Are all calibration documents being stored in accordance with ATCM?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_9_10_QUESTION_3" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_9_10_QUESTION_3" xml:space="preserve">
     <value>Are GV212 documents completed and printed as required in ATCM?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_10_QUESTION_1" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_10_QUESTION_1" xml:space="preserve">
     <value>Are digital tachographs downloaded and decommissioned when required?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_10_QUESTION_2" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_10_QUESTION_2" xml:space="preserve">
     <value>Is download data then stored in accordance with section 10 ATCM?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECTION_10_QUESTION_3" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECTION_10_QUESTION_3" xml:space="preserve">
     <value>Are certificates of undownloadability completed and filed as required?</value>
   </data>
-  <data name="TXT_QC_3_MONTH_FACILITIES_ATCM_SECTION_3" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_FACILITIES_ATCM_SECTION_3" xml:space="preserve">
     <value>Facilities ATCM Section 3</value>
   </data>
-  <data name="TXT_QC_3_MONTH_SECURITY_ATCM_SECTION_4" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_SECURITY_ATCM_SECTION_4" xml:space="preserve">
     <value>Security ATCM section 4</value>
   </data>
-  <data name="TXT_QC_3_MONTH_EQUIPMENT_ATCM_SECTION_5" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_EQUIPMENT_ATCM_SECTION_5" xml:space="preserve">
     <value>Equipment ATCM section 5</value>
   </data>
-  <data name="TXT_QC_3_MONTH_TECHNICIAN_TRAINING_SECTION_7" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_TECHNICIAN_TRAINING_SECTION_7" xml:space="preserve">
     <value>Technician training certificates ATCM section 7</value>
   </data>
-  <data name="TXT_QC_3_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10" xml:space="preserve">
     <value>Calibration documentation ATCM section 9 and 10</value>
   </data>
-  <data name="TXT_QC_3_MONTH_TACHO_CENTRE_ATCM_SECTION_10" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_TACHO_CENTRE_ATCM_SECTION_10" xml:space="preserve">
     <value>Tachograph centre data management ATCM section 10</value>
   </data>
   <data name="TXT_NEW_QC_CHECK_COMMENTS" xml:space="preserve">
     <value>Comments</value>
   </data>
-  <data name="TXT_QC_3_MONTH_COMMENTS" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_COMMENTS" xml:space="preserve">
     <value>Comments</value>
   </data>
-  <data name="TXT_QC_3_MONTH_TECHNICIAN" xml:space="preserve">
+  <data name="TXT_QC_6_MONTH_TECHNICIAN" xml:space="preserve">
     <value>Technician</value>
   </data>
   <data name="TXT_DOCUMENT_HISTORY_TITLE" xml:space="preserve">
@@ -2918,10 +2918,10 @@ date
     <value>Other</value>
   </data>
   <data name="TXT_TECHNICIANS_DATE_OF_LAST_CHECK" xml:space="preserve">
-    <value>Last 3 Month Check</value>
+    <value>Last 6 Month Check</value>
   </data>
   <data name="TXT_DATE_OF_LAST_CHECK" xml:space="preserve">
-    <value>Last 3 Month Check</value>
+    <value>Last 6 Month Check</value>
   </data>
   <data name="TXT_TECHNICIANS_GENERATE_REPORT" xml:space="preserve">
     <value>Generate Status Report</value>
@@ -2988,5 +2988,38 @@ date
   </data>
   <data name="TXT_PRINTER_SETTINGS_SHOW_COMPANY_NAME" xml:space="preserve">
     <value>Show company name on labels?</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_CENTRE_QC_CHECK" xml:space="preserve">
+    <value>Centre 6 monthly QC check</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_CENTRE_NAME" xml:space="preserve">
+    <value>Centre Name.</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_CENTRE)SEAL_NUMBER" xml:space="preserve">
+    <value>Centre seal number.</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_DECLARATION" xml:space="preserve">
+    <value>The following document is to be completed and filed by the centre every 6 months to meet the requirements of Section 6 of the Approved Tachograph Centre Manual.  Any sections answered ‘no’ please state reason in comments box at end of document.</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_SECTION_3" xml:space="preserve">
+    <value>Facilities ATCM Section 3</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_SECTION_4" xml:space="preserve">
+    <value>Security ATCM section 4</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_SECTION_5" xml:space="preserve">
+    <value>Equipment ATCM section 5</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_SECTION_7" xml:space="preserve">
+    <value>Technician training certificates ATCM section 7</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_SECTION_9" xml:space="preserve">
+    <value>Calibration documentation ATCM section 9 &amp; 10</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_SECTION_10" xml:space="preserve">
+    <value>Tachograph centre data management ATCM section 10</value>
+  </data>
+  <data name="TXT_QC_6_MONTH_STATE_REASONS" xml:space="preserve">
+    <value>Any answers, answered 'No' please state reasons in box below;</value>
   </data>
 </root>

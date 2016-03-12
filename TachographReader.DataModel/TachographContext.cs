@@ -1,6 +1,5 @@
 ﻿namespace TachographReader.DataModel
 {
-    using System;
     using System.Data.Entity;
     using Connect.Shared.Models;
     using Shared.Models;
@@ -37,6 +36,6 @@
         public DbSet<MiscellaneousSettings> MiscellaneousSettings { get; set; }
         public DbSet<WorkerTask> WorkerTasks { get; set; }
         public DbSet<QCReport> QCReports { get; set; }
-        public DbSet<QCReport3Month> QCReport3Months { get; set; }
+        public DbSet<QCReport6Month> QCReport6Months { get; set; }
     }
 }

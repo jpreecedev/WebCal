@@ -2,9 +2,9 @@
 
 namespace TachographReader.Views
 {
-    public partial class QC3MonthCheckView : UserControl
+    public partial class QC6MonthCheckView : UserControl
     {
-        public QC3MonthCheckView()
+        public QC6MonthCheckView()
         {
             InitializeComponent();
         }

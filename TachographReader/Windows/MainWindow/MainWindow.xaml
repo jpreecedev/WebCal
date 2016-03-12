@@ -192,14 +192,14 @@
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_QC_WALKAROUND}" />
                         </r:Button.ToolTip>
                     </r:Button>
-                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_3_MONTH_WALKAROUND}"
-                              Icon="{core:LocalizedImageBinding ConverterParameter={}QC3Month}"
-                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}QC3Month}"
-                              Command="{Binding QC3MonthCheckCommand}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_6_MONTH_WALKAROUND}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}QC6Month}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}QC6Month}"
+                              Command="{Binding QC6MonthCheckCommand}">
                         <r:Button.ToolTip>
-                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_3_MONTH_WALKAROUND}"
-                                         Image="{core:LocalizedImageBinding ConverterParameter={}QC3Month}"
-                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_3_MONTH_WALKAROUND}" />
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_6_MONTH_WALKAROUND}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}QC6Month}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_6_MONTH_WALKAROUND}" />
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>

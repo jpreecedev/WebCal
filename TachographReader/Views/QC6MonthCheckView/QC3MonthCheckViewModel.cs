@@ -8,14 +8,14 @@
     using Library;
     using Shared;
 
-    public class QC3MonthCheckViewModel : BaseNewDocumentViewModel<QCReport3Month>
+    public class QC6MonthCheckViewModel : BaseNewDocumentViewModel<QCReport6Month>
     {
-        public QC3MonthCheckViewModel()
+        public QC6MonthCheckViewModel()
         {
-            Document = new QCReport3Month {Date = DateTime.Now};
+            Document = new QCReport6Month {Date = DateTime.Now};
         }
 
-        public IRepository<QCReport3Month> Repository { get; set; }
+        public IRepository<QCReport6Month> Repository { get; set; }
 
         public IRepository<Technician> TechniciansRepository { get; set; }
 
@@ -25,7 +25,7 @@
         {
             base.InitialiseRepositories();
 
-            Repository = GetInstance<IRepository<QCReport3Month>>();
+            Repository = GetInstance<IRepository<QCReport6Month>>();
             TechniciansRepository = GetInstance<IRepository<Technician>>();
         }
 

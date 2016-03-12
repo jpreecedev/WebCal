@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TachographReader.Views.QC3MonthCheckView"
+﻿<UserControl x:Class="TachographReader.Views.QC6MonthCheckView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -11,7 +11,7 @@
              d:DesignWidth="1000"
              d:DesignHeight="1000">
     <UserControl.DataContext>
-        <vm:QC3MonthCheckViewModel />
+        <vm:QC6MonthCheckViewModel />
     </UserControl.DataContext>
 
     <Grid Style="{StaticResource MainGrid}">
@@ -20,7 +20,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QC3MONTH_TITLE}"
+        <TextBlock Text="{x:Static properties:Resources.TXT_NEW_QC6MONTH_TITLE}"
                    Style="{StaticResource TitleFont}" />
 
         <ScrollViewer Grid.Row="1"
@@ -71,7 +71,7 @@
                         <ColumnDefinition Width="30" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_FACILITIES_ATCM_SECTION_3}"
+                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_6_MONTH_FACILITIES_ATCM_SECTION_3}"
                                Style="{StaticResource SubHeaderFont}"
                                Margin="0,10,0,0" />
 
@@ -84,7 +84,7 @@
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="1"
                                                         Value="{core:InputBinding Document.Section3Question1}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_3_QUESTION_1}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_3_QUESTION_1}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group1"
                                                         IsMandatory="True"
@@ -93,20 +93,20 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="1"
                                                         Grid.Column="2"
                                                         Value="{core:InputBinding Document.Section3Question2}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_3_QUESTION_2}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_3_QUESTION_2}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group2"
                                                         IsMandatory="True"
                                                         IsNotApplicableDisplayed="False" />
 
-                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_SECURITY_ATCM_SECTION_4}"
+                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_6_MONTH_SECURITY_ATCM_SECTION_4}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="2"
                                Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="3"
                                                         Value="{core:InputBinding Document.Section4Question1}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_4_QUESTION_1}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_4_QUESTION_1}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group3"
                                                         IsMandatory="True"
@@ -115,7 +115,7 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="3"
                                                         Grid.Column="2"
                                                         Value="{core:InputBinding Document.Section4Question2}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_4_QUESTION_2}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_4_QUESTION_2}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group4"
                                                         IsMandatory="True"
@@ -124,20 +124,20 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="3"
                                                         Grid.Column="4"
                                                         Value="{core:InputBinding Document.Section4Question3}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_4_QUESTION_3}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_4_QUESTION_3}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group5"
                                                         IsMandatory="True"
                                                         IsNotApplicableDisplayed="False" />
 
-                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_EQUIPMENT_ATCM_SECTION_5}"
+                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_6_MONTH_EQUIPMENT_ATCM_SECTION_5}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="4"
                                Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="5"
                                                         Value="{core:InputBinding Document.Section5Question1}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_5_QUESTION_1}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_5_QUESTION_1}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group6"
                                                         IsMandatory="True"
@@ -146,20 +146,20 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="5"
                                                         Grid.Column="2"
                                                         Value="{core:InputBinding Document.Section5Question2}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_5_QUESTION_2}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_5_QUESTION_2}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group7"
                                                         IsMandatory="True"
                                                         IsNotApplicableDisplayed="False" />
 
-                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_TECHNICIAN_TRAINING_SECTION_7}"
+                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_6_MONTH_TECHNICIAN_TRAINING_SECTION_7}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="6"
                                Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="7"
                                                         Value="{core:InputBinding Document.Section7Question1}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_7_QUESTION_1}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_7_QUESTION_1}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group8"
                                                         IsMandatory="True"
@@ -168,20 +168,20 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="7"
                                                         Grid.Column="2"
                                                         Value="{core:InputBinding Document.Section7Question2}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_7_QUESTION_2}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_7_QUESTION_2}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group9"
                                                         IsMandatory="True"
                                                         IsNotApplicableDisplayed="False" />
 
-                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10}"
+                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_6_MONTH_CALIBRATION_DOCUMENTATION_SECTION_9_10}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="8"
                                Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="9"
                                                         Value="{core:InputBinding Document.CalibrationSection9And10Question1}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_9_10_QUESTION_1}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_9_10_QUESTION_1}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group10"
                                                         IsMandatory="True"
@@ -190,7 +190,7 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="9"
                                                         Grid.Column="2"
                                                         Value="{core:InputBinding Document.CalibrationSection9And10Question2}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_9_10_QUESTION_2}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_9_10_QUESTION_2}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group11"
                                                         IsMandatory="True"
@@ -199,20 +199,20 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="9"
                                                         Grid.Column="4"
                                                         Value="{core:InputBinding Document.CalibrationSection9And10Question3}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_9_10_QUESTION_3}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_9_10_QUESTION_3}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group12"
                                                         IsMandatory="True"
                                                         IsNotApplicableDisplayed="False" />
 
-                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_3_MONTH_TACHO_CENTRE_ATCM_SECTION_10}"
+                    <TextBlock Text="{x:Static properties:Resources.TXT_QC_6_MONTH_TACHO_CENTRE_ATCM_SECTION_10}"
                                Style="{StaticResource SubHeaderFont}"
                                Grid.Row="10"
                                Margin="0,10,0,0" />
 
                     <ctrls:InputYesNoNotApplicableField Grid.Row="11"
                                                         Value="{core:InputBinding Document.DataManagementSection10Question1}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_10_QUESTION_1}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_10_QUESTION_1}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group13"
                                                         IsMandatory="True"
@@ -221,7 +221,7 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="11"
                                                         Grid.Column="2"
                                                         Value="{core:InputBinding Document.DataManagementSection10Question2}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_10_QUESTION_2}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_10_QUESTION_2}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group14"
                                                         IsMandatory="True"
@@ -230,7 +230,7 @@
                     <ctrls:InputYesNoNotApplicableField Grid.Row="11"
                                                         Grid.Column="4"
                                                         Value="{core:InputBinding Document.DataManagementSection10Question3}"
-                                                        Label="{x:Static properties:Resources.TXT_QC_3_MONTH_SECTION_10_QUESTION_3}"
+                                                        Label="{x:Static properties:Resources.TXT_QC_6_MONTH_SECTION_10_QUESTION_3}"
                                                         IsHistoryMode="{core:InputBinding IsHistoryMode}"
                                                         GroupName="Group15"
                                                         IsMandatory="True"
@@ -240,13 +240,13 @@
                 <ctrls:InputTextField Grid.Row="3"
                                       IsMultiline="True"
                                       IsMandatory="True"
-                                      Label="{x:Static properties:Resources.TXT_QC_3_MONTH_COMMENTS}"
+                                      Label="{x:Static properties:Resources.TXT_QC_6_MONTH_COMMENTS}"
                                       Text="{Binding Document.FurtherDetails, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                       IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
 
                 <ctrls:InputComboField Grid.Row="4"
                                        IsMandatory="True"
-                                       Label="{x:Static properties:Resources.TXT_QC_3_MONTH_TECHNICIAN}"
+                                       Label="{x:Static properties:Resources.TXT_QC_6_MONTH_TECHNICIAN}"
                                        ItemsSource="{Binding Technicians}"
                                        SelectedText="{Binding Document.Name, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                        IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvBool}}" />
