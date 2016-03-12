@@ -48,7 +48,6 @@
         public DelegateCommand<object> RemoveCommand { get; set; }
         public DelegateCommand<object> SaveCommand { get; set; }
         public DelegateCommand<object> CancelCommand { get; set; }
-        public DelegateCommand<string> CustomerContactNameChangedCommand { get; set; }
         public DelegateCommand<CustomerContact> AutoCompleteSelectionChangedCommand { get; set; }
  
         protected override void InitialiseCommands()
@@ -56,7 +55,6 @@
             RemoveCommand = new DelegateCommand<object>(OnRemove, CanRemove);
             SaveCommand = new DelegateCommand<object>(OnSave);
             CancelCommand = new DelegateCommand<object>(OnCancel);
-            CustomerContactNameChangedCommand = new DelegateCommand<string>(OnCustomerContactNameChanged);
             AutoCompleteSelectionChangedCommand = new DelegateCommand<CustomerContact>(OnAutoCompleteSelectionChanged);
         }
 
@@ -128,44 +126,6 @@
             }
 
             SelectedCustomerContact = customerContact;
-        }
-
-        private void OnCustomerContactNameChanged(string name)
-        {
-            NewCustomerContact.Name = name;
-
-            if (string.IsNullOrEmpty(name) || name.Length < 3 || name.Trim().Length < 3)
-            {
-                _hasSearchedConnect = false;
-                return;
-            }
-
-            if (_hasSearchedConnect)
-            {
-                return;
-            }
-
-            _hasSearchedConnect = true;
-            IsSearchingConnect = true;
-
-            GetInstance<IConnectClient>().CallAsync(ConnectHelper.GetConnectKeys(), client =>
-            {
-                return client.Service.FindExistingCustomerContact(name);
-            },
-            result =>
-            {
-                AutoCompleteCustomerContacts.Clear();
-
-                if (result.IsSuccess && result.Data is CustomerContact[])
-                {
-                    var customerContacts = (CustomerContact[])result.Data;
-                    AutoCompleteCustomerContacts.AddRange(customerContacts);
-                }
-            },
-            alwaysCall: () =>
-            {
-                IsSearchingConnect = false;
-            });
         }
 
         private void OnCancel(object obj)

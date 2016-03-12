@@ -57,8 +57,6 @@
                 <ctrls:InputAutoCompleteField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME}"
                                               ItemsSource="{Binding AutoCompleteCustomerContacts}"
                                               ItemTemplate="{StaticResource AutoCompleteBoxItemTemplate}"
-                                              IsLoading="{Binding IsSearchingConnect}"
-                                              TextChangedCommand="{Binding CustomerContactNameChangedCommand}"
                                               SelectionChangedCommand="{Binding AutoCompleteSelectionChangedCommand}"/>
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_EMAIL}"
