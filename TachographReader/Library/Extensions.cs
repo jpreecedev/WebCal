@@ -240,6 +240,7 @@
             IEnumerable<BaseReport> result = new List<BaseReport>();
 
             result = result.Concat(GetDocuments<QCReport>(context));
+            result = result.Concat(GetDocuments<QCReport6Month>(context));
 
             return result.OrderByDescending(c => c.Created.Date);
         }
