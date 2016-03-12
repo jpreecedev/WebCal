@@ -1,7 +1,5 @@
 ﻿namespace TachographReader.Shared.Workers.PrintWorker
 {
-    using Shared.Workers;
-
     public class PrintParameters : WorkerParameters
     {
         public PrintParameters(IWorkerParameters parameters)
@@ -32,6 +30,16 @@
         public int LabelNumberOfCopies
         {
             get { return GetParameter<int>("LabelNumberOfCopies"); }
+        }
+
+        public bool AutoClosePDFProgram
+        {
+            get { return GetParameter<bool>("AutoClosePDFProgram"); }
+        }
+
+        public int Timeout
+        {
+            get { return GetParameter<int>("Timeout"); }
         }
     }
 }

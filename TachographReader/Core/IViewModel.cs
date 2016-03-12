@@ -10,5 +10,6 @@
         MainWindowViewModel MainWindow { get; set; }
         Action<bool, object> DoneCallback { get; set; }
         void OnClosing(bool cancelled);
+        Action<IViewModel> Loaded { get; set; }
     }
 }

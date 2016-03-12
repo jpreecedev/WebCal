@@ -7,7 +7,6 @@
     using System.Runtime.InteropServices;
     using System.Text;
     using Properties;
-    using Workers;
 
     public class PrintQueueWorker : BaseWorker
     {
@@ -27,47 +26,66 @@
                 return;
             }
 
-            string pdfExecutablePath = FindExecutable(printParameters.FilePath);
+            var pdfExecutablePath = FindExecutable(printParameters.FilePath);
             if (string.IsNullOrEmpty(pdfExecutablePath))
             {
                 throw new Exception(Resources.ERR_UNABLE_FIND_SUITABLE_PDF_EXECUTABLE_PATH);
             }
 
-            var proc = new Process
-            {
-                StartInfo =
-                {
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    Verb = "Print",
-                    FileName = pdfExecutablePath,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    Arguments = GetStartupArguments(printParameters.FilePath, printParameters)
-                },
-                EnableRaisingEvents = true
-            };
-
             for (var i = 0; i < printParameters.DefaultNumberOfCopies; i++)
             {
+                var proc = new Process
+                {
+                    StartInfo =
+                    {
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        Verb = "Print",
+                        FileName = pdfExecutablePath,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                        Arguments = GetStartupArguments(printParameters.FilePath, printParameters, pdfExecutablePath)
+                    },
+                    EnableRaisingEvents = true
+                };
+
                 proc.Start();
-                proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+                if (printParameters.Timeout > 0)
+                {
+                    proc.WaitForExit(printParameters.Timeout*1000);
+                }
+                if (printParameters.AutoClosePDFProgram && !printParameters.AlwaysAskForPrinter)
+                {
+                    proc.Close();
+                    KillPDFViewer(Path.GetFileNameWithoutExtension(pdfExecutablePath));
+                }
             }
         }
 
-        private static string GetStartupArguments(string filePath, PrintParameters parameters)
+        private static string GetStartupArguments(string filePath, PrintParameters parameters, string pdfExecutablePath)
         {
-            if (parameters.AlwaysAskForPrinter || string.IsNullOrEmpty(parameters.DefaultPrinterName))
+            if (pdfExecutablePath != null && pdfExecutablePath.ToUpper().Contains("ADOBE"))
             {
-                return string.Format(@"/p ""{0}""", filePath);
+                if (parameters.AlwaysAskForPrinter || string.IsNullOrEmpty(parameters.DefaultPrinterName))
+                {
+                    return $@"/p /n ""{filePath}""";
+                }
+
+                return $@"/t /n ""{filePath}"" ""{parameters.DefaultPrinterName}""";
             }
 
-            return string.Format(@"/t ""{0}"" ""{1}""", filePath, parameters.DefaultPrinterName);
+            if (parameters.AlwaysAskForPrinter || string.IsNullOrEmpty(parameters.DefaultPrinterName))
+            {
+                return $@"/p ""{filePath}""";
+            }
+
+            return $@"/t ""{filePath}"" ""{parameters.DefaultPrinterName}""";
         }
 
         private static string FindExecutable(string path)
         {
             var executable = new StringBuilder(1024);
-            int result = FindExecutable(path, string.Empty, executable);
+            var result = FindExecutable(path, string.Empty, executable);
             return result >= 32 ? executable.ToString() : string.Empty;
         }
 

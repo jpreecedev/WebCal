@@ -5299,6 +5299,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatically close PDF reader after printing.
+        /// </summary>
+        public static string TXT_PRINTER_SETTINGS_AUTO_CLOSE_PDF {
+            get {
+                return ResourceManager.GetString("TXT_PRINTER_SETTINGS_AUTO_CLOSE_PDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default font:.
         /// </summary>
         public static string TXT_PRINTER_SETTINGS_DEFAULT_FONT {
@@ -5331,6 +5340,15 @@ namespace TachographReader.Properties {
         public static string TXT_PRINTER_SETTINGS_LABEL_PRINTER {
             get {
                 return ResourceManager.GetString("TXT_PRINTER_SETTINGS_LABEL_PRINTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeout.
+        /// </summary>
+        public static string TXT_PRINTER_SETTINGS_TIMEOUT {
+            get {
+                return ResourceManager.GetString("TXT_PRINTER_SETTINGS_TIMEOUT", resourceCulture);
             }
         }
         

@@ -228,6 +228,66 @@
                     </r:Button>
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
+
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
+                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                              Command="{Binding CancelCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
+                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              Command="{Binding TachographHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH_HISTORY}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_TACHO_HISTORY_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                              Command="{Binding UndownloadabilityHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY_HISTORY}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCS_SCREEN}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
+                              Command="{Binding LetterForDecommissioningHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningHistorySmall}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_LETTER_FOR_DECOMMISSIONING_HISTORY_TOOLTIP}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECK_HISTORY}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}QCCheckHistoryIcon}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}QCCheckHistoryIcon}"
+                              Command="{Binding QCCheckHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECK_HISTORY}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}QCCheckHistoryIcon}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECK_HISTORY_TOOLTIP}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
+                </r:RibbonGroupBox>
+            </r:RibbonTabItem>
             
             <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}"
                              IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">

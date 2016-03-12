@@ -19,9 +19,8 @@
         {
             var miscellaneousSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<MiscellaneousSettings>>();
             var miscellaneousSettings = miscellaneousSettingsRepository.GetMiscellaneousSettings();
-            var lastMigrationHackId = miscellaneousSettings.LastMigrationHackId;
-
-            if (lastMigrationHackId == 0)
+            
+            if (miscellaneousSettings.LastMigrationHackId == 0)
             {
                 var workshopSettings = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
                 var printerSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<PrinterSettings>>();
@@ -32,8 +31,27 @@
 
                 printerSettingsRepository.Save(printerSettings);
                 miscellaneousSettings.LastMigrationHackId = 1;
-                miscellaneousSettingsRepository.Save(miscellaneousSettings);
             }
+            if (miscellaneousSettings.LastMigrationHackId == 1)
+            {
+                var printerSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<PrinterSettings>>();
+                var printerSettings = printerSettingsRepository.GetPrinterSettings();
+                printerSettings.AutoClosePDFProgram = true;
+                printerSettings.Timeout = 15;
+
+                if (printerSettings.DefaultNumberOfCopies == 0)
+                {
+                    printerSettings.DefaultNumberOfCopies = 1;
+                }
+                if (printerSettings.LabelNumberOfCopies == 0)
+                {
+                    printerSettings.LabelNumberOfCopies = 1;
+                }
+
+                printerSettingsRepository.Save(printerSettings);
+                miscellaneousSettings.LastMigrationHackId = 2;
+            }
+            miscellaneousSettingsRepository.Save(miscellaneousSettings);
         }
 
         public static void MoveDatabaseIfRequired()

@@ -6,6 +6,7 @@
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Threading;
+    using Connect.Shared.Models;
     using Core;
     using DataModel.Core;
     using Library;
@@ -33,6 +34,7 @@
         public DelegateCommand<object> NewAnalogueTachographCommand { get; set; }
         public DelegateCommand<object> NewUndownloadabilityCommand { get; set; }
         public DelegateCommand<object> DocumentHistoryCommand { get; set; }
+        public DelegateCommand<object> TachographHistoryCommand { get; set; }
         public DelegateCommand<object> UndownloadabilityHistoryCommand { get; set; }
         public DelegateCommand<object> CalibrationsCommand { get; set; }
         public DelegateCommand<object> DriverCardFilesCommand { get; set; }
@@ -116,9 +118,44 @@
             ShowView<NewUndownloadabilityView>();
         }
 
+        private void OnTachographHistory(object param)
+        {
+            ShowView<DocumentHistoryView>().Loaded = viewModel =>
+            {
+                ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = typeof(TachographDocument).Name.SplitByCapitals();
+            };
+        }
+
+        private void OnUndownloadabilityHistory(object param)
+        {
+            ShowView<DocumentHistoryView>().Loaded = viewModel =>
+            {
+                ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = typeof(UndownloadabilityDocument).Name.SplitByCapitals();
+            };
+        }
+
+        private void OnLetterForDecommissioningHistory(object param)
+        {
+            ShowView<DocumentHistoryView>().Loaded = viewModel =>
+            {
+                ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = typeof(LetterForDecommissioningDocument).Name.SplitByCapitals();
+            };
+        }
+
+        private void OnQCCheckHistory(object obj)
+        {
+            ShowView<DocumentHistoryView>().Loaded = viewModel =>
+            {
+                ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = typeof(QCReport).Name.SplitByCapitals();
+            };
+        }
+
         private void OnDocumentHistory(object param)
         {
-            ShowView<DocumentHistoryView>();
+            ShowView<DocumentHistoryView>().Loaded = viewModel =>
+            {
+                ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = Resources.TXT_SELECT_ALL;
+            };
         }
         
         private void OnCalibrations(object param)
@@ -259,6 +296,8 @@
             NewTachographCommand = new DelegateCommand<object>(OnNewTachograph);
             NewAnalogueTachographCommand = new DelegateCommand<object>(OnNewAnalogueTachograph);
             NewUndownloadabilityCommand = new DelegateCommand<object>(OnNewUndownloadability);
+            TachographHistoryCommand = new DelegateCommand<object>(OnTachographHistory);
+            UndownloadabilityHistoryCommand = new DelegateCommand<object>(OnUndownloadabilityHistory);
             DocumentHistoryCommand = new DelegateCommand<object>(OnDocumentHistory);
             CalibrationsCommand = new DelegateCommand<object>(OnCalibrations);
             DriverCardFilesCommand = new DelegateCommand<object>(OnDriverCardFiles);
@@ -273,6 +312,8 @@
             SaveModalCommand = new DelegateCommand<UserControl>(OnSaveModal);
             CloseModalCommand = new DelegateCommand<UserControl>(OnCloseModal);
             LetterForDecommissioningCommand = new DelegateCommand<object>(OnLetterForDecommissioning);
+            LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
+            QCCheckHistoryCommand = new DelegateCommand<object>(OnQCCheckHistory);
             QCCheckCommand = new DelegateCommand<object>(OnQCCheck);
             QC3MonthCheckCommand = new DelegateCommand<object>(OnQC3MonthCheck);
         }

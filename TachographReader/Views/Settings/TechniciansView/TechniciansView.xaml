@@ -8,8 +8,7 @@
                        xmlns:core="clr-namespace:TachographReader.Core"
                        mc:Ignorable="d"
                        d:DesignWidth="628"
-                       d:DesignHeight="450"
-                       Padding="15">
+                       d:DesignHeight="450">
     <core:BaseSettingsView.DataContext>
         <vm:TechniciansViewModel />
     </core:BaseSettingsView.DataContext>

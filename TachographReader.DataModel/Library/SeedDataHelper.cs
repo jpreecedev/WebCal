@@ -77,7 +77,9 @@
                 IsPortrait = true,
                 DefaultNumberOfCopies = 1,
                 LabelNumberOfCopies = 1,
-                AutoPrintLabels = true
+                AutoPrintLabels = true,
+                AutoClosePDFProgram = true,
+                Timeout = 5
             });
 
             context.RegistrationData.Add(new RegistrationData

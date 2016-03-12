@@ -2974,4 +2974,10 @@ date
   <data name="TXT_STATUS_REPORT_UNKNOWN" xml:space="preserve">
     <value>Unknown</value>
   </data>
+  <data name="TXT_PRINTER_SETTINGS_TIMEOUT" xml:space="preserve">
+    <value>Timeout</value>
+  </data>
+  <data name="TXT_PRINTER_SETTINGS_AUTO_CLOSE_PDF" xml:space="preserve">
+    <value>Automatically close PDF reader after printing</value>
+  </data>
 </root>

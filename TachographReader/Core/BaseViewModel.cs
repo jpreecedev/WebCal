@@ -29,6 +29,7 @@
         public bool HasChanged { get; protected set; }
         public MainWindowViewModel MainWindow { get; set; }
         public Action<bool, object> DoneCallback { get; set; }
+        public Action<IViewModel> Loaded { get; set; }
 
         public TService GetInstance<TService>()
         {
@@ -38,7 +39,7 @@
         public virtual void OnClosing(bool cancelled)
         {
         }
-
+        
         public virtual void Dispose()
         {
         }
@@ -115,6 +116,11 @@
         protected virtual void AfterLoad()
         {
             HasChanged = false;
+
+            if (Loaded != null)
+            {
+                Loaded(this);
+            }
         }
 
         protected void Saved(object parameter)
