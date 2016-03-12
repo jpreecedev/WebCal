@@ -21,8 +21,6 @@
 
     public class NewTachographViewModel : BaseNewDocumentViewModel<TachographDocument>
     {
-        public bool CardBeingRead;
-
         public NewTachographViewModel()
         {
             Document = new TachographDocument();
@@ -50,7 +48,8 @@
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<Grid> PrintLabelCommand { get; set; }
         public DelegateCommand<object> AddInspectionInfoCommand { get; set; }
-
+        public bool CardBeingRead { get; set; }
+        
         public void SetDocumentTypes(bool isDigital)
         {
             Document.IsDigital = isDigital;
@@ -201,9 +200,7 @@
                 {
                     RegistrationChangedCommand.Execute(GetRegistrationToQuery(e.CalibrationRecord));
                 }
-
-                MainWindow.IsNavigationLocked = true;
-
+                
                 Document.Convert(e.CalibrationRecord);
 
                 if (!Technicians.IsNullOrEmpty() && !string.IsNullOrEmpty(e.CalibrationRecord.CardSerialNumber))
@@ -256,7 +253,6 @@
                 WorkshopCardFilesRepository.Add(workshopCardFile.Clone<WorkshopCardFile>());
 
                 SwitchReadButtonState(false);
-                MainWindow.IsNavigationLocked = true;
                 StatusText = Resources.TXT_WORKSHOP_CARD_FILE_GENERATED;
                 ReadFromCardContent = Resources.TXT_READ_FROM_CARD;
             }
@@ -264,7 +260,6 @@
             {
                 StatusText = Resources.TXT_UNABLE_GENERATE_WORKSHOP_CARD;
                 MessageBoxHelper.ShowMessage(Resources.ERR_UNABLE_READ_SMART_CARD);
-                MainWindow.IsNavigationLocked = false;
                 SwitchReadButtonState(true);
             }
         }
@@ -287,7 +282,6 @@
             CardBeingRead = false;
             StatusText = Resources.TXT_UNABLE_READ_SMART_CARD;
             SwitchReadButtonState(true);
-            MainWindow.IsNavigationLocked = false;
         }
 
         protected override bool IncludeDeletedContacts

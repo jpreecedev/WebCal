@@ -5344,6 +5344,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show company name on labels?.
+        /// </summary>
+        public static string TXT_PRINTER_SETTINGS_SHOW_COMPANY_NAME {
+            get {
+                return ResourceManager.GetString("TXT_PRINTER_SETTINGS_SHOW_COMPANY_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Timeout.
         /// </summary>
         public static string TXT_PRINTER_SETTINGS_TIMEOUT {

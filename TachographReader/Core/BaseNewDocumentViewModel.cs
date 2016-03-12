@@ -246,7 +246,6 @@
 
         private void Close()
         {
-            MainWindow.IsNavigationLocked = false;
             MainWindow.ShowView<HomeScreenView>();
         }
     }

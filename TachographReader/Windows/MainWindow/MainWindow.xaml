@@ -32,13 +32,11 @@
                                        IsChecked="True" />
             </r:Ribbon.QuickAccessItems>
             <r:Ribbon.Menu>
-                <r:ApplicationMenu Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILE}"
-                                   IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:ApplicationMenu Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILE}">
                     <r:MenuItem x:Name="SettingsMenuItem"
                                 Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
                                 Icon="{core:LocalizedImageBinding ConverterParameter={}Settings}"
-                                Command="{Binding SettingsCommand}"
-                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                                Command="{Binding SettingsCommand}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SETTINGS}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}Settings}"
@@ -48,8 +46,7 @@
                     <r:MenuItem x:Name="GenerateReportMenuItem"
                                 Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
                                 Icon="{core:LocalizedImageBinding ConverterParameter={}Report}"
-                                Command="{Binding GenerateReportCommand}"
-                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                                Command="{Binding GenerateReportCommand}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}Report}"
@@ -58,8 +55,7 @@
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
                                 Icon="{core:LocalizedImageBinding ConverterParameter={}Backup}"
-                                Command="{Binding BackupDatabaseCommand}"
-                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                                Command="{Binding BackupDatabaseCommand}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}Backup}"
@@ -68,8 +64,7 @@
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_RESTORE_DATABASE}"
                                 Icon="{core:LocalizedImageBinding ConverterParameter={}Restore}"
-                                Command="{Binding RestoreDatabaseCommand}"
-                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                                Command="{Binding RestoreDatabaseCommand}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_RESTORE_DATABASE}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}Restore}"
@@ -87,8 +82,7 @@
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_UPDATES}"
                                 Icon="{core:LocalizedImageBinding ConverterParameter={}update}"
-                                Command="{Binding UpdateCommand}"
-                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                                Command="{Binding UpdateCommand}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CHECK_FOR_UPDATES}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}update}"
@@ -96,8 +90,7 @@
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ABOUT}"
-                                Icon="{core:LocalizedImageBinding ConverterParameter={}Info}"
-                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}Info}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_ABOUT}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}Info}"
@@ -123,8 +116,7 @@
                                 Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
                                 Icon="{core:LocalizedImageBinding ConverterParameter={}Exit}"
                                 Command="{Binding ExitCommand}"
-                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}">
                         <r:MenuItem.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}Exit}"
@@ -134,10 +126,8 @@
                 </r:ApplicationMenu>
             </r:Ribbon.Menu>
 
-            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}"
-                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
@@ -149,8 +139,7 @@
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_DOCUMENTS}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_DIGITAL_TACHO}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}NewTachoDocSm}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewTachoDocSm}"
@@ -192,8 +181,7 @@
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECKS}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECKS}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_WALKAROUND}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}QCCheck}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}QCCheck}"
@@ -229,10 +217,8 @@
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
 
-            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
-                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
@@ -244,8 +230,7 @@
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HISTORY}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_TACHOGRAPH}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}OldTachoDocSm}"
@@ -289,10 +274,8 @@
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
             
-            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}"
-                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
@@ -304,8 +287,7 @@
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CARD_BROWSER}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_CALIBRATIONS}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}Calibration}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}Calibration}"
@@ -319,10 +301,8 @@
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
 
-            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}"
-                             IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+            <r:RibbonTabItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_HOME}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}home_icon}"
@@ -334,8 +314,7 @@
                         </r:Button.ToolTip>
                     </r:Button>
                 </r:RibbonGroupBox>
-                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}"
-                                  IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}">
+                <r:RibbonGroupBox Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_FILES}">
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_WORKSHOP_CARD}"
                               Icon="{core:LocalizedImageBinding ConverterParameter={}WorkshopBackupSm}"
                               LargeIcon="{core:LocalizedImageBinding ConverterParameter={}WorkshopBackupSm}"
@@ -382,8 +361,7 @@
                               Command="{Binding ShowWindowCommand}" />
                     <Separator />
                     <MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_EXIT}"
-                              Command="{Binding ExitTrayCommand}"
-                              IsEnabled="{Binding IsNavigationLocked, Converter={StaticResource InvBool}}" />
+                              Command="{Binding ExitTrayCommand}" />
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>

@@ -267,8 +267,7 @@
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
 
                     <Button Content="{x:Static properties:Resources.TXT_NEW_TACHOGRAPH_CANCEL}"
-                            Command="{Binding CancelCommand}"
-                            IsEnabled="{Binding DataContext.IsNavigationLocked, RelativeSource={RelativeSource AncestorType={x:Type Window}}, Converter={StaticResource InvBool}}" />
+                            Command="{Binding CancelCommand}" />
 
                 </StackPanel>
             </Grid>

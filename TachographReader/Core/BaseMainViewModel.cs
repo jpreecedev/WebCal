@@ -119,8 +119,7 @@
                     return;
                 }
             }
-
-            MainWindow.IsNavigationLocked = false;
+            
             MainWindow.ShowView<HomeScreenView>();
         }
 

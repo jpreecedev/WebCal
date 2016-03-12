@@ -36,7 +36,8 @@
             workerTask.Parameters.SetParameter("CompanyName", registrationData.CompanyName);
             workerTask.Parameters.SetParameter("TemporaryDirectory", ImageHelper.GetTemporaryDirectory());
             workerTask.Parameters.SetParameter("DefaultFont", printerSettings.DefaultFont);
-
+            workerTask.Parameters.SetParameter("ShowCompanyNameOnLabels", printerSettings.ShowCompanyNameOnLabels);
+            
             workerTask.Parameters.SetParameter("DocumentType", document.DocumentType);
             workerTask.Parameters.SetParameter("KFactor", document.KFactor);
             workerTask.Parameters.SetParameter("WFactor", document.WFactor);

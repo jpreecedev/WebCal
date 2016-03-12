@@ -37,6 +37,7 @@
                 var printerSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<PrinterSettings>>();
                 var printerSettings = printerSettingsRepository.GetPrinterSettings();
                 printerSettings.AutoClosePDFProgram = true;
+                printerSettings.ShowCompanyNameOnLabels = true;
                 printerSettings.Timeout = 15;
 
                 if (printerSettings.DefaultNumberOfCopies == 0)
