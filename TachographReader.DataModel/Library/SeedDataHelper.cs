@@ -79,7 +79,8 @@
                 LabelNumberOfCopies = 1,
                 AutoPrintLabels = true,
                 AutoClosePDFProgram = true,
-                Timeout = 5
+                Timeout = 5,
+                ShowCompanyNameOnLabels = true
             });
 
             context.RegistrationData.Add(new RegistrationData

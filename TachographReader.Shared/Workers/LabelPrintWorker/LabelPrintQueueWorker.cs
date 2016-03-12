@@ -72,22 +72,29 @@
 
                     g.TranslateTransform(bitmap.Width / 2, bitmap.Height / 2);
                     g.RotateTransform(270);
-                    g.DrawLine(pen, LEFT_OFFSET, _horizontalLinesVerticalOffset, LINE_WIDTH, _horizontalLinesVerticalOffset);
+
+                    if (PrintParameters.ShowCompanyNameOnLabels)
+                    {
+                        g.DrawLine(pen, LEFT_OFFSET, _horizontalLinesVerticalOffset, LINE_WIDTH, _horizontalLinesVerticalOffset);
+                    }
 
                     for (int i = 0; i < 7; i++)
                     {
                         Track(_horizontalLinesVerticalOffset += LINE_HEIGHT);
                     }
 
-                    g.DrawImage(GetWorkshopImage(), -225, -260, 93, 92);
+                    if (PrintParameters.ShowCompanyNameOnLabels)
+                    {
+                        g.DrawImage(GetWorkshopImage(), -225, -260, 93, 92);
 
-                    if (!string.IsNullOrEmpty(PrintParameters.WorkshopName))
-                    {
-                        DrawSpacedText(g, string.Format(Resources.TXT_LABEL_CUSTOMER_NAME, PrintParameters.WorkshopName), brush, LargeFont, new PointF(-125, -243));
-                    }
-                    if (!string.IsNullOrEmpty(PrintParameters.PhoneNumber))
-                    {
-                        DrawSpacedText(g, string.Format(Resources.TXT_LABEL_CUSTOMER_PHONE_NUMBER, PrintParameters.PhoneNumber), brush, new PointF(-125, -200));
+                        if (!string.IsNullOrEmpty(PrintParameters.WorkshopName))
+                        {
+                            DrawSpacedText(g, string.Format(Resources.TXT_LABEL_CUSTOMER_NAME, PrintParameters.WorkshopName), brush, LargeFont, new PointF(-125, -243));
+                        }
+                        if (!string.IsNullOrEmpty(PrintParameters.PhoneNumber))
+                        {
+                            DrawSpacedText(g, string.Format(Resources.TXT_LABEL_CUSTOMER_PHONE_NUMBER, PrintParameters.PhoneNumber), brush, new PointF(-125, -200));
+                        }
                     }
 
                     DrawCenteredText(g, GetDocumentType(PrintParameters.DocumentType), brush, new PointF(LEFT_OFFSET, _textVerticalOffset));

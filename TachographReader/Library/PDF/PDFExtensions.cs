@@ -160,6 +160,7 @@
             workerTask.Parameters.SetParameter("DefaultNumberOfCopies", settings.DefaultNumberOfCopies);
             workerTask.Parameters.SetParameter("LabelNumberOfCopies", settings.LabelNumberOfCopies);
             workerTask.Parameters.SetParameter("AutoClosePDFProgram", settings.AutoClosePDFProgram);
+            workerTask.Parameters.SetParameter("ShowCompanyNameOnLabels", settings.ShowCompanyNameOnLabels);
             workerTask.Parameters.SetParameter("Timeout", settings.Timeout);
 
             WorkerHelper.QueueTask(workerTask);

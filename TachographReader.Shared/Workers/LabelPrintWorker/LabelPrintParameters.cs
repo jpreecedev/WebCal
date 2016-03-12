@@ -132,5 +132,10 @@
         {
             get { return GetParameter<string>("DefaultFont") ?? "Lucida Sans Unicode"; }
         }
+
+        public bool ShowCompanyNameOnLabels
+        {
+            get { return GetParameter<bool>("ShowCompanyNameOnLabels"); }
+        }
     }
 }

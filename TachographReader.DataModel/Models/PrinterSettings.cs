@@ -17,13 +17,13 @@
         public int LabelNumberOfCopies { get; set; }
         public bool AutoPrintLabels { get; set; }
 
-        [DefaultValue(true)]
-        public bool AutoClosePDFProgram{ get; set; }
+        public bool AutoClosePDFProgram { get; set; }
 
         [DefaultValue("Lucida Sans Unicode")]
         public string DefaultFont { get; set; }
 
-        [DefaultValue(5)]
         public int Timeout { get; set; }
+
+        public bool ShowCompanyNameOnLabels { get; set; }
     }
 }
