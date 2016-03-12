@@ -399,10 +399,13 @@
             TachographMakes = new ObservableCollection<TachographMake>(TachographMakesRepository.GetAll("Models"));
             Technicians = new ObservableCollection<Technician>(TechniciansRepository.GetAll());
 
-            Technician defaultTechnician = Technicians.FirstOrDefault(technician => technician != null && technician.IsDefault);
-            if (defaultTechnician != null)
+            if (!IsHistoryMode)
             {
-                Document.Technician = defaultTechnician.Name;
+                var defaultTechnician = Technicians.FirstOrDefault(technician => technician != null && technician.IsDefault);
+                if (defaultTechnician != null)
+                {
+                    Document.Technician = defaultTechnician.Name;
+                }
             }
         }
 
