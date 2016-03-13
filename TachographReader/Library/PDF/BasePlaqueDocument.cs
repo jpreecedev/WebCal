@@ -68,7 +68,7 @@
                 postCode = WorkshopSettings.PostCode;
             }
 
-            document.AddSpannedCell(table, string.Format("{0}\n{1} {2} {3}", companyName, address, town, postCode), colspan, font, height, Element.ALIGN_LEFT); //69
+            document.AddSpannedCell(table, $"{companyName}\n{address} {town} {postCode}", colspan, font, height, Element.ALIGN_LEFT); //69
         }
 
         protected void GetWorkshopImage(PDFDocument document, PdfPTable table)
@@ -142,7 +142,7 @@
         protected void AbsolutePositionText(PDFDocument document, string text, float left, float top, float width, float height, Font font, int alignment)
         {
             ColumnText absoluteColumn = document.GetNewColumn(left, (TotalPageHeight - top), width, height);
-            document.AddParagraph(text, absoluteColumn, font, alignment);
+            document.AddParagraph(text, absoluteColumn, font, BaseColor.BLACK, alignment);
         }
 
         protected virtual void CreateLargeCertificate(PDFDocument document, TachographDocument tachographDocument, bool excludeLogos)

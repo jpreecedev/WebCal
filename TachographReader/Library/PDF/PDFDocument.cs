@@ -118,7 +118,7 @@
                 return;
             }
 
-            Image image = Image.GetInstance(rawImage);
+            var image = Image.GetInstance(rawImage);
             image.ScaleAbsolute(width, height);
             image.SetAbsolutePosition(x, y);
 
@@ -132,7 +132,7 @@
                 return;
             }
 
-            Image image = Image.GetInstance(imagePath);
+            var image = Image.GetInstance(imagePath);
             image.ScaleAbsolute(width, height);
             image.SetAbsolutePosition(x, y);
 
@@ -146,7 +146,7 @@
                 return null;
             }
 
-            Image image = Image.GetInstance(imagePath);
+            var image = Image.GetInstance(imagePath);
             image.ScaleAbsolute(width, height);
             return image;
         }
@@ -187,14 +187,14 @@
             column.Go();
         }
 
-        public void AddParagraph(string text, ColumnText column, Font font, int alignment)
+        public void AddParagraph(string text, ColumnText column, Font font, BaseColor fontColor, int alignment)
         {
             if (string.IsNullOrEmpty(text))
             {
                 return;
             }
 
-            font.Color = BaseColor.BLACK;
+            font.Color = fontColor;
 
             var para = new Paragraph(text, font)
             {
@@ -383,38 +383,48 @@
 
         public void AddSpannedCell(PdfPTable table, Paragraph paragraph, int colspan, float height, int alignment)
         {
-            var c = new PdfPCell(paragraph);
-            c.Colspan = colspan;
-            c.HorizontalAlignment = alignment;
-            c.VerticalAlignment = Element.ALIGN_CENTER;
-            c.FixedHeight = height;
+            var c = new PdfPCell(paragraph)
+            {
+                Colspan = colspan,
+                HorizontalAlignment = alignment,
+                VerticalAlignment = Element.ALIGN_CENTER,
+                FixedHeight = height
+            };
 
             table.AddCell(c);
         }
 
         public Font GetSmallerFont()
         {
-            return new Font(GetBaseFont(), 8, Font.NORMAL);
+            return new Font(GetBaseFont(), 8, Font.NORMAL) { Color = BaseColor.BLACK };
         }
 
         public Font GetXSmallFont(bool bold)
         {
-            return new Font(GetBaseFont(), 6, bold ? Font.BOLD : Font.NORMAL);
+            return new Font(GetBaseFont(), 6, bold ? Font.BOLD : Font.NORMAL) { Color = BaseColor.BLACK };
         }
 
         public Font GetXXSmallFont()
         {
-            return new Font(GetBaseFont(), 5, Font.NORMAL);
+            return new Font(GetBaseFont(), 5, Font.NORMAL) { Color = BaseColor.BLACK };
         }
 
         public Font GetSmallFont(bool bold)
         {
-            return new Font(GetBaseFont(), 7, bold ? Font.BOLD : Font.NORMAL);
+            return new Font(GetBaseFont(), 7, bold ? Font.BOLD : Font.NORMAL) { Color = BaseColor.BLACK };
         }
 
         public Font GetRegularFont(bool bold)
         {
-            return new Font(GetBaseFont(), 8, bold ? Font.BOLD : Font.NORMAL);
+            return new Font(GetBaseFont(), 8, bold ? Font.BOLD : Font.NORMAL) { Color = BaseColor.BLACK };
+        }
+
+        public Font GetRegularFont(bool bold, BaseColor color)
+        {
+            var font = GetRegularFont(bold);
+            font.Color = color;
+
+            return font;
         }
 
         public Font GetRegularFont(bool bold, bool underline)
@@ -428,24 +438,23 @@
             {
                 f = f | Font.UNDERLINE;
             }
-
-            return new Font(GetBaseFont(), 8, f);
-
+            
+            return new Font(GetBaseFont(), 8, f) { Color = BaseColor.BLACK };
         }
 
         public Font GetLargerFont(bool bold)
         {
-            return new Font(GetBaseFont(), 10, bold ? Font.BOLD : Font.NORMAL);
+            return new Font(GetBaseFont(), 10, bold ? Font.BOLD : Font.NORMAL) { Color = BaseColor.BLACK };
         }
 
         public Font GetLargeFont(bool bold)
         {
-            return new Font(GetBaseFont(), 13, bold ? Font.BOLD : Font.NORMAL);
+            return new Font(GetBaseFont(), 13, bold ? Font.BOLD : Font.NORMAL) { Color = BaseColor.BLACK };
         }
 
         public Font GetXLargeFont(bool bold)
         {
-            return new Font(GetBaseFont(), 15, bold ? Font.BOLD : Font.NORMAL);
+            return new Font(GetBaseFont(), 15, bold ? Font.BOLD : Font.NORMAL) { Color = BaseColor.BLACK };
         }
 
         public BaseFont GetBaseFont()

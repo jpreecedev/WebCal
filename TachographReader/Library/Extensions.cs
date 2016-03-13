@@ -258,7 +258,7 @@
             return new List<T>();
         }
 
-        public static ReportItemStatus QuarterlyStatus(this Technician technician)
+        public static ReportItemStatus HalfYearStatus(this Technician technician)
         {
             if (technician == null || technician.DateOfLastCheck == null)
             {
@@ -266,8 +266,8 @@
             }
 
             var lastCheck = technician.DateOfLastCheck.GetValueOrDefault();
-            var nextCheckDue = lastCheck.AddMonths(3).AddDays(-7).Date;
-            var expiration = lastCheck.AddMonths(3).Date;
+            var nextCheckDue = lastCheck.AddMonths(6).AddDays(-7).Date;
+            var expiration = lastCheck.AddMonths(6).Date;
             var now = DateTime.Now.Date;
             
             if (now >= nextCheckDue && now <= expiration)
@@ -288,7 +288,7 @@
                 return ReportItemStatus.Unknown;
             }
 
-            var lastCheck = technician.DateOfLastCheck.GetValueOrDefault().Date;
+            var lastCheck = technician.DateOfLast3YearCheck.GetValueOrDefault().Date;
             var now = DateTime.Now.Date;
             if (lastCheck > now)
             {

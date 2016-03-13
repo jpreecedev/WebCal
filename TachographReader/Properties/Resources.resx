@@ -3034,4 +3034,7 @@ date
   <data name="TXT_CARD_READ_IN_PROGRESS_CAPTION" xml:space="preserve">
     <value>Card Read In Progress</value>
   </data>
+  <data name="TXT_TRAINING_DATE" xml:space="preserve">
+    <value>Training Date</value>
+  </data>
 </root>

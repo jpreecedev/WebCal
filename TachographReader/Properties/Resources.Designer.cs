@@ -7512,6 +7512,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Training Date.
+        /// </summary>
+        public static string TXT_TRAINING_DATE {
+            get {
+                return ResourceManager.GetString("TXT_TRAINING_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tuesday.
         /// </summary>
         public static string TXT_TUESDAY {

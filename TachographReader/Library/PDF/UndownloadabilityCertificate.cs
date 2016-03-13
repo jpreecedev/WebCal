@@ -1,6 +1,5 @@
 ﻿namespace TachographReader.Library.PDF
 {
-    using System.Windows.Resources;
     using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
@@ -24,7 +23,7 @@
 
             AbsolutePositionText(document, settings.WorkshopName, 61, 710, 500, 50, document.GetLargeFont(true), Element.ALIGN_LEFT);
             AbsolutePositionText(document, settings.Address1, 61, 680, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
-            AbsolutePositionText(document, string.Format("{0} {1}", settings.Town, settings.PostCode), 61, 645, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
+            AbsolutePositionText(document, $"{settings.Town} {settings.PostCode}", 61, 645, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
 
             AbsolutePositionText(document, undownloadabilityDocument.TachographMake, 61, 585, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
             AbsolutePositionText(document, undownloadabilityDocument.TachographModel, 61, 548, 500, 50, document.GetRegularFont(false), Element.ALIGN_LEFT);
@@ -81,7 +80,7 @@
         private static void AbsolutePositionText(PDFDocument document, string text, float left, float top, float width, float height, Font font, int alignment)
         {
             ColumnText absoluteColumn = document.GetNewColumn(left, top, width, height);
-            document.AddParagraph(text, absoluteColumn, font, alignment);
+            document.AddParagraph(text, absoluteColumn, font, BaseColor.BLACK, alignment);
         }
 
         private static void TryAddSignature(PDFDocument document, UndownloadabilityDocument undownloadabilityDocument, int x, int y)

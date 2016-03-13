@@ -109,7 +109,7 @@
         private static void AbsolutePositionText(PDFDocument document, string text, float left, float top, float width, float height, Font font, int alignment)
         {
             var absoluteColumn = document.GetNewColumn(left, top, width, height);
-            document.AddParagraph(text, absoluteColumn, font, alignment);
+            document.AddParagraph(text, absoluteColumn, font, BaseColor.BLACK, alignment);
         }
 
         private static void TryAddSignature(PDFDocument document, string technicianName, int x, int y = 88)
