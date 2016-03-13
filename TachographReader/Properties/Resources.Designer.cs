@@ -2678,6 +2678,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invoice Number:.
+        /// </summary>
+        public static string TXT_INVOICE_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_INVOICE_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to JPEG File (*.jpg)|*.jpg.
         /// </summary>
         public static string TXT_JPEG_FILE {
@@ -7967,6 +7976,15 @@ namespace TachographReader.Properties {
         public static string TXT_VEHICLE_REGISTRATION_NUMBER {
             get {
                 return ResourceManager.GetString("TXT_VEHICLE_REGISTRATION_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle Type:.
+        /// </summary>
+        public static string TXT_VEHICLE_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_VEHICLE_TYPE", resourceCulture);
             }
         }
         

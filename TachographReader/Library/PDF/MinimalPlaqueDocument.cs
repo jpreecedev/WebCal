@@ -267,50 +267,54 @@ namespace TachographReader.Library.PDF
             if (WorkshopSettings.Image != null && !excludeLogos)
             {
                 var image = ImageHelper.Scale(WorkshopSettings.Image, 545, 150);
-                document.AddImage(image.ToByteArray(), image.Width, image.Height, (startHorizontal + 5), startVertical + 660);
+                document.AddImage(image.ToByteArray(), image.Width, image.Height, startHorizontal + 5, startVertical + 660);
             }
 
-            AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE.ToUpper(), (startHorizontal + 200), (startVertical + 170), 580, 100, document.GetRegularFont(true));
-            document.DrawLine((startHorizontal + 200), (startVertical + 188), (startHorizontal + 367), (startVertical + 188), TotalPageHeight);
+            AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE.ToUpper(), startHorizontal + 200, startVertical + 170, 580, 100, document.GetRegularFont(true));
+            document.DrawLine(startHorizontal + 200, startVertical + 188, startHorizontal + 367, startVertical + 188, TotalPageHeight);
 
             if (CustomerContact != null)
             {
-                AbsolutePositionText(document, Resources.TXT_CUSTOMER_DETAILS.ToUpper(), (startHorizontal + 5), (startVertical + 200), 200, 40, document.GetRegularFont(true));
+                AbsolutePositionText(document, Resources.TXT_CUSTOMER_DETAILS.ToUpper(), startHorizontal + 5, startVertical + 200, 200, 40, document.GetRegularFont(true));
                 if (CustomerContact.Name != null)
                 {
-                    AbsolutePositionText(document, CustomerContact.Name.ToUpper(), (startHorizontal + 5), (startVertical + 220), 200, 40, document.GetRegularFont(false));
+                    AbsolutePositionText(document, CustomerContact.Name.ToUpper(), startHorizontal + 5, startVertical + 220, 200, 40, document.GetRegularFont(false));
                 }
                 if (CustomerContact.Address != null)
                 {
-                    AbsolutePositionText(document, CustomerContact.Address.ToUpper(), (startHorizontal + 5), (startVertical + 230), 200, 40, document.GetRegularFont(false));
+                    AbsolutePositionText(document, CustomerContact.Address.ToUpper(), startHorizontal + 5, startVertical + 230, 200, 40, document.GetRegularFont(false));
                 }
                 if (CustomerContact.Town != null)
                 {
-                    AbsolutePositionText(document, CustomerContact.Town.ToUpper(), (startHorizontal + 5), (startVertical + 240), 200, 40, document.GetRegularFont(false));
+                    AbsolutePositionText(document, CustomerContact.Town.ToUpper(), startHorizontal + 5, startVertical + 240, 200, 40, document.GetRegularFont(false));
                 }
                 if (CustomerContact.PostCode != null)
                 {
-                    AbsolutePositionText(document, CustomerContact.PostCode.ToUpper(), (startHorizontal + 5), (startVertical + 250), 200, 40, document.GetRegularFont(false));
+                    AbsolutePositionText(document, CustomerContact.PostCode.ToUpper(), startHorizontal + 5, startVertical + 250, 200, 40, document.GetRegularFont(false));
                 }
             }
 
-
-            DateTime? calibrationDate = tachographDocument.CalibrationTime;
-
-            if (calibrationDate == null)
+            if (!string.IsNullOrEmpty(tachographDocument.InvoiceNumber))
             {
-                calibrationDate = DateTime.Today;
+                AbsolutePositionText(document, Resources.TXT_INVOICE_NUMBER.ToUpper(), startHorizontal + 287, startVertical + 240, 400, 40, document.GetRegularFont(true));
+                AbsolutePositionText(document, tachographDocument.InvoiceNumber, startHorizontal + 540, startVertical + 240, 390, 40, document.GetRegularFont(false));
+            }
+            if (!string.IsNullOrEmpty(tachographDocument.VehicleType))
+            {
+                AbsolutePositionText(document, Resources.TXT_VEHICLE_TYPE.ToUpper(), startHorizontal + 299, startVertical + 250, 400, 40, document.GetRegularFont(true));
+                AbsolutePositionText(document, tachographDocument.VehicleType, startHorizontal + 490, startVertical + 250, 390, 40, document.GetRegularFont(false));
             }
 
-            string expiryDate = (GetCalibrationTime(calibrationDate.Value.AddYears(2).AddDays(-1)));
+            DateTime? calibrationDate = tachographDocument.CalibrationTime ?? DateTime.Today;
+            string expiryDate = GetCalibrationTime(calibrationDate.Value.AddYears(2).AddDays(-1));
 
-            AbsolutePositionText(document, Resources.TXT_DATE.ToUpper(), (startHorizontal + 370), (startVertical + 210), 355, 40, document.GetRegularFont(true));
+            AbsolutePositionText(document, Resources.TXT_DATE.ToUpper(), startHorizontal + 370, (startVertical + 210), 355, 40, document.GetRegularFont(true));
 
             AbsolutePositionText(document, GetCalibrationTime(tachographDocument.CalibrationTime).ToUpper(), (startHorizontal + 450), (startVertical + 210), 390, 40, document.GetRegularFont(false));
 
             if (tachographDocument.DocumentType != Resources.TXT_MINOR_WORK_DETAILS)
             {
-                AbsolutePositionText(document, Resources.TXT_EXP.ToUpper(), (startHorizontal + 260), (startVertical + 220), 400, 40, document.GetRegularFont(true));
+                AbsolutePositionText(document, Resources.TXT_EXP.ToUpper(), startHorizontal + 260, (startVertical + 220), 400, 40, document.GetRegularFont(true));
                 AbsolutePositionText(document, expiryDate.ToUpper(), (startHorizontal + 450), (startVertical + 220), 390, 40, document.GetRegularFont(false));
             }
 
@@ -443,7 +447,7 @@ namespace TachographReader.Library.PDF
 
                 document.DrawLine((startHorizontal + 300), (startVertical + 715), (startHorizontal + 490), (startVertical + 715), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 710), 550, 72, document.GetXSmallFont(false));
-                
+
                 document.AddImage(ImageHelper.LoadFromResourcesAsByteArray("webcal"), 90, 21, (startHorizontal + 5), (startVertical + 30));
             }
             else

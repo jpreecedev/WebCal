@@ -3022,4 +3022,10 @@ date
   <data name="TXT_QC_6_MONTH_STATE_REASONS" xml:space="preserve">
     <value>Any answers, answered 'No' please state reasons in box below;</value>
   </data>
+  <data name="TXT_INVOICE_NUMBER" xml:space="preserve">
+    <value>Invoice Number:</value>
+  </data>
+  <data name="TXT_VEHICLE_TYPE" xml:space="preserve">
+    <value>Vehicle Type:</value>
+  </data>
 </root>
