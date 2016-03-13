@@ -99,8 +99,8 @@
                         Visibility="{Binding SelectedDocument, Converter={StaticResource Null2Vis}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         Width="Auto" />
                 <Button Content="{x:Static properties:Resources.TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT}"
-                        Command="{Binding CreateVOSADocumentCommand}"
-                        Visibility="{Binding SelectedDocument.CanPrintVOSADocument, Converter={StaticResource Bool2Vis}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        Command="{Binding CreateGV212DocumentCommand}"
+                        Visibility="{Binding SelectedDocument.CanPrintGV212Document, Converter={StaticResource Bool2Vis}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         Width="Auto" />
                 <Button Content="{x:Static properties:Resources.TXT_TACHO_HISTORY_REPRINT_LABEL}"
                         Command="{Binding ReprintLabelCommand}"

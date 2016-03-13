@@ -34,7 +34,7 @@
         public DelegateCommand<object> OpenInReportFormCommand { get; set; }
         public DelegateCommand<object> EmailReportFormCommand { get; set; }
         public DelegateCommand<object> PerformSearchCommand { get; set; }
-        public DelegateCommand<object> CreateVOSADocumentCommand { get; set; }
+        public DelegateCommand<object> CreateGV212DocumentCommand { get; set; }
 
         protected override void Load()
         {
@@ -78,7 +78,7 @@
             OpenInReportFormCommand = new DelegateCommand<object>(OnOpenInReportForm);
             EmailReportFormCommand = new DelegateCommand<object>(OnEmailReportSelected);
             PerformSearchCommand = new DelegateCommand<object>(OnPerformSearch);
-            CreateVOSADocumentCommand = new DelegateCommand<object>(OnCreateVOSADocument);
+            CreateGV212DocumentCommand = new DelegateCommand<object>(OnCreateGV212Document);
         }
 
         private void OnEmailReportSelected(object obj)
@@ -91,7 +91,7 @@
             SelectedDocument.Email();
         }
 
-        private void OnCreateVOSADocument(object obj)
+        private void OnCreateGV212Document(object obj)
         {
             var window = new DateRangePickerWindow();
 
@@ -113,7 +113,7 @@
                 .Cast<TachographDocument>()
                 .ToList();
 
-            var result = applicableDocuments.GenerateVOSADocument(viewModel.StartDateTime, end);
+            var result = applicableDocuments.GenerateGV212Document(viewModel.StartDateTime, end);
             if (result.Success)
             {
                 var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();

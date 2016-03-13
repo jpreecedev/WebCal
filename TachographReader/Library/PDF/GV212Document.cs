@@ -14,7 +14,7 @@ namespace TachographReader.Library.PDF
     using Shared;
     using Shared.Helpers;
 
-    public static class VOSADocument
+    public static class GV212Document
     {
         public static PDFDocument Document { get; set; }
 

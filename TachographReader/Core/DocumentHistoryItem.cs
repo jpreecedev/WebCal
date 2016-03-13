@@ -23,7 +23,7 @@
             Document = document;
 
             CanReprintLabel = Document is TachographDocument;
-            CanPrintVOSADocument = Document is TachographDocument;
+            CanPrintGV212Document = Document is TachographDocument;
         }
 
         public DocumentHistoryItem(BaseReport report)
@@ -53,7 +53,7 @@
         public bool CanReprintLabel { get; set; }
         public Document Document { get; set; }
         public BaseReport Report { get; set; }
-        public bool CanPrintVOSADocument { get; set; }
+        public bool CanPrintGV212Document { get; set; }
 
         public void Print()
         {

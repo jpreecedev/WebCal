@@ -335,7 +335,7 @@
     <Compile Include="Library\PDF\QCCheckReport.cs" />
     <Compile Include="Library\PDF\StatusReport.cs" />
     <Compile Include="Library\PDF\UndownloadabilityCertificate.cs" />
-    <Compile Include="Library\PDF\VOSADocument.cs" />
+    <Compile Include="Library\PDF\GV212Document.cs" />
     <Compile Include="Library\RegistryHelper.cs" />
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />

@@ -31,6 +31,6 @@
         void Email();
 
         bool IsReport();
-        bool CanPrintVOSADocument { get; set; }
+        bool CanPrintGV212Document { get; set; }
     }
 }

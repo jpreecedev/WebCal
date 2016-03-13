@@ -7053,7 +7053,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create VOSA document.
+        ///   Looks up a localized string similar to Create GV212 document.
         /// </summary>
         public static string TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT {
             get {

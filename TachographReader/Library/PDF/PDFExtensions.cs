@@ -95,12 +95,12 @@
             return new PDFDocumentResult();
         }
 
-        public static PDFDocumentResult GenerateVOSADocument(this ICollection<TachographDocument> documents, DateTime start, DateTime end)
+        public static PDFDocumentResult GenerateGV212Document(this ICollection<TachographDocument> documents, DateTime start, DateTime end)
         {
             var result = DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);
             if (result.Result == true)
             {
-                VOSADocument.Create(result.FileName, documents, start, end);
+                GV212Document.Create(result.FileName, documents, start, end);
                 return new PDFDocumentResult { FilePath = result.FileName };
             }
             return new PDFDocumentResult();

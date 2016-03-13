@@ -1661,7 +1661,7 @@ date
     <value>Email Report</value>
   </data>
   <data name="TXT_TACHO_HISTORY_CREATE_VOSA_DOCUMENT" xml:space="preserve">
-    <value>Create VOSA document</value>
+    <value>Create GV212 document</value>
   </data>
   <data name="TXT_TACHO_HISTORY_REPRINT_LABEL" xml:space="preserve">
     <value>Re-Print Label</value>
