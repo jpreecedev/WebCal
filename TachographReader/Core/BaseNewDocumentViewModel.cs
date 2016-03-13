@@ -208,6 +208,11 @@
                 ShowError(Resources.EXC_MISSING_FIELDS);
                 return;
             }
+            if (CardBeingRead)
+            {
+                ShowWarning(Resources.TXT_CARD_READ_IN_PROGRESS, Resources.TXT_CARD_READ_IN_PROGRESS_CAPTION);
+                return;
+            }
 
             var miscellaneousSettings = GetInstance<ISettingsRepository<MiscellaneousSettings>>().GetMiscellaneousSettings();
 
