@@ -54,6 +54,11 @@
             MessageBoxHelper.ShowMessage(msg, caption);
         }
 
+        protected void ShowWarning(string msg, string caption)
+        {
+            MessageBoxHelper.ShowWarning(msg, caption);
+        }
+
         protected void ShowError(string msg)
         {
             MessageBoxHelper.ShowError(msg);

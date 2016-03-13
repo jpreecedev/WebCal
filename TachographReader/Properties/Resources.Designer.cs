@@ -1461,6 +1461,24 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The smart card is still being read, please wait until this is completed..
+        /// </summary>
+        public static string TXT_CARD_READ_IN_PROGRESS {
+            get {
+                return ResourceManager.GetString("TXT_CARD_READ_IN_PROGRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card Read In Progress.
+        /// </summary>
+        public static string TXT_CARD_READ_IN_PROGRESS_CAPTION {
+            get {
+                return ResourceManager.GetString("TXT_CARD_READ_IN_PROGRESS_CAPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Re-Print Certificate.
         /// </summary>
         public static string TXT_CERTIFICATE_TACHOGRAPH_DOCUMENT {

@@ -48,7 +48,6 @@
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<Grid> PrintLabelCommand { get; set; }
         public DelegateCommand<object> AddInspectionInfoCommand { get; set; }
-        public bool CardBeingRead { get; set; }
         
         public void SetDocumentTypes(bool isDigital)
         {
@@ -183,8 +182,6 @@
 
         protected override void OnFastReadCompleted(object sender, DriverCardCompletedEventArgs e)
         {
-            CardBeingRead = false;
-
             if (!e.IsSuccess)
             {
                 StatusText = Resources.TXT_UNABLE_READ_SMART_CARD;

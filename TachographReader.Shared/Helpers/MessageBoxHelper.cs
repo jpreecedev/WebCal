@@ -18,6 +18,11 @@
             return MessageBox.Show(owner, msg, Resources.TXT_QUESTION, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
         }
 
+        public static void ShowWarning(string msg, string caption, Window owner = null)
+        {
+            Show(owner, msg, caption, MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
         public static void ShowMessage(string msg, Window owner = null)
         {
             Show(owner, msg, Resources.TXT_INFORMATION, MessageBoxButton.OK, MessageBoxImage.Information);

@@ -33,6 +33,7 @@
 
         public bool IsSearchingConnect { get; set; }
         public bool IsRegistrationChanging { get; set; }
+        public bool CardBeingRead { get; set; }
 
         public T Document { get; set; }
 
@@ -147,6 +148,11 @@
             if (!IsValid(root))
             {
                 ShowError(Resources.EXC_MISSING_FIELDS);
+                return;
+            }
+            if (CardBeingRead)
+            {
+                ShowWarning(Resources.TXT_CARD_READ_IN_PROGRESS, Resources.TXT_CARD_READ_IN_PROGRESS_CAPTION);
                 return;
             }
 

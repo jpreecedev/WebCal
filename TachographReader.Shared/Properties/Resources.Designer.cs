@@ -659,6 +659,15 @@ namespace TachographReader.Shared.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reading....
+        /// </summary>
+        public static string TXT_READNG {
+            get {
+                return ResourceManager.GetString("TXT_READNG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to R - Recalibration.
         /// </summary>
         public static string TXT_RECALIBRATION {

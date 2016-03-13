@@ -155,6 +155,9 @@
   <data name="TXT_STARTING" xml:space="preserve">
     <value>Starting...</value>
   </data>
+  <data name="TXT_READNG" xml:space="preserve">
+    <value>Reading...</value>
+  </data>
   <data name="TXT_SERVER_SENT_A_FAULT" xml:space="preserve">
     <value>The server sent back a fault: {0}</value>
   </data>

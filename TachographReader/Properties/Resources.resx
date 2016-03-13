@@ -3028,4 +3028,10 @@ date
   <data name="TXT_VEHICLE_TYPE" xml:space="preserve">
     <value>Vehicle Type:</value>
   </data>
+  <data name="TXT_CARD_READ_IN_PROGRESS" xml:space="preserve">
+    <value>The smart card is still being read, please wait until this is completed.</value>
+  </data>
+  <data name="TXT_CARD_READ_IN_PROGRESS_CAPTION" xml:space="preserve">
+    <value>Card Read In Progress</value>
+  </data>
 </root>
