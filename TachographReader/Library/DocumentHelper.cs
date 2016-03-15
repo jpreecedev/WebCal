@@ -3,9 +3,11 @@
     using System;
     using System.Drawing;
     using System.IO;
+    using System.Net;
     using System.Windows;
     using System.Windows.Resources;
     using Properties;
+    using SevenZip;
     using Shared;
     using Shared.Helpers;
 
@@ -61,6 +63,29 @@
             image.Save(path);
 
             return path;
+        }
+
+        public static byte[] Zip(string filePath)
+        {
+            var tempFileName = DateTime.Now.ToString("ddMMyyyyHHmmss");
+            var tempDirectory = Path.Combine(ImageHelper.GetTemporaryDirectory(), tempFileName);
+            var originalFileName = Path.GetFileName(filePath);
+            var finalDestination = Path.Combine(ImageHelper.GetTemporaryDirectory(), tempFileName + ".zip");
+
+            Directory.CreateDirectory(tempDirectory);
+            File.Copy(filePath, Path.Combine(tempDirectory, originalFileName));
+
+            SevenZipBase.SetLibraryPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "7z.dll"));
+            var compressor = new SevenZipCompressor
+            {
+                ArchiveFormat = OutArchiveFormat.Zip,
+                CompressionMode = CompressionMode.Create,
+                CompressionLevel = CompressionLevel.Ultra,
+                TempFolderPath = tempDirectory
+            };
+            compressor.CompressDirectory(tempDirectory, finalDestination);
+            
+            return File.ReadAllBytes(finalDestination);
         }
     }
 }

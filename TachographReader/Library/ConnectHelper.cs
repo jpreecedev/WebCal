@@ -169,7 +169,7 @@
             CallAsync(() =>
             {
                 var serviceCredentials = _connectClient.Service.GetServiceCredentials();
-                FtpHelper.SaveDatabaseBackup(serviceCredentials, File.ReadAllBytes(databasePath));
+                FtpHelper.SaveDatabaseBackup(serviceCredentials, databasePath);
             });
         }
 
@@ -178,7 +178,7 @@
             CallSync(() =>
             {
                 var serviceCredentials = _connectClient.Service.GetServiceCredentials();
-                FtpHelper.SaveDatabaseBackup(serviceCredentials, File.ReadAllBytes(databasePath));
+                FtpHelper.SaveDatabaseBackup(serviceCredentials, databasePath);
             });
         }
 

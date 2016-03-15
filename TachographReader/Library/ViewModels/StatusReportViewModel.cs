@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
@@ -44,7 +45,7 @@
                 }   
             }
 
-            if (Technicians == null || Technicians.Count == 0)
+            if ((Technicians == null || Technicians.Count == 0) || (Technicians.All(c => c.DateOfLast3YearCheck == null && c.DateOfLastCheck == null)))
             {
                 return TachoCentreQuarterlyStatus == ReportItemStatus.Unknown && GV212Status == ReportItemStatus.Unknown;
             }

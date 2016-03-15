@@ -4,15 +4,13 @@
     using System.IO;
     using System.Linq;
     using System.Net;
-    using System.Runtime.InteropServices;
-    using System.Security;
     using Connect.Shared.Models;
 
     public static class FtpHelper
     {
         private const string FtpPath = "ftp://ftp.webcalconnect.com/";
 
-        public static void SaveDatabaseBackup(ServiceCredentials serviceCredentials, byte[] data)
+        public static void SaveDatabaseBackup(ServiceCredentials serviceCredentials, string filePath)
         {
             if (serviceCredentials == null)
             {
@@ -25,14 +23,13 @@
             }
 
             var userId = serviceCredentials.UserId;
-            var filename = string.Format("{0}.sdf", DateTime.Now.ToString("dd-MM-yyyy HHmm"));
 
             if (!DirectoryExists(userId.ToString(), serviceCredentials.Username, serviceCredentials.Password))
             {
                 CreateDirectory(userId.ToString(), serviceCredentials.Username, serviceCredentials.Password);
             }
 
-            Upload(userId.ToString(), serviceCredentials.Username, serviceCredentials.Password, filename, data);
+            Upload(userId.ToString(), serviceCredentials.Username, serviceCredentials.Password, filePath);
         }
 
         private static bool DirectoryExists(string userId, string username, string password)
@@ -72,8 +69,11 @@
             }
         }
 
-        private static void Upload(string directoryName, string username, string password, string filename, byte[] data)
+        private static void Upload(string directoryName, string username, string password, string filePath)
         {
+            var filename = $"{DateTime.Now.ToString("dd-MM-yyyy HHmm")}.sdf";
+            var data = DocumentHelper.Zip(filePath);
+
             using (var client = new WebClient())
             {
                 client.Credentials = new NetworkCredential(username, password);
