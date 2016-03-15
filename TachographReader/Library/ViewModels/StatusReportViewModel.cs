@@ -66,12 +66,6 @@
                     return ReportItemStatus.Ok;
                 }
 
-                var lastMonth = now.AddMonths(-1);
-                if (lastCheck.Date.Month == lastMonth.Month && lastCheck.Date.Year == lastMonth.Year)
-                {
-                    return ReportItemStatus.CheckDue;
-                }
-
                 return ReportItemStatus.Expired;
             }
         }
