@@ -1119,6 +1119,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check centre status when Webcal starts up?.
+        /// </summary>
+        public static string TXT_AUTO_CHECK_CENTRE_STATUS {
+            get {
+                return ResourceManager.GetString("TXT_AUTO_CHECK_CENTRE_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Black.
         /// </summary>
         public static string TXT_BLACK_THEME {
@@ -2611,6 +2620,15 @@ namespace TachographReader.Properties {
         public static string TXT_IMP_KM_VEHICLE {
             get {
                 return ResourceManager.GetString("TXT_IMP_KM_VEHICLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It looks like some information might be out of date, would you like to run a status report?.
+        /// </summary>
+        public static string TXT_INFO_OUT_OF_DATE {
+            get {
+                return ResourceManager.GetString("TXT_INFO_OUT_OF_DATE", resourceCulture);
             }
         }
         
@@ -5223,6 +5241,15 @@ namespace TachographReader.Properties {
         public static string TXT_ONE_OR_MORE_ERRORS {
             get {
                 return ResourceManager.GetString("TXT_ONE_OR_MORE_ERRORS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Out of Date Information.
+        /// </summary>
+        public static string TXT_OUT_OF_DATE_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_OUT_OF_DATE_TITLE", resourceCulture);
             }
         }
         

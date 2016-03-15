@@ -3,13 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Drawing;
     using System.Linq;
     using System.Windows.Controls;
     using Windows.SignatureCaptureWindow;
     using Core;
     using DataModel;
-    using DataModel.Library;
     using Library;
     using Library.PDF;
     using Library.ViewModels;
@@ -235,15 +233,7 @@
         
         private void OnGenerateStatusReport(object obj)
         {
-            var generalSettingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
-            var statusReport = new StatusReportViewModel
-            {
-                Technicians = Technicians,
-                TachoCentreLastCheck = generalSettingsRepository.CentreQuarterlyCheckDate,
-                GV212LastCheck = generalSettingsRepository.MonthlyGV212Date
-            };
-
-            var result = statusReport.GenerateStatusReport();
+            var result = new StatusReportViewModel(Technicians).GenerateStatusReport();
             if (result.Success)
             {
                 if (AskQuestion(Resources.TXT_DO_YOU_WANT_TO_PRINT))

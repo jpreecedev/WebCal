@@ -20,10 +20,6 @@
                 }
             });
 
-            if (settings.Count == 0)
-            {
-                return new T();
-            }
             if (settings.Count == 1)
             {
                 return settings.First();
@@ -43,9 +39,9 @@
             {
                 using (var context = new TachographContext())
                 {
-                    if (settings.Id == 0)
+                    if (settings == null)
                     {
-                        context.Set<T>().Add(settings);
+                        context.Set<T>().Add(new T());
                     }
                     else
                     {

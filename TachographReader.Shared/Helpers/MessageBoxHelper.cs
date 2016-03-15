@@ -23,6 +23,17 @@
             Show(owner, msg, caption, MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
+        public static bool ShowWarning(string msg, string caption, MessageBoxButton button, Window owner = null)
+        {
+            if (owner == null)
+            {
+                owner = Application.Current.MainWindow;
+            }
+
+            var result = MessageBox.Show(owner, msg, caption, button, MessageBoxImage.Warning);
+            return result == MessageBoxResult.OK || result == MessageBoxResult.Yes;
+        }
+
         public static void ShowMessage(string msg, Window owner = null)
         {
             Show(owner, msg, Resources.TXT_INFORMATION, MessageBoxButton.OK, MessageBoxImage.Information);

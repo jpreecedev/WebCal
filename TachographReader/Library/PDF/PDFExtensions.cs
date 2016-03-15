@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
     using Connect.Shared.Models;
     using DataModel;
@@ -128,6 +129,17 @@
             }
 
             EmailHelper.SendEmail(workshopSettings, mailSettings, pdfDocumentResult.Document, pdfDocumentResult.FilePath);
+        }
+
+        public static void Open(this PDFDocumentResult pdfDocumentResult)
+        {
+            try
+            {
+                Process.Start(pdfDocumentResult.FilePath);
+            }
+            catch
+            {
+            }
         }
 
         public static bool Print(this PDFDocumentResult pdfDocumentResult)

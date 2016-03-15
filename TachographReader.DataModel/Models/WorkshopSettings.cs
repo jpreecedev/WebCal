@@ -100,5 +100,7 @@
         public DateTime? CentreQuarterlyCheckDate { get; set; }
 
         public DateTime? MonthlyGV212Date { get; set; }
+
+        public bool IsStatusReportCheckEnabled { get; set; }
     }
 }

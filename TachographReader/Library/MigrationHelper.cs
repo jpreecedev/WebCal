@@ -49,6 +49,11 @@
                     printerSettings.LabelNumberOfCopies = 1;
                 }
 
+                var workshopSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
+                var workshopSettings = workshopSettingsRepository.GetWorkshopSettings();
+                workshopSettings.IsStatusReportCheckEnabled = true;
+                workshopSettingsRepository.Save(workshopSettings);
+
                 printerSettingsRepository.Save(printerSettings);
                 miscellaneousSettings.LastMigrationHackId = 2;
             }

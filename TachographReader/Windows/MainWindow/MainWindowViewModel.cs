@@ -2,14 +2,19 @@
 {
     using System;
     using System.Diagnostics;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Threading;
     using Connect.Shared.Models;
     using Core;
+    using DataModel;
     using DataModel.Core;
+    using DataModel.Library;
     using Library;
+    using Library.PDF;
+    using Library.ViewModels;
     using Properties;
     using Shared;
     using Views;
@@ -322,6 +327,22 @@
             base.Load();
 
             ConnectHelper.SyncDocuments();
+
+            var settings = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
+            if (!settings.GetWorkshopSettings().IsStatusReportCheckEnabled)
+            {
+                return;
+            }
+
+            var allTechnicians = GetInstance<IRepository<Technician>>().Where(c => c.Deleted == null).ToList();
+            var statusReport = new StatusReportViewModel(allTechnicians);
+            if (!statusReport.IsUpToDate())
+            {
+                if (ShowWarning(Resources.TXT_INFO_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
+                {
+                    statusReport.GenerateStatusReport().Open();
+                }
+            }
         }
 
         private void CloseSettingsModal(bool save)

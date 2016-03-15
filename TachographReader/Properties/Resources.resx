@@ -3037,4 +3037,13 @@ date
   <data name="TXT_TRAINING_DATE" xml:space="preserve">
     <value>Training Date</value>
   </data>
+  <data name="TXT_INFO_OUT_OF_DATE" xml:space="preserve">
+    <value>It looks like some information might be out of date, would you like to run a status report?</value>
+  </data>
+  <data name="TXT_OUT_OF_DATE_TITLE" xml:space="preserve">
+    <value>Out of Date Information</value>
+  </data>
+  <data name="TXT_AUTO_CHECK_CENTRE_STATUS" xml:space="preserve">
+    <value>Check centre status when Webcal starts up?</value>
+  </data>
 </root>

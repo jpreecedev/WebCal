@@ -65,6 +65,11 @@
                 throw new ArgumentNullException(nameof(workshopSettings));
             }
 
+            if (workshopSettings.BackupFilePath == null)
+            {
+                return;
+            }
+
             if (workshopSettings.BackupFilePath.Length < 3 || workshopSettings.BackupFilePath == Resources.TXT_NO_PATH_SPECIFIED || workshopSettings.AutoBackup == false || workshopSettings.CustomDayOfWeeks == null || workshopSettings.CustomDayOfWeeks.Count == 0)
             {
                 return;
