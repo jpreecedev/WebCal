@@ -8,7 +8,7 @@
     using Shared;
     using Shared.Core;
 
-    public class SettingsRepository<T> : BaseRepository, ISettingsRepository<T> where T : BaseSettings
+    public class SettingsRepository<T> : BaseRepository, ISettingsRepository<T> where T : BaseSettings, new()
     {
         public T Get(Func<T, bool> filter, params string[] includes)
         {
@@ -22,7 +22,7 @@
 
             if (settings.Count == 0)
             {
-                return null;
+                return new T();
             }
             if (settings.Count == 1)
             {
@@ -43,8 +43,15 @@
             {
                 using (var context = new TachographContext())
                 {
-                    context.Set<T>().Attach(settings);
-                    context.Entry(settings).State = EntityState.Modified;
+                    if (settings.Id == 0)
+                    {
+                        context.Set<T>().Add(settings);
+                    }
+                    else
+                    {
+                        context.Set<T>().Attach(settings);
+                        context.Entry(settings).State = EntityState.Modified;
+                    }
                     context.SaveChanges();
                 }
             });
