@@ -3,8 +3,8 @@
     using System;
     using System.Windows;
     using System.Windows.Threading;
-    using Shared.Properties;
-    using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
+    using Properties;
+    using MessageBox = System.Windows.MessageBox;
 
     public static class MessageBoxHelper
     {
