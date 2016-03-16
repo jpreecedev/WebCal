@@ -56,7 +56,7 @@ namespace TachographReader.DataModel.Library
             }
         }
 
-        public static DateTime SafelyGetValueAsDateTime(this XElement element)
+        public static DateTime? SafelyGetValueAsDateTime(this XElement element)
         {
             try
             {
@@ -66,11 +66,11 @@ namespace TachographReader.DataModel.Library
                     return parsed;
                 }
 
-                return default(DateTime);
+                return null;
             }
             catch
             {
-                return default(DateTime);
+                return null;
             }
         }
 
