@@ -62,14 +62,14 @@
 
         public static void SyncDocuments()
         {
-            var tachographDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>();
-            var undownloadabilityDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<UndownloadabilityDocument>>();
-            var letterForDecommissioningRepository = ContainerBootstrapper.Resolve<IRepository<LetterForDecommissioningDocument>>();
-            var qcReportRepository = ContainerBootstrapper.Resolve<IRepository<QCReport>>();
-            var qcReport6MonthRepository = ContainerBootstrapper.Resolve<IRepository<QCReport6Month>>();
-
             CallAsync(() =>
             {
+                var tachographDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>();
+                var undownloadabilityDocumentsRepository = ContainerBootstrapper.Resolve<IRepository<UndownloadabilityDocument>>();
+                var letterForDecommissioningRepository = ContainerBootstrapper.Resolve<IRepository<LetterForDecommissioningDocument>>();
+                var qcReportRepository = ContainerBootstrapper.Resolve<IRepository<QCReport>>();
+                var qcReport6MonthRepository = ContainerBootstrapper.Resolve<IRepository<QCReport6Month>>();
+
                 foreach (var tachographDocument in tachographDocumentsRepository.Where(c => c.Uploaded == null))
                 {
                     _connectClient.Service.AutoUploadTachographDocument(CheckSerializedData(tachographDocument));

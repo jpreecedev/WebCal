@@ -1,5 +1,6 @@
 ﻿namespace TachographReader.Core
 {
+    using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
@@ -79,6 +80,11 @@
 
         protected virtual void OnCustomerContactChanged(CustomerContact customerContact)
         {            
+        }
+
+        protected void CallAsync<T>(Func<T> beginCall, Action<T> endCall, Action<Exception> exceptionHandler)
+        {
+            AsyncHelper.CallAsync(beginCall, endCall, exceptionHandler);
         }
 
         private void OnNewCustomer(object obj)

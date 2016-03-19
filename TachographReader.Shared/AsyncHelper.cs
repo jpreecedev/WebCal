@@ -92,7 +92,7 @@
                 for (int i = 0; i < aggregateException.InnerExceptions.Count; i++)
                 {
                     Exception innerException = aggregateException.InnerExceptions[i];
-                    builder.AppendLine(String.Format("{0}. {1}", i + 1, innerException.Message));
+                    builder.AppendLine($"{i + 1}. {innerException.Message}");
                 }
             }
             else
