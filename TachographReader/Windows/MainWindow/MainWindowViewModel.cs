@@ -328,19 +328,30 @@
 
             ConnectHelper.SyncDocuments();
 
-            var settings = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
-            if (!settings.GetWorkshopSettings().IsStatusReportCheckEnabled)
+            var settingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
+            var workshopSettings = settingsRepository.GetWorkshopSettings();
+            if (workshopSettings.IsStatusReportCheckEnabled)
             {
-                return;
+                var allTechnicians = GetInstance<IRepository<Technician>>().Where(c => c.Deleted == null).ToList();
+                var statusReport = new StatusReportViewModel(allTechnicians);
+                if (!statusReport.IsUpToDate())
+                {
+                    if (ShowWarning(Resources.TXT_INFO_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
+                    {
+                        statusReport.GenerateStatusReport().Open();
+                    }
+                }
             }
 
-            var allTechnicians = GetInstance<IRepository<Technician>>().Where(c => c.Deleted == null).ToList();
-            var statusReport = new StatusReportViewModel(allTechnicians);
-            if (!statusReport.IsUpToDate())
+            if (workshopSettings.IsGV212CheckEnabled && workshopSettings.MonthlyGV212Date != null)
             {
-                if (ShowWarning(Resources.TXT_INFO_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
+                var statusReport = new StatusReportViewModel();
+                if (statusReport.IsGV212Due() && GV212ReportHelper.HasDataForThisMonth())
                 {
-                    statusReport.GenerateStatusReport().Open();
+                    if (ShowWarning(Resources.TXT_GV_212_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
+                    {
+                        GV212ReportHelper.Create(false);
+                    }
                 }
             }
         }

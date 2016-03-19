@@ -5,9 +5,27 @@
 
     public class PDFDocumentResult
     {
+        public byte[] SerializedData
+        {
+            get
+            {
+                if (Document != null)
+                {
+                    return Document.SerializedData ?? LoadFileData();
+                }
+                if (Report != null)
+                {
+                    return Report.SerializedData ?? LoadFileData();
+                }
+                return LoadFileData();
+            }
+        }
+
         public Document Document { get; set; }
 
         public BaseReport Report { get; set; }
+
+        public GV212Report GV212Report { get; set; }
 
         public string FilePath { get; set; }
 
@@ -27,6 +45,16 @@
         public bool Success
         {
             get { return !string.IsNullOrEmpty(FilePath); }
+        }
+
+        private byte[] LoadFileData()
+        {
+            if (string.IsNullOrEmpty(FilePath))
+            {
+                return null;
+            }
+
+            return File.ReadAllBytes(FilePath);
         }
     }
 }

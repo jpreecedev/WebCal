@@ -245,7 +245,7 @@
             return result.OrderByDescending(c => c.Created.Date);
         }
 
-        private static IEnumerable<T> GetDocuments<T>(DbContext context) where T : BaseModel
+        public static IEnumerable<T> GetDocuments<T>(this TachographContext context) where T : BaseModel
         {
             var documentCount = context.Set<T>().Count();
             if (documentCount > 0)

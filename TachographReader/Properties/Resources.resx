@@ -1667,7 +1667,7 @@ date
     <value>Re-Print Label</value>
   </data>
   <data name="TXT_TACHO_HISTORY_REPRINT_CERTIFICATE" xml:space="preserve">
-    <value>Re-Print Certificate</value>
+    <value>Re-Print Document</value>
   </data>
   <data name="TXT_UNDOWNLOADABILITY_HISTORY_TITLE" xml:space="preserve">
     <value>Undownloadability document history</value>
@@ -3045,5 +3045,14 @@ date
   </data>
   <data name="TXT_AUTO_CHECK_CENTRE_STATUS" xml:space="preserve">
     <value>Check centre status when Webcal starts up?</value>
+  </data>
+  <data name="TXT_AUTO_CHECK_GV_212_STATUS" xml:space="preserve">
+    <value>Check GV 212 status when Webcal starts up?</value>
+  </data>
+  <data name="TXT_GV_212_OUT_OF_DATE" xml:space="preserve">
+    <value>A GV 212 report has not been generated for this month.  Do you want to generate one now?</value>
+  </data>
+  <data name="TXT_GV212" xml:space="preserve">
+    <value>GV 212</value>
   </data>
 </root>

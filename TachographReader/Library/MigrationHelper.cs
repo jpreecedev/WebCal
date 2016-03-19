@@ -52,6 +52,7 @@
                 var workshopSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
                 var workshopSettings = workshopSettingsRepository.GetWorkshopSettings();
                 workshopSettings.IsStatusReportCheckEnabled = true;
+                workshopSettings.IsGV212CheckEnabled = true;
                 workshopSettingsRepository.Save(workshopSettings);
 
                 printerSettingsRepository.Save(printerSettings);

@@ -37,5 +37,6 @@
         public DbSet<WorkerTask> WorkerTasks { get; set; }
         public DbSet<QCReport> QCReports { get; set; }
         public DbSet<QCReport6Month> QCReport6Months { get; set; }
+        public DbSet<GV212Report> GV212Reports { get; set; }
     }
 }

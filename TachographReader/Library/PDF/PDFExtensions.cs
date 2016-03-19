@@ -95,7 +95,7 @@
 
             return new PDFDocumentResult();
         }
-
+        
         public static PDFDocumentResult GenerateGV212Document(this ICollection<TachographDocument> documents, DateTime start, DateTime end)
         {
             var result = DialogHelper.SaveFile(DialogFilter.PDF, string.Empty);
@@ -177,6 +177,37 @@
 
             WorkerHelper.QueueTask(workerTask);
             return true;
+        }
+
+        public static void Email(this GV212Report gv212Report, WorkshopSettings workshopSettings, MailSettings mailSettings)
+        {
+            ReCreateGV212(gv212Report).Email(workshopSettings, mailSettings);
+        }
+
+        public static void Print(this GV212Report gv212Report)
+        {
+            ReCreateGV212(gv212Report).Print();
+        }
+
+        private static PDFDocumentResult ReCreateGV212(GV212Report gv212Report)
+        {
+            if (gv212Report == null)
+            {
+                return new PDFDocumentResult();
+            }
+
+            var result = Save(false);
+            if (result.Result == true)
+            {
+                File.WriteAllBytes(result.FileName, gv212Report.SerializedData);
+                return new PDFDocumentResult
+                {
+                    FilePath = result.FileName,
+                    GV212Report = gv212Report
+                };
+            }
+
+            return new PDFDocumentResult();
         }
 
         private static DialogHelperResult Save(bool promptUser)

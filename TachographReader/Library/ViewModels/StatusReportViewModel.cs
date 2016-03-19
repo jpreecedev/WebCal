@@ -10,13 +10,16 @@
 
     public class StatusReportViewModel
     {
-        public StatusReportViewModel(IList<Technician> technicians)
+        public StatusReportViewModel()
         {
-            Technicians = technicians;
-
             var generalSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
             TachoCentreLastCheck = generalSettingsRepository.CentreQuarterlyCheckDate;
             GV212LastCheck = generalSettingsRepository.MonthlyGV212Date;
+        }
+
+        public StatusReportViewModel(IList<Technician> technicians) : this()
+        {
+            Technicians = technicians;
         }
 
         public IList<Technician> Technicians { get; }
@@ -83,6 +86,11 @@
                 }
                 return ReportItemStatus.Expired;
             }
+        }
+
+        public bool IsGV212Due()
+        {
+            return GV212Status == ReportItemStatus.CheckDue || GV212Status == ReportItemStatus.Expired;
         }
 
         public ReportItemStatus GV212Status

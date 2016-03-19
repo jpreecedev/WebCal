@@ -1128,6 +1128,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check GV 212 status when Webcal starts up?.
+        /// </summary>
+        public static string TXT_AUTO_CHECK_GV_212_STATUS {
+            get {
+                return ResourceManager.GetString("TXT_AUTO_CHECK_GV_212_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Black.
         /// </summary>
         public static string TXT_BLACK_THEME {
@@ -2593,6 +2602,24 @@ namespace TachographReader.Properties {
         public static string TXT_GV_212 {
             get {
                 return ResourceManager.GetString("TXT_GV_212", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A GV 212 report has not been generated for this month.  Do you want to generate one now?.
+        /// </summary>
+        public static string TXT_GV_212_OUT_OF_DATE {
+            get {
+                return ResourceManager.GetString("TXT_GV_212_OUT_OF_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GV 212.
+        /// </summary>
+        public static string TXT_GV212 {
+            get {
+                return ResourceManager.GetString("TXT_GV212", resourceCulture);
             }
         }
         
@@ -7152,7 +7179,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Re-Print Certificate.
+        ///   Looks up a localized string similar to Re-Print Document.
         /// </summary>
         public static string TXT_TACHO_HISTORY_REPRINT_CERTIFICATE {
             get {

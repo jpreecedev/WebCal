@@ -7,6 +7,7 @@
     using DataModel.Library;
     using Library;
     using Library.PDF;
+    using Properties;
     using Shared;
 
     public class DocumentHistoryItem : IDocumentHistoryItem
@@ -24,6 +25,13 @@
 
             CanReprintLabel = Document is TachographDocument;
             CanPrintGV212Document = Document is TachographDocument;
+        }
+
+        public DocumentHistoryItem(GV212Report document)
+        {
+            Type = Resources.TXT_GV212;
+            Created = document.Created;
+            GV212Report = document;
         }
 
         public DocumentHistoryItem(BaseReport report)
@@ -53,6 +61,7 @@
         public bool CanReprintLabel { get; set; }
         public Document Document { get; set; }
         public BaseReport Report { get; set; }
+        public GV212Report GV212Report { get; set; }
         public bool CanPrintGV212Document { get; set; }
 
         public void Print()
@@ -66,6 +75,10 @@
             if (Report != null)
             {
                 Report.ToReportPDF(excludeLogos: miscellaneousSettings.ExcludeLogosWhenPrinting).Print();
+            }
+            if (GV212Report != null)
+            {
+                GV212Report.Print();
             }
         }
 
@@ -91,11 +104,20 @@
             {
                 Report.ToReportPDF().Email(workshopSettings, mailSettings);
             }
+            if (GV212Report != null)
+            {
+                GV212Report.Email(workshopSettings, mailSettings);
+            }
         }
 
         public bool IsReport()
         {
             return Report != null;
+        }
+
+        public bool IsGV212()
+        {
+            return GV212Report != null;
         }
 
         private void FromQCReport(QCReport report)

@@ -102,5 +102,7 @@
         public DateTime? MonthlyGV212Date { get; set; }
 
         public bool IsStatusReportCheckEnabled { get; set; }
+
+        public bool IsGV212CheckEnabled { get; set; }
     }
 }

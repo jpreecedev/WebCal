@@ -22,6 +22,7 @@
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="{x:Static Properties:Resources.TXT_GENERAL_SETTINGS_GENERAL_SETTINGS}"
@@ -64,6 +65,11 @@
         <CheckBox Content="{x:Static Properties:Resources.TXT_AUTO_CHECK_CENTRE_STATUS}"
                   IsChecked="{core:InputBinding Settings.IsStatusReportCheckEnabled}"
                   Grid.Row="5"
-                  Margin="0,10,0,0"/>
+                  Margin="0,10,0,0" />
+
+        <CheckBox Content="{x:Static Properties:Resources.TXT_AUTO_CHECK_GV_212_STATUS}"
+                  IsChecked="{core:InputBinding Settings.IsGV212CheckEnabled}"
+                  Grid.Row="6"
+                  Margin="0,10,0,0" />
     </Grid>
 </core:BaseSettingsView>

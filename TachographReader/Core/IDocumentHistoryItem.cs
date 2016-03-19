@@ -25,6 +25,8 @@
 
         BaseReport Report { get; set; }
 
+        GV212Report GV212Report { get; set; }
+
         void Print();
         void PrintLabel();
 

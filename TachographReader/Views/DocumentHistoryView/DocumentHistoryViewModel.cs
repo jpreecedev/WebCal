@@ -4,16 +4,12 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
-    using Windows.DateRangePickerWindow;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
-    using DataModel.Library;
     using Library;
-    using Library.PDF;
     using Library.ViewModels;
     using Properties;
-    using Shared;
 
     public class DocumentHistoryViewModel : BaseMainViewModel
     {
@@ -41,7 +37,9 @@
             using (var context = new TachographContext())
             {
                 var documents = context.GetAllDocuments().Select(c => new DocumentHistoryItem(c));
-                Documents = new ObservableCollection<IDocumentHistoryItem>(documents.Concat(context.GetQCReports().Select(c => new DocumentHistoryItem(c))));
+                Documents = new ObservableCollection<IDocumentHistoryItem>(
+                    documents.Concat(context.GetQCReports().Select(c => new DocumentHistoryItem(c)))
+                             .Concat(context.GetDocuments<GV212Report>().Select(c => new DocumentHistoryItem(c))));
 
                 _originalDocumentHistoryItems = new ObservableCollection<IDocumentHistoryItem>(Documents);
             }
@@ -53,7 +51,8 @@
                 typeof (UndownloadabilityDocument).Name.SplitByCapitals(),
                 typeof (LetterForDecommissioningDocument).Name.SplitByCapitals(),
                 typeof (QCReport).Name.SplitByCapitals(),
-                typeof (QCReport6Month).Name.SplitByCapitals()
+                typeof (QCReport6Month).Name.SplitByCapitals(),
+                "GV 212"
             };
 
             SearchFilters = new List<string>
@@ -75,10 +74,15 @@
 
             ReprintLabelCommand = new DelegateCommand<object>(OnReprintLabel);
             ReprintCertificateCommand = new DelegateCommand<object>(OnReprintCertificate);
-            OpenInReportFormCommand = new DelegateCommand<object>(OnOpenInReportForm);
+            OpenInReportFormCommand = new DelegateCommand<object>(OnOpenInReportForm, CanOpenInReportForm);
             EmailReportFormCommand = new DelegateCommand<object>(OnEmailReportSelected);
             PerformSearchCommand = new DelegateCommand<object>(OnPerformSearch);
             CreateGV212DocumentCommand = new DelegateCommand<object>(OnCreateGV212Document);
+        }
+
+        private bool CanOpenInReportForm(object obj)
+        {
+            return SelectedDocument != null && SelectedDocument.GV212Report == null;
         }
 
         private void OnEmailReportSelected(object obj)
@@ -93,34 +97,7 @@
 
         private void OnCreateGV212Document(object obj)
         {
-            var window = new DateRangePickerWindow();
-
-            if (window.ShowDialog() != true)
-            {
-                return;
-            }
-
-            var viewModel = window.DataContext as DateRangePickerWindowViewModel;
-            if (viewModel == null)
-            {
-                return;
-            }
-
-            var end = DateTime.Parse($"{viewModel.EndDateTime.ToString(Constants.DateFormat)} 23:59:59");
-            var applicableDocuments = Documents.Where(doc => doc.Document != null)
-                .Select(c => c.Document)
-                .Where(doc => doc.InspectionDate != null && (doc.InspectionDate.Value >= viewModel.StartDateTime && doc.InspectionDate.Value <= end))
-                .Cast<TachographDocument>()
-                .ToList();
-
-            var result = applicableDocuments.GenerateGV212Document(viewModel.StartDateTime, end);
-            if (result.Success)
-            {
-                var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
-                var settings = settingsRepository.GetWorkshopSettings();
-                settings.MonthlyGV212Date = DateTime.Now.Date;
-                settingsRepository.Save(settings);
-            }
+            GV212ReportHelper.Create(Documents, true);
         }
 
         private void OnReprintLabel(object obj)
@@ -239,6 +216,16 @@
             if (SelectedDocumentType != Resources.TXT_SELECT_ALL)
             {
                 Documents.Remove(item => item.Type != SelectedDocumentType);
+            }
+        }
+
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+
+            if (propertyName == "SelectedDocument")
+            {
+                OpenInReportFormCommand.RaiseCanExecuteChanged();
             }
         }
     }
