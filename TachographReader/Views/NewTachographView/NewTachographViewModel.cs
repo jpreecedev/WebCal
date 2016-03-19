@@ -451,7 +451,7 @@
             return null;
         }
 
-        private static void PrintLabel(TachographDocument document, bool userInitiated)
+        private void PrintLabel(TachographDocument document, bool userInitiated)
         {
             if (document == null)
                 throw new ArgumentNullException(nameof(document));
@@ -460,7 +460,7 @@
             {
                 if (userInitiated)
                 {
-                    MessageBoxHelper.ShowError(Resources.TXT_ERR_MUST_SELECT_DOCUMENT_TYPE);
+                    ShowError(Resources.TXT_ERR_MUST_SELECT_DOCUMENT_TYPE);
                 }
                 return;
             }

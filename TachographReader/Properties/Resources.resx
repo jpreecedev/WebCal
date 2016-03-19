@@ -1807,6 +1807,9 @@ date
   <data name="TXT_CALIBRATION_DETAILS_CANCEL" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="TXT_CUSTOMER_DETAILS_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="TXT_EXCEPTION_WINDOW_TECHNICAL_INFORMATION" xml:space="preserve">
     <value>Technical Information</value>
   </data>
@@ -3054,5 +3057,17 @@ date
   </data>
   <data name="TXT_GV212" xml:space="preserve">
     <value>GV 212</value>
+  </data>
+  <data name="TXT_CALIBRATIONS_CREATE_CERTIFICATE" xml:space="preserve">
+    <value>Create Certificate</value>
+  </data>
+  <data name="TXT_CUSTOMER_DETAILS_USE_SELECTED" xml:space="preserve">
+    <value>Use Selected Customer</value>
+  </data>
+  <data name="TXT_PRINT_CALIBRATION_CERTIFICATE" xml:space="preserve">
+    <value>Do you want to print a calibration certificate?</value>
+  </data>
+  <data name="TXT_PRINT_LABEL" xml:space="preserve">
+    <value>Do you want to print a label?</value>
   </data>
 </root>

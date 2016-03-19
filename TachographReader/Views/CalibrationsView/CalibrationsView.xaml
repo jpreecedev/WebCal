@@ -61,6 +61,8 @@
                     <ContextMenu>
                         <MenuItem Header="{x:Static Properties:Resources.TXT_SHOW_DETAILS}"
                                   Command="{Binding ShowDetailsCommand}" />
+                        <MenuItem Header="{x:Static Properties:Resources.TXT_CALIBRATIONS_CREATE_CERTIFICATE}"
+                                  Command="{Binding CreateCertificateCommand}" />
                     </ContextMenu>
                 </ListView.ContextMenu>
             </ListView>
@@ -77,6 +79,8 @@
                         Grid.Row="1">
                 <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_SHOW_DETAILS}"
                         Command="{Binding ShowDetailsCommand}" />
+                <Button Content="{x:Static Properties:Resources.TXT_CALIBRATIONS_CREATE_CERTIFICATE}"
+                        Command="{Binding CreateCertificateCommand}" />
             </StackPanel>
         </Grid>
     </Grid>

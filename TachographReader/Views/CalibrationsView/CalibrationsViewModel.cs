@@ -17,12 +17,14 @@
         public CalibrationRecord SelectedCalibrationRecord { get; set; }
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<object> ShowDetailsCommand { get; set; }
+        public DelegateCommand<object> CreateCertificateCommand { get; set; }
         public IDriverCardReader DriverCardReader { get; set; }
 
         protected override void InitialiseCommands()
         {
             ReadFromCardCommand = new DelegateCommand<object>(OnReadFromCard);
             ShowDetailsCommand = new DelegateCommand<object>(OnShowDetails);
+            CreateCertificateCommand = new DelegateCommand<object>(OnCreateCertificate);
         }
 
         protected override void Load()
@@ -56,6 +58,20 @@
             var window = new CalibrationDetailsWindow();
             ((CalibrationDetailsViewModel)window.DataContext).CalibrationRecord = SelectedCalibrationRecord;
             window.ShowDialog();
+        }
+
+        private void OnCreateCertificate(object obj)
+        {
+            if (SelectedCalibrationRecord == null)
+            {
+                return;
+            }
+
+            var document = TachographDocumentHelper.Create(SelectedCalibrationRecord);
+
+            var viewModel = (NewTachographViewModel)MainWindow.ShowView<NewTachographView>();
+            viewModel.SetDocumentTypes(true);
+            viewModel.Document = document;
         }
 
         private void Progress(object sender, DriverCardProgressEventArgs e)

@@ -1389,6 +1389,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Certificate.
+        /// </summary>
+        public static string TXT_CALIBRATIONS_CREATE_CERTIFICATE {
+            get {
+                return ResourceManager.GetString("TXT_CALIBRATIONS_CREATE_CERTIFICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calibrations Due.
         /// </summary>
         public static string TXT_CALIBRATIONS_DUE {
@@ -1585,6 +1594,24 @@ namespace TachographReader.Properties {
         public static string TXT_CUSTOMER_DETAILS {
             get {
                 return ResourceManager.GetString("TXT_CUSTOMER_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string TXT_CUSTOMER_DETAILS_CANCEL {
+            get {
+                return ResourceManager.GetString("TXT_CUSTOMER_DETAILS_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Selected Customer.
+        /// </summary>
+        public static string TXT_CUSTOMER_DETAILS_USE_SELECTED {
+            get {
+                return ResourceManager.GetString("TXT_CUSTOMER_DETAILS_USE_SELECTED", resourceCulture);
             }
         }
         
@@ -5349,6 +5376,24 @@ namespace TachographReader.Properties {
         public static string TXT_PORTABLE_NETWORK_GRAPHICS {
             get {
                 return ResourceManager.GetString("TXT_PORTABLE_NETWORK_GRAPHICS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to print a calibration certificate?.
+        /// </summary>
+        public static string TXT_PRINT_CALIBRATION_CERTIFICATE {
+            get {
+                return ResourceManager.GetString("TXT_PRINT_CALIBRATION_CERTIFICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to print a label?.
+        /// </summary>
+        public static string TXT_PRINT_LABEL {
+            get {
+                return ResourceManager.GetString("TXT_PRINT_LABEL", resourceCulture);
             }
         }
         
