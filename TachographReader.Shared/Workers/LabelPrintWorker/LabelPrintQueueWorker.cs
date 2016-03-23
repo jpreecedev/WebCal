@@ -97,17 +97,16 @@
                         }
                     }
 
-                    DrawCenteredText(g, GetDocumentType(PrintParameters.DocumentType), brush, new PointF(LEFT_OFFSET, _textVerticalOffset));
+                    DrawSpacedText(g, GetDocumentType(PrintParameters.DocumentType), brush, new PointF(LEFT_OFFSET, _textVerticalOffset));
+                    DrawSpacedText(g, "Date of Calibration", brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET - 12, _textVerticalOffset));
+                    DrawRectangle(g, TEXT_SECONDARY_LEFT_OFFSET - 10, _textVerticalOffset, 205, 70);
+                    DrawSpacedText(g, GetCalibrationTime(PrintParameters.CalibrationTime), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET - 12, _textVerticalOffset + TEXT_HEIGHT));
 
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_K_FACTOR, PrintParameters.KFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
 
                     var wFactorVerticalOffset = _textVerticalOffset += TEXT_HEIGHT;
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_W_FACTOR, PrintParameters.WFactor), brush, new PointF(LEFT_OFFSET, wFactorVerticalOffset));
                     
-                    DrawSpacedText(g, Resources.TXT_CALIBRATION_DATE, brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, wFactorVerticalOffset));
-                    DrawSpacedText(g, GetCalibrationTime(PrintParameters.CalibrationTime), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET, wFactorVerticalOffset + TEXT_HEIGHT));
-                    DrawRectangle(g, TEXT_SECONDARY_LEFT_OFFSET, wFactorVerticalOffset, 130, 70);
-
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_L_FACTOR, PrintParameters.LFactor), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_VIN, PrintParameters.VIN), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
                     DrawSpacedText(g, string.Format(Resources.TXT_LABEL_SERIAL_NUMBER, PrintParameters.SerialNumber), brush, new PointF(LEFT_OFFSET, _textVerticalOffset += TEXT_HEIGHT));
