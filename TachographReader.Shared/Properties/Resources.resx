@@ -358,4 +358,7 @@
   <data name="TXT_PRINT_COMPLETE" xml:space="preserve">
     <value>Print complete, tidying up.</value>
   </data>
+  <data name="TXT_DATE_OF_CALIBRATION" xml:space="preserve">
+    <value>Date of Calibration</value>
+  </data>
 </root>

@@ -162,6 +162,15 @@ namespace TachographReader.Shared.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date of Calibration.
+        /// </summary>
+        public static string TXT_DATE_OF_CALIBRATION {
+            get {
+                return ResourceManager.GetString("TXT_DATE_OF_CALIBRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Demo.
         /// </summary>
         public static string TXT_DEMO {

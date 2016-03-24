@@ -98,7 +98,7 @@
                     }
 
                     DrawSpacedText(g, GetDocumentType(PrintParameters.DocumentType), brush, new PointF(LEFT_OFFSET, _textVerticalOffset));
-                    DrawSpacedText(g, "Date of Calibration", brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET - 12, _textVerticalOffset));
+                    DrawSpacedText(g, Resources.TXT_DATE_OF_CALIBRATION, brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET - 12, _textVerticalOffset));
                     DrawRectangle(g, TEXT_SECONDARY_LEFT_OFFSET - 10, _textVerticalOffset, 205, 70);
                     DrawSpacedText(g, GetCalibrationTime(PrintParameters.CalibrationTime), brush, new PointF(TEXT_SECONDARY_LEFT_OFFSET - 12, _textVerticalOffset + TEXT_HEIGHT));
 
