@@ -248,7 +248,10 @@
                               Margin="145,0,0,0"/>
                     <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_NEW_BATTERY}"
                               IsChecked="{Binding Document.NewBattery}"
-                              Margin="30,0,0,0"/>
+                              Margin="30,0,0,0" />
+                    <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_IS_QC_CHECK}"
+                              IsChecked="{Binding Document.IsQCCheck}"
+                              Margin="30,0,0,0" />
                 </StackPanel>
 
                 <TextBlock Text="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_INSPECTION_INFO}"

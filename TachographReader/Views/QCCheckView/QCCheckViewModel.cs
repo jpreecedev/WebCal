@@ -68,6 +68,16 @@
             Populate();
         }
 
+        public void PopulateFromCalibration(TachographDocument document)
+        {
+            if (document == null || !document.IsQCCheck)
+            {
+                return;
+            }
+
+            Document = new QCReportViewModel(document);
+        }
+
         private void Populate()
         {
             TachographMakes = new ObservableCollection<TachographMake>(TachographMakesRepository.GetAll("Models"));
@@ -80,6 +90,8 @@
             Document.TachoCentreLine3 = WorkshopSettings.Address3;
             Document.TachoCentreCity = WorkshopSettings.Town;
             Document.TachoCentrePostCode = WorkshopSettings.PostCode;
+
+            Document.IsUILocked = IsHistoryMode;
         }
     }
 }

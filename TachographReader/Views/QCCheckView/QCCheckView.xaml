@@ -114,6 +114,7 @@
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TECHNICIAN_NAME}"
                                            Grid.Column="4"
                                            SelectedText="{Binding Document.TechnicianName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                           IsEnabled="{core:InputBinding Document.IsUILocked, Converter={StaticResource InvBool}}"
                                            ItemsSource="{Binding Technicians}" />
                 </Grid>
 
@@ -140,6 +141,7 @@
                                            IsLabelCustomWidth="True"
                                            LabelWidth="200"
                                            ItemsSource="{Binding}"
+                                           IsEnabled="{core:InputBinding DataContext.Document.IsUILocked, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                            IsMandatory="True"/>
 
                     <ctrls:InputComboField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_TACHO_MODEL}"
@@ -148,6 +150,7 @@
                                            IsLabelCustomWidth="True"
                                            LabelWidth="200"
                                            ItemsSource="{Binding Models}"
+                                           IsEnabled="{core:InputBinding DataContext.Document.IsUILocked, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                            IsMandatory="True"
                                            Grid.Column="2"/>
 
@@ -156,6 +159,7 @@
                                           IsMandatory="True"
                                           Grid.Column="4"
                                           IsLabelCustomWidth="True"
+                                          IsEnabled="{core:InputBinding DataContext.Document.IsUILocked, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                           LabelWidth="200"/>
                 </Grid>
 
@@ -168,6 +172,7 @@
                                       IsMandatory="True"
                                       IsLabelCustomWidth="True"
                                       LabelWidth="200"
+                                      IsEnabled="{core:InputBinding Document.IsUILocked, Converter={StaticResource InvBool}}"
                                       Grid.Row="7" />
 
                 <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VIN}"
@@ -175,6 +180,7 @@
                                       IsLabelCustomWidth="True"
                                       LabelWidth="200"
                                       IsMandatory="True"
+                                      IsEnabled="{core:InputBinding Document.IsUILocked, Converter={StaticResource InvBool}}"
                                       Grid.Row="7"
                                       Grid.Column="2"/>
 
@@ -188,6 +194,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ctrls:InputComboField x:Name="VehicleMakeCombo"
+                                           IsEnabled="{core:InputBinding DataContext.Document.IsUILocked, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_MAKE}"
                                            ItemsSource="{Binding}"
                                            SelectedText="{Binding DataContext.Document.VehicleMake, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
@@ -198,6 +205,7 @@
                                            IsMandatory="True" />
 
                     <ctrls:InputComboField x:Name="VehicleModelCombo"
+                                           IsEnabled="{core:InputBinding DataContext.Document.IsUILocked, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Converter={StaticResource InvBool}}"
                                            Label="{x:Static properties:Resources.TXT_NEW_QC_CHECK_VEHICLE_MODEL}"
                                            ItemsSource="{Binding Models, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                            SelectedText="{Binding DataContext.Document.VehicleType, RelativeSource={RelativeSource AncestorType={x:Type Grid}, AncestorLevel=2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -230,11 +238,13 @@
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_ESTABLISH_W_FACTOR}"
                                           Text="{Binding Document.WFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{core:InputBinding Document.IsUILocked, Converter={StaticResource InvBool}}"
                                           IsLabelCustomWidth="True"
                                           LabelWidth="200" />
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_ESTABLISH_L_FACTOR}"
                                           Text="{Binding Document.LFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{core:InputBinding Document.IsUILocked, Converter={StaticResource InvBool}}"
                                           IsLabelCustomWidth="True"
                                           LabelWidth="200"
                                           IsMandatory="True"
@@ -242,6 +252,7 @@
 
                     <ctrls:InputTextField Label="{x:Static properties:Resources.TXT_NEW_QC_K_FACTOR_SETTING}"
                                           Text="{Binding Document.KFactor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                          IsEnabled="{core:InputBinding Document.IsUILocked, Converter={StaticResource InvBool}}"
                                           IsLabelCustomWidth="True"
                                           LabelWidth="200"
                                           Grid.Column="4"

@@ -41,6 +41,11 @@
         {
         }
 
+        protected virtual void Close()
+        {
+            MainWindow.ShowView<HomeScreenView>();
+        }
+
         protected override void InitialiseCommands()
         {
             base.InitialiseCommands();
@@ -88,7 +93,7 @@
 
         protected virtual void Update()
         {
-            
+
         }
 
         protected virtual void RegistrationChanged(string registrationNumber)
@@ -266,11 +271,6 @@
 
                 IsRegistrationChanging = false;
             }
-        }
-
-        private void Close()
-        {
-            MainWindow.ShowView<HomeScreenView>();
         }
     }
 }

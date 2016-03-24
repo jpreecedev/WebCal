@@ -3070,4 +3070,7 @@ date
   <data name="TXT_PRINT_LABEL" xml:space="preserve">
     <value>Do you want to print a label?</value>
   </data>
+  <data name="TXT_NEW_TACHOGRAPH_IS_QC_CHECK" xml:space="preserve">
+    <value>QC Check?</value>
+  </data>
 </root>

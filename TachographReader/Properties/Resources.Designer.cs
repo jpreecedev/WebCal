@@ -4874,6 +4874,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to QC Check?.
+        /// </summary>
+        public static string TXT_NEW_TACHOGRAPH_IS_QC_CHECK {
+            get {
+                return ResourceManager.GetString("TXT_NEW_TACHOGRAPH_IS_QC_CHECK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to K Factor.
         /// </summary>
         public static string TXT_NEW_TACHOGRAPH_K_FACTOR {

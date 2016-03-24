@@ -3,7 +3,11 @@
     using System;
     using System.Collections.ObjectModel;
     using Connect.Shared.Models;
+    using DataModel;
+    using DataModel.Core;
+    using DataModel.Library;
     using Properties;
+    using Shared;
 
     public class QCReportViewModel : QCReport
     {
@@ -12,6 +16,8 @@
         public static string TwoYearInspectionAnalogue = Resources.TXT_NEW_QC_2_YEAR_ANALOGUE;
         public static string InitialInstallationDigital = Resources.TXT_NEW_QC_INITIAL_DIGITAL;
         public static string TwoYearCalibrationDigital = Resources.TXT_NEW_QC_2_CALIBRATION_DIGITAL;
+
+        public bool IsUILocked { get; set; }
 
         public QCReportViewModel()
         {
@@ -73,6 +79,31 @@
             EventsFaultsReadCleared = report.EventsFaultsReadCleared;
             Comments = report.Comments;
             Passed = report.Passed;
+        }
+
+        public QCReportViewModel(TachographDocument document): this()
+        {
+            var workshopSettings = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
+
+            TachoCentreLine1 = workshopSettings.Address1;
+            TachoCentreLine2 = workshopSettings.Address2;
+            TachoCentreLine3 = workshopSettings.Address3;
+            TachoCentreCity = workshopSettings.Town;
+            TachoCentrePostCode = workshopSettings.PostCode;
+            TechnicianName = document.Technician;
+            DateOfAudit = document.InspectionDate.HasValue ? document.InspectionDate.Value : DateTime.Now;
+            TachographMake = document.TachographMake;
+            TachographModel = document.TachographModel;
+            TachographSerialNumber = document.SerialNumber;
+            VehicleMake = document.VehicleMake;
+            VehicleType = document.VehicleType;
+            VehicleRegistrationNumber = document.RegistrationNumber;
+            VehicleIdentificationNumber = document.VIN;
+            WFactor = document.WFactor.ToInt();
+            LFactor = document.LFactor.ToInt();
+            KFactor = document.KFactor.ToInt();
+
+            IsUILocked = true;
         }
 
         public ObservableCollection<string> ReportTypes { get; set; }

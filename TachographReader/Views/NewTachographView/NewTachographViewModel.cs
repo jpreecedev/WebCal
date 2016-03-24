@@ -310,7 +310,19 @@
             Document.CustomerContact = customerContact == null ? null : customerContact.Name;
         }
 
-        private string GetRegistrationToQuery(CalibrationRecord calibrationRecord)
+        protected override void Close()
+        {
+            if (Document.IsQCCheck)
+            {
+                var viewModel = (QCCheckViewModel)MainWindow.ShowView<QCCheckView>();
+                viewModel.PopulateFromCalibration(Document);
+                return;
+            }
+
+            base.Close();
+        }
+
+        private static string GetRegistrationToQuery(CalibrationRecord calibrationRecord)
         {
             if (calibrationRecord == null)
             {
