@@ -34,25 +34,15 @@
 
         protected override void Load()
         {
-            CallAsync(() =>
+            using (var context = new TachographContext())
             {
-                using (var context = new TachographContext())
-                {
-                    var documents = context.GetAllDocuments().Select(c => new DocumentHistoryItem(c));
-                    return new ObservableCollection<IDocumentHistoryItem>(
-                        documents.Concat(context.GetQCReports().Select(c => new DocumentHistoryItem(c)))
-                            .Concat(context.GetDocuments<GV212Report>().Select(c => new DocumentHistoryItem(c))));
-                }
-            },
-            data =>
-            {
-                Documents = data;
+                var documents = context.GetAllDocuments().Select(c => new DocumentHistoryItem(c));
+                Documents = new ObservableCollection<IDocumentHistoryItem>(
+                    documents.Concat(context.GetQCReports().Select(c => new DocumentHistoryItem(c)))
+                             .Concat(context.GetDocuments<GV212Report>().Select(c => new DocumentHistoryItem(c))));
+
                 _originalDocumentHistoryItems = new ObservableCollection<IDocumentHistoryItem>(Documents);
-            },
-            exception =>
-            {
-                ShowError(exception.Message);
-            });
+            }
 
             DocumentTypes = new List<string>
             {

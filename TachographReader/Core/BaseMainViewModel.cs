@@ -82,9 +82,9 @@
         {            
         }
 
-        protected void CallAsync<T>(Func<T> beginCall, Action<T> endCall, Action<Exception> exceptionHandler)
+        protected void CallAsync<T>(Func<T> beginCall, Action<T> endCall, Action<Exception> exceptionHandler, Action alwaysCall = null)
         {
-            AsyncHelper.CallAsync(beginCall, endCall, exceptionHandler);
+            AsyncHelper.CallAsync(beginCall, endCall, exceptionHandler, alwaysCall);
         }
 
         private void OnNewCustomer(object obj)
