@@ -71,6 +71,33 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /*!
+        /// * Bootstrap v3.3.6 (http://getbootstrap.com)
+        /// * Copyright 2011-2015 Twitter, Inc.
+        /// * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+        /// *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-ali [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string bootstrap_css {
+            get {
+                return ResourceManager.GetString("bootstrap_css", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*!
+        /// * Bootstrap v3.3.6 (http://getbootstrap.com)
+        /// * Copyright 2011-2015 Twitter, Inc.
+        /// * Licensed under the MIT license
+        /// */
+        ///if(&quot;undefined&quot;==typeof jQuery)throw new Error(&quot;Bootstrap&apos;s JavaScript requires jQuery&quot;);+function(a){&quot;use strict&quot;;var b=a.fn.jquery.split(&quot; &quot;)[0].split(&quot;.&quot;);if(b[0]&lt;2&amp;&amp;b[1]&lt;9||1==b[0]&amp;&amp;9==b[1]&amp;&amp;b[2]&lt;1||b[0]&gt;2)throw new Error(&quot;Bootstrap&apos;s JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3&quot;)}(jQuery),+function(a){&quot;use strict&quot;;function b(){var a=document.cr [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string bootstrap_js {
+            get {
+                return ResourceManager.GetString("bootstrap_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap BusyIndicator {
@@ -87,6 +114,24 @@ namespace TachographReader.Properties {
             get {
                 object obj = ResourceManager.GetObject("Calibration", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*!
+        /// * Chart.js
+        /// * http://chartjs.org/
+        /// * Version: 1.0.1
+        /// *
+        /// * Copyright 2015 Nick Downie
+        /// * Released under the MIT license
+        /// * https://github.com/nnnick/Chart.js/blob/master/LICENSE.md
+        /// */
+        ///(function(){&quot;use strict&quot;;var t=this,i=t.Chart,e=function(t){this.canvas=t.canvas,this.ctx=t;var i=function(t,i){return t[&quot;offset&quot;+i]?t[&quot;offset&quot;+i]:document.defaultView.getComputedStyle(t).getPropertyValue(i)},e=this.width=i(t.canvas,&quot;Width&quot;),n=this.height=i(t.canvas,&quot;Height&quot;);t.canvas.width=e,t.canvas.height=n;va [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string chart_js {
+            get {
+                return ResourceManager.GetString("chart_js", resourceCulture);
             }
         }
         
@@ -556,6 +601,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (function(){var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q={}.hasOwnProperty,r=function(a,b){function c(){this.constructor=a}for(var d in b)q.call(b,d)&amp;&amp;(a[d]=b[d]);return c.prototype=b.prototype,a.prototype=new c,a.__super__=b.prototype,a};!function(){var a,b,c,d,e,f,g;for(g=[&quot;ms&quot;,&quot;moz&quot;,&quot;webkit&quot;,&quot;o&quot;],c=0,e=g.length;e&gt;c&amp;&amp;(f=g[c],!window.requestAnimationFrame);c++)window.requestAnimationFrame=window[f+&quot;RequestAnimationFrame&quot;],window.cancelAnimationFrame=window[f+&quot;CancelAnimationFrame&quot;]||window[f+&quot;CancelRequestAnimati [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string gauge_js {
+            get {
+                return ResourceManager.GetString("gauge_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap home_icon {
@@ -572,6 +626,16 @@ namespace TachographReader.Properties {
             get {
                 object obj = ResourceManager.GetObject("Info", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*! jQuery v1.12.2 | (c) jQuery Foundation | jquery.org/license */
+        ///!function(a,b){&quot;object&quot;==typeof module&amp;&amp;&quot;object&quot;==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error(&quot;jQuery requires a window with a document&quot;);return b(a)}:b(a)}(&quot;undefined&quot;!=typeof window?window:this,function(a,b){var c=[],d=a.document,e=c.slice,f=c.concat,g=c.push,h=c.indexOf,i={},j=i.toString,k=i.hasOwnProperty,l={},m=&quot;1.12.2&quot;,n=function(a,b){return new n.fn.init(a,b)},o=/^[\s\uFEFF\xA0]+ [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string jquery_js {
+            get {
+                return ResourceManager.GetString("jquery_js", resourceCulture);
             }
         }
         
@@ -786,6 +850,21 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to h1,h2,h3{
+        ///    font-size:14px;
+        ///}
+        ///
+        ///.row.checks .col-xs-6{
+        ///    width: 100%;
+        ///}.
+        /// </summary>
+        public static string print_css {
+            get {
+                return ResourceManager.GetString("print_css", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap PrintPreview {
@@ -930,6 +1009,46 @@ namespace TachographReader.Properties {
             get {
                 object obj = ResourceManager.GetObject("splash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .logo {
+        ///    width: auto;
+        ///    max-height: 100px;
+        ///    margin-left: auto;
+        ///    margin-right: auto;
+        ///    display: block;
+        ///}
+        ///
+        ///.container .row:first-child {
+        ///    margin-top: 20px;
+        ///    margin-bottom: 20px;
+        ///}
+        ///
+        ///.chart-legend ul {
+        ///    list-style-type: none;
+        ///}
+        ///
+        ///.chart-legend li{
+        ///    display: inline;
+        ///    margin-left:15px;
+        ///}
+        ///
+        ///.chart-legend li span {
+        ///    display: inline-block;
+        ///    width: 12px;
+        ///    height: 12px;
+        ///    margin-right: 5px;
+        ///}
+        ///
+        ///.section {
+        ///    height: 285px;
+        ///    background-color: #f5f5f [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string style_css {
+            get {
+                return ResourceManager.GetString("style_css", resourceCulture);
             }
         }
         

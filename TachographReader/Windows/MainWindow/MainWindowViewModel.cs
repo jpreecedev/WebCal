@@ -338,7 +338,7 @@
                 {
                     if (ShowWarning(Resources.TXT_INFO_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
                     {
-                        statusReport.GenerateStatusReport().Open();
+                        statusReport.GenerateStatusReport();
                     }
                 }
             }

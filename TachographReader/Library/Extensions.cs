@@ -3,12 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Data.Entity;
     using System.Drawing;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Reflection;
     using System.Text.RegularExpressions;
+    using System.Threading;
     using System.Windows;
     using System.Windows.Interop;
     using System.Windows.Media;
@@ -20,6 +21,42 @@
 
     public static class Extensions
     {
+        public static int GetInflatedScore(this ReportItemStatus status)
+        {
+            switch (status)
+            {
+                case ReportItemStatus.Ok:
+                    return 5;
+                case ReportItemStatus.CheckDue:
+                    return 2;
+                case ReportItemStatus.Expired:
+                case ReportItemStatus.Unknown:
+                    return 0;
+            }
+            return 0;
+        }
+
+        public static int GetScore(this ReportItemStatus status)
+        {
+            switch (status)
+            {
+                case ReportItemStatus.Ok:
+                    return 2;
+                case ReportItemStatus.CheckDue:
+                    return 1;
+                case ReportItemStatus.Expired:
+                case ReportItemStatus.Unknown:
+                    return 0;
+            }
+            return 0;
+        }
+
+        public static string ToTitleCase(this string source)
+        {
+            var textInfo = Thread.CurrentThread.CurrentUICulture.TextInfo;
+            return textInfo.ToTitleCase(source.ToLower());
+        }
+
         public static string SplitByCapitals(this string source)
         {
             return string.Join(" ", Regex.Split(source, @"(?<!^)(?=[A-Z])"));

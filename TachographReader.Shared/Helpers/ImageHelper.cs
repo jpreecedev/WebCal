@@ -29,7 +29,7 @@ namespace TachographReader.Shared.Helpers
             }
 
             var bitmap = (Bitmap)image;
-            var imagePath = Path.Combine(GetTemporaryDirectory(), Guid.NewGuid().ToString(), ".png");
+            var imagePath = Path.Combine(GetTemporaryDirectory(), Guid.NewGuid() + ".png");
             SaveImageToDisk(bitmap, imagePath);
 
             return imagePath;

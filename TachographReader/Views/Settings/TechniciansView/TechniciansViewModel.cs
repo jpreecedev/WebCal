@@ -233,14 +233,8 @@
         
         private void OnGenerateStatusReport(object obj)
         {
-            var result = new StatusReportViewModel(Technicians).GenerateStatusReport();
-            if (result.Success)
-            {
-                if (AskQuestion(Resources.TXT_DO_YOU_WANT_TO_PRINT))
-                {
-                    result.Print();
-                }
-            }
+            var statusReport = new StatusReportViewModel(Technicians);
+            statusReport.GenerateStatusReport();
         }
     }
 }

@@ -347,8 +347,12 @@
     <Compile Include="Library\TachographDocumentHelper.cs" />
     <Compile Include="Library\TechnicianCheckStatus.cs" />
     <Compile Include="Library\ViewModels\QCReportViewModel.cs" />
+    <Compile Include="Library\ViewModels\ReportDocumentViewModel.cs" />
     <Compile Include="Library\ViewModels\StatusReportViewModel.cs" />
+    <Compile Include="Library\ViewModels\TechnicianViewModel.cs" />
     <Compile Include="Library\ViewModels\UserPromptViewModel.cs" />
+    <Compile Include="Library\Web\StatusReport.cs" />
+    <Compile Include="Library\Web\StatusReportDataHelper.cs" />
     <Compile Include="Library\WorkerHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1071,6 +1075,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\technician.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bootstrap.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Chart.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\gauge.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\jquery.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\print.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

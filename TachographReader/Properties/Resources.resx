@@ -3073,4 +3073,25 @@ date
   <data name="TXT_NEW_TACHOGRAPH_IS_QC_CHECK" xml:space="preserve">
     <value>QC Check?</value>
   </data>
+  <data name="bootstrap_css" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bootstrap.min.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="bootstrap_js" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bootstrap.min.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="chart_js" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chart.min.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="gauge_js" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gauge.min.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="jquery_js" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jquery.min.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="style_css" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\style.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="print_css" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>
