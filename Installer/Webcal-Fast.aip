@@ -23,10 +23,10 @@
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:6"/>
     <ROW Property="Manufacturer" Value="Skillray Transport Services Ltd"/>
-    <ROW Property="ProductCode" Value="2057:{CDFD5652-BACD-414E-91B6-CAF72F5C8228} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{BEED1C79-24FD-4933-B095-2E5DB423C46C} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
     <ROW Property="ProductName" Value="Webcal"/>
-    <ROW Property="ProductVersion" Value="3.1.4.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="3.1.5.0" Type="32"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;UPGRADE_2;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{F9EC440C-AFF5-45B7-905E-77CC783AF1F3}"/>
@@ -451,7 +451,7 @@
     <ATTRIBUTE name="PrereqsOrder" value="C673FE9433B49AFAC9592AB26B8F8E4 FB44691010D74C6D89B33E019630EAF6 EE84CE1C98744810AB435A53A3737024 A5FAD2_A0AB_492E_9F3A_F3AED8E676FF B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
-    <ROW SearchKey="A5FAD2_A0AB_492E_9F3A_F3AED8E676FFVersion" Prereq="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server Compact Edition\v4.0\Version" VerMin="4.0.8482.1" Order="1" Property="PreReqSearch_A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
+    <ROW SearchKey="A5FAD2_A0AB_492E_9F3A_F3AED8E676FFVersion" Prereq="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server Compact Edition\v4.0\Version" VerMin="4.0.8482.1" Order="1" Property="PreReqSearch_A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Platform="1"/>
     <ROW SearchKey="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79Version" Prereq="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server Compact Edition\v4.0\Version" VerMin="4.0.8482.1" Order="1" Property="PreReqSearch_B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
     <ROW SearchKey="C673FE9433B49AFAC9592AB26B8F8E4Install" Prereq="C673FE9433B49AFAC9592AB26B8F8E4" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Install" RefContent="M1" Order="1" Property="PreReqSearch_C673FE9433B49AFAC9592AB26B8F8E4"/>
     <ROW SearchKey="EE84CE1C98744810AB435A53A3737024CurrentVersion" Prereq="EE84CE1C98744810AB435A53A3737024" SearchType="2" SearchString="HKLM\SOFTWARE\JavaSoft\Java Runtime Environment\CurrentVersion" VerMin="1.7" Order="1" Property="PreReqSearch_EE84CE1C98744810AB435A53A3737024"/>
