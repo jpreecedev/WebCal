@@ -122,23 +122,31 @@ namespace TachographReader.Library.PDF
                 if (j < documents.Count + 1)
                 {
                     TachographDocument tachograph = documents[j - 1];
-                    AddCell(table, string.Format("{0} / \n{1}", tachograph.RegistrationNumber, tachograph.VIN));
-                    AddCell(table, tachograph.VehicleType.Substring(0, 1).ToUpper());
+
+
+                    BaseColor backgroundColor = null;
+                    if (tachograph.IsQCCheck)
+                    {
+                        backgroundColor = new BaseColor(255, 255, 224);
+                    }
+
+                    AddCell(table, $"{tachograph.RegistrationNumber} / \n{tachograph.VIN}", backgroundColor);
+                    AddCell(table, tachograph.VehicleType.Substring(0, 1).ToUpper(), backgroundColor);
 
                     string type = tachograph.IsDigital ? Resources.TXT_DIGITAL : Resources.TXT_ANALOGUE;
                     if (tachograph.Tampered)
                     {
                         type = type + Resources.TXT_STAR;
                     }
-                    AddCell(table, type);
+                    AddCell(table, type, backgroundColor);
 
-                    AddCell(table, tachograph.SerialNumber);
-                    AddCell(table, tachograph.DocumentType.Substring(0, 1).ToUpper());
-                    AddCell(table, tachograph.WFactor);
-                    AddCell(table, tachograph.LFactor);
-                    AddCell(table, GetCalibrationTime(tachograph.CalibrationTime));
-                    AddCell(table, tachograph.IsDigital ? tachograph.CardSerialNumber : GetTechnicianInitials(tachograph.Technician));
-                    AddCell(table, tachograph.InvoiceNumber);
+                    AddCell(table, tachograph.SerialNumber, backgroundColor);
+                    AddCell(table, tachograph.DocumentType.Substring(0, 1).ToUpper(), backgroundColor);
+                    AddCell(table, tachograph.WFactor, backgroundColor);
+                    AddCell(table, tachograph.LFactor, backgroundColor);
+                    AddCell(table, GetCalibrationTime(tachograph.CalibrationTime), backgroundColor);
+                    AddCell(table, tachograph.IsDigital ? tachograph.CardSerialNumber : GetTechnicianInitials(tachograph.Technician), backgroundColor);
+                    AddCell(table, tachograph.InvoiceNumber, backgroundColor);
                 }
                 else
                 {
@@ -163,11 +171,21 @@ namespace TachographReader.Library.PDF
             return calibrationTime.Value.ToString("yyyy-MM-dd");
         }
 
-        private static void AddCell(PdfPTable table, string text)
+        private static void AddCell(PdfPTable table, string text, BaseColor backgroundColor = null)
         {
             var cell = new PdfPCell(new Phrase(text, Document.GetXSmallFont(false)));
             cell.MinimumHeight = 22;
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+            if (backgroundColor != null)
+            {
+                cell.BackgroundColor = backgroundColor;
+            }
+            else
+            {
+                cell.BackgroundColor = new BaseColor(255,255,255);
+            }
+
             table.AddCell(cell);
         }
 
