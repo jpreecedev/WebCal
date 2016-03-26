@@ -5,3 +5,19 @@ h1,h2,h3{
 .row.checks .col-xs-6{
     width: 100%;
 }
+
+.logo {
+    max-height: 25px;
+}
+
+.row:nth-child(2) .col-xs-6:nth-child(1), .row:nth-child(2) .col-xs-6:nth-child(2){
+    height: 200px;
+}
+
+.row.checks{
+    margin-top:5px;
+}
+
+* {
+    -webkit-print-color-adjust: exact;
+}

@@ -7,15 +7,22 @@
 
     public class TechnicianViewModel
     {
-        public TechnicianViewModel(ICollection<ReportDocumentViewModel> documents, List<DateTime> last12Months, Technician technician)
+        public TechnicianViewModel(ICollection<ReportDocumentViewModel> documents, IEnumerable<DateTime> last12Months, Technician technician)
         {
             Technician = technician;
             JobsDoneInLast12Months = documents.Count(c => c.Technician == technician.Name);
             JobsMonthByMonth = new Dictionary<DateTime, int>();
 
-            foreach (var month in last12Months)
+            foreach (var last12Month in last12Months)
             {
-                JobsMonthByMonth.Add(month, documents.Count(c => c.Technician == technician.Name && c.Created.Date >= month.Date && c.Created.Date <= month.AddMonths(1).AddDays(-1)));
+                JobsMonthByMonth.Add(last12Month, 0);
+            }
+
+            var technicianDocuments = documents.Where(c => string.Equals(c.Technician, technician.Name, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            foreach (var viewModel in technicianDocuments)
+            {
+                var dt = new DateTime(viewModel.Created.Year, viewModel.Created.Month, 1);
+                JobsMonthByMonth[dt] += 1;
             }
         }
 

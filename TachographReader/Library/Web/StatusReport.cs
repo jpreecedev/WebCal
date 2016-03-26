@@ -19,6 +19,8 @@
 
     public static class StatusReport
     {
+        private static Random _random = new Random();
+
         public static string Create(StatusReportViewModel viewModel)
         {
             var directory = Directory.CreateDirectory(Path.Combine(ImageHelper.GetTemporaryDirectory(), "Status Report " + DateTime.Now.Date.ToString("ddMMyyyy")));
@@ -66,7 +68,7 @@
             var tachoRepository = ContainerBootstrapper.Resolve<TachographDocumentRepository>();
             var last12Months = GetLast12Months();
             var from = last12Months.First();
-            var to = last12Months.Last();
+            var to = last12Months.Last().AddMonths(1).AddDays(-1);
             var documents = tachoRepository.Where(c => c.Created >= from && c.Created <= to)
                 .Select(c => new ReportDocumentViewModel
                 {
@@ -392,10 +394,12 @@
             var result = new List<DateTime>();
             var now = DateTime.Parse("01/" + DateTime.Now.Month + "/" + DateTime.Now.Year);
 
-            for (var i = 12; i > 0; i--)
+            for (var i = 11; i > 0; i--)
             {
                 result.Add(now.AddMonths(i * -1));
             }
+
+            result.Add(now);
             return result;
         }
 
@@ -414,7 +418,7 @@
             var technicianMaxScore = statusReport.Technicians.Count * 4;
             var maxScore = 10 + technicianMaxScore;
             var actualScore = centreQuarterlyStatus + gv212Status + technicianMaxScore;
-            var scorePercentage = (100 / maxScore) * actualScore;
+            var scorePercentage = (100*maxScore)/actualScore;
 
             if (statusReport.Technicians.Any(c => c.ThreeYearStatus() == ReportItemStatus.Expired || c.ThreeYearStatus() == ReportItemStatus.Unknown))
             {
@@ -451,8 +455,7 @@
             var basicColor = basicColors.ElementAtOrDefault(index);
             if (basicColor == null)
             {
-                var random = new Random();
-                var color = $"#{random.Next(0x1000000):X6}";
+                var color = $"#{_random.Next(0x1000000):X6}";
                 return color;
             }
             return basicColor;
