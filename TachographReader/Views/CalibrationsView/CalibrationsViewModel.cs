@@ -1,5 +1,6 @@
 ﻿namespace TachographReader.Views
 {
+    using System;
     using System.Collections.ObjectModel;
     using System.Linq;
     using Windows.CalibrationDetailsWindow;
@@ -72,6 +73,11 @@
             var viewModel = (NewTachographViewModel)MainWindow.ShowView<NewTachographView>();
             viewModel.SetDocumentTypes(true);
             viewModel.Document = document;
+            
+            if (SelectedCalibrationRecord.CalibrationTime != null && SelectedCalibrationRecord.CalibrationTime.GetValueOrDefault() != default(DateTime))
+            {
+                viewModel.Document.Created = SelectedCalibrationRecord.CalibrationTime.GetValueOrDefault();
+            }
         }
 
         private void Progress(object sender, DriverCardProgressEventArgs e)

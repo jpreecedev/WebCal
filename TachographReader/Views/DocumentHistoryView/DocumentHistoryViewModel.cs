@@ -39,7 +39,8 @@
                 var documents = context.GetAllDocuments().Select(c => new DocumentHistoryItem(c));
                 Documents = new ObservableCollection<IDocumentHistoryItem>(
                     documents.Concat(context.GetQCReports().Select(c => new DocumentHistoryItem(c)))
-                             .Concat(context.GetDocuments<GV212Report>().Select(c => new DocumentHistoryItem(c))));
+                             .Concat(context.GetDocuments<GV212Report>().Select(c => new DocumentHistoryItem(c)))
+                             .OrderByDescending(c => c.Created));
 
                 _originalDocumentHistoryItems = new ObservableCollection<IDocumentHistoryItem>(Documents);
             }
