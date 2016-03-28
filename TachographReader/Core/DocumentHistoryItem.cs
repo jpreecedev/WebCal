@@ -7,6 +7,7 @@
     using DataModel.Library;
     using Library;
     using Library.PDF;
+    using Library.ViewModels;
     using Properties;
     using Shared;
 
@@ -40,15 +41,15 @@
             if (qcReport != null)
             {
                 FromQCReport(qcReport);
+                Report = new QCReportViewModel(qcReport);
             }
 
             var month = report as QCReport6Month;
             if (month != null)
             {
                 FromQCReport6Month(month);
+                Report = report;
             }
-
-            Report = report;
         }
 
         public string Type { get; set; }
