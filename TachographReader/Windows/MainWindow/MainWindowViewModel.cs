@@ -56,6 +56,7 @@
         public DelegateCommand<object> LetterForDecommissioningCommand { get; set; }
         public DelegateCommand<object> LetterForDecommissioningHistoryCommand { get; set; }
         public DelegateCommand<object> QCCheckHistoryCommand { get; set; }
+        public DelegateCommand<object> QC3MonthCheckHistoryCommand { get; set; }
         public DelegateCommand<object> QCCheckCommand { get; set; }
         public DelegateCommand<object> QC6MonthCheckCommand { get; set; }
 
@@ -154,6 +155,14 @@
             };
         }
 
+        private void On3MonthCheckHistoryCommand(object obj)
+        {
+            ShowView<DocumentHistoryView>().Loaded = viewModel =>
+            {
+                ((DocumentHistoryViewModel) viewModel).SelectedDocumentType = "QC 3 Month Walkaround";
+            };
+        }
+        
         private void OnDocumentHistory(object param)
         {
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
@@ -318,6 +327,7 @@
             LetterForDecommissioningCommand = new DelegateCommand<object>(OnLetterForDecommissioning);
             LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
             QCCheckHistoryCommand = new DelegateCommand<object>(OnQCCheckHistory);
+            QC3MonthCheckHistoryCommand = new DelegateCommand<object>(On3MonthCheckHistoryCommand);
             QCCheckCommand = new DelegateCommand<object>(OnQCCheck);
             QC6MonthCheckCommand = new DelegateCommand<object>(OnQC6MonthCheck);
         }

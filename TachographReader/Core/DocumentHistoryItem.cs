@@ -130,7 +130,7 @@
 
         private void FromQCReport6Month(QCReport6Month report)
         {
-            Type = report.GetType().Name.SplitByCapitals();
+            Type = "QC 3 Month Walkaround";
             Created = report.Created;
             TechnicianName = report.Name;
         }

@@ -52,7 +52,7 @@
                 typeof (UndownloadabilityDocument).Name.SplitByCapitals(),
                 typeof (LetterForDecommissioningDocument).Name.SplitByCapitals(),
                 typeof (QCReport).Name.SplitByCapitals(),
-                typeof (QCReport6Month).Name.SplitByCapitals(),
+                "QC 3 Month Walkaround",
                 "GV 212"
             };
 

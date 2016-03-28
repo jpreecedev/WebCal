@@ -3722,6 +3722,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3 Month Walk Around.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_QC_3_MONTH_WALK_AROUND {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_QC_3_MONTH_WALK_AROUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to QC Check.
         /// </summary>
         public static string TXT_MAIN_WINDOW_QC_CHECK_HISTORY {

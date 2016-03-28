@@ -271,6 +271,16 @@
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_CHECK_HISTORY_TOOLTIP}" />
                         </r:Button.ToolTip>
                     </r:Button>
+                    <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_3_MONTH_WALK_AROUND}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}QC6Month}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}QC6Month}"
+                              Command="{Binding QC3MonthCheckHistoryCommand}">
+                        <r:Button.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_3_MONTH_WALK_AROUND}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}QC6Month}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_QC_3_MONTH_WALK_AROUND}" />
+                        </r:Button.ToolTip>
+                    </r:Button>
                 </r:RibbonGroupBox>
             </r:RibbonTabItem>
             
