@@ -856,6 +856,22 @@ namespace TachographReader.Properties {
         ///
         ///.row.checks .col-xs-6{
         ///    width: 100%;
+        ///}
+        ///
+        ///.logo {
+        ///    max-height: 25px;
+        ///}
+        ///
+        ///.row:nth-child(2) .col-xs-6:nth-child(1), .row:nth-child(2) .col-xs-6:nth-child(2){
+        ///    height: 200px;
+        ///}
+        ///
+        ///.row.checks{
+        ///    margin-top:5px;
+        ///}
+        ///
+        ///* {
+        ///    -webkit-print-color-adjust: exact;
         ///}.
         /// </summary>
         public static string print_css {
@@ -1897,7 +1913,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last 6 Month Check.
+        ///   Looks up a localized string similar to Last 3 Month Check.
         /// </summary>
         public static string TXT_DATE_OF_LAST_CHECK {
             get {
@@ -3463,7 +3479,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6 Month Walk Around.
+        ///   Looks up a localized string similar to 3 Month Walk Around.
         /// </summary>
         public static string TXT_MAIN_WINDOW_6_MONTH_WALKAROUND {
             get {
@@ -3814,7 +3830,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows the 6 month walk around screen.
+        ///   Looks up a localized string similar to Shows the 3 month walk around screen.
         /// </summary>
         public static string TXT_MAIN_WINDOW_SHOWS_6_MONTH_WALKAROUND {
             get {
@@ -4840,7 +4856,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6 Month Walk Around.
+        ///   Looks up a localized string similar to 3 Month Walk Around.
         /// </summary>
         public static string TXT_NEW_QC6MONTH_TITLE {
             get {
@@ -5652,7 +5668,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Centre 6 monthly QC check.
+        ///   Looks up a localized string similar to Centre 3 monthly QC check.
         /// </summary>
         public static string TXT_QC_6_MONTH_CENTRE_QC_CHECK {
             get {
@@ -5679,7 +5695,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The following document is to be completed and filed by the centre every 6 months to meet the requirements of Section 6 of the Approved Tachograph Centre Manual.  Any sections answered ‘no’ please state reason in comments box at end of document..
+        ///   Looks up a localized string similar to The following document is to be completed and filed by the centre every 3 months to meet the requirements of Section 6 of the Approved Tachograph Centre Manual.  Any sections answered ‘no’ please state reason in comments box at end of document..
         /// </summary>
         public static string TXT_QC_6_MONTH_DECLARATION {
             get {
@@ -7604,7 +7620,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last 6 Month Check.
+        ///   Looks up a localized string similar to Last 3 Month Check.
         /// </summary>
         public static string TXT_TECHNICIANS_DATE_OF_LAST_CHECK {
             get {

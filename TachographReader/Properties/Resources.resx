@@ -2549,13 +2549,13 @@ date
     <value>Shows the QC Check screen</value>
   </data>
   <data name="TXT_MAIN_WINDOW_6_MONTH_WALKAROUND" xml:space="preserve">
-    <value>6 Month Walk Around</value>
+    <value>3 Month Walk Around</value>
   </data>
   <data name="TXT_MAIN_WINDOW_SHOWS_6_MONTH_WALKAROUND" xml:space="preserve">
-    <value>Shows the 6 month walk around screen</value>
+    <value>Shows the 3 month walk around screen</value>
   </data>
   <data name="TXT_NEW_QC6MONTH_TITLE" xml:space="preserve">
-    <value>6 Month Walk Around</value>
+    <value>3 Month Walk Around</value>
   </data>
   <data name="TXT_NEW_QCCHECK_TITLE" xml:space="preserve">
     <value>QC Check</value>
@@ -2921,10 +2921,10 @@ date
     <value>Other</value>
   </data>
   <data name="TXT_TECHNICIANS_DATE_OF_LAST_CHECK" xml:space="preserve">
-    <value>Last 6 Month Check</value>
+    <value>Last 3 Month Check</value>
   </data>
   <data name="TXT_DATE_OF_LAST_CHECK" xml:space="preserve">
-    <value>Last 6 Month Check</value>
+    <value>Last 3 Month Check</value>
   </data>
   <data name="TXT_TECHNICIANS_GENERATE_REPORT" xml:space="preserve">
     <value>Generate Status Report</value>
@@ -2993,7 +2993,7 @@ date
     <value>Show company name on labels?</value>
   </data>
   <data name="TXT_QC_6_MONTH_CENTRE_QC_CHECK" xml:space="preserve">
-    <value>Centre 6 monthly QC check</value>
+    <value>Centre 3 monthly QC check</value>
   </data>
   <data name="TXT_QC_6_MONTH_CENTRE_NAME" xml:space="preserve">
     <value>Centre Name.</value>
@@ -3002,7 +3002,7 @@ date
     <value>Centre seal number.</value>
   </data>
   <data name="TXT_QC_6_MONTH_DECLARATION" xml:space="preserve">
-    <value>The following document is to be completed and filed by the centre every 6 months to meet the requirements of Section 6 of the Approved Tachograph Centre Manual.  Any sections answered ‘no’ please state reason in comments box at end of document.</value>
+    <value>The following document is to be completed and filed by the centre every 3 months to meet the requirements of Section 6 of the Approved Tachograph Centre Manual.  Any sections answered ‘no’ please state reason in comments box at end of document.</value>
   </data>
   <data name="TXT_QC_6_MONTH_SECTION_3" xml:space="preserve">
     <value>Facilities ATCM Section 3</value>
