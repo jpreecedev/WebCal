@@ -118,11 +118,15 @@
             if (!string.IsNullOrEmpty(workshopSettings.PhoneNumber))
                 stringBuilder.AppendLine("                    <strong>Phone: </strong>" + workshopSettings.PhoneNumber);
 
+            var score = CalculateScore(statusReport);
+            var statusMsg = score <= 50 ? "Urgent Attention Needed" : score > 50 && score <= 75 ? "Few Outstanding Documents" : score > 75 ? "OK" : "";
+
             stringBuilder.AppendLine("                </address>" +
                                  "            </div>" +
                                  "            <div class=\"col-xs-6 gauge section\">" +
                                  "                <h2>Overall Status</h2>" +
                                  "                <canvas id=\"overall-status\"></canvas>" +
+                                 "                <p>" + statusMsg + "</p>" +     
                                  "            </div>" +
                                  "            <div class=\"col-xs-6 piechart section\">" +
                                  "                <h2>Technician Performance</h2>" +
