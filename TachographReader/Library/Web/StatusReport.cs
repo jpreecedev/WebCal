@@ -181,8 +181,8 @@
                                  "                    <thead>" +
                                  "                        <tr>" +
                                  "                            <th>Technician Name</th>" +
-                                 "                            <th>Date of next check</th>" +
-                                 "                            <th>Training Date</th>" +
+                                 "                            <th>Date Of Next Check</th>" +
+                                 "                            <th>Training Date Expiry</th>" +
                                  "                            <th>Status</th>" +
                                  "                        </tr>" +
                                  "                    </thead>" +
