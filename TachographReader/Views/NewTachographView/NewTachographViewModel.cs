@@ -48,7 +48,7 @@
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<Grid> PrintLabelCommand { get; set; }
         public DelegateCommand<object> AddInspectionInfoCommand { get; set; }
-        
+
         public void SetDocumentTypes(bool isDigital)
         {
             Document.IsDigital = isDigital;
@@ -104,12 +104,17 @@
 
         protected override void Add()
         {
-            Document.Created = DateTime.Now;
+            if (Document.Created == default(DateTime))
+            {
+                Document.Created = DateTime.Now;
+            }
 
             if (Document.CalibrationTime == null)
             {
                 Document.CalibrationTime = DateTime.Now;
             }
+
+            AddInspectionInfoCommand.Execute(null);
 
             TachographDocumentRepository.AddOrUpdate(Document);
             ConnectHelper.Upload(Document);
@@ -154,7 +159,11 @@
 
             Document.CalibrationTime = DateTime.Now;
             Document.CardSerialNumber = match.CardSerialNumber;
-            Document.Created = DateTime.Now;
+
+            if (Document.Created == default(DateTime))
+            {
+                Document.Created = DateTime.Now;
+            }
             Document.CustomerContact = match.CustomerContact;
             Document.InspectionDate = DateTime.Now;
             Document.InspectionInfo = match.InspectionInfo;
@@ -203,7 +212,7 @@
                 {
                     RegistrationChangedCommand.Execute(GetRegistrationToQuery(e.CalibrationRecord));
                 }
-                
+
                 Document.Convert(e.CalibrationRecord);
 
                 if (!Technicians.IsNullOrEmpty() && !string.IsNullOrEmpty(e.CalibrationRecord.CardSerialNumber))
