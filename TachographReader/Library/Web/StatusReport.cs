@@ -205,8 +205,8 @@
 
                 stringBuilder.AppendLine("                        <tr>" +
                                      "                            <td><span style=\"color:#" + color + ";\">" + technician.Name + "</span></td>" +
-                                     "                            <td><span style=\"color:#" + color + ";\">" + technician.DateOfLastCheck.GetValueOrDefault().ToString(Constants.ShortYearDateFormat) + "</span></td>" +
-                                     "                            <td><span style=\"color:#" + threeYearColor + ";\">" + technician.DateOfLast3YearCheck.GetValueOrDefault().ToString(Constants.ShortYearDateFormat) + "</span></td>" +
+                                     "                            <td><span style=\"color:#" + color + ";\">" + technician.DateOfLastCheck.GetValueOrDefault().AddMonths(6).ToString(Constants.ShortYearDateFormat) + "</span></td>" +
+                                     "                            <td><span style=\"color:#" + threeYearColor + ";\">" + technician.DateOfLast3YearCheck.GetValueOrDefault().AddYears(3).ToString(Constants.ShortYearDateFormat) + "</span></td>" +
                                      "                            <td><span style=\"color:#" + statusTextColor + ";\">" + blah + "</span></td>" +
                                      "                        </tr>");
             }

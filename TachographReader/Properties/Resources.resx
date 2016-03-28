@@ -2921,10 +2921,10 @@ date
     <value>Other</value>
   </data>
   <data name="TXT_TECHNICIANS_DATE_OF_LAST_CHECK" xml:space="preserve">
-    <value>Last 3 Month Check</value>
+    <value>Last 6 Month Check</value>
   </data>
   <data name="TXT_DATE_OF_LAST_CHECK" xml:space="preserve">
-    <value>Last 3 Month Check</value>
+    <value>Last 6 Month Check</value>
   </data>
   <data name="TXT_TECHNICIANS_GENERATE_REPORT" xml:space="preserve">
     <value>Generate Status Report</value>

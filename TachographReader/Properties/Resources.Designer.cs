@@ -1913,7 +1913,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last 3 Month Check.
+        ///   Looks up a localized string similar to Last 6 Month Check.
         /// </summary>
         public static string TXT_DATE_OF_LAST_CHECK {
             get {
@@ -7629,7 +7629,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last 3 Month Check.
+        ///   Looks up a localized string similar to Last 6 Month Check.
         /// </summary>
         public static string TXT_TECHNICIANS_DATE_OF_LAST_CHECK {
             get {
