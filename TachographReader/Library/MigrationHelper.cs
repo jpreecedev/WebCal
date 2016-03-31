@@ -19,7 +19,7 @@
         {
             var miscellaneousSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<MiscellaneousSettings>>();
             var miscellaneousSettings = miscellaneousSettingsRepository.GetMiscellaneousSettings();
-            
+
             if (miscellaneousSettings.LastMigrationHackId == 0)
             {
                 var workshopSettings = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>().GetWorkshopSettings();
@@ -151,12 +151,27 @@
                 return;
             }
 
-            using (var connection = new SqlCeConnection(string.Format(@"Data Source = {0}", databasePath)))
+            using (var connection = new SqlCeConnection($@"Data Source = {databasePath}"))
             {
-                using (var cmd = new SqlCeCommand(@"UPDATE [__MigrationHistory] SET ContextKey = 'TachographReader.DataModel.Migrations.Configuration' WHERE ContextKey = 'Webcal.DataModel.Migrations.Configuration'", connection))
+                connection.Open();
+
+                object result;
+                using (var cmd = new SqlCeCommand(@"SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '__MigrationHistory' AND COLUMN_NAME = 'ContextKey'", connection))
                 {
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
+                    result = cmd.ExecuteScalar();
+                }
+
+                if (result == null)
+                {
+                    using (var contextCmd = new SqlCeCommand(@"ALTER TABLE [__MigrationHistory] ADD [ContextKey] nvarchar(300) NOT NULL DEFAULT('TachographReader.DataModel.Migrations.Configuration')", connection))
+                    {
+                        contextCmd.ExecuteNonQuery();
+                    }
+                }
+
+                using (var contextCmd = new SqlCeCommand(@"UPDATE [__MigrationHistory] SET ContextKey = 'TachographReader.DataModel.Migrations.Configuration' WHERE ContextKey = 'Webcal.DataModel.Migrations.Configuration'", connection))
+                {
+                    contextCmd.ExecuteNonQuery();
                 }
             }
         }
