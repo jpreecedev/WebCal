@@ -7260,7 +7260,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Technicians Qu Report.
+        ///   Looks up a localized string similar to Technicians QC Report.
         /// </summary>
         public static string TXT_STATUS_REPORT_TECHNICIANS_QU_REPORT {
             get {

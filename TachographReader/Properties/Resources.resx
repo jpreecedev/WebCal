@@ -2957,7 +2957,7 @@ date
     <value>Generated and printed</value>
   </data>
   <data name="TXT_STATUS_REPORT_TECHNICIANS_QU_REPORT" xml:space="preserve">
-    <value>Technicians Qu Report</value>
+    <value>Technicians QC Report</value>
   </data>
   <data name="TXT_STATUS_REPORT_TECHNICIAN_NAME" xml:space="preserve">
     <value>Technician name</value>

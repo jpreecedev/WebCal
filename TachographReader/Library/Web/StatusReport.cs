@@ -180,7 +180,7 @@
                                  "        </div>" +
                                  "        <div class=\"row\">" +
                                  "            <div class=\"col-xs-12\">" +
-                                 "                <h3>Technicians Qu Report</h3>" +
+                                 "                <h3>Technicians QC Report</h3>" +
                                  "                <table class=\"table table-striped table-hover\">" +
                                  "                    <thead>" +
                                  "                        <tr>" +
