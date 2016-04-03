@@ -5,6 +5,7 @@
     using Connect.Shared.Models;
     using Core;
     using DataModel;
+    using DataModel.Library;
     using Library;
     using Shared;
 
@@ -39,6 +40,14 @@
             Document.Created = DateTime.Now;
             Repository.AddOrUpdate(Document);
             ConnectHelper.Upload(Document);
+
+            var repository = GetInstance<ISettingsRepository<WorkshopSettings>>();
+            var workshopSettings = repository.GetWorkshopSettings();
+            if (Document.Created.Date > workshopSettings.CentreQuarterlyCheckDate)
+            {
+                workshopSettings.CentreQuarterlyCheckDate = Document.Created.Date;
+                repository.Save(workshopSettings);
+            }
         }
 
         protected override void Update()

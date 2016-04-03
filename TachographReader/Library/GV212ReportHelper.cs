@@ -62,11 +62,6 @@
                     SerializedData = result.SerializedData
                 });
 
-                var settingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
-                var settings = settingsRepository.GetWorkshopSettings();
-                settings.MonthlyGV212Date = DateTime.Now.Date;
-                settingsRepository.Save(settings);
-
                 if (MessageBoxHelper.AskQuestion(Resources.TXT_DO_YOU_WANT_TO_PRINT))
                 {
                     result.Print();

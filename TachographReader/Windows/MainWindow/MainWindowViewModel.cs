@@ -349,6 +349,7 @@
                     if (ShowWarning(Resources.TXT_INFO_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
                     {
                         statusReport.GenerateStatusReport();
+                        workshopSettings.CentreQuarterlyCheckDate = DateTime.Now.Date;
                     }
                 }
             }
@@ -361,9 +362,11 @@
                     if (ShowWarning(Resources.TXT_GV_212_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
                     {
                         GV212ReportHelper.Create(false);
+                        workshopSettings.MonthlyGV212Date = DateTime.Now.Date;
                     }
                 }
             }
+            settingsRepository.Save(workshopSettings);
         }
 
         private void CloseSettingsModal(bool save)
