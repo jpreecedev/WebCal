@@ -43,6 +43,7 @@
                     return;
                 }
 
+                start = DateTime.Parse($"{viewModel.StartDateTime.ToString(Constants.DateFormat)} 00:00:00");
                 end = DateTime.Parse($"{viewModel.EndDateTime.ToString(Constants.DateFormat)} 23:59:59");
             }
 
