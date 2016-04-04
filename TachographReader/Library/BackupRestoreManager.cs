@@ -83,6 +83,11 @@
 
         public static void AutoBackup(string backupPath)
         {
+            if (string.IsNullOrEmpty(backupPath) || !Directory.Exists(backupPath))
+            {
+                return;
+            }
+
             if (HasBackupBeenTakenToday(backupPath))
             {
                 return;

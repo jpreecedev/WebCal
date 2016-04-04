@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.ObjectModel;
+    using Windows;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
@@ -64,6 +65,14 @@
         protected override void Load()
         {
             base.Load();
+
+            if (string.IsNullOrEmpty(Document.CentreName) || string.IsNullOrEmpty(Document.CentreSealNumber) || Document.CentreName.Length < 3 ||  Document.CentreSealNumber.Length < 3)
+            {
+                ShowError("You must set the 'Workshop Name' and 'Seal Number' before generating this report.  Please set them first using the Settings dialog.\n\nPlease note, both must be at least 3 characters long.");
+                MainWindow.ShowView<HomeScreenView>();
+                return;
+            }
+
             Populate();
         }
 
