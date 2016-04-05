@@ -27,6 +27,17 @@
     <ROW Section="3.2.3.0" Key="FilePath" Value="[APPDIR]TachographReader.exe"/>
     <ROW Section="3.2.3.0" Key="Version" Value="3.2.3.0"/>
     <ROW Section="3.2.3.0" Key="AutoCloseApplication" Value="[APPDIR]TachographReader.exe"/>
+    <ROW Section="3.2.4.0" Key="Name" Value="Webcal"/>
+    <ROW Section="3.2.4.0" Key="ProductVersion" Value="3.2.4.0"/>
+    <ROW Section="3.2.4.0" Key="URL" Value="http://www.webcalconnect.com/software/webcal-fast.exe"/>
+    <ROW Section="3.2.4.0" Key="Size" Value="..\..\..\Users\Jon Preece\Desktop\webcal-fast.exe"/>
+    <ROW Section="3.2.4.0" Key="ReleaseDate" Value="18565"/>
+    <ROW Section="3.2.4.0" Key="MD5" Value="..\..\..\Users\Jon Preece\Desktop\webcal-fast.exe"/>
+    <ROW Section="3.2.4.0" Key="ServerFileName" Value="webcal-fast.exe"/>
+    <ROW Section="3.2.4.0" Key="Flags" Value="Critical|NoCache"/>
+    <ROW Section="3.2.4.0" Key="FilePath" Value="[APPDIR]TachographReader.exe"/>
+    <ROW Section="3.2.4.0" Key="Version" Value="3.2.4.0"/>
+    <ROW Section="3.2.4.0" Key="AutoCloseApplication" Value="[APPDIR]TachographReader.exe"/>
     <ATTRIBUTE name="OutputFileName" value="webcal-fast-updates.txt"/>
     <ATTRIBUTE name="OutputFolder" value="..\..\..\Users\Jon Preece\Desktop"/>
   </COMPONENT>
