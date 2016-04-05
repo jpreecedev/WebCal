@@ -54,10 +54,8 @@
 
             <StackPanel Orientation="Vertical">
 
-                <ctrls:InputAutoCompleteField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME}"
-                                              ItemsSource="{Binding AutoCompleteCustomerContacts}"
-                                              ItemTemplate="{StaticResource AutoCompleteBoxItemTemplate}"
-                                              SelectionChangedCommand="{Binding AutoCompleteSelectionChangedCommand}"/>
+                <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_CUSTOMER_NAME}"
+                                      Text="{core:InputBinding NewCustomerContact.Name}" />
 
                 <ctrls:InputTextField Label="{x:Static Properties:Resources.TXT_CUSTOMER_SETTINGS_EMAIL}"
                                       Text="{core:InputBinding NewCustomerContact.Email}" />
