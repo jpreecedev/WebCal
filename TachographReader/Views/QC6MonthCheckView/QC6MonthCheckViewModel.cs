@@ -66,14 +66,13 @@
         {
             base.Load();
 
+            Populate();
+
             if (string.IsNullOrEmpty(Document.CentreName) || string.IsNullOrEmpty(Document.CentreSealNumber) || Document.CentreName.Length < 3 ||  Document.CentreSealNumber.Length < 3)
             {
                 ShowError("You must set the 'Workshop Name' and 'Seal Number' before generating this report.  Please set them first using the Settings dialog.\n\nPlease note, both must be at least 3 characters long.");
                 MainWindow.ShowView<HomeScreenView>();
-                return;
             }
-
-            Populate();
         }
 
         public override void OnModalClosed()
