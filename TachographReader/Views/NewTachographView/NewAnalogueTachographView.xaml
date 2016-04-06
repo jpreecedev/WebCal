@@ -291,13 +291,13 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_ANALOGUE_CUSTOMER}"
-                                           Grid.Row="18"
-                                           IsEditable="False"
+                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER}"
+                                           IsMandatory="True"
+                                           IsEditable="True"
+                                           IsTextSearchEnabled="True"
                                            ItemsSource="{core:InputBinding CustomerContacts}"
                                            SelectedItem="{core:InputBinding SelectedCustomerContact}"
-                                           DisplayMemberPath="Name"
-                                           Grid.RowSpan="2" />
+                                           DisplayMemberPath="Name" />
 
                     <Button Command="{Binding NewCustomerCommand}"
                             Style="{StaticResource NewCustomerButton}"

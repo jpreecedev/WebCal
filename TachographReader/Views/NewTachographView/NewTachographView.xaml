@@ -320,10 +320,8 @@
                                            IsMandatory="True"
                                            IsEditable="True"
                                            IsTextSearchEnabled="True"
-                                           IsSynchronisedWithCurrentItem="True"
                                            ItemsSource="{core:InputBinding CustomerContacts}"
                                            SelectedItem="{core:InputBinding SelectedCustomerContact}"
-                                           IsSelectedItemMandatory="True"
                                            DisplayMemberPath="Name" />
 
                     <Button Command="{Binding NewCustomerCommand}"
