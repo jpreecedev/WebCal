@@ -586,7 +586,9 @@ This could be due to either;
     <value>Software</value>
   </data>
   <data name="EXC_UNABLE_GENERATE_CARD_DUMP" xml:space="preserve">
-    <value>Unable to generate card dump</value>
+    <value>Unable to generate card dump
+    
+{0}</value>
   </data>
   <data name="TXT_SKILLRAY_UNLICENSED_SOFTWARE" xml:space="preserve">
     <value>Skillray Demo Unlicensed Software</value>

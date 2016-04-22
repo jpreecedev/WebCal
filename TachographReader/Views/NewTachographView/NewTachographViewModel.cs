@@ -458,7 +458,8 @@
 
                 if (!File.Exists(result[0]))
                 {
-                    MessageBoxHelper.ShowError(Resources.EXC_UNABLE_GENERATE_CARD_DUMP);
+                    var diagnosticMessage = $"Basic response:\n{xml}\n\nExpected path:\n{result[0]}\n\nFull path:\n{Path.GetFullPath(result[0])}\n\nWorkshop name:\n{result[1]}";
+                    MessageBoxHelper.ShowError(string.Format(Resources.EXC_UNABLE_GENERATE_CARD_DUMP, diagnosticMessage));
                     return null;
                 }
 

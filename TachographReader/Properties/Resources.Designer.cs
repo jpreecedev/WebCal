@@ -482,7 +482,9 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to generate card dump.
+        ///   Looks up a localized string similar to Unable to generate card dump
+        ///    
+        ///{0}.
         /// </summary>
         public static string EXC_UNABLE_GENERATE_CARD_DUMP {
             get {
