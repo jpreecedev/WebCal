@@ -108,13 +108,13 @@
 
         private void OnNewTachograph(object param)
         {
-            var viewModel = (NewTachographViewModel) ShowView<NewTachographView>();
+            var viewModel = (NewTachographViewModel)ShowView<NewTachographView>();
             viewModel.SetDocumentTypes(true);
         }
 
         private void OnNewAnalogueTachograph(object param)
         {
-            var viewModel = (NewTachographViewModel) ShowView<NewAnalogueTachographView>();
+            var viewModel = (NewTachographViewModel)ShowView<NewAnalogueTachographView>();
             viewModel.SetDocumentTypes(false);
         }
 
@@ -159,10 +159,10 @@
         {
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
             {
-                ((DocumentHistoryViewModel) viewModel).SelectedDocumentType = "QC 3 Month Walkaround";
+                ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = "QC 3 Month Walkaround";
             };
         }
-        
+
         private void OnDocumentHistory(object param)
         {
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
@@ -170,7 +170,7 @@
                 ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = Resources.TXT_SELECT_ALL;
             };
         }
-        
+
         private void OnCalibrations(object param)
         {
             ShowView<CalibrationsView>();
@@ -350,6 +350,7 @@
                     {
                         statusReport.GenerateStatusReport();
                         workshopSettings.CentreQuarterlyCheckDate = DateTime.Now.Date;
+                        settingsRepository.Save(workshopSettings);
                     }
                 }
             }
@@ -363,10 +364,10 @@
                     {
                         GV212ReportHelper.Create(false);
                         workshopSettings.MonthlyGV212Date = DateTime.Now.Date;
+                        settingsRepository.Save(workshopSettings);
                     }
                 }
             }
-            settingsRepository.Save(workshopSettings);
         }
 
         private void CloseSettingsModal(bool save)
@@ -374,7 +375,7 @@
             var settingsView = ModalView as SettingsView;
             if (settingsView != null)
             {
-                var vm = (SettingsViewModel) settingsView.DataContext;
+                var vm = (SettingsViewModel)settingsView.DataContext;
 
                 try
                 {
