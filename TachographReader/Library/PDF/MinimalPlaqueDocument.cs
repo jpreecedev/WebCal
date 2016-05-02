@@ -400,9 +400,18 @@ namespace TachographReader.Library.PDF
                 AbsolutePositionText(document, Resources.TXT_TYPE.ToUpper(), (startHorizontal + 140), (startVertical + 440), 550, 72, document.GetRegularFont(true));
                 AbsolutePositionText(document, Resources.TXT_SERIAL_NUMBER.ToUpper(), (startHorizontal + 140), (startVertical + 450), 550, 72, document.GetRegularFont(true));
 
-                AbsolutePositionText(document, tachographDocument.TachographMake.ToUpper(), (startHorizontal + 300), (startVertical + 430), 550, 72);
-                AbsolutePositionText(document, tachographDocument.TachographModel.ToUpper(), (startHorizontal + 300), (startVertical + 440), 550, 72);
-                AbsolutePositionText(document, tachographDocument.SerialNumber.ToUpper(), (startHorizontal + 300), (startVertical + 450), 550, 72);
+                if (!string.IsNullOrEmpty(tachographDocument.TachographMake))
+                {
+                    AbsolutePositionText(document, tachographDocument.TachographMake.ToUpper(), (startHorizontal + 300), (startVertical + 430), 550, 72);
+                }
+                if (!string.IsNullOrEmpty(tachographDocument.TachographModel))
+                {
+                    AbsolutePositionText(document, tachographDocument.TachographModel.ToUpper(), (startHorizontal + 300), (startVertical + 440), 550, 72);
+                }
+                if (!string.IsNullOrEmpty(tachographDocument.SerialNumber))
+                {
+                    AbsolutePositionText(document, tachographDocument.SerialNumber.ToUpper(), (startHorizontal + 300), (startVertical + 450), 550, 72);
+                }
 
                 AbsolutePositionText(document, Resources.TXT_VEHICLE.ToUpper(), (startHorizontal + 5), (startVertical + 470), 550, 72, document.GetRegularFont(true));
 
@@ -414,7 +423,7 @@ namespace TachographReader.Library.PDF
                 AbsolutePositionText(document, Resources.TXT_ODOMETER_READING.ToUpper(), (startHorizontal + 140), (startVertical + 540), 550, 72, document.GetRegularFont(true));
                 AbsolutePositionText(document, Resources.TXT_SET_K_FACTOR.ToUpper(), (startHorizontal + 140), (startVertical + 550), 550, 72, document.GetRegularFont(true));
 
-                AbsolutePositionText(document, string.Format("{0} {1}", tachographDocument.VehicleMake, tachographDocument.VehicleModel).ToUpper(), (startHorizontal + 140), (startVertical + 480), 550, 72, document.GetRegularFont(true));
+                AbsolutePositionText(document, $"{tachographDocument.VehicleMake} {tachographDocument.VehicleModel}".ToUpper(), (startHorizontal + 140), (startVertical + 480), 550, 72, document.GetRegularFont(true));
 
                 AbsolutePositionText(document, tachographDocument.RegistrationNumber.ToUpper(), (startHorizontal + 300), (startVertical + 490), 550, 72);
                 AbsolutePositionText(document, tachographDocument.VIN.ToUpper(), (startHorizontal + 300), (startVertical + 500), 550, 72);
