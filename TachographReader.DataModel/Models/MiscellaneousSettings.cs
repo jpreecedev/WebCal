@@ -1,6 +1,6 @@
 ﻿namespace TachographReader.DataModel
 {
-    using Shared.Core;
+    using Connect.Shared;
 
     public class MiscellaneousSettings : BaseSettings
     {

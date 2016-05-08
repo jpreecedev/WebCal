@@ -6,7 +6,6 @@
     using System.Linq;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using DataModel.Library;
     using Shared;
     using DefaultPrinterSettings = System.Drawing.Printing.PrinterSettings;

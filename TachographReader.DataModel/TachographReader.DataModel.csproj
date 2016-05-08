@@ -150,7 +150,6 @@
     <Compile Include="Library\Extensions.cs" />
     <Compile Include="Library\SeedDataHelper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CustomDayOfWeek.cs" />
     <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\BaseFile.cs" />
     <Compile Include="Models\DriverCardFile.cs" />
@@ -158,7 +157,6 @@
     <Compile Include="Models\InspectionMethod.cs" />
     <Compile Include="Models\MailSettings.cs" />
     <Compile Include="Models\MiscellaneousSettings.cs" />
-    <Compile Include="Models\Technician.cs" />
     <Compile Include="Models\Make.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\PrinterSettings.cs" />
@@ -170,7 +168,6 @@
     <Compile Include="Models\VehicleMake.cs" />
     <Compile Include="Models\VehicleModel.cs" />
     <Compile Include="Models\WorkshopCardFile.cs" />
-    <Compile Include="Models\WorkshopSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\TyreSize.cs" />
     <Compile Include="Models\VehicleType.cs" />

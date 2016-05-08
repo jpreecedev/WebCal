@@ -6,8 +6,7 @@
     using System.IO;
     using System.Linq;
     using System.Reflection;
-    using System.Threading.Tasks;
-    using DataModel;
+    using Connect.Shared;
     using DataModel.Core;
     using Properties;
     using Shared;
@@ -34,7 +33,7 @@
             DialogHelperResult result = DialogHelper.SaveFile(DialogFilter.SQLServerCEDatabaseFile, string.Empty);
             if (result.Result == true)
             {
-                Run(string.Format(@"/b ""{0}"" ""{1}""", databasePath, result.FileName), false);
+                Run($@"/b ""{databasePath}"" ""{result.FileName}""", false);
             }
 
             ConnectHelper.BackupDatabase(databasePath);
@@ -54,7 +53,7 @@
             DialogHelperResult result = DialogHelper.OpenFile(DialogFilter.SQLServerCEDatabaseFile, string.Empty);
             if (result.Result == true)
             {
-                Run(string.Format(@"/r ""{0}"" ""{1}"" ""{2}""", result.FileName, databasePath, Assembly.GetExecutingAssembly().GetName().CodeBase), false);
+                Run($@"/r ""{result.FileName}"" ""{databasePath}"" ""{Assembly.GetExecutingAssembly().GetName().CodeBase}""", false);
             }
         }
 
@@ -104,10 +103,10 @@
                 return;
             }
 
-            string fileName = string.Format("{0}\\{1}_{2}{3}", backupPath, Path.GetFileNameWithoutExtension(databasePath), DateTime.Now.ToString("ddMMyyyyHHmmss"), Path.GetExtension(databasePath));
+            string fileName = $"{backupPath}\\{Path.GetFileNameWithoutExtension(databasePath)}_{DateTime.Now.ToString("ddMMyyyyHHmmss")}{Path.GetExtension(databasePath)}";
 
             //Backup:   /b <dbpath> <backuppath>
-            Run(string.Format(@"/b ""{0}"" ""{1}""", databasePath, fileName), true);
+            Run($@"/b ""{databasePath}"" ""{fileName}""", true);
 
             ConnectHelper.BackupDatabaseAsync(databasePath);
         }
@@ -136,7 +135,7 @@
             {
                 if (!quiet)
                 {
-                    MessageBoxHelper.ShowError(string.Format("{0}\n\n{1}", Resources.TXT_UNABLE_COMPLETE_RESTORE, ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)));
+                    MessageBoxHelper.ShowError($"{Resources.TXT_UNABLE_COMPLETE_RESTORE}\n\n{ExceptionPolicy.HandleException(ContainerBootstrapper.Container, ex)}");
                 }
             }
         }

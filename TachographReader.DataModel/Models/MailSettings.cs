@@ -1,8 +1,7 @@
 ﻿namespace TachographReader.DataModel
 {
     using System.ComponentModel.DataAnnotations;
-    using Shared;
-    using Shared.Core;
+    using Connect.Shared;
 
     public class MailSettings : BaseSettings
     {

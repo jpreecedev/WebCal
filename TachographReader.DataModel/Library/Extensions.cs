@@ -6,6 +6,7 @@ namespace TachographReader.DataModel.Library
     using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Xml.Linq;
+    using Connect.Shared;
     using Shared;
 
     public static class Extensions

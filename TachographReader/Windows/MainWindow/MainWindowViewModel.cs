@@ -7,6 +7,7 @@
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Threading;
+    using Connect.Shared;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
@@ -336,7 +337,7 @@
         {
             base.Load();
 
-            ConnectHelper.SyncDocuments();
+            ConnectHelper.SyncData();
 
             var settingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
             var workshopSettings = settingsRepository.GetWorkshopSettings();

@@ -1,6 +1,8 @@
 ﻿namespace TachographReader.Library.PDF
 {
     using System.Collections.Generic;
+    using Connect.Shared;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using iTextSharp.text;
@@ -108,7 +110,7 @@
             var image = ImageHelper.LoadFromResources(resourceName);
             var bitmap = image.ToBitmap();
             var scaled = ImageHelper.Scale(bitmap, 0, 25);
-            document.AddImage(scaled.ToByteArray(), scaled.Width, scaled.Height, x, y);
+            document.AddImage(ImageHelper.ToByteArray(scaled), scaled.Width, scaled.Height, x, y);
         }
 
         private static void AbsolutePositionText(PDFDocument document, string text, float left, float top, float width, float height, Font font, int alignment)

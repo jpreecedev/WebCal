@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Windows.Controls;
     using Windows.SignatureCaptureWindow;
+    using Connect.Shared.Models;
     using Core;
     using DataModel;
     using Library;

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.ObjectModel;
+    using Connect.Shared;
     using Core;
     using Properties;
     using Shared;
@@ -68,6 +69,7 @@
 
             context.WorkshopSettings.Add(new WorkshopSettings
             {
+                Created = DateTime.Now,
                 BackupFilePath = Resources.TXT_NO_PATH_SPECIFIED,
             });
 

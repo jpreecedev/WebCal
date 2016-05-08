@@ -1,5 +1,6 @@
 ﻿namespace TachographReader.Library.PDF
 {
+    using Connect.Shared;
     using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
@@ -104,7 +105,7 @@
             if (signatureImage != null)
             {
                 Image image = ImageHelper.Scale(signatureImage,500, 50);
-                document.AddImage(image.ToByteArray(), image.Width, image.Height, x, y);
+                document.AddImage(ImageHelper.ToByteArray(image), image.Width, image.Height, x, y);
             }
         }
     }

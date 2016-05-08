@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Drawing;
-    using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -14,6 +13,7 @@
     using System.Windows.Interop;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
+    using Connect.Shared;
     using Connect.Shared.Models;
     using Core;
     using DataModel;

@@ -3,6 +3,7 @@
     using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
+    using Connect.Shared;
     using Core;
     using DataModel;
     using DataModel.Library;

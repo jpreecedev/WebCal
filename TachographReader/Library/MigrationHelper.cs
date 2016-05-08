@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Security.AccessControl;
     using System.Security.Principal;
+    using Connect.Shared;
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;

@@ -1,6 +1,7 @@
 ﻿namespace TachographReader.DataModel
 {
     using System.Data.Entity;
+    using Connect.Shared;
     using Connect.Shared.Models;
     using Shared.Models;
     using Shared.Workers;

@@ -1,6 +1,7 @@
 ﻿namespace TachographReader.DataModel.Repositories
 {
     using System.Data.Entity;
+    using Connect.Shared;
     using Microsoft.Practices.ObjectBuilder2;
     using Shared;
 

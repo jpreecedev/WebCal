@@ -1,7 +1,7 @@
 ﻿namespace TachographReader.Shared
 {
-    using System;
-    using Core;
+    using System; 
+    using global::Connect.Shared;
 
     public interface ISettingsRepository<T> where T : BaseSettings
     {

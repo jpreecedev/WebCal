@@ -3,6 +3,7 @@
     using System;
     using System.Security.Cryptography;
     using System.Text;
+    using Connect.Shared;
     using Core;
     using Properties;
     using Shared;

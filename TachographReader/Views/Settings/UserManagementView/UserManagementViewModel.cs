@@ -7,7 +7,6 @@
     using Windows.SignatureCaptureWindow;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using DataModel.Library;
     using Library;
     using Properties;

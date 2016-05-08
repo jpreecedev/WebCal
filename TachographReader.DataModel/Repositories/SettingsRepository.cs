@@ -4,9 +4,9 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
+    using Connect.Shared;
     using Library;
     using Shared;
-    using Shared.Core;
 
     public class SettingsRepository<T> : BaseRepository, ISettingsRepository<T> where T : BaseSettings, new()
     {

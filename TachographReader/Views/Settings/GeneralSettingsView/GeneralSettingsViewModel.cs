@@ -5,12 +5,11 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows.Forms;
+    using Connect.Shared;
     using Core;
-    using DataModel;
     using DataModel.Library;
     using DataModel.Repositories;
     using Properties;
-    using Shared;
 
     public class GeneralSettingsViewModel : BaseSettingsViewModel
     {

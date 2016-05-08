@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Connect.Shared.Models;
 
     public class TechnicianRepository : Repository<Technician>
     {

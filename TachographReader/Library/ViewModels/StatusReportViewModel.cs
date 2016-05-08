@@ -3,7 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using DataModel;
+    using Connect.Shared;
+    using Connect.Shared.Models;
     using DataModel.Core;
     using DataModel.Library;
     using Shared;

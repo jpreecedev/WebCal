@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using DataModel.Library;
     using Shared;
 

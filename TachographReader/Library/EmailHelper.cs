@@ -4,6 +4,7 @@ namespace TachographReader.Library
 {
     using System;
     using System.Net.Mail;
+    using Connect.Shared;
     using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;
@@ -86,7 +87,7 @@ namespace TachographReader.Library
             {
                 return newRecipient;
             }
-            return string.Format("{0}; {1}", existingRecipient, newRecipient);
+            return $"{existingRecipient}; {newRecipient}";
         }
 
         private static void CreateEmailTask(MailSettings settings, string attachmentPath, string recipient)

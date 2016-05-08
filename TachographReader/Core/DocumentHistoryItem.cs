@@ -1,6 +1,7 @@
 ﻿namespace TachographReader.Core
 {
     using System;
+    using Connect.Shared;
     using Connect.Shared.Models;
     using DataModel;
     using DataModel.Core;

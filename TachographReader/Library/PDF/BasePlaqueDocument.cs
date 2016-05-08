@@ -3,6 +3,7 @@
     using System;
     using System.IO;
     using System.Linq;
+    using Connect.Shared;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
@@ -207,7 +208,7 @@
             if (signatureImage != null)
             {
                 Image image = ImageHelper.Scale(signatureImage, 500, 50);
-                document.AddImage(image.ToByteArray(), image.Width, image.Height, x, y);
+                document.AddImage(ImageHelper.ToByteArray(image), image.Width, image.Height, x, y);
             }
         }
     }

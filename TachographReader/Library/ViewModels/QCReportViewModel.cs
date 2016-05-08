@@ -2,8 +2,8 @@
 {
     using System;
     using System.Collections.ObjectModel;
+    using Connect.Shared;
     using Connect.Shared.Models;
-    using DataModel;
     using DataModel.Core;
     using DataModel.Library;
     using Properties;

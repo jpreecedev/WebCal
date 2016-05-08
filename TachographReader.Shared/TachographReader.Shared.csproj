@@ -150,7 +150,6 @@
     <Compile Include="Connect\IConnectClient.cs" />
     <Compile Include="Connect\IConnectClientCredentials.cs" />
     <Compile Include="Connect\ConnectOperationResult.cs" />
-    <Compile Include="Core\BaseSettings.cs" />
     <Compile Include="Models\DetailedException.cs" />
     <Compile Include="Models\DiscreteException.cs" />
     <Compile Include="ExceptionPolicy.cs" />
@@ -158,7 +157,6 @@
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="ISettingsRepository.cs" />
-    <Compile Include="IUserSignatureCapture.cs" />
     <Compile Include="MaxAttemptsReachedException.cs" />
     <Compile Include="Helpers\MessageBoxHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

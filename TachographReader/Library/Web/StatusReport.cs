@@ -7,8 +7,8 @@
     using System.IO;
     using System.Linq;
     using System.Text;
+    using Connect.Shared;
     using Core;
-    using DataModel;
     using DataModel.Core;
     using DataModel.Library;
     using DataModel.Repositories;
@@ -19,7 +19,7 @@
 
     public static class StatusReport
     {
-        private static Random _random = new Random();
+        private static readonly Random _random = new Random();
 
         public static string Create(StatusReportViewModel viewModel)
         {

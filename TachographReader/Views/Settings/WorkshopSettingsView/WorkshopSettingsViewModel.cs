@@ -3,9 +3,8 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using Connect.Shared;
     using Core;
-    using DataModel;
-    using DataModel.Core;
     using DataModel.Library;
     using Properties;
     using Shared;

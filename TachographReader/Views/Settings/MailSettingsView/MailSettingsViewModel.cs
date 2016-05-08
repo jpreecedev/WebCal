@@ -1,8 +1,8 @@
 ﻿namespace TachographReader.Views.Settings
 {
+    using Connect.Shared;
     using Core;
     using DataModel;
-    using DataModel.Core;
     using DataModel.Library;
     using Shared;
 

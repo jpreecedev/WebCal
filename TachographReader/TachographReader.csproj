@@ -345,7 +345,6 @@
     <Compile Include="Library\ReportFileFormat.cs" />
     <Compile Include="Library\ReprintMode.cs" />
     <Compile Include="Library\TachographDocumentHelper.cs" />
-    <Compile Include="Library\TechnicianCheckStatus.cs" />
     <Compile Include="Library\ViewModels\QCReportViewModel.cs" />
     <Compile Include="Library\ViewModels\ReportDocumentViewModel.cs" />
     <Compile Include="Library\ViewModels\StatusReportViewModel.cs" />

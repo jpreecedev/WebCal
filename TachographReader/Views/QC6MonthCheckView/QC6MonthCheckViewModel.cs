@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.ObjectModel;
-    using Windows;
+    using Connect.Shared;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
