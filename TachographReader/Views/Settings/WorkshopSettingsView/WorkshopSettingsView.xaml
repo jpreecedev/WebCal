@@ -24,6 +24,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition Height="92" />
+            <RowDefinition Height="70" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -86,6 +87,29 @@
                    MaxHeight="92"
                    HorizontalAlignment="Left"
                    Margin="45,0,0,0" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="9"
+                    Grid.ColumnSpan="3">
+
+            <TextBlock Text="{x:Static Properties:Resources.TXT_WORKSHOP_SETITNGS_TITLE}"
+                       Margin="0,30,0,0" />
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_SEND_TO_CUSTOMER}"
+                      IsChecked="{Binding Settings.SendToCustomer}"
+                      Margin="0,10,0,0" />
+
+            <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_SEND_TO_OFFICE}"
+                      IsChecked="{Binding Settings.SendToOffice}"
+                      Margin="20,10,0,0" />
+
+            <CheckBox Content="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_DO_NOT_SEND}"
+                      IsChecked="{Binding Settings.DoNotSend}"
+                      Margin="20,10,0,0" />
+
+            </StackPanel>
         </StackPanel>
     </Grid>
 </core:BaseSettingsView>
