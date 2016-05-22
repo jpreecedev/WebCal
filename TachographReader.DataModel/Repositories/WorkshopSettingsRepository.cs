@@ -1,6 +1,7 @@
 ﻿namespace TachographReader.DataModel.Repositories
 {
     using System.Data.Entity;
+    using System.Linq;
     using Connect.Shared;
     using Microsoft.Practices.ObjectBuilder2;
     using Shared;
@@ -13,6 +14,15 @@
             {
                 using (var context = new TachographContext())
                 {
+                    var originalEntity = context.WorkshopSettings.AsNoTracking().FirstOrDefault(c => c.Id == settings.Id);
+                    if (originalEntity != null)
+                    {
+                        if (!originalEntity.Equals(settings))
+                        {
+                            settings.Uploaded = null;
+                        }
+                    }
+
                     //Bin old data, don't need it
                     context.CustomDayOfWeeks.RemoveRange(context.CustomDayOfWeeks);
                     context.SaveChanges();

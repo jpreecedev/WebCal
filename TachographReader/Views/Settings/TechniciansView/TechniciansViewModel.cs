@@ -157,6 +157,7 @@
                 selectedTechnician.Number = result.SecondInput;
                 selectedTechnician.DateOfLastCheck = result.DateInput;
                 selectedTechnician.DateOfLast3YearCheck = result.SecondDateInput;
+                selectedTechnician.Uploaded = null;
 
                 var signature = Signature;
                 if (signature != null)
