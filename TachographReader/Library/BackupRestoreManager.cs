@@ -149,7 +149,7 @@
         private static string GetDatabasePath()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TachographContext"].ConnectionString;
-            return connectionString.Replace("DataSource=|DataDirectory|", (string) AppDomain.CurrentDomain.GetData("DataDirectory") + "\\");
+            return connectionString.Replace("DataSource=|DataDirectory|", (string) AppDomain.CurrentDomain.GetData("DataDirectory") + "\\").Replace(";Max Database Size=4091", string.Empty);
         }
 
         private static bool HasBackupBeenTakenToday(string backupPath)
