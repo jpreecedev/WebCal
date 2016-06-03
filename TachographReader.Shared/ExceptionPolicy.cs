@@ -5,6 +5,7 @@
     using System.IO;
     using System.Text;
     using System.Xml.Serialization;
+    using global::Connect.Shared.Models;
     using Helpers;
     using Microsoft.Practices.Unity;
     using Models;

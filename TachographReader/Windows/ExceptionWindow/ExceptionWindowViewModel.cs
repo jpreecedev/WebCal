@@ -4,8 +4,8 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows;
+    using Connect.Shared.Models;
     using Core;
-    using DataModel.Core;
     using Library;
     using Properties;
     using Shared;

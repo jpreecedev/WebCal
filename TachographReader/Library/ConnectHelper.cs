@@ -68,6 +68,7 @@
                 SyncWorkshopSettings();
                 SyncTechnicians();
                 SyncDocuments();
+                SyncExceptions();
             });
         }
 
@@ -260,6 +261,18 @@
             return document;
         }
         
+        private static void SyncExceptions()
+        {
+            var detailedExceptions = ContainerBootstrapper.Resolve<IRepository<DetailedException>>();
+            foreach (var detailedException in detailedExceptions.Where(c => c.Uploaded == null))
+            {
+                _connectClient.Service.UploadDetailedException(detailedException);
+
+                detailedException.Uploaded = DateTime.Now;
+                detailedExceptions.AddOrUpdate(detailedException);
+            }
+        }
+
         private static void SyncWorkshopSettings()
         {
             var generalSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
