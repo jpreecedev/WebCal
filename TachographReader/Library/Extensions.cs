@@ -276,23 +276,24 @@
         {
             IEnumerable<BaseReport> result = new List<BaseReport>();
 
-            result = result.Concat(GetDocuments<QCReport>(context));
-            result = result.Concat(GetDocuments<QCReport6Month>(context));
+            result = result.Concat(GetReports<QCReport>(context));
+            result = result.Concat(GetReports<QCReport6Month>(context));
 
             return result.OrderByDescending(c => c.Created.Date);
         }
 
-        public static IEnumerable<T> GetDocuments<T>(this TachographContext context) where T : BaseModel
+        public static IEnumerable<T> GetDocuments<T>(this TachographContext context) where T : Document
         {
-            var documentCount = context.Set<T>().Count();
-            if (documentCount > 0)
-            {
-                return from document in context.Set<T>()
-                    where document.Deleted == null
-                    select document;
-            }
+            return from document in context.Set<T>().SqlQuery(FastQueryHelper.GetSqlQueryFor<T>(false))
+                where document.Deleted == null
+                select document;
+        }
 
-            return new List<T>();
+        public static IEnumerable<T> GetReports<T>(this TachographContext context) where T : BaseModel
+        {
+            return from document in context.Set<T>()
+                where document.Deleted == null
+                select document;
         }
 
         public static ReportItemStatus HalfYearStatus(this Technician technician)
