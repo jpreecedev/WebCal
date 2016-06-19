@@ -28,7 +28,7 @@
         {
             try
             {
-                _monitor = new SCardMonitor(new SCardContext(), SCardScope.System);
+                _monitor = new SCardMonitor(ContextFactory.Instance, SCardScope.System);
                 _monitor.CardInserted += Monitor_CardInserted;
                 _monitor.CardRemoved += Monitor_CardRemoved;
 
@@ -164,10 +164,10 @@
                 RedirectStandardOutput = true
             };
 
-            using (Process proc = Process.Start(processInfo))
+            using (var proc = Process.Start(processInfo))
             {
                 //Must be done before WaitForExit to avoid deadlocks
-                string content = proc.StandardOutput.ReadToEnd();
+                var content = proc.StandardOutput.ReadToEnd();
 
                 proc.WaitForExit();
 
