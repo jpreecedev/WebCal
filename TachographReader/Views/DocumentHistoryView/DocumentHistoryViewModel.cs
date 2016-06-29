@@ -138,6 +138,15 @@
                     var qcReportViewModel = (BaseNewDocumentViewModel<QCReportViewModel>)viewModel;
                     qcReportViewModel.Document = new QCReportViewModel(report);
                 }
+
+                var monthReport = SelectedDocument.Report as QCReport6Month;
+                if (monthReport != null)
+                {
+                    viewModel = (QC6MonthCheckViewModel) MainWindow.ShowView<QC6MonthCheckView>();
+                    var qc6MonthViewModel = (BaseNewDocumentViewModel<QCReport6Month>) viewModel;
+                    qc6MonthViewModel.Document = monthReport;
+
+                }
             }
             else
             {
