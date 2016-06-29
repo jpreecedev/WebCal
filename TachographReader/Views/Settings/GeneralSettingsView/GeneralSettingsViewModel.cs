@@ -7,8 +7,6 @@
     using System.Windows.Forms;
     using Connect.Shared;
     using Core;
-    using DataModel.Library;
-    using DataModel.Repositories;
     using Properties;
 
     public class GeneralSettingsViewModel : BaseSettingsViewModel
@@ -27,15 +25,16 @@
             };
         }
 
-        public WorkshopSettings Settings { get; set; }
-        public WorkshopSettingsRepository SettingsRepository { get; set; }
+        public WorkshopSettings Settings
+        {
+            get { return SettingsRepoHack.Settings; }    
+        }
+
         public ICollection<CustomDayOfWeek> DaysOfWeek { get; set; }
         public DelegateCommand<object> BrowseCommand { get; set; }
 
         protected override void Load()
         {
-            Settings = SettingsRepository.GetWorkshopSettings();
-
             if (Settings.CustomDayOfWeeks == null)
             {
                 return;
@@ -57,16 +56,11 @@
         {
             BrowseCommand = new DelegateCommand<object>(OnBrowse);
         }
-
-        protected override void InitialiseRepositories()
-        {
-            SettingsRepository = GetInstance<WorkshopSettingsRepository>();
-        }
-
+        
         public override void Save()
         {
             Settings.CustomDayOfWeeks = DaysOfWeek.Where(d => d.IsChecked).ToList();
-            SettingsRepository.Save(Settings);
+            SettingsRepoHack.SaveSettings();
         }
 
         private void OnBrowse(object obj)

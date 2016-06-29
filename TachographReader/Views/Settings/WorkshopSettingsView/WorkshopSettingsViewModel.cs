@@ -5,30 +5,25 @@
     using System.Windows.Forms;
     using Connect.Shared;
     using Core;
-    using DataModel.Library;
     using Properties;
-    using Shared;
 
     public class WorkshopSettingsViewModel : BaseSettingsViewModel
     {
         public WorkshopSettingsViewModel()
         {
-            GeneralSettingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
             BrowseCommand = new DelegateCommand<object>(OnBrowse);
         }
-
-        public ISettingsRepository<WorkshopSettings> GeneralSettingsRepository { get; set; }
+        
         public DelegateCommand<object> BrowseCommand { get; set; }
-        public WorkshopSettings Settings { get; set; }
 
-        protected override void Load()
+        public WorkshopSettings Settings
         {
-            Settings = GeneralSettingsRepository.GetWorkshopSettings();
+            get { return SettingsRepoHack.Settings; }
         }
 
         public override void Save()
         {
-            GeneralSettingsRepository.Save(Settings);
+            SettingsRepoHack.SaveSettings();
         }
 
         private void OnBrowse(object obj)

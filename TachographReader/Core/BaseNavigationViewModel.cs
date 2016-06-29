@@ -8,6 +8,7 @@
     using Windows;
     using DataModel.Core;
     using EventArguments;
+    using Library;
     using Properties;
     using Shared;
     using Views;
@@ -101,7 +102,7 @@
 
             if (View != null)
             {
-                var viewModel = (IViewModel) View.DataContext;
+                var viewModel = (IViewModel)View.DataContext;
                 if (viewModel != null && viewModel.HasChanged)
                 {
                     if (AskQuestion(Resources.TXT_UNSAVED_CHANGES_WILL_BE_LOST))
@@ -145,6 +146,7 @@
                     viewModel.Dispose();
                 }
             }
+            SettingsRepoHack.KillInstance();
         }
 
         protected void ShowModalView<T>() where T : UserControl, new()
