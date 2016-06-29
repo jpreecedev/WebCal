@@ -2,9 +2,12 @@
 {
     using System;
     using System.Collections.ObjectModel;
+    using Connect.Shared;
     using Connect.Shared.Models;
     using Core;
     using DataModel;
+    using DataModel.Core;
+    using DataModel.Library;
     using Library;
     using Library.ViewModels;
     using Shared;
@@ -51,6 +54,11 @@
             {
                 return;
             }
+
+            var repository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
+            var workshopSettings = repository.GetWorkshopSettings();
+            workshopSettings.CentreQuarterlyCheckDate = Document.DateOfAudit;
+            repository.Save(workshopSettings);
 
             Document.Created = DateTime.Now;
             Repository.AddOrUpdate(Document.Downcast<QCReport>());
