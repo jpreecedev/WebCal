@@ -15,6 +15,7 @@
     using DataModel.Library;
     using DataModel.Properties;
     using PDF;
+    using ViewModels;
 
     public static class ConnectHelper
     {
@@ -78,11 +79,11 @@
             {
                 if (isUpdating)
                 {
-                    _connectClient.Service.UpdateTachographDocument(document);
+                    _connectClient.Service.UpdateTachographDocument(CheckSerializedData(document));
                 }
                 else
                 {
-                    _connectClient.Service.UploadTachographDocument(document);
+                    _connectClient.Service.UploadTachographDocument(CheckSerializedData(document));
                 }
                 SaveDocumentUpload(document);
             });
@@ -94,11 +95,11 @@
             {
                 if (isUpdating)
                 {
-                    _connectClient.Service.UpdateUndownloadabilityDocument(document);
+                    _connectClient.Service.UpdateUndownloadabilityDocument(CheckSerializedData(document));
                 }
                 else
                 {
-                    _connectClient.Service.UploadUndownloadabilityDocument(document);
+                    _connectClient.Service.UploadUndownloadabilityDocument(CheckSerializedData(document));
                 }
                 SaveDocumentUpload(document);
             });
@@ -110,11 +111,11 @@
             {
                 if (isUpdating)
                 {
-                    _connectClient.Service.UpdateLetterForDecommissioningDocument(document);
+                    _connectClient.Service.UpdateLetterForDecommissioningDocument(CheckSerializedData(document));
                 }
                 else
                 {
-                    _connectClient.Service.UploadLetterForDecommissioningDocument(document);
+                    _connectClient.Service.UploadLetterForDecommissioningDocument(CheckSerializedData(document));
                 }
                 SaveDocumentUpload(document);
             });
@@ -124,7 +125,7 @@
         {
             CallAsync(() =>
             {
-                _connectClient.Service.UploadQCReport(report);
+                _connectClient.Service.UploadQCReport(CheckReportSerializedData(report));
                 SaveReportUpload(report);
             });
         }
@@ -133,7 +134,7 @@
         {
             CallAsync(() =>
             {
-                _connectClient.Service.UploadQCReport6Month(report);
+                _connectClient.Service.UploadQCReport6Month(CheckReportSerializedData(report));
                 SaveReportUpload(report);
             });
         }
@@ -260,7 +261,16 @@
             }
             return document;
         }
-        
+
+        private static T CheckReportSerializedData<T>(T report) where T : BaseReport
+        {
+            if (report.SerializedData == null)
+            {
+                report.ToReportPDF();
+            }
+            return report;
+        }
+
         private static void SyncExceptions()
         {
             var detailedExceptions = ContainerBootstrapper.Resolve<IRepository<DetailedException>>();
@@ -343,12 +353,20 @@
             }
             foreach (var qcReport in qcReportRepository.Where(c => c.Uploaded == null))
             {
-                _connectClient.Service.AutoUploadQCReport(qcReport);
+                var report = new QCReportViewModel(qcReport).ToReportPDF();
+                qcReport.SerializedData = report.SerializedData;
+
+                var repository = ContainerBootstrapper.Resolve<IRepository<QCReport>>();
+                repository.AddOrUpdate(qcReport);
+            }
+            foreach (var qcReport in qcReportRepository.Where(c => c.Uploaded == null))
+            {
+                _connectClient.Service.AutoUploadQCReport(CheckReportSerializedData(qcReport));
                 SaveReportUpload(qcReport);
             }
             foreach (var qcReport6Month in qcReport6MonthRepository.Where(c => c.Uploaded == null))
             {
-                _connectClient.Service.AutoUploadQCReport6Month(qcReport6Month);
+                _connectClient.Service.AutoUploadQCReport6Month(CheckReportSerializedData(qcReport6Month));
                 SaveReportUpload(qcReport6Month);
             }
         }
