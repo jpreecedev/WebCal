@@ -68,6 +68,7 @@
             {
                 SyncWorkshopSettings();
                 SyncTechnicians();
+                SyncCustomerContacts();
                 SyncDocuments();
                 SyncExceptions();
             });
@@ -229,6 +230,14 @@
             }
         }
 
+        private static void SaveCustomerContactUpload(CustomerContact customerContact)
+        {
+            customerContact.Uploaded = DateTime.Now;
+
+            var repository = ContainerBootstrapper.Resolve<IRepository<CustomerContact>>();
+            repository.AddOrUpdate(customerContact);
+        }
+
         private static void SaveTechnicianUpload(Technician technician)
         {
             technician.Uploaded = DateTime.Now;
@@ -325,6 +334,17 @@
             {
                 _connectClient.Service.UploadTechnician(technician);
                 SaveTechnicianUpload(technician);
+            }
+        }
+
+        private static void SyncCustomerContacts()
+        {
+            var customerContactsRepository = ContainerBootstrapper.Resolve<IRepository<CustomerContact>>();
+
+            foreach (var customerContact in customerContactsRepository.Where(c => c.Uploaded == null))
+            {
+                _connectClient.Service.UploadCustomerContact(customerContact);
+                SaveCustomerContactUpload(customerContact);
             }
         }
 
