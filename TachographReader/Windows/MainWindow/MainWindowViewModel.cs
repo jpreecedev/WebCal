@@ -339,7 +339,7 @@
 
             ConnectHelper.SyncData();
 
-            var settingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
+            var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
             var workshopSettings = settingsRepository.GetWorkshopSettings();
             if (workshopSettings.IsStatusReportCheckEnabled)
             {
@@ -351,20 +351,6 @@
                     {
                         statusReport.GenerateStatusReport();
                         workshopSettings.CentreQuarterlyCheckDate = DateTime.Now.Date;
-                        settingsRepository.Save(workshopSettings);
-                    }
-                }
-            }
-
-            if (workshopSettings.IsGV212CheckEnabled && workshopSettings.MonthlyGV212Date != null)
-            {
-                var statusReport = new StatusReportViewModel();
-                if (statusReport.IsGV212Due() && GV212ReportHelper.HasDataForThisMonth())
-                {
-                    if (ShowWarning(Resources.TXT_GV_212_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
-                    {
-                        GV212ReportHelper.Create(false);
-                        workshopSettings.MonthlyGV212Date = DateTime.Now.Date;
                         settingsRepository.Save(workshopSettings);
                     }
                 }

@@ -7,6 +7,7 @@
              xmlns:behav="clr-namespace:TachographReader.Behaviours"
              xmlns:Properties="clr-namespace:TachographReader.Properties"
              xmlns:core="clr-namespace:TachographReader.Core"
+             xmlns:ctrls="clr-namespace:TachographReader.Controls"
              mc:Ignorable="d"
              d:DesignHeight="800"
              d:DesignWidth="750"
@@ -18,14 +19,13 @@
     <Grid Style="{StaticResource MainGrid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Vertical">
             <Image Source="{core:LocalizedImageBinding ConverterParameter={}webcal}"
-                   Width="625"
-                   Height="250" />
+                   Width="{Binding LogoWidth}"
+                   Height="{Binding LogoHeight}" />
             <TextBlock Text="{Binding VersionNumber, Mode=OneTime}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center">
@@ -38,7 +38,8 @@
         <StackPanel Orientation="Horizontal"
                     Grid.Row="1"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Top">
+                    VerticalAlignment="Top"
+                    Grid.ColumnSpan="8">
             <Button  Command="{Binding NewDigitalTachographCommand}"
                      Height="{Binding ButtonHeight}"
                      Width="{Binding ButtonWidth}"
@@ -112,5 +113,14 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+
+        <ctrls:GV212Button IsOutOfDate="{core:InputBinding IsGV212OutOfDate}"
+                           Visibility="{core:InputBinding GV212ButtonVisibility}"
+                           ClickCommand="{core:InputBinding GenerateGV212Command}"
+                           IsSmallSize="{core:InputBinding SmallGV212}"
+                           Grid.Row="1"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Center"/>
+        
     </Grid>
 </UserControl>

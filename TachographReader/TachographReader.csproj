@@ -258,6 +258,7 @@
     <Compile Include="Controls\BaseInputTextField.cs" />
     <Compile Include="Controls\BusyIndicator.cs" />
     <Compile Include="Controls\DayOfWeekPicker\DayOfWeekPicker.cs" />
+    <Compile Include="Controls\GV212Button.cs" />
     <Compile Include="Controls\ImageStrip.cs" />
     <Compile Include="Controls\InputAutoCompleteField.cs" />
     <Compile Include="Controls\InputMultiSelectComboField.cs" />
@@ -1101,6 +1102,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\print.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DSA_Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
