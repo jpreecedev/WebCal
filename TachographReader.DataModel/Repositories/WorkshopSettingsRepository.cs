@@ -40,6 +40,8 @@
                     context.CustomDayOfWeeks.AddRange(daysOfWeek);
 
                     context.SaveChanges();
+
+                    settings.CustomDayOfWeeks = context.CustomDayOfWeeks.ToList();
                 }
             });
         }
