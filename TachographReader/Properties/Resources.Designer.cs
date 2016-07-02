@@ -8918,6 +8918,24 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Miscellaneous Settings.
+        /// </summary>
+        public static string TXT_WORKSHOP_SETTINGS_MISC_SETTINGS {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_SETTINGS_MISC_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send Monthly Report.
+        /// </summary>
+        public static string TXT_WORKSHOP_SETTINGS_SEND_MONTHLY_REPORT {
+            get {
+                return ResourceManager.GetString("TXT_WORKSHOP_SETTINGS_SEND_MONTHLY_REPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to X.
         /// </summary>
         public static string TXT_X {
