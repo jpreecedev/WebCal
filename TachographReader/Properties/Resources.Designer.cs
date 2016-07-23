@@ -2780,7 +2780,7 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A GV 212 report has not been generated for this month.  Do you want to generate one now?.
+        ///   Looks up a localized string similar to A GV 212 report has not been generated for last month.  Do you want to generate one now?.
         /// </summary>
         public static string TXT_GV_212_OUT_OF_DATE {
             get {

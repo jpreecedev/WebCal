@@ -7,9 +7,7 @@
     using Windows.DateRangePickerWindow;
     using Connect.Shared.Models;
     using Core;
-    using DataModel;
     using DataModel.Core;
-    using DataModel.Library;
     using PDF;
     using Properties;
     using Shared;
@@ -17,11 +15,22 @@
 
     public static class GV212ReportHelper
     {
+        public static void Create(DateTime start, DateTime end)
+        {
+            var tachographDocuments = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>().GetAll(false);
+            var documentHistoryItems = new ObservableCollection<IDocumentHistoryItem>(tachographDocuments.Select(c => new DocumentHistoryItem(c)));
+
+            Create(documentHistoryItems, false, start, end);
+        }
+
         public static void Create(bool promptForDate)
         {
             var tachographDocuments = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>().GetAll(false);
             var documentHistoryItems = new ObservableCollection<IDocumentHistoryItem>(tachographDocuments.Select(c => new DocumentHistoryItem(c)));
-            Create(documentHistoryItems, promptForDate);
+            var start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var end = start.AddMonths(1).AddDays(-1);
+
+            Create(documentHistoryItems, promptForDate, start, end);
         }
 
         public static void Create(ICollection<IDocumentHistoryItem> documents, bool promptForDate)
@@ -29,6 +38,11 @@
             var start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var end = start.AddMonths(1).AddDays(-1);
 
+            Create(documents, promptForDate, start, end);
+        }
+
+        public static void Create(ICollection<IDocumentHistoryItem> documents, bool promptForDate, DateTime start, DateTime end)
+        {
             if (promptForDate)
             {
                 var window = new DateRangePickerWindow();
@@ -69,7 +83,7 @@
                 }
             }
         }
-
+        
         public static bool HasDataForThisMonth()
         {
             var tachographDocuments = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>().GetAll(false);

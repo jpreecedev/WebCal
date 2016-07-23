@@ -3055,7 +3055,7 @@ date
     <value>Check GV 212 status when Webcal starts up?</value>
   </data>
   <data name="TXT_GV_212_OUT_OF_DATE" xml:space="preserve">
-    <value>A GV 212 report has not been generated for this month.  Do you want to generate one now?</value>
+    <value>A GV 212 report has not been generated for last month.  Do you want to generate one now?</value>
   </data>
   <data name="TXT_GV212" xml:space="preserve">
     <value>GV 212</value>
