@@ -152,7 +152,7 @@
                 return;
             }
 
-            using (var connection = new SqlCeConnection($@"Data Source = {databasePath}"))
+            using (var connection = new SqlCeConnection($@"Data Source = {databasePath}; Max Database Size=4091"))
             {
                 connection.Open();
 
