@@ -189,7 +189,7 @@ namespace TachographReader.Shared.Helpers
             {
                 using (var ms = new MemoryStream())
                 {
-                    imageIn.Save(ms, ImageFormat.Bmp);
+                    imageIn.Save(ms, ImageFormat.Jpeg);
                     return ms.ToArray();
                 }
             }

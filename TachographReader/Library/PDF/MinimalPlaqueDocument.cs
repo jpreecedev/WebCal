@@ -267,7 +267,7 @@ namespace TachographReader.Library.PDF
             if (WorkshopSettings.Image != null && !excludeLogos)
             {
                 var image = ImageHelper.Scale(WorkshopSettings.Image, 545, 150);
-                document.AddImage(image.ToByteArray(), image.Width, image.Height, startHorizontal + 5, startVertical + 660);
+                document.AddImage(image, image.Width, image.Height, startHorizontal + 5, startVertical + 660);
             }
 
             AbsolutePositionText(document, Resources.TXT_TACHOGRAPH_CALIBRATION_CERTIFICATE.ToUpper(), startHorizontal + 200, startVertical + 170, 580, 100, document.GetRegularFont(true));

@@ -1,4 +1,6 @@
-﻿namespace TachographReader.Library.PDF
+﻿using System.Drawing.Imaging;
+
+namespace TachographReader.Library.PDF
 {
     using System;
     using System.IO;
@@ -123,6 +125,20 @@
             image.SetAbsolutePosition(x, y);
 
             Document.Add(image);
+        }
+
+        public void AddImage(System.Drawing.Image image, float width, float height, float x, float y)
+        {
+            if (image == null)
+            {
+                return;
+            }
+
+            var img = Image.GetInstance(image, ImageFormat.Bmp);
+            img.ScaleAbsolute(width, height);
+            img.SetAbsolutePosition(x, y);
+
+            Document.Add(img);
         }
 
         public void AddImage(string imagePath, float width, float height, float x, float y)
