@@ -48,6 +48,7 @@
         public DelegateCommand<object> ReadFromCardCommand { get; set; }
         public DelegateCommand<Grid> PrintLabelCommand { get; set; }
         public DelegateCommand<object> AddInspectionInfoCommand { get; set; }
+        public DelegateCommand<string> UpdateCardSerialNumber { get; set; }
 
         public void SetDocumentTypes(bool isDigital)
         {
@@ -65,6 +66,7 @@
             ReadFromCardCommand = new DelegateCommand<object>(OnReadFromCard);
             PrintLabelCommand = new DelegateCommand<Grid>(OnPrintLabel);
             AddInspectionInfoCommand = new DelegateCommand<object>(OnAddInspectionInfo);
+            UpdateCardSerialNumber = new DelegateCommand<string>(OnUpdateCardSerialNumber);
         }
 
         protected override void InitialiseRepositories()
@@ -388,6 +390,25 @@
             }
 
             Document.NewInspectionInfo = string.Empty;
+        }
+
+        private void OnUpdateCardSerialNumber(string technicianName)
+        {
+            Document.CardSerialNumber = null;
+            
+            if (!Technicians.IsNullOrEmpty())
+            {
+                foreach (var technician in Technicians)
+                {
+                    if (technician != null && !string.IsNullOrEmpty(technician.Number))
+                    {
+                        if (string.Equals(technician.Name, technicianName))
+                        {
+                            Document.CardSerialNumber = technician.Number;
+                        }
+                    }
+                }
+            }
         }
 
         private void OnPrintLabel(DependencyObject root)

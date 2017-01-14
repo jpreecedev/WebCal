@@ -260,6 +260,7 @@
 
                 <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_TECHNICIAN}"
                                        SelectedText="{Binding Document.Technician, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                       SelectedTextChanged="{Binding UpdateCardSerialNumber}"
                                        ItemsSource="{Binding Technicians}"
                                        DisplayMemberPath="Name"
                                        IsMandatory="True"
