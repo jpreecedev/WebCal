@@ -1,4 +1,6 @@
 ﻿using System.Drawing.Imaging;
+using Connect.Shared;
+using TachographReader.Shared.Helpers;
 
 namespace TachographReader.Library.PDF
 {
@@ -134,11 +136,14 @@ namespace TachographReader.Library.PDF
                 return;
             }
 
-            var img = Image.GetInstance(image, ImageFormat.Bmp);
-            img.ScaleAbsolute(width, height);
-            img.SetAbsolutePosition(x, y);
+            var img = image.TryGetInstance();
+            if (img != null)
+            {
+                img.ScaleAbsolute(width, height);
+                img.SetAbsolutePosition(x, y);
 
-            Document.Add(img);
+                Document.Add(img);
+            }
         }
 
         public void AddImage(string imagePath, float width, float height, float x, float y)

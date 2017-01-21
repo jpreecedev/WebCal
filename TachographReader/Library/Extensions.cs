@@ -1,4 +1,7 @@
-﻿namespace TachographReader.Library
+﻿using System.Drawing.Imaging;
+using TachographReader.Shared.Helpers;
+
+namespace TachographReader.Library
 {
     using System;
     using System.Collections.Generic;
@@ -345,6 +348,44 @@
                 return ReportItemStatus.Ok;
             }
             return ReportItemStatus.Expired;
+        }
+
+        public static iTextSharp.text.Image TryGetInstance(this Image image)
+        {
+            var formats = new[]
+            {
+                ImageFormat.Bmp,
+                ImageFormat.Emf,
+                ImageFormat.Exif,
+                ImageFormat.Gif,
+                ImageFormat.Icon,
+                ImageFormat.Jpeg,
+                ImageFormat.MemoryBmp,
+                ImageFormat.Png,
+                ImageFormat.Tiff,
+                ImageFormat.Wmf
+            };
+
+            foreach (var format in formats)
+            {
+                try
+                {
+                    return iTextSharp.text.Image.GetInstance(image, format);
+                }
+                catch
+                {
+                }                
+            }
+
+            try
+            {
+                return iTextSharp.text.Image.GetInstance(ImageHelper.ToByteArray(image));
+            }
+            catch
+            {
+            }
+
+            return null;
         }
     }
 }
