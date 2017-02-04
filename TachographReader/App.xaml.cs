@@ -146,10 +146,7 @@
 
             //Initialise worker queue, which will start checking for unprocessed tasks
             WorkerHelper.Initialize();
-
-            //Ditch PDFs from last run (they're regenerated anyway)
-            DataCleaner.DeleteStoredPdfDocuments();
-
+            
             return true;
         }
 
