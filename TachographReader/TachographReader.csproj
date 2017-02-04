@@ -312,7 +312,6 @@
     <Compile Include="EventArguments\DriverCardProgressEventArgs.cs" />
     <Compile Include="Library\ConnectHelper.cs" />
     <Compile Include="Library\DataCleaner.cs" />
-    <Compile Include="Library\FtpHelper.cs" />
     <Compile Include="Library\GV212ReportHelper.cs" />
     <Compile Include="Library\IDriverCardReader.cs" />
     <Compile Include="Library\BackupRestoreManager.cs" />

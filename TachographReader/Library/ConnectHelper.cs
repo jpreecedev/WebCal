@@ -139,25 +139,7 @@
                 SaveReportUpload(report);
             });
         }
-
-        public static void BackupDatabaseAsync(string databasePath)
-        {
-            CallAsync(() =>
-            {
-                var serviceCredentials = _connectClient.Service.GetServiceCredentials();
-                FtpHelper.SaveDatabaseBackup(serviceCredentials, databasePath);
-            });
-        }
-
-        public static void BackupDatabase(string databasePath)
-        {
-            CallSync(() =>
-            {
-                var serviceCredentials = _connectClient.Service.GetServiceCredentials();
-                FtpHelper.SaveDatabaseBackup(serviceCredentials, databasePath);
-            });
-        }
-
+        
         private static void CallAsync(Action action)
         {
             if (!IsConnectEnabled())

@@ -35,8 +35,6 @@
             {
                 Run($@"/b ""{databasePath}"" ""{result.FileName}""", false);
             }
-
-            ConnectHelper.BackupDatabase(databasePath);
         }
 
         public static void Restore()
@@ -107,8 +105,6 @@
 
             //Backup:   /b <dbpath> <backuppath>
             Run($@"/b ""{databasePath}"" ""{fileName}""", true);
-
-            ConnectHelper.BackupDatabaseAsync(databasePath);
         }
 
         private static void Run(string arguments, bool quiet)
