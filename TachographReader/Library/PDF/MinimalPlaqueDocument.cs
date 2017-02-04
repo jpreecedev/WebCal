@@ -266,7 +266,7 @@ namespace TachographReader.Library.PDF
 
             if (WorkshopSettings.Image != null && !excludeLogos)
             {
-                var image = ImageHelper.Scale(WorkshopSettings.Image, 545, 150);
+                var image = ImageHelper.Scale(WorkshopSettings.RawImage.ToImage(), 545, 150);
                 document.AddImage(image, image.Width, image.Height, startHorizontal + 5, startVertical + 660);
             }
 
