@@ -473,7 +473,7 @@
                 var result = new List<string>();
                 if (first != null)
                 {
-                    result.Add(first.Element("TempPath").SafelyGetValue());
+                    result.Add(first.Element("TempPath").SafelyGetValue().Replace("/", ""));
                     result.Add(first.Element("WorkshopName").SafelyGetValue());
                 }
 
