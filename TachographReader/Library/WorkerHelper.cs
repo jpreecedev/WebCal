@@ -33,7 +33,7 @@
                 return;
             }
 
-            _timer = new Timer(t => ProcessQueue(), null, 0, 5000);
+            _timer = new Timer(t => ProcessQueue(), null, 0, 10000);
         }
 
         public static void QueueTask(IWorkerTask workerTask)
