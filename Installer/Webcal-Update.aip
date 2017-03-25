@@ -5,17 +5,17 @@
     <ROW Path="&lt;AI_DICTS&gt;aiu-ue_en.ail"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.UpdaterEditorComponent">
-    <ROW Section="3.4.1.0" Key="Name" Value="Webcal"/>
-    <ROW Section="3.4.1.0" Key="ProductVersion" Value="3.4.1.0"/>
-    <ROW Section="3.4.1.0" Key="URL" Value="https://www.webcalconnect.com/software/webcal.exe"/>
-    <ROW Section="3.4.1.0" Key="Size" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
-    <ROW Section="3.4.1.0" Key="ReleaseDate" Value="19026"/>
-    <ROW Section="3.4.1.0" Key="MD5" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
-    <ROW Section="3.4.1.0" Key="ServerFileName" Value="webcal.exe"/>
-    <ROW Section="3.4.1.0" Key="Flags" Value="Critical|NoCache"/>
-    <ROW Section="3.4.1.0" Key="FilePath" Value="[APPDIR]TachographReader.exe"/>
-    <ROW Section="3.4.1.0" Key="Version" Value="3.4.1.0"/>
-    <ROW Section="3.4.1.0" Key="AutoCloseApplication" Value="[APPDIR]TachographReader.exe"/>
+    <ROW Section="3.4.2.0" Key="Name" Value="Webcal"/>
+    <ROW Section="3.4.2.0" Key="ProductVersion" Value="3.4.2.0"/>
+    <ROW Section="3.4.2.0" Key="URL" Value="https://www.webcalconnect.com/software/webcal.exe"/>
+    <ROW Section="3.4.2.0" Key="Size" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
+    <ROW Section="3.4.2.0" Key="ReleaseDate" Value="19065"/>
+    <ROW Section="3.4.2.0" Key="MD5" Value="..\..\..\Users\Jon\Desktop\webcal.exe"/>
+    <ROW Section="3.4.2.0" Key="ServerFileName" Value="webcal.exe"/>
+    <ROW Section="3.4.2.0" Key="Flags" Value="Critical|NoCache"/>
+    <ROW Section="3.4.2.0" Key="FilePath" Value="[APPDIR]TachographReader.exe"/>
+    <ROW Section="3.4.2.0" Key="Version" Value="3.4.2.0"/>
+    <ROW Section="3.4.2.0" Key="AutoCloseApplication" Value="[APPDIR]TachographReader.exe"/>
     <ATTRIBUTE name="OutputFileName" value="webcal-updates.txt"/>
     <ATTRIBUTE name="OutputFolder" value="..\..\..\Users\Jon\Desktop"/>
   </COMPONENT>
