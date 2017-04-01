@@ -153,22 +153,24 @@
             var repository = ContainerBootstrapper.Resolve<ISettingsRepository<PrinterSettings>>();
             var settings = repository.GetPrinterSettings();
 
+            var parameters = new WorkerParameters();
+            parameters.SetParameter("FilePath", pdfDocumentResult.FilePath);
+            parameters.SetParameter("AlwaysAskForPrinter", settings.AlwaysAskForPrinter);
+            parameters.SetParameter("DefaultPrinterName", settings.DefaultPrinterName);
+            parameters.SetParameter("DefaultNumberOfCopies", settings.DefaultNumberOfCopies);
+            parameters.SetParameter("LabelNumberOfCopies", settings.LabelNumberOfCopies);
+            parameters.SetParameter("AutoClosePDFProgram", settings.AutoClosePDFProgram);
+            parameters.SetParameter("ShowCompanyNameOnLabels", settings.ShowCompanyNameOnLabels);
+            parameters.SetParameter("Timeout", settings.Timeout);
+
             var workerTask = new WorkerTask
             {
-                TaskName = WorkerTaskName.Print,
-                Parameters = new WorkerParameters()
+                TaskName = WorkerTaskName.Print
             };
-
-            workerTask.Parameters.SetParameter("FilePath", pdfDocumentResult.FilePath);
-            workerTask.Parameters.SetParameter("AlwaysAskForPrinter", settings.AlwaysAskForPrinter);
-            workerTask.Parameters.SetParameter("DefaultPrinterName", settings.DefaultPrinterName);
-            workerTask.Parameters.SetParameter("DefaultNumberOfCopies", settings.DefaultNumberOfCopies);
-            workerTask.Parameters.SetParameter("LabelNumberOfCopies", settings.LabelNumberOfCopies);
-            workerTask.Parameters.SetParameter("AutoClosePDFProgram", settings.AutoClosePDFProgram);
-            workerTask.Parameters.SetParameter("ShowCompanyNameOnLabels", settings.ShowCompanyNameOnLabels);
-            workerTask.Parameters.SetParameter("Timeout", settings.Timeout);
+            workerTask.SetWorkerParameters(parameters);
 
             WorkerHelper.QueueTask(workerTask);
+
             return true;
         }
 

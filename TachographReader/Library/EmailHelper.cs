@@ -92,14 +92,15 @@ namespace TachographReader.Library
 
         private static void CreateEmailTask(MailSettings settings, string attachmentPath, string recipient)
         {
-            var workerTask = new WorkerTask {TaskName = WorkerTaskName.Email};
+            var parameters = new WorkerParameters();
+            parameters.SetParameter("PersonaliseMyEmails", settings.PersonaliseMyEmails);
+            parameters.SetParameter("AttachmentPath", attachmentPath);
+            parameters.SetParameter("Recipient", recipient);
+            parameters.SetParameter("Subject", settings.Subject);
+            parameters.SetParameter("Body", settings.Body);
 
-            workerTask.Parameters = new WorkerParameters();
-            workerTask.Parameters.SetParameter("PersonaliseMyEmails", settings.PersonaliseMyEmails);
-            workerTask.Parameters.SetParameter("AttachmentPath", attachmentPath);
-            workerTask.Parameters.SetParameter("Recipient", recipient);
-            workerTask.Parameters.SetParameter("Subject", settings.Subject);
-            workerTask.Parameters.SetParameter("Body", settings.Body);
+            var workerTask = new WorkerTask {TaskName = WorkerTaskName.Email};
+            workerTask.SetWorkerParameters(parameters);
 
             WorkerHelper.QueueTask(workerTask);
         }

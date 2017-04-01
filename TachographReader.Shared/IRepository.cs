@@ -8,6 +8,7 @@
     public interface IRepository<T> : IDisposable where T : BaseModel
     {
         bool Any();
+        bool Any(Expression<Func<T, bool>> predicate);
         void AddOrUpdate(T entity);
         void Add(T entity);
         void Remove(T entity);

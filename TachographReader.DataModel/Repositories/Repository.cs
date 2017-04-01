@@ -22,6 +22,17 @@
             });
         }
 
+        public bool Any(Expression<Func<T, bool>> predicate)
+        {
+            return Safely(() =>
+            {
+                using (var context = new TachographContext())
+                {
+                    return context.Set<T>().Any(predicate);
+                }
+            });
+        }
+
         public virtual void AddOrUpdate(T entity)
         {
             Safely(() =>

@@ -33,7 +33,7 @@
                 return;
             }
 
-            _timer = new Timer(t => ProcessQueue(), null, 0, 10000);
+            _timer = new Timer(t => ProcessQueue(), null, 0, 60000);
         }
 
         public static void QueueTask(IWorkerTask workerTask)
@@ -65,26 +65,30 @@
             {
                 using (var repository = ContainerBootstrapper.Container.Resolve<IRepository<WorkerTask>>())
                 {
-                    foreach (var unprocessedTask in repository.Where(workerTask => workerTask.IsProcessing == false && workerTask.Processed == null && workerTask.Deleted == null))
+                    var hasUnprocessedTasks = repository.Any(workerTask => workerTask.IsProcessing == false && workerTask.Processed == null && workerTask.Deleted == null);
+                    if (hasUnprocessedTasks)
                     {
-                        Type plugin = Find(unprocessedTask.TaskName);
-                        if (plugin == null)
+                        foreach (var unprocessedTask in repository.Where(workerTask => workerTask.IsProcessing == false && workerTask.Processed == null && workerTask.Deleted == null))
                         {
-                            throw new InvalidOperationException(string.Format(Resources.EXEC_UNABLE_TO_FIND_PLUGIN, unprocessedTask.TaskName));
+                            Type plugin = Find(unprocessedTask.TaskName);
+                            if (plugin == null)
+                            {
+                                throw new InvalidOperationException(string.Format(Resources.EXEC_UNABLE_TO_FIND_PLUGIN, unprocessedTask.TaskName));
+                            }
+
+                            IPipeServer server = new PipeServer(plugin);
+                            server.Completed += OnCompleted;
+                            server.Error += OnError;
+
+                            unprocessedTask.WorkerId = server.Id;
+                            unprocessedTask.IsProcessing = true;
+
+                            repository.AddOrUpdate(unprocessedTask);
+
+                            _workers.Add(server);
+
+                            server.Connect(unprocessedTask.GetWorkerParameters());
                         }
-
-                        IPipeServer server = new PipeServer(plugin);
-                        server.Completed += OnCompleted;
-                        server.Error += OnError;
-
-                        unprocessedTask.WorkerId = server.Id;
-                        unprocessedTask.IsProcessing = true;
-
-                        repository.AddOrUpdate(unprocessedTask);
-
-                        _workers.Add(server);
-
-                        server.Connect(unprocessedTask.Parameters);
                     }
                 }
 
