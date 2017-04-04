@@ -58,7 +58,7 @@
                     return;
                 }    
             }
-
+            
             _isQueueProcessing = true;
 
             var task = new Task(() =>
@@ -115,7 +115,7 @@
                         if (workerTaskEntity != null)
                         {
                             workerTaskEntity.IsProcessing = false;
-                            workerTaskEntity.Processed = null;
+                            workerTaskEntity.Processed = DateTime.Now;
                             workerTaskEntity.Message = e.Message;
                         }
 
