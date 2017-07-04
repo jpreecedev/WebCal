@@ -1,11 +1,14 @@
 ﻿namespace TachographReader.Behaviours
 {
+    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
 
     public class TextChangedBehaviour
     {
+        private static bool isThrottling = false;
+
         public static void SetCommand(DependencyObject target, ICommand value)
         {
             target.SetValue(CommandProperty, value);
@@ -45,8 +48,21 @@
                 return;
             }
 
-            var command = (ICommand) control.GetValue(CommandProperty);
-            command.Execute(control.GetValue(CommandParameterProperty));
+            if (isThrottling)
+            {
+                return;
+            }
+            
+            TaskScheduler synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
+
+            isThrottling = true;
+            Task.Delay(500).ContinueWith(t =>
+            {
+                var command = (ICommand)control.GetValue(CommandProperty);
+                command.Execute(control.GetValue(CommandParameterProperty));
+
+                isThrottling = false;
+            }, synchronizationContext);
         }
 
         public static DependencyProperty CommandProperty =

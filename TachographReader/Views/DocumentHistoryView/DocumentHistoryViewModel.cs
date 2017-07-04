@@ -189,44 +189,41 @@
 
         private void OnPerformSearch(object obj)
         {
-            if (Documents == null)
-            {
-                Documents = new ObservableCollection<IDocumentHistoryItem>();
-            }
-
-            Documents.Clear();
-            Documents.AddRange(_originalDocumentHistoryItems);
+            var items = new List<IDocumentHistoryItem>(_originalDocumentHistoryItems);
 
             if (!string.IsNullOrEmpty(SearchTerm))
             {
                 switch (SearchFilters.IndexOf(SelectedSearchFilter))
                 {
                     case 0:
-                        Documents.Remove(item => item.RegistrationNumber == null || !item.RegistrationNumber.ToLower().Contains(SearchTerm.ToLower()));
+                        items.Remove(item => item.RegistrationNumber == null || !item.RegistrationNumber.ToLower().Contains(SearchTerm.ToLower()));
                         break;
 
                     case 1:
-                        Documents.Remove(item => item.CustomerContact == null || !item.CustomerContact.ToLower().Contains(SearchTerm.ToLower()));
+                        items.Remove(item => item.CustomerContact == null || !item.CustomerContact.ToLower().Contains(SearchTerm.ToLower()));
                         break;
 
                     case 2:
-                        Documents.Remove(item => item.TechnicianName == null || !item.TechnicianName.ToLower().Contains(SearchTerm.ToLower()));
+                        items.Remove(item => item.TechnicianName == null || !item.TechnicianName.ToLower().Contains(SearchTerm.ToLower()));
                         break;
 
                     case 3:
-                        Documents.Remove(item => item.Office == null || !item.Office.ToLower().Contains(SearchTerm.ToLower()));
+                        items.Remove(item => item.Office == null || !item.Office.ToLower().Contains(SearchTerm.ToLower()));
                         break;
 
                     case 4:
-                        Documents.Remove(item => item.DocumentType == null || !item.DocumentType.ToLower().Contains(SearchTerm.ToLower()));
+                        items.Remove(item => item.DocumentType == null || !item.DocumentType.ToLower().Contains(SearchTerm.ToLower()));
                         break;
                 }
             }
 
             if (SelectedDocumentType != Resources.TXT_SELECT_ALL)
             {
-                Documents.Remove(item => item.Type != SelectedDocumentType);
+                items.Remove(item => item.Type != SelectedDocumentType);
             }
+
+            Documents.Clear();
+            Documents.AddRange(items);
         }
 
         protected override void OnPropertyChanged(string propertyName)
