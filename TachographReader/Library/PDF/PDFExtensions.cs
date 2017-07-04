@@ -157,7 +157,7 @@
             parameters.SetParameter("FilePath", pdfDocumentResult.FilePath);
             parameters.SetParameter("AlwaysAskForPrinter", settings.AlwaysAskForPrinter);
             parameters.SetParameter("DefaultPrinterName", settings.DefaultPrinterName);
-            parameters.SetParameter("DefaultNumberOfCopies", settings.DefaultNumberOfCopies);
+            parameters.SetParameter("DefaultNumberOfCopies", pdfDocumentResult.Document != null ? settings.DefaultNumberOfCopies : 1);
             parameters.SetParameter("LabelNumberOfCopies", settings.LabelNumberOfCopies);
             parameters.SetParameter("AutoClosePDFProgram", settings.AutoClosePDFProgram);
             parameters.SetParameter("ShowCompanyNameOnLabels", settings.ShowCompanyNameOnLabels);
