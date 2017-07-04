@@ -15,7 +15,6 @@
     using Core;
     using DataModel;
     using DataModel.Core;
-    using DataModel.Library;
     using DataModel.Migrations;
     using Library;
     using Microsoft.Shell;
@@ -116,7 +115,7 @@
             //Resource dictionaries must be set in code to avoid issues with older operating systems
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Resources/MainResourceDictionary.xaml", UriKind.Relative) });
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("pack://application:,,,/Fluent;Component/Themes/Generic.xaml") });
-            
+
             MigrationHelper.MoveDatabaseIfRequired();
             MigrationHelper.HackMigrationHistoryTable();
 
@@ -133,13 +132,6 @@
 
             //Seed database
             MigrationHelper.ApplyDataHacks();
-            
-            //Apply theme
-            ThemeSettings themeSettings = ContainerBootstrapper.Resolve<ISettingsRepository<ThemeSettings>>().GetThemeSettings();
-            if (themeSettings != null)
-            {
-                Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = themeSettings.Source});
-            }
 
             //Launch Webcal Protocol
             RegistryHelper.RegisterProtocol();
