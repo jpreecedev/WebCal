@@ -35,7 +35,7 @@
 
         public static void Create(ICollection<IDocumentHistoryItem> documents, bool promptForDate)
         {
-            var start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-1);
             var end = start.AddMonths(1).AddDays(-1);
 
             Create(documents, promptForDate, start, end);
@@ -46,13 +46,16 @@
             if (promptForDate)
             {
                 var window = new DateRangePickerWindow();
-                if (window.ShowDialog() != true)
+                var viewModel = window.DataContext as DateRangePickerWindowViewModel;
+                if (viewModel == null)
                 {
                     return;
                 }
 
-                var viewModel = window.DataContext as DateRangePickerWindowViewModel;
-                if (viewModel == null)
+                viewModel.StartDateTime = start;
+                viewModel.EndDateTime = end;
+
+                if (window.ShowDialog() != true)
                 {
                     return;
                 }
