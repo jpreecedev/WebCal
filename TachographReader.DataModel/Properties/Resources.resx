@@ -370,4 +370,12 @@
   <data name="TXT_LICENSE_EXPIRED" xml:space="preserve">
     <value>License Expired</value>
   </data>
+  <data name="TXT_IMS_WARNING_MESSAGE" xml:space="preserve">
+    <value>In accordance with legislation EU Regulation 1266/2009.
+
+IMS must be enabled on the vehicle.</value>
+  </data>
+  <data name="TXT_IMS_WARNING_TITLE" xml:space="preserve">
+    <value>IMS Warning</value>
+  </data>
 </root>

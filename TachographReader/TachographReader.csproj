@@ -314,6 +314,7 @@
     <Compile Include="Core\IValidate.cs" />
     <Compile Include="Core\IViewModel.cs" />
     <Compile Include="EventArguments\ModalClosedEventArgs.cs" />
+    <Compile Include="Library\IMSWarningHelper.cs" />
     <Compile Include="Library\IServiceProvider.cs" />
     <Compile Include="Library\LabelHelper.cs" />
     <Compile Include="Library\LocalizationHelper.cs" />

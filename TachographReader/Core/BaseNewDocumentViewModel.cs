@@ -181,6 +181,11 @@
                         if (document != null)
                         {
                             document.ToPDF(IsHistoryMode, miscellaneousSettings.ExcludeLogosWhenPrinting).Email(WorkshopSettings, MailSettings);
+
+                            if (document is TachographDocument && ((TachographDocument)document).IsDigital && IMSWarningHelper.IsVehicleAffected(document.RegistrationNumber))
+                            {
+                                ShowMessage(DataModel.Properties.Resources.TXT_IMS_WARNING_MESSAGE, DataModel.Properties.Resources.TXT_IMS_WARNING_TITLE);
+                            }
                         }
                         if (report != null)
                         {
@@ -231,6 +236,11 @@
                 try
                 {
                     ToPDF(out document, out report, false, false).Email(WorkshopSettings, MailSettings);
+
+                    if (document is TachographDocument && ((TachographDocument)document).IsDigital && IMSWarningHelper.IsVehicleAffected(document.RegistrationNumber))
+                    {
+                        ShowMessage(DataModel.Properties.Resources.TXT_IMS_WARNING_MESSAGE, DataModel.Properties.Resources.TXT_IMS_WARNING_TITLE);
+                    }
                 }
                 finally
                 {

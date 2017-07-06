@@ -218,6 +218,26 @@ namespace TachographReader.DataModel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In accordance with legislation EU Regulation 1266/2009.
+        ///
+        ///IMS must be enabled on the vehicle..
+        /// </summary>
+        public static string TXT_IMS_WARNING_MESSAGE {
+            get {
+                return ResourceManager.GetString("TXT_IMS_WARNING_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IMS Warning.
+        /// </summary>
+        public static string TXT_IMS_WARNING_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_IMS_WARNING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I - Installation / Initial calibration.
         /// </summary>
         public static string TXT_INSTALLATION_CALIBRATION {
