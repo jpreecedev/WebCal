@@ -162,16 +162,10 @@
 
             if (ShowWarning(Resources.TXT_GV_212_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
             {
-                var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
-                var workshopSettings = settingsRepository.GetWorkshopSettings();
-
                 var start = DateTime.Parse("01/" + DateTime.Now.Month + "/" + DateTime.Now.Year).AddMonths(-1);
                 var end = start.AddMonths(1).AddDays(-1);
 
                 GV212ReportHelper.Create(start, end);
-                workshopSettings.MonthlyGV212Date = DateTime.Now.Date;
-                settingsRepository.Save(workshopSettings);
-
                 CheckGV212Status();
             }
         }

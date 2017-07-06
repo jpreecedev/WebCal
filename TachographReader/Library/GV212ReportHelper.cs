@@ -12,6 +12,8 @@
     using Properties;
     using Shared;
     using Shared.Helpers;
+    using Connect.Shared;
+    using TachographReader.DataModel.Library;
 
     public static class GV212ReportHelper
     {
@@ -84,6 +86,11 @@
                 {
                     result.Print();
                 }
+
+                var settingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
+                var workshopSettings = settingsRepository.GetWorkshopSettings();
+                workshopSettings.MonthlyGV212Date = DateTime.Now.Date;
+                settingsRepository.Save(workshopSettings);
             }
         }
         
