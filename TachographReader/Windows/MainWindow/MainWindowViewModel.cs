@@ -10,7 +10,6 @@
     using Connect.Shared;
     using Connect.Shared.Models;
     using Core;
-    using DataModel;
     using DataModel.Core;
     using DataModel.Library;
     using Library;
@@ -109,23 +108,47 @@
 
         private void OnNewTachograph(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             var viewModel = (NewTachographViewModel)ShowView<NewTachographView>();
             viewModel.SetDocumentTypes(true);
         }
 
         private void OnNewAnalogueTachograph(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             var viewModel = (NewTachographViewModel)ShowView<NewAnalogueTachographView>();
             viewModel.SetDocumentTypes(false);
         }
 
         private void OnNewUndownloadability(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<NewUndownloadabilityView>();
         }
 
         private void OnTachographHistory(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
             {
                 ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = typeof(TachographDocument).Name.SplitByCapitals();
@@ -134,6 +157,12 @@
 
         private void OnUndownloadabilityHistory(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
             {
                 ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = typeof(UndownloadabilityDocument).Name.SplitByCapitals();
@@ -142,6 +171,12 @@
 
         private void OnLetterForDecommissioningHistory(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
             {
                 ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = typeof(LetterForDecommissioningDocument).Name.SplitByCapitals();
@@ -150,6 +185,12 @@
 
         private void OnQCCheckHistory(object obj)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
             {
                 ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = typeof(QCReport).Name.SplitByCapitals();
@@ -158,6 +199,12 @@
 
         private void On3MonthCheckHistoryCommand(object obj)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
             {
                 ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = "QC 3 Month Walkaround";
@@ -166,6 +213,12 @@
 
         private void OnDocumentHistory(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<DocumentHistoryView>().Loaded = viewModel =>
             {
                 ((DocumentHistoryViewModel)viewModel).SelectedDocumentType = Resources.TXT_SELECT_ALL;
@@ -174,31 +227,67 @@
 
         private void OnCalibrations(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<CalibrationsView>();
         }
 
         private void OnDriverCardFiles(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<DriverCardFilesView>();
         }
 
         private void OnWorkshopCardFiles(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<WorkshopCardFilesView>();
         }
 
         private void OnLetterForDecommissioning(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<LetterForDecommissioningView>();
         }
 
         private void OnQCCheck(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<QCCheckView>();
         }
 
         private void OnQC6MonthCheck(object obj)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<QC6MonthCheckView>();
         }
 
@@ -228,6 +317,12 @@
 
         private void OnNewSpeedlimiter(object obj)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             ShowView<SpeedlimiterView>();
         }
 
@@ -338,6 +433,11 @@
             base.Load();
 
             ConnectHelper.SyncData();
+            
+            if (!HasValidLicense())
+            {
+                return;
+            }
 
             var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
             var workshopSettings = settingsRepository.GetWorkshopSettings();

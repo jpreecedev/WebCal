@@ -364,4 +364,10 @@
   <data name="TXT_GENERATE_REPORT_CUSTOMER_CONTACT" xml:space="preserve">
     <value>Customer</value>
   </data>
+  <data name="TXT_LICENSE_EXPIRED_CONTACT_SKILLRAY" xml:space="preserve">
+    <value>Your license has expired.  Please contact Skillray on 01925 880081 for support.</value>
+  </data>
+  <data name="TXT_LICENSE_EXPIRED" xml:space="preserve">
+    <value>License Expired</value>
+  </data>
 </root>

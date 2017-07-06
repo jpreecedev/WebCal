@@ -227,6 +227,24 @@ namespace TachographReader.DataModel.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to License Expired.
+        /// </summary>
+        public static string TXT_LICENSE_EXPIRED {
+            get {
+                return ResourceManager.GetString("TXT_LICENSE_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your license has expired.  Please contact Skillray on 01925 880081 for support..
+        /// </summary>
+        public static string TXT_LICENSE_EXPIRED_CONTACT_SKILLRAY {
+            get {
+                return ResourceManager.GetString("TXT_LICENSE_EXPIRED_CONTACT_SKILLRAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to M - Minor Work.
         /// </summary>
         public static string TXT_MINOR_WORK_DETAILS {

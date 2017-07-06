@@ -65,18 +65,36 @@
 
         private void OnNewDigitalDocument(object obj)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             var viewModel = (NewTachographViewModel) MainWindow.ShowView<NewTachographView>();
             viewModel.SetDocumentTypes(true);
         }
 
         private void OnNewAnalogueDocument(object param)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             var viewModel = (NewTachographViewModel) MainWindow.ShowView<NewAnalogueTachographView>();
             viewModel.SetDocumentTypes(false);
         }
 
         private void OnReprintLabel(object obj)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             var window = new ReprintWindow
             {
                 DataContext = new ReprintWindowViewModel
@@ -89,6 +107,12 @@
 
         private void OnReprintCertificate(object obj)
         {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
             var window = new ReprintWindow
             {
                 DataContext = new ReprintWindowViewModel
@@ -131,6 +155,11 @@
                 return;
             }
 
+            if (!HasValidLicense())
+            {
+                return;
+            }
+
             if (ShowWarning(Resources.TXT_GV_212_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
             {
                 var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
@@ -149,6 +178,11 @@
 
         private void CheckGV212Status()
         {
+            if (!HasValidLicense())
+            {
+                return;
+            }
+
             var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
             var workshopSettings = settingsRepository.GetWorkshopSettings();
 

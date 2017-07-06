@@ -8,9 +8,12 @@
     using System.Windows.Threading;
     using Windows;
     using Connect.Shared.Models;
+    using DataModel;
     using DataModel.Core;
+    using DataModel.Properties;
     using Library;
     using Library.ViewModels;
+    using Shared;
     using Shared.Helpers;
     using Views;
 
@@ -72,6 +75,11 @@
         protected void ShowError(string msg, params object[] parameters)
         {
             MessageBoxHelper.ShowError(msg, parameters);
+        }
+
+        protected void ShowInvalidLicenseWarning()
+        {
+            ShowWarning(Resources.TXT_LICENSE_EXPIRED_CONTACT_SKILLRAY, Resources.TXT_LICENSE_EXPIRED);
         }
 
         protected void GetInputFromUser(UserControl window, string prompt, Action<UserPromptViewModel> callback)
@@ -147,6 +155,12 @@
             {
                 DoneCallback.Invoke(false, parameter);
             }
+        }
+
+        protected bool HasValidLicense()
+        {
+            var registrationData = ContainerBootstrapper.Resolve<IRepository<RegistrationData>>().First();
+            return registrationData.HasUnexpiredLicense;
         }
 
         private void InternalLoad()
