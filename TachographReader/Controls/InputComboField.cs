@@ -41,7 +41,7 @@
             DependencyProperty.Register("SelectedTextChanged", typeof(ICommand), typeof(InputComboField));
 
         public static readonly DependencyProperty IsTextSearchEnabledProperty =
-            DependencyProperty.Register("IsTextSearchEnabled", typeof(bool), typeof(InputComboField), new PropertyMetadata(false));
+            DependencyProperty.Register("IsTextSearchEnabled", typeof(bool), typeof(InputComboField), new PropertyMetadata(true));
 
         public static readonly DependencyProperty LabelWidthProperty =
             DependencyProperty.Register("LabelWidth", typeof(int), typeof(InputComboField), new PropertyMetadata(0));
