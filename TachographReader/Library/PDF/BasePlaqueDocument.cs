@@ -9,6 +9,7 @@
     using DataModel;
     using DataModel.Core;
     using DataModel.Library;
+    using DataModel.Models;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
     using Properties;
@@ -24,15 +25,18 @@
         public BasePlaqueDocument()
         {
             ISettingsRepository<WorkshopSettings> generalSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<WorkshopSettings>>();
+            ISettingsRepository<AdvertisingSettings> advertisingSettingsRepository = ContainerBootstrapper.Resolve<ISettingsRepository<AdvertisingSettings>>();
             _customerContactRepository = ContainerBootstrapper.Resolve<IRepository<CustomerContact>>();
 
             WorkshopSettings = generalSettingsRepository.GetWorkshopSettings();
+            AdvertisingSettings = advertisingSettingsRepository.GetAdvertisingSettings();
             RegistrationData = GetRegistrationData();
         }
 
         protected RegistrationData RegistrationData { get; set; }
         protected CustomerContact CustomerContact { get; set; }
         protected WorkshopSettings WorkshopSettings { get; set; }
+        protected AdvertisingSettings AdvertisingSettings { get; set; }
 
         public void Create(PDFDocument pdfDocument, TachographDocument tachographDocument)
         {

@@ -457,7 +457,7 @@ namespace TachographReader.Library.PDF
                 document.DrawLine((startHorizontal + 300), (startVertical + 715), (startHorizontal + 490), (startVertical + 715), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 710), 550, 72, document.GetXSmallFont(false));
 
-                document.AddImage(ImageHelper.LoadFromResourcesAsByteArray("webcal"), 90, 21, (startHorizontal + 5), (startVertical + 30));
+                AddAdvertisingSection(document, startHorizontal, startVertical);
             }
             else
             {
@@ -516,9 +516,25 @@ namespace TachographReader.Library.PDF
 
                 document.DrawLine((startHorizontal + 300), (startVertical + 735), (startHorizontal + 490), (startVertical + 735), TotalPageHeight);
                 AbsolutePositionText(document, string.Format(Resources.TXT_DISTRIBUTOR_SEAL, RegistrationData.SealNumber), (startHorizontal + 300), (startVertical + 730), 550, 72, document.GetXSmallFont(false));
+                
+                AddAdvertisingSection(document, startHorizontal, startVertical);
+            }
+        }
 
-                Image image = ImageHelper.LoadFromResources("webcal").ToBitmap();
-                document.AddImage(image.ToByteArray(), 90, 21, (startHorizontal + 5), (startVertical + 30));
+        private void AddAdvertisingSection(PDFDocument document, int startHorizontal, int startVertical)
+        {
+            if (!AdvertisingSettings.IsEnabled)
+            {
+                document.AddImage(ImageHelper.LoadFromResourcesAsByteArray("webcal"), 90, 21, (startHorizontal + 5), (startVertical + 30));
+                return;
+            }
+
+            document.AddImage(AdvertisingSettings.RawImage ?? ImageHelper.LoadFromResourcesAsByteArray("webcal"), 90, 21, startHorizontal + 5, startVertical + 30);
+
+            if (!string.IsNullOrEmpty(AdvertisingSettings.Message))
+            {
+                AbsolutePositionText(document, AdvertisingSettings.Message, (startHorizontal + 100), (startVertical + 800), 550, 62, document.GetCustomFont(AdvertisingSettings.FontSize, AdvertisingSettings.Font));
+
             }
         }
     }

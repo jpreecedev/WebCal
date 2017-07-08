@@ -3,7 +3,7 @@
     using System.Data.Entity;
     using Connect.Shared;
     using Connect.Shared.Models;
-    using Shared.Models;
+    using Models;
     using Shared.Workers;
 
     public class TachographContext : DbContext
@@ -31,6 +31,7 @@
         public DbSet<DetailedException> Exceptions { get; set; }
         public DbSet<RegistrationData> RegistrationData { get; set; }
         public DbSet<PrinterSettings> PrinterSettings { get; set; }
+        public DbSet<AdvertisingSettings> AdvertisingSettings { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<MailSettings> MailSettings { get; set; }
         public DbSet<ThemeSettings> ThemeSettings { get; set; }

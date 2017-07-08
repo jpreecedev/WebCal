@@ -8,6 +8,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using Core;
+    using DataModel.Library;
     using Library.ViewModels;
     using Properties;
     using Settings;
@@ -97,6 +98,11 @@
                 new TreeViewItem {Header = Resources.TXT_MAIL_SETTINGS, DataContext = typeof(MailSettingsView)},
                 new TreeViewItem {Header = Resources.TXT_USER_MANAGEMENT, DataContext = typeof(UserManagementView)}
             };
+
+            if (UserManagement.LoggedInAsSuperUser)
+            {
+                TreeViewItems.Add(new TreeViewItem {Header = Resources.TXT_ADVERTISING_SETTINGS, DataContext = typeof(AdvertisingSettingsView)});
+            }
         }
     }
 }

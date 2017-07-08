@@ -483,6 +483,12 @@ namespace TachographReader.Library.PDF
             return BaseFont.CreateFont("c:\\windows\\fonts\\Arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         }
 
+        public Font GetCustomFont(int size, string family)
+        {
+            var baseFont = BaseFont.CreateFont($"c:\\windows\\fonts\\{family}.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            return new Font(baseFont, size, Font.NORMAL) { Color = BaseColor.BLACK };
+        }
+
         public void AddPage()
         {
             Document.NewPage();

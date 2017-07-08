@@ -5,6 +5,7 @@
     using Connect.Shared.Models;
     using ConnectClient;
     using Microsoft.Practices.Unity;
+    using Models;
     using Properties;
     using Repositories;
     using Shared;
@@ -61,6 +62,7 @@
 
                 container.RegisterType<ISettingsRepository<WorkshopSettings>,WorkshopSettingsRepository>();
                 container.RegisterType<ISettingsRepository<PrinterSettings>,SettingsRepository<PrinterSettings>>();
+                container.RegisterType<ISettingsRepository<AdvertisingSettings>,SettingsRepository<AdvertisingSettings>>();
                 container.RegisterType<ISettingsRepository<MailSettings>,SettingsRepository<MailSettings>>();
                 container.RegisterType<ISettingsRepository<ThemeSettings>,SettingsRepository<ThemeSettings>>();
                 container.RegisterType<ISettingsRepository<MiscellaneousSettings>,SettingsRepository<MiscellaneousSettings>>();

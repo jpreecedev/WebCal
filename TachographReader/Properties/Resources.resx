@@ -3108,4 +3108,37 @@ date
   <data name="TXT_WORKSHOP_SETTINGS_SEND_MONTHLY_REPORT" xml:space="preserve">
     <value>Send Monthly Report</value>
   </data>
+  <data name="TXT_ADVERTISING_SETTINGS_SAVE" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS_ADVERTISING" xml:space="preserve">
+    <value>Advertising</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS" xml:space="preserve">
+    <value>Advertising</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS_CHOOSE_LOGO" xml:space="preserve">
+    <value>Choose image</value>
+  </data>
+  <data name="TXT_ADVERTISING_FONT_SIZE" xml:space="preserve">
+    <value>Font size</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS_DEFAULT_FONT" xml:space="preserve">
+    <value>Default font</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS_ADVERTISING_MESSAGE" xml:space="preserve">
+    <value>Advertising message</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS_SELECT_AN_IMAGE" xml:space="preserve">
+    <value>Select an image to display in the advertising section</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS_IS_ENABLED" xml:space="preserve">
+    <value>Is certificate advertising enabled?</value>
+  </data>
+  <data name="TXT_ADVERTISING_SETTINGS_CLEAR_IMAGE" xml:space="preserve">
+    <value>Clear image</value>
+  </data>
 </root>

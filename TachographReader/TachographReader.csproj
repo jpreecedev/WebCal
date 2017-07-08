@@ -300,6 +300,7 @@
     <Compile Include="EventArguments\DriverCardCompletedEventArgs.cs" />
     <Compile Include="EventArguments\DriverCardProgressEventArgs.cs" />
     <Compile Include="Library\ConnectHelper.cs" />
+    <Compile Include="Library\FontHelper.cs" />
     <Compile Include="Library\GV212ReportHelper.cs" />
     <Compile Include="Library\IDriverCardReader.cs" />
     <Compile Include="Library\BackupRestoreManager.cs" />
@@ -377,6 +378,10 @@
       <DependentUpon>QCCheckView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\QCCheckView\QCCheckViewModel.cs" />
+    <Compile Include="Views\Settings\AdvertisingView\AdvertisingSettingsView.xaml.cs">
+      <DependentUpon>AdvertisingSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\AdvertisingView\AdvertisingSettingsViewModel.cs" />
     <Compile Include="Views\Settings\CustomerSettingsView\CustomerSettingsLightView.xaml.cs">
       <DependentUpon>CustomerSettingsLightView.xaml</DependentUpon>
     </Compile>
@@ -526,6 +531,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\QCCheckView\QCCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Settings\AdvertisingView\AdvertisingSettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

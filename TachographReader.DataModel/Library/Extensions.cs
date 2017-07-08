@@ -7,6 +7,7 @@ namespace TachographReader.DataModel.Library
     using System.Linq;
     using System.Xml.Linq;
     using Connect.Shared;
+    using Models;
     using Shared;
 
     public static class Extensions
@@ -122,6 +123,20 @@ namespace TachographReader.DataModel.Library
         public static PrinterSettings GetPrinterSettings(this ISettingsRepository<PrinterSettings> repository)
         {
             return repository.Get(w => !string.IsNullOrEmpty(w.DefaultPrinterName));
+        }
+
+        public static AdvertisingSettings GetAdvertisingSettings(this ISettingsRepository<AdvertisingSettings> repository)
+        {
+            var settings = repository.Get();
+            if (settings == null)
+            {
+                using (var context = new TachographContext())
+                {
+                    settings = context.AdvertisingSettings.Add(new AdvertisingSettings { FontSize = 12, Font = "Arial" });
+                    context.SaveChanges();
+                }
+            }
+            return settings;
         }
 
         public static ThemeSettings GetThemeSettings(this ISettingsRepository<ThemeSettings> repository)

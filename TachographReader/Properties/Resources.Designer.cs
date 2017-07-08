@@ -1167,6 +1167,105 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Font size.
+        /// </summary>
+        public static string TXT_ADVERTISING_FONT_SIZE {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_FONT_SIZE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_ADVERTISING {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_ADVERTISING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising message.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_ADVERTISING_MESSAGE {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_ADVERTISING_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_CANCEL {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose image.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_CHOOSE_LOGO {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_CHOOSE_LOGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear image.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_CLEAR_IMAGE {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_CLEAR_IMAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default font.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_DEFAULT_FONT {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_DEFAULT_FONT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is certificate advertising enabled?.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_IS_ENABLED {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_IS_ENABLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_SAVE {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an image to display in the advertising section.
+        /// </summary>
+        public static string TXT_ADVERTISING_SETTINGS_SELECT_AN_IMAGE {
+            get {
+                return ResourceManager.GetString("TXT_ADVERTISING_SETTINGS_SELECT_AN_IMAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Files (*.*)|*.*.
         /// </summary>
         public static string TXT_ALL_FILES {
