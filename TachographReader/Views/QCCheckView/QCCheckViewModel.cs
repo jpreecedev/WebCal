@@ -8,6 +8,8 @@
     using Library;
     using Library.ViewModels;
     using Shared;
+    using Connect.Shared;
+    using TachographReader.DataModel.Library;
 
     public class QCCheckViewModel : BaseNewDocumentViewModel<QCReportViewModel>
     {
@@ -15,7 +17,7 @@
         {
             Document = new QCReportViewModel();
         }
-        
+
         public IRepository<QCReport> Repository { get; set; }
 
         public IRepository<TachographMake> TachographMakesRepository { get; set; }
@@ -23,13 +25,13 @@
         public ObservableCollection<TachographMake> TachographMakes { get; set; }
 
         public ObservableCollection<VehicleMake> VehicleMakes { get; set; }
-        
+
         public IRepository<VehicleMake> VehicleRepository { get; set; }
 
         public IRepository<Technician> TechniciansRepository { get; set; }
 
         public ObservableCollection<Technician> Technicians { get; set; }
-        
+
         protected override void InitialiseRepositories()
         {
             base.InitialiseRepositories();
@@ -54,6 +56,12 @@
 
             Document.Created = DateTime.Now;
             Repository.AddOrUpdate(Document.Downcast<QCReport>());
+
+            var settingsRepository = GetInstance<ISettingsRepository<WorkshopSettings>>();
+            var workshopSettings = settingsRepository.GetWorkshopSettings();
+            workshopSettings.CentreQuarterlyCheckDate = DateTime.Now.Date;
+            settingsRepository.Save(workshopSettings);
+
             ConnectHelper.Upload(Document.Downcast<QCReport>());
         }
 
