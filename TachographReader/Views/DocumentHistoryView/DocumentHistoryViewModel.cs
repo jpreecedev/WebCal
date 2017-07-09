@@ -53,7 +53,8 @@
                 typeof (LetterForDecommissioningDocument).Name.SplitByCapitals(),
                 typeof (QCReport).Name.SplitByCapitals(),
                 "QC 3 Month Walkaround",
-                "GV 212"
+                "GV 212",
+                Resources.TXT_ANALOGUE_ONLY
             };
 
             SearchFilters = new List<string>
@@ -196,6 +197,7 @@
                 switch (SearchFilters.IndexOf(SelectedSearchFilter))
                 {
                     case 0:
+                    case 5:
                         items.Remove(item => item.RegistrationNumber == null || !item.RegistrationNumber.ToLower().Contains(SearchTerm.ToLower()));
                         break;
 
@@ -217,9 +219,14 @@
                 }
             }
 
-            if (SelectedDocumentType != Resources.TXT_SELECT_ALL)
+            if (SelectedDocumentType != Resources.TXT_SELECT_ALL && SelectedDocumentType != Resources.TXT_ANALOGUE_ONLY)
             {
                 items.Remove(item => item.Type != SelectedDocumentType);
+            }
+
+            if (SelectedDocumentType == Resources.TXT_ANALOGUE_ONLY)
+            {
+                items.Remove(item => item.Document == null || !(item.Document is TachographDocument) || ((TachographDocument) item.Document).IsDigital);
             }
 
             Documents.Clear();

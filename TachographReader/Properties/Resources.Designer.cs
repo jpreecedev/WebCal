@@ -1302,6 +1302,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analogue Only.
+        /// </summary>
+        public static string TXT_ANALOGUE_ONLY {
+            get {
+                return ResourceManager.GetString("TXT_ANALOGUE_ONLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analogue Tachograph.
         /// </summary>
         public static string TXT_ANALOGUE_TACHOGRAPH {

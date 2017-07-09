@@ -3141,4 +3141,7 @@ date
   <data name="TXT_ADVERTISING_SETTINGS_CLEAR_IMAGE" xml:space="preserve">
     <value>Clear image</value>
   </data>
+  <data name="TXT_ANALOGUE_ONLY" xml:space="preserve">
+    <value>Analogue Only</value>
+  </data>
 </root>
