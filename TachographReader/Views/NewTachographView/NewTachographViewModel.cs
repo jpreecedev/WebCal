@@ -130,7 +130,7 @@
 
         protected override void RegistrationChanged(string registrationNumber)
         {
-            if (string.IsNullOrEmpty(registrationNumber))
+            if (string.IsNullOrEmpty(registrationNumber) || !Document.IsDigital)
             {
                 return;
             }
