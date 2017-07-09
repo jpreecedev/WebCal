@@ -312,7 +312,7 @@ namespace TachographReader.Library.PDF
 
             AbsolutePositionText(document, GetCalibrationTime(tachographDocument.CalibrationTime).ToUpper(), (startHorizontal + 450), (startVertical + 210), 390, 40, document.GetRegularFont(false));
 
-            if (tachographDocument.DocumentType != Resources.TXT_MINOR_WORK_DETAILS)
+            if (tachographDocument.DocumentType != Resources.TXT_MINOR_WORK_DETAILS && tachographDocument.IsDigital)
             {
                 AbsolutePositionText(document, Resources.TXT_EXP.ToUpper(), startHorizontal + 260, (startVertical + 220), 400, 40, document.GetRegularFont(true));
                 AbsolutePositionText(document, expiryDate.ToUpper(), (startHorizontal + 450), (startVertical + 220), 390, 40, document.GetRegularFont(false));
