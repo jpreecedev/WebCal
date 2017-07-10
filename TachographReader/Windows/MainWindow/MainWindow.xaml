@@ -10,8 +10,8 @@
                  ResizeMode="CanResizeWithGrip"
                  WindowStartupLocation="CenterScreen"
                  WindowState="Maximized"
-                 MinHeight="560"
-                 MinWidth="800">
+                 MinHeight="740"
+                 MinWidth="1024">
     <core:BaseWindow.DataContext>
         <local:MainWindowViewModel />
     </core:BaseWindow.DataContext>
@@ -160,12 +160,12 @@
                         </r:Button.ToolTip>
                     </r:Button>
                     <r:Button Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_UNDOWNLOADABILITY}"
-                              Icon="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
-                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
+                              Icon="{core:LocalizedImageBinding ConverterParameter={}NewSpeedDocSm}"
+                              LargeIcon="{core:LocalizedImageBinding ConverterParameter={}NewSpeedDocSm}"
                               Command="{Binding NewUndownloadabilityCommand}">
                         <r:Button.ToolTip>
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_NEW_UNDOWNLOADABILITY_DOCUMENT}"
-                                         Image="{core:LocalizedImageBinding ConverterParameter={}NewUndownloadDocSm}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}NewSpeedDocSm}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_UNDOWNLOADABILITY_DOCUMENT}" />
                         </r:Button.ToolTip>
                     </r:Button>

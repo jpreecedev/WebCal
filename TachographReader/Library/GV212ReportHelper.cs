@@ -17,19 +17,11 @@
 
     public static class GV212ReportHelper
     {
-        public static void Create(DateTime start, DateTime end)
-        {
-            var tachographDocuments = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>().GetAll(false);
-            var documentHistoryItems = new ObservableCollection<IDocumentHistoryItem>(tachographDocuments.Select(c => new DocumentHistoryItem(c)));
-
-            Create(documentHistoryItems, false, start, end);
-        }
-
         public static void Create(bool promptForDate)
         {
             var tachographDocuments = ContainerBootstrapper.Resolve<IRepository<TachographDocument>>().GetAll(false);
             var documentHistoryItems = new ObservableCollection<IDocumentHistoryItem>(tachographDocuments.Select(c => new DocumentHistoryItem(c)));
-            var start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-1);
             var end = start.AddMonths(1).AddDays(-1);
 
             Create(documentHistoryItems, promptForDate, start, end);

@@ -121,6 +121,49 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="Flat"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border>
+                        <Border.Style>
+                            <Style TargetType="{x:Type Border}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="False">
+                                        <Setter Property="BorderThickness"
+                                                Value="2" />
+                                        <Setter Property="Cursor"
+                                                Value="Hand" />
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="True">
+                                        <Setter Property="BorderThickness"
+                                                Value="2" />
+                                        <Setter Property="BorderBrush"
+                                                Value="Red" />
+                                        <Setter Property="Cursor"
+                                                Value="Hand" />
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <SolidColorBrush Color="Red"
+                                                                 Opacity="0.1" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Grid Background="Transparent">
+                            <ContentPresenter></ContentPresenter>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <BooleanToVisibilityConverter x:Key="Bool2Vis" />
     <conv:BooleanToVisibilityWithHiddenConverter x:Key="Bool2Hidden" />
     <conv:BooleanToYesNoConverter x:Key="Bool2YesNo" />
@@ -203,20 +246,66 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctrls:GV212Button}">
                     <Button x:Name="Button"
-                            Height="116"
                             Width="140"
                             Padding="0"
-                            HorizontalAlignment="Left"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Top"
-                            Margin="0,0,0,0"
-                            Command="{Binding ClickCommand, RelativeSource={RelativeSource TemplatedParent}}">
+                            Margin="0,0,0,15"
+                            Command="{Binding ClickCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                            Style="{StaticResource Flat}">
                         <StackPanel>
-                            <Image x:Name="Image" 
+                            <Image x:Name="Image"
                                    Source="{core:LocalizedImageBinding ConverterParameter={}DSA_Logo}"
                                    Margin="10,10,10,10"
-                                   Width="80"
-                                   Height="66" />
+                                   Width="32"
+                                   Height="32" />
                             <TextBlock x:Name="TextBlock"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Margin="5,5,15,15"
+                                       FontSize="10pt" />
+                        </StackPanel>
+                    </Button>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsOutOfDate"
+                                 Value="true">
+                            <Setter Property="Text"
+                                    Value="GV 212 Out To Date"
+                                    TargetName="TextBlock" />
+                        </Trigger>
+                        <Trigger Property="IsOutOfDate"
+                                 Value="false">
+                            <Setter Property="Text"
+                                    Value="GV 212 Up To Date"
+                                    TargetName="TextBlock" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type ctrls:HomeScreenButton}"
+           TargetType="{x:Type ctrls:HomeScreenButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrls:HomeScreenButton}">
+                    <Button x:Name="Button"
+                            Width="186"
+                            Background="Transparent"
+                            Padding="0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Margin="10"
+                            Command="{Binding ClickCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                            Style="{StaticResource Flat}">
+                        <StackPanel>
+                            <Image x:Name="Image"
+                                   Source="{Binding ImageSource, RelativeSource={RelativeSource TemplatedParent}}"
+                                   Margin="10,10,10,10"
+                                   Width="149"
+                                   Height="180" />
+                            <TextBlock Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
                                        TextAlignment="Center"
                                        TextWrapping="Wrap"
                                        Margin="5,5,5,15"
@@ -227,35 +316,17 @@
                         <Trigger Property="IsSmallSize"
                                  Value="True">
                             <Setter Property="Height"
-                                    Value="99"
+                                    Value="130"
                                     TargetName="Button" />
                             <Setter Property="Width"
-                                    Value="120"
+                                    Value="180"
                                     TargetName="Button" />
                             <Setter Property="Width"
-                                    Value="40"
+                                    Value="64"
                                     TargetName="Image" />
                             <Setter Property="Height"
-                                    Value="33"
+                                    Value="64"
                                     TargetName="Image" />
-                        </Trigger>
-                        <Trigger Property="IsOutOfDate"
-                                 Value="true">
-                            <Setter Property="Background"
-                                    Value="{StaticResource RedTranslucent}"
-                                    TargetName="Button" />
-                            <Setter Property="Text"
-                                    Value="GV 212 Out To Date"
-                                    TargetName="TextBlock" />
-                        </Trigger>
-                        <Trigger Property="IsOutOfDate"
-                                 Value="false">
-                            <Setter Property="Background"
-                                    Value="{StaticResource GreenTranslucent}"
-                                    TargetName="Button" />
-                            <Setter Property="Text"
-                                    Value="GV 212 Up To Date"
-                                    TargetName="TextBlock" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -1398,6 +1469,34 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                     </ItemsControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ctrls:LineControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrls:LineControl}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Separator Grid.Column="0"
+                                       VerticalAlignment="Center"></Separator>
+                            <ContentPresenter Grid.Column="1"
+                                              Content="{TemplateBinding Content}"
+                                              VerticalAlignment="Center" />
+                            <Separator Grid.Column="2"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

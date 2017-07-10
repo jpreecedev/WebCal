@@ -2915,6 +2915,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  Document History .
+        /// </summary>
+        public static string TXT_HOME_SCREEN_DOCUMENT_HISTORY {
+            get {
+                return ResourceManager.GetString("TXT_HOME_SCREEN_DOCUMENT_HISTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} imp/km.
         /// </summary>
         public static string TXT_IMP_KM {
@@ -5377,6 +5386,15 @@ namespace TachographReader.Properties {
         public static string TXT_NEW_UNDOWNLOADABILITY_CUSTOMER_DATA {
             get {
                 return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_CUSTOMER_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Undownloadability Document.
+        /// </summary>
+        public static string TXT_NEW_UNDOWNLOADABILITY_DOCUMENT {
+            get {
+                return ResourceManager.GetString("TXT_NEW_UNDOWNLOADABILITY_DOCUMENT", resourceCulture);
             }
         }
         

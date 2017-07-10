@@ -247,6 +247,7 @@
     <Compile Include="Controls\BaseInputTextField.cs" />
     <Compile Include="Controls\BusyIndicator.cs" />
     <Compile Include="Controls\DayOfWeekPicker\DayOfWeekPicker.cs" />
+    <Compile Include="Controls\HomeScreenButton.cs" />
     <Compile Include="Controls\GV212Button.cs" />
     <Compile Include="Controls\ImageStrip.cs" />
     <Compile Include="Controls\InputAutoCompleteField.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Controls\InputNumberPicker.cs" />
     <Compile Include="Controls\InputTextField.cs" />
     <Compile Include="Controls\InputYesNoNotApplicableField.cs" />
+    <Compile Include="Controls\LineControl.cs" />
     <Compile Include="Controls\PopupWindow.cs" />
     <Compile Include="Controls\RadioButton.cs" />
     <Compile Include="Controls\Shortcut.cs" />

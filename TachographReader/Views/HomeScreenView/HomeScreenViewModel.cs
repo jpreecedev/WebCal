@@ -3,8 +3,6 @@
     using System;
     using System.Reflection;
     using System.Windows;
-    using System.Windows.Controls;
-    using Windows.ReprintWindow;
     using Connect.Shared;
     using Core;
     using DataModel.Library;
@@ -12,6 +10,7 @@
     using Library.ViewModels;
     using Properties;
     using Shared;
+    using System.Windows.Controls;
 
     public class HomeScreenViewModel : BaseViewModel
     {
@@ -20,16 +19,11 @@
             GV212ButtonVisibility = Visibility.Hidden;
         }
 
-        public double ButtonHeight { get; set; }
-        public double ButtonWidth { get; set; }
-        public string ColumnWidth { get; set; }
-
-        public double LogoHeight { get; set; }
-        public double LogoWidth { get; set; }
-
         public bool IsGV212OutOfDate { get; set; }
         public Visibility GV212ButtonVisibility { get; set; }
-        public bool SmallGV212 { get; set; }
+        public bool IsCondensed { get; set; }
+
+        public DelegateCommand<UserControl> ResizeCommand { get; set; }
 
         public string VersionNumber
         {
@@ -43,19 +37,26 @@
 
         public DelegateCommand<object> NewDigitalTachographCommand { get; set; }
         public DelegateCommand<object> NewAnalogueTachographDocumentCommand { get; set; }
-        public DelegateCommand<object> ReprintLabelCommand { get; set; }
-        public DelegateCommand<object> ReprintCertificateCommand { get; set; }
-        public DelegateCommand<UserControl> ResizeCommand { get; set; }
+        public DelegateCommand<object> NewUndownloadabilityDocumentCommand { get; set; }
         public DelegateCommand<object> GenerateGV212Command { get; set; }
+        public DelegateCommand<object> ThreeMonthWalkaroundCommand { get; set; }
+        public DelegateCommand<object> QCCheckHistoryCommand { get; set; }
+        public DelegateCommand<object> LetterForDecommissioningHistoryCommand { get; set; }
+        public DelegateCommand<object> UndownloadabilityHistoryCommand { get; set; }
+        public DelegateCommand<object> TachographHistoryCommand { get; set; }
 
         protected override void InitialiseCommands()
         {
             NewDigitalTachographCommand = new DelegateCommand<object>(OnNewDigitalDocument);
             NewAnalogueTachographDocumentCommand = new DelegateCommand<object>(OnNewAnalogueDocument);
-            ReprintLabelCommand = new DelegateCommand<object>(OnReprintLabel);
-            ReprintCertificateCommand = new DelegateCommand<object>(OnReprintCertificate);
-            ResizeCommand = new DelegateCommand<UserControl>(OnResize);
+            NewUndownloadabilityDocumentCommand = new DelegateCommand<object>(OnNewUndownloadabilityDocument);
             GenerateGV212Command = new DelegateCommand<object>(OnGenerateGV212);
+            ResizeCommand = new DelegateCommand<UserControl>(OnResize);
+            ThreeMonthWalkaroundCommand = new DelegateCommand<object>(OnThreeMonthWalkaround);
+            QCCheckHistoryCommand = new DelegateCommand<object>(OnQCCheckHistory);
+            LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
+            UndownloadabilityHistoryCommand = new DelegateCommand<object>(OnUndownloadabilityHistory);
+            TachographHistoryCommand = new DelegateCommand<object>(OnTachographHistory);
         }
 
         protected override void Load()
@@ -74,6 +75,17 @@
             var viewModel = (NewTachographViewModel) MainWindow.ShowView<NewTachographView>();
             viewModel.SetDocumentTypes(true);
         }
+        
+        private void OnNewUndownloadabilityDocument(object param)
+        {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+            
+            MainWindow.ShowView<NewUndownloadabilityView>();
+        }
 
         private void OnNewAnalogueDocument(object param)
         {
@@ -87,87 +99,16 @@
             viewModel.SetDocumentTypes(false);
         }
 
-        private void OnReprintLabel(object obj)
-        {
-            if (!HasValidLicense())
-            {
-                ShowInvalidLicenseWarning();
-                return;
-            }
-
-            var window = new ReprintWindow
-            {
-                DataContext = new ReprintWindowViewModel
-                {
-                    ReprintMode = ReprintMode.Label
-                }
-            };
-            window.ShowDialog();
-        }
-
-        private void OnReprintCertificate(object obj)
-        {
-            if (!HasValidLicense())
-            {
-                ShowInvalidLicenseWarning();
-                return;
-            }
-
-            var window = new ReprintWindow
-            {
-                DataContext = new ReprintWindowViewModel
-                {
-                    ReprintMode = ReprintMode.Certificate
-                }
-            };
-            window.ShowDialog();
-        }
-
-        private void OnResize(UserControl userControl)
-        {
-            if (userControl == null)
-            {
-                return;
-            }
-
-            if (userControl.ActualHeight < 580)
-            {
-                ButtonHeight = 224;
-                ButtonWidth = 185;
-                LogoWidth = 400;
-                LogoHeight = 160;
-                SmallGV212 = true;
-            }
-            else
-            {
-                ButtonHeight = 285;
-                ButtonWidth = 235;
-                LogoWidth = 625;
-                LogoHeight = 250;
-                SmallGV212 = false;
-            }
-        }
-
         private void OnGenerateGV212(object obj)
         {
-            if (!IsGV212OutOfDate)
-            {
-                return;
-            }
-
             if (!HasValidLicense())
             {
+                ShowInvalidLicenseWarning();
                 return;
             }
-
-            if (ShowWarning(Resources.TXT_GV_212_OUT_OF_DATE, Resources.TXT_OUT_OF_DATE_TITLE, MessageBoxButton.YesNo))
-            {
-                var start = DateTime.Parse("01/" + DateTime.Now.Month + "/" + DateTime.Now.Year).AddMonths(-1);
-                var end = start.AddMonths(1).AddDays(-1);
-
-                GV212ReportHelper.Create(start, end);
-                CheckGV212Status();
-            }
+            
+            GV212ReportHelper.Create(true);
+            CheckGV212Status();
         }
 
         private void CheckGV212Status()
@@ -193,6 +134,41 @@
                 }
                 GV212ButtonVisibility = Visibility.Visible;
             }
+        }
+
+        private void OnResize(UserControl userControl)
+        {
+            if (userControl == null)
+            {
+                return;
+            }
+
+            IsCondensed = userControl.ActualHeight < 650;
+        }
+
+        private void OnTachographHistory(object obj)
+        {
+            MainWindow.TachographHistoryCommand.Execute(null);
+        }
+
+        private void OnUndownloadabilityHistory(object obj)
+        {
+            MainWindow.UndownloadabilityHistoryCommand.Execute(null);
+        }
+
+        private void OnLetterForDecommissioningHistory(object obj)
+        {
+            MainWindow.LetterForDecommissioningHistoryCommand.Execute(null);
+        }
+
+        private void OnQCCheckHistory(object obj)
+        {
+            MainWindow.QCCheckHistoryCommand.Execute(null);
+        }
+
+        private void OnThreeMonthWalkaround(object obj)
+        {
+            MainWindow.QC6MonthCheckCommand.Execute(null);
         }
     }
 }
