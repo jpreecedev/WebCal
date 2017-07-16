@@ -1,5 +1,6 @@
 ﻿namespace TachographReader.Library
 {
+    using System;
     using System.Linq;
     using Connect.Shared;
     using Connect.Shared.Models;
@@ -13,6 +14,48 @@
 
     public static class LabelHelper
     {
+        public static void Print(M1N1Document document)
+        {
+            var registrationData = GetRegistrationData();
+            var workshopSettings = GetWorkshopSettings();
+            var printerSettings = GetPrinterSettings();
+
+            var parameters = new WorkerParameters();
+            parameters.SetParameter("AutoPrintLabels", printerSettings.AutoPrintLabels);
+            parameters.SetParameter("LabelNumberOfCopies", 1);
+
+            parameters.SetParameter("Address1", document.Address1);
+            parameters.SetParameter("Town", document.Address2);
+            parameters.SetParameter("PostCode", document.Address3);
+            parameters.SetParameter("WorkshopName", document.SecondCompanyName);
+            parameters.SetParameter("PhoneNumber", document.PhoneNumber);
+            parameters.SetParameter("DateFormat", Constants.LongYearDateFormat);
+            parameters.SetParameter("LicenseKey", "License");
+            parameters.SetParameter("ExpirationDate", DateTime.Now.AddYears(1));
+            parameters.SetParameter("DefaultLabelPrinter", printerSettings.DefaultLabelPrinter);
+            parameters.SetParameter("CompanyName", document.CompanyName);
+            parameters.SetParameter("TemporaryDirectory", ImageHelper.GetTemporaryDirectory());
+            parameters.SetParameter("DefaultFont", printerSettings.DefaultFont);
+            parameters.SetParameter("ShowCompanyNameOnLabels", printerSettings.ShowCompanyNameOnLabels);
+
+            parameters.SetParameter("DocumentType", document.DocumentType);
+            parameters.SetParameter("KFactor", document.KFactor);
+            parameters.SetParameter("WFactor", document.WFactor);
+            parameters.SetParameter("LFactor", document.LFactor);
+            parameters.SetParameter("VIN", document.VIN);
+            parameters.SetParameter("SerialNumber", document.SerialNumber);
+            parameters.SetParameter("TyreSize", document.TyreSize);
+            parameters.SetParameter("CalibrationTime", document.DateOfCalibration);
+
+            parameters.SetParameter("SealNumber", document.SealNumber);
+            parameters.SetParameter("SkillrayTachoIcon", ImageHelper.LoadFromResources("skillray_tacho_icon").ToByteArray());
+
+            var workerTask = new WorkerTask { TaskName = WorkerTaskName.LabelPrint };
+            workerTask.SetWorkerParameters(parameters);
+
+            WorkerHelper.QueueTask(workerTask);
+        }
+
         public static void Print(TachographDocument document)
         {
             var registrationData = GetRegistrationData();

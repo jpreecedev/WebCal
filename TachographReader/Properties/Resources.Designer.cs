@@ -684,6 +684,16 @@ namespace TachographReader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap M1N1Label {
+            get {
+                object obj = ResourceManager.GetObject("M1N1Label", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Minimize {
             get {
                 object obj = ResourceManager.GetObject("Minimize", resourceCulture);
@@ -3086,6 +3096,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The label has been added to the print queue and will print shortly..
+        /// </summary>
+        public static string TXT_LABEL_ADDED_TO_QUEUE {
+            get {
+                return ResourceManager.GetString("TXT_LABEL_ADDED_TO_QUEUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address:{0}.
         /// </summary>
         public static string TXT_LABEL_ADDRESS_1 {
@@ -3572,6 +3591,114 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address 1.
+        /// </summary>
+        public static string TXT_M1N1_ADDRESS_1 {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_ADDRESS_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address 2.
+        /// </summary>
+        public static string TXT_M1N1_ADDRESS_2 {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_ADDRESS_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address 3.
+        /// </summary>
+        public static string TXT_M1N1_ADDRESS_3 {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_ADDRESS_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company.
+        /// </summary>
+        public static string TXT_M1N1_COMPANY {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_COMPANY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of Calibration.
+        /// </summary>
+        public static string TXT_M1N1_DATE_OF_CALIBRATION {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_DATE_OF_CALIBRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to K Factor.
+        /// </summary>
+        public static string TXT_M1N1_K_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_K_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L Factor.
+        /// </summary>
+        public static string TXT_M1N1_L_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_L_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label type.
+        /// </summary>
+        public static string TXT_M1N1_LABEL_TYPE {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_LABEL_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number.
+        /// </summary>
+        public static string TXT_M1N1_PHONE_NUMBER {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_PHONE_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print Label.
+        /// </summary>
+        public static string TXT_M1N1_PRINT_LABEL {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_PRINT_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seal No.
+        /// </summary>
+        public static string TXT_M1N1_SEAL_NO {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_SEAL_NO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Serial No.
+        /// </summary>
+        public static string TXT_M1N1_SERIAL_NO {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_SERIAL_NO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to M1N1 S/N.
         /// </summary>
         public static string TXT_M1N1_SERIAL_NUMBER {
@@ -3595,6 +3722,51 @@ namespace TachographReader.Properties {
         public static string TXT_M1N1_SERIAL_SMALL_LABEL {
             get {
                 return ResourceManager.GetString("TXT_M1N1_SERIAL_SMALL_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M1/N1 Label Maker.
+        /// </summary>
+        public static string TXT_M1N1_TITLE {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tyre size.
+        /// </summary>
+        public static string TXT_M1N1_TYRE_SIZE {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_TYRE_SIZE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VIN.
+        /// </summary>
+        public static string TXT_M1N1_VIN {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_VIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W Factor.
+        /// </summary>
+        public static string TXT_M1N1_W_FACTOR {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_W_FACTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workshop name.
+        /// </summary>
+        public static string TXT_M1N1_WORKSHOP_NAME {
+            get {
+                return ResourceManager.GetString("TXT_M1N1_WORKSHOP_NAME", resourceCulture);
             }
         }
         
@@ -3806,6 +3978,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to M1/N1 Label.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_M1N1_LABEL {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_M1N1_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Analogue Tachograph Document.
         /// </summary>
         public static string TXT_MAIN_WINDOW_NEW_ANALOGUE_TACHO_DOCUMENT {
@@ -4009,6 +4190,15 @@ namespace TachographReader.Properties {
         public static string TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN {
             get {
                 return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_HOME_SCREEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows the M1/N1 screen.
+        /// </summary>
+        public static string TXT_MAIN_WINDOW_SHOWS_M1N1_SCREEN {
+            get {
+                return ResourceManager.GetString("TXT_MAIN_WINDOW_SHOWS_M1N1_SCREEN", resourceCulture);
             }
         }
         
@@ -5667,6 +5857,15 @@ namespace TachographReader.Properties {
         public static string TXT_PORTABLE_NETWORK_GRAPHICS {
             get {
                 return ResourceManager.GetString("TXT_PORTABLE_NETWORK_GRAPHICS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print.
+        /// </summary>
+        public static string TXT_PRINT {
+            get {
+                return ResourceManager.GetString("TXT_PRINT", resourceCulture);
             }
         }
         

@@ -150,6 +150,7 @@
     <Compile Include="Connect\IConnectClient.cs" />
     <Compile Include="Connect\IConnectClientCredentials.cs" />
     <Compile Include="Connect\ConnectOperationResult.cs" />
+    <Compile Include="M1N1Document.cs" />
     <Compile Include="Models\DiscreteException.cs" />
     <Compile Include="ExceptionPolicy.cs" />
     <Compile Include="Extensions.cs" />

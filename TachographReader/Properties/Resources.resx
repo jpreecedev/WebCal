@@ -2259,6 +2259,9 @@ date
   <data name="LetterForDecommissioningSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LetterForDecommissioningSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="M1N1Label" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M1N1Label.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -3149,5 +3152,68 @@ date
   </data>
   <data name="TXT_HOME_SCREEN_DOCUMENT_HISTORY" xml:space="preserve">
     <value> Document History </value>
+  </data>
+  <data name="TXT_M1N1_TITLE" xml:space="preserve">
+    <value>M1/N1 Label Maker</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_M1N1_LABEL" xml:space="preserve">
+    <value>M1/N1 Label</value>
+  </data>
+  <data name="TXT_MAIN_WINDOW_SHOWS_M1N1_SCREEN" xml:space="preserve">
+    <value>Shows the M1/N1 screen</value>
+  </data>
+  <data name="TXT_PRINT" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="TXT_LABEL_ADDED_TO_QUEUE" xml:space="preserve">
+    <value>The label has been added to the print queue and will print shortly.</value>
+  </data>
+  <data name="TXT_M1N1_WORKSHOP_NAME" xml:space="preserve">
+    <value>Workshop name</value>
+  </data>
+  <data name="TXT_M1N1_PHONE_NUMBER" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="TXT_M1N1_LABEL_TYPE" xml:space="preserve">
+    <value>Label type</value>
+  </data>
+  <data name="TXT_M1N1_DATE_OF_CALIBRATION" xml:space="preserve">
+    <value>Date of Calibration</value>
+  </data>
+  <data name="TXT_M1N1_K_FACTOR" xml:space="preserve">
+    <value>K Factor</value>
+  </data>
+  <data name="TXT_M1N1_W_FACTOR" xml:space="preserve">
+    <value>W Factor</value>
+  </data>
+  <data name="TXT_M1N1_L_FACTOR" xml:space="preserve">
+    <value>L Factor</value>
+  </data>
+  <data name="TXT_M1N1_VIN" xml:space="preserve">
+    <value>VIN</value>
+  </data>
+  <data name="TXT_M1N1_SERIAL_NO" xml:space="preserve">
+    <value>Serial No</value>
+  </data>
+  <data name="TXT_M1N1_SEAL_NO" xml:space="preserve">
+    <value>Seal No</value>
+  </data>
+  <data name="TXT_M1N1_TYRE_SIZE" xml:space="preserve">
+    <value>Tyre size</value>
+  </data>
+  <data name="TXT_M1N1_COMPANY" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="TXT_M1N1_ADDRESS_1" xml:space="preserve">
+    <value>Address 1</value>
+  </data>
+  <data name="TXT_M1N1_ADDRESS_2" xml:space="preserve">
+    <value>Address 2</value>
+  </data>
+  <data name="TXT_M1N1_ADDRESS_3" xml:space="preserve">
+    <value>Address 3</value>
+  </data>
+  <data name="TXT_M1N1_PRINT_LABEL" xml:space="preserve">
+    <value>Print Label</value>
   </data>
 </root>

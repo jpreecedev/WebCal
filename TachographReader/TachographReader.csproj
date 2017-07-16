@@ -365,6 +365,10 @@
       <DependentUpon>DocumentHistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DocumentHistoryView\DocumentHistoryViewModel.cs" />
+    <Compile Include="Views\M1N1View\M1N1View.xaml.cs">
+      <DependentUpon>M1N1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\M1N1View\M1N1ViewModel.cs" />
     <Compile Include="Views\LetterForDecommissioningView\LetterForDecommissioningView.xaml.cs">
       <DependentUpon>LetterForDecommissioningView.xaml</DependentUpon>
     </Compile>
@@ -517,6 +521,10 @@
     </Compile>
     <Compile Include="Windows\WorkerProgressWindow\WorkerProgressWindowViewModel.cs" />
     <Page Include="Views\DocumentHistoryView\DocumentHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\M1N1View\M1N1View.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

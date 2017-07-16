@@ -29,6 +29,7 @@
 
         public DelegateCommand<object> SettingsCommand { get; set; }
         public DelegateCommand<object> GenerateReportCommand { get; set; }
+        public DelegateCommand<object> M1N1LabelCommand { get; set; }
         public DelegateCommand<object> TechniciansCommand { get; set; }
         public DelegateCommand<object> BackupDatabaseCommand { get; set; }
         public DelegateCommand<object> RestoreDatabaseCommand { get; set; }
@@ -72,6 +73,11 @@
         private void OnGenerateReport(object param)
         {
             ShowMediumModal<GenerateReportView>();
+        }
+
+        private void OnM1N1(object param)
+        {
+            ShowXLargeModal<M1N1View>();
         }
 
         private void OnTechnicians(object param)
@@ -396,6 +402,7 @@
         {
             SettingsCommand = new DelegateCommand<object>(OnSettings);
             GenerateReportCommand = new DelegateCommand<object>(OnGenerateReport);
+            M1N1LabelCommand = new DelegateCommand<object>(OnM1N1);
             TechniciansCommand = new DelegateCommand<object>(OnTechnicians);
             BackupDatabaseCommand = new DelegateCommand<object>(OnBackupDatabase);
             RestoreDatabaseCommand = new DelegateCommand<object>(OnRestoreDatabase);

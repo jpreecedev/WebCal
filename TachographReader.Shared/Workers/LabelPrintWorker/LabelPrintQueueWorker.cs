@@ -282,7 +282,7 @@
                     return Resources.TXT_LABEL_DIGITAL_TWO_YEAR;
                 }
 
-                return string.Empty;
+                return documentType ?? string.Empty;
             }
         }
     }

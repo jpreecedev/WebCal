@@ -2261,6 +2261,9 @@
   <data name="LetterForDecommissioningSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LetterForDecommissioningSmall-ru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="M1N1Label" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M1N1Label-ru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NewAnalogueTachoDoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NewAnalogueTachoDoc-ru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

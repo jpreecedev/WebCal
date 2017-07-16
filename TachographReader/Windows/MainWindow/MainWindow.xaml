@@ -27,6 +27,8 @@
                                        IsChecked="True" />
                 <r:QuickAccessMenuItem Target="{Binding ElementName=GenerateReportMenuItem}"
                                        IsChecked="True" />
+                <r:QuickAccessMenuItem Target="{Binding ElementName=M1N1MenuItem}"
+                                       IsChecked="True" />
                 <r:QuickAccessMenuItem Target="{Binding ElementName=ExitMenuItem}"
                                        IsChecked="True" />
             </r:Ribbon.QuickAccessItems>
@@ -50,6 +52,16 @@
                             <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_GENERATE_REPORT}"
                                          Image="{core:LocalizedImageBinding ConverterParameter={}Report}"
                                          Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOW_REPORT}" />
+                        </r:MenuItem.ToolTip>
+                    </r:MenuItem>
+                    <r:MenuItem x:Name="M1N1MenuItem"
+                                Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_M1N1_LABEL}"
+                                Icon="{core:LocalizedImageBinding ConverterParameter={}M1N1Label}"
+                                Command="{Binding M1N1LabelCommand}">
+                        <r:MenuItem.ToolTip>
+                            <r:ScreenTip Title="{x:Static Properties:Resources.TXT_MAIN_WINDOW_M1N1_LABEL}"
+                                         Image="{core:LocalizedImageBinding ConverterParameter={}M1N1Label}"
+                                         Text="{x:Static Properties:Resources.TXT_MAIN_WINDOW_SHOWS_M1N1_SCREEN}" />
                         </r:MenuItem.ToolTip>
                     </r:MenuItem>
                     <r:MenuItem Header="{x:Static Properties:Resources.TXT_MAIN_WINDOW_BACKUP_DATABASE}"

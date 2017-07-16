@@ -37,6 +37,7 @@
         public bool IsSmallModal { get; set; }
         public bool IsMediumModal { get; set; }
         public bool IsLargeModal { get; set; }
+        public bool IsExtraLargeModal { get; set; }
 
         public UserControl ShowSettingsView(Type view)
         {
@@ -59,6 +60,9 @@
         public void ShowSmallModal<T>() where T : UserControl, new()
         {
             IsSmallModal = true;
+            IsMediumModal = false;
+            IsLargeModal = false;
+            IsExtraLargeModal = false;
             IsModalWindowVisible = true;
             ModalView = new T();
 
@@ -72,6 +76,8 @@
         public void ShowMediumModal<T>() where T : UserControl, new()
         {
             IsMediumModal = true;
+            IsLargeModal = false;
+            IsExtraLargeModal = false;
             IsModalWindowVisible = true;
             ModalView = new T();
 
@@ -86,6 +92,22 @@
         {
             IsMediumModal = false;
             IsLargeModal = true;
+            IsExtraLargeModal = false;
+            IsModalWindowVisible = true;
+            ModalView = new T();
+
+            var dataContext = ModalView.DataContext as IViewModel;
+            if (dataContext != null)
+            {
+                dataContext.DoneCallback = _doneCallback;
+            }
+        }
+
+        public void ShowXLargeModal<T>() where T : UserControl, new()
+        {
+            IsMediumModal = false;
+            IsLargeModal = false;
+            IsExtraLargeModal = true;
             IsModalWindowVisible = true;
             ModalView = new T();
 
@@ -154,6 +176,7 @@
             IsSmallModal = false;
             IsMediumModal = false;
             IsLargeModal = false;
+            IsExtraLargeModal = false;
             IsModalWindowVisible = true;
             ModalView = new T();
         }
@@ -163,6 +186,7 @@
             IsSmallModal = false;
             IsMediumModal = false;
             IsLargeModal = false;
+            IsExtraLargeModal = false;
             IsModalWindowVisible = true;
 
             ModalView = _settingsView ?? (_settingsView = new SettingsView());

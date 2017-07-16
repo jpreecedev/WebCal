@@ -1384,6 +1384,18 @@
                         Property="Width"
                         Value="750" />
             </DataTrigger>
+            <DataTrigger Binding="{Binding IsExtraLargeModal}"
+                         Value="true">
+                <Setter TargetName="MainContent"
+                        Property="Height"
+                        Value="675" />
+                <Setter TargetName="MainContent"
+                        Property="Width"
+                        Value="725" />
+                <Setter TargetName="ModalBorder"
+                        Property="Height"
+                        Value="725" />
+            </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
 
