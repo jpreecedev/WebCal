@@ -127,7 +127,7 @@
 
         }
 
-        protected virtual Document GetDocument()
+        protected virtual Document GetDocument(Grid root)
         {
             return null;
         }
@@ -166,7 +166,7 @@
             {
                 Document document;
                 BaseReport report;
-                var pdfDocumentResult = ToPDF(out document, out report, false, true);
+                var pdfDocumentResult = ToPDF(root, out document, out report, false, true);
 
                 if (!pdfDocumentResult.Success)
                 {
@@ -229,13 +229,13 @@
 
             Document document;
             BaseReport report;
-            ToPDF(out document, out report, miscellaneousSettings.ExcludeLogosWhenPrinting, false).Print();
+            ToPDF(root, out document, out report, miscellaneousSettings.ExcludeLogosWhenPrinting, false).Print();
 
             if (!IsHistoryMode)
             {
                 try
                 {
-                    ToPDF(out document, out report, false, false).Email(WorkshopSettings, MailSettings);
+                    ToPDF(root, out document, out report, false, false).Email(WorkshopSettings, MailSettings);
 
                     if (document is TachographDocument && ((TachographDocument)document).IsDigital && IMSWarningHelper.IsVehicleAffected(document.RegistrationNumber))
                     {
@@ -255,9 +255,9 @@
             Close();
         }
 
-        private PDFDocumentResult ToPDF(out Document document, out BaseReport report, bool excludeLogos, bool promptUser)
+        private PDFDocumentResult ToPDF(Grid root, out Document document, out BaseReport report, bool excludeLogos, bool promptUser)
         {
-            document = GetDocument();
+            document = GetDocument(root);
             report = GetReport();
 
             if (document != null)

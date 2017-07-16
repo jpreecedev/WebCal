@@ -8,6 +8,7 @@
     using DataModel;
     using Library;
     using Shared;
+    using System.Windows.Controls;
 
     public class NewUndownloadabilityViewModel : BaseNewDocumentViewModel<UndownloadabilityDocument>
     {
@@ -47,8 +48,9 @@
             }
         }
 
-        protected override Document GetDocument()
+        protected override Document GetDocument(Grid root)
         {
+            CustomerContactHelper.CreateCustomerContactIfRequired(Document, root);
             return Document;
         }
 

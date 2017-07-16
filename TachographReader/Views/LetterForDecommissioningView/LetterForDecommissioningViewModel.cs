@@ -8,6 +8,7 @@
     using DataModel;
     using Library;
     using Shared;
+    using System.Windows.Controls;
 
     public class LetterForDecommissioningViewModel : BaseNewDocumentViewModel<LetterForDecommissioningDocument>
     {
@@ -50,8 +51,9 @@
             }
         }
 
-        protected override Document GetDocument()
+        protected override Document GetDocument(Grid root)
         {
+            CustomerContactHelper.CreateCustomerContactIfRequired(Document, root);
             return Document;
         }
 

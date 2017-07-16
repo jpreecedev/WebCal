@@ -302,6 +302,7 @@
     <Compile Include="EventArguments\DriverCardCompletedEventArgs.cs" />
     <Compile Include="EventArguments\DriverCardProgressEventArgs.cs" />
     <Compile Include="Library\ConnectHelper.cs" />
+    <Compile Include="Library\CustomerContactHelper.cs" />
     <Compile Include="Library\FontHelper.cs" />
     <Compile Include="Library\GV212ReportHelper.cs" />
     <Compile Include="Library\IDriverCardReader.cs" />

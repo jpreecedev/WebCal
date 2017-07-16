@@ -317,7 +317,8 @@
 	                    <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     
-                    <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER}"
+                    <ctrls:InputComboField x:Name="CustomerContact"
+                                           Label="{x:Static Properties:Resources.TXT_NEW_TACHOGRAPH_CUSTOMER}"
                                            IsMandatory="True"
                                            IsEditable="True"
                                            IsTextSearchEnabled="True"

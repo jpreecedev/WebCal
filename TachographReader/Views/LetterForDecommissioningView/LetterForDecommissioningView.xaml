@@ -111,7 +111,8 @@
                        Style="{StaticResource SubHeaderFont}"
                        Grid.Row="8" />
 
-            <ctrls:InputComboField Label="{x:Static Properties:Resources.TXT_LETTER_DECOMMISSIONING_CUSTOMER}"
+            <ctrls:InputComboField x:Name="CustomerContact"
+                                   Label="{x:Static Properties:Resources.TXT_LETTER_DECOMMISSIONING_CUSTOMER}"
                                    ItemsSource="{core:InputBinding CustomerContacts}"
                                    SelectedItem="{core:InputBinding SelectedCustomerContact}"
                                    IsEditable="False"

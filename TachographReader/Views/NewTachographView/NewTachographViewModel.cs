@@ -86,8 +86,9 @@
             }
         }
 
-        protected override Document GetDocument()
+        protected override Document GetDocument(Grid root)
         {
+            CustomerContactHelper.CreateCustomerContactIfRequired(Document, root);
             return Document;
         }
 
@@ -116,6 +117,14 @@
                 Document.CalibrationTime = DateTime.Now;
             }
 
+            if (SelectedCustomerContact == null)
+            {
+                CustomerContactRepository.Add(new CustomerContact
+                {
+                    Name = Document.CustomerContact
+                });
+            }
+            
             AddInspectionInfoCommand.Execute(null);
 
             TachographDocumentRepository.AddOrUpdate(Document);
