@@ -1,6 +1,5 @@
 ﻿namespace TachographReader.Controls
 {
-    using System.Drawing;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
@@ -20,12 +19,21 @@
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(HomeScreenButton), new PropertyMetadata(string.Empty));
         
+        public static readonly DependencyProperty ClickCommandParameterProperty =
+            DependencyProperty.Register("ClickCommandParameter", typeof(object), typeof(HomeScreenButton), new PropertyMetadata(null));
+        
+        public object ClickCommandParameter
+        {
+            get => (object) GetValue(ClickCommandParameterProperty);
+            set => SetValue(ClickCommandParameterProperty, value);
+        }
+        
         public string Text
         {
             get => (string) GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
-        
+
         public ImageSource ImageSource
         {
             get => (ImageSource) GetValue(ImageSourceProperty);

@@ -1789,6 +1789,15 @@ namespace TachographReader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Where to next?.
+        /// </summary>
+        public static string TXT_CHOOSE_NEXT_WHERE_TO_NEXT {
+            get {
+                return ResourceManager.GetString("TXT_CHOOSE_NEXT_WHERE_TO_NEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear Selection.
         /// </summary>
         public static string TXT_CLEAR_SELECTION {

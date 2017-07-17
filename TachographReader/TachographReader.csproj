@@ -404,6 +404,10 @@
       <DependentUpon>UserManagementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\UserManagementView\UserManagementViewModel.cs" />
+    <Compile Include="Windows\ChooseNextWindow\ChooseNextWindow.xaml.cs">
+      <DependentUpon>ChooseNextWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ChooseNextWindow\ChooseNextViewModel.cs" />
     <Compile Include="Windows\WorkshopCardDetailsWindow\WorkshopCardDetailsViewModel.cs" />
     <Compile Include="Windows\WorkshopCardDetailsWindow\WorkshopCardDetailsWindow.xaml.cs">
       <DependentUpon>WorkshopCardDetailsWindow.xaml</DependentUpon>
@@ -564,6 +568,10 @@
     <Page Include="Views\Settings\UserManagementView\UserManagementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ChooseNextWindow\ChooseNextWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\WorkshopCardDetailsWindow\WorkshopCardDetailsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

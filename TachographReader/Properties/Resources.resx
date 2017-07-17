@@ -3216,4 +3216,7 @@ date
   <data name="TXT_M1N1_PRINT_LABEL" xml:space="preserve">
     <value>Print Label</value>
   </data>
+  <data name="TXT_CHOOSE_NEXT_WHERE_TO_NEXT" xml:space="preserve">
+    <value>Where to next?</value>
+  </data>
 </root>

@@ -298,6 +298,7 @@
                             VerticalAlignment="Top"
                             Margin="10"
                             Command="{Binding ClickCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                            CommandParameter="{Binding ClickCommandParameter, RelativeSource={RelativeSource TemplatedParent}}"
                             Style="{StaticResource Flat}">
                         <StackPanel>
                             <Image x:Name="Image"

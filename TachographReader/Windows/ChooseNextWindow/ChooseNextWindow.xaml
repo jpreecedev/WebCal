@@ -1,0 +1,59 @@
+﻿<core:BaseModalWindow x:Class="TachographReader.Windows.ChooseNextWindow.ChooseNextWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Properties="clr-namespace:TachographReader.Properties"
+                      xmlns:core="clr-namespace:TachographReader.Core"
+                      xmlns:ctrls="clr-namespace:TachographReader.Controls"
+                      xmlns:vm="clr-namespace:TachographReader.Windows.ChooseNextWindow"
+                      Height="250"
+                      Width="600"
+                      WindowStartupLocation="CenterScreen"
+                      WindowStyle="ToolWindow"
+                      ShowInTaskbar="False"
+                      ResizeMode="NoResize"
+                      Title="{x:Static Properties:Resources.TXT_CHOOSE_NEXT_WHERE_TO_NEXT}">
+    <core:BaseModalWindow.DataContext>
+        <vm:ChooseNextViewModel />
+    </core:BaseModalWindow.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{x:Static Properties:Resources.TXT_CHOOSE_NEXT_WHERE_TO_NEXT}"
+                   FontSize="24"
+                   VerticalAlignment="Center"
+                   Margin="10"
+                   HorizontalAlignment="Center" />
+        
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top">
+
+
+            <ctrls:HomeScreenButton ClickCommand="{core:InputBinding NewTachographCommand}"
+                                    ClickCommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    ImageSource="{core:LocalizedImageBinding ConverterParameter={}NewTachoDoc}"
+                                    IsSmallSize="True"
+                                    Text="{x:Static Properties:Resources.TXT_DIGITAL_TACHOGRAPH_DOCUMENT}" />
+
+            <ctrls:HomeScreenButton ClickCommand="{core:InputBinding UndownloadabilityCommand}"
+                                    ClickCommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    ImageSource="{core:LocalizedImageBinding ConverterParameter={}NewBlueDocLarge}"
+                                    IsSmallSize="True"
+                                    Text="{x:Static Properties:Resources.TXT_NEW_UNDOWNLOADABILITY_DOCUMENT}" />
+
+            <ctrls:HomeScreenButton ClickCommand="{core:InputBinding LetterForDecommissioningCommand}"
+                                    ClickCommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    ImageSource="{core:LocalizedImageBinding ConverterParameter={}LetterForDecommissioningSmall}"
+                                    IsSmallSize="True"
+                                    Text="{x:Static Properties:Resources.TXT_LETTER_FOR_DECOMMISSIONING}" />
+
+        </StackPanel>
+        
+    </Grid>
+    
+</core:BaseModalWindow>

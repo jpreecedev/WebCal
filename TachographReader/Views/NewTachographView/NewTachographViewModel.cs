@@ -18,6 +18,7 @@
     using Properties;
     using Shared;
     using Shared.Helpers;
+    using TachographReader.Windows.ChooseNextWindow;
 
     public class NewTachographViewModel : BaseNewDocumentViewModel<TachographDocument>
     {
@@ -339,7 +340,33 @@
                 return;
             }
 
-            base.Close();
+            if (Document.DocumentType == Shared.Properties.Resources.TXT_DIGITAL_INITIAL_CALIBRATION)
+            {
+                var window = new ChooseNextWindow();
+                var viewModel = (ChooseNextViewModel) window.DataContext;
+                window.ShowDialog();
+
+                if (viewModel.SelectedDocumentType == Resources.TXT_DIGITAL_TACHOGRAPH_DOCUMENT)
+                {
+                    MainWindow.NewTachographCommand.Execute(null);
+                }
+                else if (viewModel.SelectedDocumentType == Resources.TXT_NEW_UNDOWNLOADABILITY_DOCUMENT)
+                {
+                    MainWindow.NewUndownloadabilityCommand.Execute(null);
+                }
+                else if (viewModel.SelectedDocumentType == Resources.TXT_LETTER_FOR_DECOMMISSIONING)
+                {
+                    MainWindow.LetterForDecommissioningCommand.Execute(null);
+                }
+                else
+                {
+                    base.Close();
+                }
+            }
+            else
+            {
+                base.Close();
+            }
         }
 
         private static string GetRegistrationToQuery(CalibrationRecord calibrationRecord)
