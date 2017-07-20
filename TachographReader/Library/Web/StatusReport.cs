@@ -122,11 +122,111 @@
             var statusMsg = score <= 50 ? "Urgent Attention Needed" : score > 50 && score <= 75 ? "Few Outstanding Documents" : score > 75 ? "OK" : "";
 
             stringBuilder.AppendLine("                </address>" +
-                                 "            </div>" +
-                                 "            <div class=\"col-xs-6 gauge section\">" +
-                                 "                <h2>Overall Status</h2>" +
-                                 "                <canvas id=\"overall-status\"></canvas>" +
-                                 "                <p>" + statusMsg + "</p>" +     
+                                     "            </div>" +
+                                     "            <div class=\"col-xs-6 gauge section\">" +
+                                     "                <h2>Overall Status</h2>");
+            
+            //Centre quarterly check
+               stringBuilder.AppendLine("                 <div class=\"traffic-light-container\"><div class=\"traffic-light\">" +
+                    "                     <div class=\"light-outer\">" +
+                    "                       <div class=\"first-light-decorate\"></div>" +
+                    "                       <div class=\"light-inner\"> " +
+                    "                         <div class=\"light " + (tachoCentreQuarterlyStatusText == Resources.TXT_STATUS_REPORT_EXPIRED || tachoCentreQuarterlyStatusText == Resources.TXT_STATUS_REPORT_UNKNOWN ? "red": "") + "\"></div>" +
+                    "                       </div>" +
+                    "                       <div class=\"light-left-top-shade\"></div>" +
+                    "                       <div class=\"light-left-bottom-shade\"></div>" +
+                    "                       <div class=\"light-right-top-shade\"></div>" +
+                    "                       <div class=\"light-right-bottom-shade\"></div>" +
+                    "                     </div>" +
+                    "                     <div class=\"light-outer\">" +
+                    "                       <div class=\"light-inner\">  " +
+                    "                         <div class=\"light " + (tachoCentreQuarterlyStatusText == Resources.TXT_STATUS_REPORT_CHECK_DUE ? "yellow" : "") + "\"></div>" +
+                    "                       </div>" +
+                    "                       <div class=\"light-left-top-shade\"></div>" +
+                    "                       <div class=\"light-left-bottom-shade\"></div>" +
+                    "                       <div class=\"light-right-top-shade\"></div>" +
+                    "                       <div class=\"light-right-bottom-shade\"></div>" +
+                    "                     </div>" +
+                    "                     <div class=\"light-outer\">" +
+                    "                       <div class=\"light-inner\"> " +
+                    "                         <div class=\"light " + (tachoCentreQuarterlyStatusText == Resources.TXT_STATUS_REPORT_ok ? "green" : "") + "\"></div>" +
+                    "                       </div>" +
+                    "                       <div class=\"light-left-top-shade\"></div>" +
+                    "                       <div class=\"light-left-bottom-shade\"></div>" +
+                    "                       <div class=\"light-right-top-shade\"></div>" +
+                    "                       <div class=\"light-right-bottom-shade\"></div>" +
+                    "                     </div>" +
+                    "                   </div></div>");
+
+            //Monthly GV212
+            stringBuilder.AppendLine("                 <div class=\"traffic-light-container\"><div class=\"traffic-light\">" +
+                 "                     <div class=\"light-outer\">" +
+                 "                       <div class=\"first-light-decorate\"></div>" +
+                 "                       <div class=\"light-inner\"> " +
+                 "                         <div class=\"light " + (gv212StatusText == Resources.TXT_STATUS_REPORT_EXPIRED || gv212StatusText == Resources.TXT_STATUS_REPORT_UNKNOWN ? "red" : "") +"\"></div>" +
+                 "                       </div>" +
+                 "                       <div class=\"light-left-top-shade\"></div>" +
+                 "                       <div class=\"light-left-bottom-shade\"></div>" +
+                 "                       <div class=\"light-right-top-shade\"></div>" +
+                 "                       <div class=\"light-right-bottom-shade\"></div>" +
+                 "                     </div>" +
+                 "                     <div class=\"light-outer\">" +
+                 "                       <div class=\"light-inner\">  " +
+                 "                         <div class=\"light " + (gv212StatusText == Resources.TXT_STATUS_REPORT_CHECK_DUE ? "yellow" : "") + "\"></div>" +
+                 "                       </div>" +
+                 "                       <div class=\"light-left-top-shade\"></div>" +
+                 "                       <div class=\"light-left-bottom-shade\"></div>" +
+                 "                       <div class=\"light-right-top-shade\"></div>" +
+                 "                       <div class=\"light-right-bottom-shade\"></div>" +
+                 "                     </div>" +
+                 "                     <div class=\"light-outer\">" +
+                 "                       <div class=\"light-inner\"> " +
+                 "                         <div class=\"light " + (gv212StatusText == Resources.TXT_STATUS_REPORT_ok ? "green" : "") + "\"></div>" +
+                 "                       </div>" +
+                 "                       <div class=\"light-left-top-shade\"></div>" +
+                 "                       <div class=\"light-left-bottom-shade\"></div>" +
+                 "                       <div class=\"light-right-top-shade\"></div>" +
+                 "                       <div class=\"light-right-bottom-shade\"></div>" +
+                 "                     </div>" +
+                 "                   </div></div>");
+
+            var techExpired = statusReport.Technicians.Any(c => c.ThreeYearStatus() == ReportItemStatus.Expired || c.ThreeYearStatus() == ReportItemStatus.Unknown);
+            var techOk = statusReport.Technicians.All(c => c.ThreeYearStatus() == ReportItemStatus.Ok);
+            var techDue = statusReport.Technicians.All(c => c.ThreeYearStatus() == ReportItemStatus.CheckDue);
+
+            //Technicians QC report
+            stringBuilder.AppendLine("                 <div class=\"traffic-light-container\"><div class=\"traffic-light\">" +
+                                     "                     <div class=\"light-outer\">" +
+                                     "                       <div class=\"first-light-decorate\"></div>" +
+                                     "                       <div class=\"light-inner\"> " +
+                                     "                         <div class=\"light " + (techExpired ? "red" : "") + "\"></div>" +
+                                     "                       </div>" +
+                                     "                       <div class=\"light-left-top-shade\"></div>" +
+                                     "                       <div class=\"light-left-bottom-shade\"></div>" +
+                                     "                       <div class=\"light-right-top-shade\"></div>" +
+                                     "                       <div class=\"light-right-bottom-shade\"></div>" +
+                                     "                     </div>" +
+                                     "                     <div class=\"light-outer\">" +
+                                     "                       <div class=\"light-inner\">  " +
+                                     "                         <div class=\"light " + (techDue ? "yellow" : "") + "\"></div>" +
+                                     "                       </div>" +
+                                     "                       <div class=\"light-left-top-shade\"></div>" +
+                                     "                       <div class=\"light-left-bottom-shade\"></div>" +
+                                     "                       <div class=\"light-right-top-shade\"></div>" +
+                                     "                       <div class=\"light-right-bottom-shade\"></div>" +
+                                     "                     </div>" +
+                                     "                     <div class=\"light-outer\">" +
+                                     "                       <div class=\"light-inner\"> " +
+                                     "                         <div class=\"light " + (techOk ? "green" : "") + "\"></div>" +
+                                     "                       </div>" +
+                                     "                       <div class=\"light-left-top-shade\"></div>" +
+                                     "                       <div class=\"light-left-bottom-shade\"></div>" +
+                                     "                       <div class=\"light-right-top-shade\"></div>" +
+                                     "                       <div class=\"light-right-bottom-shade\"></div>" +
+                                     "                     </div>" +
+                                     "                   </div></div>");
+
+            stringBuilder.AppendLine( "                <p>" + statusMsg + "</p>" +     
                                  "            </div>" +
                                  "            <div class=\"col-xs-6 piechart section\">" +
                                  "                <h2>Technician Performance</h2>" +
@@ -260,11 +360,6 @@
                                      "                strokeColor: '#E0E0E0', " +
                                      "                generateGradient: true" +
                                      "            };" +
-                                     "            var target = document.getElementById('overall-status'); " +
-                                     "            var gauge = new Gauge(target).setOptions(opts);" +
-                                     "            gauge.maxValue = 100;" +
-                                     "            gauge.animationSpeed = 32;" +
-                                     "            gauge.set(" + CalculateScore(statusReport) + "); " +
                                      "            var data = {" +
                                      "                labels: [");
 
