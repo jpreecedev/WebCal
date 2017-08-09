@@ -225,7 +225,13 @@
                                      "                       <div class=\"light-right-bottom-shade\"></div>" +
                                      "                     </div>" +
                                      "                   </div></div>");
-
+            stringBuilder.AppendLine(
+                "<div style=\"padding-bottom: 5px; border-bottom: 1px solid #e2e2e2; margin-bottom: 5px;\">" +
+                    "<div style=\"width: 100px; display: inline-block; margin-left: 50px;\">QC</div>" +
+                    "<div style=\"width: 120px; display: inline-block;\">3 month check</div>" +
+                    "<div style=\"width: 100px; display: inline-block; margin-right: 75px;\">Training date</div>" +
+                "</div>"
+                );
             stringBuilder.AppendLine( "                <p>" + statusMsg + "</p>" +     
                                  "            </div>" +
                                  "            <div class=\"col-xs-6 piechart section\">" +
