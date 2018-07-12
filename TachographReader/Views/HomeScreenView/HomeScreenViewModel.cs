@@ -1,6 +1,5 @@
 ﻿namespace TachographReader.Views
 {
-    using System;
     using System.Reflection;
     using System.Windows;
     using Connect.Shared;
@@ -11,6 +10,7 @@
     using Properties;
     using Shared;
     using System.Windows.Controls;
+    using Windows.ReprintWindow;
 
     public class HomeScreenViewModel : BaseViewModel
     {
@@ -19,9 +19,16 @@
             GV212ButtonVisibility = Visibility.Hidden;
         }
 
+        public double ButtonHeight { get; set; }
+        public double ButtonWidth { get; set; }
+        public string ColumnWidth { get; set; }
+
+        public double LogoHeight { get; set; }
+        public double LogoWidth { get; set; }
+
         public bool IsGV212OutOfDate { get; set; }
         public Visibility GV212ButtonVisibility { get; set; }
-        public bool IsCondensed { get; set; }
+        public bool SmallGV212 { get; set; }
 
         public DelegateCommand<UserControl> ResizeCommand { get; set; }
 
@@ -44,6 +51,8 @@
         public DelegateCommand<object> LetterForDecommissioningHistoryCommand { get; set; }
         public DelegateCommand<object> UndownloadabilityHistoryCommand { get; set; }
         public DelegateCommand<object> TachographHistoryCommand { get; set; }
+        public DelegateCommand<object> ReprintLabelCommand { get; set; }
+        public DelegateCommand<object> ReprintCertificateCommand { get; set; }
 
         protected override void InitialiseCommands()
         {
@@ -57,6 +66,8 @@
             LetterForDecommissioningHistoryCommand = new DelegateCommand<object>(OnLetterForDecommissioningHistory);
             UndownloadabilityHistoryCommand = new DelegateCommand<object>(OnUndownloadabilityHistory);
             TachographHistoryCommand = new DelegateCommand<object>(OnTachographHistory);
+            ReprintLabelCommand = new DelegateCommand<object>(OnReprintLabel);
+            ReprintCertificateCommand = new DelegateCommand<object>(OnReprintCertificate);
         }
 
         protected override void Load()
@@ -136,6 +147,42 @@
             }
         }
 
+        private void OnReprintLabel(object obj)
+        {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
+            var window = new ReprintWindow
+            {
+                DataContext = new ReprintWindowViewModel
+                {
+                    ReprintMode = ReprintMode.Label
+                }
+            };
+            window.ShowDialog();
+        }
+
+        private void OnReprintCertificate(object obj)
+        {
+            if (!HasValidLicense())
+            {
+                ShowInvalidLicenseWarning();
+                return;
+            }
+
+            var window = new ReprintWindow
+            {
+                DataContext = new ReprintWindowViewModel
+                {
+                    ReprintMode = ReprintMode.Certificate
+                }
+            };
+            window.ShowDialog();
+        }
+
         private void OnResize(UserControl userControl)
         {
             if (userControl == null)
@@ -143,7 +190,22 @@
                 return;
             }
 
-            IsCondensed = userControl.ActualHeight < 650;
+            if (userControl.ActualHeight < 580)
+            {
+                ButtonHeight = 224;
+                ButtonWidth = 185;
+                LogoWidth = 400;
+                LogoHeight = 160;
+                SmallGV212 = true;
+            }
+            else
+            {
+                ButtonHeight = 285;
+                ButtonWidth = 235;
+                LogoWidth = 625;
+                LogoHeight = 250;
+                SmallGV212 = false;
+            }
         }
 
         private void OnTachographHistory(object obj)
